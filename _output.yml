@@ -4,7 +4,7 @@ bookdown::bs4_book:
     primary: "#096B72"
     fg: "#000000"
     bg: "#ffffff"
-  repo: 
-    base: https://github.com/enblacar/SCpubr/tree/main/docs
-    branch: NULL
+  repo:
+    base: https://github.com/enblacar/SCpubr-book
+    branch: main
   fig_caption: true
