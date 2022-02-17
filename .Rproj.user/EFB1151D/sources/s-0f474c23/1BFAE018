@@ -3,7 +3,7 @@
     "path": "/b06x-isilon/b06x-g/G703/eblanco/projects/SCpubr-book/05-NebulosaPlots.Rmd",
     "project_path": "05-NebulosaPlots.Rmd",
     "type": "r_markdown",
-    "hash": "0",
+    "hash": "1376765930",
     "contents": "",
     "dirty": false,
     "created": 1645093139622.0,
@@ -12,15 +12,15 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "6,3",
+        "cursorPosition": "4,0",
         "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1645093146,
+    "lastKnownWriteTime": 1645097042,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1645093146486,
+    "last_content_update": 1645097042092,
     "read_only": false,
     "read_only_alternatives": []
 }

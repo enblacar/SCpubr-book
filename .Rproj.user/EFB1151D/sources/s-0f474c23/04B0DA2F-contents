@@ -8,3 +8,4 @@ bookdown::bs4_book:
     base: https://github.com/enblacar/SCpubr-book
     branch: main
   fig_caption: true
+  footnotes_inline: true

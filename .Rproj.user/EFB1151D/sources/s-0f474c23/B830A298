@@ -3,7 +3,7 @@
     "path": "/b06x-isilon/b06x-g/G703/eblanco/projects/SCpubr-book/_bookdown.yml",
     "project_path": "_bookdown.yml",
     "type": "yaml",
-    "hash": "0",
+    "hash": "2727463840",
     "contents": "",
     "dirty": false,
     "created": 1645091594802.0,
@@ -16,11 +16,11 @@
         "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1645091684,
+    "lastKnownWriteTime": 1645097209,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1645091684307,
+    "last_content_update": 1645097209880,
     "read_only": false,
     "read_only_alternatives": []
 }

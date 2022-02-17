@@ -2,6 +2,8 @@
 
 Bar plots are another well known data representation. They are a very handy resource to plot summary statistics for the QC part of any single-cell analysis. Consequently, they are part of `SCpubr`, available on `SCpubr::do_BarPlot()`. Let's say we are interested into plotting the different number of cells in each cluster. 
 
+
+
 ```{r echo = F}
 sample <- readRDS("/b06x-isilon/b06x-g/G703/eblanco/projects/test_SC_datasets/sc_dataset.rds")
 ```

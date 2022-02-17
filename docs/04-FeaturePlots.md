@@ -4,12 +4,14 @@ Another broadly used function in `Seurat` is `Seurat::FeaturePlot()`. It is basi
 
 
 
+
+
 ```r
 Seurat::FeaturePlot(sample, features = "nCount_RNA")
 ```
 
 <div class="figure" style="text-align: center">
-<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-2-1.png" alt="Seurat FeaturePlot" width="672" />
+<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-2-1.png" alt="Seurat FeaturePlot" width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-2)Seurat FeaturePlot</p>
 </div>
 First thing that stands out, it that the color scale could be changed to one with two very opposite ends, so that identifying regions with low and high UMIs become an easier task. Apart from that, we want apply the same treatment as in `do_DimPlot()` section. 
@@ -22,7 +24,7 @@ Seurat::FeaturePlot(sample, features = "nCount_RNA") +
 ```
 
 <div class="figure" style="text-align: center">
-<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-3-1.png" alt="Seurat FeaturePlot, with new color scale and general modifications" width="672" />
+<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-3-1.png" alt="Seurat FeaturePlot, with new color scale and general modifications" width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-3)Seurat FeaturePlot, with new color scale and general modifications</p>
 </div>
 
@@ -34,7 +36,7 @@ SCpubr::do_FeaturePlot(sample, features = "nCount_RNA", plot.title = "Number of 
 ```
 
 <div class="figure" style="text-align: center">
-<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-4-1.png" alt="SCpubr FeaturePlot, with minor modifications" width="672" />
+<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-4-1.png" alt="SCpubr FeaturePlot, with minor modifications" width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-4)SCpubr FeaturePlot, with minor modifications</p>
 </div>
 
@@ -50,7 +52,7 @@ SCpubr::do_FeaturePlot(sample, features = c("nCount_RNA", "nFeature_RNA", "perce
 ```
 
 <div class="figure" style="text-align: center">
-<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-5-1.png" alt="SCpubr FeaturePlot, with 4 features and 2 columns" width="672" />
+<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-5-1.png" alt="SCpubr FeaturePlot, with 4 features and 2 columns" width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-5)SCpubr FeaturePlot, with 4 features and 2 columns</p>
 </div>
 
@@ -64,7 +66,7 @@ patchwork::plot_annotation(title = "My very important features", theme = ggplot2
 ```
 
 <div class="figure" style="text-align: center">
-<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-6-1.png" alt="SCpubr FeaturePlot, with individual modified titles" width="672" />
+<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-6-1.png" alt="SCpubr FeaturePlot, with individual modified titles" width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-6)SCpubr FeaturePlot, with individual modified titles</p>
 </div>
 
@@ -79,7 +81,7 @@ SCpubr::do_FeaturePlot(sample[, cells.plot], features = c("CD14"), plot.title = 
 ```
 
 <div class="figure" style="text-align: center">
-<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-7-1.png" alt="SCpubr FeaturePlot, removing cells from clusters 2, 5 and 8" width="672" />
+<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-7-1.png" alt="SCpubr FeaturePlot, removing cells from clusters 2, 5 and 8" width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-7)SCpubr FeaturePlot, removing cells from clusters 2, 5 and 8</p>
 </div>
 
@@ -92,7 +94,7 @@ SCpubr::do_FeaturePlot(sample, cells.highlight = cells.plot, features = c("CD14"
 ```
 
 <div class="figure" style="text-align: center">
-<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-8-1.png" alt="SCpubr FeaturePlot, masking cells from clusters 2, 5 and 8" width="672" />
+<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-8-1.png" alt="SCpubr FeaturePlot, masking cells from clusters 2, 5 and 8" width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-8)SCpubr FeaturePlot, masking cells from clusters 2, 5 and 8</p>
 </div>
 This way, by adding the cells back and modifying the legend, we accomplish the desired effect. Furthermore, `SCpubr::do_FeaturePlot()` also accepts a vector of the identities to plot, as long as they are part of `levels(seurat_object)`. This can be achieved by using the `idents.highlight` instead.
@@ -104,7 +106,7 @@ SCpubr::do_FeaturePlot(sample, idents.highlight = levels(sample)[!(levels(sample
 ```
 
 <div class="figure" style="text-align: center">
-<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-9-1.png" alt="SCpubr FeaturePlot, masking cells from clusters 2, 5 and 8 using idents.highlight" width="672" />
+<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-9-1.png" alt="SCpubr FeaturePlot, masking cells from clusters 2, 5 and 8 using idents.highlight" width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-9)SCpubr FeaturePlot, masking cells from clusters 2, 5 and 8 using idents.highlight</p>
 </div>
 ## Splitting the FeaturePlot by a variable
@@ -116,7 +118,7 @@ Seurat::FeaturePlot(sample, features = "LYN", split.by = "seurat_clusters")
 ```
 
 <div class="figure" style="text-align: center">
-<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-10-1.png" alt="Seurat FeaturePlot split by clusters." width="1920" />
+<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-10-1.png" alt="Seurat FeaturePlot split by clusters." width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-10)Seurat FeaturePlot split by clusters.</p>
 </div>
 Apart from the general aesthetic discrepancies mentioned before, there are two main aspects missing. First, is the overall layout of the UMAP embedding. Being able to correctly locate the clusters is really important. Secondly, knowing that, by default, the color scale is shared across all the plots (achieved by using `keep.scale = "feature"`), we would like to know up to which value this color scale reaches. In this two aspects is where `SCpubr::do_FeaturePlot()` delves into: 
@@ -127,7 +129,7 @@ SCpubr::do_FeaturePlot(sample, features = "LYN", split.by = "seurat_clusters")
 ```
 
 <div class="figure" style="text-align: center">
-<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-11-1.png" alt="SCpubr FeaturePlot split by clusters." width="1920" />
+<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-11-1.png" alt="SCpubr FeaturePlot split by clusters." width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-11)SCpubr FeaturePlot split by clusters.</p>
 </div>
 
@@ -143,7 +145,7 @@ SCpubr::do_FeaturePlot(sample, features = c("LYN", "nCount_RNA", "PC_1"), split.
 ```
 
 <div class="figure" style="text-align: center">
-<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-12-1.png" alt="SCpubr FeaturePlot split by clusters using multiple features." width="1920" />
+<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-12-1.png" alt="SCpubr FeaturePlot split by clusters using multiple features." width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-12)SCpubr FeaturePlot split by clusters using multiple features.</p>
 </div>
 
@@ -155,7 +157,7 @@ SCpubr::do_FeaturePlot(sample, features = c("LYN", "nCount_RNA", "PC_1"), split.
 ```
 
 <div class="figure" style="text-align: center">
-<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-13-1.png" alt="SCpubr FeaturePlot split by clusters using multiple features and selected identities." width="960" />
+<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-13-1.png" alt="SCpubr FeaturePlot split by clusters using multiple features and selected identities." width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-13)SCpubr FeaturePlot split by clusters using multiple features and selected identities.</p>
 </div>
 
@@ -190,7 +192,7 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-14-1.png" alt="SCpubr FeaturePlot modifying viridis color maps." width="960" />
+<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-14-1.png" alt="SCpubr FeaturePlot modifying viridis color maps." width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-14)SCpubr FeaturePlot modifying viridis color maps.</p>
 </div>
 Here, we do not recommend the use of `turbo` with Feature plots, as this continuous scale goes through many different colors and, therefore, makes it harder for interpretation. 

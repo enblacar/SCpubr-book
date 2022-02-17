@@ -8,6 +8,8 @@ Let's say we want to focus on how much each cluster is driven by the PC_1 and PC
 
 
 
+
+
 ```r
 p1 <- SCpubr::do_DimPlot(sample, reduction = "pca", label = T, legend = F, dims = c(1, 2)) 
 p2 <- SCpubr::do_DimPlot(sample, reduction = "pca", label = T, legend = F, dims = c(3, 4)) 
@@ -16,7 +18,7 @@ p1 | p2
 ```
 
 <div class="figure" style="text-align: center">
-<img src="06-BeeSwarmPlots_files/figure-html/unnamed-chunk-2-1.png" alt="Plotting PCA embeddings with SCpubr::do_DimPlot()" width="960" />
+<img src="06-BeeSwarmPlots_files/figure-html/unnamed-chunk-2-1.png" alt="Plotting PCA embeddings with SCpubr::do_DimPlot()" width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-2)Plotting PCA embeddings with SCpubr::do_DimPlot()</p>
 </div>
 
@@ -36,7 +38,7 @@ p4 <- SCpubr::do_BeeSwarmPlot(sample = sample, feature_to_rank = "PC_4", group.b
 ```
 
 <div class="figure" style="text-align: center">
-<img src="06-BeeSwarmPlots_files/figure-html/unnamed-chunk-3-1.png" alt="SCpubr Bee Swarm plots with categorical variables." width="960" />
+<img src="06-BeeSwarmPlots_files/figure-html/unnamed-chunk-3-1.png" alt="SCpubr Bee Swarm plots with categorical variables." width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-3)SCpubr Bee Swarm plots with categorical variables.</p>
 </div>
 
@@ -60,7 +62,7 @@ p1 | p2
 ```
 
 <div class="figure" style="text-align: center">
-<img src="06-BeeSwarmPlots_files/figure-html/unnamed-chunk-4-1.png" alt="SCpubr Bee Swarm plots with similar values." width="960" />
+<img src="06-BeeSwarmPlots_files/figure-html/unnamed-chunk-4-1.png" alt="SCpubr Bee Swarm plots with similar values." width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-4)SCpubr Bee Swarm plots with similar values.</p>
 </div>
 
@@ -83,7 +85,7 @@ p1 | p2
 ```
 
 <div class="figure" style="text-align: center">
-<img src="06-BeeSwarmPlots_files/figure-html/unnamed-chunk-5-1.png" alt="SCpubr Bee Swarm plots with almost identical values." width="960" />
+<img src="06-BeeSwarmPlots_files/figure-html/unnamed-chunk-5-1.png" alt="SCpubr Bee Swarm plots with almost identical values." width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-5)SCpubr Bee Swarm plots with almost identical values.</p>
 </div>
 
@@ -112,7 +114,7 @@ p1 | p2 | p3
 ```
 
 <div class="figure" style="text-align: center">
-<img src="06-BeeSwarmPlots_files/figure-html/unnamed-chunk-6-1.png" alt="Using continuous color scale in SCpubr::do_BeeSwarmPlot()." width="1440" />
+<img src="06-BeeSwarmPlots_files/figure-html/unnamed-chunk-6-1.png" alt="Using continuous color scale in SCpubr::do_BeeSwarmPlot()." width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-6)Using continuous color scale in SCpubr::do_BeeSwarmPlot().</p>
 </div>
 
@@ -149,7 +151,7 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="06-BeeSwarmPlots_files/figure-html/unnamed-chunk-7-1.png" alt="SCpubr Nebulosa plot modifying viridis color maps." width="960" />
+<img src="06-BeeSwarmPlots_files/figure-html/unnamed-chunk-7-1.png" alt="SCpubr Nebulosa plot modifying viridis color maps." width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-7)SCpubr Nebulosa plot modifying viridis color maps.</p>
 </div>
 

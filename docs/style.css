@@ -8,6 +8,8 @@ p code {
 pre {
   word-break: normal;
   word-wrap: normal;
+  font-size: 10pt;
+
 }
 pre code {
   white-space: inherit;

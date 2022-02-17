@@ -5,6 +5,8 @@ Dot plots are a very nice data representation technique. It involves the use of 
 
 
 
+
+
 ```r
 p1 <- Seurat::DotPlot(sample, features = "CD14")
 p2 <- Seurat::DotPlot(sample, features = "nCount_RNA")
@@ -12,7 +14,7 @@ p1 | p2
 ```
 
 <div class="figure" style="text-align: center">
-<img src="08-DotPlots_files/figure-html/unnamed-chunk-2-1.png" alt="Seurat DotPlot" width="960" />
+<img src="08-DotPlots_files/figure-html/unnamed-chunk-2-1.png" alt="Seurat DotPlot" width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-2)Seurat DotPlot</p>
 </div>
 As can be seen, if we try to plot other type of variables, the resulting plot will not contain a color scale. `SCpubr::do_DimPlot()` focuses on enhancing the overall appearance of the plots. Implementation using other types of features is not currently supported. This is how it looks using `SCpubr::do_DimPlot()`:
@@ -25,7 +27,7 @@ p1 | p2
 ```
 
 <div class="figure" style="text-align: center">
-<img src="08-DotPlots_files/figure-html/unnamed-chunk-3-1.png" alt="SCpubr DotPlot" width="960" />
+<img src="08-DotPlots_files/figure-html/unnamed-chunk-3-1.png" alt="SCpubr DotPlot" width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-3)SCpubr DotPlot</p>
 </div>
 
@@ -41,7 +43,7 @@ p1
 ```
 
 <div class="figure" style="text-align: center">
-<img src="08-DotPlots_files/figure-html/unnamed-chunk-4-1.png" alt="SCpubr DotPlot using multiple genes" width="960" />
+<img src="08-DotPlots_files/figure-html/unnamed-chunk-4-1.png" alt="SCpubr DotPlot using multiple genes" width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-4)SCpubr DotPlot using multiple genes</p>
 </div>
 
@@ -63,7 +65,7 @@ p1
 ```
 
 <div class="figure" style="text-align: center">
-<img src="08-DotPlots_files/figure-html/unnamed-chunk-5-1.png" alt="SCpubr DotPlot using multiple genes" width="1728" />
+<img src="08-DotPlots_files/figure-html/unnamed-chunk-5-1.png" alt="SCpubr DotPlot using multiple genes" width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-5)SCpubr DotPlot using multiple genes</p>
 </div>
 
@@ -88,7 +90,7 @@ p1 / p2
 ```
 
 <div class="figure" style="text-align: center">
-<img src="08-DotPlots_files/figure-html/unnamed-chunk-6-1.png" alt="SCpubr DotPlot using multiple genes and clustering the identities" width="1728" />
+<img src="08-DotPlots_files/figure-html/unnamed-chunk-6-1.png" alt="SCpubr DotPlot using multiple genes and clustering the identities" width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-6)SCpubr DotPlot using multiple genes and clustering the identities</p>
 </div>
 
@@ -105,6 +107,6 @@ p1 | p2
 ```
 
 <div class="figure" style="text-align: center">
-<img src="08-DotPlots_files/figure-html/unnamed-chunk-7-1.png" alt="SCpubr DotPlot using multiple genes and clustering the identities flipping axes" width="1344" />
+<img src="08-DotPlots_files/figure-html/unnamed-chunk-7-1.png" alt="SCpubr DotPlot using multiple genes and clustering the identities flipping axes" width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-7)SCpubr DotPlot using multiple genes and clustering the identities flipping axes</p>
 </div>

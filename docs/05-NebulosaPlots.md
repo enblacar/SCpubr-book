@@ -5,12 +5,14 @@ This plot comes straight from the [Nebulosa package](http://bioconductor.org/pac
 
 
 
+
+
 ```r
 Nebulosa::plot_density(sample, "CD14")
 ```
 
 <div class="figure" style="text-align: center">
-<img src="05-NebulosaPlots_files/figure-html/unnamed-chunk-2-1.png" alt="Nebulosa plot" width="672" />
+<img src="05-NebulosaPlots_files/figure-html/unnamed-chunk-2-1.png" alt="Nebulosa plot" width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-2)Nebulosa plot</p>
 </div>
 
@@ -21,7 +23,7 @@ SCpubr::do_NebulosaPlot(sample, features = "CD14")
 ```
 
 <div class="figure" style="text-align: center">
-<img src="05-NebulosaPlots_files/figure-html/unnamed-chunk-3-1.png" alt="SCpubr Nebulosa plot." width="672" />
+<img src="05-NebulosaPlots_files/figure-html/unnamed-chunk-3-1.png" alt="SCpubr Nebulosa plot." width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-3)SCpubr Nebulosa plot.</p>
 </div>
 
@@ -33,7 +35,7 @@ SCpubr::do_FeaturePlot(sample, features = "CD14") | SCpubr::do_NebulosaPlot(samp
 ```
 
 <div class="figure" style="text-align: center">
-<img src="05-NebulosaPlots_files/figure-html/unnamed-chunk-4-1.png" alt="SCpubr FeaturePlot and NebulosaPlot." width="768" />
+<img src="05-NebulosaPlots_files/figure-html/unnamed-chunk-4-1.png" alt="SCpubr FeaturePlot and NebulosaPlot." width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-4)SCpubr FeaturePlot and NebulosaPlot.</p>
 </div>
 
@@ -45,7 +47,7 @@ SCpubr::do_NebulosaPlot(sample, features = c("CD14", "CD8A"))
 ```
 
 <div class="figure" style="text-align: center">
-<img src="05-NebulosaPlots_files/figure-html/unnamed-chunk-5-1.png" alt="SCpubr Nebulosa plot with multiple features." width="960" />
+<img src="05-NebulosaPlots_files/figure-html/unnamed-chunk-5-1.png" alt="SCpubr Nebulosa plot with multiple features." width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-5)SCpubr Nebulosa plot with multiple features.</p>
 </div>
 
@@ -57,7 +59,7 @@ SCpubr::do_NebulosaPlot(sample, features = c("CD14", "CD8A"), joint = TRUE)
 ```
 
 <div class="figure" style="text-align: center">
-<img src="05-NebulosaPlots_files/figure-html/unnamed-chunk-6-1.png" alt="SCpubr Nebulosa plot with joint density" width="1440" />
+<img src="05-NebulosaPlots_files/figure-html/unnamed-chunk-6-1.png" alt="SCpubr Nebulosa plot with joint density" width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-6)SCpubr Nebulosa plot with joint density</p>
 </div>
 
@@ -70,7 +72,7 @@ p[[3]]
 ```
 
 <div class="figure" style="text-align: center">
-<img src="05-NebulosaPlots_files/figure-html/unnamed-chunk-7-1.png" alt="SCpubr Nebulosa plot with joint density, selecting only the last plot" width="672" />
+<img src="05-NebulosaPlots_files/figure-html/unnamed-chunk-7-1.png" alt="SCpubr Nebulosa plot with joint density, selecting only the last plot" width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-7)SCpubr Nebulosa plot with joint density, selecting only the last plot</p>
 </div>
 
@@ -105,6 +107,6 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="05-NebulosaPlots_files/figure-html/unnamed-chunk-8-1.png" alt="SCpubr Nebulosa plot modifying viridis color maps." width="960" />
+<img src="05-NebulosaPlots_files/figure-html/unnamed-chunk-8-1.png" alt="SCpubr Nebulosa plot modifying viridis color maps." width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-8)SCpubr Nebulosa plot modifying viridis color maps.</p>
 </div>

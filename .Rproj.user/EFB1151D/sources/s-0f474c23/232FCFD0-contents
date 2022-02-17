@@ -5,6 +5,8 @@ This one is a very interesting plot. It stems from the idea that we can order (r
 ## Using categorical variables
 Let's say we want to focus on how much each cluster is driven by the PC_1 and PC_2. The first thought is to just use `SCpubr::do_Dimplot()` to plot the PCA embedding instead of the UMAP. We also query PC_3 and PC_4 to have a not-so-clear example.
 
+
+
 ```{r echo = F}
 sample <- readRDS("/b06x-isilon/b06x-g/G703/eblanco/projects/test_SC_datasets/sc_dataset.rds")
 ```

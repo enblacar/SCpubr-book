@@ -5,6 +5,8 @@ Bar plots are another well known data representation. They are a very handy reso
 
 
 
+
+
 ```r
 p1 <- SCpubr::do_BarPlot(sample, feature = "seurat_clusters", legend = F, plot.title = "Number of cells per cluster")
 p2 <- SCpubr::do_BarPlot(sample, feature = "seurat_clusters", legend = F, plot.title = "Number of cells per cluster", horizontal = T)
@@ -12,7 +14,7 @@ p1 | p2
 ```
 
 <div class="figure" style="text-align: center">
-<img src="09-BarPlots_files/figure-html/unnamed-chunk-2-1.png" alt="SCpubr Bar plots, plotting single variables" width="1152" />
+<img src="09-BarPlots_files/figure-html/unnamed-chunk-2-1.png" alt="SCpubr Bar plots, plotting single variables" width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-2)SCpubr Bar plots, plotting single variables</p>
 </div>
 Using `SCpubr::do_BarPlot()` with only `features` yields a simple bar plot which is ordered by descending value. We can also set up the direction of the bars with `horizontal = TRUE/FALSE`, which by default is set to be vertical There are some underlying assumptions that are being taken to generate these plots:
@@ -36,7 +38,7 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="09-BarPlots_files/figure-html/unnamed-chunk-4-1.png" alt="SCpubr Bar plots, choosing the wrong variable" width="1152" />
+<img src="09-BarPlots_files/figure-html/unnamed-chunk-4-1.png" alt="SCpubr Bar plots, choosing the wrong variable" width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-4)SCpubr Bar plots, choosing the wrong variable</p>
 </div>
 
@@ -76,7 +78,7 @@ p1 | p2
 ```
 
 <div class="figure" style="text-align: center">
-<img src="09-BarPlots_files/figure-html/unnamed-chunk-5-1.png" alt="SCpubr Bar plots, introducing a variable to group values by" width="1152" />
+<img src="09-BarPlots_files/figure-html/unnamed-chunk-5-1.png" alt="SCpubr Bar plots, introducing a variable to group values by" width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-5)SCpubr Bar plots, introducing a variable to group values by</p>
 </div>
 
@@ -141,7 +143,7 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="09-BarPlots_files/figure-html/unnamed-chunk-6-1.png" alt="SCpubr Bar plots, difference between position" width="1152" />
+<img src="09-BarPlots_files/figure-html/unnamed-chunk-6-1.png" alt="SCpubr Bar plots, difference between position" width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-6)SCpubr Bar plots, difference between position</p>
 </div>
 
@@ -182,7 +184,7 @@ p1 | p2
 ```
 
 <div class="figure" style="text-align: center">
-<img src="09-BarPlots_files/figure-html/unnamed-chunk-7-1.png" alt="SCpubr Bar plots, reordering the colums using order.by" width="1152" />
+<img src="09-BarPlots_files/figure-html/unnamed-chunk-7-1.png" alt="SCpubr Bar plots, reordering the colums using order.by" width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-7)SCpubr Bar plots, reordering the colums using order.by</p>
 </div>
 
@@ -218,7 +220,7 @@ p1 | p2
 ```
 
 <div class="figure" style="text-align: center">
-<img src="09-BarPlots_files/figure-html/unnamed-chunk-8-1.png" alt="SCpubr, modifying colors" width="1152" />
+<img src="09-BarPlots_files/figure-html/unnamed-chunk-8-1.png" alt="SCpubr, modifying colors" width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-8)SCpubr, modifying colors</p>
 </div>
 

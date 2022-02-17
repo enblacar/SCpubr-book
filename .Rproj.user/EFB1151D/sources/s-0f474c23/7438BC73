@@ -3,7 +3,7 @@
     "path": "/b06x-isilon/b06x-g/G703/eblanco/projects/SCpubr-book/03-DimPlots.Rmd",
     "project_path": "03-DimPlots.Rmd",
     "type": "r_markdown",
-    "hash": "0",
+    "hash": "3858801737",
     "contents": "",
     "dirty": false,
     "created": 1645092931579.0,
@@ -16,11 +16,11 @@
         "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1645092955,
+    "lastKnownWriteTime": 1645097055,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1645092955537,
+    "last_content_update": 1645097055159,
     "read_only": false,
     "read_only_alternatives": []
 }

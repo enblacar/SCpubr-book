@@ -5,12 +5,14 @@ DimPlots are, probably, one of the most iconic visualizations from `Seurat`. It 
 
 
 
+
+
 ```r
 Seurat::DimPlot(sample)
 ```
 
 <div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-2-1.png" alt="Default DimPlot." width="672" />
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-2-1.png" alt="Default DimPlot." width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-2)Default DimPlot.</p>
 </div>
 
@@ -22,7 +24,7 @@ Seurat::DimPlot(sample, shuffle = T)
 ```
 
 <div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-3-1.png" alt="DimPlot with the cells shuffled." width="672" />
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-3-1.png" alt="DimPlot with the cells shuffled." width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-3)DimPlot with the cells shuffled.</p>
 </div>
 
@@ -34,7 +36,7 @@ Seurat::DimPlot(sample, shuffle = T) + Seurat::NoAxes()
 ```
 
 <div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-4-1.png" alt="DimPlot without axes." width="672" />
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-4-1.png" alt="DimPlot without axes." width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-4)DimPlot without axes.</p>
 </div>
 
@@ -46,7 +48,7 @@ Seurat::DimPlot(sample, shuffle = T, pt.size = 0.5) + Seurat::NoAxes()
 ```
 
 <div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-5-1.png" alt="DimPlot with increased dot size." width="672" />
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-5-1.png" alt="DimPlot with increased dot size." width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-5)DimPlot with increased dot size.</p>
 </div>
 
@@ -61,7 +63,7 @@ Seurat::DimPlot(sample, shuffle = T, pt.size = 0.5) +
 ```
 
 <div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-6-1.png" alt="DimPlot with increased font size." width="672" />
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-6-1.png" alt="DimPlot with increased font size." width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-6)DimPlot with increased font size.</p>
 </div>
 
@@ -77,7 +79,7 @@ Seurat::DimPlot(sample, shuffle = T, pt.size = 0.5) +
 ```
 
 <div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-7-1.png" alt="DimPlot with title." width="672" />
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-7-1.png" alt="DimPlot with title." width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-7)DimPlot with title.</p>
 </div>
 
@@ -94,7 +96,7 @@ Seurat::DimPlot(sample, shuffle = T, pt.size = 0.5) +
 ```
 
 <div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-8-1.png" alt="DimPlot with bigger and bold title." width="672" />
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-8-1.png" alt="DimPlot with bigger and bold title." width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-8)DimPlot with bigger and bold title.</p>
 </div>
 
@@ -115,7 +117,7 @@ Seurat::DimPlot(sample, shuffle = T, pt.size = 0.5, cols = color_scale) +
 ```
 
 <div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-9-1.png" alt="DimPlot with custom color scale." width="672" />
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-9-1.png" alt="DimPlot with custom color scale." width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-9)DimPlot with custom color scale.</p>
 </div>
 
@@ -137,7 +139,7 @@ Seurat::DimPlot(sample, shuffle = T, pt.size = 0.5, cols = color_scale) +
 ```
 
 <div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-10-1.png" alt="DimPlot with legend at the bottom." width="672" />
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-10-1.png" alt="DimPlot with legend at the bottom." width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-10)DimPlot with legend at the bottom.</p>
 </div>
 
@@ -161,7 +163,7 @@ Seurat::DimPlot(sample, shuffle = T, pt.size = 0.5, cols = color_scale) +
 ```
 
 <div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-11-1.png" alt="DimPlot with legend at the bottom in four columns." width="672" />
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-11-1.png" alt="DimPlot with legend at the bottom in four columns." width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-11)DimPlot with legend at the bottom in four columns.</p>
 </div>
 
@@ -186,7 +188,7 @@ Seurat::DimPlot(sample, shuffle = T, pt.size = 0.5, cols = color_scale) +
 ```
 
 <div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-12-1.png" alt="DimPlot with legend at the bottom in four columns." width="672" />
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-12-1.png" alt="DimPlot with legend at the bottom in four columns." width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-12)DimPlot with legend at the bottom in four columns.</p>
 </div>
 
@@ -202,7 +204,7 @@ SCpubr::do_DimPlot(sample)
 ```
 
 <div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-13-1.png" alt="SCpubr DimPlot." width="672" />
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-13-1.png" alt="SCpubr DimPlot." width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-13)SCpubr DimPlot.</p>
 </div>
 
@@ -214,7 +216,7 @@ SCpubr::do_DimPlot(sample, plot.title = "My awesome SC data set")
 ```
 
 <div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-14-1.png" alt="SCpubr DimPlot with title." width="672" />
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-14-1.png" alt="SCpubr DimPlot with title." width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-14)SCpubr DimPlot with title.</p>
 </div>
 
@@ -229,7 +231,7 @@ SCpubr::do_DimPlot(sample,
 ```
 
 <div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-15-1.png" alt="SCpubr DimPlot with legend to the left." width="672" />
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-15-1.png" alt="SCpubr DimPlot with legend to the left." width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-15)SCpubr DimPlot with legend to the left.</p>
 </div>
 
@@ -246,7 +248,7 @@ Seurat::DimPlot(sample, cells.highlight = cells.use)
 ```
 
 <div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-16-1.png" alt="Seurat DimPlot highlighting cells." width="672" />
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-16-1.png" alt="Seurat DimPlot highlighting cells." width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-16)Seurat DimPlot highlighting cells.</p>
 </div>
 
@@ -260,7 +262,7 @@ SCpubr::do_DimPlot(sample, cells.highlight = cells.use)
 ```
 
 <div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-17-1.png" alt="SCpubr DimPlot highlighting cells." width="672" />
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-17-1.png" alt="SCpubr DimPlot highlighting cells." width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-17)SCpubr DimPlot highlighting cells.</p>
 </div>
 
@@ -274,7 +276,7 @@ SCpubr::do_DimPlot(sample, cells.highlight = cells.use, sizes.highlight = 2)
 ```
 
 <div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-18-1.png" alt="SCpubr DimPlot highlighting cells bigger dot size." width="672" />
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-18-1.png" alt="SCpubr DimPlot highlighting cells bigger dot size." width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-18)SCpubr DimPlot highlighting cells bigger dot size.</p>
 </div>
 
@@ -289,7 +291,7 @@ Seurat::DimPlot(sample, split.by = "seurat_clusters", ncol = 5)
 ```
 
 <div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-19-1.png" alt="Seurat DimPlot using split.by." width="960" />
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-19-1.png" alt="Seurat DimPlot using split.by." width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-19)Seurat DimPlot using split.by.</p>
 </div>
 As can be observed, this plots accomplish the task of separating the cells into each panel, but the approach followed actually makes interpretation difficult. Clusters such as Cluster 9, with fewer cells, tell pretty much nothing. Not knowing how the original UMAP looked like is a major downside of this approach. This is where `SCpubr` focus. Instead of using `Seurat`'s `split.by` parameter, it generates as many plots as unique values in the metadata to split the plot by, but uses `cells.highlight` instead, which keeps the rest of cells greyed out. This is how it looks:
@@ -302,7 +304,7 @@ SCpubr::do_DimPlot(sample, split.by = "seurat_clusters", ncol = 5, legend = F)
 ```
 
 <div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-20-1.png" alt="SCpubr DimPlot using split.by." width="960" />
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-20-1.png" alt="SCpubr DimPlot using split.by." width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-20)SCpubr DimPlot using split.by.</p>
 </div>
 
@@ -317,7 +319,7 @@ SCpubr::do_DimPlot(sample, split.by = "seurat_clusters", ncol = 5, legend = F, c
 ```
 
 <div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-21-1.png" alt="SCpubr DimPlot using split.by with a changed color" width="960" />
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-21-1.png" alt="SCpubr DimPlot using split.by with a changed color" width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-21)SCpubr DimPlot using split.by with a changed color</p>
 </div>
 
@@ -333,7 +335,7 @@ SCpubr::do_DimPlot(sample, split.by = "seurat_clusters", ncol = 5, legend = F, c
 ```
 
 <div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-22-1.png" alt="SCpubr DimPlot using split.by with default SCpubr colors" width="960" />
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-22-1.png" alt="SCpubr DimPlot using split.by with default SCpubr colors" width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-22)SCpubr DimPlot using split.by with default SCpubr colors</p>
 </div>
 

@@ -3,7 +3,7 @@
     "path": "/b06x-isilon/b06x-g/G703/eblanco/projects/SCpubr-book/04-FeaturePlots.Rmd",
     "project_path": "04-FeaturePlots.Rmd",
     "type": "r_markdown",
-    "hash": "0",
+    "hash": "1075759548",
     "contents": "",
     "dirty": false,
     "created": 1645093005595.0,
@@ -12,15 +12,15 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "5,3",
+        "cursorPosition": "3,0",
         "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1645093136,
+    "lastKnownWriteTime": 1645097046,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1645093136770,
+    "last_content_update": 1645097046059,
     "read_only": false,
     "read_only_alternatives": []
 }
