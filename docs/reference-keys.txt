@@ -36,6 +36,7 @@ using-categorical-variables
 using-continuous-variables
 modify-color-maps-for-continuous-variables
 violin-plots
+basic-violin-plots.
 violin-plots-as-a-means-of-qc
 dot-plots
 querying-multiple-features-at-once.

@@ -8,37 +8,53 @@ This plot comes straight from the [Nebulosa package](http://bioconductor.org/pac
 sample <- readRDS("/b06x-isilon/b06x-g/G703/eblanco/projects/test_SC_datasets/sc_dataset.rds")
 ```
 
-```{r, fig.cap= "Nebulosa plot"}
-Nebulosa::plot_density(sample, "CD14")
+```{r, fig.cap= "Nebulosa plot", fig.width=8, fig.height=7}
+p <- Nebulosa::plot_density(sample,
+                            features = "CD14")
+p
 ```
 
-This way, not only we do know which clusters are enriched in CD14, we also know the regions of it with the hightest density of cells expressing it. Minor modifications, on the line of the rest of plots, are applied in `SCpubr`:
-```{r, fig.cap = "SCpubr Nebulosa plot."}
-SCpubr::do_NebulosaPlot(sample, features = "CD14")
+This way, not only we do know which clusters are enriched in CD14, we also know the regions of it with the highest density of cells expressing it. Minor modifications, on the line of the rest of plots, are applied in `SCpubr`:
+```{r, fig.cap = "SCpubr Nebulosa plot.", fig.width=8, fig.height=7}
+p <- SCpubr::do_NebulosaPlot(sample, 
+                             features = "CD14")
+p
 ```
 
 Then, this type visualization becomes a natural partner to `Seurat::FeaturePlot()' as not only we are able to visualize the expression of a variable, but also query the density of the surrounding cells. Here is an example:
 
-```{r, fig.cap = "SCpubr FeaturePlot and NebulosaPlot.", fig.height= 4, fig.width=8}
-SCpubr::do_FeaturePlot(sample, features = "CD14") | SCpubr::do_NebulosaPlot(sample, features = "CD14")
+```{r, fig.cap = "SCpubr FeaturePlot and NebulosaPlot.", fig.width=16, fig.height=7}
+p1 <- SCpubr::do_FeaturePlot(sample, 
+                             features = "CD14") 
+p2 <- SCpubr::do_NebulosaPlot(sample, 
+                              features = "CD14")
+p1 | p2
 ```
 
 [Nebulosa](https://github.com/powellgenomicslab/Nebulosa/blob/master/R/plotting.R) package also offers the option to query multiple features at the same time:
 
-```{r, fig.cap = "SCpubr Nebulosa plot with multiple features.", fig.width=10, fig.height=5}
-SCpubr::do_NebulosaPlot(sample, features = c("CD14", "CD8A"))
+```{r, fig.cap = "SCpubr Nebulosa plot with multiple features.", fig.width=16, fig.height=7}
+p <- SCpubr::do_NebulosaPlot(sample, 
+                             features = c("CD14", "CD8A"))
+p
 ```
 
 But, more intriguingly, it can also compute the **joint** density of the two features. This is achieved by parsing `joint = TRUE`.
 
-```{r, fig.cap = "SCpubr Nebulosa plot with joint density", fig.width=15, fig.height=5}
-SCpubr::do_NebulosaPlot(sample, features = c("CD14", "CD8A"), joint = TRUE)
+```{r, fig.cap = "SCpubr Nebulosa plot with joint density", fig.width=24, fig.height=7}
+p <- SCpubr::do_NebulosaPlot(sample, 
+                             features = c("CD14", "CD8A"), 
+                             joint = TRUE)
+p 
 ```
 
 If we were interested in retrieving only the joint density plot, we can accomplish it as:
 
-```{r, fig.cap = "SCpubr Nebulosa plot with joint density, selecting only the last plot"}
-p <- SCpubr::do_NebulosaPlot(sample, features = c("CD14", "CD8A"), joint = TRUE, combine = F)
+```{r, fig.cap = "SCpubr Nebulosa plot with joint density, selecting only the last plot", fig.width=8, fig.height=7}
+p <- SCpubr::do_NebulosaPlot(sample, 
+                             features = c("CD14", "CD8A"), 
+                             joint = TRUE, 
+                             combine = F)
 p[[3]]
 ```
 
@@ -54,7 +70,7 @@ Same as in `SCpubr::do_FeaturePlot()`, it is also change the color map of the pl
 - G - mako color map.
 - H - turbo  color map.
 
-```{r, fig.cap = "SCpubr Nebulosa plot modifying viridis color maps.", fig.width=10, fig.height=16}
+```{r, fig.cap = "SCpubr Nebulosa plot modifying viridis color maps.", fig.width=10, fig.height=13}
 p1 <- SCpubr::do_NebulosaPlot(sample = sample, features = "CD8A", viridis_color_map = "A", plot.title = "Magma")
 p2 <- SCpubr::do_NebulosaPlot(sample = sample, features = "CD8A", viridis_color_map = "B", plot.title = "Inferno")
 p3 <- SCpubr::do_NebulosaPlot(sample = sample, features = "CD8A", viridis_color_map = "C", plot.title = "Plasma")

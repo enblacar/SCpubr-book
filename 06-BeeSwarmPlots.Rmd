@@ -12,8 +12,16 @@ sample <- readRDS("/b06x-isilon/b06x-g/G703/eblanco/projects/test_SC_datasets/sc
 ```
 
 ```{r, fig.cap = "Plotting PCA embeddings with SCpubr::do_DimPlot()", fig.width=10, fig.height=5}
-p1 <- SCpubr::do_DimPlot(sample, reduction = "pca", label = T, legend = F, dims = c(1, 2)) 
-p2 <- SCpubr::do_DimPlot(sample, reduction = "pca", label = T, legend = F, dims = c(3, 4)) 
+p1 <- SCpubr::do_DimPlot(sample, 
+                         reduction = "pca", 
+                         label = T, 
+                         legend = F, 
+                         dims = c(1, 2)) 
+p2 <- SCpubr::do_DimPlot(sample, 
+                         reduction = "pca", 
+                         label = T, 
+                         legend = F, 
+                         dims = c(3, 4)) 
 
 p1 | p2
 ```
@@ -24,12 +32,29 @@ With this, we get right away a decent overview. Clusters 0, 5, 7 and 8 separate 
 - Whether the output should be colored with a categorical or continuous scale, with `continuous_feature`.
 
 ```{r, fig.cap = "SCpubr Bee Swarm plots with categorical variables.", fig.width=10, fig.height=10}
-p1 <- SCpubr::do_DimPlot(sample, reduction = "pca", label = T, legend = F, dims = c(1, 2))
-p2 <- SCpubr::do_BeeSwarmPlot(sample = sample, feature_to_rank = "PC_1", group.by = "seurat_clusters", continuous_feature = F)
-p3 <- SCpubr::do_DimPlot(sample, reduction = "pca", label = T, legend = F, dims = c(3, 4)) 
-p4 <- SCpubr::do_BeeSwarmPlot(sample = sample, feature_to_rank = "PC_4", group.by = "seurat_clusters", continuous_feature = F)
+p1 <- SCpubr::do_DimPlot(sample = sample, 
+                         reduction = "pca", 
+                         label = T, 
+                         legend = F, 
+                         dims = c(1, 2))
 
-(p1 | p2) / (p3 | p4)
+p2 <- SCpubr::do_DimPlot(sample = sample, 
+                         reduction = "pca", 
+                         label = T, 
+                         legend = F, 
+                         dims = c(3, 4)) 
+
+p3 <- SCpubr::do_BeeSwarmPlot(sample = sample, 
+                              feature_to_rank = "PC_1", 
+                              group.by = "seurat_clusters", 
+                              continuous_feature = F)
+
+p4 <- SCpubr::do_BeeSwarmPlot(sample = sample, 
+                              feature_to_rank = "PC_4", 
+                              group.by = "seurat_clusters", 
+                              continuous_feature = F)
+
+(p1 | p3) / (p2 | p4)
 ```
 
 Here, we have selected PC_1 and PC_4. We can observe how the X axis of the Bee Swarm plot displays the ordering (rank) of all of the cells across the selected feature. Focusing on PC_1, we can see that cluster 0 is completely shifted to the right on PC_1, with is nicely displayed in the Bee Swarm plot by having all of the cells also ranked high (the higher the rank, the bigger the "value" of the feature to rank, in this case, the PC_1 value). In the case of PC_4, the Bee Swarm plot nicely shows which clusters lay on the upper, lower or middle part of the PC_4.
@@ -41,11 +66,21 @@ A very important thing to note in these kind of plots is that no cells will have
 clusters_exclude <- c("0", "3", "5", "7", "8", "9")
 
 # Keep the original coloring.
-cols.use <- colortools::setColors("steelblue", length(levels(sample)))
+cols.use <- colortools::setColors("steelblue", 
+                                  length(levels(sample)))
 names(cols.use) <- levels(sample)
 
-p1 <- SCpubr::do_DimPlot(sample[, !(sample$seurat_clusters %in% clusters_exclude)], reduction = "pca", label = T, legend = F, dims = c(3, 4), colors.use = cols.use) 
-p2 <- SCpubr::do_BeeSwarmPlot(sample = sample[, !(sample$seurat_clusters %in% clusters_exclude)], feature_to_rank = "PC_4", group.by = "seurat_clusters", continuous_feature = F, colors.use = cols.use)
+p1 <- SCpubr::do_DimPlot(sample = sample[, !(sample$seurat_clusters %in% clusters_exclude)], 
+                         reduction = "pca", 
+                         label = T, 
+                         legend = F, 
+                         dims = c(3, 4), 
+                         colors.use = cols.use) 
+p2 <- SCpubr::do_BeeSwarmPlot(sample = sample[, !(sample$seurat_clusters %in% clusters_exclude)], 
+                              feature_to_rank = "PC_4", 
+                              group.by = "seurat_clusters", 
+                              continuous_feature = F, 
+                              colors.use = cols.use)
 
 p1 | p2
 ```
@@ -61,8 +96,17 @@ clusters_exclude <- c("0", "1", "2", "3", "5", "7", "8", "9")
 cols.use <- colortools::setColors("steelblue", length(levels(sample)))
 names(cols.use) <- levels(sample)
 
-p1 <- SCpubr::do_DimPlot(sample[, !(sample$seurat_clusters %in% clusters_exclude)], reduction = "pca", label = T, legend = F, dims = c(3, 4), colors.use = cols.use) 
-p2 <- SCpubr::do_BeeSwarmPlot(sample = sample[, !(sample$seurat_clusters %in% clusters_exclude)], feature_to_rank = "PC_4", group.by = "seurat_clusters", continuous_feature = F, colors.use = cols.use)
+p1 <- SCpubr::do_DimPlot(sample = sample[, !(sample$seurat_clusters %in% clusters_exclude)], 
+                         reduction = "pca", 
+                         label = T, 
+                         legend = F, 
+                         dims = c(3, 4), 
+                         colors.use = cols.use) 
+p2 <- SCpubr::do_BeeSwarmPlot(sample = sample[, !(sample$seurat_clusters %in% clusters_exclude)], 
+                              feature_to_rank = "PC_4", 
+                              group.by = "seurat_clusters", 
+                              continuous_feature = F, 
+                              colors.use = cols.use)
 
 p1 | p2
 ```
@@ -80,13 +124,21 @@ There are also scenarios in which we want to rank the cells to a continuous vari
 genes.use <- c("CD14", "LYZ")
 
 # Compute enrichment and rename the output.
-sample <- Seurat::AddModuleScore(sample, features = genes.use, name = "Monocyte_signature")
+sample <- Seurat::AddModuleScore(sample, 
+                                 features = genes.use, 
+                                 name = "Monocyte_signature")
 sample$Monocyte_signature <- sample$Monocyte_signature1
 sample$Monocyte_signature1 <- NULL
 
-p1 <- SCpubr::do_DimPlot(sample, label = T, legend = F)
-p2 <- SCpubr::do_FeaturePlot(sample, features = "Monocyte_signature") 
-p3 <- SCpubr::do_BeeSwarmPlot(sample, feature_to_rank = "Monocyte_signature", group.by = "seurat_clusters", continuous_feature = T)
+p1 <- SCpubr::do_DimPlot(sample = sample, 
+                         label = T, 
+                         legend = F)
+p2 <- SCpubr::do_FeaturePlot(sample = sample, 
+                             features = "Monocyte_signature") 
+p3 <- SCpubr::do_BeeSwarmPlot(sample = sample, 
+                              feature_to_rank = "Monocyte_signature", 
+                              group.by = "seurat_clusters", 
+                              continuous_feature = T)
 p1 | p2 | p3
 ```
 

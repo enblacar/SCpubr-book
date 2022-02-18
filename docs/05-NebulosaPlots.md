@@ -8,7 +8,9 @@ This plot comes straight from the [Nebulosa package](http://bioconductor.org/pac
 
 
 ```r
-Nebulosa::plot_density(sample, "CD14")
+p <- Nebulosa::plot_density(sample,
+                            features = "CD14")
+p
 ```
 
 <div class="figure" style="text-align: center">
@@ -16,10 +18,12 @@ Nebulosa::plot_density(sample, "CD14")
 <p class="caption">(\#fig:unnamed-chunk-2)Nebulosa plot</p>
 </div>
 
-This way, not only we do know which clusters are enriched in CD14, we also know the regions of it with the hightest density of cells expressing it. Minor modifications, on the line of the rest of plots, are applied in `SCpubr`:
+This way, not only we do know which clusters are enriched in CD14, we also know the regions of it with the highest density of cells expressing it. Minor modifications, on the line of the rest of plots, are applied in `SCpubr`:
 
 ```r
-SCpubr::do_NebulosaPlot(sample, features = "CD14")
+p <- SCpubr::do_NebulosaPlot(sample, 
+                             features = "CD14")
+p
 ```
 
 <div class="figure" style="text-align: center">
@@ -31,7 +35,11 @@ Then, this type visualization becomes a natural partner to `Seurat::FeaturePlot(
 
 
 ```r
-SCpubr::do_FeaturePlot(sample, features = "CD14") | SCpubr::do_NebulosaPlot(sample, features = "CD14")
+p1 <- SCpubr::do_FeaturePlot(sample, 
+                             features = "CD14") 
+p2 <- SCpubr::do_NebulosaPlot(sample, 
+                              features = "CD14")
+p1 | p2
 ```
 
 <div class="figure" style="text-align: center">
@@ -43,7 +51,9 @@ SCpubr::do_FeaturePlot(sample, features = "CD14") | SCpubr::do_NebulosaPlot(samp
 
 
 ```r
-SCpubr::do_NebulosaPlot(sample, features = c("CD14", "CD8A"))
+p <- SCpubr::do_NebulosaPlot(sample, 
+                             features = c("CD14", "CD8A"))
+p
 ```
 
 <div class="figure" style="text-align: center">
@@ -55,7 +65,10 @@ But, more intriguingly, it can also compute the **joint** density of the two fea
 
 
 ```r
-SCpubr::do_NebulosaPlot(sample, features = c("CD14", "CD8A"), joint = TRUE)
+p <- SCpubr::do_NebulosaPlot(sample, 
+                             features = c("CD14", "CD8A"), 
+                             joint = TRUE)
+p 
 ```
 
 <div class="figure" style="text-align: center">
@@ -67,7 +80,10 @@ If we were interested in retrieving only the joint density plot, we can accompli
 
 
 ```r
-p <- SCpubr::do_NebulosaPlot(sample, features = c("CD14", "CD8A"), joint = TRUE, combine = F)
+p <- SCpubr::do_NebulosaPlot(sample, 
+                             features = c("CD14", "CD8A"), 
+                             joint = TRUE, 
+                             combine = F)
 p[[3]]
 ```
 

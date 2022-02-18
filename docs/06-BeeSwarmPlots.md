@@ -11,8 +11,16 @@ Let's say we want to focus on how much each cluster is driven by the PC_1 and PC
 
 
 ```r
-p1 <- SCpubr::do_DimPlot(sample, reduction = "pca", label = T, legend = F, dims = c(1, 2)) 
-p2 <- SCpubr::do_DimPlot(sample, reduction = "pca", label = T, legend = F, dims = c(3, 4)) 
+p1 <- SCpubr::do_DimPlot(sample, 
+                         reduction = "pca", 
+                         label = T, 
+                         legend = F, 
+                         dims = c(1, 2)) 
+p2 <- SCpubr::do_DimPlot(sample, 
+                         reduction = "pca", 
+                         label = T, 
+                         legend = F, 
+                         dims = c(3, 4)) 
 
 p1 | p2
 ```
@@ -29,12 +37,29 @@ With this, we get right away a decent overview. Clusters 0, 5, 7 and 8 separate 
 
 
 ```r
-p1 <- SCpubr::do_DimPlot(sample, reduction = "pca", label = T, legend = F, dims = c(1, 2))
-p2 <- SCpubr::do_BeeSwarmPlot(sample = sample, feature_to_rank = "PC_1", group.by = "seurat_clusters", continuous_feature = F)
-p3 <- SCpubr::do_DimPlot(sample, reduction = "pca", label = T, legend = F, dims = c(3, 4)) 
-p4 <- SCpubr::do_BeeSwarmPlot(sample = sample, feature_to_rank = "PC_4", group.by = "seurat_clusters", continuous_feature = F)
+p1 <- SCpubr::do_DimPlot(sample = sample, 
+                         reduction = "pca", 
+                         label = T, 
+                         legend = F, 
+                         dims = c(1, 2))
 
-(p1 | p2) / (p3 | p4)
+p2 <- SCpubr::do_DimPlot(sample = sample, 
+                         reduction = "pca", 
+                         label = T, 
+                         legend = F, 
+                         dims = c(3, 4)) 
+
+p3 <- SCpubr::do_BeeSwarmPlot(sample = sample, 
+                              feature_to_rank = "PC_1", 
+                              group.by = "seurat_clusters", 
+                              continuous_feature = F)
+
+p4 <- SCpubr::do_BeeSwarmPlot(sample = sample, 
+                              feature_to_rank = "PC_4", 
+                              group.by = "seurat_clusters", 
+                              continuous_feature = F)
+
+(p1 | p3) / (p2 | p4)
 ```
 
 <div class="figure" style="text-align: center">
@@ -52,11 +77,21 @@ A very important thing to note in these kind of plots is that no cells will have
 clusters_exclude <- c("0", "3", "5", "7", "8", "9")
 
 # Keep the original coloring.
-cols.use <- colortools::setColors("steelblue", length(levels(sample)))
+cols.use <- colortools::setColors("steelblue", 
+                                  length(levels(sample)))
 names(cols.use) <- levels(sample)
 
-p1 <- SCpubr::do_DimPlot(sample[, !(sample$seurat_clusters %in% clusters_exclude)], reduction = "pca", label = T, legend = F, dims = c(3, 4), colors.use = cols.use) 
-p2 <- SCpubr::do_BeeSwarmPlot(sample = sample[, !(sample$seurat_clusters %in% clusters_exclude)], feature_to_rank = "PC_4", group.by = "seurat_clusters", continuous_feature = F, colors.use = cols.use)
+p1 <- SCpubr::do_DimPlot(sample = sample[, !(sample$seurat_clusters %in% clusters_exclude)], 
+                         reduction = "pca", 
+                         label = T, 
+                         legend = F, 
+                         dims = c(3, 4), 
+                         colors.use = cols.use) 
+p2 <- SCpubr::do_BeeSwarmPlot(sample = sample[, !(sample$seurat_clusters %in% clusters_exclude)], 
+                              feature_to_rank = "PC_4", 
+                              group.by = "seurat_clusters", 
+                              continuous_feature = F, 
+                              colors.use = cols.use)
 
 p1 | p2
 ```
@@ -78,8 +113,17 @@ clusters_exclude <- c("0", "1", "2", "3", "5", "7", "8", "9")
 cols.use <- colortools::setColors("steelblue", length(levels(sample)))
 names(cols.use) <- levels(sample)
 
-p1 <- SCpubr::do_DimPlot(sample[, !(sample$seurat_clusters %in% clusters_exclude)], reduction = "pca", label = T, legend = F, dims = c(3, 4), colors.use = cols.use) 
-p2 <- SCpubr::do_BeeSwarmPlot(sample = sample[, !(sample$seurat_clusters %in% clusters_exclude)], feature_to_rank = "PC_4", group.by = "seurat_clusters", continuous_feature = F, colors.use = cols.use)
+p1 <- SCpubr::do_DimPlot(sample = sample[, !(sample$seurat_clusters %in% clusters_exclude)], 
+                         reduction = "pca", 
+                         label = T, 
+                         legend = F, 
+                         dims = c(3, 4), 
+                         colors.use = cols.use) 
+p2 <- SCpubr::do_BeeSwarmPlot(sample = sample[, !(sample$seurat_clusters %in% clusters_exclude)], 
+                              feature_to_rank = "PC_4", 
+                              group.by = "seurat_clusters", 
+                              continuous_feature = F, 
+                              colors.use = cols.use)
 
 p1 | p2
 ```
@@ -103,13 +147,21 @@ There are also scenarios in which we want to rank the cells to a continuous vari
 genes.use <- c("CD14", "LYZ")
 
 # Compute enrichment and rename the output.
-sample <- Seurat::AddModuleScore(sample, features = genes.use, name = "Monocyte_signature")
+sample <- Seurat::AddModuleScore(sample, 
+                                 features = genes.use, 
+                                 name = "Monocyte_signature")
 sample$Monocyte_signature <- sample$Monocyte_signature1
 sample$Monocyte_signature1 <- NULL
 
-p1 <- SCpubr::do_DimPlot(sample, label = T, legend = F)
-p2 <- SCpubr::do_FeaturePlot(sample, features = "Monocyte_signature") 
-p3 <- SCpubr::do_BeeSwarmPlot(sample, feature_to_rank = "Monocyte_signature", group.by = "seurat_clusters", continuous_feature = T)
+p1 <- SCpubr::do_DimPlot(sample = sample, 
+                         label = T, 
+                         legend = F)
+p2 <- SCpubr::do_FeaturePlot(sample = sample, 
+                             features = "Monocyte_signature") 
+p3 <- SCpubr::do_BeeSwarmPlot(sample = sample, 
+                              feature_to_rank = "Monocyte_signature", 
+                              group.by = "seurat_clusters", 
+                              continuous_feature = T)
 p1 | p2 | p3
 ```
 
