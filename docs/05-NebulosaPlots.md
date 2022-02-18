@@ -11,11 +11,21 @@ This plot comes straight from the [Nebulosa package](http://bioconductor.org/pac
 Nebulosa::plot_density(sample, "CD14")
 ```
 
+<div class="figure" style="text-align: center">
+<img src="05-NebulosaPlots_files/figure-html/unnamed-chunk-2-1.png" alt="Nebulosa plot" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-2)Nebulosa plot</p>
+</div>
+
 This way, not only we do know which clusters are enriched in CD14, we also know the regions of it with the hightest density of cells expressing it. Minor modifications, on the line of the rest of plots, are applied in `SCpubr`:
 
 ```r
 SCpubr::do_NebulosaPlot(sample, features = "CD14")
 ```
+
+<div class="figure" style="text-align: center">
+<img src="05-NebulosaPlots_files/figure-html/unnamed-chunk-3-1.png" alt="SCpubr Nebulosa plot." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-3)SCpubr Nebulosa plot.</p>
+</div>
 
 Then, this type visualization becomes a natural partner to `Seurat::FeaturePlot()' as not only we are able to visualize the expression of a variable, but also query the density of the surrounding cells. Here is an example:
 
@@ -24,12 +34,22 @@ Then, this type visualization becomes a natural partner to `Seurat::FeaturePlot(
 SCpubr::do_FeaturePlot(sample, features = "CD14") | SCpubr::do_NebulosaPlot(sample, features = "CD14")
 ```
 
+<div class="figure" style="text-align: center">
+<img src="05-NebulosaPlots_files/figure-html/unnamed-chunk-4-1.png" alt="SCpubr FeaturePlot and NebulosaPlot." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-4)SCpubr FeaturePlot and NebulosaPlot.</p>
+</div>
+
 [Nebulosa](https://github.com/powellgenomicslab/Nebulosa/blob/master/R/plotting.R) package also offers the option to query multiple features at the same time:
 
 
 ```r
 SCpubr::do_NebulosaPlot(sample, features = c("CD14", "CD8A"))
 ```
+
+<div class="figure" style="text-align: center">
+<img src="05-NebulosaPlots_files/figure-html/unnamed-chunk-5-1.png" alt="SCpubr Nebulosa plot with multiple features." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-5)SCpubr Nebulosa plot with multiple features.</p>
+</div>
 
 But, more intriguingly, it can also compute the **joint** density of the two features. This is achieved by parsing `joint = TRUE`.
 
@@ -38,6 +58,11 @@ But, more intriguingly, it can also compute the **joint** density of the two fea
 SCpubr::do_NebulosaPlot(sample, features = c("CD14", "CD8A"), joint = TRUE)
 ```
 
+<div class="figure" style="text-align: center">
+<img src="05-NebulosaPlots_files/figure-html/unnamed-chunk-6-1.png" alt="SCpubr Nebulosa plot with joint density" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-6)SCpubr Nebulosa plot with joint density</p>
+</div>
+
 If we were interested in retrieving only the joint density plot, we can accomplish it as:
 
 
@@ -45,6 +70,11 @@ If we were interested in retrieving only the joint density plot, we can accompli
 p <- SCpubr::do_NebulosaPlot(sample, features = c("CD14", "CD8A"), joint = TRUE, combine = F)
 p[[3]]
 ```
+
+<div class="figure" style="text-align: center">
+<img src="05-NebulosaPlots_files/figure-html/unnamed-chunk-7-1.png" alt="SCpubr Nebulosa plot with joint density, selecting only the last plot" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-7)SCpubr Nebulosa plot with joint density, selecting only the last plot</p>
+</div>
 
 ## Modify color maps
 Same as in `SCpubr::do_FeaturePlot()`, it is also change the color map of the plot to one of the eight possible ones defined in [viridis](https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html). This is achieved by using `viridis_color_map` parameter and the color map name or code (capital letter). Options are:
@@ -68,7 +98,15 @@ p5 <- SCpubr::do_NebulosaPlot(sample = sample, features = "CD8A", viridis_color_
 p6 <- SCpubr::do_NebulosaPlot(sample = sample, features = "CD8A", viridis_color_map = "F", plot.title = "Rocket")
 p7 <- SCpubr::do_NebulosaPlot(sample = sample, features = "CD8A", viridis_color_map = "G", plot.title = "Mako")
 p8 <- SCpubr::do_NebulosaPlot(sample = sample, features = "CD8A", viridis_color_map = "H", plot.title = "Turbo")
+#> Warning in check_viridis_color_map(viridis_color_map =
+#> viridis_color_map, : The selected option is not the most
+#> adequate for a continuous color scale.
 
 p <- patchwork::wrap_plots(list(p1, p2, p3, p4, p5, p6, p7, p8), ncol = 2, byrow = TRUE)
 p
 ```
+
+<div class="figure" style="text-align: center">
+<img src="05-NebulosaPlots_files/figure-html/unnamed-chunk-8-1.png" alt="SCpubr Nebulosa plot modifying viridis color maps." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-8)SCpubr Nebulosa plot modifying viridis color maps.</p>
+</div>

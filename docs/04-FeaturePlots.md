@@ -7,23 +7,45 @@ Another broadly used function in `Seurat` is `Seurat::FeaturePlot()`. It is basi
 
 
 ```r
-Seurat::FeaturePlot(sample, features = "nCount_RNA")
+p <- Seurat::FeaturePlot(sample, 
+                         features = "nCount_RNA")
+p
 ```
+
+<div class="figure" style="text-align: center">
+<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-2-1.png" alt="Seurat FeaturePlot" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-2)Seurat FeaturePlot</p>
+</div>
 First thing that stands out, it that the color scale could be changed to one with two very opposite ends, so that identifying regions with low and high UMIs become an easier task. Apart from that, we want apply the same treatment as in `do_DimPlot()` section. 
 
 
 ```r
-Seurat::FeaturePlot(sample, features = "nCount_RNA") + 
-  Seurat::NoAxes() + 
-  viridis::scale_color_viridis()
+p <- Seurat::FeaturePlot(sample, 
+                         features = "nCount_RNA") + 
+     Seurat::NoAxes() + 
+     viridis::scale_color_viridis()
+p
 ```
+
+<div class="figure" style="text-align: center">
+<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-3-1.png" alt="Seurat FeaturePlot, with new color scale and general modifications" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-3)Seurat FeaturePlot, with new color scale and general modifications</p>
+</div>
 
 This way, we can observe that most of the clusters have a really similar number of UMIs, despite selected ones which have up to 4 times more. These could very well be doublets. This is `SCpubr::do_FeaturePlot()` variation:
 
 
 ```r
-SCpubr::do_FeaturePlot(sample, features = "nCount_RNA", plot.title = "Number of UMIs")
+p <- SCpubr::do_FeaturePlot(sample = sample, 
+                            features = "nCount_RNA", 
+                            plot.title = "Number of UMIs")
+p
 ```
+
+<div class="figure" style="text-align: center">
+<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-4-1.png" alt="SCpubr FeaturePlot, with minor modifications" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-4)SCpubr FeaturePlot, with minor modifications</p>
+</div>
 
 By default, `SCpubr` enlarges the dots a bit and makes the legend bold, to better stand out. 
 
@@ -33,18 +55,45 @@ By default, `SCpubr` enlarges the dots a bit and makes the legend bold, to bette
 
 
 ```r
-SCpubr::do_FeaturePlot(sample, features = c("nCount_RNA", "nFeature_RNA", "percent.mt", "CD14"), plot.title = "My very important features", ncol = 2)
+p <- SCpubr::do_FeaturePlot(sample, features = c("nCount_RNA", "nFeature_RNA", "percent.mt", "CD14"), 
+                            plot.title = "My very important features", 
+                            ncol = 2)
+p
 ```
+
+<div class="figure" style="text-align: center">
+<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-5-1.png" alt="SCpubr FeaturePlot, with 4 features and 2 columns" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-5)SCpubr FeaturePlot, with 4 features and 2 columns</p>
+</div>
 
 With multiple queries, using `plot.title` parameter actually adds an overall title. If one wants to modify the title of each plot independently, a more complex approach is needed, which requires more R expertise, using `patchwork` package.
 
 
 ```r
-((SCpubr::do_FeaturePlot(sample, features = "nCount_RNA", plot.title = "Plot A") | SCpubr::do_FeaturePlot(sample, features = "nFeature_RNA", plot.title = "Plot B")) /
-(SCpubr::do_FeaturePlot(sample, features = "percent.mt", plot.title = "Plot C") | SCpubr::do_FeaturePlot(sample, features = "CD14", plot.title = "Plot D"))) + 
-patchwork::plot_annotation(title = "My very important features", theme = ggplot2::theme(plot.title = ggplot2::element_text(size = 18, face = "bold", hjust = 0.5)))
-
+p1 <- SCpubr::do_FeaturePlot(sample, 
+                             features = "nCount_RNA", 
+                             plot.title = "Plot A")
+p2 <- SCpubr::do_FeaturePlot(sample, 
+                             features = "nFeature_RNA", 
+                             plot.title = "Plot B")
+p3 <- SCpubr::do_FeaturePlot(sample, 
+                             features = "percent.mt", 
+                             plot.title = "Plot C") 
+p4 <- SCpubr::do_FeaturePlot(sample, 
+                             features = "CD14", 
+                             plot.title = "Plot D")
+patch <- patchwork::wrap_plots(list(p1, p2, p3, p4), ncol = 2) + 
+          patchwork::plot_annotation(title = "My very important features", 
+                                     theme = ggplot2::theme(plot.title = ggplot2::element_text(size = 18, 
+                                                                                               face = "bold", 
+                                                                                               hjust = 0.5)))
+patch
 ```
+
+<div class="figure" style="text-align: center">
+<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-6-1.png" alt="SCpubr FeaturePlot, with individual modified titles" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-6)SCpubr FeaturePlot, with individual modified titles</p>
+</div>
 
 ## Working with subsets of cells
 
@@ -53,36 +102,84 @@ One of the things that can be misleading, is that it could be the case that a ve
 
 ```r
 cells.plot <- colnames(sample[, !(sample$seurat_clusters %in% c("2", "5", "8"))])
-SCpubr::do_FeaturePlot(sample[, cells.plot], features = c("CD14"), plot.title = "My very important features")
+p <- SCpubr::do_FeaturePlot(sample[, cells.plot], 
+                            features = c("CD14"), 
+                            plot.title = "My very important features")
+p
 ```
+
+<div class="figure" style="text-align: center">
+<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-7-1.png" alt="SCpubr FeaturePlot, removing cells from clusters 2, 5 and 8" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-7)SCpubr FeaturePlot, removing cells from clusters 2, 5 and 8</p>
+</div>
 
 However, this falls back to the same problem as with `Seurat::DimPlot` with the `split.by` parameter. We lose the overall context of where the cells are. This is taken care by in `SCpubr::do_FeaturePlot()`, when using the `cells.highlight` parameter:
 
 
 ```r
 cells.plot <- colnames(sample[, !(sample$seurat_clusters %in% c("2", "5", "8"))])
-SCpubr::do_FeaturePlot(sample, cells.highlight = cells.plot, features = c("CD14"), plot.title = "My very important features")
+p <- SCpubr::do_FeaturePlot(sample = sample, 
+                            cells.highlight = cells.plot, 
+                            features = c("CD14"), 
+                            plot.title = "My very important features")
+p
 ```
+
+<div class="figure" style="text-align: center">
+<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-8-1.png" alt="SCpubr FeaturePlot, masking cells from clusters 2, 5 and 8" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-8)SCpubr FeaturePlot, masking cells from clusters 2, 5 and 8</p>
+</div>
 This way, by adding the cells back and modifying the legend, we accomplish the desired effect. Furthermore, `SCpubr::do_FeaturePlot()` also accepts a vector of the identities to plot, as long as they are part of `levels(seurat_object)`. This can be achieved by using the `idents.highlight` instead.
 
 
 ```r
 
-SCpubr::do_FeaturePlot(sample, idents.highlight = levels(sample)[!(levels(sample) %in% c("2", "5", "8"))], features = c("CD14"), plot.title = "My very important features")
+p <- SCpubr::do_FeaturePlot(sample = sample, 
+                            idents.highlight = levels(sample)[!(levels(sample) %in% c("2", "5", "8"))], 
+                            features = c("CD14"), 
+                            plot.title = "My very important features")
+p
 ```
+
+<div class="figure" style="text-align: center">
+<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-9-1.png" alt="SCpubr FeaturePlot, masking cells from clusters 2, 5 and 8 using idents.highlight" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-9)SCpubr FeaturePlot, masking cells from clusters 2, 5 and 8 using idents.highlight</p>
+</div>
 ## Splitting the FeaturePlot by a variable
-In some cases, we want to visualize a given feature, let's say, the expression of `LYN` across another variable, for instance `seurat_clusters`. This can be achieved easily in `Seurat` by using the `split.by` parameter:
+In some cases, we want to visualize a given feature, let's say, the expression of `LYN` across another variable, for instance `seurat_clusters`. This can be achieved easily in `Seurat` by using the `split.by` parameter. For the sake of representation, let's reduce the number of clusters.
 
 
 ```r
-Seurat::FeaturePlot(sample, features = "LYN", split.by = "seurat_clusters")
+# Group clusters.
+sample$new_clusters <- as.character(sample$seurat_clusters)
+sample$new_clusters[sample$new_clusters %in% c("0", "1", "2", "3")] <- "Cluster 1"
+sample$new_clusters[sample$new_clusters %in% c("4", "5", "6")] <- "Cluster 2"
+sample$new_clusters[sample$new_clusters %in% c("7", "8", "9")] <- "Cluster 3"
+
+p <- Seurat::FeaturePlot(sample, 
+                         features = "LYN", 
+                         split.by = "new_clusters")
+p
 ```
+
+<div class="figure" style="text-align: center">
+<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-10-1.png" alt="Seurat FeaturePlot split by clusters." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-10)Seurat FeaturePlot split by clusters.</p>
+</div>
 Apart from the general aesthetic discrepancies mentioned before, there are two main aspects missing. First, is the overall layout of the UMAP embedding. Being able to correctly locate the clusters is really important. Secondly, knowing that, by default, the color scale is shared across all the plots (achieved by using `keep.scale = "feature"`), we would like to know up to which value this color scale reaches. In this two aspects is where `SCpubr::do_FeaturePlot()` delves into: 
 
 
 ```r
-SCpubr::do_FeaturePlot(sample, features = "LYN", split.by = "seurat_clusters")
+p <- SCpubr::do_FeaturePlot(sample = sample, 
+                            features = "LYN", 
+                            split.by = "new_clusters")
+p
 ```
+
+<div class="figure" style="text-align: center">
+<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-11-1.png" alt="SCpubr FeaturePlot split by clusters." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-11)SCpubr FeaturePlot split by clusters.</p>
+</div>
 
 This way, we are able to achieve a better understandable plot. Please note that this has been implemented for `keep.scale = "feature"`. Providing other options is not advisable. Furthermore, we can query multiple features, them being stacked by the different entities in `split.by`. The number of columns is predetermined to the number of entities and can not be modified. In this example, we provide each of the three possible examples of features:
 
@@ -92,15 +189,32 @@ This way, we are able to achieve a better understandable plot. Please note that 
 
 
 ```r
-SCpubr::do_FeaturePlot(sample, features = c("LYN", "nCount_RNA", "PC_1"), split.by = "seurat_clusters")
+p <- SCpubr::do_FeaturePlot(sample, 
+                            features = c("LYN", "nCount_RNA", "PC_1"), 
+                            split.by = "new_clusters")
+p
 ```
+
+<div class="figure" style="text-align: center">
+<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-12-1.png" alt="SCpubr FeaturePlot split by clusters using multiple features." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-12)SCpubr FeaturePlot split by clusters using multiple features.</p>
+</div>
 
 With `SCpubr::do_FeaturePlot()` we can even subset the previous plot to any identities in `split.by` we are particularly interested in. The color scale also limits itself to contain only the values in the selected identities. This can be achieved by provided a vector with the identities to `split.by.idents` parameter.
 
 
 ```r
-SCpubr::do_FeaturePlot(sample, features = c("LYN", "nCount_RNA", "PC_1"), split.by = "seurat_clusters", split.by.idents = c("2", "5", "7"))
+p <- SCpubr::do_FeaturePlot(sample, 
+                            features = c("LYN", "nCount_RNA", "PC_1"), 
+                            split.by = "seurat_clusters", 
+                            split.by.idents = c("2", "5"))
+p
 ```
+
+<div class="figure" style="text-align: center">
+<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-13-1.png" alt="SCpubr FeaturePlot split by clusters using multiple features and selected identities." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-13)SCpubr FeaturePlot split by clusters using multiple features and selected identities.</p>
+</div>
 
 ## Modify color maps
 It is possible in `SCpubr::do_FeaturePlot()` to also change the color map of the plot to one of the eight possible ones defined in [viridis](https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html). This is achieved by using `viridis_color_map` parameter and the color map name or code (capital letter). Options are:
@@ -124,8 +238,16 @@ p5 <- SCpubr::do_FeaturePlot(sample = sample, features = "CD14", viridis_color_m
 p6 <- SCpubr::do_FeaturePlot(sample = sample, features = "CD14", viridis_color_map = "F", plot.title = "Rocket")
 p7 <- SCpubr::do_FeaturePlot(sample = sample, features = "CD14", viridis_color_map = "G", plot.title = "Mako")
 p8 <- SCpubr::do_FeaturePlot(sample = sample, features = "CD14", viridis_color_map = "H", plot.title = "Turbo")
+#> Warning in check_viridis_color_map(viridis_color_map =
+#> viridis_color_map, : The selected option is not the most
+#> adequate for a continuous color scale.
 
 p <- patchwork::wrap_plots(list(p1, p2, p3, p4, p5, p6, p7, p8), ncol = 2, byrow = TRUE)
 p
 ```
+
+<div class="figure" style="text-align: center">
+<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-14-1.png" alt="SCpubr FeaturePlot modifying viridis color maps." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-14)SCpubr FeaturePlot modifying viridis color maps.</p>
+</div>
 Here, we do not recommend the use of `turbo` with Feature plots, as this continuous scale goes through many different colors and, therefore, makes it harder for interpretation. 

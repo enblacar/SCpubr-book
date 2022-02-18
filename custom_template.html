@@ -60,12 +60,8 @@
     </div>
 
     <div id="main-nav" class="collapse-lg">
-      <form role="search">
-        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
-      </form>
-
+      <div class="book-extra"></div>
       <nav aria-label="Table of contents">
-        <h2>Table of contents</h2>
         <div id="book-toc"></div>
 
         <div class="book-extra">
@@ -91,13 +87,16 @@ $endfor$
 
   <div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page">
-      <h2>On this page</h2>
+      <form role="search" class="mt-4 mb-4">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+      </form>
+      <div class="book-extra">
       <div id="book-on-this-page"></div>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-          <li><a id="book-source" href="#">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="#">Edit this page <i class="fab fa-github"></i></a></li>
+          <li><a id="book-source" href="#">View chapter source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="#">Edit this chapter <i class="fab fa-github"></i></a></li>
         </ul>
       </div>
     </nav>
@@ -110,11 +109,11 @@ $endfor$
   <div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>$title$</strong>$if(subtitle)$: $subtitle$$endif$" was written by $for(author)$$author$$sep$, $endfor$. $if(date)$It was last built on $date$.$endif$</p>
+    <p class="text-center">Written by $for(author)$<strong>$author$</strong>$sep$, $endfor$ $if(date)$on $date$.$endif$</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
-    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+    <p class="text-center">This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
   </div>
 
 </div></div>
