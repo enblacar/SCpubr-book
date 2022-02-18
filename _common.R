@@ -10,5 +10,6 @@ knitr::opts_chunk$set(
     fig.width = 6,
     fig.height = 6,
     out.width = "100%",
-    out.height = "100%"
+    out.height = "100%",
+    eval = F
   )

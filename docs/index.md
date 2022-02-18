@@ -1,13 +1,13 @@
 --- 
-title: "SCpubr - Complete reference"
+title: "SCpubr"
 author: "Enrique Blanco Carmona"
-date: "17 February, 2022"
+date: "18 February, 2022"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib]
 url: https://enblacar.github.io/SCpubr-book/
 github-repo: enblacar/SCpubr-book/
-cover-image: images/SCpubr_logo_big.png
+cover-image: images/SCpubr_logo_transparent.png
 description: |
   Collection of functions aimed to streamline quality figure generation for Single Cell transcriptomics experiments.
 biblio-style: apalike
@@ -15,6 +15,10 @@ csl: chicago-fullnote-bibliography.csl
 ---
 
 # About this package {-}
-<img src="images/SCpubr_logo_big.png" width="300" height="300" align = "center" alt="" class="cover" /> This package aims to provide a streamlined way of generating publication ready figures for known single-cell visualizations. As subjective as the term "aesthetically pleasant" can be, this a set of theme modifications implemented across different plot types. This package also serves as a personal project, with future prospects of growth.
+
+<span class="border-0"><img src="images/SCpubr_logo_transparent.png" class="mx-auto d-block" width="300" height="300" alt="" style="box-shadow: none"/></span>
+
+
+This package aims to provide a streamlined way of generating publication ready figures for known single-cell visualizations. As subjective as the term "aesthetically pleasant" can be, this a set of theme modifications implemented across different plot types. This package also serves as a personal project, with future prospects of growth.
 
 

@@ -1,5 +1,6 @@
 bookdown::bs4_book:
   css: style.css
+  template: "custom_template.html"
   theme:
     primary: "#096B72"
     fg: "#000000"

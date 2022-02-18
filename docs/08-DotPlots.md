@@ -12,11 +12,6 @@ p1 <- Seurat::DotPlot(sample, features = "CD14")
 p2 <- Seurat::DotPlot(sample, features = "nCount_RNA")
 p1 | p2
 ```
-
-<div class="figure" style="text-align: center">
-<img src="08-DotPlots_files/figure-html/unnamed-chunk-2-1.png" alt="Seurat DotPlot" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-2)Seurat DotPlot</p>
-</div>
 As can be seen, if we try to plot other type of variables, the resulting plot will not contain a color scale. `SCpubr::do_DimPlot()` focuses on enhancing the overall appearance of the plots. Implementation using other types of features is not currently supported. This is how it looks using `SCpubr::do_DimPlot()`:
 
 
@@ -25,11 +20,6 @@ p1 <- SCpubr::do_DotPlot(sample = sample, features = "CD14")
 p2 <- SCpubr::do_DotPlot(sample = sample, features = "nFeature_RNA")
 p1 | p2
 ```
-
-<div class="figure" style="text-align: center">
-<img src="08-DotPlots_files/figure-html/unnamed-chunk-3-1.png" alt="SCpubr DotPlot" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-3)SCpubr DotPlot</p>
-</div>
 
 ## Querying multiple features at once. 
 
@@ -41,11 +31,6 @@ genes <- c("IL7R", "CCR7", "CD14", "LYZ", "S100A4", "MS4A1", "CD8A", "FCGR3A", "
 p1 <- SCpubr::do_DotPlot(sample = sample, features = genes)
 p1
 ```
-
-<div class="figure" style="text-align: center">
-<img src="08-DotPlots_files/figure-html/unnamed-chunk-4-1.png" alt="SCpubr DotPlot using multiple genes" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-4)SCpubr DotPlot using multiple genes</p>
-</div>
 
 Here, we can clearly distinguish which clusters are highly enriched in which given genes. This proves to be a very interesting way to query for cluster identities. It is highly dependent, though, on the accuracy of the selected genes for the queried dataset. If we actually provide the list of genes as a named list, we can facet the plot in the different list of genes provided:
 
@@ -63,11 +48,6 @@ genes <- list("Naive CD4+ T" = c("IL7R", "CCR7"),
 p1 <- SCpubr::do_DotPlot(sample = sample, features = genes)
 p1
 ```
-
-<div class="figure" style="text-align: center">
-<img src="08-DotPlots_files/figure-html/unnamed-chunk-5-1.png" alt="SCpubr DotPlot using multiple genes" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-5)SCpubr DotPlot using multiple genes</p>
-</div>
 
 ## Clustering the identities.
 
@@ -87,12 +67,8 @@ genes <- list("Naive CD4+ T" = c("IL7R", "CCR7"),
 p1 <- SCpubr::do_DotPlot(sample = sample, features = genes, plot.title = "Not clustered")
 p2 <- SCpubr::do_DotPlot(sample = sample, features = genes, cluster.idents = TRUE, plot.title = "Clustered")
 p1 / p2
-```
 
-<div class="figure" style="text-align: center">
-<img src="08-DotPlots_files/figure-html/unnamed-chunk-6-1.png" alt="SCpubr DotPlot using multiple genes and clustering the identities" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-6)SCpubr DotPlot using multiple genes and clustering the identities</p>
-</div>
+```
 
 ## Inverting the axes.
 
@@ -104,9 +80,5 @@ genes <- c("IL7R", "CCR7", "CD14", "LYZ", "S100A4", "MS4A1", "CD8A", "FCGR3A", "
 p1 <- SCpubr::do_DotPlot(sample = sample, features = genes, plot.title = "Not clustered", flip = T)
 p2 <- SCpubr::do_DotPlot(sample = sample, features = genes, cluster.idents = TRUE, plot.title = "Clustered", flip = T)
 p1 | p2
-```
 
-<div class="figure" style="text-align: center">
-<img src="08-DotPlots_files/figure-html/unnamed-chunk-7-1.png" alt="SCpubr DotPlot using multiple genes and clustering the identities flipping axes" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-7)SCpubr DotPlot using multiple genes and clustering the identities flipping axes</p>
-</div>
+```
