@@ -11,4 +11,4 @@ bookdown::bs4_book:
   fig_caption: true
   footnotes_inline: true
   includes:
-    in_header: [header.html]
+    in_header: "header.html"
