@@ -1,6 +1,6 @@
 # Dim plots
 
-DimPlots are, probably, one of the most iconic visualizations from `Seurat`. It allows the user to visualize the cells in a dimensional reduction embedding such as `PCA` or `UMAP`. The cells can be, then, colored by any desired groups. In short, this visualization allows the user to plot **any kind of categorical data** onto the cells in the dimesional reduction embedding. 
+DimPlots are, probably, one of the most iconic visualizations from `Seurat`. It allows the user to visualize the cells in a dimensional reduction embedding such as `PCA` or `UMAP`. The cells can be, then, colored by any desired groups. In short, this visualization allows the user to plot **any kind of categorical data** onto the cells in the dimensional reduction embedding. 
 
 ## Figure build-up
 In this subsection, we will break down the several modifications that are applied to figures by `SCpubr`. First, let's plot a DimPlot. This is achieved by using `Seurat::DimPlot()` function:
@@ -113,7 +113,7 @@ p
 
 As of now, this plot looks much better and polished than the default counterpart. This, is the setting ground for `SCpubr::do_DimPlot()`. 
 
-## Basic DimPlots
+## Basic usage
 
 This is the default output from `SCpubr::do_DimPlot()`. 
 
@@ -160,6 +160,27 @@ p
 ``` 
 The labels present now bold text for further readability. 
 
+## Modifying default colors
+If wanted, we can also change the colors of the identities in the DimPlot based on a custom color scheme. For this, a **named vector** containing the names of the identities as names and the HEX codes as values has to be provided to `colors.use`: 
+
+```{r, fig.cap = "SCpubr, modifying default colors in a DimPlot", fig.width=8, fig.height=7}
+# Create a color scale for the unique values in seurat clusters.
+colors <- c("0" = "#001219",
+            "1" = "#005f73",
+            "2" = "#0a9396",
+            "3" = "#94d2bd",
+            "4" = "#e9d8a6",
+            "5" = "#ee9b00",
+            "6" = "#ca6702",
+            "7" = "#bb3e03",
+            "8" = "#ae2012",
+            "9" = "#9b2226")
+
+p <- SCpubr::do_DimPlot(sample = sample, 
+                        colors.use = colors)
+p
+```
+
 ## Highlighting cells
 
 One of the nice features of `Seurat::DimPlot()` is the possibility of highlighting a certain group of cells in the DimPlot. This is achieved by using the `cells.highligh` parameter. This is how the default plot looks like.
@@ -172,7 +193,7 @@ p <- Seurat::DimPlot(sample,
 p
 ```
 
-This is how SCpubr returns this plot. For this, the same parameter has to be set up.
+To achieve a similar effect in `SCpubr::do_DimPlot()`, we can use the same parameter:
 
 ```{r, fig.cap = "SCpubr DimPlot highlighting cells.", fig.width=8, fig.height=7}
 # Select 1000 random cells out of clusters 1, 5 and 7.
@@ -195,7 +216,7 @@ p
 
 ## Splitting by a category
 
-Another useful paramter of `Seurat::DimPlot` is `split.by`, which allows you to split your DimPlot into multiple panels, each one containing a different unique value of the metadata variable you have provided to the argument. One can understand this as using the `group.by` parameter and then splitting the resulting DimPlot into different panels. In this example, we are going to use the different clusters as an example This is how it looks by default:
+Another useful parameter of `Seurat::DimPlot` is `split.by`, which allows you to split your DimPlot into multiple panels, each one containing a different unique value of the metadata variable you have provided to the argument. One can understand this as using the `group.by` parameter and then splitting the resulting DimPlot into different panels. In this example, we are going to use the different clusters as an example This is how it looks by default:
 
 ```{r, fig.cap = "Seurat DimPlot using split.by.", fig.width=10, fig.height=5}
 # Using ncol = 5 to maintain some of the proportions. 
@@ -230,9 +251,7 @@ p <- SCpubr::do_DimPlot(sample,
 p
 ```
 
-
-
-Furthermore, one might also want to color each cluster by the original color. This can be achieved by using the argument `colorss.split`, either providing a named vector of each cluster (or metadata variable unique value) as names and color hex codes as values or `TRUE`, thus resorting to the default `SCpubr` categorical coloring. 
+Furthermore, one might also want to color each cluster by the original color. This can be achieved by using the argument `colors.split`, either providing a named vector of each cluster (or metadata variable unique value) as names and color hex codes as values or `TRUE`, thus resorting to the default `SCpubr` categorical coloring. 
 
 ```{r, fig.cap = "SCpubr DimPlot using split.by with default SCpubr colors", fig.width=10, fig.height=5}
 # Using ncol = 5 to maintain some of the proportions.
@@ -244,8 +263,6 @@ p <- SCpubr::do_DimPlot(sample,
                         colors.split = TRUE)
 p
 ```
-
-
 
 
 

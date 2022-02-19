@@ -1,6 +1,6 @@
 # Dim plots
 
-DimPlots are, probably, one of the most iconic visualizations from `Seurat`. It allows the user to visualize the cells in a dimensional reduction embedding such as `PCA` or `UMAP`. The cells can be, then, colored by any desired groups. In short, this visualization allows the user to plot **any kind of categorical data** onto the cells in the dimesional reduction embedding. 
+DimPlots are, probably, one of the most iconic visualizations from `Seurat`. It allows the user to visualize the cells in a dimensional reduction embedding such as `PCA` or `UMAP`. The cells can be, then, colored by any desired groups. In short, this visualization allows the user to plot **any kind of categorical data** onto the cells in the dimensional reduction embedding. 
 
 ## Figure build-up
 In this subsection, we will break down the several modifications that are applied to figures by `SCpubr`. First, let's plot a DimPlot. This is achieved by using `Seurat::DimPlot()` function:
@@ -159,7 +159,7 @@ p
 
 As of now, this plot looks much better and polished than the default counterpart. This, is the setting ground for `SCpubr::do_DimPlot()`. 
 
-## Basic DimPlots
+## Basic usage
 
 This is the default output from `SCpubr::do_DimPlot()`. 
 
@@ -236,6 +236,33 @@ p
 </div>
 The labels present now bold text for further readability. 
 
+## Modifying default colors
+If wanted, we can also change the colors of the identities in the DimPlot based on a custom color scheme. For this, a **named vector** containing the names of the identities as names and the HEX codes as values has to be provided to `colors.use`: 
+
+
+```r
+# Create a color scale for the unique values in seurat clusters.
+colors <- c("0" = "#001219",
+            "1" = "#005f73",
+            "2" = "#0a9396",
+            "3" = "#94d2bd",
+            "4" = "#e9d8a6",
+            "5" = "#ee9b00",
+            "6" = "#ca6702",
+            "7" = "#bb3e03",
+            "8" = "#ae2012",
+            "9" = "#9b2226")
+
+p <- SCpubr::do_DimPlot(sample = sample, 
+                        colors.use = colors)
+p
+```
+
+<div class="figure" style="text-align: center">
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-15-1.png" alt="SCpubr, modifying default colors in a DimPlot" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-15)SCpubr, modifying default colors in a DimPlot</p>
+</div>
+
 ## Highlighting cells
 
 One of the nice features of `Seurat::DimPlot()` is the possibility of highlighting a certain group of cells in the DimPlot. This is achieved by using the `cells.highligh` parameter. This is how the default plot looks like.
@@ -250,11 +277,11 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-15-1.png" alt="Seurat DimPlot highlighting cells." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-15)Seurat DimPlot highlighting cells.</p>
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-16-1.png" alt="Seurat DimPlot highlighting cells." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-16)Seurat DimPlot highlighting cells.</p>
 </div>
 
-This is how SCpubr returns this plot. For this, the same parameter has to be set up.
+To achieve a similar effect in `SCpubr::do_DimPlot()`, we can use the same parameter:
 
 
 ```r
@@ -266,8 +293,8 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-16-1.png" alt="SCpubr DimPlot highlighting cells." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-16)SCpubr DimPlot highlighting cells.</p>
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-17-1.png" alt="SCpubr DimPlot highlighting cells." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-17)SCpubr DimPlot highlighting cells.</p>
 </div>
 
 By default, the size of all cells in `SCpubr::do_DimPlot()` is the same. However, the size of the highlighted dots can be modified with the parameter `sizes.highlight` from Seurat.
@@ -283,13 +310,13 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-17-1.png" alt="SCpubr DimPlot highlighting cells bigger dot size." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-17)SCpubr DimPlot highlighting cells bigger dot size.</p>
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-18-1.png" alt="SCpubr DimPlot highlighting cells bigger dot size." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-18)SCpubr DimPlot highlighting cells bigger dot size.</p>
 </div>
 
 ## Splitting by a category
 
-Another useful paramter of `Seurat::DimPlot` is `split.by`, which allows you to split your DimPlot into multiple panels, each one containing a different unique value of the metadata variable you have provided to the argument. One can understand this as using the `group.by` parameter and then splitting the resulting DimPlot into different panels. In this example, we are going to use the different clusters as an example This is how it looks by default:
+Another useful parameter of `Seurat::DimPlot` is `split.by`, which allows you to split your DimPlot into multiple panels, each one containing a different unique value of the metadata variable you have provided to the argument. One can understand this as using the `group.by` parameter and then splitting the resulting DimPlot into different panels. In this example, we are going to use the different clusters as an example This is how it looks by default:
 
 
 ```r
@@ -301,8 +328,8 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-18-1.png" alt="Seurat DimPlot using split.by." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-18)Seurat DimPlot using split.by.</p>
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-19-1.png" alt="Seurat DimPlot using split.by." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-19)Seurat DimPlot using split.by.</p>
 </div>
 As can be observed, this plots accomplish the task of separating the cells into each panel, but the approach followed actually makes interpretation difficult. Clusters such as Cluster 9, with fewer cells, tell pretty much nothing. Not knowing how the original UMAP looked like is a major downside of this approach. This is where `SCpubr` focus. Instead of using `Seurat`'s `split.by` parameter, it generates as many plots as unique values in the metadata to split the plot by, but uses `cells.highlight` instead, which keeps the rest of cells greyed out. This is how it looks:
 
@@ -318,8 +345,8 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-19-1.png" alt="SCpubr DimPlot using split.by." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-19)SCpubr DimPlot using split.by.</p>
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-20-1.png" alt="SCpubr DimPlot using split.by." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-20)SCpubr DimPlot using split.by.</p>
 </div>
 
 This way, we can see that clusters such as Cluster 7 are way more disperse than the rest, accounting not only for standalone groups of cells but also blending in other bigger clusters. Actually, the user might want to change the color of the highlighted cells in this split DimPlot. This is achieved by using `colors.split` parameter and providing either a color name recognized by `ggplot2` or (recommended) a HEX code.
@@ -338,13 +365,11 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-20-1.png" alt="SCpubr DimPlot using split.by with a changed color" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-20)SCpubr DimPlot using split.by with a changed color</p>
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-21-1.png" alt="SCpubr DimPlot using split.by with a changed color" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-21)SCpubr DimPlot using split.by with a changed color</p>
 </div>
 
-
-
-Furthermore, one might also want to color each cluster by the original color. This can be achieved by using the argument `colorss.split`, either providing a named vector of each cluster (or metadata variable unique value) as names and color hex codes as values or `TRUE`, thus resorting to the default `SCpubr` categorical coloring. 
+Furthermore, one might also want to color each cluster by the original color. This can be achieved by using the argument `colors.split`, either providing a named vector of each cluster (or metadata variable unique value) as names and color hex codes as values or `TRUE`, thus resorting to the default `SCpubr` categorical coloring. 
 
 
 ```r
@@ -359,11 +384,9 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-21-1.png" alt="SCpubr DimPlot using split.by with default SCpubr colors" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-21)SCpubr DimPlot using split.by with default SCpubr colors</p>
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-22-1.png" alt="SCpubr DimPlot using split.by with default SCpubr colors" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-22)SCpubr DimPlot using split.by with default SCpubr colors</p>
 </div>
-
-
 
 
 

@@ -7,6 +7,7 @@ Another broadly used function in `Seurat` is `Seurat::FeaturePlot()`. It is basi
 sample <- readRDS("/b06x-isilon/b06x-g/G703/eblanco/projects/test_SC_datasets/sc_dataset.rds")
 ```
 
+## Basic usage
 ```{r, fig.cap= "Seurat FeaturePlot", fig.width=8, fig.height=7}
 p <- Seurat::FeaturePlot(sample, 
                          features = "nCount_RNA")

@@ -3,13 +3,15 @@
 Dot plots are a very nice data representation technique. It involves the use of two scales. One scale is color-based while the second one is size-based. In the context of `Seurat::DotPlot()`, these scales are pre-defined to contain the average expression values on the color scale and the percentage of cells within the group expressing the feature on the size, increasing it as this percentage grows bigger. It is heavily implied that the features need to be genes, otherwise the color scale will be lost. This is the output from `Seurat`:
 
 
-
+## Basic usage
 
 
 
 ```r
-p1 <- Seurat::DotPlot(sample, features = "CD14")
-p2 <- Seurat::DotPlot(sample, features = "nCount_RNA")
+p1 <- Seurat::DotPlot(sample, 
+                      features = "CD14")
+p2 <- Seurat::DotPlot(sample, 
+                      features = "nCount_RNA")
 p1 | p2
 ```
 
@@ -21,8 +23,10 @@ As can be seen, if we try to plot other type of variables, the resulting plot wi
 
 
 ```r
-p1 <- SCpubr::do_DotPlot(sample = sample, features = "CD14")
-p2 <- SCpubr::do_DotPlot(sample = sample, features = "nFeature_RNA")
+p1 <- SCpubr::do_DotPlot(sample = sample, 
+                         features = "CD14")
+p2 <- SCpubr::do_DotPlot(sample = sample, 
+                         features = "nFeature_RNA")
 p1 | p2
 ```
 
@@ -37,9 +41,13 @@ The true power of this data visualization relies on querying multiple genes at o
 
 
 ```r
-genes <- c("IL7R", "CCR7", "CD14", "LYZ", "S100A4", "MS4A1", "CD8A", "FCGR3A", "MS4A7", "GNLY", "NKG7", "FCER1A", "CST3", "PPBP")
-p1 <- SCpubr::do_DotPlot(sample = sample, features = genes)
-p1
+genes <- c("IL7R", "CCR7", "CD14", "LYZ", 
+           "S100A4", "MS4A1", "CD8A", "FCGR3A", 
+           "MS4A7", "GNLY", "NKG7", "FCER1A", 
+           "CST3", "PPBP")
+p <- SCpubr::do_DotPlot(sample = sample, 
+                        features = genes)
+p
 ```
 
 <div class="figure" style="text-align: center">
@@ -60,8 +68,9 @@ genes <- list("Naive CD4+ T" = c("IL7R", "CCR7"),
               "NK" = c("GNLY", "NKG7"),
               "DC" = c("FCER1A", "CST3"),
               "Platelet" = c("PPBP"))
-p1 <- SCpubr::do_DotPlot(sample = sample, features = genes)
-p1
+p <- SCpubr::do_DotPlot(sample = sample, 
+                        features = genes)
+p
 ```
 
 <div class="figure" style="text-align: center">
@@ -84,8 +93,13 @@ genes <- list("Naive CD4+ T" = c("IL7R", "CCR7"),
               "NK" = c("GNLY", "NKG7"),
               "DC" = c("FCER1A", "CST3"),
               "Platelet" = c("PPBP"))
-p1 <- SCpubr::do_DotPlot(sample = sample, features = genes, plot.title = "Not clustered")
-p2 <- SCpubr::do_DotPlot(sample = sample, features = genes, cluster.idents = TRUE, plot.title = "Clustered")
+p1 <- SCpubr::do_DotPlot(sample = sample, 
+                         features = genes,
+                         plot.title = "Not clustered")
+p2 <- SCpubr::do_DotPlot(sample = sample, 
+                         features = genes, 
+                         cluster.idents = TRUE, 
+                         plot.title = "Clustered")
 p1 / p2
 ```
 
@@ -96,17 +110,45 @@ p1 / p2
 
 ## Inverting the axes.
 
-In `SCpubr::do_DotPlot()`, we can also invert the axes, so that the groups are in the X axis and the genes in the Y axis. This is achieved by using `flip = TRUE`. Note, however, that this does not work when using a named list of genes as input, as it completelyl distort the way facets are computed. Given this, this combination of parameters is currently blocked by `SCpubr`.
+In `SCpubr::do_DotPlot()`, we can also invert the axes, so that the groups are in the X axis and the genes in the Y axis. This is achieved by using `flip = TRUE`. Note, however, that this does not work when using a named list of genes as input, as it completely distort the way facets are computed. Given this, this combination of parameters is currently blocked by `SCpubr`.
 
 
 ```r
 genes <- c("IL7R", "CCR7", "CD14", "LYZ", "S100A4", "MS4A1", "CD8A", "FCGR3A", "MS4A7", "GNLY", "NKG7", "FCER1A", "CST3", "PPBP")
-p1 <- SCpubr::do_DotPlot(sample = sample, features = genes, plot.title = "Not clustered", flip = T)
-p2 <- SCpubr::do_DotPlot(sample = sample, features = genes, cluster.idents = TRUE, plot.title = "Clustered", flip = T)
+p1 <- SCpubr::do_DotPlot(sample = sample, 
+                         features = genes, 
+                         plot.title = "Not clustered", 
+                         flip = T)
+p2 <- SCpubr::do_DotPlot(sample = sample, 
+                         features = genes, 
+                         cluster.idents = TRUE, 
+                         plot.title = "Clustered", 
+                         flip = T)
 p1 | p2
 ```
 
 <div class="figure" style="text-align: center">
 <img src="08-DotPlots_files/figure-html/unnamed-chunk-7-1.png" alt="SCpubr DotPlot using multiple genes and clustering the identities flipping axes" width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-7)SCpubr DotPlot using multiple genes and clustering the identities flipping axes</p>
+</div>
+
+## Modifying default colors.
+
+To modify the default colors, a vector of two colors has to be provided to `colors.use`. The two colors will form a gradient.
+
+
+```r
+genes <- c("IL7R", "CCR7", "CD14", "LYZ", 
+           "S100A4", "MS4A1", "CD8A", "FCGR3A", 
+           "MS4A7", "GNLY", "NKG7", "FCER1A", 
+           "CST3", "PPBP")
+p <- SCpubr::do_DotPlot(sample = sample, 
+                        features = genes,
+                        colors.use = c("#001219", "#e9d8a6"))
+p
+```
+
+<div class="figure" style="text-align: center">
+<img src="08-DotPlots_files/figure-html/unnamed-chunk-8-1.png" alt="SCpubr, modifying default colors in a Dot plot" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-8)SCpubr, modifying default colors in a Dot plot</p>
 </div>

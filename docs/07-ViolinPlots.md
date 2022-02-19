@@ -6,7 +6,7 @@ Violin plots require very little description. They are a depiction of the distri
 
 
 
-## Basic violin plots.
+## Basic usage
 
 ```r
 p <- Seurat::VlnPlot(sample, 
@@ -112,4 +112,33 @@ p
 <div class="figure" style="text-align: center">
 <img src="07-ViolinPlots_files/figure-html/unnamed-chunk-8-1.png" alt="SCpubr's violin plot with multiple features." width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-8)SCpubr's violin plot with multiple features.</p>
+</div>
+
+## Modifying default colors
+
+Same as with other categorical representations, we can modify the default color palette by providing a custom one to `colors.use`. This has to be a named vector of HEX values with the names of the groups as names of the values:
+
+
+```r
+# Create a color scale for the unique values in seurat clusters.
+colors <- c("0" = "#001219",
+            "1" = "#005f73",
+            "2" = "#0a9396",
+            "3" = "#94d2bd",
+            "4" = "#e9d8a6",
+            "5" = "#ee9b00",
+            "6" = "#ca6702",
+            "7" = "#bb3e03",
+            "8" = "#ae2012",
+            "9" = "#9b2226")
+
+p <- SCpubr::do_VlnPlot(sample = sample, 
+                        features = "nCount_RNA",
+                        colors.use = colors)
+p
+```
+
+<div class="figure" style="text-align: center">
+<img src="07-ViolinPlots_files/figure-html/unnamed-chunk-9-1.png" alt="SCpubr, modifying default colors in a Violin plot" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-9)SCpubr, modifying default colors in a Violin plot</p>
 </div>

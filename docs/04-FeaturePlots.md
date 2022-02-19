@@ -5,6 +5,7 @@ Another broadly used function in `Seurat` is `Seurat::FeaturePlot()`. It is basi
 
 
 
+## Basic usage
 
 ```r
 p <- Seurat::FeaturePlot(sample, 

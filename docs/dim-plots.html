@@ -60,7 +60,7 @@
 <h1>
 <span class="header-section-number">1</span> Dim plots<a class="anchor" aria-label="anchor" href="#dim-plots"><i class="fas fa-link"></i></a>
 </h1>
-<p>DimPlots are, probably, one of the most iconic visualizations from <code>Seurat</code>. It allows the user to visualize the cells in a dimensional reduction embedding such as <code>PCA</code> or <code>UMAP</code>. The cells can be, then, colored by any desired groups. In short, this visualization allows the user to plot <strong>any kind of categorical data</strong> onto the cells in the dimesional reduction embedding.</p>
+<p>DimPlots are, probably, one of the most iconic visualizations from <code>Seurat</code>. It allows the user to visualize the cells in a dimensional reduction embedding such as <code>PCA</code> or <code>UMAP</code>. The cells can be, then, colored by any desired groups. In short, this visualization allows the user to plot <strong>any kind of categorical data</strong> onto the cells in the dimensional reduction embedding.</p>
 <div id="figure-build-up" class="section level2" number="1.1">
 <h2>
 <span class="header-section-number">1.1</span> Figure build-up<a class="anchor" aria-label="anchor" href="#figure-build-up"><i class="fas fa-link"></i></a>
@@ -195,9 +195,9 @@ Figure 1.8: DimPlot with custom color scale.
 </div>
 <p>As of now, this plot looks much better and polished than the default counterpart. This, is the setting ground for <code><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">SCpubr::do_DimPlot()</a></code>.</p>
 </div>
-<div id="basic-dimplots" class="section level2" number="1.2">
+<div id="basic-usage" class="section level2" number="1.2">
 <h2>
-<span class="header-section-number">1.2</span> Basic DimPlots<a class="anchor" aria-label="anchor" href="#basic-dimplots"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.2</span> Basic usage<a class="anchor" aria-label="anchor" href="#basic-usage"><i class="fas fa-link"></i></a>
 </h2>
 <p>This is the default output from <code><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">SCpubr::do_DimPlot()</a></code>.</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
@@ -263,38 +263,66 @@ Figure 1.13: Seurat DimPlot with labels on top of the clusters.
 </div>
 <p>The labels present now bold text for further readability.</p>
 </div>
-<div id="highlighting-cells" class="section level2" number="1.4">
+<div id="modifying-default-colors" class="section level2" number="1.4">
 <h2>
-<span class="header-section-number">1.4</span> Highlighting cells<a class="anchor" aria-label="anchor" href="#highlighting-cells"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.4</span> Modifying default colors<a class="anchor" aria-label="anchor" href="#modifying-default-colors"><i class="fas fa-link"></i></a>
+</h2>
+<p>If wanted, we can also change the colors of the identities in the DimPlot based on a custom color scheme. For this, a <strong>named vector</strong> containing the names of the identities as names and the HEX codes as values has to be provided to <code>colors.use</code>:</p>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Create a color scale for the unique values in seurat clusters.</span>
+<span class="va">colors</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"0"</span> <span class="op">=</span> <span class="st">"#001219"</span>,
+            <span class="st">"1"</span> <span class="op">=</span> <span class="st">"#005f73"</span>,
+            <span class="st">"2"</span> <span class="op">=</span> <span class="st">"#0a9396"</span>,
+            <span class="st">"3"</span> <span class="op">=</span> <span class="st">"#94d2bd"</span>,
+            <span class="st">"4"</span> <span class="op">=</span> <span class="st">"#e9d8a6"</span>,
+            <span class="st">"5"</span> <span class="op">=</span> <span class="st">"#ee9b00"</span>,
+            <span class="st">"6"</span> <span class="op">=</span> <span class="st">"#ca6702"</span>,
+            <span class="st">"7"</span> <span class="op">=</span> <span class="st">"#bb3e03"</span>,
+            <span class="st">"8"</span> <span class="op">=</span> <span class="st">"#ae2012"</span>,
+            <span class="st">"9"</span> <span class="op">=</span> <span class="st">"#9b2226"</span><span class="op">)</span>
+
+<span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
+                        colors.use <span class="op">=</span> <span class="va">colors</span><span class="op">)</span>
+<span class="va">p</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-15"></span>
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-15-1.png" alt="SCpubr, modifying default colors in a DimPlot" width="100%" height="100%"><p class="caption">
+Figure 1.14: SCpubr, modifying default colors in a DimPlot
+</p>
+</div>
+</div>
+<div id="highlighting-cells" class="section level2" number="1.5">
+<h2>
+<span class="header-section-number">1.5</span> Highlighting cells<a class="anchor" aria-label="anchor" href="#highlighting-cells"><i class="fas fa-link"></i></a>
 </h2>
 <p>One of the nice features of <code><a href="https://satijalab.org/seurat/reference/DimPlot.html">Seurat::DimPlot()</a></code> is the possibility of highlighting a certain group of cells in the DimPlot. This is achieved by using the <code>cells.highligh</code> parameter. This is how the default plot looks like.</p>
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Select 1000 random cells out of clusters 1, 5 and 7.</span>
 <span class="va">cells.use</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">sample</span><span class="op">[</span>, <span class="va">sample</span><span class="op">$</span><span class="va">seurat_clusters</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"1"</span>, <span class="st">"5"</span>, <span class="st">"7"</span><span class="op">)</span><span class="op">]</span><span class="op">)</span>, <span class="fl">1000</span><span class="op">)</span>
 <span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">Seurat</span><span class="fu">::</span><span class="fu"><a href="https://satijalab.org/seurat/reference/DimPlot.html">DimPlot</a></span><span class="op">(</span><span class="va">sample</span>, 
                      cells.highlight <span class="op">=</span> <span class="va">cells.use</span><span class="op">)</span>
 <span class="va">p</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-15"></span>
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-15-1.png" alt="Seurat DimPlot highlighting cells." width="100%" height="100%"><p class="caption">
-Figure 1.14: Seurat DimPlot highlighting cells.
+<span style="display:block;" id="fig:unnamed-chunk-16"></span>
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-16-1.png" alt="Seurat DimPlot highlighting cells." width="100%" height="100%"><p class="caption">
+Figure 1.15: Seurat DimPlot highlighting cells.
 </p>
 </div>
-<p>This is how SCpubr returns this plot. For this, the same parameter has to be set up.</p>
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<p>To achieve a similar effect in <code><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">SCpubr::do_DimPlot()</a></code>, we can use the same parameter:</p>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Select 1000 random cells out of clusters 1, 5 and 7.</span>
 <span class="va">cells.use</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">sample</span><span class="op">[</span>, <span class="va">sample</span><span class="op">$</span><span class="va">seurat_clusters</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"1"</span>, <span class="st">"5"</span>, <span class="st">"7"</span><span class="op">)</span><span class="op">]</span><span class="op">)</span>, <span class="fl">1000</span><span class="op">)</span>
 <span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
                         cells.highlight <span class="op">=</span> <span class="va">cells.use</span><span class="op">)</span>
 <span class="va">p</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-16"></span>
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-16-1.png" alt="SCpubr DimPlot highlighting cells." width="100%" height="100%"><p class="caption">
-Figure 1.15: SCpubr DimPlot highlighting cells.
+<span style="display:block;" id="fig:unnamed-chunk-17"></span>
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-17-1.png" alt="SCpubr DimPlot highlighting cells." width="100%" height="100%"><p class="caption">
+Figure 1.16: SCpubr DimPlot highlighting cells.
 </p>
 </div>
 <p>By default, the size of all cells in <code><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">SCpubr::do_DimPlot()</a></code> is the same. However, the size of the highlighted dots can be modified with the parameter <code>sizes.highlight</code> from Seurat.</p>
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Select 1000 random cells out of clusters 1, 5 and 7.</span>
 <span class="va">cells.use</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">sample</span><span class="op">[</span>, <span class="va">sample</span><span class="op">$</span><span class="va">seurat_clusters</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"1"</span>, <span class="st">"5"</span>, <span class="st">"7"</span><span class="op">)</span><span class="op">]</span><span class="op">)</span>, <span class="fl">1000</span><span class="op">)</span>
 <span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
@@ -302,31 +330,31 @@ Figure 1.15: SCpubr DimPlot highlighting cells.
                         sizes.highlight <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
 <span class="va">p</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-17"></span>
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-17-1.png" alt="SCpubr DimPlot highlighting cells bigger dot size." width="100%" height="100%"><p class="caption">
-Figure 1.16: SCpubr DimPlot highlighting cells bigger dot size.
+<span style="display:block;" id="fig:unnamed-chunk-18"></span>
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-18-1.png" alt="SCpubr DimPlot highlighting cells bigger dot size." width="100%" height="100%"><p class="caption">
+Figure 1.17: SCpubr DimPlot highlighting cells bigger dot size.
 </p>
 </div>
 </div>
-<div id="splitting-by-a-category" class="section level2" number="1.5">
+<div id="splitting-by-a-category" class="section level2" number="1.6">
 <h2>
-<span class="header-section-number">1.5</span> Splitting by a category<a class="anchor" aria-label="anchor" href="#splitting-by-a-category"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.6</span> Splitting by a category<a class="anchor" aria-label="anchor" href="#splitting-by-a-category"><i class="fas fa-link"></i></a>
 </h2>
-<p>Another useful paramter of <code><a href="https://satijalab.org/seurat/reference/DimPlot.html">Seurat::DimPlot</a></code> is <code>split.by</code>, which allows you to split your DimPlot into multiple panels, each one containing a different unique value of the metadata variable you have provided to the argument. One can understand this as using the <code>group.by</code> parameter and then splitting the resulting DimPlot into different panels. In this example, we are going to use the different clusters as an example This is how it looks by default:</p>
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<p>Another useful parameter of <code><a href="https://satijalab.org/seurat/reference/DimPlot.html">Seurat::DimPlot</a></code> is <code>split.by</code>, which allows you to split your DimPlot into multiple panels, each one containing a different unique value of the metadata variable you have provided to the argument. One can understand this as using the <code>group.by</code> parameter and then splitting the resulting DimPlot into different panels. In this example, we are going to use the different clusters as an example This is how it looks by default:</p>
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Using ncol = 5 to maintain some of the proportions. </span>
 <span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">Seurat</span><span class="fu">::</span><span class="fu"><a href="https://satijalab.org/seurat/reference/DimPlot.html">DimPlot</a></span><span class="op">(</span><span class="va">sample</span>, 
                      split.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>, 
                      ncol <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>
 <span class="va">p</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-18"></span>
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-18-1.png" alt="Seurat DimPlot using split.by." width="100%" height="100%"><p class="caption">
-Figure 1.17: Seurat DimPlot using split.by.
+<span style="display:block;" id="fig:unnamed-chunk-19"></span>
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-19-1.png" alt="Seurat DimPlot using split.by." width="100%" height="100%"><p class="caption">
+Figure 1.18: Seurat DimPlot using split.by.
 </p>
 </div>
 <p>As can be observed, this plots accomplish the task of separating the cells into each panel, but the approach followed actually makes interpretation difficult. Clusters such as Cluster 9, with fewer cells, tell pretty much nothing. Not knowing how the original UMAP looked like is a major downside of this approach. This is where <code>SCpubr</code> focus. Instead of using <code>Seurat</code>’s <code>split.by</code> parameter, it generates as many plots as unique values in the metadata to split the plot by, but uses <code>cells.highlight</code> instead, which keeps the rest of cells greyed out. This is how it looks:</p>
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Using ncol = 5 to maintain some of the proportions.</span>
 <span class="co"># Using legend = F to remove unwanted repeated legends.</span>
 <span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span><span class="va">sample</span>, 
@@ -335,13 +363,13 @@ Figure 1.17: Seurat DimPlot using split.by.
                         legend <span class="op">=</span> <span class="cn">F</span><span class="op">)</span>
 <span class="va">p</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-19"></span>
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-19-1.png" alt="SCpubr DimPlot using split.by." width="100%" height="100%"><p class="caption">
-Figure 1.18: SCpubr DimPlot using split.by.
+<span style="display:block;" id="fig:unnamed-chunk-20"></span>
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-20-1.png" alt="SCpubr DimPlot using split.by." width="100%" height="100%"><p class="caption">
+Figure 1.19: SCpubr DimPlot using split.by.
 </p>
 </div>
 <p>This way, we can see that clusters such as Cluster 7 are way more disperse than the rest, accounting not only for standalone groups of cells but also blending in other bigger clusters. Actually, the user might want to change the color of the highlighted cells in this split DimPlot. This is achieved by using <code>colors.split</code> parameter and providing either a color name recognized by <code>ggplot2</code> or (recommended) a HEX code.</p>
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Using ncol = 5 to maintain some of the proportions.</span>
 <span class="co"># Using legend = F to remove unwanted repeated legends.</span>
 <span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span><span class="va">sample</span>, 
@@ -351,13 +379,13 @@ Figure 1.18: SCpubr DimPlot using split.by.
                         colors.split <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span>
 <span class="va">p</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-20"></span>
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-20-1.png" alt="SCpubr DimPlot using split.by with a changed color" width="100%" height="100%"><p class="caption">
-Figure 1.19: SCpubr DimPlot using split.by with a changed color
+<span style="display:block;" id="fig:unnamed-chunk-21"></span>
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-21-1.png" alt="SCpubr DimPlot using split.by with a changed color" width="100%" height="100%"><p class="caption">
+Figure 1.20: SCpubr DimPlot using split.by with a changed color
 </p>
 </div>
-<p>Furthermore, one might also want to color each cluster by the original color. This can be achieved by using the argument <code>colorss.split</code>, either providing a named vector of each cluster (or metadata variable unique value) as names and color hex codes as values or <code>TRUE</code>, thus resorting to the default <code>SCpubr</code> categorical coloring.</p>
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
+<p>Furthermore, one might also want to color each cluster by the original color. This can be achieved by using the argument <code>colors.split</code>, either providing a named vector of each cluster (or metadata variable unique value) as names and color hex codes as values or <code>TRUE</code>, thus resorting to the default <code>SCpubr</code> categorical coloring.</p>
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Using ncol = 5 to maintain some of the proportions.</span>
 <span class="co"># Using legend = F to remove unwanted repeated legends.</span>
 <span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span><span class="va">sample</span>, 
@@ -367,9 +395,9 @@ Figure 1.19: SCpubr DimPlot using split.by with a changed color
                         colors.split <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="va">p</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-21"></span>
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-21-1.png" alt="SCpubr DimPlot using split.by with default SCpubr colors" width="100%" height="100%"><p class="caption">
-Figure 1.20: SCpubr DimPlot using split.by with default SCpubr colors
+<span style="display:block;" id="fig:unnamed-chunk-22"></span>
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-22-1.png" alt="SCpubr DimPlot using split.by with default SCpubr colors" width="100%" height="100%"><p class="caption">
+Figure 1.21: SCpubr DimPlot using split.by with default SCpubr colors
 </p>
 </div>
 
@@ -386,10 +414,11 @@ Figure 1.20: SCpubr DimPlot using split.by with default SCpubr colors
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#dim-plots"><span class="header-section-number">1</span> Dim plots</a></li>
 <li><a class="nav-link" href="#figure-build-up"><span class="header-section-number">1.1</span> Figure build-up</a></li>
-<li><a class="nav-link" href="#basic-dimplots"><span class="header-section-number">1.2</span> Basic DimPlots</a></li>
+<li><a class="nav-link" href="#basic-usage"><span class="header-section-number">1.2</span> Basic usage</a></li>
 <li><a class="nav-link" href="#using-labels-instead-of-a-legend"><span class="header-section-number">1.3</span> Using labels instead of a legend</a></li>
-<li><a class="nav-link" href="#highlighting-cells"><span class="header-section-number">1.4</span> Highlighting cells</a></li>
-<li><a class="nav-link" href="#splitting-by-a-category"><span class="header-section-number">1.5</span> Splitting by a category</a></li>
+<li><a class="nav-link" href="#modifying-default-colors"><span class="header-section-number">1.4</span> Modifying default colors</a></li>
+<li><a class="nav-link" href="#highlighting-cells"><span class="header-section-number">1.5</span> Highlighting cells</a></li>
+<li><a class="nav-link" href="#splitting-by-a-category"><span class="header-section-number">1.6</span> Splitting by a category</a></li>
 </ul>
 
       <div class="book-extra">
@@ -408,7 +437,7 @@ Figure 1.20: SCpubr DimPlot using split.by with default SCpubr colors
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 18 February, 2022.</p>
+    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 19 February, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

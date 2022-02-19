@@ -8,6 +8,7 @@ This plot comes straight from the [Nebulosa package](http://bioconductor.org/pac
 sample <- readRDS("/b06x-isilon/b06x-g/G703/eblanco/projects/test_SC_datasets/sc_dataset.rds")
 ```
 
+## Basic usage
 ```{r, fig.cap= "Nebulosa plot", fig.width=8, fig.height=7}
 p <- Nebulosa::plot_density(sample,
                             features = "CD14")

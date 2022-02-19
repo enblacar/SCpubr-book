@@ -8,8 +8,6 @@ Let's say we want to focus on how much each cluster is driven by the PC_1 and PC
 
 
 
-
-
 ```r
 p1 <- SCpubr::do_DimPlot(sample, 
                          reduction = "pca", 
@@ -172,6 +170,35 @@ p1 | p2 | p3
 
 By using this combination of figures, we can also assess that the monocyte signature seems to be predominantly enriched in clusters 0 and 7.
 
+## Change default colors in categorical variables
+Same as with other categorical representations, we can modify the default color palette by providing a custom one to `colors.use`. This has to be a named vector of HEX values with the names of the groups as names of the values:
+
+
+```r
+# Create a color scale for the unique values in seurat clusters.
+colors <- c("0" = "#001219",
+            "1" = "#005f73",
+            "2" = "#0a9396",
+            "3" = "#94d2bd",
+            "4" = "#e9d8a6",
+            "5" = "#ee9b00",
+            "6" = "#ca6702",
+            "7" = "#bb3e03",
+            "8" = "#ae2012",
+            "9" = "#9b2226")
+
+p <- SCpubr::do_BeeSwarmPlot(sample = sample, 
+                             feature_to_rank = "Monocyte_signature", 
+                             group.by = "seurat_clusters",
+                             colors.use = colors)
+p
+```
+
+<div class="figure" style="text-align: center">
+<img src="06-BeeSwarmPlots_files/figure-html/unnamed-chunk-7-1.png" alt="SCpubr, modifying default colors in a Bee Swarm plot" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-7)SCpubr, modifying default colors in a Bee Swarm plot</p>
+</div>
+
 ## Modify color maps for continuous variables
 Same as in `SCpubr::do_FeaturePlot()`, it is also change the color map of the plot to one of the eight possible ones defined in [viridis](https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html). This is achieved by using `viridis_color_map` parameter and the color map name or code (capital letter). Options are:
 
@@ -203,7 +230,7 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="06-BeeSwarmPlots_files/figure-html/unnamed-chunk-7-1.png" alt="SCpubr Nebulosa plot modifying viridis color maps." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-7)SCpubr Nebulosa plot modifying viridis color maps.</p>
+<img src="06-BeeSwarmPlots_files/figure-html/unnamed-chunk-8-1.png" alt="SCpubr Nebulosa plot modifying viridis color maps." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-8)SCpubr Nebulosa plot modifying viridis color maps.</p>
 </div>
 

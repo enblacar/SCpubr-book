@@ -6,6 +6,7 @@ This plot comes straight from the [Nebulosa package](http://bioconductor.org/pac
 
 
 
+## Basic usage
 
 ```r
 p <- Nebulosa::plot_density(sample,

@@ -5,11 +5,18 @@ Bar plots are another well known data representation. They are a very handy reso
 
 
 
-
+## Basic usage
 
 ```r
-p1 <- SCpubr::do_BarPlot(sample, feature = "seurat_clusters", legend = F, plot.title = "Number of cells per cluster")
-p2 <- SCpubr::do_BarPlot(sample, feature = "seurat_clusters", legend = F, plot.title = "Number of cells per cluster", horizontal = T)
+p1 <- SCpubr::do_BarPlot(sample = sample, 
+                         features = "seurat_clusters", 
+                         legend = F, 
+                         plot.title = "Number of cells per cluster")
+p2 <- SCpubr::do_BarPlot(sample = sample, 
+                         features = "seurat_clusters", 
+                         legend = F, 
+                         plot.title = "Number of cells per cluster", 
+                         horizontal = T)
 p1 | p2
 ```
 
@@ -20,66 +27,65 @@ p1 | p2
 Using `SCpubr::do_BarPlot()` with only `features` yields a simple bar plot which is ordered by descending value. We can also set up the direction of the bars with `horizontal = TRUE/FALSE`, which by default is set to be vertical There are some underlying assumptions that are being taken to generate these plots:
 
 - The values in `features` need to be metadata variables, stored in `object@meta.data`. This a design choice, as data need to be grouped using `dplyr` and `tidyr`. This will also later apply to values provided to `group.by`.
-- The feature provided need to have a clear and rather small number of groups. A good estimate on how to assess this is by querying the feature with `table`, as in:
-
-
-```r
-table(sample@meta.data[, feature])
-```
-
+- The feature provided need to have a clear and rather small number of groups. A good estimate on how to assess this is by querying the feature with `table`, as in `table(sample@meta.data[, feature])`.
 
 Focusing on the last point, this would happen if we were to choose a feature with a high number of unique values:
 
 
 ```r
 
-p <- SCpubr::do_BarPlot(sample, feature = "nCount_RNA", legend = F, plot.title = "Number of UMIs?", horizontal = F)
+p <- SCpubr::do_BarPlot(sample = sample, 
+                        features = "nCount_RNA", 
+                        legend = F, 
+                        plot.title = "Number of UMIs?",
+                        horizontal = F)
 p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="09-BarPlots_files/figure-html/unnamed-chunk-4-1.png" alt="SCpubr Bar plots, choosing the wrong variable" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-4)SCpubr Bar plots, choosing the wrong variable</p>
+<img src="09-BarPlots_files/figure-html/unnamed-chunk-3-1.png" alt="SCpubr Bar plots, choosing the wrong variable" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-3)SCpubr Bar plots, choosing the wrong variable</p>
 </div>
 
 This happens, precisely, because of the high amount of unique values for `nCount_RNA`. These type of continuous values is best suited for other data visualizations like a `histogram`.
 
-## Introducing a second variable to group the feature by
+## Grouping by a second variable
 Let's expand on the previous example on the number of cells per cluster. What if we were interested not only on that, but we would like to profile **how many cells from each cluster are present in each of the unique samples present in the Seurat object**? For this, we need to provide `SCpubr::do_BarPlot()` with a second parameter, `group.by`, that tackles how we want the feature to be grouped:
 
 
 ```r
 # We only have one value in orig.ident. Let's modify it so that it resembles a multi-sample Seurat object.
-sample$modified_orig.ident <- sample(c("Sample_A", "Sample_B", "Sample_C"), ncol(sample), replace = T, prob = c(0.2, 0.7, 0.1))
+sample$modified_orig.ident <- sample(x = c("Sample_A", "Sample_B", "Sample_C"), 
+                                     size = ncol(sample), 
+                                     replace = T, 
+                                     prob = c(0.2, 0.7, 0.1))
 
 p1 <- SCpubr::do_BarPlot(sample, 
-                        feature = "modified_orig.ident",
-                        plot.title = "Number of cells per sample",
-                        position = "stack",
-                        legend = T,
-                        horizontal = F)
-#> Warning in SCpubr::do_BarPlot(sample, feature =
-#> "modified_orig.ident", plot.title = "Number of cells per
-#> sample", : Recommended settings without using group.by is to
-#> set legend to FALSE.
+                         features = "modified_orig.ident",
+                         plot.title = "Number of cells per sample",
+                         position = "stack",
+                         legend = T,
+                         horizontal = F)
+#> Warning in SCpubr::do_BarPlot(sample, features =
+#> "modified_orig.ident", : Recommended settings without using
+#> group.by is to set legend to FALSE.
 
 p2 <- SCpubr::do_BarPlot(sample, 
-                        feature = "modified_orig.ident", 
-                        group.by = "seurat_clusters",
-                        plot.title = "Number of cells per cluster and sample",
-                        position = "stack",
-                        legend = T,
-                        horizontal = F)
-#> Warning in SCpubr::do_BarPlot(sample, feature =
-#> "modified_orig.ident", group.by = "seurat_clusters", :
-#> Recommended settings when using group.by is to set position
-#> to 'fill'.
+                         features = "modified_orig.ident", 
+                         group.by = "seurat_clusters",
+                         plot.title = "Number of cells per cluster and sample",
+                         position = "stack",
+                         legend = T,
+                         horizontal = F)
+#> Warning in SCpubr::do_BarPlot(sample, features =
+#> "modified_orig.ident", : Recommended settings when using
+#> group.by is to set position to 'fill'.
 p1 | p2
 ```
 
 <div class="figure" style="text-align: center">
-<img src="09-BarPlots_files/figure-html/unnamed-chunk-5-1.png" alt="SCpubr Bar plots, introducing a variable to group values by" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-5)SCpubr Bar plots, introducing a variable to group values by</p>
+<img src="09-BarPlots_files/figure-html/unnamed-chunk-4-1.png" alt="SCpubr Bar plots, introducing a variable to group values by" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-4)SCpubr Bar plots, introducing a variable to group values by</p>
 </div>
 
 As we can see, this nicely yields as many number of bars as unique values in the `feature`, and this bars are segmented by as many times as unique values in `group.by`. At first, this is hard to grasp, but it helps thinking of these two parameters, when used together, as:
@@ -94,57 +100,53 @@ Another interesting parameter introduced in the last example is `position`. Posi
 # We are going to use the previously generated sample assignment.
 
 p1 <- SCpubr::do_BarPlot(sample, 
-                        feature = "modified_orig.ident",
-                        plot.title = "Without group.by - position = stack",
-                        position = "stack",
-                        legend = T,
-                        horizontal = F)
-#> Warning in SCpubr::do_BarPlot(sample, feature =
-#> "modified_orig.ident", plot.title = "Without group.by -
-#> position = stack", : Recommended settings without using
+                         features = "modified_orig.ident",
+                         plot.title = "Without group.by - position = stack",
+                         position = "stack",
+                         legend = T,
+                         horizontal = F)
+#> Warning in SCpubr::do_BarPlot(sample, features =
+#> "modified_orig.ident", : Recommended settings without using
 #> group.by is to set legend to FALSE.
 
 p2 <- SCpubr::do_BarPlot(sample, 
-                        feature = "modified_orig.ident",
-                        plot.title = "Without group.by - position = fill",
-                        position = "fill",
-                        legend = T,
-                        horizontal = F)
-#> Warning in SCpubr::do_BarPlot(sample, feature =
-#> "modified_orig.ident", plot.title = "Without group.by -
-#> position = fill", : Recommended settings without using
+                         features = "modified_orig.ident",
+                         plot.title = "Without group.by - position = fill",
+                         position = "fill",
+                         legend = T,
+                         horizontal = F)
+#> Warning in SCpubr::do_BarPlot(sample, features =
+#> "modified_orig.ident", : Recommended settings without using
 #> group.by is to set legend to FALSE.
-#> Warning in SCpubr::do_BarPlot(sample, feature =
-#> "modified_orig.ident", plot.title = "Without group.by -
-#> position = fill", : Recommended settings without using
+#> Warning in SCpubr::do_BarPlot(sample, features =
+#> "modified_orig.ident", : Recommended settings without using
 #> group.by is to set position to 'stack'.
 
 p3 <- SCpubr::do_BarPlot(sample, 
-                        feature = "modified_orig.ident",
-                        group.by = "seurat_clusters",
-                        plot.title = "With group.by - position = stack",
-                        position = "stack",
-                        legend = T,
-                        horizontal = F)
-#> Warning in SCpubr::do_BarPlot(sample, feature =
-#> "modified_orig.ident", group.by = "seurat_clusters", :
-#> Recommended settings when using group.by is to set position
-#> to 'fill'.
+                         features = "modified_orig.ident",
+                         group.by = "seurat_clusters",
+                         plot.title = "With group.by - position = stack",
+                         position = "stack",
+                         legend = T,
+                         horizontal = F)
+#> Warning in SCpubr::do_BarPlot(sample, features =
+#> "modified_orig.ident", : Recommended settings when using
+#> group.by is to set position to 'fill'.
 
 p4 <- SCpubr::do_BarPlot(sample, 
-                        feature = "modified_orig.ident",
-                        group.by = "seurat_clusters",
-                        plot.title = "With group.by - position = fill",
-                        position = "fill",
-                        legend = T,
-                        horizontal = F)
+                         features = "modified_orig.ident",
+                         group.by = "seurat_clusters",
+                         plot.title = "With group.by - position = fill",
+                         position = "fill",
+                         legend = T,
+                         horizontal = F)
 p <- (p1 | p2) / (p3 | p4)
 p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="09-BarPlots_files/figure-html/unnamed-chunk-6-1.png" alt="SCpubr Bar plots, difference between position" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-6)SCpubr Bar plots, difference between position</p>
+<img src="09-BarPlots_files/figure-html/unnamed-chunk-5-1.png" alt="SCpubr Bar plots, difference between position" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-5)SCpubr Bar plots, difference between position</p>
 </div>
 
 
@@ -160,38 +162,37 @@ sample$modified_seurat_clusters <- as.character(sample$seurat_clusters)
 sample$modified_seurat_clusters[sample$modified_orig.ident == "Sample_A" & sample$modified_seurat_clusters %in% c("0", "2", "3", "4", "5", "6", "7")] <- "1"
 
 p1 <- SCpubr::do_BarPlot(sample, 
-                        feature = "modified_orig.ident",
-                        group.by = "modified_seurat_clusters",
-                        plot.title = "Number of cells per sample",
-                        order.by = "1",
-                        position = "stack",
-                        legend = T,
-                        horizontal = F)
-#> Warning in SCpubr::do_BarPlot(sample,
-#> feature = "modified_orig.ident", group.by =
-#> "modified_seurat_clusters", : Recommended settings when
-#> using group.by is to set position to 'fill'.
+                         features = "modified_orig.ident",
+                         group.by = "modified_seurat_clusters",
+                         plot.title = "Number of cells per sample",
+                         order.by = "1",
+                         position = "stack",
+                         legend = T,
+                         horizontal = F)
+#> Warning in SCpubr::do_BarPlot(sample, features =
+#> "modified_orig.ident", : Recommended settings when using
+#> group.by is to set position to 'fill'.
 
 p2 <- SCpubr::do_BarPlot(sample, 
-                        feature = "modified_orig.ident", 
-                        group.by = "modified_seurat_clusters",
-                        plot.title = "Number of cells per cluster and sample",
-                        order.by = "1",
-                        position = "fill",
-                        legend = T,
-                        horizontal = F)
+                         features = "modified_orig.ident", 
+                         group.by = "modified_seurat_clusters",
+                         plot.title = "Number of cells per cluster and sample",
+                         order.by = "1",
+                         position = "fill",
+                         legend = T,
+                         horizontal = F)
 p1 | p2
 ```
 
 <div class="figure" style="text-align: center">
-<img src="09-BarPlots_files/figure-html/unnamed-chunk-7-1.png" alt="SCpubr Bar plots, reordering the colums using order.by" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-7)SCpubr Bar plots, reordering the colums using order.by</p>
+<img src="09-BarPlots_files/figure-html/unnamed-chunk-6-1.png" alt="SCpubr Bar plots, reordering the colums using order.by" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-6)SCpubr Bar plots, reordering the colums using order.by</p>
 </div>
 
 
 ## Adding custom color scales.
 
-If necesary, the colors of the plots can be easily changed using the `colors.use` parameter, which requires a **named vector** containing the HEX codes of the colors to show and the names of the unique values that are being used as color groups. Here is one example:
+If necessary, the colors of the plots can be easily changed using the `colors.use` parameter, which requires a **named vector** containing the HEX codes of the colors to show and the names of the unique values that are being used as color groups. Here is one example:
 
 
 ```r
@@ -207,21 +208,24 @@ colors <- c("0" = "#001219",
             "8" = "#ae2012",
             "9" = "#9b2226")
 
-p1 <- SCpubr::do_BarPlot(sample, feature = "seurat_clusters", legend = F, plot.title = "Number of cells per cluster", horizontal = T, colors.use = colors)
+p1 <- SCpubr::do_BarPlot(sample = sample, 
+                         features = "seurat_clusters", 
+                         legend = F, 
+                         plot.title = "Number of cells per cluster", horizontal = T, colors.use = colors)
 p2 <- SCpubr::do_BarPlot(sample, 
-                        feature = "modified_orig.ident",
-                        group.by = "seurat_clusters",
-                        plot.title = "With group.by - position = fill",
-                        position = "fill",
-                        legend = T,
-                        horizontal = F,
-                        colors.use = colors)
+                         features = "modified_orig.ident",
+                         group.by = "seurat_clusters",
+                         plot.title = "With group.by - position = fill",
+                         position = "fill",
+                         legend = T,
+                         horizontal = F,
+                         colors.use = colors)
 p1 | p2
 ```
 
 <div class="figure" style="text-align: center">
-<img src="09-BarPlots_files/figure-html/unnamed-chunk-8-1.png" alt="SCpubr, modifying colors" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-8)SCpubr, modifying colors</p>
+<img src="09-BarPlots_files/figure-html/unnamed-chunk-7-1.png" alt="SCpubr, modifying colors" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-7)SCpubr, modifying colors</p>
 </div>
 
 
