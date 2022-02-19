@@ -10,3 +10,5 @@ bookdown::bs4_book:
     branch: main
   fig_caption: true
   footnotes_inline: true
+  includes:
+    in_header: [header.html]
