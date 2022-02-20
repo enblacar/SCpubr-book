@@ -22,7 +22,7 @@ p
 This way, not only we do know which clusters are enriched in CD14, we also know the regions of it with the highest density of cells expressing it. Minor modifications, on the line of the rest of plots, are applied in `SCpubr`:
 
 ```r
-p <- SCpubr::do_NebulosaPlot(sample, 
+p <- SCpubr::do_NebulosaPlot(sample = sample, 
                              features = "CD14")
 p
 ```
@@ -36,9 +36,9 @@ Then, this type visualization becomes a natural partner to `Seurat::FeaturePlot(
 
 
 ```r
-p1 <- SCpubr::do_FeaturePlot(sample, 
+p1 <- SCpubr::do_FeaturePlot(sample = sample, 
                              features = "CD14") 
-p2 <- SCpubr::do_NebulosaPlot(sample, 
+p2 <- SCpubr::do_NebulosaPlot(sample = sample, 
                               features = "CD14")
 p1 | p2
 ```
@@ -66,7 +66,7 @@ But, more intriguingly, it can also compute the **joint** density of the two fea
 
 
 ```r
-p <- SCpubr::do_NebulosaPlot(sample, 
+p <- SCpubr::do_NebulosaPlot(sample = sample, 
                              features = c("CD14", "CD8A"), 
                              joint = TRUE)
 p 
@@ -81,7 +81,7 @@ If we were interested in retrieving only the joint density plot, we can accompli
 
 
 ```r
-p <- SCpubr::do_NebulosaPlot(sample, 
+p <- SCpubr::do_NebulosaPlot(sample = sample, 
                              features = c("CD14", "CD8A"), 
                              joint = TRUE, 
                              combine = F)
@@ -91,6 +91,25 @@ p[[3]]
 <div class="figure" style="text-align: center">
 <img src="05-NebulosaPlots_files/figure-html/unnamed-chunk-7-1.png" alt="SCpubr Nebulosa plot with joint density, selecting only the last plot" width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-7)SCpubr Nebulosa plot with joint density, selecting only the last plot</p>
+</div>
+
+If we query multiple features or use `joint = TRUE`, then using `plot.title` will add a general title to the different panels generated. To then modify the plot title of each individual panel, a vector **of the same length as the number of features** needs to be provided to `individual.titles` parameter. In case a title does not need to be changed, use `NA` instead. Please take note that `joint = TRUE` will generate an extra panel that needs another plot title.
+
+
+```r
+p <- SCpubr::do_NebulosaPlot(sample = sample, 
+                             features = c("CD14", "CD8A"), 
+                             joint = TRUE, 
+                             combine = F,
+                             individual.titles = c("Plot A",
+                                                   NA,
+                                                   "Combined density"))
+p
+```
+
+<div class="figure" style="text-align: center">
+<img src="05-NebulosaPlots_files/figure-html/unnamed-chunk-8-1.png" alt="SCpubr Nebulosa plot with joint density, modifying each individual plot's name" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-8)SCpubr Nebulosa plot with joint density, modifying each individual plot's name</p>
 </div>
 
 ## Modify color maps
@@ -124,6 +143,6 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="05-NebulosaPlots_files/figure-html/unnamed-chunk-8-1.png" alt="SCpubr Nebulosa plot modifying viridis color maps." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-8)SCpubr Nebulosa plot modifying viridis color maps.</p>
+<img src="05-NebulosaPlots_files/figure-html/unnamed-chunk-9-1.png" alt="SCpubr Nebulosa plot modifying viridis color maps." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-9)SCpubr Nebulosa plot modifying viridis color maps.</p>
 </div>

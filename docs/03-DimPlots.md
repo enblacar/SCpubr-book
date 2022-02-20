@@ -281,15 +281,18 @@ p
 <p class="caption">(\#fig:unnamed-chunk-16)Seurat DimPlot highlighting cells.</p>
 </div>
 
-To achieve a similar effect in `SCpubr::do_DimPlot()`, we can use the same parameter:
+To achieve a similar effect in `SCpubr::do_DimPlot()`, we can use the same parameter `cells.highlight`. Also, we can change the color of the highligted cells by providing single color to `colors.use`:
 
 
 ```r
 # Select 1000 random cells out of clusters 1, 5 and 7.
 cells.use <- sample(colnames(sample[, sample$seurat_clusters %in% c("1", "5", "7")]), 1000)
-p <- SCpubr::do_DimPlot(sample = sample, 
-                        cells.highlight = cells.use)
-p
+p1 <- SCpubr::do_DimPlot(sample = sample, 
+                         cells.highlight = cells.use)
+p2 <- SCpubr::do_DimPlot(sample = sample, 
+                         cells.highlight = cells.use,
+                         colors.use = "steelblue")
+p1 | p2
 ```
 
 <div class="figure" style="text-align: center">
@@ -349,45 +352,41 @@ p
 <p class="caption">(\#fig:unnamed-chunk-20)SCpubr DimPlot using split.by.</p>
 </div>
 
-This way, we can see that clusters such as Cluster 7 are way more disperse than the rest, accounting not only for standalone groups of cells but also blending in other bigger clusters. Actually, the user might want to change the color of the highlighted cells in this split DimPlot. This is achieved by using `colors.split` parameter and providing either a color name recognized by `ggplot2` or (recommended) a HEX code.
+This way, we can see that clusters such as Cluster 7 are way more disperse than the rest, accounting not only for standalone groups of cells but also blending in other bigger clusters. Actually, the user might want to change the color of the highlighted cells in this split DimPlot. This is achieved by using `colors.use` parameter and providing either a vector of **valid color representations** of equal length to unique values in `split.by` or just a single color to color all panels the same.
 
 
 
 ```r
-# Using ncol = 5 to maintain some of the proportions.
-# Using legend = F to remove unwanted repeated legends.
-p <- SCpubr::do_DimPlot(sample, 
-                        split.by = "seurat_clusters", 
-                        ncol = 5, 
-                        legend = F, 
-                        colors.split = "black")
-p
+# Create a color scale for the unique values in seurat clusters.
+colors <- c("0" = "#001219",
+            "1" = "#005f73",
+            "2" = "#0a9396",
+            "3" = "#94d2bd",
+            "4" = "#e9d8a6",
+            "5" = "#ee9b00",
+            "6" = "#ca6702",
+            "7" = "#bb3e03",
+            "8" = "#ae2012",
+            "9" = "#9b2226")
+
+p1 <- SCpubr::do_DimPlot(sample, 
+                         split.by = "seurat_clusters", 
+                         ncol = 5, 
+                         legend = F, 
+                         colors.use = colors)
+
+p2 <- SCpubr::do_DimPlot(sample, 
+                         split.by = "seurat_clusters", 
+                         ncol = 5, 
+                         legend = F, 
+                         colors.use = "#008080")
+p1 / p2
 ```
 
 <div class="figure" style="text-align: center">
 <img src="03-DimPlots_files/figure-html/unnamed-chunk-21-1.png" alt="SCpubr DimPlot using split.by with a changed color" width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-21)SCpubr DimPlot using split.by with a changed color</p>
 </div>
-
-Furthermore, one might also want to color each cluster by the original color. This can be achieved by using the argument `colors.split`, either providing a named vector of each cluster (or metadata variable unique value) as names and color hex codes as values or `TRUE`, thus resorting to the default `SCpubr` categorical coloring. 
-
-
-```r
-# Using ncol = 5 to maintain some of the proportions.
-# Using legend = F to remove unwanted repeated legends.
-p <- SCpubr::do_DimPlot(sample, 
-                        split.by = "seurat_clusters", 
-                        ncol = 5, 
-                        legend = F, 
-                        colors.split = TRUE)
-p
-```
-
-<div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-22-1.png" alt="SCpubr DimPlot using split.by with default SCpubr colors" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-22)SCpubr DimPlot using split.by with default SCpubr colors</p>
-</div>
-
 
 
 

@@ -18,7 +18,6 @@ fig:unnamed-chunk-18
 fig:unnamed-chunk-19
 fig:unnamed-chunk-20
 fig:unnamed-chunk-21
-fig:unnamed-chunk-22
 dim-plots
 figure-build-up
 basic-usage

@@ -70,28 +70,22 @@ p
 <p class="caption">(\#fig:unnamed-chunk-5)SCpubr FeaturePlot, with 4 features and 2 columns</p>
 </div>
 
-With multiple queries, using `plot.title` parameter actually adds an overall title. If one wants to modify the title of each plot independently, a more complex approach is needed, which requires more R expertise, using `patchwork` package.
+With multiple queries, using `plot.title` parameter actually adds a general title to all plots. If one wants to modify the title of each plot independently, a vector **of the same length as the number of features** needs to be provided to `individual.titles` parameter. In case a title does not need to be changed, use `NA` instead.
 
 
 ```r
-p1 <- SCpubr::do_FeaturePlot(sample, 
-                             features = "nCount_RNA", 
-                             plot.title = "Plot A")
-p2 <- SCpubr::do_FeaturePlot(sample, 
-                             features = "nFeature_RNA", 
-                             plot.title = "Plot B")
-p3 <- SCpubr::do_FeaturePlot(sample, 
-                             features = "percent.mt", 
-                             plot.title = "Plot C") 
-p4 <- SCpubr::do_FeaturePlot(sample, 
-                             features = "CD14", 
-                             plot.title = "Plot D")
-patch <- patchwork::wrap_plots(list(p1, p2, p3, p4), ncol = 2) + 
-          patchwork::plot_annotation(title = "My very important features", 
-                                     theme = ggplot2::theme(plot.title = ggplot2::element_text(size = 18, 
-                                                                                               face = "bold", 
-                                                                                               hjust = 0.5)))
-patch
+p <- SCpubr::do_FeaturePlot(sample = sample,
+                            features = c("nCount_RNA",
+                                         "nFeature_RNA",
+                                         "percent.mt",
+                                         "CD14"),
+                            plot.title = "My very important features",
+                            individual.titles = c("Plot A",
+                                                  "Plot_B",
+                                                  NA,
+                                                  "Plot_D"),
+                            ncol = 2)
+p
 ```
 
 <div class="figure" style="text-align: center">

@@ -79,6 +79,9 @@ cols.use <- colortools::setColors("steelblue",
                                   length(levels(sample)))
 names(cols.use) <- levels(sample)
 
+# Only provide the needed colors. If more are provided, an error is thrown.
+cols.use <- cols.use[!(names(cols.use) %in% clusters_exclude)]
+
 p1 <- SCpubr::do_DimPlot(sample = sample[, !(sample$seurat_clusters %in% clusters_exclude)], 
                          reduction = "pca", 
                          label = T, 
@@ -110,6 +113,10 @@ clusters_exclude <- c("0", "1", "2", "3", "5", "7", "8", "9")
 # Keep the original coloring.
 cols.use <- colortools::setColors("steelblue", length(levels(sample)))
 names(cols.use) <- levels(sample)
+
+# Only provide the needed colors. If more are provided, an error is thrown.
+cols.use <- cols.use[!(names(cols.use) %in% clusters_exclude)]
+
 
 p1 <- SCpubr::do_DimPlot(sample = sample[, !(sample$seurat_clusters %in% clusters_exclude)], 
                          reduction = "pca", 

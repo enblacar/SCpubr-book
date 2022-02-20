@@ -17,7 +17,7 @@ p
 
 This way, not only we do know which clusters are enriched in CD14, we also know the regions of it with the highest density of cells expressing it. Minor modifications, on the line of the rest of plots, are applied in `SCpubr`:
 ```{r, fig.cap = "SCpubr Nebulosa plot.", fig.width=8, fig.height=7}
-p <- SCpubr::do_NebulosaPlot(sample, 
+p <- SCpubr::do_NebulosaPlot(sample = sample, 
                              features = "CD14")
 p
 ```
@@ -25,9 +25,9 @@ p
 Then, this type visualization becomes a natural partner to `Seurat::FeaturePlot()' as not only we are able to visualize the expression of a variable, but also query the density of the surrounding cells. Here is an example:
 
 ```{r, fig.cap = "SCpubr FeaturePlot and NebulosaPlot.", fig.width=16, fig.height=7}
-p1 <- SCpubr::do_FeaturePlot(sample, 
+p1 <- SCpubr::do_FeaturePlot(sample = sample, 
                              features = "CD14") 
-p2 <- SCpubr::do_NebulosaPlot(sample, 
+p2 <- SCpubr::do_NebulosaPlot(sample = sample, 
                               features = "CD14")
 p1 | p2
 ```
@@ -43,7 +43,7 @@ p
 But, more intriguingly, it can also compute the **joint** density of the two features. This is achieved by parsing `joint = TRUE`.
 
 ```{r, fig.cap = "SCpubr Nebulosa plot with joint density", fig.width=24, fig.height=7}
-p <- SCpubr::do_NebulosaPlot(sample, 
+p <- SCpubr::do_NebulosaPlot(sample = sample, 
                              features = c("CD14", "CD8A"), 
                              joint = TRUE)
 p 
@@ -52,11 +52,24 @@ p
 If we were interested in retrieving only the joint density plot, we can accomplish it as:
 
 ```{r, fig.cap = "SCpubr Nebulosa plot with joint density, selecting only the last plot", fig.width=8, fig.height=7}
-p <- SCpubr::do_NebulosaPlot(sample, 
+p <- SCpubr::do_NebulosaPlot(sample = sample, 
                              features = c("CD14", "CD8A"), 
                              joint = TRUE, 
                              combine = F)
 p[[3]]
+```
+
+If we query multiple features or use `joint = TRUE`, then using `plot.title` will add a general title to the different panels generated. To then modify the plot title of each individual panel, a vector **of the same length as the number of features** needs to be provided to `individual.titles` parameter. In case a title does not need to be changed, use `NA` instead. Please take note that `joint = TRUE` will generate an extra panel that needs another plot title.
+
+```{r, fig.cap = "SCpubr Nebulosa plot with joint density, modifying each individual plot's name", fig.width=24, fig.height=7}
+p <- SCpubr::do_NebulosaPlot(sample = sample, 
+                             features = c("CD14", "CD8A"), 
+                             joint = TRUE, 
+                             combine = F,
+                             individual.titles = c("Plot A",
+                                                   NA,
+                                                   "Combined density"))
+p
 ```
 
 ## Modify color maps
