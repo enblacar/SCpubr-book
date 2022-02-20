@@ -17,7 +17,7 @@ p
 <img src="04-FeaturePlots_files/figure-html/unnamed-chunk-2-1.png" alt="Seurat FeaturePlot" width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-2)Seurat FeaturePlot</p>
 </div>
-First thing that stands out, it that the color scale could be changed to one with two very opposite ends, so that identifying regions with low and high UMIs become an easier task. Apart from that, we want apply the same treatment as in `do_DimPlot()` section. 
+First thing that stands out, it that the color scale could be changed to one with two very opposite ends, so that identifying regions with low and high UMIs become an easier task. Apart from that, we want apply the same treatment as in `SCpubr::do_DimPlot()`: 
 
 
 ```r
@@ -56,7 +56,10 @@ By default, `SCpubr` enlarges the dots a bit and makes the legend bold, to bette
 
 
 ```r
-p <- SCpubr::do_FeaturePlot(sample, features = c("nCount_RNA", "nFeature_RNA", "percent.mt", "CD14"), 
+p <- SCpubr::do_FeaturePlot(sample, features = c("nCount_RNA", 
+                                                 "nFeature_RNA", 
+                                                 "percent.mt", 
+                                                 "CD14"), 
                             plot.title = "My very important features", 
                             ncol = 2)
 p

@@ -15,7 +15,7 @@ csl: chicago-fullnote-bibliography.csl
 ---
 # About this package {-}
 
-<span class="border-0"><img src="images/SCpubr_logo_transparent.png" class="mx-auto d-block" width="500" height="500" alt="" style="box-shadow: none"/></span>
+<span class="border-0"><img src="images/SCpubr_logo.png" class="mx-auto d-block" width="500" height="500" alt="" style="box-shadow: none"/></span>
 
 
 This package aims to provide a streamlined way of generating publication ready figures for known single-cell visualizations. As subjective as the term "aesthetically pleasant" can be, this a set of theme modifications implemented across different plot types. This package also serves as a personal project, with future prospects of growth.

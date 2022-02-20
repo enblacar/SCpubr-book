@@ -1,3 +1,4 @@
+/* Modify captions */
 p.caption {
   color: #777;
   margin-top: 10px;
@@ -5,6 +6,8 @@ p.caption {
 p code {
   white-space: inherit;
 }
+
+/* Modify code chunks */
 pre {
   word-break: normal;
   word-wrap: normal;
@@ -15,8 +18,25 @@ pre code {
   white-space: inherit;
 }
 
+/* Modify paragraphs */
 p{
   text-align: justify;
   text-justify: inter-word;
 }
 
+/* Change the settings for the inline code */
+code {
+  font-weight: bold;
+  background-color: #096b7235;
+}
+
+/* Change the border of the search buttom to the primary color. */
+.form-control:focus {
+  border-color: #096B72;
+  box-shadow: white;
+}
+
+
+#toc_title {
+  font-weight: bold;
+}

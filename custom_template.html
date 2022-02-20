@@ -53,7 +53,7 @@
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
-        <a href="index.html" title="$subtitle$">$title$</a>$if(subtitle)$:
+        <a id="toc_title" href="index.html" title="$subtitle$">$title$</a>$if(subtitle)$:
         <small class="text-muted">$subtitle$</small>$endif$
       </h1>
       <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
@@ -61,7 +61,7 @@
 
     <div id="main-nav" class="collapse-lg">
       <div class="book-extra"></div>
-      <nav aria-label="Table of contents">
+      <nav id="left-panel" aria-label="Table of contents">
         <div id="book-toc"></div>
 
         <div class="book-extra">
@@ -88,7 +88,7 @@ $endfor$
 
   <div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page">
-      <form role="search" class="mt-4 mb-4">
+      <form role="search"  class="mt-4 mb-4">
         <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
       </form>
       <div class="book-extra">
@@ -147,7 +147,7 @@ $endif$
 
 <!-- Moved the footer outside of the body to make it span all page width. -->
 <footer class="bg-primary text-light mt-5">
-  <div class="container-fluid"><div class="row">
+  <div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
     <p class="text-center">Written by $for(author)$<strong>$author$</strong>$sep$, $endfor$ $if(date)$on $date$.$endif$</p>

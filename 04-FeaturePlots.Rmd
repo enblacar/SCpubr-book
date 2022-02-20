@@ -13,7 +13,7 @@ p <- Seurat::FeaturePlot(sample,
                          features = "nCount_RNA")
 p
 ```
-First thing that stands out, it that the color scale could be changed to one with two very opposite ends, so that identifying regions with low and high UMIs become an easier task. Apart from that, we want apply the same treatment as in `do_DimPlot()` section. 
+First thing that stands out, it that the color scale could be changed to one with two very opposite ends, so that identifying regions with low and high UMIs become an easier task. Apart from that, we want apply the same treatment as in `SCpubr::do_DimPlot()`: 
 
 ```{r, fig.cap= "Seurat FeaturePlot, with new color scale and general modifications", fig.width=8, fig.height=7}
 p <- Seurat::FeaturePlot(sample, 
@@ -38,8 +38,11 @@ By default, `SCpubr` enlarges the dots a bit and makes the legend bold, to bette
 
 `SCpubr::do_FeaturePlot()` can tackle multiple queries at the same time. Plots can be rearranged as desired with `ncol` parameter:
 
-```{r, fig.cap = "SCpubr FeaturePlot, with 4 features and 2 columns", fig.width=8, fig.height=7}
-p <- SCpubr::do_FeaturePlot(sample, features = c("nCount_RNA", "nFeature_RNA", "percent.mt", "CD14"), 
+```{r, fig.cap = "SCpubr FeaturePlot, with 4 features and 2 columns", fig.width=16, fig.height=14}
+p <- SCpubr::do_FeaturePlot(sample, features = c("nCount_RNA", 
+                                                 "nFeature_RNA", 
+                                                 "percent.mt", 
+                                                 "CD14"), 
                             plot.title = "My very important features", 
                             ncol = 2)
 p
@@ -47,7 +50,7 @@ p
 
 With multiple queries, using `plot.title` parameter actually adds an overall title. If one wants to modify the title of each plot independently, a more complex approach is needed, which requires more R expertise, using `patchwork` package.
 
-```{r, fig.cap = "SCpubr FeaturePlot, with individual modified titles", fig.width=16, fig.height=16}
+```{r, fig.cap = "SCpubr FeaturePlot, with individual modified titles", fig.width=16, fig.height=14}
 p1 <- SCpubr::do_FeaturePlot(sample, 
                              features = "nCount_RNA", 
                              plot.title = "Plot A")
