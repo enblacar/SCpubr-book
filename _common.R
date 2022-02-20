@@ -11,6 +11,5 @@ knitr::opts_chunk$set(
     fig.height = 6,
     out.width = "100%",
     out.height = "100%",
-    dpi=300,
-    eval = F
+    dpi=300
   )

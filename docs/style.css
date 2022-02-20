@@ -15,4 +15,8 @@ pre code {
   white-space: inherit;
 }
 
+p{
+  text-align: justify;
+  text-justify: inter-word;
+}
 

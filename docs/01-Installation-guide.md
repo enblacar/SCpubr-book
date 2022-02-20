@@ -1,4 +1,3 @@
-<title>SCpubr | Installation guide</title>
 # Installation guide {-}
 
 This package can be installed using the following commands:
