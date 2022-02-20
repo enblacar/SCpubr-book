@@ -13,7 +13,7 @@ description: |
 biblio-style: apalike
 csl: chicago-fullnote-bibliography.csl
 ---
-
+<title>SCpubr | About this package</title>
 # About this package {-}
 
 <span class="border-0"><img src="images/SCpubr_logo_transparent.png" class="mx-auto d-block" width="500" height="500" alt="" style="box-shadow: none"/></span>

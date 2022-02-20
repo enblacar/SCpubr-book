@@ -1,3 +1,4 @@
+<title>SCpubr | Dim plots</title>
 # Dim plots
 
 DimPlots are, probably, one of the most iconic visualizations from `Seurat`. It allows the user to visualize the cells in a dimensional reduction embedding such as `PCA` or `UMAP`. The cells can be, then, colored by any desired groups. In short, this visualization allows the user to plot **any kind of categorical data** onto the cells in the dimensional reduction embedding. 
@@ -13,11 +14,6 @@ p <- Seurat::DimPlot(sample)
 p
 ```
 
-<div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-2-1.png" alt="Default DimPlot." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-2)Default DimPlot.</p>
-</div>
-
 Overall, this is a pretty neat visualization, but there are quite some changes that one would like to implement. For instance, shuffling the cells so that there is no overlap of cells just due to the cluster names.
 
 
@@ -26,11 +22,6 @@ p <- Seurat::DimPlot(sample,
                      shuffle = T)
 p
 ```
-
-<div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-3-1.png" alt="DimPlot with the cells shuffled." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-3)DimPlot with the cells shuffled.</p>
-</div>
 
 Furthermore, one would think about the *need* of the axes. If, by consensus, UMAPs are shown plotting the first UMAP component on the X axis and the second on the Y axis, then showing them becomes redundant, specially when one can not truly rely on the numbers shown by the scales. 
 
@@ -42,11 +33,6 @@ p <- Seurat::DimPlot(sample,
 p
 ```
 
-<div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-4-1.png" alt="DimPlot without axes." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-4)DimPlot without axes.</p>
-</div>
-
 Right now, we can observe a couple of things. First, is that the dot size is rather small. Let's set it to 0.5.
 
 
@@ -57,11 +43,6 @@ p <- Seurat::DimPlot(sample,
      Seurat::NoAxes()
 p
 ```
-
-<div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-5-1.png" alt="DimPlot with increased dot size." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-5)DimPlot with increased dot size.</p>
-</div>
 
 Still, the legend seems rather small. Let's increase it's font size and set it to bold so that it can better read.
 
@@ -78,11 +59,6 @@ p <- Seurat::DimPlot(sample,
 p
 ```
 
-<div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-6-1.png" alt="DimPlot with increased font size." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-6)DimPlot with increased font size.</p>
-</div>
-
 We would also like to add a title to our plot, to best describe it.
 
 
@@ -98,11 +74,6 @@ p <- Seurat::DimPlot(sample,
                                                          face = "bold"))
 p
 ```
-
-<div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-7-1.png" alt="DimPlot with title." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-7)DimPlot with title.</p>
-</div>
 
 And, naturally, we would like to increase the font size of the title and put it in bold and centered.
 
@@ -122,11 +93,6 @@ p <- Seurat::DimPlot(sample,
                                                          face = "bold"))
 p
 ```
-
-<div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-8-1.png" alt="DimPlot with bigger and bold title." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-8)DimPlot with bigger and bold title.</p>
-</div>
 
 Now, we would like to modify the color palette. This palette has too bright colors, and we want something more toned down.
 
@@ -152,11 +118,6 @@ p <- Seurat::DimPlot(sample,
 p
 ```
 
-<div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-9-1.png" alt="DimPlot with custom color scale." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-9)DimPlot with custom color scale.</p>
-</div>
-
 As of now, this plot looks much better and polished than the default counterpart. This, is the setting ground for `SCpubr::do_DimPlot()`. 
 
 ## Basic usage
@@ -169,11 +130,6 @@ p <- SCpubr::do_DimPlot(sample = sample)
 p
 ```
 
-<div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-10-1.png" alt="SCpubr DimPlot." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-10)SCpubr DimPlot.</p>
-</div>
-
 We can add a title with the `plot.title` parameter.
 
 
@@ -182,11 +138,6 @@ p <- SCpubr::do_DimPlot(sample = sample,
                         plot.title = "My awesome SC data set")
 p
 ```
-
-<div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-11-1.png" alt="SCpubr DimPlot with title." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-11)SCpubr DimPlot with title.</p>
-</div>
 
 We can change the legend location and number of columns with `legend.position` and `legend.ncol`.
 
@@ -199,11 +150,6 @@ p <- SCpubr::do_DimPlot(sample = sample,
 p
 ```
 
-<div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-12-1.png" alt="SCpubr DimPlot with legend to the left." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-12)SCpubr DimPlot with legend to the left.</p>
-</div>
-
 ## Using labels instead of a legend
 
 In some cases, especially early on in the analysis where we do only have numbers as cluster names, we might want to remove the legend entirely, and instead plot labels on top of each cluster. This is achieved by using `label = TRUE`. This is how it looks in Seurat:
@@ -215,11 +161,6 @@ p <- Seurat::DimPlot(sample,
 p
 ```
 
-<div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-13-1.png" alt="Seurat DimPlot with labels on top of the clusters." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-13)Seurat DimPlot with labels on top of the clusters.</p>
-</div>
-
 However, we can play further with other parameters of the function such as `label.color` and `label.box`. This is integrated by default in `SCpubr::do_DimPlot`. This is how it looks:
 
 
@@ -229,11 +170,6 @@ p <- SCpubr::do_DimPlot(sample = sample,
                         legend = FALSE)
 p
 ```
-
-<div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-14-1.png" alt="Seurat DimPlot with labels on top of the clusters." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-14)Seurat DimPlot with labels on top of the clusters.</p>
-</div>
 The labels present now bold text for further readability. 
 
 ## Modifying default colors
@@ -258,11 +194,6 @@ p <- SCpubr::do_DimPlot(sample = sample,
 p
 ```
 
-<div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-15-1.png" alt="SCpubr, modifying default colors in a DimPlot" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-15)SCpubr, modifying default colors in a DimPlot</p>
-</div>
-
 ## Highlighting cells
 
 One of the nice features of `Seurat::DimPlot()` is the possibility of highlighting a certain group of cells in the DimPlot. This is achieved by using the `cells.highligh` parameter. This is how the default plot looks like.
@@ -276,11 +207,6 @@ p <- Seurat::DimPlot(sample,
 p
 ```
 
-<div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-16-1.png" alt="Seurat DimPlot highlighting cells." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-16)Seurat DimPlot highlighting cells.</p>
-</div>
-
 To achieve a similar effect in `SCpubr::do_DimPlot()`, we can use the same parameter:
 
 
@@ -291,11 +217,6 @@ p <- SCpubr::do_DimPlot(sample = sample,
                         cells.highlight = cells.use)
 p
 ```
-
-<div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-17-1.png" alt="SCpubr DimPlot highlighting cells." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-17)SCpubr DimPlot highlighting cells.</p>
-</div>
 
 By default, the size of all cells in `SCpubr::do_DimPlot()` is the same. However, the size of the highlighted dots can be modified with the parameter `sizes.highlight` from Seurat.
 
@@ -309,11 +230,6 @@ p <- SCpubr::do_DimPlot(sample = sample,
 p
 ```
 
-<div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-18-1.png" alt="SCpubr DimPlot highlighting cells bigger dot size." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-18)SCpubr DimPlot highlighting cells bigger dot size.</p>
-</div>
-
 ## Splitting by a category
 
 Another useful parameter of `Seurat::DimPlot` is `split.by`, which allows you to split your DimPlot into multiple panels, each one containing a different unique value of the metadata variable you have provided to the argument. One can understand this as using the `group.by` parameter and then splitting the resulting DimPlot into different panels. In this example, we are going to use the different clusters as an example This is how it looks by default:
@@ -326,11 +242,6 @@ p <- Seurat::DimPlot(sample,
                      ncol = 5)
 p
 ```
-
-<div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-19-1.png" alt="Seurat DimPlot using split.by." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-19)Seurat DimPlot using split.by.</p>
-</div>
 As can be observed, this plots accomplish the task of separating the cells into each panel, but the approach followed actually makes interpretation difficult. Clusters such as Cluster 9, with fewer cells, tell pretty much nothing. Not knowing how the original UMAP looked like is a major downside of this approach. This is where `SCpubr` focus. Instead of using `Seurat`'s `split.by` parameter, it generates as many plots as unique values in the metadata to split the plot by, but uses `cells.highlight` instead, which keeps the rest of cells greyed out. This is how it looks:
 
 
@@ -343,11 +254,6 @@ p <- SCpubr::do_DimPlot(sample,
                         legend = F)
 p
 ```
-
-<div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-20-1.png" alt="SCpubr DimPlot using split.by." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-20)SCpubr DimPlot using split.by.</p>
-</div>
 
 This way, we can see that clusters such as Cluster 7 are way more disperse than the rest, accounting not only for standalone groups of cells but also blending in other bigger clusters. Actually, the user might want to change the color of the highlighted cells in this split DimPlot. This is achieved by using `colors.split` parameter and providing either a color name recognized by `ggplot2` or (recommended) a HEX code.
 
@@ -364,11 +270,6 @@ p <- SCpubr::do_DimPlot(sample,
 p
 ```
 
-<div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-21-1.png" alt="SCpubr DimPlot using split.by with a changed color" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-21)SCpubr DimPlot using split.by with a changed color</p>
-</div>
-
 Furthermore, one might also want to color each cluster by the original color. This can be achieved by using the argument `colors.split`, either providing a named vector of each cluster (or metadata variable unique value) as names and color hex codes as values or `TRUE`, thus resorting to the default `SCpubr` categorical coloring. 
 
 
@@ -382,11 +283,6 @@ p <- SCpubr::do_DimPlot(sample,
                         colors.split = TRUE)
 p
 ```
-
-<div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-22-1.png" alt="SCpubr DimPlot using split.by with default SCpubr colors" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-22)SCpubr DimPlot using split.by with default SCpubr colors</p>
-</div>
 
 
 

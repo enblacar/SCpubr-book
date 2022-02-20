@@ -20,7 +20,7 @@
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link rel="shortcut icon" href="images/SCpubr_logo_favicon.png">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link rel="shortcut icon" href="images/SCpubr_logo_favicon_with_line.png">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="style.css">
 </head>
 <body data-spy="scroll" data-target="#toc">
@@ -78,12 +78,6 @@
                          plot.title <span class="op">=</span> <span class="st">"Number of cells per cluster"</span>, 
                          horizontal <span class="op">=</span> <span class="cn">T</span><span class="op">)</span>
 <span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span></code></pre></div>
-<div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-2"></span>
-<img src="09-BarPlots_files/figure-html/unnamed-chunk-2-1.png" alt="SCpubr Bar plots, plotting single variables" width="100%" height="100%"><p class="caption">
-Figure 1.1: SCpubr Bar plots, plotting single variables
-</p>
-</div>
 <p>Using <code><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">SCpubr::do_BarPlot()</a></code> with only <code>features</code> yields a simple bar plot which is ordered by descending value. We can also set up the direction of the bars with <code>horizontal = TRUE/FALSE</code>, which by default is set to be vertical There are some underlying assumptions that are being taken to generate these plots:</p>
 <ul>
 <li>The values in <code>features</code> need to be metadata variables, stored in <code>object@meta.data</code>. This a design choice, as data need to be grouped using <code>dplyr</code> and <code>tidyr</code>. This will also later apply to values provided to <code>group.by</code>.</li>
@@ -98,12 +92,6 @@ Figure 1.1: SCpubr Bar plots, plotting single variables
                         plot.title <span class="op">=</span> <span class="st">"Number of UMIs?"</span>,
                         horizontal <span class="op">=</span> <span class="cn">F</span><span class="op">)</span>
 <span class="va">p</span></code></pre></div>
-<div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-3"></span>
-<img src="09-BarPlots_files/figure-html/unnamed-chunk-3-1.png" alt="SCpubr Bar plots, choosing the wrong variable" width="100%" height="100%"><p class="caption">
-Figure 1.2: SCpubr Bar plots, choosing the wrong variable
-</p>
-</div>
 <p>This happens, precisely, because of the high amount of unique values for <code>nCount_RNA</code>. These type of continuous values is best suited for other data visualizations like a <code>histogram</code>.</p>
 </div>
 <div id="grouping-by-a-second-variable" class="section level2" number="7.2">
@@ -124,9 +112,6 @@ Figure 1.2: SCpubr Bar plots, choosing the wrong variable
                          position <span class="op">=</span> <span class="st">"stack"</span>,
                          legend <span class="op">=</span> <span class="cn">T</span>,
                          horizontal <span class="op">=</span> <span class="cn">F</span><span class="op">)</span>
-<span class="co">#&gt; Warning in SCpubr::do_BarPlot(sample, features =</span>
-<span class="co">#&gt; "modified_orig.ident", : Recommended settings without using</span>
-<span class="co">#&gt; group.by is to set legend to FALSE.</span>
 
 <span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span><span class="va">sample</span>, 
                          features <span class="op">=</span> <span class="st">"modified_orig.ident"</span>, 
@@ -135,16 +120,7 @@ Figure 1.2: SCpubr Bar plots, choosing the wrong variable
                          position <span class="op">=</span> <span class="st">"stack"</span>,
                          legend <span class="op">=</span> <span class="cn">T</span>,
                          horizontal <span class="op">=</span> <span class="cn">F</span><span class="op">)</span>
-<span class="co">#&gt; Warning in SCpubr::do_BarPlot(sample, features =</span>
-<span class="co">#&gt; "modified_orig.ident", : Recommended settings when using</span>
-<span class="co">#&gt; group.by is to set position to 'fill'.</span>
 <span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span></code></pre></div>
-<div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-4"></span>
-<img src="09-BarPlots_files/figure-html/unnamed-chunk-4-1.png" alt="SCpubr Bar plots, introducing a variable to group values by" width="100%" height="100%"><p class="caption">
-Figure 1.3: SCpubr Bar plots, introducing a variable to group values by
-</p>
-</div>
 <p>As we can see, this nicely yields as many number of bars as unique values in the <code>feature</code>, and this bars are segmented by as many times as unique values in <code>group.by</code>. At first, this is hard to grasp, but it helps thinking of these two parameters, when used together, as:</p>
 <ul>
 <li>
@@ -162,9 +138,6 @@ Figure 1.3: SCpubr Bar plots, introducing a variable to group values by
                          position <span class="op">=</span> <span class="st">"stack"</span>,
                          legend <span class="op">=</span> <span class="cn">T</span>,
                          horizontal <span class="op">=</span> <span class="cn">F</span><span class="op">)</span>
-<span class="co">#&gt; Warning in SCpubr::do_BarPlot(sample, features =</span>
-<span class="co">#&gt; "modified_orig.ident", : Recommended settings without using</span>
-<span class="co">#&gt; group.by is to set legend to FALSE.</span>
 
 <span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span><span class="va">sample</span>, 
                          features <span class="op">=</span> <span class="st">"modified_orig.ident"</span>,
@@ -172,12 +145,6 @@ Figure 1.3: SCpubr Bar plots, introducing a variable to group values by
                          position <span class="op">=</span> <span class="st">"fill"</span>,
                          legend <span class="op">=</span> <span class="cn">T</span>,
                          horizontal <span class="op">=</span> <span class="cn">F</span><span class="op">)</span>
-<span class="co">#&gt; Warning in SCpubr::do_BarPlot(sample, features =</span>
-<span class="co">#&gt; "modified_orig.ident", : Recommended settings without using</span>
-<span class="co">#&gt; group.by is to set legend to FALSE.</span>
-<span class="co">#&gt; Warning in SCpubr::do_BarPlot(sample, features =</span>
-<span class="co">#&gt; "modified_orig.ident", : Recommended settings without using</span>
-<span class="co">#&gt; group.by is to set position to 'stack'.</span>
 
 <span class="va">p3</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span><span class="va">sample</span>, 
                          features <span class="op">=</span> <span class="st">"modified_orig.ident"</span>,
@@ -186,9 +153,6 @@ Figure 1.3: SCpubr Bar plots, introducing a variable to group values by
                          position <span class="op">=</span> <span class="st">"stack"</span>,
                          legend <span class="op">=</span> <span class="cn">T</span>,
                          horizontal <span class="op">=</span> <span class="cn">F</span><span class="op">)</span>
-<span class="co">#&gt; Warning in SCpubr::do_BarPlot(sample, features =</span>
-<span class="co">#&gt; "modified_orig.ident", : Recommended settings when using</span>
-<span class="co">#&gt; group.by is to set position to 'fill'.</span>
 
 <span class="va">p4</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span><span class="va">sample</span>, 
                          features <span class="op">=</span> <span class="st">"modified_orig.ident"</span>,
@@ -199,12 +163,6 @@ Figure 1.3: SCpubr Bar plots, introducing a variable to group values by
                          horizontal <span class="op">=</span> <span class="cn">F</span><span class="op">)</span>
 <span class="va">p</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span><span class="op">)</span> <span class="op">/</span> <span class="op">(</span><span class="va">p3</span> <span class="op">|</span> <span class="va">p4</span><span class="op">)</span>
 <span class="va">p</span></code></pre></div>
-<div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-5"></span>
-<img src="09-BarPlots_files/figure-html/unnamed-chunk-5-1.png" alt="SCpubr Bar plots, difference between position" width="100%" height="100%"><p class="caption">
-Figure 1.4: SCpubr Bar plots, difference between position
-</p>
-</div>
 </div>
 <div id="reordering-columns-based-on-a-single-entity" class="section level2" number="7.3">
 <h2>
@@ -224,9 +182,6 @@ Figure 1.4: SCpubr Bar plots, difference between position
                          position <span class="op">=</span> <span class="st">"stack"</span>,
                          legend <span class="op">=</span> <span class="cn">T</span>,
                          horizontal <span class="op">=</span> <span class="cn">F</span><span class="op">)</span>
-<span class="co">#&gt; Warning in SCpubr::do_BarPlot(sample, features =</span>
-<span class="co">#&gt; "modified_orig.ident", : Recommended settings when using</span>
-<span class="co">#&gt; group.by is to set position to 'fill'.</span>
 
 <span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span><span class="va">sample</span>, 
                          features <span class="op">=</span> <span class="st">"modified_orig.ident"</span>, 
@@ -237,12 +192,6 @@ Figure 1.4: SCpubr Bar plots, difference between position
                          legend <span class="op">=</span> <span class="cn">T</span>,
                          horizontal <span class="op">=</span> <span class="cn">F</span><span class="op">)</span>
 <span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span></code></pre></div>
-<div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-6"></span>
-<img src="09-BarPlots_files/figure-html/unnamed-chunk-6-1.png" alt="SCpubr Bar plots, reordering the colums using order.by" width="100%" height="100%"><p class="caption">
-Figure 1.5: SCpubr Bar plots, reordering the colums using order.by
-</p>
-</div>
 </div>
 <div id="adding-custom-color-scales." class="section level2" number="7.4">
 <h2>
@@ -275,12 +224,6 @@ Figure 1.5: SCpubr Bar plots, reordering the colums using order.by
                          horizontal <span class="op">=</span> <span class="cn">F</span>,
                          colors.use <span class="op">=</span> <span class="va">colors</span><span class="op">)</span>
 <span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span></code></pre></div>
-<div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-7"></span>
-<img src="09-BarPlots_files/figure-html/unnamed-chunk-7-1.png" alt="SCpubr, modifying colors" width="100%" height="100%"><p class="caption">
-Figure 1.6: SCpubr, modifying colors
-</p>
-</div>
 
 </div>
 </div>

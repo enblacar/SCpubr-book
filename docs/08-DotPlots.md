@@ -1,3 +1,4 @@
+<title>SCpubr | Dot plots</title>
 # Dot plots
 
 Dot plots are a very nice data representation technique. It involves the use of two scales. One scale is color-based while the second one is size-based. In the context of `Seurat::DotPlot()`, these scales are pre-defined to contain the average expression values on the color scale and the percentage of cells within the group expressing the feature on the size, increasing it as this percentage grows bigger. It is heavily implied that the features need to be genes, otherwise the color scale will be lost. This is the output from `Seurat`:
@@ -14,11 +15,6 @@ p2 <- Seurat::DotPlot(sample,
                       features = "nCount_RNA")
 p1 | p2
 ```
-
-<div class="figure" style="text-align: center">
-<img src="08-DotPlots_files/figure-html/unnamed-chunk-2-1.png" alt="Seurat DotPlot" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-2)Seurat DotPlot</p>
-</div>
 As can be seen, if we try to plot other type of variables, the resulting plot will not contain a color scale. `SCpubr::do_DimPlot()` focuses on enhancing the overall appearance of the plots. Implementation using other types of features is not currently supported. This is how it looks using `SCpubr::do_DimPlot()`:
 
 
@@ -29,11 +25,6 @@ p2 <- SCpubr::do_DotPlot(sample = sample,
                          features = "nFeature_RNA")
 p1 | p2
 ```
-
-<div class="figure" style="text-align: center">
-<img src="08-DotPlots_files/figure-html/unnamed-chunk-3-1.png" alt="SCpubr DotPlot" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-3)SCpubr DotPlot</p>
-</div>
 
 ## Querying multiple features at once. 
 
@@ -49,11 +40,6 @@ p <- SCpubr::do_DotPlot(sample = sample,
                         features = genes)
 p
 ```
-
-<div class="figure" style="text-align: center">
-<img src="08-DotPlots_files/figure-html/unnamed-chunk-4-1.png" alt="SCpubr DotPlot using multiple genes" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-4)SCpubr DotPlot using multiple genes</p>
-</div>
 
 Here, we can clearly distinguish which clusters are highly enriched in which given genes. This proves to be a very interesting way to query for cluster identities. It is highly dependent, though, on the accuracy of the selected genes for the queried dataset. If we actually provide the list of genes as a named list, we can facet the plot in the different list of genes provided:
 
@@ -72,11 +58,6 @@ p <- SCpubr::do_DotPlot(sample = sample,
                         features = genes)
 p
 ```
-
-<div class="figure" style="text-align: center">
-<img src="08-DotPlots_files/figure-html/unnamed-chunk-5-1.png" alt="SCpubr DotPlot using multiple genes" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-5)SCpubr DotPlot using multiple genes</p>
-</div>
 
 ## Clustering the identities.
 
@@ -101,12 +82,8 @@ p2 <- SCpubr::do_DotPlot(sample = sample,
                          cluster.idents = TRUE, 
                          plot.title = "Clustered")
 p1 / p2
-```
 
-<div class="figure" style="text-align: center">
-<img src="08-DotPlots_files/figure-html/unnamed-chunk-6-1.png" alt="SCpubr DotPlot using multiple genes and clustering the identities" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-6)SCpubr DotPlot using multiple genes and clustering the identities</p>
-</div>
+```
 
 ## Inverting the axes.
 
@@ -127,11 +104,6 @@ p2 <- SCpubr::do_DotPlot(sample = sample,
 p1 | p2
 ```
 
-<div class="figure" style="text-align: center">
-<img src="08-DotPlots_files/figure-html/unnamed-chunk-7-1.png" alt="SCpubr DotPlot using multiple genes and clustering the identities flipping axes" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-7)SCpubr DotPlot using multiple genes and clustering the identities flipping axes</p>
-</div>
-
 ## Modifying default colors.
 
 To modify the default colors, a vector of two colors has to be provided to `colors.use`. The two colors will form a gradient.
@@ -147,8 +119,3 @@ p <- SCpubr::do_DotPlot(sample = sample,
                         colors.use = c("#001219", "#e9d8a6"))
 p
 ```
-
-<div class="figure" style="text-align: center">
-<img src="08-DotPlots_files/figure-html/unnamed-chunk-8-1.png" alt="SCpubr, modifying default colors in a Dot plot" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-8)SCpubr, modifying default colors in a Dot plot</p>
-</div>

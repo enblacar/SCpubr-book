@@ -1,3 +1,4 @@
+<title>SCpubr | Dataset used</title>
 # Dataset used {-}
 
 Through this manual we are going to use a [publicly available dataset](https://www.10xgenomics.com/resources/datasets/10k-human-pbmcs-3-ht-v3-1-chromium-x-3-1-high) containing 10K raw cells. The following code is used to generate a Seurat object ready for plotting.

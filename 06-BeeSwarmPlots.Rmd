@@ -1,3 +1,4 @@
+<title>SCpubr | Bee Swarm plots</title>
 # Bee Swarm plots
 
 This one is a very interesting plot. It stems from the idea that we can order (rank) the cells in a given variable. This variable has to be a continuous variable, for a better representation. The order goes from lowest to maximum value. Then, the cells are grouped into any other variable of interest and displayed in a scatter plot fashion. This is achieved by using the [ggbeeswarm package](https://github.com/eclarke/ggbeeswarm). The idea of using the `ggbeeswarm::geom_quasirandom()` geometry provided by this package and implement it for single-cell analyses came from [this tutorial from the Broad Institute](https://broadinstitute.github.io/2019_scWorkshop/functional-pseudotime-analysis.html#diffusion-map-pseudotime).
