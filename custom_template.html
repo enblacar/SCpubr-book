@@ -65,6 +65,7 @@
         <div id="book-toc"></div>
 
         <div class="book-extra">
+          <!-- Duplicated this entry to point to the package repo. -->
           <p class="mb-2"><a id="package-repo" href="https://github.com/enblacar/SCpubr">View package source <i class="fab fa-github"></i></a></li></p>
           <p><a id="book-repo" href="#">View book source <i class="fab fa-github"></i></a></li></p>
         </div>
@@ -95,6 +96,7 @@ $endfor$
 
       <div class="book-extra">
         <ul class="list-unstyled">
+          <!-- Modified page for chapter. -->
           <li><a id="book-source" href="#">View chapter source <i class="fab fa-github"></i></a></li>
           <li><a id="book-edit" href="#">Edit this chapter <i class="fab fa-github"></i></a></li>
         </ul>
@@ -105,19 +107,7 @@ $endfor$
 </div>
 </div> <!-- .container -->
 
-<footer class="bg-primary text-light mt-5">
-  <div class="container"><div class="row">
 
-  <div class="col-12 col-md-6 mt-3">
-    <p class="text-center">Written by $for(author)$<strong>$author$</strong>$sep$, $endfor$ $if(date)$on $date$.$endif$</p>
-  </div>
-
-  <div class="col-12 col-md-6 mt-3">
-    <p class="text-center">This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
-  </div>
-
-</div></div>
-</footer>
 
 
 $if(math)$
@@ -154,5 +144,20 @@ for (let popover of popovers) {
 </script>
 $endif$
 </body>
+
+<!-- Moved the footer outside of the body to make it span all page width. -->
+<footer class="bg-primary text-light mt-5">
+  <div class="container-fluid"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p class="text-center">Written by $for(author)$<strong>$author$</strong>$sep$, $endfor$ $if(date)$on $date$.$endif$</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p class="text-center">This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
 
 </html>
