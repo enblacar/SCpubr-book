@@ -161,7 +161,9 @@ colors <- c("0" = "#001219",
 p1 <- SCpubr::do_BarPlot(sample = sample, 
                          features = "seurat_clusters", 
                          legend = F, 
-                         plot.title = "Number of cells per cluster", horizontal = T, colors.use = colors)
+                         plot.title = "Number of cells per cluster", 
+                         horizontal = T, 
+                         colors.use = colors)
 p2 <- SCpubr::do_BarPlot(sample, 
                          features = "modified_orig.ident",
                          group.by = "seurat_clusters",

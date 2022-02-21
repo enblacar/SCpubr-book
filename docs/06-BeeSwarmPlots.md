@@ -228,9 +228,6 @@ p5 <- SCpubr::do_BeeSwarmPlot(sample = sample, feature_to_rank = "Monocyte_signa
 p6 <- SCpubr::do_BeeSwarmPlot(sample = sample, feature_to_rank = "Monocyte_signature", group.by = "seurat_clusters", continuous_feature = TRUE, fontsize = 10, viridis_color_map = "F", plot.title = "Rocket")
 p7 <- SCpubr::do_BeeSwarmPlot(sample = sample, feature_to_rank = "Monocyte_signature", group.by = "seurat_clusters", continuous_feature = TRUE, fontsize = 10, viridis_color_map = "G", plot.title = "Mako")
 p8 <- SCpubr::do_BeeSwarmPlot(sample = sample, feature_to_rank = "Monocyte_signature", group.by = "seurat_clusters", continuous_feature = TRUE, fontsize = 10, viridis_color_map = "H", plot.title = "Turbo")
-#> Warning in check_viridis_color_map(viridis_color_map =
-#> viridis_color_map, : The selected option is not the most
-#> adequate for a continuous color scale.
 
 p <- patchwork::wrap_plots(list(p1, p2, p3, p4, p5, p6, p7, p8), ncol = 2, byrow = TRUE)
 p

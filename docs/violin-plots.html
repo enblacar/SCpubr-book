@@ -113,17 +113,29 @@ Figure 1.3: SCpubr’s violin plot.
 Figure 1.4: SCpubr’s violin plot without box plots.
 </p>
 </div>
-<p>If we want to rotate the X axis labels, we can also do that providing <code>rotate_x_labels = TRUE/FALSE</code>, being the value a vector of logical values (TRUE or FALSE) of length equal to the number of features.</p>
+<p>If we want to rotate the X axis labels, we can also do that providing <code>rotate_x_labels = TRUE/FALSE</code>:</p>
 <div class="sourceCode" id="cb57"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_VlnPlot.html">do_VlnPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
+                        features <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"nCount_RNA"</span><span class="op">)</span>,
+                        rotate_x_labels <span class="op">=</span> <span class="cn">TRUE</span>,<span class="op">)</span>
+<span class="va">p</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-6"></span>
+<img src="07-ViolinPlots_files/figure-html/unnamed-chunk-6-1.png" alt="SCpubr's violin plot rotating x axis." width="100%" height="100%"><p class="caption">
+Figure 1.5: SCpubr’s violin plot rotating x axis.
+</p>
+</div>
+<p>We can also do that for specific violin plots when more than one feature is queried. For this, <code>rotate_x_labels</code> has to be a vector of logical values (TRUE or FALSE) of length equal to the number of features.</p>
+<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_VlnPlot.html">do_VlnPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
                         features <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"nCount_RNA"</span>, <span class="st">"nFeature_RNA"</span><span class="op">)</span>,
                         rotate_x_labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">FALSE</span>, <span class="cn">TRUE</span><span class="op">)</span>,
                         ncol <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
 <span class="va">p</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-6"></span>
-<img src="07-ViolinPlots_files/figure-html/unnamed-chunk-6-1.png" alt="SCpubr's violin plot rotating x axis." width="100%" height="100%"><p class="caption">
-Figure 1.5: SCpubr’s violin plot rotating x axis.
+<span style="display:block;" id="fig:unnamed-chunk-7"></span>
+<img src="07-ViolinPlots_files/figure-html/unnamed-chunk-7-1.png" alt="SCpubr's violin plot rotating x axis." width="100%" height="100%"><p class="caption">
+Figure 1.6: SCpubr’s violin plot rotating x axis.
 </p>
 </div>
 <p>However, please note that if the names of the current identities are long enough, this will result in them overlapping one another.</p>
@@ -133,19 +145,19 @@ Figure 1.5: SCpubr’s violin plot rotating x axis.
 <span class="header-section-number">5.2</span> Violin plots as a means of QC<a class="anchor" aria-label="anchor" href="#violin-plots-as-a-means-of-qc"><i class="fas fa-link"></i></a>
 </h2>
 <p>For QC analyses, users might want to also add some other features such as a line indicating where to put the cutoff. This can be achieved by using <code>y_cut</code> parameter. Currently, only one value per plot for <code>y_cut</code> can be used.</p>
-<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_VlnPlot.html">do_VlnPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
                         features <span class="op">=</span> <span class="st">"nCount_RNA"</span>, 
                         y_cut <span class="op">=</span> <span class="fl">30000</span><span class="op">)</span>
 <span class="va">p</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-7"></span>
-<img src="07-ViolinPlots_files/figure-html/unnamed-chunk-7-1.png" alt="SCpubr's violin plot with horizontal line." width="100%" height="100%"><p class="caption">
-Figure 1.6: SCpubr’s violin plot with horizontal line.
+<span style="display:block;" id="fig:unnamed-chunk-8"></span>
+<img src="07-ViolinPlots_files/figure-html/unnamed-chunk-8-1.png" alt="SCpubr's violin plot with horizontal line." width="100%" height="100%"><p class="caption">
+Figure 1.7: SCpubr’s violin plot with horizontal line.
 </p>
 </div>
 <p>When multiple features are queried, the user can set up different horizontal lines parsing them as a vector to <code>y_cut</code>. Also, the same can be achieved for the individual plot titles by using the <code>individual.titles</code> parameter. The only restriction, is that the vector has to be of the same length as the number of features. If for a particular plot, we do not want to modify anything, use <code>NA</code> instead.</p>
-<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_VlnPlot.html">do_VlnPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
                         features <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"nCount_RNA"</span>, <span class="st">"nFeature_RNA"</span><span class="op">)</span>, 
                         y_cut <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">NA</span>, <span class="fl">5000</span><span class="op">)</span>, 
@@ -153,9 +165,9 @@ Figure 1.6: SCpubr’s violin plot with horizontal line.
                         ncol <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
 <span class="va">p</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-8"></span>
-<img src="07-ViolinPlots_files/figure-html/unnamed-chunk-8-1.png" alt="SCpubr's violin plot with multiple features." width="100%" height="100%"><p class="caption">
-Figure 1.7: SCpubr’s violin plot with multiple features.
+<span style="display:block;" id="fig:unnamed-chunk-9"></span>
+<img src="07-ViolinPlots_files/figure-html/unnamed-chunk-9-1.png" alt="SCpubr's violin plot with multiple features." width="100%" height="100%"><p class="caption">
+Figure 1.8: SCpubr’s violin plot with multiple features.
 </p>
 </div>
 </div>
@@ -164,7 +176,7 @@ Figure 1.7: SCpubr’s violin plot with multiple features.
 <span class="header-section-number">5.3</span> Modifying default colors<a class="anchor" aria-label="anchor" href="#modifying-default-colors-1"><i class="fas fa-link"></i></a>
 </h2>
 <p>Same as with other categorical representations, we can modify the default color palette by providing a custom one to <code>colors.use</code>. This has to be a named vector of HEX values with the names of the groups as names of the values:</p>
-<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Create a color scale for the unique values in seurat clusters.</span>
 <span class="va">colors</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"0"</span> <span class="op">=</span> <span class="st">"#001219"</span>,
             <span class="st">"1"</span> <span class="op">=</span> <span class="st">"#005f73"</span>,
@@ -182,9 +194,9 @@ Figure 1.7: SCpubr’s violin plot with multiple features.
                         colors.use <span class="op">=</span> <span class="va">colors</span><span class="op">)</span>
 <span class="va">p</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-9"></span>
-<img src="07-ViolinPlots_files/figure-html/unnamed-chunk-9-1.png" alt="SCpubr, modifying default colors in a Violin plot" width="100%" height="100%"><p class="caption">
-Figure 1.8: SCpubr, modifying default colors in a Violin plot
+<span style="display:block;" id="fig:unnamed-chunk-10"></span>
+<img src="07-ViolinPlots_files/figure-html/unnamed-chunk-10-1.png" alt="SCpubr, modifying default colors in a Violin plot" width="100%" height="100%"><p class="caption">
+Figure 1.9: SCpubr, modifying default colors in a Violin plot
 </p>
 </div>
 
@@ -226,7 +238,7 @@ Figure 1.8: SCpubr, modifying default colors in a Violin plot
 <!-- Moved the footer outside of the body to make it span all page width. --><footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 20 February, 2022.</p>
+    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 21 February, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

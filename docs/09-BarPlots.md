@@ -66,9 +66,6 @@ p1 <- SCpubr::do_BarPlot(sample,
                          position = "stack",
                          legend = T,
                          horizontal = F)
-#> Warning in SCpubr::do_BarPlot(sample, features =
-#> "modified_orig.ident", : Recommended settings without using
-#> group.by is to set legend to FALSE.
 
 p2 <- SCpubr::do_BarPlot(sample, 
                          features = "modified_orig.ident", 
@@ -77,9 +74,6 @@ p2 <- SCpubr::do_BarPlot(sample,
                          position = "stack",
                          legend = T,
                          horizontal = F)
-#> Warning in SCpubr::do_BarPlot(sample, features =
-#> "modified_orig.ident", : Recommended settings when using
-#> group.by is to set position to 'fill'.
 p1 | p2
 ```
 
@@ -105,9 +99,6 @@ p1 <- SCpubr::do_BarPlot(sample,
                          position = "stack",
                          legend = T,
                          horizontal = F)
-#> Warning in SCpubr::do_BarPlot(sample, features =
-#> "modified_orig.ident", : Recommended settings without using
-#> group.by is to set legend to FALSE.
 
 p2 <- SCpubr::do_BarPlot(sample, 
                          features = "modified_orig.ident",
@@ -115,12 +106,6 @@ p2 <- SCpubr::do_BarPlot(sample,
                          position = "fill",
                          legend = T,
                          horizontal = F)
-#> Warning in SCpubr::do_BarPlot(sample, features =
-#> "modified_orig.ident", : Recommended settings without using
-#> group.by is to set legend to FALSE.
-#> Warning in SCpubr::do_BarPlot(sample, features =
-#> "modified_orig.ident", : Recommended settings without using
-#> group.by is to set position to 'stack'.
 
 p3 <- SCpubr::do_BarPlot(sample, 
                          features = "modified_orig.ident",
@@ -129,9 +114,6 @@ p3 <- SCpubr::do_BarPlot(sample,
                          position = "stack",
                          legend = T,
                          horizontal = F)
-#> Warning in SCpubr::do_BarPlot(sample, features =
-#> "modified_orig.ident", : Recommended settings when using
-#> group.by is to set position to 'fill'.
 
 p4 <- SCpubr::do_BarPlot(sample, 
                          features = "modified_orig.ident",
@@ -169,9 +151,6 @@ p1 <- SCpubr::do_BarPlot(sample,
                          position = "stack",
                          legend = T,
                          horizontal = F)
-#> Warning in SCpubr::do_BarPlot(sample, features =
-#> "modified_orig.ident", : Recommended settings when using
-#> group.by is to set position to 'fill'.
 
 p2 <- SCpubr::do_BarPlot(sample, 
                          features = "modified_orig.ident", 
@@ -211,7 +190,9 @@ colors <- c("0" = "#001219",
 p1 <- SCpubr::do_BarPlot(sample = sample, 
                          features = "seurat_clusters", 
                          legend = F, 
-                         plot.title = "Number of cells per cluster", horizontal = T, colors.use = colors)
+                         plot.title = "Number of cells per cluster", 
+                         horizontal = T, 
+                         colors.use = colors)
 p2 <- SCpubr::do_BarPlot(sample, 
                          features = "modified_orig.ident",
                          group.by = "seurat_clusters",

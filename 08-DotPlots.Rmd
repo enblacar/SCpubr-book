@@ -86,7 +86,10 @@ p1 / p2
 In `SCpubr::do_DotPlot()`, we can also invert the axes, so that the groups are in the X axis and the genes in the Y axis. This is achieved by using `flip = TRUE`. Note, however, that this does not work when using a named list of genes as input, as it completely distort the way facets are computed. Given this, this combination of parameters is currently blocked by `SCpubr`.
 
 ```{r, fig.cap="SCpubr DotPlot using multiple genes and clustering the identities flipping axes", fig.width=14, fig.height=7}
-genes <- c("IL7R", "CCR7", "CD14", "LYZ", "S100A4", "MS4A1", "CD8A", "FCGR3A", "MS4A7", "GNLY", "NKG7", "FCER1A", "CST3", "PPBP")
+genes <- c("IL7R", "CCR7", "CD14", "LYZ", 
+           "S100A4", "MS4A1", "CD8A", "FCGR3A", 
+           "MS4A7", "GNLY", "NKG7", "FCER1A", 
+           "CST3", "PPBP")
 p1 <- SCpubr::do_DotPlot(sample = sample, 
                          features = genes, 
                          plot.title = "Not clustered", 

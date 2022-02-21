@@ -41,7 +41,15 @@ p <- SCpubr::do_VlnPlot(sample = sample,
 p
 ```
 
-If we want to rotate the X axis labels, we can also do that providing `rotate_x_labels = TRUE/FALSE`, being the value a vector of logical values (TRUE or FALSE) of length equal to the number of features.
+If we want to rotate the X axis labels, we can also do that providing `rotate_x_labels = TRUE/FALSE`:
+```{r, fig.cap="SCpubr's violin plot rotating x axis.", fig.width=10, fig.height=5}
+p <- SCpubr::do_VlnPlot(sample = sample, 
+                        features = c("nCount_RNA"),
+                        rotate_x_labels = TRUE,)
+p
+```
+
+We can also do that for specific violin plots when more than one feature is queried. For this, `rotate_x_labels` has to be a vector of logical values (TRUE or FALSE) of length equal to the number of features.
 
 ```{r, fig.cap="SCpubr's violin plot rotating x axis.", fig.width=10, fig.height=10}
 p <- SCpubr::do_VlnPlot(sample = sample, 

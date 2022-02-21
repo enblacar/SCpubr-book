@@ -6,6 +6,7 @@ knitr::opts_chunk$set(
     collapse = TRUE,
     comment = "#>",
     message = FALSE,
+    warning = FALSE,
     fig.align = 'center',
     fig.width = 6,
     fig.height = 6,

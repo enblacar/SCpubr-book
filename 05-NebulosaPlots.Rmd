@@ -40,7 +40,7 @@ p <- SCpubr::do_NebulosaPlot(sample,
 p
 ```
 
-But, more intriguingly, it can also compute the **joint** density of the two features. This is achieved by parsing `joint = TRUE`.
+But, more intriguingly, it can also compute the **joint** density of the features. This is achieved by parsing `joint = TRUE`.
 
 ```{r, fig.cap = "SCpubr Nebulosa plot with joint density", fig.width=24, fig.height=7}
 p <- SCpubr::do_NebulosaPlot(sample = sample, 
@@ -49,26 +49,30 @@ p <- SCpubr::do_NebulosaPlot(sample = sample,
 p 
 ```
 
-If we were interested in retrieving only the joint density plot, we can accomplish it as:
+If we were interested in retrieving only the joint density plot, we can accomplish it with `return_only_joint` parameter. Please note that, since this will return only one plot, if wanted to modify the plot title, use `plot.title` instead:
 
 ```{r, fig.cap = "SCpubr Nebulosa plot with joint density, selecting only the last plot", fig.width=8, fig.height=7}
+features.use <- c("CD14", "CD8A")
+
 p <- SCpubr::do_NebulosaPlot(sample = sample, 
                              features = c("CD14", "CD8A"), 
                              joint = TRUE, 
-                             combine = F)
-p[[3]]
+                             return_only_joint = TRUE,
+                             plot.title = "Joint density CD14-CD8A")
+
+p
 ```
 
-If we query multiple features or use `joint = TRUE`, then using `plot.title` will add a general title to the different panels generated. To then modify the plot title of each individual panel, a vector **of the same length as the number of features** needs to be provided to `individual.titles` parameter. In case a title does not need to be changed, use `NA` instead. Please take note that `joint = TRUE` will generate an extra panel that needs another plot title.
+If we query multiple features or use `joint = TRUE`, then using `plot.title` will add a general title to the different panels generated. To then modify the plot title of each individual panel, a vector **of the same length as the number of features** needs to be provided to `individual.titles` parameter. In case a title does not need to be changed, use `NA` instead. Please take note that `joint = TRUE` will generate an extra panel that needs another plot title. 
 
 ```{r, fig.cap = "SCpubr Nebulosa plot with joint density, modifying each individual plot's name", fig.width=24, fig.height=7}
 p <- SCpubr::do_NebulosaPlot(sample = sample, 
                              features = c("CD14", "CD8A"), 
                              joint = TRUE, 
-                             combine = F,
                              individual.titles = c("Plot A",
                                                    NA,
-                                                   "Combined density"))
+                                                   "Combined density"),
+                             plot.title = "Density analysis")
 p
 ```
 

@@ -114,7 +114,10 @@ In `SCpubr::do_DotPlot()`, we can also invert the axes, so that the groups are i
 
 
 ```r
-genes <- c("IL7R", "CCR7", "CD14", "LYZ", "S100A4", "MS4A1", "CD8A", "FCGR3A", "MS4A7", "GNLY", "NKG7", "FCER1A", "CST3", "PPBP")
+genes <- c("IL7R", "CCR7", "CD14", "LYZ", 
+           "S100A4", "MS4A1", "CD8A", "FCGR3A", 
+           "MS4A7", "GNLY", "NKG7", "FCER1A", 
+           "CST3", "PPBP")
 p1 <- SCpubr::do_DotPlot(sample = sample, 
                          features = genes, 
                          plot.title = "Not clustered", 
