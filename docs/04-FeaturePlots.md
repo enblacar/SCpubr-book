@@ -48,7 +48,25 @@ p
 <p class="caption">(\#fig:unnamed-chunk-4)SCpubr FeaturePlot, with minor modifications</p>
 </div>
 
-By default, `SCpubr` enlarges the dots a bit and makes the legend bold, to better stand out. 
+By default, `SCpubr` enlarges the dots a bit and makes the legend bold, to better stand out. Even though axes are removed from UMAP reductions, the title for the axes is kept for any other reduction used. The same is applied for UMAP if the default dimension order is altered.
+
+
+```r
+p1 <- SCpubr::do_FeaturePlot(sample = sample, 
+                             features = "CD14",
+                             plot.title = "My awesome SC data set",
+                             reduction = "pca")
+p2 <- SCpubr::do_FeaturePlot(sample = sample, 
+                             features = "CD14",
+                             plot.title = "My awesome SC data set",
+                             dims = c(2, 1))
+p1 | p2
+```
+
+<div class="figure" style="text-align: center">
+<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-5-1.png" alt="SCpubr Feature with PCA embedding showing axes titles." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-5)SCpubr Feature with PCA embedding showing axes titles.</p>
+</div>
 
 ## Multiple features
 
@@ -66,8 +84,8 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-5-1.png" alt="SCpubr FeaturePlot, with 4 features and 2 columns" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-5)SCpubr FeaturePlot, with 4 features and 2 columns</p>
+<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-6-1.png" alt="SCpubr FeaturePlot, with 4 features and 2 columns" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-6)SCpubr FeaturePlot, with 4 features and 2 columns</p>
 </div>
 
 With multiple queries, using `plot.title` parameter actually adds a general title to all plots. If one wants to modify the title of each plot independently, a vector **of the same length as the number of features** needs to be provided to `individual.titles` parameter. In case a title does not need to be changed, use `NA` instead.
@@ -89,8 +107,8 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-6-1.png" alt="SCpubr FeaturePlot, with individual modified titles" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-6)SCpubr FeaturePlot, with individual modified titles</p>
+<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-7-1.png" alt="SCpubr FeaturePlot, with individual modified titles" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-7)SCpubr FeaturePlot, with individual modified titles</p>
 </div>
 
 ## Working with subsets of cells
@@ -107,8 +125,8 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-7-1.png" alt="SCpubr FeaturePlot, removing cells from clusters 2, 5 and 8" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-7)SCpubr FeaturePlot, removing cells from clusters 2, 5 and 8</p>
+<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-8-1.png" alt="SCpubr FeaturePlot, removing cells from clusters 2, 5 and 8" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-8)SCpubr FeaturePlot, removing cells from clusters 2, 5 and 8</p>
 </div>
 
 However, this falls back to the same problem as with `Seurat::DimPlot` with the `split.by` parameter. We lose the overall context of where the cells are. This is taken care by in `SCpubr::do_FeaturePlot()`, when using the `cells.highlight` parameter:
@@ -124,8 +142,8 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-8-1.png" alt="SCpubr FeaturePlot, masking cells from clusters 2, 5 and 8" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-8)SCpubr FeaturePlot, masking cells from clusters 2, 5 and 8</p>
+<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-9-1.png" alt="SCpubr FeaturePlot, masking cells from clusters 2, 5 and 8" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-9)SCpubr FeaturePlot, masking cells from clusters 2, 5 and 8</p>
 </div>
 This way, by adding the cells back and modifying the legend, we accomplish the desired effect. Furthermore, `SCpubr::do_FeaturePlot()` also accepts a vector of the identities to plot, as long as they are part of `levels(seurat_object)`. This can be achieved by using the `idents.highlight` instead.
 
@@ -140,8 +158,8 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-9-1.png" alt="SCpubr FeaturePlot, masking cells from clusters 2, 5 and 8 using idents.highlight" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-9)SCpubr FeaturePlot, masking cells from clusters 2, 5 and 8 using idents.highlight</p>
+<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-10-1.png" alt="SCpubr FeaturePlot, masking cells from clusters 2, 5 and 8 using idents.highlight" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-10)SCpubr FeaturePlot, masking cells from clusters 2, 5 and 8 using idents.highlight</p>
 </div>
 ## Splitting the FeaturePlot by a variable
 In some cases, we want to visualize a given feature, let's say, the expression of `LYN` across another variable, for instance `seurat_clusters`. This can be achieved easily in `Seurat` by using the `split.by` parameter. For the sake of representation, let's reduce the number of clusters.
@@ -161,8 +179,8 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-10-1.png" alt="Seurat FeaturePlot split by clusters." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-10)Seurat FeaturePlot split by clusters.</p>
+<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-11-1.png" alt="Seurat FeaturePlot split by clusters." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-11)Seurat FeaturePlot split by clusters.</p>
 </div>
 Apart from the general aesthetic discrepancies mentioned before, there are two main aspects missing. First, is the overall layout of the UMAP embedding. Being able to correctly locate the clusters is really important. Secondly, knowing that, by default, the color scale is shared across all the plots (achieved by using `keep.scale = "feature"`), we would like to know up to which value this color scale reaches. In this two aspects is where `SCpubr::do_FeaturePlot()` delves into: 
 
@@ -175,8 +193,8 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-11-1.png" alt="SCpubr FeaturePlot split by clusters." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-11)SCpubr FeaturePlot split by clusters.</p>
+<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-12-1.png" alt="SCpubr FeaturePlot split by clusters." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-12)SCpubr FeaturePlot split by clusters.</p>
 </div>
 
 This way, we are able to achieve a better understandable plot. Please note that this has been implemented for `keep.scale = "feature"`. Providing other options is not advisable. Furthermore, we can query multiple features, them being stacked by the different entities in `split.by`. The number of columns is predetermined to the number of entities and can not be modified. In this example, we provide each of the three possible examples of features:
@@ -194,8 +212,8 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-12-1.png" alt="SCpubr FeaturePlot split by clusters using multiple features." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-12)SCpubr FeaturePlot split by clusters using multiple features.</p>
+<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-13-1.png" alt="SCpubr FeaturePlot split by clusters using multiple features." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-13)SCpubr FeaturePlot split by clusters using multiple features.</p>
 </div>
 
 With `SCpubr::do_FeaturePlot()` we can even subset the previous plot to any identities in `split.by` we are particularly interested in. The color scale also limits itself to contain only the values in the selected identities. This can be achieved by provided a vector with the identities to `split.by.idents` parameter.
@@ -210,8 +228,8 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-13-1.png" alt="SCpubr FeaturePlot split by clusters using multiple features and selected identities." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-13)SCpubr FeaturePlot split by clusters using multiple features and selected identities.</p>
+<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-14-1.png" alt="SCpubr FeaturePlot split by clusters using multiple features and selected identities." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-14)SCpubr FeaturePlot split by clusters using multiple features and selected identities.</p>
 </div>
 
 ## Modify color maps
@@ -242,7 +260,7 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-14-1.png" alt="SCpubr FeaturePlot modifying viridis color maps." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-14)SCpubr FeaturePlot modifying viridis color maps.</p>
+<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-15-1.png" alt="SCpubr FeaturePlot modifying viridis color maps." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-15)SCpubr FeaturePlot modifying viridis color maps.</p>
 </div>
 Here, we do not recommend the use of `turbo` with Feature plots, as this continuous scale goes through many different colors and, therefore, makes it harder for interpretation. 

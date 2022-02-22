@@ -32,7 +32,19 @@ p <- SCpubr::do_FeaturePlot(sample = sample,
 p
 ```
 
-By default, `SCpubr` enlarges the dots a bit and makes the legend bold, to better stand out. 
+By default, `SCpubr` enlarges the dots a bit and makes the legend bold, to better stand out. Even though axes are removed from UMAP reductions, the title for the axes is kept for any other reduction used. The same is applied for UMAP if the default dimension order is altered.
+
+```{r, fig.cap = "SCpubr Feature with PCA embedding showing axes titles.", fig.width=16, fig.height=7}
+p1 <- SCpubr::do_FeaturePlot(sample = sample, 
+                             features = "CD14",
+                             plot.title = "My awesome SC data set",
+                             reduction = "pca")
+p2 <- SCpubr::do_FeaturePlot(sample = sample, 
+                             features = "CD14",
+                             plot.title = "My awesome SC data set",
+                             dims = c(2, 1))
+p1 | p2
+```
 
 ## Multiple features
 

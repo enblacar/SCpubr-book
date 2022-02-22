@@ -174,6 +174,25 @@ p
 <p class="caption">(\#fig:unnamed-chunk-10)SCpubr DimPlot.</p>
 </div>
 
+Even though axes are removed from UMAP reductions, the title for the axes is kept for any other reduction used. The same is applied for UMAP if the default dimension order is altered.
+
+
+```r
+p1 <- SCpubr::do_DimPlot(sample = sample, 
+                         plot.title = "My awesome SC data set",
+                         reduction = "pca")
+p2 <- SCpubr::do_DimPlot(sample = sample, 
+                         plot.title = "My awesome SC data set",
+                         dims = c(2, 1))
+p1 | p2
+```
+
+<div class="figure" style="text-align: center">
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-11-1.png" alt="SCpubr DimPlot with PCA embedding showing axes titles and UMAP changing default dimension component order." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-11)SCpubr DimPlot with PCA embedding showing axes titles and UMAP changing default dimension component order.</p>
+</div>
+
+
 We can add a title with the `plot.title` parameter.
 
 
@@ -184,8 +203,8 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-11-1.png" alt="SCpubr DimPlot with title." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-11)SCpubr DimPlot with title.</p>
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-12-1.png" alt="SCpubr DimPlot with title." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-12)SCpubr DimPlot with title.</p>
 </div>
 
 We can change the legend location and number of columns with `legend.position` and `legend.ncol`.
@@ -200,8 +219,8 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-12-1.png" alt="SCpubr DimPlot with legend to the left." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-12)SCpubr DimPlot with legend to the left.</p>
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-13-1.png" alt="SCpubr DimPlot with legend to the left." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-13)SCpubr DimPlot with legend to the left.</p>
 </div>
 
 ## Using labels instead of a legend
@@ -216,8 +235,8 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-13-1.png" alt="Seurat DimPlot with labels on top of the clusters." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-13)Seurat DimPlot with labels on top of the clusters.</p>
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-14-1.png" alt="Seurat DimPlot with labels on top of the clusters." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-14)Seurat DimPlot with labels on top of the clusters.</p>
 </div>
 
 However, we can play further with other parameters of the function such as `label.color` and `label.box`. This is integrated by default in `SCpubr::do_DimPlot`. This is how it looks:
@@ -231,8 +250,8 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-14-1.png" alt="Seurat DimPlot with labels on top of the clusters." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-14)Seurat DimPlot with labels on top of the clusters.</p>
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-15-1.png" alt="Seurat DimPlot with labels on top of the clusters." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-15)Seurat DimPlot with labels on top of the clusters.</p>
 </div>
 The labels present now bold text for further readability. 
 
@@ -259,8 +278,8 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-15-1.png" alt="SCpubr, modifying default colors in a DimPlot" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-15)SCpubr, modifying default colors in a DimPlot</p>
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-16-1.png" alt="SCpubr, modifying default colors in a DimPlot" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-16)SCpubr, modifying default colors in a DimPlot</p>
 </div>
 
 ## Highlighting cells
@@ -277,8 +296,8 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-16-1.png" alt="Seurat DimPlot highlighting cells." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-16)Seurat DimPlot highlighting cells.</p>
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-17-1.png" alt="Seurat DimPlot highlighting cells." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-17)Seurat DimPlot highlighting cells.</p>
 </div>
 
 To achieve a similar effect in `SCpubr::do_DimPlot()`, we can use the same parameter `cells.highlight`. Also, we can change the color of the highligted cells by providing single color to `colors.use`:
@@ -296,8 +315,8 @@ p1 | p2
 ```
 
 <div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-17-1.png" alt="SCpubr DimPlot highlighting cells." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-17)SCpubr DimPlot highlighting cells.</p>
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-18-1.png" alt="SCpubr DimPlot highlighting cells." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-18)SCpubr DimPlot highlighting cells.</p>
 </div>
 
 By default, the size of all cells in `SCpubr::do_DimPlot()` is the same. However, the size of the highlighted dots can be modified with the parameter `sizes.highlight` from Seurat.
@@ -313,8 +332,8 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-18-1.png" alt="SCpubr DimPlot highlighting cells bigger dot size." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-18)SCpubr DimPlot highlighting cells bigger dot size.</p>
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-19-1.png" alt="SCpubr DimPlot highlighting cells bigger dot size." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-19)SCpubr DimPlot highlighting cells bigger dot size.</p>
 </div>
 
 ## Splitting by a category
@@ -331,8 +350,8 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-19-1.png" alt="Seurat DimPlot using split.by." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-19)Seurat DimPlot using split.by.</p>
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-20-1.png" alt="Seurat DimPlot using split.by." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-20)Seurat DimPlot using split.by.</p>
 </div>
 As can be observed, this plots accomplish the task of separating the cells into each panel, but the approach followed actually makes interpretation difficult. Clusters such as Cluster 9, with fewer cells, tell pretty much nothing. Not knowing how the original UMAP looked like is a major downside of this approach. This is where `SCpubr` focus. Instead of using `Seurat`'s `split.by` parameter, it generates as many plots as unique values in the metadata to split the plot by, but uses `cells.highlight` instead, which keeps the rest of cells greyed out. This is how it looks:
 
@@ -348,8 +367,8 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-20-1.png" alt="SCpubr DimPlot using split.by." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-20)SCpubr DimPlot using split.by.</p>
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-21-1.png" alt="SCpubr DimPlot using split.by." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-21)SCpubr DimPlot using split.by.</p>
 </div>
 
 This way, we can see that clusters such as Cluster 7 are way more disperse than the rest, accounting not only for standalone groups of cells but also blending in other bigger clusters. Actually, the user might want to change the color of the highlighted cells in this split DimPlot. This is achieved by using `colors.use` parameter and providing either a vector of **valid color representations** of equal length to unique values in `split.by` or just a single color to color all panels the same.
@@ -384,8 +403,8 @@ p1 / p2
 ```
 
 <div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-21-1.png" alt="SCpubr DimPlot using split.by with a changed color" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-21)SCpubr DimPlot using split.by with a changed color</p>
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-22-1.png" alt="SCpubr DimPlot using split.by with a changed color" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-22)SCpubr DimPlot using split.by with a changed color</p>
 </div>
 
 
