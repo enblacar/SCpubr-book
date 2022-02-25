@@ -362,7 +362,8 @@ As can be observed, this plots accomplish the task of separating the cells into 
 p <- SCpubr::do_DimPlot(sample, 
                         split.by = "seurat_clusters", 
                         ncol = 5, 
-                        legend = F)
+                        legend = F,
+                        fontsize = 24)
 p
 ```
 
@@ -392,13 +393,15 @@ p1 <- SCpubr::do_DimPlot(sample,
                          split.by = "seurat_clusters", 
                          ncol = 5, 
                          legend = F, 
-                         colors.use = colors)
+                         colors.use = colors,
+                         fontsize = 24)
 
 p2 <- SCpubr::do_DimPlot(sample, 
                          split.by = "seurat_clusters", 
                          ncol = 5, 
                          legend = F, 
-                         colors.use = "#008080")
+                         colors.use = "#008080",
+                         fontsize = 24)
 p1 / p2
 ```
 
