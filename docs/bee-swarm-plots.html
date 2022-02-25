@@ -81,6 +81,12 @@
                          dims <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span> 
 
 <span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-2"></span>
+<img src="06-BeeSwarmPlots_files/figure-html/unnamed-chunk-2-1.png" alt="Plotting PCA embeddings with SCpubr::do_DimPlot()" width="100%" height="100%"><p class="caption">
+Figure 1.1: Plotting PCA embeddings with SCpubr::do_DimPlot()
+</p>
+</div>
 <p>With this, we get right away a decent overview. Clusters 0, 5, 7 and 8 separate on PC_1 from the rest. However, in many cases this will not be clear, such as the image on the right. This is where Bee Swarm plots come in handy. This is implemented in <code><a href="https://rdrr.io/pkg/SCpubr/man/do_BeeSwarmPlot.html">SCpubr::do_BeeSwarmPlot()</a></code>. This function needs the user to provide:
 - The variable to rank to <code>feature_to_rank</code>.
 - The groups to divide the plot into to <code>group.by</code>.
@@ -109,6 +115,12 @@
                               continuous_feature <span class="op">=</span> <span class="cn">F</span><span class="op">)</span>
 
 <span class="op">(</span><span class="va">p1</span> <span class="op">|</span> <span class="va">p3</span><span class="op">)</span> <span class="op">/</span> <span class="op">(</span><span class="va">p2</span> <span class="op">|</span> <span class="va">p4</span><span class="op">)</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-3"></span>
+<img src="06-BeeSwarmPlots_files/figure-html/unnamed-chunk-3-1.png" alt="SCpubr Bee Swarm plots with categorical variables." width="100%" height="100%"><p class="caption">
+Figure 1.2: SCpubr Bee Swarm plots with categorical variables.
+</p>
+</div>
 <p>Here, we have selected PC_1 and PC_4. We can observe how the X axis of the Bee Swarm plot displays the ordering (rank) of all of the cells across the selected feature. Focusing on PC_1, we can see that cluster 0 is completely shifted to the right on PC_1, with is nicely displayed in the Bee Swarm plot by having all of the cells also ranked high (the higher the rank, the bigger the “value” of the feature to rank, in this case, the PC_1 value). In the case of PC_4, the Bee Swarm plot nicely shows which clusters lay on the upper, lower or middle part of the PC_4.</p>
 <p>A very important thing to note in these kind of plots is that no cells will have the same rank. This is, imagine a scenario like PC_4, but we artificially remove clusters 0, 3, 5, 7, 8, 9, leaving only those forming a “straight line” in PC_4. The nature of this plot will also separate the remaining clusters:</p>
 <div class="sourceCode" id="cb50"><pre class="downlit sourceCode r">
@@ -136,6 +148,12 @@
                               colors.use <span class="op">=</span> <span class="va">cols.use</span><span class="op">)</span>
 
 <span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-4"></span>
+<img src="06-BeeSwarmPlots_files/figure-html/unnamed-chunk-4-1.png" alt="SCpubr Bee Swarm plots with similar values." width="100%" height="100%"><p class="caption">
+Figure 1.3: SCpubr Bee Swarm plots with similar values.
+</p>
+</div>
 <p>See, we still clearly see two groups, formed by clusters 1 and 2, and clusters 4 and 6. We could even remove clusters 1 and 2 and still see a similar effect.</p>
 <div class="sourceCode" id="cb51"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Clusters to exclude.</span>
@@ -162,6 +180,12 @@
                               colors.use <span class="op">=</span> <span class="va">cols.use</span><span class="op">)</span>
 
 <span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-5"></span>
+<img src="06-BeeSwarmPlots_files/figure-html/unnamed-chunk-5-1.png" alt="SCpubr Bee Swarm plots with almost identical values." width="100%" height="100%"><p class="caption">
+Figure 1.4: SCpubr Bee Swarm plots with almost identical values.
+</p>
+</div>
 <p>As can be seen here, both clusters now span all X axis. The cells have still ranked, therefore showing a cloud of dots. With this, we would just want that, as with any data visualization technique, each plot comes with a set of benefits and caveats. This visualization suffers from trying to plot highly similar values. Therefore, it is key to <strong>understand the nature of the variable you want to rank</strong> beforehand.</p>
 </div>
 <div id="using-continuous-variables" class="section level2" number="4.2">
@@ -190,6 +214,12 @@
                               group.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>, 
                               continuous_feature <span class="op">=</span> <span class="cn">T</span><span class="op">)</span>
 <span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span> <span class="op">|</span> <span class="va">p3</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-6"></span>
+<img src="06-BeeSwarmPlots_files/figure-html/unnamed-chunk-6-1.png" alt="Using continuous color scale in SCpubr::do_BeeSwarmPlot()." width="100%" height="100%"><p class="caption">
+Figure 1.5: Using continuous color scale in SCpubr::do_BeeSwarmPlot().
+</p>
+</div>
 <p>By using this combination of figures, we can also assess that the monocyte signature seems to be predominantly enriched in clusters 0 and 7.</p>
 </div>
 <div id="change-default-colors-in-categorical-variables" class="section level2" number="4.3">
@@ -215,6 +245,12 @@
                              group.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>,
                              colors.use <span class="op">=</span> <span class="va">colors</span><span class="op">)</span>
 <span class="va">p</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-7"></span>
+<img src="06-BeeSwarmPlots_files/figure-html/unnamed-chunk-7-1.png" alt="SCpubr, modifying default colors in a Bee Swarm plot" width="100%" height="100%"><p class="caption">
+Figure 1.6: SCpubr, modifying default colors in a Bee Swarm plot
+</p>
+</div>
 </div>
 <div id="modify-color-maps-for-continuous-variables" class="section level2" number="4.4">
 <h2>
@@ -243,6 +279,12 @@
 
 <span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">patchwork</span><span class="fu">::</span><span class="fu"><a href="https://patchwork.data-imaginist.com/reference/wrap_plots.html">wrap_plots</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">p1</span>, <span class="va">p2</span>, <span class="va">p3</span>, <span class="va">p4</span>, <span class="va">p5</span>, <span class="va">p6</span>, <span class="va">p7</span>, <span class="va">p8</span><span class="op">)</span>, ncol <span class="op">=</span> <span class="fl">2</span>, byrow <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="va">p</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-8"></span>
+<img src="06-BeeSwarmPlots_files/figure-html/unnamed-chunk-8-1.png" alt="SCpubr Nebulosa plot modifying viridis color maps." width="100%" height="100%"><p class="caption">
+Figure 1.7: SCpubr Nebulosa plot modifying viridis color maps.
+</p>
+</div>
 
 </div>
 </div>

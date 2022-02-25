@@ -23,6 +23,11 @@ p2 <- SCpubr::do_DimPlot(sample,
 p1 | p2
 ```
 
+<div class="figure" style="text-align: center">
+<img src="06-BeeSwarmPlots_files/figure-html/unnamed-chunk-2-1.png" alt="Plotting PCA embeddings with SCpubr::do_DimPlot()" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-2)Plotting PCA embeddings with SCpubr::do_DimPlot()</p>
+</div>
+
 With this, we get right away a decent overview. Clusters 0, 5, 7 and 8 separate on PC_1 from the rest. However, in many cases this will not be clear, such as the image on the right. This is where Bee Swarm plots come in handy. This is implemented in `SCpubr::do_BeeSwarmPlot()`. This function needs the user to provide:
 - The variable to rank to `feature_to_rank`.
 - The groups to divide the plot into to `group.by`.
@@ -54,6 +59,11 @@ p4 <- SCpubr::do_BeeSwarmPlot(sample = sample,
 
 (p1 | p3) / (p2 | p4)
 ```
+
+<div class="figure" style="text-align: center">
+<img src="06-BeeSwarmPlots_files/figure-html/unnamed-chunk-3-1.png" alt="SCpubr Bee Swarm plots with categorical variables." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-3)SCpubr Bee Swarm plots with categorical variables.</p>
+</div>
 
 Here, we have selected PC_1 and PC_4. We can observe how the X axis of the Bee Swarm plot displays the ordering (rank) of all of the cells across the selected feature. Focusing on PC_1, we can see that cluster 0 is completely shifted to the right on PC_1, with is nicely displayed in the Bee Swarm plot by having all of the cells also ranked high (the higher the rank, the bigger the "value" of the feature to rank, in this case, the PC_1 value). In the case of PC_4, the Bee Swarm plot nicely shows which clusters lay on the upper, lower or middle part of the PC_4.
 
@@ -87,6 +97,11 @@ p2 <- SCpubr::do_BeeSwarmPlot(sample = sample[, !(sample$seurat_clusters %in% cl
 p1 | p2
 ```
 
+<div class="figure" style="text-align: center">
+<img src="06-BeeSwarmPlots_files/figure-html/unnamed-chunk-4-1.png" alt="SCpubr Bee Swarm plots with similar values." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-4)SCpubr Bee Swarm plots with similar values.</p>
+</div>
+
 
 See, we still clearly see two groups, formed by clusters 1 and 2, and clusters 4 and 6. We could even remove clusters 1 and 2 and still see a similar effect.
 
@@ -117,6 +132,11 @@ p2 <- SCpubr::do_BeeSwarmPlot(sample = sample[, !(sample$seurat_clusters %in% cl
 
 p1 | p2
 ```
+
+<div class="figure" style="text-align: center">
+<img src="06-BeeSwarmPlots_files/figure-html/unnamed-chunk-5-1.png" alt="SCpubr Bee Swarm plots with almost identical values." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-5)SCpubr Bee Swarm plots with almost identical values.</p>
+</div>
 
 
 As can be seen here, both clusters now span all X axis. The cells have still ranked, therefore showing a cloud of dots. With this, we would just want that, as with any data visualization technique, each plot comes with a set of benefits and caveats. This visualization suffers from trying to plot highly similar values. Therefore, it is key to **understand the nature of the variable you want to rank** beforehand. 
@@ -150,6 +170,11 @@ p3 <- SCpubr::do_BeeSwarmPlot(sample = sample,
 p1 | p2 | p3
 ```
 
+<div class="figure" style="text-align: center">
+<img src="06-BeeSwarmPlots_files/figure-html/unnamed-chunk-6-1.png" alt="Using continuous color scale in SCpubr::do_BeeSwarmPlot()." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-6)Using continuous color scale in SCpubr::do_BeeSwarmPlot().</p>
+</div>
+
 By using this combination of figures, we can also assess that the monocyte signature seems to be predominantly enriched in clusters 0 and 7.
 
 ## Change default colors in categorical variables
@@ -175,6 +200,11 @@ p <- SCpubr::do_BeeSwarmPlot(sample = sample,
                              colors.use = colors)
 p
 ```
+
+<div class="figure" style="text-align: center">
+<img src="06-BeeSwarmPlots_files/figure-html/unnamed-chunk-7-1.png" alt="SCpubr, modifying default colors in a Bee Swarm plot" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-7)SCpubr, modifying default colors in a Bee Swarm plot</p>
+</div>
 
 ## Modify color maps for continuous variables
 Same as in `SCpubr::do_FeaturePlot()`, it is also change the color map of the plot to one of the eight possible ones defined in [viridis](https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html). This is achieved by using `viridis_color_map` parameter and the color map name or code (capital letter). Options are:
@@ -202,4 +232,9 @@ p8 <- SCpubr::do_BeeSwarmPlot(sample = sample, feature_to_rank = "Monocyte_signa
 p <- patchwork::wrap_plots(list(p1, p2, p3, p4, p5, p6, p7, p8), ncol = 2, byrow = TRUE)
 p
 ```
+
+<div class="figure" style="text-align: center">
+<img src="06-BeeSwarmPlots_files/figure-html/unnamed-chunk-8-1.png" alt="SCpubr Nebulosa plot modifying viridis color maps." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-8)SCpubr Nebulosa plot modifying viridis color maps.</p>
+</div>
 
