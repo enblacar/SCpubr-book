@@ -20,4 +20,6 @@ csl: chicago-fullnote-bibliography.csl
 
 This package aims to provide a streamlined way of generating publication ready figures for known single-cell visualizations. As subjective as the term "aesthetically pleasant" can be, this a set of theme modifications implemented across different plot types. This package also serves as a personal project, with future prospects of growth.
 
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>
+
 

@@ -19,11 +19,6 @@ p2 <- SCpubr::do_BarPlot(sample = sample,
                          horizontal = T)
 p1 | p2
 ```
-
-<div class="figure" style="text-align: center">
-<img src="09-BarPlots_files/figure-html/unnamed-chunk-2-1.png" alt="SCpubr Bar plots, plotting single variables" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-2)SCpubr Bar plots, plotting single variables</p>
-</div>
 Using `SCpubr::do_BarPlot()` with only `features` yields a simple bar plot which is ordered by descending value. We can also set up the direction of the bars with `horizontal = TRUE/FALSE`, which by default is set to be vertical There are some underlying assumptions that are being taken to generate these plots:
 
 - The values in `features` need to be metadata variables, stored in `object@meta.data`. This a design choice, as data need to be grouped using `dplyr` and `tidyr`. This will also later apply to values provided to `group.by`.
@@ -41,11 +36,6 @@ p <- SCpubr::do_BarPlot(sample = sample,
                         horizontal = F)
 p
 ```
-
-<div class="figure" style="text-align: center">
-<img src="09-BarPlots_files/figure-html/unnamed-chunk-3-1.png" alt="SCpubr Bar plots, choosing the wrong variable" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-3)SCpubr Bar plots, choosing the wrong variable</p>
-</div>
 
 This happens, precisely, because of the high amount of unique values for `nCount_RNA`. These type of continuous values is best suited for other data visualizations like a `histogram`.
 
@@ -76,11 +66,6 @@ p2 <- SCpubr::do_BarPlot(sample,
                          horizontal = F)
 p1 | p2
 ```
-
-<div class="figure" style="text-align: center">
-<img src="09-BarPlots_files/figure-html/unnamed-chunk-4-1.png" alt="SCpubr Bar plots, introducing a variable to group values by" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-4)SCpubr Bar plots, introducing a variable to group values by</p>
-</div>
 
 As we can see, this nicely yields as many number of bars as unique values in the `feature`, and this bars are segmented by as many times as unique values in `group.by`. At first, this is hard to grasp, but it helps thinking of these two parameters, when used together, as:
 
@@ -126,11 +111,6 @@ p <- (p1 | p2) / (p3 | p4)
 p
 ```
 
-<div class="figure" style="text-align: center">
-<img src="09-BarPlots_files/figure-html/unnamed-chunk-5-1.png" alt="SCpubr Bar plots, difference between position" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-5)SCpubr Bar plots, difference between position</p>
-</div>
-
 
 ## Reordering columns based on a single entity
 
@@ -162,11 +142,6 @@ p2 <- SCpubr::do_BarPlot(sample,
                          horizontal = F)
 p1 | p2
 ```
-
-<div class="figure" style="text-align: center">
-<img src="09-BarPlots_files/figure-html/unnamed-chunk-6-1.png" alt="SCpubr Bar plots, reordering the colums using order.by" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-6)SCpubr Bar plots, reordering the colums using order.by</p>
-</div>
 
 
 ## Adding custom color scales.
@@ -203,11 +178,6 @@ p2 <- SCpubr::do_BarPlot(sample,
                          colors.use = colors)
 p1 | p2
 ```
-
-<div class="figure" style="text-align: center">
-<img src="09-BarPlots_files/figure-html/unnamed-chunk-7-1.png" alt="SCpubr, modifying colors" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-7)SCpubr, modifying colors</p>
-</div>
 
 
 
