@@ -133,7 +133,7 @@ However, this falls back to the same problem as with `Seurat::DimPlot` with the 
 
 
 ```r
-cells.plot <- colnames(sample[, !(sample$seurat_clusters %in% c("2", "5", "8"))])
+cells.plot <- colnames(sample[, !(sample$seurat_clusters %in% c("0", "2", "5", "8"))])
 p <- SCpubr::do_FeaturePlot(sample = sample, 
                             cells.highlight = cells.plot, 
                             features = c("CD14"), 
@@ -151,7 +151,7 @@ This way, by adding the cells back and modifying the legend, we accomplish the d
 ```r
 
 p <- SCpubr::do_FeaturePlot(sample = sample, 
-                            idents.highlight = levels(sample)[!(levels(sample) %in% c("2", "5", "8"))], 
+                            idents.highlight = levels(sample)[!(levels(sample) %in% c("0", "2", "5", "8"))], 
                             features = c("CD14"), 
                             plot.title = "My very important features")
 p

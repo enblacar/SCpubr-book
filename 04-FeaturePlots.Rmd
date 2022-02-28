@@ -92,7 +92,7 @@ p
 However, this falls back to the same problem as with `Seurat::DimPlot` with the `split.by` parameter. We lose the overall context of where the cells are. This is taken care by in `SCpubr::do_FeaturePlot()`, when using the `cells.highlight` parameter:
 
 ```{r, fig.cap = "SCpubr FeaturePlot, masking cells from clusters 2, 5 and 8", fig.width=8, fig.height=7}
-cells.plot <- colnames(sample[, !(sample$seurat_clusters %in% c("2", "5", "8"))])
+cells.plot <- colnames(sample[, !(sample$seurat_clusters %in% c("0", "2", "5", "8"))])
 p <- SCpubr::do_FeaturePlot(sample = sample, 
                             cells.highlight = cells.plot, 
                             features = c("CD14"), 
@@ -104,7 +104,7 @@ This way, by adding the cells back and modifying the legend, we accomplish the d
 ```{r, fig.cap = "SCpubr FeaturePlot, masking cells from clusters 2, 5 and 8 using idents.highlight", fig.width=8, fig.height=7}
 
 p <- SCpubr::do_FeaturePlot(sample = sample, 
-                            idents.highlight = levels(sample)[!(levels(sample) %in% c("2", "5", "8"))], 
+                            idents.highlight = levels(sample)[!(levels(sample) %in% c("0", "2", "5", "8"))], 
                             features = c("CD14"), 
                             plot.title = "My very important features")
 p
