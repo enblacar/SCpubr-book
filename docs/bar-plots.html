@@ -49,6 +49,7 @@
 <li><a class="" href="violin-plots.html"><span class="header-section-number">5</span> Violin plots</a></li>
 <li><a class="" href="dot-plots.html"><span class="header-section-number">6</span> Dot plots</a></li>
 <li><a class="active" href="bar-plots.html"><span class="header-section-number">7</span> Bar plots</a></li>
+<li><a class="" href="citation.html">Citation</a></li>
 </ul>
 
         <div class="book-extra">
@@ -223,12 +224,150 @@ Figure 1.5: SCpubr Bar plots, reordering the colums using order.by
 </p>
 </div>
 </div>
-<div id="adding-custom-color-scales." class="section level2" number="7.4">
+<div id="adding-the-exact-values-to-the-bars" class="section level2" number="7.4">
 <h2>
-<span class="header-section-number">7.4</span> Adding custom color scales.<a class="anchor" aria-label="anchor" href="#adding-custom-color-scales."><i class="fas fa-link"></i></a>
+<span class="header-section-number">7.4</span> Adding the exact values to the bars<a class="anchor" aria-label="anchor" href="#adding-the-exact-values-to-the-bars"><i class="fas fa-link"></i></a>
+</h2>
+<p>Sometimes, we are interested not only in displaying the bars but also reporting the exact number for each bar. This can be achieved by using <code>add.summary_labels = TRUE</code>:</p>
+<div class="sourceCode" id="cb76"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
+                         features <span class="op">=</span> <span class="st">"seurat_clusters"</span>, 
+                         legend <span class="op">=</span> <span class="cn">FALSE</span>,
+                         add.summary_labels <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
+                         features <span class="op">=</span> <span class="st">"seurat_clusters"</span>, 
+                         legend <span class="op">=</span> <span class="cn">FALSE</span>,
+                         horizontal <span class="op">=</span> <span class="cn">TRUE</span>,
+                         add.summary_labels <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-7"></span>
+<img src="09-BarPlots_files/figure-html/unnamed-chunk-7-1.png" alt="SCpubr, Adding labels to bars" width="100%" height="100%"><p class="caption">
+Figure 1.6: SCpubr, Adding labels to bars
+</p>
+</div>
+<p>The size of the labels can be adjusted by using <code>size.labels</code>. The default value is 3. This value changes the size quite drastically. Modification by low ammounts is reccomended.</p>
+<div class="sourceCode" id="cb77"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
+                         features <span class="op">=</span> <span class="st">"seurat_clusters"</span>, 
+                         legend <span class="op">=</span> <span class="cn">FALSE</span>,
+                         add.summary_labels <span class="op">=</span> <span class="cn">TRUE</span>,
+                         size.labels <span class="op">=</span> <span class="fl">2.5</span><span class="op">)</span>
+<span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
+                         features <span class="op">=</span> <span class="st">"seurat_clusters"</span>, 
+                         legend <span class="op">=</span> <span class="cn">FALSE</span>,
+                         horizontal <span class="op">=</span> <span class="cn">TRUE</span>,
+                         add.summary_labels <span class="op">=</span> <span class="cn">TRUE</span>,
+                         size.labels <span class="op">=</span> <span class="fl">2.5</span><span class="op">)</span>
+<span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-8"></span>
+<img src="09-BarPlots_files/figure-html/unnamed-chunk-8-1.png" alt="SCpubr, Modifying the size of the labels in the bars" width="100%" height="100%"><p class="caption">
+Figure 1.7: SCpubr, Modifying the size of the labels in the bars
+</p>
+</div>
+<p>When using in combination with <code>group.by</code>, it also adds the value on top of each bar:</p>
+<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
+                         features <span class="op">=</span> <span class="st">"seurat_clusters"</span>,
+                         group.by <span class="op">=</span> <span class="st">"modified_orig.ident"</span>,
+                         legend <span class="op">=</span> <span class="cn">TRUE</span>,
+                         add.summary_labels <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
+                         features <span class="op">=</span> <span class="st">"seurat_clusters"</span>,
+                         group.by <span class="op">=</span> <span class="st">"modified_orig.ident"</span>, 
+                         legend <span class="op">=</span> <span class="cn">TRUE</span>,
+                         horizontal <span class="op">=</span> <span class="cn">TRUE</span>,
+                         add.summary_labels <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-9"></span>
+<img src="09-BarPlots_files/figure-html/unnamed-chunk-9-1.png" alt="SCpubr, Adding labels to bars when grouped by another variable" width="100%" height="100%"><p class="caption">
+Figure 1.8: SCpubr, Adding labels to bars when grouped by another variable
+</p>
+</div>
+<p>If we are also interested in adding labels to each of the bar sugroups, we can do so by using <code>add.subgroup_labels = TRUE</code>:</p>
+<div class="sourceCode" id="cb79"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
+                         features <span class="op">=</span> <span class="st">"seurat_clusters"</span>,
+                         group.by <span class="op">=</span> <span class="st">"modified_orig.ident"</span>,
+                         legend <span class="op">=</span> <span class="cn">TRUE</span>,
+                         add.summary_labels <span class="op">=</span> <span class="cn">TRUE</span>,
+                         add.subgroup_labels <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
+                         features <span class="op">=</span> <span class="st">"seurat_clusters"</span>,
+                         group.by <span class="op">=</span> <span class="st">"modified_orig.ident"</span>, 
+                         legend <span class="op">=</span> <span class="cn">TRUE</span>,
+                         horizontal <span class="op">=</span> <span class="cn">TRUE</span>,
+                         add.summary_labels <span class="op">=</span> <span class="cn">TRUE</span>,
+                         add.subgroup_labels <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-10"></span>
+<img src="09-BarPlots_files/figure-html/unnamed-chunk-10-1.png" alt="SCpubr, Adding labels to bars and subgroups when grouped by another variable" width="100%" height="100%"><p class="caption">
+Figure 1.9: SCpubr, Adding labels to bars and subgroups when grouped by another variable
+</p>
+</div>
+<p>As can be observed, this type of labelling is very situational and highly depends on the overall structure of the bars and whether it is feasible to plot that many labels. In order to ease this cluttering, one can pass <code>repel.subroup_labels = TRUE</code> to avoid overlapping of the group labels (the colored ones inside the bars).</p>
+<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
+                         features <span class="op">=</span> <span class="st">"seurat_clusters"</span>,
+                         group.by <span class="op">=</span> <span class="st">"modified_orig.ident"</span>,
+                         legend <span class="op">=</span> <span class="cn">TRUE</span>,
+                         add.summary_labels <span class="op">=</span> <span class="cn">TRUE</span>,
+                         add.subgroup_labels <span class="op">=</span> <span class="cn">TRUE</span>,
+                         repel.subgroup_labels <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
+                         features <span class="op">=</span> <span class="st">"seurat_clusters"</span>,
+                         group.by <span class="op">=</span> <span class="st">"modified_orig.ident"</span>, 
+                         legend <span class="op">=</span> <span class="cn">TRUE</span>,
+                         horizontal <span class="op">=</span> <span class="cn">TRUE</span>,
+                         add.summary_labels <span class="op">=</span> <span class="cn">TRUE</span>,
+                         add.subgroup_labels <span class="op">=</span> <span class="cn">TRUE</span>,
+                         repel.subgroup_labels <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-11"></span>
+<img src="09-BarPlots_files/figure-html/unnamed-chunk-11-1.png" alt="SCpubr, Relocating group labels" width="100%" height="100%"><p class="caption">
+Figure 1.10: SCpubr, Relocating group labels
+</p>
+</div>
+<p>If we also want the summary labels (the ones in black at the top of each bar) to relocate, we can use <code>repel.summary_labels = TRUE</code>. This combination of parameters were designed to grant the user freedom to keep either of the two groups of labels centered and to make either group appear or disappear (as each bar plot will have a different scenario and sometimes it might be a viable option).</p>
+<div class="sourceCode" id="cb81"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
+                         features <span class="op">=</span> <span class="st">"seurat_clusters"</span>,
+                         group.by <span class="op">=</span> <span class="st">"modified_orig.ident"</span>,
+                         legend <span class="op">=</span> <span class="cn">TRUE</span>,
+                         add.summary_labels <span class="op">=</span> <span class="cn">TRUE</span>,
+                         add.subgroup_labels <span class="op">=</span> <span class="cn">TRUE</span>,
+                         repel.summary_labels <span class="op">=</span> <span class="cn">TRUE</span>,
+                         repel.subgroup_labels <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
+                         features <span class="op">=</span> <span class="st">"seurat_clusters"</span>,
+                         group.by <span class="op">=</span> <span class="st">"modified_orig.ident"</span>,
+                         legend <span class="op">=</span> <span class="cn">TRUE</span>,
+                         horizontal <span class="op">=</span> <span class="cn">TRUE</span>,
+                         add.summary_labels <span class="op">=</span> <span class="cn">TRUE</span>,
+                         add.subgroup_labels <span class="op">=</span> <span class="cn">TRUE</span>,
+                         repel.summary_labels <span class="op">=</span> <span class="cn">TRUE</span>,
+                         repel.subgroup_labels <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-12"></span>
+<img src="09-BarPlots_files/figure-html/unnamed-chunk-12-1.png" alt="SCpubr, Adding relocating all bars" width="100%" height="100%"><p class="caption">
+Figure 1.11: SCpubr, Adding relocating all bars
+</p>
+</div>
+<p>From the time being, the labelling feature is only available on <code>position = "stack"</code>.</p>
+</div>
+<div id="adding-custom-color-scales." class="section level2" number="7.5">
+<h2>
+<span class="header-section-number">7.5</span> Adding custom color scales.<a class="anchor" aria-label="anchor" href="#adding-custom-color-scales."><i class="fas fa-link"></i></a>
 </h2>
 <p>If necessary, the colors of the plots can be easily changed using the <code>colors.use</code> parameter, which requires a <strong>named vector</strong> containing the HEX codes of the colors to show and the names of the unique values that are being used as color groups. Here is one example:</p>
-<div class="sourceCode" id="cb76"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb82"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Create a color scale for the unique values in seurat clusters.</span>
 <span class="va">colors</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"0"</span> <span class="op">=</span> <span class="st">"#001219"</span>,
             <span class="st">"1"</span> <span class="op">=</span> <span class="st">"#005f73"</span>,
@@ -243,23 +382,23 @@ Figure 1.5: SCpubr Bar plots, reordering the colums using order.by
 
 <span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
                          features <span class="op">=</span> <span class="st">"seurat_clusters"</span>, 
-                         legend <span class="op">=</span> <span class="cn">F</span>, 
+                         legend <span class="op">=</span> <span class="cn">FALSE</span>, 
                          plot.title <span class="op">=</span> <span class="st">"Number of cells per cluster"</span>, 
-                         horizontal <span class="op">=</span> <span class="cn">T</span>, 
+                         horizontal <span class="op">=</span> <span class="cn">TRUE</span>, 
                          colors.use <span class="op">=</span> <span class="va">colors</span><span class="op">)</span>
 <span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span><span class="va">sample</span>, 
                          features <span class="op">=</span> <span class="st">"modified_orig.ident"</span>,
                          group.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>,
                          plot.title <span class="op">=</span> <span class="st">"With group.by - position = fill"</span>,
                          position <span class="op">=</span> <span class="st">"fill"</span>,
-                         legend <span class="op">=</span> <span class="cn">T</span>,
-                         horizontal <span class="op">=</span> <span class="cn">F</span>,
+                         legend <span class="op">=</span> <span class="cn">TRUE</span>,
+                         horizontal <span class="op">=</span> <span class="cn">FALSE</span>,
                          colors.use <span class="op">=</span> <span class="va">colors</span><span class="op">)</span>
 <span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-7"></span>
-<img src="09-BarPlots_files/figure-html/unnamed-chunk-7-1.png" alt="SCpubr, modifying colors" width="100%" height="100%"><p class="caption">
-Figure 1.6: SCpubr, modifying colors
+<span style="display:block;" id="fig:unnamed-chunk-13"></span>
+<img src="09-BarPlots_files/figure-html/unnamed-chunk-13-1.png" alt="SCpubr, modifying colors" width="100%" height="100%"><p class="caption">
+Figure 1.12: SCpubr, modifying colors
 </p>
 </div>
 
@@ -267,7 +406,7 @@ Figure 1.6: SCpubr, modifying colors
 </div>
   <div class="chapter-nav">
 <div class="prev"><a href="dot-plots.html"><span class="header-section-number">6</span> Dot plots</a></div>
-<div class="empty"></div>
+<div class="next"><a href="citation.html">Citation</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><form role="search" class="mt-4 mb-4">
         <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
@@ -278,7 +417,8 @@ Figure 1.6: SCpubr, modifying colors
 <li><a class="nav-link" href="#basic-usage-5"><span class="header-section-number">7.1</span> Basic usage</a></li>
 <li><a class="nav-link" href="#grouping-by-a-second-variable"><span class="header-section-number">7.2</span> Grouping by a second variable</a></li>
 <li><a class="nav-link" href="#reordering-columns-based-on-a-single-entity"><span class="header-section-number">7.3</span> Reordering columns based on a single entity</a></li>
-<li><a class="nav-link" href="#adding-custom-color-scales."><span class="header-section-number">7.4</span> Adding custom color scales.</a></li>
+<li><a class="nav-link" href="#adding-the-exact-values-to-the-bars"><span class="header-section-number">7.4</span> Adding the exact values to the bars</a></li>
+<li><a class="nav-link" href="#adding-custom-color-scales."><span class="header-section-number">7.5</span> Adding custom color scales.</a></li>
 </ul>
 
       <div class="book-extra">
@@ -302,7 +442,7 @@ Figure 1.6: SCpubr, modifying colors
 <!-- Moved the footer outside of the body to make it span all page width. --><footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 28 February, 2022.</p>
+    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 01 March, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

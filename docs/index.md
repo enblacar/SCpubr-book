@@ -1,7 +1,7 @@
 --- 
 title: "SCpubr"
 author: "Enrique Blanco Carmona"
-date: "28 February, 2022"
+date: "01 March, 2022"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib]

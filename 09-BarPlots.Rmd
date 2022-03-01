@@ -140,6 +140,121 @@ p2 <- SCpubr::do_BarPlot(sample,
 p1 | p2
 ```
 
+## Adding the exact values to the bars
+Sometimes, we are interested not only in displaying the bars but also reporting the exact number for each bar. This can be achieved by using `add.summary_labels = TRUE`:
+
+```{r, fig.cap = "SCpubr, Adding labels to bars", fig.width=14, fig.height=5}
+
+p1 <- SCpubr::do_BarPlot(sample = sample, 
+                         features = "seurat_clusters", 
+                         legend = FALSE,
+                         add.summary_labels = TRUE)
+p2 <- SCpubr::do_BarPlot(sample = sample, 
+                         features = "seurat_clusters", 
+                         legend = FALSE,
+                         horizontal = TRUE,
+                         add.summary_labels = TRUE)
+p1 | p2
+```
+
+The size of the labels can be adjusted by using `size.labels`. The default value is 3. This value changes the size quite drastically. Modification by low ammounts is reccomended. 
+```{r, fig.cap = "SCpubr, Modifying the size of the labels in the bars", fig.width=14, fig.height=5}
+
+p1 <- SCpubr::do_BarPlot(sample = sample, 
+                         features = "seurat_clusters", 
+                         legend = FALSE,
+                         add.summary_labels = TRUE,
+                         size.labels = 2.5)
+p2 <- SCpubr::do_BarPlot(sample = sample, 
+                         features = "seurat_clusters", 
+                         legend = FALSE,
+                         horizontal = TRUE,
+                         add.summary_labels = TRUE,
+                         size.labels = 2.5)
+p1 | p2
+```
+
+When using in combination with `group.by`, it also adds the value on top of each bar:
+```{r, fig.cap = "SCpubr, Adding labels to bars when grouped by another variable", fig.width=14, fig.height=5}
+p1 <- SCpubr::do_BarPlot(sample = sample, 
+                         features = "seurat_clusters",
+                         group.by = "modified_orig.ident",
+                         legend = TRUE,
+                         add.summary_labels = TRUE)
+p2 <- SCpubr::do_BarPlot(sample = sample, 
+                         features = "seurat_clusters",
+                         group.by = "modified_orig.ident", 
+                         legend = TRUE,
+                         horizontal = TRUE,
+                         add.summary_labels = TRUE)
+p1 | p2
+```
+
+If we are also interested in adding labels to each of the bar sugroups, we can do so by using `add.subgroup_labels = TRUE`:
+
+```{r, fig.cap = "SCpubr, Adding labels to bars and subgroups when grouped by another variable", fig.width=14, fig.height=5}
+p1 <- SCpubr::do_BarPlot(sample = sample, 
+                         features = "seurat_clusters",
+                         group.by = "modified_orig.ident",
+                         legend = TRUE,
+                         add.summary_labels = TRUE,
+                         add.subgroup_labels = TRUE)
+p2 <- SCpubr::do_BarPlot(sample = sample, 
+                         features = "seurat_clusters",
+                         group.by = "modified_orig.ident", 
+                         legend = TRUE,
+                         horizontal = TRUE,
+                         add.summary_labels = TRUE,
+                         add.subgroup_labels = TRUE)
+p1 | p2
+```
+
+As can be observed, this type of labelling is very situational and highly depends on the overall structure of the bars and whether it is feasible to plot that many labels. In order to ease this cluttering, one can pass `repel.subroup_labels = TRUE` to avoid overlapping of the group labels (the colored ones inside the bars). 
+
+```{r, fig.cap = "SCpubr, Relocating group labels", fig.width=14, fig.height=5}
+p1 <- SCpubr::do_BarPlot(sample = sample, 
+                         features = "seurat_clusters",
+                         group.by = "modified_orig.ident",
+                         legend = TRUE,
+                         add.summary_labels = TRUE,
+                         add.subgroup_labels = TRUE,
+                         repel.subgroup_labels = TRUE)
+p2 <- SCpubr::do_BarPlot(sample = sample, 
+                         features = "seurat_clusters",
+                         group.by = "modified_orig.ident", 
+                         legend = TRUE,
+                         horizontal = TRUE,
+                         add.summary_labels = TRUE,
+                         add.subgroup_labels = TRUE,
+                         repel.subgroup_labels = TRUE)
+p1 | p2
+```
+
+If we also want the summary labels (the ones in black at the top of each bar) to relocate, we can use `repel.summary_labels = TRUE`. This combination of parameters were designed to grant the user freedom to keep either of the two groups of labels centered and to make either group appear or disappear (as each bar plot will have a different scenario and sometimes it might be a viable option).
+
+```{r, fig.cap = "SCpubr, Adding relocating all bars", fig.width=14, fig.height=5}
+p1 <- SCpubr::do_BarPlot(sample = sample, 
+                         features = "seurat_clusters",
+                         group.by = "modified_orig.ident",
+                         legend = TRUE,
+                         add.summary_labels = TRUE,
+                         add.subgroup_labels = TRUE,
+                         repel.summary_labels = TRUE,
+                         repel.subgroup_labels = TRUE)
+p2 <- SCpubr::do_BarPlot(sample = sample, 
+                         features = "seurat_clusters",
+                         group.by = "modified_orig.ident",
+                         legend = TRUE,
+                         horizontal = TRUE,
+                         add.summary_labels = TRUE,
+                         add.subgroup_labels = TRUE,
+                         repel.summary_labels = TRUE,
+                         repel.subgroup_labels = TRUE)
+p1 | p2
+```
+
+From the time being, the labelling feature is only available on `position = "stack"`.
+
 
 ## Adding custom color scales.
 
@@ -160,17 +275,17 @@ colors <- c("0" = "#001219",
 
 p1 <- SCpubr::do_BarPlot(sample = sample, 
                          features = "seurat_clusters", 
-                         legend = F, 
+                         legend = FALSE, 
                          plot.title = "Number of cells per cluster", 
-                         horizontal = T, 
+                         horizontal = TRUE, 
                          colors.use = colors)
 p2 <- SCpubr::do_BarPlot(sample, 
                          features = "modified_orig.ident",
                          group.by = "seurat_clusters",
                          plot.title = "With group.by - position = fill",
                          position = "fill",
-                         legend = T,
-                         horizontal = F,
+                         legend = TRUE,
+                         horizontal = FALSE,
                          colors.use = colors)
 p1 | p2
 ```

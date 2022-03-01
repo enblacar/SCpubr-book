@@ -54,4 +54,5 @@ bar-plots
 basic-usage-5
 grouping-by-a-second-variable
 reordering-columns-based-on-a-single-entity
+adding-the-exact-values-to-the-bars
 adding-custom-color-scales.
