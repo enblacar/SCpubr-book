@@ -49,6 +49,7 @@
 <li><a class="" href="violin-plots.html"><span class="header-section-number">5</span> Violin plots</a></li>
 <li><a class="" href="dot-plots.html"><span class="header-section-number">6</span> Dot plots</a></li>
 <li><a class="" href="bar-plots.html"><span class="header-section-number">7</span> Bar plots</a></li>
+<li><a class="" href="troubleshooting.html"><span class="header-section-number">8</span> Troubleshooting</a></li>
 <li><a class="" href="citation.html">Citation</a></li>
 </ul>
 
@@ -69,7 +70,7 @@
 <span class="header-section-number">4.1</span> Using categorical variables<a class="anchor" aria-label="anchor" href="#using-categorical-variables"><i class="fas fa-link"></i></a>
 </h2>
 <p>Let’s say we want to focus on how much each cluster is driven by the PC_1 and PC_2. The first thought is to just use <code>SCpubr::do_Dimplot()</code> to plot the PCA embedding instead of the UMAP. We also query PC_3 and PC_4 to have a not-so-clear example.</p>
-<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span><span class="va">sample</span>, 
                          reduction <span class="op">=</span> <span class="st">"pca"</span>, 
                          label <span class="op">=</span> <span class="cn">T</span>, 
@@ -92,7 +93,7 @@ Figure 1.1: Plotting PCA embeddings with SCpubr::do_DimPlot()
 - The variable to rank to <code>feature_to_rank</code>.
 - The groups to divide the plot into to <code>group.by</code>.
 - Whether the output should be colored with a categorical or continuous scale, with <code>continuous_feature</code>.</p>
-<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
                          reduction <span class="op">=</span> <span class="st">"pca"</span>, 
                          label <span class="op">=</span> <span class="cn">T</span>, 
@@ -124,7 +125,7 @@ Figure 1.2: SCpubr Bee Swarm plots with categorical variables.
 </div>
 <p>Here, we have selected PC_1 and PC_4. We can observe how the X axis of the Bee Swarm plot displays the ordering (rank) of all of the cells across the selected feature. Focusing on PC_1, we can see that cluster 0 is completely shifted to the right on PC_1, with is nicely displayed in the Bee Swarm plot by having all of the cells also ranked high (the higher the rank, the bigger the “value” of the feature to rank, in this case, the PC_1 value). In the case of PC_4, the Bee Swarm plot nicely shows which clusters lay on the upper, lower or middle part of the PC_4.</p>
 <p>A very important thing to note in these kind of plots is that no cells will have the same rank. This is, imagine a scenario like PC_4, but we artificially remove clusters 0, 3, 5, 7, 8, 9, leaving only those forming a “straight line” in PC_4. The nature of this plot will also separate the remaining clusters:</p>
-<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Clusters to exclude.</span>
 <span class="va">clusters_exclude</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"0"</span>, <span class="st">"3"</span>, <span class="st">"5"</span>, <span class="st">"7"</span>, <span class="st">"8"</span>, <span class="st">"9"</span><span class="op">)</span>
 
@@ -156,7 +157,7 @@ Figure 1.3: SCpubr Bee Swarm plots with similar values.
 </p>
 </div>
 <p>See, we still clearly see two groups, formed by clusters 1 and 2, and clusters 4 and 6. We could even remove clusters 1 and 2 and still see a similar effect.</p>
-<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Clusters to exclude.</span>
 <span class="va">clusters_exclude</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"0"</span>, <span class="st">"1"</span>, <span class="st">"2"</span>, <span class="st">"3"</span>, <span class="st">"5"</span>, <span class="st">"7"</span>, <span class="st">"8"</span>, <span class="st">"9"</span><span class="op">)</span>
 
@@ -194,7 +195,7 @@ Figure 1.4: SCpubr Bee Swarm plots with almost identical values.
 <span class="header-section-number">4.2</span> Using continuous variables<a class="anchor" aria-label="anchor" href="#using-continuous-variables"><i class="fas fa-link"></i></a>
 </h2>
 <p>There are also scenarios in which we want to rank the cells to a continuous variable, but instead of showing colors for each group (which is anyway depicted in the Y axis), we want to introduce a continuous color scale. This is specially interesting to assess enrichment of clusters towards a given set of features.</p>
-<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Set up list of a genes to compute enrichment. Let's use a monocyte signature.</span>
 <span class="va">genes.use</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"CD14"</span>, <span class="st">"LYZ"</span><span class="op">)</span>
 
@@ -228,7 +229,7 @@ Figure 1.5: Using continuous color scale in SCpubr::do_BeeSwarmPlot().
 <span class="header-section-number">4.3</span> Change default colors in categorical variables<a class="anchor" aria-label="anchor" href="#change-default-colors-in-categorical-variables"><i class="fas fa-link"></i></a>
 </h2>
 <p>Same as with other categorical representations, we can modify the default color palette by providing a custom one to <code>colors.use</code>. This has to be a named vector of HEX values with the names of the groups as names of the values:</p>
-<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Create a color scale for the unique values in seurat clusters.</span>
 <span class="va">colors</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"0"</span> <span class="op">=</span> <span class="st">"#001219"</span>,
             <span class="st">"1"</span> <span class="op">=</span> <span class="st">"#005f73"</span>,
@@ -268,7 +269,7 @@ Figure 1.6: SCpubr, modifying default colors in a Bee Swarm plot
 <li>G - mako color map.</li>
 <li>H - turbo color map.</li>
 </ul>
-<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BeeSwarmPlot.html">do_BeeSwarmPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, feature_to_rank <span class="op">=</span> <span class="st">"Monocyte_signature"</span>, group.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>, continuous_feature <span class="op">=</span> <span class="cn">TRUE</span>, fontsize <span class="op">=</span> <span class="fl">10</span>, viridis_color_map <span class="op">=</span> <span class="st">"A"</span>, plot.title <span class="op">=</span> <span class="st">"Magma"</span><span class="op">)</span>
 <span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BeeSwarmPlot.html">do_BeeSwarmPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, feature_to_rank <span class="op">=</span> <span class="st">"Monocyte_signature"</span>, group.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>, continuous_feature <span class="op">=</span> <span class="cn">TRUE</span>, fontsize <span class="op">=</span> <span class="fl">10</span>, viridis_color_map <span class="op">=</span> <span class="st">"B"</span>, plot.title <span class="op">=</span> <span class="st">"Inferno"</span><span class="op">)</span>
 <span class="va">p3</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BeeSwarmPlot.html">do_BeeSwarmPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, feature_to_rank <span class="op">=</span> <span class="st">"Monocyte_signature"</span>, group.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>, continuous_feature <span class="op">=</span> <span class="cn">TRUE</span>, fontsize <span class="op">=</span> <span class="fl">10</span>, viridis_color_map <span class="op">=</span> <span class="st">"C"</span>, plot.title <span class="op">=</span> <span class="st">"Plasma"</span><span class="op">)</span>
@@ -326,7 +327,7 @@ Figure 1.7: SCpubr Nebulosa plot modifying viridis color maps.
 <!-- Moved the footer outside of the body to make it span all page width. --><footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 02 March, 2022.</p>
+    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 04 March, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

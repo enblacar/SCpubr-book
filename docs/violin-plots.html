@@ -49,6 +49,7 @@
 <li><a class="active" href="violin-plots.html"><span class="header-section-number">5</span> Violin plots</a></li>
 <li><a class="" href="dot-plots.html"><span class="header-section-number">6</span> Dot plots</a></li>
 <li><a class="" href="bar-plots.html"><span class="header-section-number">7</span> Bar plots</a></li>
+<li><a class="" href="troubleshooting.html"><span class="header-section-number">8</span> Troubleshooting</a></li>
 <li><a class="" href="citation.html">Citation</a></li>
 </ul>
 
@@ -68,7 +69,7 @@
 <h2>
 <span class="header-section-number">5.1</span> Basic usage<a class="anchor" aria-label="anchor" href="#basic-usage-3"><i class="fas fa-link"></i></a>
 </h2>
-<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">Seurat</span><span class="fu">::</span><span class="fu"><a href="https://satijalab.org/seurat/reference/VlnPlot.html">VlnPlot</a></span><span class="op">(</span><span class="va">sample</span>, 
                      features <span class="op">=</span> <span class="st">"nCount_RNA"</span><span class="op">)</span>
 <span class="va">p</span></code></pre></div>
@@ -79,7 +80,7 @@ Figure 1.1: Seurat’s violin plot.
 </p>
 </div>
 <p>The one thing that really stands out here is, indeed, the extra dots that are being plotted alongside the violin plot. Since each dot represent a cell, it quickly becomes the dominant feature of the figure. One can play with the alpha of the dots to reduce their presence:</p>
-<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">Seurat</span><span class="fu">::</span><span class="fu"><a href="https://satijalab.org/seurat/reference/VlnPlot.html">VlnPlot</a></span><span class="op">(</span><span class="va">sample</span>, 
                      features <span class="op">=</span> <span class="st">"nCount_RNA"</span><span class="op">)</span>
 <span class="co"># "Surgically" add the alpha parameter in the ggplot2 object.</span>
@@ -92,7 +93,7 @@ Figure 1.2: Seurat’s violin plot with transparent dots.
 </p>
 </div>
 <p>But still, by making the dots almost invisible, we still observe their dominance on the bigger clusters. Therefore, it’s better to remove it. This, together with other modifications are the basis of <code><a href="https://rdrr.io/pkg/SCpubr/man/do_VlnPlot.html">SCpubr::do_VlnPlot()</a></code>. This is how the default plot looks like:</p>
-<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_VlnPlot.html">do_VlnPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
                         features <span class="op">=</span> <span class="st">"nCount_RNA"</span><span class="op">)</span>
 <span class="va">p</span></code></pre></div>
@@ -103,7 +104,7 @@ Figure 1.3: SCpubr’s violin plot.
 </p>
 </div>
 <p>In addition to removing the dots, a boxplot is added to each violin shape, to get a better sense of the quantiles of the distribution. This effect can be removed by using <code>plot_boxplot = FALSE</code>. Also, legend is by default removed, as the groups are being displayed already in the X axis.</p>
-<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_VlnPlot.html">do_VlnPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
                         features <span class="op">=</span> <span class="st">"nCount_RNA"</span>,
                         plot_boxplot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
@@ -115,7 +116,7 @@ Figure 1.4: SCpubr’s violin plot without box plots.
 </p>
 </div>
 <p>If we want to rotate the X axis labels, we can also do that providing <code>rotate_x_labels = TRUE/FALSE</code>:</p>
-<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_VlnPlot.html">do_VlnPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
                         features <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"nCount_RNA"</span><span class="op">)</span>,
                         rotate_x_labels <span class="op">=</span> <span class="cn">TRUE</span>,<span class="op">)</span>
@@ -127,7 +128,7 @@ Figure 1.5: SCpubr’s violin plot rotating x axis.
 </p>
 </div>
 <p>We can also do that for specific violin plots when more than one feature is queried. For this, <code>rotate_x_labels</code> has to be a vector of logical values (TRUE or FALSE) of length equal to the number of features.</p>
-<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_VlnPlot.html">do_VlnPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
                         features <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"nCount_RNA"</span>, <span class="st">"nFeature_RNA"</span><span class="op">)</span>,
                         rotate_x_labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">FALSE</span>, <span class="cn">TRUE</span><span class="op">)</span>,
@@ -146,7 +147,7 @@ Figure 1.6: SCpubr’s violin plot rotating x axis.
 <span class="header-section-number">5.2</span> Violin plots as a means of QC<a class="anchor" aria-label="anchor" href="#violin-plots-as-a-means-of-qc"><i class="fas fa-link"></i></a>
 </h2>
 <p>For QC analyses, users might want to also add some other features such as a line indicating where to put the cutoff. This can be achieved by using <code>y_cut</code> parameter. Currently, only one value per plot for <code>y_cut</code> can be used.</p>
-<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_VlnPlot.html">do_VlnPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
                         features <span class="op">=</span> <span class="st">"nCount_RNA"</span>, 
                         y_cut <span class="op">=</span> <span class="fl">30000</span><span class="op">)</span>
@@ -158,7 +159,7 @@ Figure 1.7: SCpubr’s violin plot with horizontal line.
 </p>
 </div>
 <p>When multiple features are queried, the user can set up different horizontal lines parsing them as a vector to <code>y_cut</code>. Also, the same can be achieved for the individual plot titles by using the <code>individual.titles</code> parameter. The only restriction, is that the vector has to be of the same length as the number of features. If for a particular plot, we do not want to modify anything, use <code>NA</code> instead.</p>
-<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_VlnPlot.html">do_VlnPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
                         features <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"nCount_RNA"</span>, <span class="st">"nFeature_RNA"</span><span class="op">)</span>, 
                         y_cut <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">NA</span>, <span class="fl">5000</span><span class="op">)</span>, 
@@ -177,7 +178,7 @@ Figure 1.8: SCpubr’s violin plot with multiple features.
 <span class="header-section-number">5.3</span> Modifying default colors<a class="anchor" aria-label="anchor" href="#modifying-default-colors-1"><i class="fas fa-link"></i></a>
 </h2>
 <p>Same as with other categorical representations, we can modify the default color palette by providing a custom one to <code>colors.use</code>. This has to be a named vector of HEX values with the names of the groups as names of the values:</p>
-<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Create a color scale for the unique values in seurat clusters.</span>
 <span class="va">colors</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"0"</span> <span class="op">=</span> <span class="st">"#001219"</span>,
             <span class="st">"1"</span> <span class="op">=</span> <span class="st">"#005f73"</span>,
@@ -239,7 +240,7 @@ Figure 1.9: SCpubr, modifying default colors in a Violin plot
 <!-- Moved the footer outside of the body to make it span all page width. --><footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 02 March, 2022.</p>
+    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 04 March, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -19,10 +19,12 @@ fig:unnamed-chunk-19
 fig:unnamed-chunk-20
 fig:unnamed-chunk-21
 fig:unnamed-chunk-22
+fig:unnamed-chunk-23
 dim-plots
 figure-build-up
 basic-usage
 using-labels-instead-of-a-legend
+changing-the-order-of-plotting.
 modifying-default-colors
 highlighting-cells
 splitting-by-a-category
@@ -56,3 +58,4 @@ grouping-by-a-second-variable
 reordering-columns-based-on-a-single-entity
 adding-the-exact-values-to-the-bars
 adding-custom-color-scales.
+troubleshooting
