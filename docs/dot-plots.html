@@ -49,7 +49,7 @@
 <li><a class="" href="violin-plots.html"><span class="header-section-number">5</span> Violin plots</a></li>
 <li><a class="active" href="dot-plots.html"><span class="header-section-number">6</span> Dot plots</a></li>
 <li><a class="" href="bar-plots.html"><span class="header-section-number">7</span> Bar plots</a></li>
-<li><a class="" href="troubleshooting.html"><span class="header-section-number">8</span> Troubleshooting</a></li>
+<li><a class="" href="troubleshooting.html">Troubleshooting</a></li>
 <li><a class="" href="citation.html">Citation</a></li>
 </ul>
 
@@ -95,9 +95,9 @@ Figure 1.2: SCpubr DotPlot
 </p>
 </div>
 </div>
-<div id="querying-multiple-features-at-once." class="section level2" number="6.2">
+<div id="querying-multiple-features-at-once" class="section level2" number="6.2">
 <h2>
-<span class="header-section-number">6.2</span> Querying multiple features at once.<a class="anchor" aria-label="anchor" href="#querying-multiple-features-at-once."><i class="fas fa-link"></i></a>
+<span class="header-section-number">6.2</span> Querying multiple features at once<a class="anchor" aria-label="anchor" href="#querying-multiple-features-at-once"><i class="fas fa-link"></i></a>
 </h2>
 <p>The true power of this data visualization relies on querying multiple genes at once. Let’s query the ones described in this <a href="https://satijalab.org/seurat/articles/pbmc3k_tutorial.html#assigning-cell-type-identity-to-clusters-1">Seurat vignette</a>:</p>
 <div class="sourceCode" id="cb67"><pre class="downlit sourceCode r">
@@ -135,9 +135,9 @@ Figure 1.4: SCpubr DotPlot using multiple genes
 </p>
 </div>
 </div>
-<div id="clustering-the-identities." class="section level2" number="6.3">
+<div id="clustering-the-identities" class="section level2" number="6.3">
 <h2>
-<span class="header-section-number">6.3</span> Clustering the identities.<a class="anchor" aria-label="anchor" href="#clustering-the-identities."><i class="fas fa-link"></i></a>
+<span class="header-section-number">6.3</span> Clustering the identities<a class="anchor" aria-label="anchor" href="#clustering-the-identities"><i class="fas fa-link"></i></a>
 </h2>
 <p>One really cool feature from <code><a href="https://satijalab.org/seurat/reference/DotPlot.html">Seurat::DotPlot()</a></code> is that it lets you cluster the identities in the Y axis depending on how similar they are between them across the values on the X axis. This is achieved by using <code>cluster.idents = TRUE</code>, parameter also implemented in <code><a href="https://rdrr.io/pkg/SCpubr/man/do_DotPlot.html">SCpubr::do_DotPlot()</a></code>:</p>
 <div class="sourceCode" id="cb69"><pre class="downlit sourceCode r">
@@ -165,9 +165,9 @@ Figure 1.5: SCpubr DotPlot using multiple genes and clustering the identities
 </p>
 </div>
 </div>
-<div id="inverting-the-axes." class="section level2" number="6.4">
+<div id="inverting-the-axes" class="section level2" number="6.4">
 <h2>
-<span class="header-section-number">6.4</span> Inverting the axes.<a class="anchor" aria-label="anchor" href="#inverting-the-axes."><i class="fas fa-link"></i></a>
+<span class="header-section-number">6.4</span> Inverting the axes<a class="anchor" aria-label="anchor" href="#inverting-the-axes"><i class="fas fa-link"></i></a>
 </h2>
 <p>In <code><a href="https://rdrr.io/pkg/SCpubr/man/do_DotPlot.html">SCpubr::do_DotPlot()</a></code>, we can also invert the axes, so that the groups are in the X axis and the genes in the Y axis. This is achieved by using <code>flip = TRUE</code>. Note, however, that this does not work when using a named list of genes as input, as it completely distort the way facets are computed. Given this, this combination of parameters is currently blocked by <code>SCpubr</code>.</p>
 <div class="sourceCode" id="cb70"><pre class="downlit sourceCode r">
@@ -192,9 +192,9 @@ Figure 1.6: SCpubr DotPlot using multiple genes and clustering the identities fl
 </p>
 </div>
 </div>
-<div id="modifying-default-colors." class="section level2" number="6.5">
+<div id="modifying-default-colors-2" class="section level2" number="6.5">
 <h2>
-<span class="header-section-number">6.5</span> Modifying default colors.<a class="anchor" aria-label="anchor" href="#modifying-default-colors."><i class="fas fa-link"></i></a>
+<span class="header-section-number">6.5</span> Modifying default colors<a class="anchor" aria-label="anchor" href="#modifying-default-colors-2"><i class="fas fa-link"></i></a>
 </h2>
 <p>To modify the default colors, a vector of two colors has to be provided to <code>colors.use</code>. The two colors will form a gradient.</p>
 <div class="sourceCode" id="cb71"><pre class="downlit sourceCode r">
@@ -226,10 +226,10 @@ Figure 1.7: SCpubr, modifying default colors in a Dot plot
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#dot-plots"><span class="header-section-number">6</span> Dot plots</a></li>
 <li><a class="nav-link" href="#basic-usage-4"><span class="header-section-number">6.1</span> Basic usage</a></li>
-<li><a class="nav-link" href="#querying-multiple-features-at-once."><span class="header-section-number">6.2</span> Querying multiple features at once.</a></li>
-<li><a class="nav-link" href="#clustering-the-identities."><span class="header-section-number">6.3</span> Clustering the identities.</a></li>
-<li><a class="nav-link" href="#inverting-the-axes."><span class="header-section-number">6.4</span> Inverting the axes.</a></li>
-<li><a class="nav-link" href="#modifying-default-colors."><span class="header-section-number">6.5</span> Modifying default colors.</a></li>
+<li><a class="nav-link" href="#querying-multiple-features-at-once"><span class="header-section-number">6.2</span> Querying multiple features at once</a></li>
+<li><a class="nav-link" href="#clustering-the-identities"><span class="header-section-number">6.3</span> Clustering the identities</a></li>
+<li><a class="nav-link" href="#inverting-the-axes"><span class="header-section-number">6.4</span> Inverting the axes</a></li>
+<li><a class="nav-link" href="#modifying-default-colors-2"><span class="header-section-number">6.5</span> Modifying default colors</a></li>
 </ul>
 
       <div class="book-extra">

@@ -255,7 +255,7 @@ p
 </div>
 The labels present now bold text for further readability. 
 
-## Changing the order of plotting.
+## Changing the order of plotting
 
 By default, cells in `SCpubr::do_DimPlot()` are randomly plotted by using `shuffle = TRUE`. This is done as the default behavior of `Seurat::DimPlot()` is to plot the cells based on the factor levels of the identities. Sometimes, this way of plotting results in some clusters not being visible as another one is on top of it. However, this behavior might be intended, and even more, we would like a **specific** identity to stand out from the rest. This can be achieved by providing to `order` parameter either a vector with all the identities ordered however you want, or just some of the identities, which will then be plotted on top of the rest. However, it is still not clear whether using `order` alongside `shuffle` have unexpected side effects. For this, please use it alongside `shuffle = FALSE`. For the following example, we are going to test:
 

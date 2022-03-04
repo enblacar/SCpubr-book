@@ -49,7 +49,7 @@
 <li><a class="" href="violin-plots.html"><span class="header-section-number">5</span> Violin plots</a></li>
 <li><a class="" href="dot-plots.html"><span class="header-section-number">6</span> Dot plots</a></li>
 <li><a class="" href="bar-plots.html"><span class="header-section-number">7</span> Bar plots</a></li>
-<li><a class="" href="troubleshooting.html"><span class="header-section-number">8</span> Troubleshooting</a></li>
+<li><a class="" href="troubleshooting.html">Troubleshooting</a></li>
 <li><a class="" href="citation.html">Citation</a></li>
 </ul>
 
@@ -282,9 +282,9 @@ Figure 1.14: Seurat DimPlot with labels on top of the clusters.
 </div>
 <p>The labels present now bold text for further readability.</p>
 </div>
-<div id="changing-the-order-of-plotting." class="section level2" number="1.4">
+<div id="changing-the-order-of-plotting" class="section level2" number="1.4">
 <h2>
-<span class="header-section-number">1.4</span> Changing the order of plotting.<a class="anchor" aria-label="anchor" href="#changing-the-order-of-plotting."><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.4</span> Changing the order of plotting<a class="anchor" aria-label="anchor" href="#changing-the-order-of-plotting"><i class="fas fa-link"></i></a>
 </h2>
 <p>By default, cells in <code><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">SCpubr::do_DimPlot()</a></code> are randomly plotted by using <code>shuffle = TRUE</code>. This is done as the default behavior of <code><a href="https://satijalab.org/seurat/reference/DimPlot.html">Seurat::DimPlot()</a></code> is to plot the cells based on the factor levels of the identities. Sometimes, this way of plotting results in some clusters not being visible as another one is on top of it. However, this behavior might be intended, and even more, we would like a <strong>specific</strong> identity to stand out from the rest. This can be achieved by providing to <code>order</code> parameter either a vector with all the identities ordered however you want, or just some of the identities, which will then be plotted on top of the rest. However, it is still not clear whether using <code>order</code> alongside <code>shuffle</code> have unexpected side effects. For this, please use it alongside <code>shuffle = FALSE</code>. For the following example, we are going to test:</p>
 <ul>
@@ -490,7 +490,7 @@ Figure 1.22: SCpubr DimPlot using split.by with a changed color
 <li><a class="nav-link" href="#figure-build-up"><span class="header-section-number">1.1</span> Figure build-up</a></li>
 <li><a class="nav-link" href="#basic-usage"><span class="header-section-number">1.2</span> Basic usage</a></li>
 <li><a class="nav-link" href="#using-labels-instead-of-a-legend"><span class="header-section-number">1.3</span> Using labels instead of a legend</a></li>
-<li><a class="nav-link" href="#changing-the-order-of-plotting."><span class="header-section-number">1.4</span> Changing the order of plotting.</a></li>
+<li><a class="nav-link" href="#changing-the-order-of-plotting"><span class="header-section-number">1.4</span> Changing the order of plotting</a></li>
 <li><a class="nav-link" href="#modifying-default-colors"><span class="header-section-number">1.5</span> Modifying default colors</a></li>
 <li><a class="nav-link" href="#highlighting-cells"><span class="header-section-number">1.6</span> Highlighting cells</a></li>
 <li><a class="nav-link" href="#splitting-by-a-category"><span class="header-section-number">1.7</span> Splitting by a category</a></li>

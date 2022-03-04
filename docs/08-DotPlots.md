@@ -35,7 +35,7 @@ p1 | p2
 <p class="caption">(\#fig:unnamed-chunk-3)SCpubr DotPlot</p>
 </div>
 
-## Querying multiple features at once. 
+## Querying multiple features at once
 
 The true power of this data visualization relies on querying multiple genes at once. Let's query the ones described in this [Seurat vignette](https://satijalab.org/seurat/articles/pbmc3k_tutorial.html#assigning-cell-type-identity-to-clusters-1):
 
@@ -78,7 +78,7 @@ p
 <p class="caption">(\#fig:unnamed-chunk-5)SCpubr DotPlot using multiple genes</p>
 </div>
 
-## Clustering the identities.
+## Clustering the identities
 
 One really cool feature from `Seurat::DotPlot()` is that it lets you cluster the identities in the Y axis depending on how similar they are between them across the values on the X axis. This is achieved by using `cluster.idents = TRUE`, parameter also implemented in `SCpubr::do_DotPlot()`:
 
@@ -108,7 +108,7 @@ p1 / p2
 <p class="caption">(\#fig:unnamed-chunk-6)SCpubr DotPlot using multiple genes and clustering the identities</p>
 </div>
 
-## Inverting the axes.
+## Inverting the axes
 
 In `SCpubr::do_DotPlot()`, we can also invert the axes, so that the groups are in the X axis and the genes in the Y axis. This is achieved by using `flip = TRUE`. Note, however, that this does not work when using a named list of genes as input, as it completely distort the way facets are computed. Given this, this combination of parameters is currently blocked by `SCpubr`.
 
@@ -135,7 +135,7 @@ p1 | p2
 <p class="caption">(\#fig:unnamed-chunk-7)SCpubr DotPlot using multiple genes and clustering the identities flipping axes</p>
 </div>
 
-## Modifying default colors.
+## Modifying default colors
 
 To modify the default colors, a vector of two colors has to be provided to `colors.use`. The two colors will form a gradient.
 

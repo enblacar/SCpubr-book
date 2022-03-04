@@ -320,7 +320,7 @@ p1 | p2
 From the time being, the labelling feature is only available on `position = "stack"`.
 
 
-## Adding custom color scales.
+## Adding custom color scales
 
 If necessary, the colors of the plots can be easily changed using the `colors.use` parameter, which requires a **named vector** containing the HEX codes of the colors to show and the names of the unique values that are being used as color groups. Here is one example:
 
