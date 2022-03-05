@@ -6,16 +6,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Troubleshooting | SCpubr</title>
 <meta name="author" content="Enrique Blanco Carmona">
-<meta name="description" content="This section aims to clarify and provide fixes to common errors that might appear due to external factors. On development.">
+<meta name="description" content="This section aims to clarify and provide fixes to common errors that might appear due to external factors.  7.6 Correcly defining the number of columns and rows in the legend Sometimes, when using...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
 <meta property="og:title" content="Troubleshooting | SCpubr">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://enblacar.github.io/SCpubr-book/troubleshooting.html">
 <meta property="og:image" content="https://enblacar.github.io/SCpubr-book/images/SCpubr_logo.png">
-<meta property="og:description" content="This section aims to clarify and provide fixes to common errors that might appear due to external factors. On development.">
+<meta property="og:description" content="This section aims to clarify and provide fixes to common errors that might appear due to external factors.  7.6 Correcly defining the number of columns and rows in the legend Sometimes, when using...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Troubleshooting | SCpubr">
-<meta name="twitter:description" content="This section aims to clarify and provide fixes to common errors that might appear due to external factors. On development.">
+<meta name="twitter:description" content="This section aims to clarify and provide fixes to common errors that might appear due to external factors.  7.6 Correcly defining the number of columns and rows in the legend Sometimes, when using...">
 <meta name="twitter:image" content="https://enblacar.github.io/SCpubr-book/images/SCpubr_logo.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -63,8 +63,23 @@
   </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="troubleshooting" class="section level1 unnumbered">
 <h1>Troubleshooting<a class="anchor" aria-label="anchor" href="#troubleshooting"><i class="fas fa-link"></i></a>
 </h1>
-<p>This section aims to clarify and provide fixes to common errors that might appear due to external factors. On development.</p>
+<p>This section aims to clarify and provide fixes to common errors that might appear due to external factors.</p>
+<div id="correcly-defining-the-number-of-columns-and-rows-in-the-legend" class="section level2" number="7.6">
+<h2>
+<span class="header-section-number">7.6</span> Correcly defining the number of columns and rows in the legend<a class="anchor" aria-label="anchor" href="#correcly-defining-the-number-of-columns-and-rows-in-the-legend"><i class="fas fa-link"></i></a>
+</h2>
+<p>Sometimes, when using <code>legend.ncol</code> or <code>legend.nrow</code> parameter across the functions in <code>SCpubr</code> that have them implemented, the output number of columns and rows will not reflect the number provided. This stands particularly true when using <code>legend.ncol</code>. This happens, apparently, due to some internal checks from <code>ggplot2</code> and, as of today, a solution to this has not been found. However, due to this reason, <code>legend.nrow</code> has been introduced, in an attempt to some of this cases by defining the total number of rows instead. However, normally these cases normally arise when the legend is being forced to have a very uneven number of items per row/column. Therefore, it is suggested to always generated <strong>evenly distributed legends</strong>. Here is a representative example:</p>
+<div class="sourceCode" id="cb84"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span><span class="va">sample</span>, legend.ncol <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>
+<span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span><span class="va">sample</span>, legend.ncol <span class="op">=</span> <span class="fl">8</span><span class="op">)</span>
+<span class="va">p3</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span><span class="va">sample</span>, legend.ncol <span class="op">=</span> <span class="fl">10</span><span class="op">)</span>
+<span class="va">p4</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span><span class="va">sample</span>, legend.ncol <span class="op">=</span> <span class="fl">8</span>, legend.nrow <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>
+<span class="va">p5</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span><span class="va">sample</span>, legend.nrow <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>
+<span class="va">p6</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span><span class="va">sample</span>, legend.nrow <span class="op">=</span> <span class="fl">7</span><span class="op">)</span>
+<span class="va">p1</span> <span class="op">/</span> <span class="va">p2</span> <span class="op">/</span> <span class="va">p3</span> <span class="op">/</span> <span class="va">p4</span> <span class="op">/</span> <span class="va">p5</span> <span class="op">/</span> <span class="va">p6</span></code></pre></div>
+<div class="inline-figure"><img src="98-Troubleshooting_files/figure-html/unnamed-chunk-2-1.png" width="100%" height="100%" style="display: block; margin: auto;"></div>
 
+</div>
 </div>
   <div class="chapter-nav">
 <div class="prev"><a href="bar-plots.html"><span class="header-section-number">7</span> Bar plots</a></div>
@@ -74,7 +89,10 @@
         <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
 </form>
       <div class="book-extra">
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#troubleshooting">Troubleshooting</a></li></ul>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#troubleshooting">Troubleshooting</a></li>
+<li><a class="nav-link" href="#correcly-defining-the-number-of-columns-and-rows-in-the-legend"><span class="header-section-number">7.6</span> Correcly defining the number of columns and rows in the legend</a></li>
+</ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
@@ -97,7 +115,7 @@
 <!-- Moved the footer outside of the body to make it span all page width. --><footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 04 March, 2022.</p>
+    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 05 March, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
