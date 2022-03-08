@@ -69,7 +69,7 @@
 <h2>
 <span class="header-section-number">3.1</span> Basic usage<a class="anchor" aria-label="anchor" href="#basic-usage-2"><i class="fas fa-link"></i></a>
 </h2>
-<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">Nebulosa</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/Nebulosa/man/plot_density.html">plot_density</a></span><span class="op">(</span><span class="va">sample</span>,
                             features <span class="op">=</span> <span class="st">"CD14"</span><span class="op">)</span>
 <span class="va">p</span></code></pre></div>
@@ -80,7 +80,7 @@ Figure 1.1: Nebulosa plot
 </p>
 </div>
 <p>This way, not only we do know which clusters are enriched in CD14, we also know the regions of it with the highest density of cells expressing it. Minor modifications, on the line of the rest of plots, are applied in <code>SCpubr</code>:</p>
-<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_NebulosaPlot.html">do_NebulosaPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
                              features <span class="op">=</span> <span class="st">"CD14"</span><span class="op">)</span>
 <span class="va">p</span></code></pre></div>
@@ -91,7 +91,7 @@ Figure 1.2: SCpubr Nebulosa plot.
 </p>
 </div>
 <p>Then, this type visualization becomes a natural partner to `Seurat::FeaturePlot()’ as not only we are able to visualize the expression of a variable, but also query the density of the surrounding cells. Here is an example:</p>
-<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
                              features <span class="op">=</span> <span class="st">"CD14"</span><span class="op">)</span> 
 <span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_NebulosaPlot.html">do_NebulosaPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
@@ -104,7 +104,7 @@ Figure 1.3: SCpubr FeaturePlot and NebulosaPlot.
 </p>
 </div>
 <p><a href="https://github.com/powellgenomicslab/Nebulosa/blob/master/R/plotting.R">Nebulosa</a> package also offers the option to query multiple features at the same time:</p>
-<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_NebulosaPlot.html">do_NebulosaPlot</a></span><span class="op">(</span><span class="va">sample</span>, 
                              features <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"CD14"</span>, <span class="st">"CD8A"</span><span class="op">)</span><span class="op">)</span>
 <span class="va">p</span></code></pre></div>
@@ -115,7 +115,7 @@ Figure 1.4: SCpubr Nebulosa plot with multiple features.
 </p>
 </div>
 <p>But, more intriguingly, it can also compute the <strong>joint</strong> density of the features. This is achieved by parsing <code>joint = TRUE</code>.</p>
-<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_NebulosaPlot.html">do_NebulosaPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
                              features <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"CD14"</span>, <span class="st">"CD8A"</span><span class="op">)</span>, 
                              joint <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
@@ -127,7 +127,7 @@ Figure 1.5: SCpubr Nebulosa plot with joint density
 </p>
 </div>
 <p>If we were interested in retrieving only the joint density plot, we can accomplish it with <code>return_only_joint</code> parameter. Please note that, since this will return only one plot, if wanted to modify the plot title, use <code>plot.title</code> instead:</p>
-<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">features.use</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"CD14"</span>, <span class="st">"CD8A"</span><span class="op">)</span>
 
 <span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_NebulosaPlot.html">do_NebulosaPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
@@ -144,7 +144,7 @@ Figure 1.6: SCpubr Nebulosa plot with joint density, selecting only the last plo
 </p>
 </div>
 <p>If we query multiple features or use <code>joint = TRUE</code>, then using <code>plot.title</code> will add a general title to the different panels generated. To then modify the plot title of each individual panel, a vector <strong>of the same length as the number of features</strong> needs to be provided to <code>individual.titles</code> parameter. In case a title does not need to be changed, use <code>NA</code> instead. Please take note that <code>joint = TRUE</code> will generate an extra panel that needs another plot title.</p>
-<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_NebulosaPlot.html">do_NebulosaPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
                              features <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"CD14"</span>, <span class="st">"CD8A"</span><span class="op">)</span>, 
                              joint <span class="op">=</span> <span class="cn">TRUE</span>, 
@@ -175,7 +175,7 @@ Figure 1.7: SCpubr Nebulosa plot with joint density, modifying each individual p
 <li>G - mako color map.</li>
 <li>H - turbo color map.</li>
 </ul>
-<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_NebulosaPlot.html">do_NebulosaPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, features <span class="op">=</span> <span class="st">"CD8A"</span>, viridis_color_map <span class="op">=</span> <span class="st">"A"</span>, plot.title <span class="op">=</span> <span class="st">"Magma"</span><span class="op">)</span>
 <span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_NebulosaPlot.html">do_NebulosaPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, features <span class="op">=</span> <span class="st">"CD8A"</span>, viridis_color_map <span class="op">=</span> <span class="st">"B"</span>, plot.title <span class="op">=</span> <span class="st">"Inferno"</span><span class="op">)</span>
 <span class="va">p3</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_NebulosaPlot.html">do_NebulosaPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, features <span class="op">=</span> <span class="st">"CD8A"</span>, viridis_color_map <span class="op">=</span> <span class="st">"C"</span>, plot.title <span class="op">=</span> <span class="st">"Plasma"</span><span class="op">)</span>

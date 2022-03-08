@@ -271,6 +271,26 @@ p <- SCpubr::do_DimPlot(sample = sample,
 p
 ```
 
+Sometimes, we are interesting in showing only some of the identities or groups in our sample, but instead of the previous approach, we still want to keep the original colors and legend. For this, we might be inclined to just subset this sample, as follows:
+```{r, fig.cap = "Seurat DimPlot selecting only some identities by subsetting the sample.", fig.width=7, fig.height=7}
+# We are interested in clusters 0 and 5.
+p <- SCpubr::do_DimPlot(sample = sample[, sample$seurat_clusters %in% c("0", "5")])
+p
+``` 
+
+However, we end up losing the UMAP silhouette. For this, `SCpubr::do_DimPlot()` introduces `idents.keep` parameter, for which you can provide a vector with the identities you want to keep. This will treat the rest of the cells as `NA` and they will be colored according to `na.value` parameter:
+
+```{r, fig.cap = "Seurat DimPlot selecting only some identities by using idents.keep.", fig.width=14, fig.height=7}
+# We are interested in clusters 0 and 5.
+p1 <- SCpubr::do_DimPlot(sample = sample,
+                         idents.keep = c("0", "5"))
+p2 <- SCpubr::do_DimPlot(sample = sample,
+                         idents.keep = c("0", "5"),
+                         na.value = "grey50")
+p <- p1 | p2
+p
+``` 
+
 ## Splitting by a category
 
 Another useful parameter of `Seurat::DimPlot` is `split.by`, which allows you to split your DimPlot into multiple panels, each one containing a different unique value of the metadata variable you have provided to the argument. One can understand this as using the `group.by` parameter and then splitting the resulting DimPlot into different panels. In this example, we are going to use the different clusters as an example This is how it looks by default:
