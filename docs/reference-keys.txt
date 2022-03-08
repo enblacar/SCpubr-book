@@ -22,6 +22,8 @@ fig:unnamed-chunk-22
 fig:unnamed-chunk-23
 fig:unnamed-chunk-24
 fig:unnamed-chunk-25
+fig:unnamed-chunk-26
+fig:unnamed-chunk-27
 dim-plots
 figure-build-up
 basic-usage
@@ -29,6 +31,7 @@ using-labels-instead-of-a-legend
 changing-the-order-of-plotting
 modifying-default-colors
 highlighting-cells
+restrict-the-identitites-shown-and-grey-out-the-rest
 splitting-by-a-category
 feature-plots
 basic-usage-1

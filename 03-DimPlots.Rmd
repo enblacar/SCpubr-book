@@ -247,7 +247,7 @@ p <- Seurat::DimPlot(sample,
 p
 ```
 
-To achieve a similar effect in `SCpubr::do_DimPlot()`, we can use the same parameter `cells.highlight`. Also, we can change the color of the highligted cells by providing single color to `colors.use`:
+To achieve a similar effect in `SCpubr::do_DimPlot()`, we can use the same parameter `cells.highlight`. Also, we can change the color of the highligted cells by providing single color to `colors.use` and the color of the not selected cells with `na.value`:
 
 ```{r, fig.cap = "SCpubr DimPlot highlighting cells.", fig.width=16, fig.height=7}
 # Select 1000 random cells out of clusters 1, 5 and 7.
@@ -256,21 +256,34 @@ p1 <- SCpubr::do_DimPlot(sample = sample,
                          cells.highlight = cells.use)
 p2 <- SCpubr::do_DimPlot(sample = sample, 
                          cells.highlight = cells.use,
-                         colors.use = "steelblue")
+                         colors.use = "steelblue",
+                         na.value = "grey50")
 p1 | p2
 ```
 
 By default, the size of all cells in `SCpubr::do_DimPlot()` is the same. However, the size of the highlighted dots can be modified with the parameter `sizes.highlight` from Seurat.
 
 ```{r, fig.cap = "SCpubr DimPlot highlighting cells bigger dot size.", fig.width=8, fig.height=7}
-# Select 1000 random cells out of clusters 1, 5 and 7.
-cells.use <- sample(colnames(sample[, sample$seurat_clusters %in% c("1", "5", "7")]), 1000)
 p <- SCpubr::do_DimPlot(sample = sample, 
                         cells.highlight = cells.use, 
                         sizes.highlight = 1)
 p
 ```
+If interested, we can also highlight whole identities with `idents.highlight` parameter. For this, just provide the desired identities to be selected. It can also work in combination with `cells.highlight`.
 
+```{r, fig.cap = "SCpubr DimPlot highlighting cells bigger dot size.", fig.width=24, fig.height=7}
+p1 <- SCpubr::do_DimPlot(sample = sample, 
+                         cells.highlight = cells.use)
+p2 <- SCpubr::do_DimPlot(sample = sample, 
+                         idents.highlight = c("6"))
+p3 <- SCpubr::do_DimPlot(sample = sample, 
+                         cells.highlight = cells.use, 
+                         idents.highlight = c("6"))
+p <- p1 | p2 | p3
+p
+```
+
+## Restrict the identitites shown and grey out the rest
 Sometimes, we are interesting in showing only some of the identities or groups in our sample, but instead of the previous approach, we still want to keep the original colors and legend. For this, we might be inclined to just subset this sample, as follows:
 ```{r, fig.cap = "Seurat DimPlot selecting only some identities by subsetting the sample.", fig.width=7, fig.height=7}
 # We are interested in clusters 0 and 5.
@@ -315,7 +328,24 @@ p <- SCpubr::do_DimPlot(sample,
 p
 ```
 
-This way, we can see that clusters such as Cluster 7 are way more disperse than the rest, accounting not only for standalone groups of cells but also blending in other bigger clusters. Actually, the user might want to change the color of the highlighted cells in this split DimPlot. This is achieved by using `colors.use` parameter and providing either a vector of **valid color representations** of equal length to unique values in `split.by` or just a single color to color all panels the same.
+This way, we can see that clusters such as Cluster 7 are way more disperse than the rest, accounting not only for standalone groups of cells but also blending in other bigger clusters. 
+
+If we are interested only in a subset of the possible values, we can use `idents.keep` alongside a vector containing the values to keep from the unique values in `split.by`:
+
+```{r, fig.cap = "SCpubr DimPlot using split.by and idents.keep.", fig.width=15, fig.height=5}
+# Using ncol = 5 to maintain some of the proportions.
+# Using legend = F to remove unwanted repeated legends.
+p <- SCpubr::do_DimPlot(sample, 
+                        split.by = "seurat_clusters", 
+                        ncol = 3, 
+                        idents.keep = c("0", "1", "7"),
+                        legend = F,
+                        fontsize = 24)
+p
+```
+
+
+Actually, the user might want to change the color of the highlighted cells in this split DimPlot. This is achieved by using `colors.use` parameter and providing either a vector of **valid color representations** of equal length to unique values in `split.by` or just a single color to color all panels the same.
 
 
 ```{r, fig.cap = "SCpubr DimPlot using split.by with a changed color", fig.width=25, fig.height=20}
