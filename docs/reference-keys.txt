@@ -50,6 +50,7 @@ modify-color-maps-for-continuous-variables
 violin-plots
 basic-usage-3
 violin-plots-as-a-means-of-qc
+modifying-aesthetics
 modifying-default-colors-1
 dot-plots
 basic-usage-4

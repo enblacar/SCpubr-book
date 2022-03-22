@@ -128,6 +128,46 @@ p
 <p class="caption">(\#fig:unnamed-chunk-9)SCpubr's violin plot with multiple features.</p>
 </div>
 
+## Modifying aesthetics
+Sometimes we might want to modify the overall look of the violin plots. For instance, the line width of both the violin shape and the box plot can be modified with `line_width` parameter, which defaults to 1.
+
+
+```r
+p1 <- SCpubr::do_VlnPlot(sample = sample,
+                         features = "nCount_RNA")
+
+p2 <- SCpubr::do_VlnPlot(sample = sample,
+                         features = "nCount_RNA",
+                         line_width = 2)
+
+p <- p1 / p2
+p
+```
+
+<div class="figure" style="text-align: center">
+<img src="07-ViolinPlots_files/figure-html/unnamed-chunk-10-1.png" alt="SCpubr's violin plot with increased line width" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-10)SCpubr's violin plot with increased line width</p>
+</div>
+
+Also, the width of the box plots can be modified with `boxplot_width` parameter, which defaults to 0.2. Be aware that this parameter scales the width of the boxplot. This is, if a value of 1 is provided, the box plot will take as much space as the violin shape. It is recommended to deviate from 0.2 by a small amount.
+
+
+```r
+p1 <- SCpubr::do_VlnPlot(sample = sample,
+                         features = "nCount_RNA")
+
+p2 <- SCpubr::do_VlnPlot(sample = sample,
+                         features = "nCount_RNA",
+                         boxplot_width = 0.1)
+
+p <- p1 / p2
+p
+```
+
+<div class="figure" style="text-align: center">
+<img src="07-ViolinPlots_files/figure-html/unnamed-chunk-11-1.png" alt="SCpubr's violin plot with decreased box plot width" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-11)SCpubr's violin plot with decreased box plot width</p>
+</div>
 ## Modifying default colors
 
 Same as with other categorical representations, we can modify the default color palette by providing a custom one to `colors.use`. This has to be a named vector of HEX values with the names of the groups as names of the values:
@@ -153,6 +193,6 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="07-ViolinPlots_files/figure-html/unnamed-chunk-10-1.png" alt="SCpubr, modifying default colors in a Violin plot" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-10)SCpubr, modifying default colors in a Violin plot</p>
+<img src="07-ViolinPlots_files/figure-html/unnamed-chunk-12-1.png" alt="SCpubr, modifying default colors in a Violin plot" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-12)SCpubr, modifying default colors in a Violin plot</p>
 </div>
