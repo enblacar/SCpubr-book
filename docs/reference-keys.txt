@@ -64,3 +64,7 @@ grouping-by-a-second-variable
 reordering-columns-based-on-a-single-entity
 adding-the-exact-values-to-the-bars
 adding-custom-color-scales
+term-enrichment-plots
+modifying-the-number-of-terms-to-retrieve.
+modifying-the-length-of-the-terms
+modify-colors

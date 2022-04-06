@@ -1,0 +1,81 @@
+# Term Enrichment Plots
+
+One key downstream analysis in Single Cell analysis revolves having a list of candidate genes (i.e: DE genes) and one wants to know whether these genes are enriched for a specific biological function, pathway or cell type. This can be easily done using the [enrichR package](https://github.com/wjawaid/enrichR), which is an R interface to their website, [Enrichr](https://maayanlab.cloud/Enrichr/). This package allows to query a list of genes to more than 100 databases and retrieve the terms that are enriched for the list of genes, together with an adjusted p-value. This process, together with data processing and visualization is comprised in `SCpubr::do_TermEnrichmentPlot()`. 
+
+First of all, `enrichR` allows you to select the site to query the results for. This can be provided with the `site` parameter and can be one of the following: 
+- Enrichr.
+- FlyEnrichr.
+- WormEnrichr.
+- YeastEnrichr.
+- FishEnrichr.
+
+Then, we also need to specify the databases to query against. The complete list of databases can be consulted using: 
+
+```{r, eval = F}
+dbs <- sort(enrichR::listEnrichrDbs())
+```
+
+The databases to use need to be provided as a character vector to `dbs_use` parameter. However, one can also provide one of the following pre-defined options:
+
+- "A": Will perform a query to 4 databases for cell types (Azimuth, Descartes, PanglaoDB and Descartes) and 4 databases for functional terms (MsigDB, GO-BP, GO-MF and KEGG). This is the default option if this parameter is not provided.
+- "B": Performs a query for the cell type databases (Azimuth, Descartes, PanglaoDB and Descartes).
+- "C": Performs a query for the functional terms (MsigDB, GO-BP, GO-MF and KEGG).
+
+Any of the previous option will produce big figures. Please be aware of this fact when saving them to disk. This will be an example case:
+
+```{r, fig.cap="SCpubr do_TermEnrichmentPlot use case.", fig.width=25, fig.height=20}
+# Genes related to breast cancer.
+genes <- c("ABCB1", "ABCG2", "AHR", "AKT1", "AR")
+p <- SCpubr::do_TermEnrichmentPlot(genes = genes,
+                                   dbs_use = "C",
+                                   ncol = 2)
+p
+```
+
+## Modifying the number of terms to retrieve.
+
+Depending on the focus of the analysis, we might want to only focus on one database but retrieve more terms from it. This can be achieved by using `nterms` parameter. 
+
+```{r, fig.cap="SCpubr do_TermEnrichmentPlot with increased terms.", fig.width=15, fig.height=20}
+# Genes related to breast cancer.
+genes <- c("ABCB1", "ABCG2", "AHR", "AKT1", "AR")
+p <- SCpubr::do_TermEnrichmentPlot(genes = genes,
+                                   dbs_use = "GO_Biological_Process_2021",
+                                   nterms = 15)
+p
+```
+
+
+## Modifying the length of the terms
+
+Another issue with these plots is that, normally, the term itself takes too much space. For this, terms are wrapped according to a cutoff defined in `nchar_wrap` parameter. If the term has more characters than the value provided, it will be split more or less in half, always preserving whole words. 
+
+```{r, fig.cap="SCpubr do_TermEnrichmentPlot with reduced term length.", fig.width=30, fig.height=20}
+# Genes related to breast cancer.
+genes <- c("ABCB1", "ABCG2", "AHR", "AKT1", "AR")
+p1 <- SCpubr::do_TermEnrichmentPlot(genes = genes,
+                                    dbs_use = "GO_Biological_Process_2021",
+                                    nterms = 15)
+p2 <- SCpubr::do_TermEnrichmentPlot(genes = genes,
+                                    dbs_use = "GO_Biological_Process_2021",
+                                    nterms = 15,
+                                    nchar_wrap = 30)
+p <- p1 | p2
+p
+```
+In the same way, one can further enhance the limit in order to have each term in just one row.
+
+
+## Modify colors
+
+Finally, one can always modify the current color scheme with `colors.use`, providing two HEX codes for the two ends of the color gradient.
+
+```{r, fig.cap="SCpubr do_TermEnrichmentPlot with modified colors", fig.width=15, fig.height=7.5}
+# Genes related to breast cancer.
+genes <- c("ABCB1", "ABCG2", "AHR", "AKT1", "AR")
+p <- SCpubr::do_TermEnrichmentPlot(genes = genes,
+                                   dbs_use = "GO_Biological_Process_2021",
+                                   colors.use = c("#e9d8a6", "#9b2226"))
+
+p
+```
