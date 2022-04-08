@@ -19,6 +19,8 @@ Further packages are needed in order to run the different functions:
 
 - [colortools](https://github.com/gastonstat/colortools)
 - [dplyr](https://dplyr.tidyverse.org/)
+- [enrichR](https://cran.r-project.org/web/packages/enrichR/vignettes/enrichR.html)
+- [forcats](https://forcats.tidyverse.org/index.html)
 - [ggbeeswarm](https://cran.r-project.org/web/packages/ggbeeswarm/index.html)
 - [ggplot2](https://ggplot2.tidyverse.org/)
 - [ggpubr](https://cran.r-project.org/web/packages/ggpubr/index.html)
@@ -32,6 +34,7 @@ Further packages are needed in order to run the different functions:
 - [scales](https://cran.r-project.org/web/packages/scales/index.html)
 - [Seurat](https://satijalab.org/seurat/index.html)
 - [stringr](https://cran.r-project.org/web/packages/stringr/index.html)
+- [svglite](https://cran.r-project.org/web/packages/svglite/index.html)
 - [tidyr](https://tidyr.tidyverse.org/)
 - [viridis](https://cran.r-project.org/web/packages/viridis/index.html)
 
@@ -43,6 +46,8 @@ All packages can be installed using the following commands:
 # Install CRAN packages.
 cran_packages <- c("colortools",
                    "dplyr",
+                   "enrichR",
+                   "forcats",
                    "ggbeeswarm",
                    "ggplot2",
                    "ggpubr",
@@ -54,6 +59,7 @@ cran_packages <- c("colortools",
                    "scales",
                    "Seurat",
                    "stringr",
+                   "svglite",
                    "tidyr",
                    "viridis")
 install.packages(cran_packages)

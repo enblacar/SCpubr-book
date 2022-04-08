@@ -404,6 +404,75 @@ Figure 1.11: SCpubr, Adding relocating all bars
 Figure 1.12: SCpubr, modifying colors
 </p>
 </div>
+</div>
+<div id="retrieving-the-data-matrix" class="section level2" number="7.6">
+<h2>
+<span class="header-section-number">7.6</span> Retrieving the data matrix<a class="anchor" aria-label="anchor" href="#retrieving-the-data-matrix"><i class="fas fa-link"></i></a>
+</h2>
+<p>Many times, not only we are interested in actually displaying the data, but we do also want to store the data matrix. This is a common case for supplementary material in publications. To assess this, one can set <code>return_data_matrix = TRUE</code>, which will output a list containing both the plot and the data matrix (long and wide format). This does also work when several features are queried at the same time. Both for <code>position = "fill"</code> and <code>position = "stack"</code> the output will be the same, the total counts.</p>
+<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">output</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span><span class="va">sample</span>, 
+                             features <span class="op">=</span> <span class="st">"modified_orig.ident"</span>,
+                             group.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>,
+                             legend <span class="op">=</span> <span class="cn">TRUE</span>,
+                             horizontal <span class="op">=</span> <span class="cn">FALSE</span>,
+                             return_data_matrix <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<span class="co"># Retrieve plot.</span>
+<span class="va">plot</span> <span class="op">&lt;-</span> <span class="va">output</span><span class="op">$</span><span class="va">plot</span>
+
+<span class="co"># Retrieve data in long format.</span>
+<span class="va">data.long</span> <span class="op">&lt;-</span> <span class="va">output</span><span class="op">$</span><span class="va">data</span><span class="op">[[</span><span class="st">"modified_orig.ident"</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">long</span>
+
+<span class="co"># Show data in long format.</span>
+<span class="va">data.long</span>
+<span class="co">#&gt; # A tibble: 30 × 3</span>
+<span class="co">#&gt; # Groups:   seurat_clusters [10]</span>
+<span class="co">#&gt;    modified_orig.ident seurat_clusters     n</span>
+<span class="co">#&gt;    &lt;chr&gt;               &lt;fct&gt;           &lt;int&gt;</span>
+<span class="co">#&gt;  1 Sample_B            0                2655</span>
+<span class="co">#&gt;  2 Sample_B            1                1901</span>
+<span class="co">#&gt;  3 Sample_B            2                 941</span>
+<span class="co">#&gt;  4 Sample_B            3                 810</span>
+<span class="co">#&gt;  5 Sample_A            0                 769</span>
+<span class="co">#&gt;  6 Sample_B            4                 750</span>
+<span class="co">#&gt;  7 Sample_A            1                 555</span>
+<span class="co">#&gt;  8 Sample_B            5                 430</span>
+<span class="co">#&gt;  9 Sample_C            0                 408</span>
+<span class="co">#&gt; 10 Sample_B            6                 323</span>
+<span class="co">#&gt; # … with 20 more rows</span></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">output</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span><span class="va">sample</span>, 
+                             features <span class="op">=</span> <span class="st">"modified_orig.ident"</span>,
+                             group.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>,
+                             legend <span class="op">=</span> <span class="cn">TRUE</span>,
+                             horizontal <span class="op">=</span> <span class="cn">FALSE</span>,
+                             return_data_matrix <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<span class="co"># Retrieve plot.</span>
+<span class="va">plot</span> <span class="op">&lt;-</span> <span class="va">output</span><span class="op">$</span><span class="va">plot</span>
+
+<span class="co"># Retrieve data in long format.</span>
+<span class="va">data.long</span> <span class="op">&lt;-</span> <span class="va">output</span><span class="op">$</span><span class="va">data</span><span class="op">[[</span><span class="st">"modified_orig.ident"</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">long</span>
+
+<span class="co"># Retrieve data in wide format.</span>
+<span class="va">data.wide</span> <span class="op">&lt;-</span> <span class="va">output</span><span class="op">$</span><span class="va">data</span><span class="op">[[</span><span class="st">"modified_orig.ident"</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">wide</span>
+
+<span class="co"># Show data in wide format.</span>
+<span class="va">data.wide</span>
+<span class="co">#&gt; # A tibble: 10 × 4</span>
+<span class="co">#&gt; # Groups:   seurat_clusters [10]</span>
+<span class="co">#&gt;    seurat_clusters Sample_B Sample_A Sample_C</span>
+<span class="co">#&gt;    &lt;fct&gt;              &lt;int&gt;    &lt;int&gt;    &lt;int&gt;</span>
+<span class="co">#&gt;  1 0                   2655      769      408</span>
+<span class="co">#&gt;  2 1                   1901      555      225</span>
+<span class="co">#&gt;  3 2                    941      255      114</span>
+<span class="co">#&gt;  4 3                    810      205      112</span>
+<span class="co">#&gt;  5 4                    750      190       96</span>
+<span class="co">#&gt;  6 5                    430      104       62</span>
+<span class="co">#&gt;  7 6                    323      107       47</span>
+<span class="co">#&gt;  8 7                    235       62       29</span>
+<span class="co">#&gt;  9 8                    141       19       16</span>
+<span class="co">#&gt; 10 9                     76       17        7</span></code></pre></div>
+<p>Each type of data matrix is beneficial for different purposes. Long data is the desired format if you want to store the data matrix for future use in plotting. Wide data, in turn, is easier to understand right away.</p>
 
 </div>
 </div>
@@ -422,6 +491,7 @@ Figure 1.12: SCpubr, modifying colors
 <li><a class="nav-link" href="#reordering-columns-based-on-a-single-entity"><span class="header-section-number">7.3</span> Reordering columns based on a single entity</a></li>
 <li><a class="nav-link" href="#adding-the-exact-values-to-the-bars"><span class="header-section-number">7.4</span> Adding the exact values to the bars</a></li>
 <li><a class="nav-link" href="#adding-custom-color-scales"><span class="header-section-number">7.5</span> Adding custom color scales</a></li>
+<li><a class="nav-link" href="#retrieving-the-data-matrix"><span class="header-section-number">7.6</span> Retrieving the data matrix</a></li>
 </ul>
 
       <div class="book-extra">
@@ -445,7 +515,7 @@ Figure 1.12: SCpubr, modifying colors
 <!-- Moved the footer outside of the body to make it span all page width. --><footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 06 April, 2022.</p>
+    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 08 April, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

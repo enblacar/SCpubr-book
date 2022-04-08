@@ -361,10 +361,78 @@ p1 | p2
 </div>
 
 
+## Retrieving the data matrix
+
+Many times, not only we are interested in actually displaying the data, but we do also want to store the data matrix. This is a common case for supplementary material in publications. To assess this, one can set `return_data_matrix = TRUE`, which will output a list containing both the plot and the data matrix (long and wide format). This does also work when several features are queried at the same time. Both for `position = "fill"` and `position = "stack"` the output will be the same, the total counts.
 
 
+```r
+output <- SCpubr::do_BarPlot(sample, 
+                             features = "modified_orig.ident",
+                             group.by = "seurat_clusters",
+                             legend = TRUE,
+                             horizontal = FALSE,
+                             return_data_matrix = TRUE)
+# Retrieve plot.
+plot <- output$plot
+
+# Retrieve data in long format.
+data.long <- output$data[["modified_orig.ident"]]$long
+
+# Show data in long format.
+data.long
+#> # A tibble: 30 × 3
+#> # Groups:   seurat_clusters [10]
+#>    modified_orig.ident seurat_clusters     n
+#>    <chr>               <fct>           <int>
+#>  1 Sample_B            0                2655
+#>  2 Sample_B            1                1901
+#>  3 Sample_B            2                 941
+#>  4 Sample_B            3                 810
+#>  5 Sample_A            0                 769
+#>  6 Sample_B            4                 750
+#>  7 Sample_A            1                 555
+#>  8 Sample_B            5                 430
+#>  9 Sample_C            0                 408
+#> 10 Sample_B            6                 323
+#> # … with 20 more rows
+```
 
 
+```r
+output <- SCpubr::do_BarPlot(sample, 
+                             features = "modified_orig.ident",
+                             group.by = "seurat_clusters",
+                             legend = TRUE,
+                             horizontal = FALSE,
+                             return_data_matrix = TRUE)
+# Retrieve plot.
+plot <- output$plot
+
+# Retrieve data in long format.
+data.long <- output$data[["modified_orig.ident"]]$long
+
+# Retrieve data in wide format.
+data.wide <- output$data[["modified_orig.ident"]]$wide
+
+# Show data in wide format.
+data.wide
+#> # A tibble: 10 × 4
+#> # Groups:   seurat_clusters [10]
+#>    seurat_clusters Sample_B Sample_A Sample_C
+#>    <fct>              <int>    <int>    <int>
+#>  1 0                   2655      769      408
+#>  2 1                   1901      555      225
+#>  3 2                    941      255      114
+#>  4 3                    810      205      112
+#>  5 4                    750      190       96
+#>  6 5                    430      104       62
+#>  7 6                    323      107       47
+#>  8 7                    235       62       29
+#>  9 8                    141       19       16
+#> 10 9                     76       17        7
+```
+Each type of data matrix is beneficial for different purposes. Long data is the desired format if you want to store the data matrix for future use in plotting. Wide data, in turn, is easier to understand right away.
 
 
 
