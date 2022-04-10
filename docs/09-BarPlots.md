@@ -380,23 +380,96 @@ plot <- output$plot
 data.long <- output$data[["modified_orig.ident"]]$long
 
 # Show data in long format.
-data.long
-#> # A tibble: 30 × 3
-#> # Groups:   seurat_clusters [10]
-#>    modified_orig.ident seurat_clusters     n
-#>    <chr>               <fct>           <int>
-#>  1 Sample_B            0                2693
-#>  2 Sample_B            1                1883
-#>  3 Sample_B            2                 925
-#>  4 Sample_B            3                 817
-#>  5 Sample_A            0                 743
-#>  6 Sample_B            4                 728
-#>  7 Sample_A            1                 534
-#>  8 Sample_B            5                 404
-#>  9 Sample_C            0                 396
-#> 10 Sample_B            6                 323
-#> # … with 20 more rows
+knitr::kable(head(data.long, 15), booktabs = TRUE) %>%
+  kableExtra::kable_styling(font_size = 12)
 ```
+
+<table class="table" style="font-size: 12px; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;"> modified_orig.ident </th>
+   <th style="text-align:left;"> seurat_clusters </th>
+   <th style="text-align:right;"> n </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Sample_B </td>
+   <td style="text-align:left;"> 0 </td>
+   <td style="text-align:right;"> 2710 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sample_B </td>
+   <td style="text-align:left;"> 1 </td>
+   <td style="text-align:right;"> 1883 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sample_B </td>
+   <td style="text-align:left;"> 2 </td>
+   <td style="text-align:right;"> 936 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sample_B </td>
+   <td style="text-align:left;"> 3 </td>
+   <td style="text-align:right;"> 771 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sample_B </td>
+   <td style="text-align:left;"> 4 </td>
+   <td style="text-align:right;"> 733 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sample_A </td>
+   <td style="text-align:left;"> 0 </td>
+   <td style="text-align:right;"> 729 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sample_A </td>
+   <td style="text-align:left;"> 1 </td>
+   <td style="text-align:right;"> 532 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sample_B </td>
+   <td style="text-align:left;"> 5 </td>
+   <td style="text-align:right;"> 420 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sample_C </td>
+   <td style="text-align:left;"> 0 </td>
+   <td style="text-align:right;"> 393 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sample_B </td>
+   <td style="text-align:left;"> 6 </td>
+   <td style="text-align:right;"> 329 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sample_C </td>
+   <td style="text-align:left;"> 1 </td>
+   <td style="text-align:right;"> 266 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sample_A </td>
+   <td style="text-align:left;"> 2 </td>
+   <td style="text-align:right;"> 252 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sample_A </td>
+   <td style="text-align:left;"> 3 </td>
+   <td style="text-align:right;"> 237 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sample_B </td>
+   <td style="text-align:left;"> 7 </td>
+   <td style="text-align:right;"> 228 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sample_A </td>
+   <td style="text-align:left;"> 4 </td>
+   <td style="text-align:right;"> 202 </td>
+  </tr>
+</tbody>
+</table>
 
 
 ```r
@@ -416,22 +489,82 @@ data.long <- output$data[["modified_orig.ident"]]$long
 data.wide <- output$data[["modified_orig.ident"]]$wide
 
 # Show data in wide format.
-data.wide
-#> # A tibble: 10 × 4
-#> # Groups:   seurat_clusters [10]
-#>    seurat_clusters Sample_B Sample_A Sample_C
-#>    <fct>              <int>    <int>    <int>
-#>  1 0                   2693      743      396
-#>  2 1                   1883      534      264
-#>  3 2                    925      240      145
-#>  4 3                    817      194      116
-#>  5 4                    728      202      106
-#>  6 5                    404      121       71
-#>  7 6                    323       93       61
-#>  8 7                    219       71       36
-#>  9 8                    122       39       15
-#> 10 9                     68       21       11
+knitr::kable(head(data.wide, 15), booktabs = TRUE) %>%
+  kableExtra::kable_styling(font_size = 12)
 ```
+
+<table class="table" style="font-size: 12px; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;"> seurat_clusters </th>
+   <th style="text-align:right;"> Sample_B </th>
+   <th style="text-align:right;"> Sample_A </th>
+   <th style="text-align:right;"> Sample_C </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> 0 </td>
+   <td style="text-align:right;"> 2710 </td>
+   <td style="text-align:right;"> 729 </td>
+   <td style="text-align:right;"> 393 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 1 </td>
+   <td style="text-align:right;"> 1883 </td>
+   <td style="text-align:right;"> 532 </td>
+   <td style="text-align:right;"> 266 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2 </td>
+   <td style="text-align:right;"> 936 </td>
+   <td style="text-align:right;"> 252 </td>
+   <td style="text-align:right;"> 122 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 3 </td>
+   <td style="text-align:right;"> 771 </td>
+   <td style="text-align:right;"> 237 </td>
+   <td style="text-align:right;"> 119 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 4 </td>
+   <td style="text-align:right;"> 733 </td>
+   <td style="text-align:right;"> 202 </td>
+   <td style="text-align:right;"> 101 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 5 </td>
+   <td style="text-align:right;"> 420 </td>
+   <td style="text-align:right;"> 121 </td>
+   <td style="text-align:right;"> 55 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 6 </td>
+   <td style="text-align:right;"> 329 </td>
+   <td style="text-align:right;"> 97 </td>
+   <td style="text-align:right;"> 51 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 7 </td>
+   <td style="text-align:right;"> 228 </td>
+   <td style="text-align:right;"> 66 </td>
+   <td style="text-align:right;"> 32 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 8 </td>
+   <td style="text-align:right;"> 123 </td>
+   <td style="text-align:right;"> 28 </td>
+   <td style="text-align:right;"> 25 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 9 </td>
+   <td style="text-align:right;"> 65 </td>
+   <td style="text-align:right;"> 21 </td>
+   <td style="text-align:right;"> 14 </td>
+  </tr>
+</tbody>
+</table>
 Each type of data matrix is beneficial for different purposes. Long data is the desired format if you want to store the data matrix for future use in plotting. Wide data, in turn, is easier to understand right away.
 
 
