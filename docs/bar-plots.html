@@ -429,16 +429,16 @@ Figure 1.12: SCpubr, modifying colors
 <span class="co">#&gt; # Groups:   seurat_clusters [10]</span>
 <span class="co">#&gt;    modified_orig.ident seurat_clusters     n</span>
 <span class="co">#&gt;    &lt;chr&gt;               &lt;fct&gt;           &lt;int&gt;</span>
-<span class="co">#&gt;  1 Sample_B            0                2661</span>
-<span class="co">#&gt;  2 Sample_B            1                1881</span>
-<span class="co">#&gt;  3 Sample_B            2                 933</span>
-<span class="co">#&gt;  4 Sample_A            0                 800</span>
-<span class="co">#&gt;  5 Sample_B            3                 776</span>
-<span class="co">#&gt;  6 Sample_B            4                 723</span>
-<span class="co">#&gt;  7 Sample_A            1                 518</span>
-<span class="co">#&gt;  8 Sample_B            5                 415</span>
-<span class="co">#&gt;  9 Sample_C            0                 371</span>
-<span class="co">#&gt; 10 Sample_B            6                 334</span>
+<span class="co">#&gt;  1 Sample_B            0                2664</span>
+<span class="co">#&gt;  2 Sample_B            1                1865</span>
+<span class="co">#&gt;  3 Sample_B            2                 891</span>
+<span class="co">#&gt;  4 Sample_B            3                 802</span>
+<span class="co">#&gt;  5 Sample_A            0                 771</span>
+<span class="co">#&gt;  6 Sample_B            4                 719</span>
+<span class="co">#&gt;  7 Sample_A            1                 535</span>
+<span class="co">#&gt;  8 Sample_B            5                 407</span>
+<span class="co">#&gt;  9 Sample_C            0                 397</span>
+<span class="co">#&gt; 10 Sample_B            6                 328</span>
 <span class="co">#&gt; # … with 20 more rows</span></code></pre></div>
 <div class="sourceCode" id="cb93"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">output</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span><span class="va">sample</span>, 
@@ -462,16 +462,16 @@ Figure 1.12: SCpubr, modifying colors
 <span class="co">#&gt; # Groups:   seurat_clusters [10]</span>
 <span class="co">#&gt;    seurat_clusters Sample_B Sample_A Sample_C</span>
 <span class="co">#&gt;    &lt;fct&gt;              &lt;int&gt;    &lt;int&gt;    &lt;int&gt;</span>
-<span class="co">#&gt;  1 0                   2661      800      371</span>
-<span class="co">#&gt;  2 1                   1881      518      282</span>
-<span class="co">#&gt;  3 2                    933      260      117</span>
-<span class="co">#&gt;  4 3                    776      236      115</span>
-<span class="co">#&gt;  5 4                    723      206      107</span>
-<span class="co">#&gt;  6 5                    415      108       73</span>
-<span class="co">#&gt;  7 6                    334       85       58</span>
-<span class="co">#&gt;  8 7                    216       73       37</span>
-<span class="co">#&gt;  9 8                    117       38       21</span>
-<span class="co">#&gt; 10 9                     69       22        9</span></code></pre></div>
+<span class="co">#&gt;  1 0                   2664      771      397</span>
+<span class="co">#&gt;  2 1                   1865      535      281</span>
+<span class="co">#&gt;  3 2                    891      266      153</span>
+<span class="co">#&gt;  4 3                    802      205      120</span>
+<span class="co">#&gt;  5 4                    719      218       99</span>
+<span class="co">#&gt;  6 5                    407      122       67</span>
+<span class="co">#&gt;  7 6                    328      105       44</span>
+<span class="co">#&gt;  8 7                    232       65       29</span>
+<span class="co">#&gt;  9 8                    123       39       14</span>
+<span class="co">#&gt; 10 9                     67       18       15</span></code></pre></div>
 <p>Each type of data matrix is beneficial for different purposes. Long data is the desired format if you want to store the data matrix for future use in plotting. Wide data, in turn, is easier to understand right away.</p>
 
 </div>

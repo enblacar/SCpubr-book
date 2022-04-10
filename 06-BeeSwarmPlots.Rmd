@@ -51,7 +51,6 @@ p <- sample@meta.data %>% # Extract metadata
       ggplot2::xlab("Cell name") + 
       ggplot2::ylab("Rank") + 
       ggplot2::facet_wrap("seurat_clusters", ncol = 5)
-p <- p1 | p2
 p
 ```
 Here, we can see that not all clusters show the same distribution or ranks. There will be clusters where the distribution is shifted to the higher ranks and others to the lower ones. Plotting this differential distributions in a nice way is the aim of `SCpubr::do_BeeSwarmPlot()`. This is achieved by using the [ggbeeswarm package](https://github.com/eclarke/ggbeeswarm). The idea of using the `ggbeeswarm::geom_quasirandom()` geometry provided by this package and implement it for single-cell analyses came from [this tutorial from the Broad Institute](https://broadinstitute.github.io/2019_scWorkshop/functional-pseudotime-analysis.html#diffusion-map-pseudotime).

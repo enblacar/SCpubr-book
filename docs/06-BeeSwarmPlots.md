@@ -55,7 +55,6 @@ p <- sample@meta.data %>% # Extract metadata
       ggplot2::xlab("Cell name") + 
       ggplot2::ylab("Rank") + 
       ggplot2::facet_wrap("seurat_clusters", ncol = 5)
-p <- p1 | p2
 p
 ```
 
