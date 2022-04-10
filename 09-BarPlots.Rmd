@@ -309,7 +309,8 @@ plot <- output$plot
 data.long <- output$data[["modified_orig.ident"]]$long
 
 # Show data in long format.
-data.long
+knitr::kable(head(data.long, 5), booktabs = TRUE) %>%
+  kableExtra::kable_styling(font_size = 12)
 ```
 
 ```{r, fig.cap = "SCpubr, outputting data matrices, long format", fig.width=12, fig.height=5}
@@ -329,7 +330,8 @@ data.long <- output$data[["modified_orig.ident"]]$long
 data.wide <- output$data[["modified_orig.ident"]]$wide
 
 # Show data in wide format.
-data.wide
+knitr::kable(head(data.wide, 5), booktabs = TRUE) %>%
+  kableExtra::kable_styling(font_size = 12)
 ```
 Each type of data matrix is beneficial for different purposes. Long data is the desired format if you want to store the data matrix for future use in plotting. Wide data, in turn, is easier to understand right away.
 
