@@ -1,6 +1,69 @@
 # Bee Swarm plots
 
-This one is a very interesting plot. It stems from the idea that we can order (rank) the cells in a given variable. This variable has to be a continuous variable, for a better representation. The order goes from lowest to maximum value. Then, the cells are grouped into any other variable of interest and displayed in a scatter plot fashion. This is achieved by using the [ggbeeswarm package](https://github.com/eclarke/ggbeeswarm). The idea of using the `ggbeeswarm::geom_quasirandom()` geometry provided by this package and implement it for single-cell analyses came from [this tutorial from the Broad Institute](https://broadinstitute.github.io/2019_scWorkshop/functional-pseudotime-analysis.html#diffusion-map-pseudotime).
+This is a very interesting plot. It stems from the idea that we can order (rank) the cells in a given variable. This variable has to be a continuous variable, for a better representation. The order goes from lowest to maximum value. Then, the cells are grouped into any other variable of interest and displayed in a scatter plot fashion. 
+
+Put it into an example, let's say that we have our cells queried for enrichement in a given list of genes. This can be done using `Seurat::AddModuleScore()`, and returns one score for each cell. This would be our continuous variable. That, we can rank (i.e: provide an order from lowest to highest), giving the cell with the lowest enrichment score the first rank and the one with the maximum value the last rank. If we were to plot this rank right away, we will see that this behaves as a linear distribution:
+
+
+```r
+# Compute enrichment.
+gene_list <- c("OLIG1", "MBP")
+sample <- Seurat::AddModuleScore(sample, features = list(gene_list), name = "testing_list")
+
+# Rank the enrichment scores.
+sample$rank <- rank(sample$testing_list1)
+
+# Visualize the two distribution.
+p1 <- SCpubr::do_VlnPlot(sample = sample,
+                         features = "testing_list1",
+                         group.by = "orig.ident")
+p2 <- sample@meta.data %>% # Extract metadata
+      dplyr::mutate(cell_name = rownames(sample@meta.data)) %>% # Get the cell names.
+      dplyr::select(.data$cell_name, .data$rank) %>% # Select the columns to plot.
+      dplyr::arrange(.data$rank) %>% # Reorder the rows.
+      dplyr::mutate(cell_name = factor(.data$cell_name, levels = .data$cell_name)) %>% # Conver to factor for plotting.
+      ggplot2::ggplot(mapping = ggplot2::aes(x = .data$cell_name, y = .data$rank)) +
+      ggplot2::geom_point() +
+      ggpubr::theme_pubr() +
+      ggpubr::rremove("x.text") +
+      ggpubr::rremove("x.ticks") + 
+      ggplot2::xlab("Cell name") + 
+      ggplot2::ylab("Rank")
+p <- p1 | p2
+p
+```
+
+<div class="figure" style="text-align: center">
+<img src="06-BeeSwarmPlots_files/figure-html/unnamed-chunk-2-1.png" alt="Distribution of enrichment scores and ranks." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-2)Distribution of enrichment scores and ranks.</p>
+</div>
+As we can observe, the ranks behave in a linear fashion and that is expected. However, the interesting part comes when we further subset this distribution by another variable:
+
+
+```r
+
+p <- sample@meta.data %>% # Extract metadata
+      dplyr::mutate(cell_name = rownames(sample@meta.data)) %>% # Get the cell names.
+      dplyr::select(.data$cell_name, .data$rank, .data$seurat_clusters) %>% # Select the columns to plot.
+      dplyr::arrange(.data$rank) %>% # Reorder the rows.
+      dplyr::mutate(cell_name = factor(.data$cell_name, levels = .data$cell_name)) %>% # Conver to factor for plotting.
+      ggplot2::ggplot(mapping = ggplot2::aes(x = .data$cell_name, y = .data$rank)) +
+      ggplot2::geom_point() +
+      ggpubr::theme_pubr() +
+      ggpubr::rremove("x.text") +
+      ggpubr::rremove("x.ticks") + 
+      ggplot2::xlab("Cell name") + 
+      ggplot2::ylab("Rank") + 
+      ggplot2::facet_wrap("seurat_clusters", ncol = 5)
+p <- p1 | p2
+p
+```
+
+<div class="figure" style="text-align: center">
+<img src="06-BeeSwarmPlots_files/figure-html/unnamed-chunk-3-1.png" alt="Splitting the ranks by groups." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-3)Splitting the ranks by groups.</p>
+</div>
+Here, we can see that not all clusters show the same distribution or ranks. There will be clusters where the distribution is shifted to the higher ranks and others to the lower ones. Plotting this differential distributions in a nice way is the aim of `SCpubr::do_BeeSwarmPlot()`. This is achieved by using the [ggbeeswarm package](https://github.com/eclarke/ggbeeswarm). The idea of using the `ggbeeswarm::geom_quasirandom()` geometry provided by this package and implement it for single-cell analyses came from [this tutorial from the Broad Institute](https://broadinstitute.github.io/2019_scWorkshop/functional-pseudotime-analysis.html#diffusion-map-pseudotime).
 
 ## Using categorical variables
 Let's say we want to focus on how much each cluster is driven by the PC_1 and PC_2. The first thought is to just use `SCpubr::do_Dimplot()` to plot the PCA embedding instead of the UMAP. We also query PC_3 and PC_4 to have a not-so-clear example.
@@ -24,8 +87,8 @@ p1 | p2
 ```
 
 <div class="figure" style="text-align: center">
-<img src="06-BeeSwarmPlots_files/figure-html/unnamed-chunk-2-1.png" alt="Plotting PCA embeddings with SCpubr::do_DimPlot()" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-2)Plotting PCA embeddings with SCpubr::do_DimPlot()</p>
+<img src="06-BeeSwarmPlots_files/figure-html/unnamed-chunk-4-1.png" alt="Plotting PCA embeddings with SCpubr::do_DimPlot()" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-4)Plotting PCA embeddings with SCpubr::do_DimPlot()</p>
 </div>
 
 With this, we get right away a decent overview. Clusters 0, 5, 7 and 8 separate on PC_1 from the rest. However, in many cases this will not be clear, such as the image on the right. This is where Bee Swarm plots come in handy. This is implemented in `SCpubr::do_BeeSwarmPlot()`. This function needs the user to provide:
@@ -61,8 +124,8 @@ p4 <- SCpubr::do_BeeSwarmPlot(sample = sample,
 ```
 
 <div class="figure" style="text-align: center">
-<img src="06-BeeSwarmPlots_files/figure-html/unnamed-chunk-3-1.png" alt="SCpubr Bee Swarm plots with categorical variables." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-3)SCpubr Bee Swarm plots with categorical variables.</p>
+<img src="06-BeeSwarmPlots_files/figure-html/unnamed-chunk-5-1.png" alt="SCpubr Bee Swarm plots with categorical variables." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-5)SCpubr Bee Swarm plots with categorical variables.</p>
 </div>
 
 Here, we have selected PC_1 and PC_4. We can observe how the X axis of the Bee Swarm plot displays the ordering (rank) of all of the cells across the selected feature. Focusing on PC_1, we can see that cluster 0 is completely shifted to the right on PC_1, with is nicely displayed in the Bee Swarm plot by having all of the cells also ranked high (the higher the rank, the bigger the "value" of the feature to rank, in this case, the PC_1 value). In the case of PC_4, the Bee Swarm plot nicely shows which clusters lay on the upper, lower or middle part of the PC_4.
@@ -98,8 +161,8 @@ p1 | p2
 ```
 
 <div class="figure" style="text-align: center">
-<img src="06-BeeSwarmPlots_files/figure-html/unnamed-chunk-4-1.png" alt="SCpubr Bee Swarm plots with similar values." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-4)SCpubr Bee Swarm plots with similar values.</p>
+<img src="06-BeeSwarmPlots_files/figure-html/unnamed-chunk-6-1.png" alt="SCpubr Bee Swarm plots with similar values." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-6)SCpubr Bee Swarm plots with similar values.</p>
 </div>
 
 
@@ -134,8 +197,8 @@ p1 | p2
 ```
 
 <div class="figure" style="text-align: center">
-<img src="06-BeeSwarmPlots_files/figure-html/unnamed-chunk-5-1.png" alt="SCpubr Bee Swarm plots with almost identical values." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-5)SCpubr Bee Swarm plots with almost identical values.</p>
+<img src="06-BeeSwarmPlots_files/figure-html/unnamed-chunk-7-1.png" alt="SCpubr Bee Swarm plots with almost identical values." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-7)SCpubr Bee Swarm plots with almost identical values.</p>
 </div>
 
 
@@ -171,8 +234,8 @@ p1 | p2 | p3
 ```
 
 <div class="figure" style="text-align: center">
-<img src="06-BeeSwarmPlots_files/figure-html/unnamed-chunk-6-1.png" alt="Using continuous color scale in SCpubr::do_BeeSwarmPlot()." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-6)Using continuous color scale in SCpubr::do_BeeSwarmPlot().</p>
+<img src="06-BeeSwarmPlots_files/figure-html/unnamed-chunk-8-1.png" alt="Using continuous color scale in SCpubr::do_BeeSwarmPlot()." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-8)Using continuous color scale in SCpubr::do_BeeSwarmPlot().</p>
 </div>
 
 By using this combination of figures, we can also assess that the monocyte signature seems to be predominantly enriched in clusters 0 and 7.
@@ -202,8 +265,8 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="06-BeeSwarmPlots_files/figure-html/unnamed-chunk-7-1.png" alt="SCpubr, modifying default colors in a Bee Swarm plot" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-7)SCpubr, modifying default colors in a Bee Swarm plot</p>
+<img src="06-BeeSwarmPlots_files/figure-html/unnamed-chunk-9-1.png" alt="SCpubr, modifying default colors in a Bee Swarm plot" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-9)SCpubr, modifying default colors in a Bee Swarm plot</p>
 </div>
 
 ## Modify color maps for continuous variables
@@ -234,7 +297,7 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="06-BeeSwarmPlots_files/figure-html/unnamed-chunk-8-1.png" alt="SCpubr Nebulosa plot modifying viridis color maps." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-8)SCpubr Nebulosa plot modifying viridis color maps.</p>
+<img src="06-BeeSwarmPlots_files/figure-html/unnamed-chunk-10-1.png" alt="SCpubr Nebulosa plot modifying viridis color maps." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-10)SCpubr Nebulosa plot modifying viridis color maps.</p>
 </div>
 

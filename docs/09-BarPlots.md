@@ -385,16 +385,16 @@ data.long
 #> # Groups:   seurat_clusters [10]
 #>    modified_orig.ident seurat_clusters     n
 #>    <chr>               <fct>           <int>
-#>  1 Sample_B            0                2655
-#>  2 Sample_B            1                1901
-#>  3 Sample_B            2                 941
-#>  4 Sample_B            3                 810
-#>  5 Sample_A            0                 769
-#>  6 Sample_B            4                 750
-#>  7 Sample_A            1                 555
-#>  8 Sample_B            5                 430
-#>  9 Sample_C            0                 408
-#> 10 Sample_B            6                 323
+#>  1 Sample_B            0                2661
+#>  2 Sample_B            1                1881
+#>  3 Sample_B            2                 933
+#>  4 Sample_A            0                 800
+#>  5 Sample_B            3                 776
+#>  6 Sample_B            4                 723
+#>  7 Sample_A            1                 518
+#>  8 Sample_B            5                 415
+#>  9 Sample_C            0                 371
+#> 10 Sample_B            6                 334
 #> # … with 20 more rows
 ```
 
@@ -421,16 +421,16 @@ data.wide
 #> # Groups:   seurat_clusters [10]
 #>    seurat_clusters Sample_B Sample_A Sample_C
 #>    <fct>              <int>    <int>    <int>
-#>  1 0                   2655      769      408
-#>  2 1                   1901      555      225
-#>  3 2                    941      255      114
-#>  4 3                    810      205      112
-#>  5 4                    750      190       96
-#>  6 5                    430      104       62
-#>  7 6                    323      107       47
-#>  8 7                    235       62       29
-#>  9 8                    141       19       16
-#> 10 9                     76       17        7
+#>  1 0                   2661      800      371
+#>  2 1                   1881      518      282
+#>  3 2                    933      260      117
+#>  4 3                    776      236      115
+#>  5 4                    723      206      107
+#>  6 5                    415      108       73
+#>  7 6                    334       85       58
+#>  8 7                    216       73       37
+#>  9 8                    117       38       21
+#> 10 9                     69       22        9
 ```
 Each type of data matrix is beneficial for different purposes. Long data is the desired format if you want to store the data matrix for future use in plotting. Wide data, in turn, is easier to understand right away.
 
