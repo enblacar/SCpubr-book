@@ -424,6 +424,9 @@ Figure 1.12: SCpubr, modifying colors
 <span class="co"># Retrieve data in long format.</span>
 <span class="va">data.long</span> <span class="op">&lt;-</span> <span class="va">output</span><span class="op">$</span><span class="va">data</span><span class="op">[[</span><span class="st">"modified_orig.ident"</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">long</span>
 
+<span class="co"># Retrieve data in wide format.</span>
+<span class="va">data.wide</span> <span class="op">&lt;-</span> <span class="va">output</span><span class="op">$</span><span class="va">data</span><span class="op">[[</span><span class="st">"modified_orig.ident"</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">wide</span>
+
 <span class="co"># Show data in long format.</span>
 <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data.long</span>, <span class="fl">15</span><span class="op">)</span>, booktabs <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu">kableExtra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/kableExtra/man/kable_styling.html">kable_styling</a></span><span class="op">(</span>font_size <span class="op">=</span> <span class="fl">12</span><span class="op">)</span></code></pre></div>
@@ -448,7 +451,7 @@ Sample_B
 0
 </td>
 <td style="text-align:right;">
-2710
+2723
 </td>
 </tr>
 <tr>
@@ -459,7 +462,7 @@ Sample_B
 1
 </td>
 <td style="text-align:right;">
-1883
+1884
 </td>
 </tr>
 <tr>
@@ -470,7 +473,7 @@ Sample_B
 2
 </td>
 <td style="text-align:right;">
-936
+898
 </td>
 </tr>
 <tr>
@@ -481,18 +484,7 @@ Sample_B
 3
 </td>
 <td style="text-align:right;">
-771
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Sample_B
-</td>
-<td style="text-align:left;">
-4
-</td>
-<td style="text-align:right;">
-733
+783
 </td>
 </tr>
 <tr>
@@ -503,7 +495,18 @@ Sample_A
 0
 </td>
 <td style="text-align:right;">
-729
+764
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sample_B
+</td>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:right;">
+711
 </td>
 </tr>
 <tr>
@@ -514,7 +517,7 @@ Sample_A
 1
 </td>
 <td style="text-align:right;">
-532
+526
 </td>
 </tr>
 <tr>
@@ -525,7 +528,7 @@ Sample_B
 5
 </td>
 <td style="text-align:right;">
-420
+411
 </td>
 </tr>
 <tr>
@@ -536,7 +539,7 @@ Sample_C
 0
 </td>
 <td style="text-align:right;">
-393
+345
 </td>
 </tr>
 <tr>
@@ -547,18 +550,7 @@ Sample_B
 6
 </td>
 <td style="text-align:right;">
-329
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Sample_C
-</td>
-<td style="text-align:left;">
-1
-</td>
-<td style="text-align:right;">
-266
+332
 </td>
 </tr>
 <tr>
@@ -569,7 +561,18 @@ Sample_A
 2
 </td>
 <td style="text-align:right;">
-252
+272
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sample_C
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:right;">
+271
 </td>
 </tr>
 <tr>
@@ -580,7 +583,7 @@ Sample_A
 3
 </td>
 <td style="text-align:right;">
-237
+231
 </td>
 </tr>
 <tr>
@@ -591,7 +594,7 @@ Sample_B
 7
 </td>
 <td style="text-align:right;">
-228
+213
 </td>
 </tr>
 <tr>
@@ -602,28 +605,13 @@ Sample_A
 4
 </td>
 <td style="text-align:right;">
-202
+203
 </td>
 </tr>
 </tbody>
 </table></div>
 <div class="sourceCode" id="cb93"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">output</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span><span class="va">sample</span>, 
-                             features <span class="op">=</span> <span class="st">"modified_orig.ident"</span>,
-                             group.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>,
-                             legend <span class="op">=</span> <span class="cn">TRUE</span>,
-                             horizontal <span class="op">=</span> <span class="cn">FALSE</span>,
-                             return_data_matrix <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="co"># Retrieve plot.</span>
-<span class="va">plot</span> <span class="op">&lt;-</span> <span class="va">output</span><span class="op">$</span><span class="va">plot</span>
-
-<span class="co"># Retrieve data in long format.</span>
-<span class="va">data.long</span> <span class="op">&lt;-</span> <span class="va">output</span><span class="op">$</span><span class="va">data</span><span class="op">[[</span><span class="st">"modified_orig.ident"</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">long</span>
-
-<span class="co"># Retrieve data in wide format.</span>
-<span class="va">data.wide</span> <span class="op">&lt;-</span> <span class="va">output</span><span class="op">$</span><span class="va">data</span><span class="op">[[</span><span class="st">"modified_orig.ident"</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">wide</span>
-
-<span class="co"># Show data in wide format.</span>
+<code class="sourceCode R"><span class="co"># Show data in wide format.</span>
 <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data.wide</span>, <span class="fl">15</span><span class="op">)</span>, booktabs <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu">kableExtra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/kableExtra/man/kable_styling.html">kable_styling</a></span><span class="op">(</span>font_size <span class="op">=</span> <span class="fl">12</span><span class="op">)</span></code></pre></div>
 <div class="inline-table"><table class="table" style="font-size: 12px; margin-left: auto; margin-right: auto;">
@@ -647,13 +635,13 @@ Sample_C
 0
 </td>
 <td style="text-align:right;">
-2710
+2723
 </td>
 <td style="text-align:right;">
-729
+764
 </td>
 <td style="text-align:right;">
-393
+345
 </td>
 </tr>
 <tr>
@@ -661,13 +649,13 @@ Sample_C
 1
 </td>
 <td style="text-align:right;">
-1883
+1884
 </td>
 <td style="text-align:right;">
-532
+526
 </td>
 <td style="text-align:right;">
-266
+271
 </td>
 </tr>
 <tr>
@@ -675,13 +663,13 @@ Sample_C
 2
 </td>
 <td style="text-align:right;">
-936
+898
 </td>
 <td style="text-align:right;">
-252
+272
 </td>
 <td style="text-align:right;">
-122
+140
 </td>
 </tr>
 <tr>
@@ -689,13 +677,13 @@ Sample_C
 3
 </td>
 <td style="text-align:right;">
-771
+783
 </td>
 <td style="text-align:right;">
-237
+231
 </td>
 <td style="text-align:right;">
-119
+113
 </td>
 </tr>
 <tr>
@@ -703,13 +691,13 @@ Sample_C
 4
 </td>
 <td style="text-align:right;">
-733
+711
 </td>
 <td style="text-align:right;">
-202
+203
 </td>
 <td style="text-align:right;">
-101
+122
 </td>
 </tr>
 <tr>
@@ -717,13 +705,13 @@ Sample_C
 5
 </td>
 <td style="text-align:right;">
-420
+411
 </td>
 <td style="text-align:right;">
-121
+117
 </td>
 <td style="text-align:right;">
-55
+68
 </td>
 </tr>
 <tr>
@@ -731,10 +719,10 @@ Sample_C
 6
 </td>
 <td style="text-align:right;">
-329
+332
 </td>
 <td style="text-align:right;">
-97
+94
 </td>
 <td style="text-align:right;">
 51
@@ -745,13 +733,13 @@ Sample_C
 7
 </td>
 <td style="text-align:right;">
-228
+213
 </td>
 <td style="text-align:right;">
-66
+76
 </td>
 <td style="text-align:right;">
-32
+37
 </td>
 </tr>
 <tr>
@@ -759,13 +747,13 @@ Sample_C
 8
 </td>
 <td style="text-align:right;">
-123
+125
 </td>
 <td style="text-align:right;">
-28
+32
 </td>
 <td style="text-align:right;">
-25
+19
 </td>
 </tr>
 <tr>
@@ -776,10 +764,10 @@ Sample_C
 65
 </td>
 <td style="text-align:right;">
-21
+25
 </td>
 <td style="text-align:right;">
-14
+10
 </td>
 </tr>
 </tbody>
@@ -827,7 +815,7 @@ Sample_C
 <!-- Moved the footer outside of the body to make it span all page width. --><footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 10 April, 2022.</p>
+    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 12 April, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

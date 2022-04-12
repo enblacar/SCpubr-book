@@ -379,6 +379,9 @@ plot <- output$plot
 # Retrieve data in long format.
 data.long <- output$data[["modified_orig.ident"]]$long
 
+# Retrieve data in wide format.
+data.wide <- output$data[["modified_orig.ident"]]$wide
+
 # Show data in long format.
 knitr::kable(head(data.long, 15), booktabs = TRUE) %>%
   kableExtra::kable_styling(font_size = 12)
@@ -396,98 +399,83 @@ knitr::kable(head(data.long, 15), booktabs = TRUE) %>%
   <tr>
    <td style="text-align:left;"> Sample_B </td>
    <td style="text-align:left;"> 0 </td>
-   <td style="text-align:right;"> 2710 </td>
+   <td style="text-align:right;"> 2723 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Sample_B </td>
    <td style="text-align:left;"> 1 </td>
-   <td style="text-align:right;"> 1883 </td>
+   <td style="text-align:right;"> 1884 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Sample_B </td>
    <td style="text-align:left;"> 2 </td>
-   <td style="text-align:right;"> 936 </td>
+   <td style="text-align:right;"> 898 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Sample_B </td>
    <td style="text-align:left;"> 3 </td>
-   <td style="text-align:right;"> 771 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Sample_B </td>
-   <td style="text-align:left;"> 4 </td>
-   <td style="text-align:right;"> 733 </td>
+   <td style="text-align:right;"> 783 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Sample_A </td>
    <td style="text-align:left;"> 0 </td>
-   <td style="text-align:right;"> 729 </td>
+   <td style="text-align:right;"> 764 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sample_B </td>
+   <td style="text-align:left;"> 4 </td>
+   <td style="text-align:right;"> 711 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Sample_A </td>
    <td style="text-align:left;"> 1 </td>
-   <td style="text-align:right;"> 532 </td>
+   <td style="text-align:right;"> 526 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Sample_B </td>
    <td style="text-align:left;"> 5 </td>
-   <td style="text-align:right;"> 420 </td>
+   <td style="text-align:right;"> 411 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Sample_C </td>
    <td style="text-align:left;"> 0 </td>
-   <td style="text-align:right;"> 393 </td>
+   <td style="text-align:right;"> 345 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Sample_B </td>
    <td style="text-align:left;"> 6 </td>
-   <td style="text-align:right;"> 329 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Sample_C </td>
-   <td style="text-align:left;"> 1 </td>
-   <td style="text-align:right;"> 266 </td>
+   <td style="text-align:right;"> 332 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Sample_A </td>
    <td style="text-align:left;"> 2 </td>
-   <td style="text-align:right;"> 252 </td>
+   <td style="text-align:right;"> 272 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sample_C </td>
+   <td style="text-align:left;"> 1 </td>
+   <td style="text-align:right;"> 271 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Sample_A </td>
    <td style="text-align:left;"> 3 </td>
-   <td style="text-align:right;"> 237 </td>
+   <td style="text-align:right;"> 231 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Sample_B </td>
    <td style="text-align:left;"> 7 </td>
-   <td style="text-align:right;"> 228 </td>
+   <td style="text-align:right;"> 213 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Sample_A </td>
    <td style="text-align:left;"> 4 </td>
-   <td style="text-align:right;"> 202 </td>
+   <td style="text-align:right;"> 203 </td>
   </tr>
 </tbody>
 </table>
 
 
 ```r
-output <- SCpubr::do_BarPlot(sample, 
-                             features = "modified_orig.ident",
-                             group.by = "seurat_clusters",
-                             legend = TRUE,
-                             horizontal = FALSE,
-                             return_data_matrix = TRUE)
-# Retrieve plot.
-plot <- output$plot
-
-# Retrieve data in long format.
-data.long <- output$data[["modified_orig.ident"]]$long
-
-# Retrieve data in wide format.
-data.wide <- output$data[["modified_orig.ident"]]$wide
-
 # Show data in wide format.
 knitr::kable(head(data.wide, 15), booktabs = TRUE) %>%
   kableExtra::kable_styling(font_size = 12)
@@ -505,63 +493,63 @@ knitr::kable(head(data.wide, 15), booktabs = TRUE) %>%
 <tbody>
   <tr>
    <td style="text-align:left;"> 0 </td>
-   <td style="text-align:right;"> 2710 </td>
-   <td style="text-align:right;"> 729 </td>
-   <td style="text-align:right;"> 393 </td>
+   <td style="text-align:right;"> 2723 </td>
+   <td style="text-align:right;"> 764 </td>
+   <td style="text-align:right;"> 345 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> 1 </td>
-   <td style="text-align:right;"> 1883 </td>
-   <td style="text-align:right;"> 532 </td>
-   <td style="text-align:right;"> 266 </td>
+   <td style="text-align:right;"> 1884 </td>
+   <td style="text-align:right;"> 526 </td>
+   <td style="text-align:right;"> 271 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> 2 </td>
-   <td style="text-align:right;"> 936 </td>
-   <td style="text-align:right;"> 252 </td>
-   <td style="text-align:right;"> 122 </td>
+   <td style="text-align:right;"> 898 </td>
+   <td style="text-align:right;"> 272 </td>
+   <td style="text-align:right;"> 140 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> 3 </td>
-   <td style="text-align:right;"> 771 </td>
-   <td style="text-align:right;"> 237 </td>
-   <td style="text-align:right;"> 119 </td>
+   <td style="text-align:right;"> 783 </td>
+   <td style="text-align:right;"> 231 </td>
+   <td style="text-align:right;"> 113 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> 4 </td>
-   <td style="text-align:right;"> 733 </td>
-   <td style="text-align:right;"> 202 </td>
-   <td style="text-align:right;"> 101 </td>
+   <td style="text-align:right;"> 711 </td>
+   <td style="text-align:right;"> 203 </td>
+   <td style="text-align:right;"> 122 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> 5 </td>
-   <td style="text-align:right;"> 420 </td>
-   <td style="text-align:right;"> 121 </td>
-   <td style="text-align:right;"> 55 </td>
+   <td style="text-align:right;"> 411 </td>
+   <td style="text-align:right;"> 117 </td>
+   <td style="text-align:right;"> 68 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> 6 </td>
-   <td style="text-align:right;"> 329 </td>
-   <td style="text-align:right;"> 97 </td>
+   <td style="text-align:right;"> 332 </td>
+   <td style="text-align:right;"> 94 </td>
    <td style="text-align:right;"> 51 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> 7 </td>
-   <td style="text-align:right;"> 228 </td>
-   <td style="text-align:right;"> 66 </td>
-   <td style="text-align:right;"> 32 </td>
+   <td style="text-align:right;"> 213 </td>
+   <td style="text-align:right;"> 76 </td>
+   <td style="text-align:right;"> 37 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> 8 </td>
-   <td style="text-align:right;"> 123 </td>
-   <td style="text-align:right;"> 28 </td>
-   <td style="text-align:right;"> 25 </td>
+   <td style="text-align:right;"> 125 </td>
+   <td style="text-align:right;"> 32 </td>
+   <td style="text-align:right;"> 19 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> 9 </td>
    <td style="text-align:right;"> 65 </td>
-   <td style="text-align:right;"> 21 </td>
-   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 25 </td>
+   <td style="text-align:right;"> 10 </td>
   </tr>
 </tbody>
 </table>

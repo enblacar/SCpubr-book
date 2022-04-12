@@ -296,25 +296,7 @@ p1 | p2
 
 Many times, not only we are interested in actually displaying the data, but we do also want to store the data matrix. This is a common case for supplementary material in publications. To assess this, one can set `return_data_matrix = TRUE`, which will output a list containing both the plot and the data matrix (long and wide format). This does also work when several features are queried at the same time. Both for `position = "fill"` and `position = "stack"` the output will be the same, the total counts.
 
-```{r, fig.cap = "SCpubr, outputting data matrices, long format", fig.width=12, fig.height=5}
-output <- SCpubr::do_BarPlot(sample, 
-                             features = "modified_orig.ident",
-                             group.by = "seurat_clusters",
-                             legend = TRUE,
-                             horizontal = FALSE,
-                             return_data_matrix = TRUE)
-# Retrieve plot.
-plot <- output$plot
-
-# Retrieve data in long format.
-data.long <- output$data[["modified_orig.ident"]]$long
-
-# Show data in long format.
-knitr::kable(head(data.long, 15), booktabs = TRUE) %>%
-  kableExtra::kable_styling(font_size = 12)
-```
-
-```{r, fig.cap = "SCpubr, outputting data matrices, long format", fig.width=12, fig.height=5}
+```{r}
 output <- SCpubr::do_BarPlot(sample, 
                              features = "modified_orig.ident",
                              group.by = "seurat_clusters",
@@ -330,6 +312,12 @@ data.long <- output$data[["modified_orig.ident"]]$long
 # Retrieve data in wide format.
 data.wide <- output$data[["modified_orig.ident"]]$wide
 
+# Show data in long format.
+knitr::kable(head(data.long, 15), booktabs = TRUE) %>%
+  kableExtra::kable_styling(font_size = 12)
+```
+
+```{r}
 # Show data in wide format.
 knitr::kable(head(data.wide, 15), booktabs = TRUE) %>%
   kableExtra::kable_styling(font_size = 12)
