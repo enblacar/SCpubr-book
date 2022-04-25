@@ -69,3 +69,5 @@ term-enrichment-plots
 modifying-the-number-of-terms-to-retrieve.
 modifying-the-length-of-the-terms
 modify-colors
+effect-of-point-size-in-the-plots.
+effect-of-raster-dpi-in-the-plots.
