@@ -69,5 +69,9 @@ term-enrichment-plots
 modifying-the-number-of-terms-to-retrieve.
 modifying-the-length-of-the-terms
 modify-colors
+enrichment-score-heatmaps
+single-grouping-variable
+multiple-grouping-variables
+changing-the-color-scale.
 effect-of-point-size-in-the-plots.
 effect-of-raster-dpi-in-the-plots.
