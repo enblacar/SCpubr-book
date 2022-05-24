@@ -62,7 +62,7 @@ p
 </div>
 
 
-Rows and column names can be rotated using `column_names_rot`  and `row_names_rot` parameters, providing the desired angle.
+Both rows and column names can be rotated using `column_names_rot`  and `row_names_rot` parameters, providing the desired angle.
 
 
 ```r

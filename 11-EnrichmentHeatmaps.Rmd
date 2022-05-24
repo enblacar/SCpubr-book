@@ -46,7 +46,7 @@ p
 ```
 
 
-Rows and column names can be rotated using `column_names_rot`  and `row_names_rot` parameters, providing the desired angle.
+Both rows and column names can be rotated using `column_names_rot`  and `row_names_rot` parameters, providing the desired angle.
 
 ```{r, fig.cap= "SCpubr::do_EnrichmentHeatmap transposed matrix different angle for column names.", fig.width=6, fig.height=6}
 # Rotating the labels.
