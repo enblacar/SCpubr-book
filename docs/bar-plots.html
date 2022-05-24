@@ -52,6 +52,7 @@
 <li><a class="active" href="bar-plots.html"><span class="header-section-number">7</span> Bar plots</a></li>
 <li><a class="" href="term-enrichment-plots.html"><span class="header-section-number">8</span> Term Enrichment Plots</a></li>
 <li><a class="" href="enrichment-score-heatmaps.html"><span class="header-section-number">9</span> Enrichment score heatmaps</a></li>
+<li><a class="" href="correlation-matrix-heatmaps.html"><span class="header-section-number">10</span> Correlation matrix heatmaps</a></li>
 <li><a class="" href="rasterized-figures.html">Rasterized figures</a></li>
 <li><a class="" href="save-the-figures.html">Save the figures</a></li>
 <li><a class="" href="troubleshooting.html">Troubleshooting</a></li>
@@ -453,7 +454,7 @@ Sample_B
 0
 </td>
 <td style="text-align:right;">
-2648
+2689
 </td>
 </tr>
 <tr>
@@ -464,7 +465,7 @@ Sample_B
 1
 </td>
 <td style="text-align:right;">
-1829
+1849
 </td>
 </tr>
 <tr>
@@ -475,7 +476,7 @@ Sample_B
 2
 </td>
 <td style="text-align:right;">
-896
+898
 </td>
 </tr>
 <tr>
@@ -486,7 +487,7 @@ Sample_B
 3
 </td>
 <td style="text-align:right;">
-808
+782
 </td>
 </tr>
 <tr>
@@ -497,7 +498,7 @@ Sample_A
 0
 </td>
 <td style="text-align:right;">
-767
+763
 </td>
 </tr>
 <tr>
@@ -508,7 +509,7 @@ Sample_B
 4
 </td>
 <td style="text-align:right;">
-714
+743
 </td>
 </tr>
 <tr>
@@ -519,18 +520,7 @@ Sample_A
 1
 </td>
 <td style="text-align:right;">
-583
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Sample_C
-</td>
-<td style="text-align:left;">
-0
-</td>
-<td style="text-align:right;">
-417
+565
 </td>
 </tr>
 <tr>
@@ -541,7 +531,18 @@ Sample_B
 5
 </td>
 <td style="text-align:right;">
-412
+423
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sample_C
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:right;">
+380
 </td>
 </tr>
 <tr>
@@ -552,18 +553,7 @@ Sample_B
 6
 </td>
 <td style="text-align:right;">
-329
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Sample_A
-</td>
-<td style="text-align:left;">
-2
-</td>
-<td style="text-align:right;">
-300
+330
 </td>
 </tr>
 <tr>
@@ -574,7 +564,18 @@ Sample_C
 1
 </td>
 <td style="text-align:right;">
-269
+267
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sample_A
+</td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:right;">
+261
 </td>
 </tr>
 <tr>
@@ -585,7 +586,7 @@ Sample_A
 3
 </td>
 <td style="text-align:right;">
-221
+227
 </td>
 </tr>
 <tr>
@@ -596,7 +597,7 @@ Sample_B
 7
 </td>
 <td style="text-align:right;">
-213
+216
 </td>
 </tr>
 <tr>
@@ -607,7 +608,7 @@ Sample_A
 4
 </td>
 <td style="text-align:right;">
-204
+195
 </td>
 </tr>
 </tbody>
@@ -637,13 +638,13 @@ Sample_C
 0
 </td>
 <td style="text-align:right;">
-2648
+2689
 </td>
 <td style="text-align:right;">
-767
+763
 </td>
 <td style="text-align:right;">
-417
+380
 </td>
 </tr>
 <tr>
@@ -651,13 +652,13 @@ Sample_C
 1
 </td>
 <td style="text-align:right;">
-1829
+1849
 </td>
 <td style="text-align:right;">
-583
+565
 </td>
 <td style="text-align:right;">
-269
+267
 </td>
 </tr>
 <tr>
@@ -665,13 +666,13 @@ Sample_C
 2
 </td>
 <td style="text-align:right;">
-896
+898
 </td>
 <td style="text-align:right;">
-300
+261
 </td>
 <td style="text-align:right;">
-114
+151
 </td>
 </tr>
 <tr>
@@ -679,24 +680,10 @@ Sample_C
 3
 </td>
 <td style="text-align:right;">
-808
+782
 </td>
 <td style="text-align:right;">
-221
-</td>
-<td style="text-align:right;">
-98
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-4
-</td>
-<td style="text-align:right;">
-714
-</td>
-<td style="text-align:right;">
-204
+227
 </td>
 <td style="text-align:right;">
 118
@@ -704,16 +691,30 @@ Sample_C
 </tr>
 <tr>
 <td style="text-align:left;">
+4
+</td>
+<td style="text-align:right;">
+743
+</td>
+<td style="text-align:right;">
+195
+</td>
+<td style="text-align:right;">
+98
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
 5
 </td>
 <td style="text-align:right;">
-412
+423
 </td>
 <td style="text-align:right;">
-124
+110
 </td>
 <td style="text-align:right;">
-60
+63
 </td>
 </tr>
 <tr>
@@ -721,13 +722,13 @@ Sample_C
 6
 </td>
 <td style="text-align:right;">
-329
+330
 </td>
 <td style="text-align:right;">
-96
+105
 </td>
 <td style="text-align:right;">
-52
+42
 </td>
 </tr>
 <tr>
@@ -735,13 +736,13 @@ Sample_C
 7
 </td>
 <td style="text-align:right;">
-213
+216
 </td>
 <td style="text-align:right;">
-70
+77
 </td>
 <td style="text-align:right;">
-43
+33
 </td>
 </tr>
 <tr>
@@ -749,13 +750,13 @@ Sample_C
 8
 </td>
 <td style="text-align:right;">
-120
+121
 </td>
 <td style="text-align:right;">
-39
+37
 </td>
 <td style="text-align:right;">
-17
+18
 </td>
 </tr>
 <tr>
@@ -763,13 +764,13 @@ Sample_C
 9
 </td>
 <td style="text-align:right;">
-74
+63
 </td>
 <td style="text-align:right;">
-19
+21
 </td>
 <td style="text-align:right;">
-7
+16
 </td>
 </tr>
 </tbody>

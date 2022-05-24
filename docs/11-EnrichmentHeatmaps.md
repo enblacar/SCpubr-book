@@ -10,6 +10,7 @@ This kind of heatmaps can be easily computed using `SCpubr::do_EnrichmentHeatmap
 
 
 ```r
+# Define list of genes.
 genes <- list("Naive CD4+ T" = c("IL7R", "CCR7"),
               "CD14+ Mono" = c("CD14", "LYZ"),
               "Memory CD4+" = c("S100A4"),
@@ -20,6 +21,7 @@ genes <- list("Naive CD4+ T" = c("IL7R", "CCR7"),
               "DC" = c("FCER1A", "CST3"),
               "Platelet" = c("PPBP"))
 
+# Default parameters.
 p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
                                   list_genes = genes)
 p
@@ -83,9 +85,8 @@ p
 One can further split the output heatmap into several according to a second metadata variable. This is achieved by using `split.by` parameter.
 
 ```r
-sample$custom_group <- ifelse(sample$seurat_clusters %in% c("1", "3", "5", "7", "9"), "Group A", "Group B")
-
 # Splitting by a second metadata variable.
+sample$custom_group <- ifelse(sample$seurat_clusters %in% c("1", "3", "5", "7", "9"), "Group A", "Group B")
 p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
                                   list_genes = genes,
                                   transpose = TRUE,
