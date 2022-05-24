@@ -80,21 +80,20 @@ p
 </div>
 
 ## Multiple grouping variables
-One can further split the output heatmap into several according to a second metadata variable. This is achieved by using `split.by` parameter.
+One can further split the output heatmap into several according to a second metadata variable. This is achieved by using `split.by` parameter. Note: the different heatmaps do not look different because of how we created the splitting variable. However, in a normal case scenario, they should look different. 
 
 
 ```r
-sample$modified_orig.ident <- sample(x = c("Sample_A", "Sample_B", "Sample_C"), 
-                                     size = ncol(sample), 
-                                     replace = T, 
-                                     prob = c(0.2, 0.7, 0.1))
+sample$custom_group <- ifelse(sample$seurat_clusters %in% c("1", "3", "5", "7", "9"), "Group A", "Group B")
 
 # Splitting by a second metadata variable.
 p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
                                   list_genes = genes,
                                   transpose = TRUE,
                                   column_names_rot = 0,
-                                  split.by = "modified_orig.ident")
+                                  cluster_cols = F,
+                                  cluster_rows = T,
+                                  split.by = "custom_group")
 p
 ```
 
@@ -113,8 +112,10 @@ p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
                                   list_genes = genes,
                                   transpose = TRUE,
                                   column_names_rot = 0,
-                                  split.by = "modified_orig.ident",
-                                  split.horizontal = FALSE)
+                                  cluster_cols = F,
+                                  cluster_rows = T,
+                                  split.by = "custom_group",
+                                  split.horizontal = F)
 p
 ```
 
@@ -130,17 +131,27 @@ If one wants to change the color scale of the heatmap, this can be accomplished 
 
 ```r
 # Modifying the color scale.
-p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
+SCpubr::do_EnrichmentHeatmap(sample = sample,
                                   list_genes = genes,
                                   transpose = TRUE,
                                   column_names_rot = 0,
-                                  split.by = "modified_orig.ident",
+                                  cluster_cols = F,
+                                  cluster_rows = T,
+                                  split.by = "custom_group",
                                   colors.use = colortools::opposite("steelblue", plot = F))
-p
 ```
 
 <div class="figure" style="text-align: center">
 <img src="11-EnrichmentHeatmaps_files/figure-html/unnamed-chunk-8-1.png" alt="SCpubr::do_EnrichmentHeatmap transposed matrix using split.by changing the color scale." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-8)SCpubr::do_EnrichmentHeatmap transposed matrix using split.by changing the color scale.</p>
+<p class="caption">(\#fig:unnamed-chunk-8-1)SCpubr::do_EnrichmentHeatmap transposed matrix using split.by changing the color scale.</p>
+</div>
+
+```r
+p
+```
+
+<div class="figure" style="text-align: center">
+<img src="11-EnrichmentHeatmaps_files/figure-html/unnamed-chunk-8-2.png" alt="SCpubr::do_EnrichmentHeatmap transposed matrix using split.by changing the color scale." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-8-2)SCpubr::do_EnrichmentHeatmap transposed matrix using split.by changing the color scale.</p>
 </div>
 

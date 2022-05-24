@@ -24,6 +24,8 @@ fig:unnamed-chunk-24
 fig:unnamed-chunk-25
 fig:unnamed-chunk-26
 fig:unnamed-chunk-27
+fig:unnamed-chunk-8-1
+fig:unnamed-chunk-8-2
 dim-plots
 figure-build-up
 basic-usage
