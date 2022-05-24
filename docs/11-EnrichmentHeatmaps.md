@@ -80,8 +80,7 @@ p
 </div>
 
 ## Multiple grouping variables
-One can further split the output heatmap into several according to a second metadata variable. This is achieved by using `split.by` parameter. Note: the different heatmaps do not look different because of how we created the splitting variable. However, in a normal case scenario, they should look different. 
-
+One can further split the output heatmap into several according to a second metadata variable. This is achieved by using `split.by` parameter.
 
 ```r
 sample$custom_group <- ifelse(sample$seurat_clusters %in% c("1", "3", "5", "7", "9"), "Group A", "Group B")
@@ -131,7 +130,7 @@ If one wants to change the color scale of the heatmap, this can be accomplished 
 
 ```r
 # Modifying the color scale.
-SCpubr::do_EnrichmentHeatmap(sample = sample,
+p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
                                   list_genes = genes,
                                   transpose = TRUE,
                                   column_names_rot = 0,
@@ -139,19 +138,11 @@ SCpubr::do_EnrichmentHeatmap(sample = sample,
                                   cluster_rows = T,
                                   split.by = "custom_group",
                                   colors.use = colortools::opposite("steelblue", plot = F))
-```
-
-<div class="figure" style="text-align: center">
-<img src="11-EnrichmentHeatmaps_files/figure-html/unnamed-chunk-8-1.png" alt="SCpubr::do_EnrichmentHeatmap transposed matrix using split.by changing the color scale." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-8-1)SCpubr::do_EnrichmentHeatmap transposed matrix using split.by changing the color scale.</p>
-</div>
-
-```r
 p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="11-EnrichmentHeatmaps_files/figure-html/unnamed-chunk-8-2.png" alt="SCpubr::do_EnrichmentHeatmap transposed matrix using split.by changing the color scale." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-8-2)SCpubr::do_EnrichmentHeatmap transposed matrix using split.by changing the color scale.</p>
+<img src="11-EnrichmentHeatmaps_files/figure-html/unnamed-chunk-8-1.png" alt="SCpubr::do_EnrichmentHeatmap transposed matrix using split.by changing the color scale." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-8)SCpubr::do_EnrichmentHeatmap transposed matrix using split.by changing the color scale.</p>
 </div>
 

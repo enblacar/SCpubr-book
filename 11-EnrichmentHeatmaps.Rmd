@@ -10,7 +10,7 @@ This kind of heatmaps can be easily computed using `SCpubr::do_EnrichmentHeatmap
 
 ## Single grouping variable
 
-```{r, fig.cap= "SCpubr::do_EnrichmentHeatmap with default parameters.", fig.width=6, fig.height=4}
+```{r, fig.cap= "SCpubr::do_EnrichmentHeatmap with default parameters.", fig.width=6, fig.height=5}
 genes <- list("Naive CD4+ T" = c("IL7R", "CCR7"),
               "CD14+ Mono" = c("CD14", "LYZ"),
               "Memory CD4+" = c("S100A4"),
@@ -27,7 +27,7 @@ p
 ```
 By default, `SCpubr::do_EnrichmentHeatmap` aggregates the values by the current identity. However, other metadata variables can be used to aggregate for. For this, provide the name to `group.by` parameter.
 
-```{r, fig.cap= "SCpubr::do_EnrichmentHeatmap with custom aggregation.", fig.width=6, fig.height=4}
+```{r, fig.cap= "SCpubr::do_EnrichmentHeatmap with custom aggregation.", fig.width=6, fig.height=3}
 # Custom aggregated values.
 p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
                                   list_genes = genes,
@@ -37,7 +37,7 @@ p
 
 The matrix can be transposed using `transpose = TRUE`.
 
-```{r, fig.cap= "SCpubr::do_EnrichmentHeatmap transposed matrix.", fig.width=6, fig.height=4}
+```{r, fig.cap= "SCpubr::do_EnrichmentHeatmap transposed matrix.", fig.width=6, fig.height=3}
 # Transposing the matrix.
 p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
                                   list_genes = genes,
@@ -48,7 +48,7 @@ p
 
 Both rows and column names can be rotated using `column_names_rot`  and `row_names_rot` parameters, providing the desired angle.
 
-```{r, fig.cap= "SCpubr::do_EnrichmentHeatmap transposed matrix different angle for column names.", fig.width=6, fig.height=4}
+```{r, fig.cap= "SCpubr::do_EnrichmentHeatmap transposed matrix different angle for column names.", fig.width=6, fig.height=3}
 # Rotating the labels.
 p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
                                   list_genes = genes,
@@ -58,9 +58,8 @@ p
 ```
 
 ## Multiple grouping variables
-One can further split the output heatmap into several according to a second metadata variable. This is achieved by using `split.by` parameter. Note: the different heatmaps do not look different because of how we created the splitting variable. However, in a normal case scenario, they should look different. 
-
-```{r, fig.cap= "SCpubr::do_EnrichmentHeatmap transposed matrix using split.by.", fig.width=8, fig.height=4}
+One can further split the output heatmap into several according to a second metadata variable. This is achieved by using `split.by` parameter.
+```{r, fig.cap= "SCpubr::do_EnrichmentHeatmap transposed matrix using split.by.", fig.width=8, fig.height=3}
 sample$custom_group <- ifelse(sample$seurat_clusters %in% c("1", "3", "5", "7", "9"), "Group A", "Group B")
 
 # Splitting by a second metadata variable.
@@ -77,7 +76,7 @@ p
 
 By default, heatmaps are joined horizontally. If you want them joined vertically, use `split.horizontal = FALSE`
 
-```{r, fig.cap= "SCpubr::do_EnrichmentHeatmap transposed matrix using split.by joined vertically.", fig.width=6, fig.height=8}
+```{r, fig.cap= "SCpubr::do_EnrichmentHeatmap transposed matrix using split.by joined vertically.", fig.width=6, fig.height=6}
 # Splitting by a second metadata variable and joining vertically.
 p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
                                   list_genes = genes,
@@ -94,9 +93,9 @@ p
 
 If one wants to change the color scale of the heatmap, this can be accomplished by providing a two-color vector to `colors.use`. 
 
-```{r, fig.cap= "SCpubr::do_EnrichmentHeatmap transposed matrix using split.by changing the color scale.", fig.width=8, fig.height=4}
+```{r, fig.cap= "SCpubr::do_EnrichmentHeatmap transposed matrix using split.by changing the color scale.", fig.width=8, fig.height=3 }
 # Modifying the color scale.
-SCpubr::do_EnrichmentHeatmap(sample = sample,
+p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
                                   list_genes = genes,
                                   transpose = TRUE,
                                   column_names_rot = 0,
