@@ -23,12 +23,19 @@ Axes labels can also be rotated.
 <img src="12-CorrelationPlots_files/figure-html/unnamed-chunk-4-1.png" alt="SCpubr::do_CorrelationPlot with rotated axis labels." width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-4)SCpubr::do_CorrelationPlot with rotated axis labels.</p>
 </div>
+## Changing the cell size in the heatmap.
+
+Same as with Enrichment Heatmaps, the aspect ratio of the tiles in the heatmap is fixed so that cells are squares, and not rectangles. This can be changed modifying `cell_size` parameter. This is set to 5 by default.
+<div class="figure" style="text-align: center">
+<img src="12-CorrelationPlots_files/figure-html/unnamed-chunk-5-1.png" alt="SCpubr::do_CorrelationPlot with rotated axis labels." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-5)SCpubr::do_CorrelationPlot with rotated axis labels.</p>
+</div>
 
 ## Changing the color scale
 
 Color scale can be modified using `colors.use` parameter.
 
 <div class="figure" style="text-align: center">
-<img src="12-CorrelationPlots_files/figure-html/unnamed-chunk-5-1.png" alt="SCpubr::do_CorrelationPlot with rotated axis labels and modified color scale." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-5)SCpubr::do_CorrelationPlot with rotated axis labels and modified color scale.</p>
+<img src="12-CorrelationPlots_files/figure-html/unnamed-chunk-6-1.png" alt="SCpubr::do_CorrelationPlot with rotated axis labels and modified color scale." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-6)SCpubr::do_CorrelationPlot with rotated axis labels and modified color scale.</p>
 </div>

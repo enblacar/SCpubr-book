@@ -72,9 +72,11 @@ modify-colors
 enrichment-score-heatmaps
 single-grouping-variable
 multiple-grouping-variables
+changing-the-cell-size-in-the-heatmap.
 changing-the-color-scale.
 correlation-matrix-heatmaps
 using-highly-variable-genes
+changing-the-cell-size-in-the-heatmap.-1
 changing-the-color-scale
 effect-of-point-size-in-the-plots.
 effect-of-raster-dpi-in-the-plots.

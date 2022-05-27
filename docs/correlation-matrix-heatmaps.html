@@ -96,15 +96,27 @@ Figure 1.3: SCpubr::do_CorrelationPlot with rotated axis labels.
 </p>
 </div>
 </div>
-<div id="changing-the-color-scale" class="section level2" number="10.2">
+<div id="changing-the-cell-size-in-the-heatmap.-1" class="section level2" number="10.2">
 <h2>
-<span class="header-section-number">10.2</span> Changing the color scale<a class="anchor" aria-label="anchor" href="#changing-the-color-scale"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.2</span> Changing the cell size in the heatmap.<a class="anchor" aria-label="anchor" href="#changing-the-cell-size-in-the-heatmap.-1"><i class="fas fa-link"></i></a>
+</h2>
+Same as with Enrichment Heatmaps, the aspect ratio of the tiles in the heatmap is fixed so that cells are squares, and not rectangles. This can be changed modifying <code>cell_size</code> parameter. This is set to 5 by default.
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-5"></span>
+<img src="12-CorrelationPlots_files/figure-html/unnamed-chunk-5-1.png" alt="SCpubr::do_CorrelationPlot with rotated axis labels." width="100%" height="100%"><p class="caption">
+Figure 1.4: SCpubr::do_CorrelationPlot with rotated axis labels.
+</p>
+</div>
+</div>
+<div id="changing-the-color-scale" class="section level2" number="10.3">
+<h2>
+<span class="header-section-number">10.3</span> Changing the color scale<a class="anchor" aria-label="anchor" href="#changing-the-color-scale"><i class="fas fa-link"></i></a>
 </h2>
 <p>Color scale can be modified using <code>colors.use</code> parameter.</p>
 <div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-5"></span>
-<img src="12-CorrelationPlots_files/figure-html/unnamed-chunk-5-1.png" alt="SCpubr::do_CorrelationPlot with rotated axis labels and modified color scale." width="100%" height="100%"><p class="caption">
-Figure 1.4: SCpubr::do_CorrelationPlot with rotated axis labels and modified color scale.
+<span style="display:block;" id="fig:unnamed-chunk-6"></span>
+<img src="12-CorrelationPlots_files/figure-html/unnamed-chunk-6-1.png" alt="SCpubr::do_CorrelationPlot with rotated axis labels and modified color scale." width="100%" height="100%"><p class="caption">
+Figure 1.5: SCpubr::do_CorrelationPlot with rotated axis labels and modified color scale.
 </p>
 </div>
 
@@ -121,7 +133,8 @@ Figure 1.4: SCpubr::do_CorrelationPlot with rotated axis labels and modified col
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#correlation-matrix-heatmaps"><span class="header-section-number">10</span> Correlation matrix heatmaps</a></li>
 <li><a class="nav-link" href="#using-highly-variable-genes"><span class="header-section-number">10.1</span> Using Highly Variable Genes</a></li>
-<li><a class="nav-link" href="#changing-the-color-scale"><span class="header-section-number">10.2</span> Changing the color scale</a></li>
+<li><a class="nav-link" href="#changing-the-cell-size-in-the-heatmap.-1"><span class="header-section-number">10.2</span> Changing the cell size in the heatmap.</a></li>
+<li><a class="nav-link" href="#changing-the-color-scale"><span class="header-section-number">10.3</span> Changing the color scale</a></li>
 </ul>
 
       <div class="book-extra">
@@ -145,7 +158,7 @@ Figure 1.4: SCpubr::do_CorrelationPlot with rotated axis labels and modified col
 <!-- Moved the footer outside of the body to make it span all page width. --><footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 24 May, 2022.</p>
+    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 27 May, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

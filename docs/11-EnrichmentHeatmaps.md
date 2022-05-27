@@ -123,6 +123,27 @@ p
 <img src="11-EnrichmentHeatmaps_files/figure-html/unnamed-chunk-7-1.png" alt="SCpubr::do_EnrichmentHeatmap transposed matrix using split.by joined vertically." width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-7)SCpubr::do_EnrichmentHeatmap transposed matrix using split.by joined vertically.</p>
 </div>
+## Changing the cell size in the heatmap.
+
+By design, the aspect ratio of the tiles in the heatmap is fixed so that cells are squares, and not rectangles. However, the user has the possibility to increase/decrease the cell size of each tile by modifying `cell_size` parameter. This is set to 5 by default.
+
+```r
+# Modifying the tile size.
+p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
+                                  list_genes = genes,
+                                  transpose = TRUE,
+                                  column_names_rot = 0,
+                                  cluster_cols = F,
+                                  cluster_rows = T,
+                                  split.by = "custom_group",
+                                  cell_size = 7)
+p
+```
+
+<div class="figure" style="text-align: center">
+<img src="11-EnrichmentHeatmaps_files/figure-html/unnamed-chunk-8-1.png" alt="SCpubr::do_EnrichmentHeatmap transposed matrix using split.by changing the tile size." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-8)SCpubr::do_EnrichmentHeatmap transposed matrix using split.by changing the tile size.</p>
+</div>
 
 ## Changing the color scale.
 
@@ -143,7 +164,7 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="11-EnrichmentHeatmaps_files/figure-html/unnamed-chunk-8-1.png" alt="SCpubr::do_EnrichmentHeatmap transposed matrix using split.by changing the color scale." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-8)SCpubr::do_EnrichmentHeatmap transposed matrix using split.by changing the color scale.</p>
+<img src="11-EnrichmentHeatmaps_files/figure-html/unnamed-chunk-9-1.png" alt="SCpubr::do_EnrichmentHeatmap transposed matrix using split.by changing the color scale." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-9)SCpubr::do_EnrichmentHeatmap transposed matrix using split.by changing the color scale.</p>
 </div>
 

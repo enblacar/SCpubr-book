@@ -89,6 +89,21 @@ p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
                                   split.horizontal = F)
 p
 ```
+## Changing the cell size in the heatmap.
+
+By design, the aspect ratio of the tiles in the heatmap is fixed so that cells are squares, and not rectangles. However, the user has the possibility to increase/decrease the cell size of each tile by modifying `cell_size` parameter. This is set to 5 by default.
+```{r, fig.cap= "SCpubr::do_EnrichmentHeatmap transposed matrix using split.by changing the tile size.", fig.width=10, fig.height=5 }
+# Modifying the tile size.
+p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
+                                  list_genes = genes,
+                                  transpose = TRUE,
+                                  column_names_rot = 0,
+                                  cluster_cols = F,
+                                  cluster_rows = T,
+                                  split.by = "custom_group",
+                                  cell_size = 7)
+p
+```
 
 ## Changing the color scale.
 

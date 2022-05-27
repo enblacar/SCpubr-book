@@ -180,12 +180,35 @@ Figure 1.6: SCpubr::do_EnrichmentHeatmap transposed matrix using split.by joined
 </p>
 </div>
 </div>
-<div id="changing-the-color-scale." class="section level2" number="9.3">
+<div id="changing-the-cell-size-in-the-heatmap." class="section level2" number="9.3">
 <h2>
-<span class="header-section-number">9.3</span> Changing the color scale.<a class="anchor" aria-label="anchor" href="#changing-the-color-scale."><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3</span> Changing the cell size in the heatmap.<a class="anchor" aria-label="anchor" href="#changing-the-cell-size-in-the-heatmap."><i class="fas fa-link"></i></a>
+</h2>
+<p>By design, the aspect ratio of the tiles in the heatmap is fixed so that cells are squares, and not rectangles. However, the user has the possibility to increase/decrease the cell size of each tile by modifying <code>cell_size</code> parameter. This is set to 5 by default.</p>
+<div class="sourceCode" id="cb105"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Modifying the tile size.</span>
+<span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_EnrichmentHeatmap.html">do_EnrichmentHeatmap</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,
+                                  list_genes <span class="op">=</span> <span class="va">genes</span>,
+                                  transpose <span class="op">=</span> <span class="cn">TRUE</span>,
+                                  column_names_rot <span class="op">=</span> <span class="fl">0</span>,
+                                  cluster_cols <span class="op">=</span> <span class="cn">F</span>,
+                                  cluster_rows <span class="op">=</span> <span class="cn">T</span>,
+                                  split.by <span class="op">=</span> <span class="st">"custom_group"</span>,
+                                  cell_size <span class="op">=</span> <span class="fl">7</span><span class="op">)</span>
+<span class="va">p</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-8"></span>
+<img src="11-EnrichmentHeatmaps_files/figure-html/unnamed-chunk-8-1.png" alt="SCpubr::do_EnrichmentHeatmap transposed matrix using split.by changing the tile size." width="100%" height="100%"><p class="caption">
+Figure 1.7: SCpubr::do_EnrichmentHeatmap transposed matrix using split.by changing the tile size.
+</p>
+</div>
+</div>
+<div id="changing-the-color-scale." class="section level2" number="9.4">
+<h2>
+<span class="header-section-number">9.4</span> Changing the color scale.<a class="anchor" aria-label="anchor" href="#changing-the-color-scale."><i class="fas fa-link"></i></a>
 </h2>
 <p>If one wants to change the color scale of the heatmap, this can be accomplished by providing a two-color vector to <code>colors.use</code>.</p>
-<div class="sourceCode" id="cb105"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb106"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Modifying the color scale.</span>
 <span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_EnrichmentHeatmap.html">do_EnrichmentHeatmap</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,
                                   list_genes <span class="op">=</span> <span class="va">genes</span>,
@@ -197,9 +220,9 @@ Figure 1.6: SCpubr::do_EnrichmentHeatmap transposed matrix using split.by joined
                                   colors.use <span class="op">=</span> <span class="fu">colortools</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/colortools/man/complementary.html">opposite</a></span><span class="op">(</span><span class="st">"steelblue"</span>, plot <span class="op">=</span> <span class="cn">F</span><span class="op">)</span><span class="op">)</span>
 <span class="va">p</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-8"></span>
-<img src="11-EnrichmentHeatmaps_files/figure-html/unnamed-chunk-8-1.png" alt="SCpubr::do_EnrichmentHeatmap transposed matrix using split.by changing the color scale." width="100%" height="100%"><p class="caption">
-Figure 1.7: SCpubr::do_EnrichmentHeatmap transposed matrix using split.by changing the color scale.
+<span style="display:block;" id="fig:unnamed-chunk-9"></span>
+<img src="11-EnrichmentHeatmaps_files/figure-html/unnamed-chunk-9-1.png" alt="SCpubr::do_EnrichmentHeatmap transposed matrix using split.by changing the color scale." width="100%" height="100%"><p class="caption">
+Figure 1.8: SCpubr::do_EnrichmentHeatmap transposed matrix using split.by changing the color scale.
 </p>
 </div>
 
@@ -217,7 +240,8 @@ Figure 1.7: SCpubr::do_EnrichmentHeatmap transposed matrix using split.by changi
 <li><a class="nav-link" href="#enrichment-score-heatmaps"><span class="header-section-number">9</span> Enrichment score heatmaps</a></li>
 <li><a class="nav-link" href="#single-grouping-variable"><span class="header-section-number">9.1</span> Single grouping variable</a></li>
 <li><a class="nav-link" href="#multiple-grouping-variables"><span class="header-section-number">9.2</span> Multiple grouping variables</a></li>
-<li><a class="nav-link" href="#changing-the-color-scale."><span class="header-section-number">9.3</span> Changing the color scale.</a></li>
+<li><a class="nav-link" href="#changing-the-cell-size-in-the-heatmap."><span class="header-section-number">9.3</span> Changing the cell size in the heatmap.</a></li>
+<li><a class="nav-link" href="#changing-the-color-scale."><span class="header-section-number">9.4</span> Changing the color scale.</a></li>
 </ul>
 
       <div class="book-extra">
@@ -241,7 +265,7 @@ Figure 1.7: SCpubr::do_EnrichmentHeatmap transposed matrix using split.by changi
 <!-- Moved the footer outside of the body to make it span all page width. --><footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 24 May, 2022.</p>
+    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 27 May, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
