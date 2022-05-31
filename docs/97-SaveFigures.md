@@ -2,7 +2,7 @@
 
 
 
-Creating good plots is just half of the process. It is equally important to *properly save them*. This is the purpose of `SCpubr::savePlot`. This function is a very handy tool to save your plots easily in different formats, such as `.pdf`, `.png`, `.jpeg`, `.tiff` and `.svg`. This can be achieved by providing the following to `output_format` parameter:
+Creating good plots is just half of the process. It is equally important to *properly save them*. This is the purpose of `SCpubr::save_Plot`. This function is a very handy tool to save your plots easily in different formats, such as `.pdf`, `.png`, `.jpeg`, `.tiff` and `.svg`. This can be achieved by providing the following to `output_format` parameter:
 
 - `"all"`: This will store the provided plot in all 5 formats.
 - `"publication"`: This will store the plot in `.pdf`, `.png` and `.svg`. 
@@ -16,21 +16,21 @@ Creating good plots is just half of the process. It is equally important to *pro
 p <- SCpubr::do_DimPlot(sample = sample)
 
 # Default parameters.
-SCpubr::savePlot(plot = p)
+SCpubr::save_Plot(plot = p)
 
 # Specifying the name and folder.
-SCpubr::savePlot(plot = p,
+SCpubr::save_Plot(plot = p,
                  figure_path = "/path/to/my/figures/",
                  file_name = "my_figure")
 
 # Specify to also create a new folder.
-SCpubr::savePlot(plot = p,
+SCpubr::save_Plot(plot = p,
                  figure_path = "/path/to/my/figures/",
                  file_name = "my_figure",
                  create_path = TRUE)
 
 # Set dimensions for the figure.
-SCpubr::savePlot(plot = p,
+SCpubr::save_Plot(plot = p,
                  figure_path = "/path/to/my/figures/",
                  file_name = "my_figure",
                  create_path = TRUE,
@@ -38,7 +38,7 @@ SCpubr::savePlot(plot = p,
                  height = 8)
 
 # Set quality (dpi).
-SCpubr::savePlot(plot = p,
+SCpubr::save_Plot(plot = p,
                  figure_path = "/path/to/my/figures/",
                  file_name = "my_figure",
                  create_path = TRUE,
