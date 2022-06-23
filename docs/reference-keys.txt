@@ -78,5 +78,9 @@ correlation-matrix-heatmaps
 using-highly-variable-genes
 changing-the-cell-size-in-the-heatmap.-1
 changing-the-color-scale
+cellular-state-plots
+variable-plots
+variables
+variables-1
 effect-of-point-size-in-the-plots.
 effect-of-raster-dpi-in-the-plots.
