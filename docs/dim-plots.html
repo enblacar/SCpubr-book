@@ -181,7 +181,7 @@ Figure 1.7: DimPlot with bigger and bold title.
 <p>Now, we would like to modify the color palette. This palette has too bright colors, and we want something more toned down.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">num_clusters</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">sample</span><span class="op">$</span><span class="va">seurat_clusters</span><span class="op">)</span><span class="op">)</span>
-<span class="va">color_scale</span> <span class="op">&lt;-</span> <span class="fu">colortools</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/colortools/man/setColors.html">setColors</a></span><span class="op">(</span><span class="st">"#457b9d"</span>, <span class="va">num_clusters</span><span class="op">)</span>
+<span class="va">color_scale</span> <span class="op">&lt;-</span> <span class="fu">colorspace</span><span class="fu">::</span><span class="fu"><a href="https://colorspace.R-Forge.R-project.org/reference/hcl_palettes.html">qualitative_hcl</a></span><span class="op">(</span><span class="va">num_clusters</span>, palette <span class="op">=</span> <span class="st">"Dark 3"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">color_scale</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sort.html">sort</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">sample</span><span class="op">$</span><span class="va">seurat_clusters</span><span class="op">)</span><span class="op">)</span>
 
 <span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">Seurat</span><span class="fu">::</span><span class="fu"><a href="https://satijalab.org/seurat/reference/DimPlot.html">DimPlot</a></span><span class="op">(</span><span class="va">sample</span>, 
@@ -591,7 +591,7 @@ Figure 1.26: SCpubr DimPlot using split.by with a changed color
 <!-- Moved the footer outside of the body to make it span all page width. --><footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 24 June, 2022.</p>
+    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 02 July, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

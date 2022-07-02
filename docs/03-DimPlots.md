@@ -133,7 +133,7 @@ Now, we would like to modify the color palette. This palette has too bright colo
 
 ```r
 num_clusters <- length(unique(sample$seurat_clusters))
-color_scale <- colortools::setColors("#457b9d", num_clusters)
+color_scale <- colorspace::qualitative_hcl(num_clusters, palette = "Dark 3")
 names(color_scale) <- sort(unique(sample$seurat_clusters))
 
 p <- Seurat::DimPlot(sample, 

@@ -115,8 +115,8 @@ A very important thing to note in these kind of plots is that no cells will have
 clusters_exclude <- c("0", "3", "5", "7", "8", "9")
 
 # Keep the original coloring.
-cols.use <- colortools::setColors("steelblue", 
-                                  length(levels(sample)))
+cols.use <- colorspace::qualitative_hcl(length(levels(sample)), 
+                                        palette = "Dark 3")
 names(cols.use) <- levels(sample)
 
 # Only provide the needed colors. If more are provided, an error is thrown.
@@ -145,7 +145,8 @@ See, we still clearly see two groups, formed by clusters 1 and 2, and clusters 4
 clusters_exclude <- c("0", "1", "2", "3", "5", "7", "8", "9")
 
 # Keep the original coloring.
-cols.use <- colortools::setColors("steelblue", length(levels(sample)))
+cols.use <- colorspace::qualitative_hcl(length(levels(sample)), 
+                                        palette = "Dark 3")
 names(cols.use) <- levels(sample)
 
 # Only provide the needed colors. If more are provided, an error is thrown.

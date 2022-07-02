@@ -159,7 +159,7 @@ p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
                                   cluster_cols = F,
                                   cluster_rows = T,
                                   split.by = "custom_group",
-                                  colors.use = colortools::opposite("steelblue", plot = F))
+                                  colors.use = c("red", "blue"))
 p
 ```
 
