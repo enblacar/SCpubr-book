@@ -80,21 +80,20 @@
 - FishEnrichr.</p>
 <p>Then, we also need to specify the databases to query against. The complete list of databases can be consulted using:</p>
 <div class="sourceCode" id="cb96"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">dbs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sort.html">sort</a></span><span class="op">(</span><span class="fu">enrichR</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/enrichR/man/listEnrichrDbs.html">listEnrichrDbs</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="va">dbs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sort.html">sort</a></span><span class="op">(</span><span class="fu">enrichR</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/enrichR/man/listEnrichrDbs.html">listEnrichrDbs</a></span><span class="op">(</span><span class="op">)</span><span class="op">[</span>, <span class="st">'libraryName'</span><span class="op">]</span><span class="op">)</span></code></pre></div>
 <p>The databases to use need to be provided as a character vector to <code>dbs_use</code> parameter. However, one can also provide one of the following pre-defined options:</p>
 <ul>
 <li>“A”: Will perform a query to 4 databases for cell types (Azimuth, Descartes, PanglaoDB and Descartes) and 4 databases for functional terms (MsigDB, GO-BP, GO-MF and KEGG). This is the default option if this parameter is not provided.</li>
 <li>“B”: Performs a query for the cell type databases (Azimuth, Descartes, PanglaoDB and Descartes).</li>
 <li>“C”: Performs a query for the functional terms (MsigDB, GO-BP, GO-MF and KEGG).</li>
 </ul>
-<p>Any of the previous option will produce big figures. Please be aware of this fact when saving them to disk. This will be an example case:</p>
+<p>Any of the previous option will return a list of plots. The plots can, then, be assembled together.</p>
 <div class="sourceCode" id="cb97"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Genes related to breast cancer.</span>
 <span class="va">genes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ABCB1"</span>, <span class="st">"ABCG2"</span>, <span class="st">"AHR"</span>, <span class="st">"AKT1"</span>, <span class="st">"AR"</span><span class="op">)</span>
 <span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_TermEnrichmentPlot.html">do_TermEnrichmentPlot</a></span><span class="op">(</span>genes <span class="op">=</span> <span class="va">genes</span>,
-                                   dbs_use <span class="op">=</span> <span class="st">"C"</span>,
-                                   ncol <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>
-<span class="va">p</span></code></pre></div>
+                                   dbs_use <span class="op">=</span> <span class="st">"C"</span><span class="op">)</span>
+<span class="fu">patchwork</span><span class="fu">::</span><span class="fu"><a href="https://patchwork.data-imaginist.com/reference/wrap_plots.html">wrap_plots</a></span><span class="op">(</span><span class="va">p</span>, ncol <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-2"></span>
 <img src="10-TermEnrichmentPlots_files/figure-html/unnamed-chunk-2-1.png" alt="SCpubr do_TermEnrichmentPlot use case." width="100%" height="100%"><p class="caption">
@@ -164,6 +163,26 @@ Figure 1.3: SCpubr do_TermEnrichmentPlot with reduced term length.
 Figure 1.4: SCpubr do_TermEnrichmentPlot with modified colors
 </p>
 </div>
+<p>If you want to increase the font size, one can always achieve it by using <code>text_labels_size</code> parameter:</p>
+<div class="sourceCode" id="cb101"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Genes related to breast cancer.</span>
+<span class="va">genes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ABCB1"</span>, <span class="st">"ABCG2"</span>, <span class="st">"AHR"</span>, <span class="st">"AKT1"</span>, <span class="st">"AR"</span><span class="op">)</span>
+<span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_TermEnrichmentPlot.html">do_TermEnrichmentPlot</a></span><span class="op">(</span>genes <span class="op">=</span> <span class="va">genes</span>,
+                                   dbs_use <span class="op">=</span> <span class="st">"GO_Biological_Process_2021"</span>,
+                                   colors.use <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"#e9d8a6"</span>, <span class="st">"#9b2226"</span><span class="op">)</span><span class="op">)</span>
+<span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_TermEnrichmentPlot.html">do_TermEnrichmentPlot</a></span><span class="op">(</span>genes <span class="op">=</span> <span class="va">genes</span>,
+                                   text_labels_size <span class="op">=</span> <span class="fl">6</span>,
+                                   dbs_use <span class="op">=</span> <span class="st">"GO_Biological_Process_2021"</span>,
+                                   colors.use <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"#e9d8a6"</span>, <span class="st">"#9b2226"</span><span class="op">)</span><span class="op">)</span>
+
+<span class="va">p</span> <span class="op">&lt;-</span> <span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span>
+<span class="va">p</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-6"></span>
+<img src="10-TermEnrichmentPlots_files/figure-html/unnamed-chunk-6-1.png" alt="SCpubr do_TermEnrichmentPlot with modified fontsize" width="100%" height="100%"><p class="caption">
+Figure 1.5: SCpubr do_TermEnrichmentPlot with modified fontsize
+</p>
+</div>
 
 </div>
 </div>
@@ -203,7 +222,7 @@ Figure 1.4: SCpubr do_TermEnrichmentPlot with modified colors
 <!-- Moved the footer outside of the body to make it span all page width. --><footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 03 July, 2022.</p>
+    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 05 July, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -12,7 +12,7 @@ First of all, `enrichR` allows you to select the site to query the results for. 
 Then, we also need to specify the databases to query against. The complete list of databases can be consulted using: 
 
 ```{r, eval = F}
-dbs <- sort(enrichR::listEnrichrDbs())
+dbs <- sort(enrichR::listEnrichrDbs()[, 'libraryName'])
 ```
 
 The databases to use need to be provided as a character vector to `dbs_use` parameter. However, one can also provide one of the following pre-defined options:
@@ -21,22 +21,21 @@ The databases to use need to be provided as a character vector to `dbs_use` para
 - "B": Performs a query for the cell type databases (Azimuth, Descartes, PanglaoDB and Descartes).
 - "C": Performs a query for the functional terms (MsigDB, GO-BP, GO-MF and KEGG).
 
-Any of the previous option will produce big figures. Please be aware of this fact when saving them to disk. This will be an example case:
+Any of the previous option will return a list of plots. The plots can, then, be assembled together.
 
-```{r, fig.cap="SCpubr do_TermEnrichmentPlot use case.", fig.width=25, fig.height=20}
+```{r, fig.cap="SCpubr do_TermEnrichmentPlot use case.", fig.width=30, fig.height=30}
 # Genes related to breast cancer.
 genes <- c("ABCB1", "ABCG2", "AHR", "AKT1", "AR")
 p <- SCpubr::do_TermEnrichmentPlot(genes = genes,
-                                   dbs_use = "C",
-                                   ncol = 2)
-p
+                                   dbs_use = "C")
+patchwork::wrap_plots(p, ncol = 2)
 ```
 
 ## Modifying the number of terms to retrieve.
 
 Depending on the focus of the analysis, we might want to only focus on one database but retrieve more terms from it. This can be achieved by using `nterms` parameter. 
 
-```{r, fig.cap="SCpubr do_TermEnrichmentPlot with increased terms.", fig.width=15, fig.height=20}
+```{r, fig.cap="SCpubr do_TermEnrichmentPlot with increased terms.", fig.width=15, fig.height=15}
 # Genes related to breast cancer.
 genes <- c("ABCB1", "ABCG2", "AHR", "AKT1", "AR")
 p <- SCpubr::do_TermEnrichmentPlot(genes = genes,
@@ -50,7 +49,7 @@ p
 
 Another issue with these plots is that, normally, the term itself takes too much space. For this, terms are wrapped according to a cutoff defined in `nchar_wrap` parameter. If the term has more characters than the value provided, it will be split more or less in half, always preserving whole words. 
 
-```{r, fig.cap="SCpubr do_TermEnrichmentPlot with reduced term length.", fig.width=30, fig.height=20}
+```{r, fig.cap="SCpubr do_TermEnrichmentPlot with reduced term length.", fig.width=30, fig.height=15}
 # Genes related to breast cancer.
 genes <- c("ABCB1", "ABCG2", "AHR", "AKT1", "AR")
 p1 <- SCpubr::do_TermEnrichmentPlot(genes = genes,
@@ -70,12 +69,29 @@ In the same way, one can further enhance the limit in order to have each term in
 
 Finally, one can always modify the current color scheme with `colors.use`, providing two HEX codes for the two ends of the color gradient.
 
-```{r, fig.cap="SCpubr do_TermEnrichmentPlot with modified colors", fig.width=15, fig.height=7.5}
+```{r, fig.cap="SCpubr do_TermEnrichmentPlot with modified colors", fig.width=15, fig.height=15}
 # Genes related to breast cancer.
 genes <- c("ABCB1", "ABCG2", "AHR", "AKT1", "AR")
 p <- SCpubr::do_TermEnrichmentPlot(genes = genes,
                                    dbs_use = "GO_Biological_Process_2021",
                                    colors.use = c("#e9d8a6", "#9b2226"))
 
+p
+```
+
+If you want to increase the font size, one can always achieve it by using `text_labels_size` parameter:
+
+```{r, fig.cap="SCpubr do_TermEnrichmentPlot with modified fontsize", fig.width=30, fig.height=15}
+# Genes related to breast cancer.
+genes <- c("ABCB1", "ABCG2", "AHR", "AKT1", "AR")
+p1 <- SCpubr::do_TermEnrichmentPlot(genes = genes,
+                                   dbs_use = "GO_Biological_Process_2021",
+                                   colors.use = c("#e9d8a6", "#9b2226"))
+p2 <- SCpubr::do_TermEnrichmentPlot(genes = genes,
+                                   text_labels_size = 6,
+                                   dbs_use = "GO_Biological_Process_2021",
+                                   colors.use = c("#e9d8a6", "#9b2226"))
+
+p <- p1 | p2
 p
 ```

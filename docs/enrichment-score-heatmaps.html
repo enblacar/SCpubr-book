@@ -77,7 +77,7 @@
 <h2>
 <span class="header-section-number">9.1</span> Single grouping variable<a class="anchor" aria-label="anchor" href="#single-grouping-variable"><i class="fas fa-link"></i></a>
 </h2>
-<div class="sourceCode" id="cb101"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb102"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Define list of genes.</span>
 <span class="va">genes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="st">"Naive CD4+ T"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"IL7R"</span>, <span class="st">"CCR7"</span><span class="op">)</span>,
               <span class="st">"CD14+ Mono"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"CD14"</span>, <span class="st">"LYZ"</span><span class="op">)</span>,
@@ -100,7 +100,7 @@ Figure 1.1: SCpubr::do_EnrichmentHeatmap with default parameters.
 </p>
 </div>
 <p>By default, <code><a href="https://rdrr.io/pkg/SCpubr/man/do_EnrichmentHeatmap.html">SCpubr::do_EnrichmentHeatmap</a></code> aggregates the values by the current identity. However, other metadata variables can be used to aggregate for. For this, provide the name to <code>group.by</code> parameter.</p>
-<div class="sourceCode" id="cb102"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb103"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Custom aggregated values.</span>
 <span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_EnrichmentHeatmap.html">do_EnrichmentHeatmap</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,
                                   list_genes <span class="op">=</span> <span class="va">genes</span>,
@@ -113,7 +113,7 @@ Figure 1.2: SCpubr::do_EnrichmentHeatmap with custom aggregation.
 </p>
 </div>
 <p>The matrix can be transposed using <code>transpose = TRUE</code>.</p>
-<div class="sourceCode" id="cb103"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb104"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Transposing the matrix.</span>
 <span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_EnrichmentHeatmap.html">do_EnrichmentHeatmap</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,
                                   list_genes <span class="op">=</span> <span class="va">genes</span>,
@@ -126,7 +126,7 @@ Figure 1.3: SCpubr::do_EnrichmentHeatmap transposed matrix.
 </p>
 </div>
 <p>Both rows and column names can be rotated using <code>column_names_rot</code> and <code>row_names_rot</code> parameters, providing the desired angle.</p>
-<div class="sourceCode" id="cb104"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb105"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Rotating the labels.</span>
 <span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_EnrichmentHeatmap.html">do_EnrichmentHeatmap</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,
                                   list_genes <span class="op">=</span> <span class="va">genes</span>,
@@ -145,7 +145,7 @@ Figure 1.4: SCpubr::do_EnrichmentHeatmap transposed matrix different angle for c
 <span class="header-section-number">9.2</span> Multiple grouping variables<a class="anchor" aria-label="anchor" href="#multiple-grouping-variables"><i class="fas fa-link"></i></a>
 </h2>
 <p>One can further split the output heatmap into several according to a second metadata variable. This is achieved by using <code>split.by</code> parameter.</p>
-<div class="sourceCode" id="cb105"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb106"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Splitting by a second metadata variable.</span>
 <span class="va">sample</span><span class="op">$</span><span class="va">custom_group</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">sample</span><span class="op">$</span><span class="va">seurat_clusters</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"1"</span>, <span class="st">"3"</span>, <span class="st">"5"</span>, <span class="st">"7"</span>, <span class="st">"9"</span><span class="op">)</span>, <span class="st">"Group A"</span>, <span class="st">"Group B"</span><span class="op">)</span>
 <span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_EnrichmentHeatmap.html">do_EnrichmentHeatmap</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,
@@ -163,7 +163,7 @@ Figure 1.5: SCpubr::do_EnrichmentHeatmap transposed matrix using split.by.
 </p>
 </div>
 <p>By default, heatmaps are joined horizontally. If you want them joined vertically, use <code>split.horizontal = FALSE</code></p>
-<div class="sourceCode" id="cb106"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb107"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Splitting by a second metadata variable and joining vertically.</span>
 <span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_EnrichmentHeatmap.html">do_EnrichmentHeatmap</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,
                                   list_genes <span class="op">=</span> <span class="va">genes</span>,
@@ -186,7 +186,7 @@ Figure 1.6: SCpubr::do_EnrichmentHeatmap transposed matrix using split.by joined
 <span class="header-section-number">9.3</span> Changing the cell size in the heatmap.<a class="anchor" aria-label="anchor" href="#changing-the-cell-size-in-the-heatmap."><i class="fas fa-link"></i></a>
 </h2>
 <p>By design, the aspect ratio of the tiles in the heatmap is fixed so that cells are squares, and not rectangles. However, the user has the possibility to increase/decrease the cell size of each tile by modifying <code>cell_size</code> parameter. This is set to 5 by default.</p>
-<div class="sourceCode" id="cb107"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb108"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Modifying the tile size.</span>
 <span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_EnrichmentHeatmap.html">do_EnrichmentHeatmap</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,
                                   list_genes <span class="op">=</span> <span class="va">genes</span>,
@@ -209,7 +209,7 @@ Figure 1.7: SCpubr::do_EnrichmentHeatmap transposed matrix using split.by changi
 <span class="header-section-number">9.4</span> Changing the color scale.<a class="anchor" aria-label="anchor" href="#changing-the-color-scale."><i class="fas fa-link"></i></a>
 </h2>
 <p>If one wants to change the color scale of the heatmap, this can be accomplished by providing a two-color vector to <code>colors.use</code>.</p>
-<div class="sourceCode" id="cb108"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb109"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Modifying the color scale.</span>
 <span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_EnrichmentHeatmap.html">do_EnrichmentHeatmap</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,
                                   list_genes <span class="op">=</span> <span class="va">genes</span>,
@@ -266,7 +266,7 @@ Figure 1.8: SCpubr::do_EnrichmentHeatmap transposed matrix using split.by changi
 <!-- Moved the footer outside of the body to make it span all page width. --><footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 03 July, 2022.</p>
+    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 05 July, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

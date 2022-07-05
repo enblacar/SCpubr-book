@@ -14,7 +14,7 @@ gene_set <- list("A" = Seurat::VariableFeatures(sample)[1:10],
 
 ## 2 variable plots
 
-<span class="border-0"><img src="images/2_variables.png" class="mx-auto d-block" width="800" height="800" alt="" style="box-shadow: none"/></span>
+<span class="border-0"><img src="images/2_variables.png" class="mx-auto d-block" alt="" style="box-shadow: none; width: 50%"/></span>
 
 This is the easiest case. For this, the user needs to provide the name of *two gene signatures* present in the list of genes provided to `gene_list` parameter: 
 - `x1`: The enrichment scores computed for this list will be displayed on the X axis.
@@ -57,7 +57,7 @@ p
 
 
 ## 3 variables
-<span class="border-0"><img src="images/3_variables.png" class="mx-auto d-block" width="800" height="800" alt="" style="box-shadow: none"/></span>
+<span class="border-0"><img src="images/3_variables.png" class="mx-auto d-block" alt="" style="box-shadow: none; width: 50%"/></span>
 
 This plot is retrieved from [Tirosh, et al, 2016](https://www.nature.com/articles/nature20123) and plot requires the user to provide three gene sets, for which enrichment scores are computed using `Seurat::AddModuleScore`. For the X axis, two gene sets are assigned to it. Cells will be placed towards the right if they are enriched in `x1` and towards the left if they are enriched in `x2`. This is decided by, first, retrieving the enrichment scores for both lists and keeping the highest out of the two. The score will turn positive or negative depending on the gene list for which the highest enrichment score belonged to: positive for `x1` and negative for `x2`. For the Y axis. one gene set is provided. The value for the Y axis is computed by subtracting to the enrichment scores for `y1` the value for the X axis. 
 
@@ -99,7 +99,7 @@ p
 <p class="caption">(\#fig:unnamed-chunk-6)SCpubr::do_CellularStatesPlot, 3 variables symmetry enforced</p>
 </div>
 ## 4 variables
-<span class="border-0"><img src="images/4_variables.png" class="mx-auto d-block" width="800" height="800" alt="" style="box-shadow: none"/></span>
+<span class="border-0"><img src="images/4_variables.png" class="mx-auto d-block" alt="" style="box-shadow: none; width: 50%"/></span>
 
 This the most complicated variant of the plot, retrieved from [Neftel, et al, 2019](https://pubmed.ncbi.nlm.nih.gov/31327527/). This makes use of four gene sets: `x1`, `x2`, `y1` and `y2`. As a general, brief description, enrichment scores are computed for all 4 gene sets and the cells will locate in the resulting figure according to the list they are most enriched on, towards a given corner, following the scheme shown above.
 

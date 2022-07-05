@@ -98,7 +98,8 @@ p2 <- SCpubr::do_DotPlot(sample = sample,
                          features = genes, 
                          cluster.idents = TRUE, 
                          plot.title = "Clustered", 
-                         flip = T)
+                         flip = T,
+                         rotate_x_labels = T)
 p1 | p2
 ```
 

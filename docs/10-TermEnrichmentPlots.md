@@ -13,7 +13,7 @@ Then, we also need to specify the databases to query against. The complete list 
 
 
 ```r
-dbs <- sort(enrichR::listEnrichrDbs())
+dbs <- sort(enrichR::listEnrichrDbs()[, 'libraryName'])
 ```
 
 The databases to use need to be provided as a character vector to `dbs_use` parameter. However, one can also provide one of the following pre-defined options:
@@ -22,16 +22,15 @@ The databases to use need to be provided as a character vector to `dbs_use` para
 - "B": Performs a query for the cell type databases (Azimuth, Descartes, PanglaoDB and Descartes).
 - "C": Performs a query for the functional terms (MsigDB, GO-BP, GO-MF and KEGG).
 
-Any of the previous option will produce big figures. Please be aware of this fact when saving them to disk. This will be an example case:
+Any of the previous option will return a list of plots. The plots can, then, be assembled together.
 
 
 ```r
 # Genes related to breast cancer.
 genes <- c("ABCB1", "ABCG2", "AHR", "AKT1", "AR")
 p <- SCpubr::do_TermEnrichmentPlot(genes = genes,
-                                   dbs_use = "C",
-                                   ncol = 2)
-p
+                                   dbs_use = "C")
+patchwork::wrap_plots(p, ncol = 2)
 ```
 
 <div class="figure" style="text-align: center">
@@ -103,4 +102,27 @@ p
 <div class="figure" style="text-align: center">
 <img src="10-TermEnrichmentPlots_files/figure-html/unnamed-chunk-5-1.png" alt="SCpubr do_TermEnrichmentPlot with modified colors" width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-5)SCpubr do_TermEnrichmentPlot with modified colors</p>
+</div>
+
+If you want to increase the font size, one can always achieve it by using `text_labels_size` parameter:
+
+
+```r
+# Genes related to breast cancer.
+genes <- c("ABCB1", "ABCG2", "AHR", "AKT1", "AR")
+p1 <- SCpubr::do_TermEnrichmentPlot(genes = genes,
+                                   dbs_use = "GO_Biological_Process_2021",
+                                   colors.use = c("#e9d8a6", "#9b2226"))
+p2 <- SCpubr::do_TermEnrichmentPlot(genes = genes,
+                                   text_labels_size = 6,
+                                   dbs_use = "GO_Biological_Process_2021",
+                                   colors.use = c("#e9d8a6", "#9b2226"))
+
+p <- p1 | p2
+p
+```
+
+<div class="figure" style="text-align: center">
+<img src="10-TermEnrichmentPlots_files/figure-html/unnamed-chunk-6-1.png" alt="SCpubr do_TermEnrichmentPlot with modified fontsize" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-6)SCpubr do_TermEnrichmentPlot with modified fontsize</p>
 </div>
