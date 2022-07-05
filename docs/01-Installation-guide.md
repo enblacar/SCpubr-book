@@ -23,7 +23,6 @@ Further packages are needed in order to run the different functions:
 - [forcats](https://forcats.tidyverse.org/index.html)
 - [ggbeeswarm](https://cran.r-project.org/web/packages/ggbeeswarm/index.html)
 - [ggplot2](https://ggplot2.tidyverse.org/)
-- [ggpubr](https://cran.r-project.org/web/packages/ggpubr/index.html)
 - [ggrastr](https://cran.r-project.org/web/packages/ggrastr/vignettes/Raster_geoms.html)
 - [ggrepel](https://cran.r-project.org/web/packages/ggrepel/vignettes/ggrepel.html)
 - [Matrix](https://cran.r-project.org/web/packages/Matrix/index.html)
@@ -51,7 +50,6 @@ cran_packages <- c("colortools",
                    "forcats",
                    "ggbeeswarm",
                    "ggplot2",
-                   "ggpubr",
                    "ggrepel",
                    "Matrix",
                    "patchwork",
