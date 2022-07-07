@@ -6,7 +6,7 @@ Many times we want to generate figures in PDF format so that we can later on mod
 
 With this, there are two major concepts to take into account when generating rasterized images: `pt.size` and `raster.dpi`.
 
-## Effect of point size in the plots.
+## Effect of point size in the plots. {-}
 Depending on the point size provided, if this value is lower than 1, by default the cells become plus signs.
 
 
@@ -53,7 +53,7 @@ p
 </div>
 
 
-## Effect of raster dpi in the plots.
+## Effect of raster dpi in the plots. {-}
 
 Depending on the value provided to `raster.dpi`, the overall resolution of the plot will vary. Let's focus on setting `pt.size = 2` and vary `raster.dpi`:
 

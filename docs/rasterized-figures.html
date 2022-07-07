@@ -73,9 +73,8 @@
 </h1>
 <p>Many times we want to generate figures in PDF format so that we can later on modify some other aspects in image editors. The problem comes when we work with datasets of, let’s say, 50.000 cells and then we save the plot as PDF, where each cell now becomes an item that needs to be tracked in the PDF file. For this, both <code><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">SCpubr::do_DimPlot()</a></code> and <code><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">SCpubr::do_FeaturePlot()</a></code> present the parameter <code>raster</code>, than if set to <code>TRUE</code> turns the image into a rasterized image.</p>
 <p>With this, there are two major concepts to take into account when generating rasterized images: <code>pt.size</code> and <code>raster.dpi</code>.</p>
-<div id="effect-of-point-size-in-the-plots." class="section level2" number="11.10">
-<h2>
-<span class="header-section-number">11.10</span> Effect of point size in the plots.<a class="anchor" aria-label="anchor" href="#effect-of-point-size-in-the-plots."><i class="fas fa-link"></i></a>
+<div id="effect-of-point-size-in-the-plots." class="section level2 unnumbered">
+<h2>Effect of point size in the plots.<a class="anchor" aria-label="anchor" href="#effect-of-point-size-in-the-plots."><i class="fas fa-link"></i></a>
 </h2>
 <p>Depending on the point size provided, if this value is lower than 1, by default the cells become plus signs.</p>
 <div class="sourceCode" id="cb155"><pre class="downlit sourceCode r">
@@ -120,9 +119,8 @@ Figure 1.1: Effect of point size in rasterized images.
 </p>
 </div>
 </div>
-<div id="effect-of-raster-dpi-in-the-plots." class="section level2" number="11.11">
-<h2>
-<span class="header-section-number">11.11</span> Effect of raster dpi in the plots.<a class="anchor" aria-label="anchor" href="#effect-of-raster-dpi-in-the-plots."><i class="fas fa-link"></i></a>
+<div id="effect-of-raster-dpi-in-the-plots." class="section level2 unnumbered">
+<h2>Effect of raster dpi in the plots.<a class="anchor" aria-label="anchor" href="#effect-of-raster-dpi-in-the-plots."><i class="fas fa-link"></i></a>
 </h2>
 <p>Depending on the value provided to <code>raster.dpi</code>, the overall resolution of the plot will vary. Let’s focus on setting <code>pt.size = 2</code> and vary <code>raster.dpi</code>:</p>
 <div class="sourceCode" id="cb156"><pre class="downlit sourceCode r">
@@ -180,8 +178,8 @@ Figure 1.2: Effect of raster dpi in rasterized images.
       <div class="book-extra">
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#rasterized-figures">Rasterized figures</a></li>
-<li><a class="nav-link" href="#effect-of-point-size-in-the-plots."><span class="header-section-number">11.10</span> Effect of point size in the plots.</a></li>
-<li><a class="nav-link" href="#effect-of-raster-dpi-in-the-plots."><span class="header-section-number">11.11</span> Effect of raster dpi in the plots.</a></li>
+<li><a class="nav-link" href="#effect-of-point-size-in-the-plots.">Effect of point size in the plots.</a></li>
+<li><a class="nav-link" href="#effect-of-raster-dpi-in-the-plots.">Effect of raster dpi in the plots.</a></li>
 </ul>
 
       <div class="book-extra">

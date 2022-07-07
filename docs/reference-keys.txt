@@ -89,14 +89,3 @@ cellular-state-plots
 variable-plots
 variables
 variables-1
-changing-the-font-size.
-change-font-type-of-the-plots.
-adding-plot-titles-subtitles-and-captions-to-plots.
-further-customization
-change-between-legend-types-in-continuous-variables.
-relocating-the-legend
-modifying-colors
-categorical-variables
-continuous-variables
-effect-of-point-size-in-the-plots.
-effect-of-raster-dpi-in-the-plots.

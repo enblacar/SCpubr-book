@@ -4,7 +4,7 @@
 
 This page aims to assess common functionalities present across the different functions in the package.
 
-## Changing the font size.
+## Changing the font size. {-}
 This can be achieved by using `font.size` parameter and works for all **ggplot2-based** plots.
 
 
@@ -161,7 +161,7 @@ p
 <p class="caption">(\#fig:unnamed-chunk-10)SCpubr do_CellularStatesPlot increasing font.size.</p>
 </div>
 
-## Change font type of the plots.
+## Change font type of the plots. {-}
 
 Despite limited, it is possible to change the font type of the plots to either `sans`, `serif` or `mono`. Those are fonts installed by default in every system. Other font types need to be pre-installed in the user systems and, therefore, are not considered for this package. This can be achieved by providing `font.type = "mono"`, `font.type = "sans"` and `font.type = "serif"` to any **ggplot2-based** plot.   
 
@@ -359,7 +359,7 @@ p
 <p class="caption">(\#fig:unnamed-chunk-19)SCpubr do_CellularStatesPlot changing font type.</p>
 </div>
 
-## Adding plot titles, subtitles and captions to plots.
+## Adding plot titles, subtitles and captions to plots. {-}
 
 To all **ggplot2-based** plots, one can add title, subtitle and caption to them by using `plot.title`, `plot.subtitle` and `plot.caption` parameters.  
 
@@ -510,7 +510,7 @@ p
 <p class="caption">(\#fig:unnamed-chunk-28)SCpubr do_CellularStatesPlot adding title, subtitle and caption.</p>
 </div>
 
-### Further customization 
+### Further customization  {-}
 
 Titles, subtitles and captions are modified versions of `ggplot2::element_text()`, using [ggtext](https://github.com/wilkelab/ggtext) package. This allows for partial modifications, in markdown style, of the elements. You can also change the color by providing **HTML tags** as follows:
 
@@ -528,7 +528,7 @@ p
 <p class="caption">(\#fig:unnamed-chunk-29)SCpubr do_DimPlot adding title, subtitle and caption with extra modifications.</p>
 </div>
 
-## Change between legend types in continuous variables.
+## Change between legend types in continuous variables. {-}
 
 Users can opt to change between three type of legends **continuous** variables: the one that comes by default with `ggplot2`, a colorbar that is a modified version of the default, with a wider range and more marked ticks, or a colorbar with discrete steps (colorsteps), which can be a nice alternative depending on the situation. This can be achieved by providing `legend.type = "normal"`, `legend.type = "colorbar"` or `legend.type = "colorsteps"`. This can be applied to any **ggplot2-based** plot.
 
@@ -639,10 +639,10 @@ p
 <p class="caption">(\#fig:unnamed-chunk-34)SCpubr do_TermEnrichmentPlot changing font type.</p>
 </div>
 
-## Relocating the legend
+## Relocating the legend {-}
 
-## Modifying colors
+## Modifying colors {-}
 
-### Categorical variables
+### Categorical variables {-}
 
-### Continuous variables
+### Continuous variables {-}
