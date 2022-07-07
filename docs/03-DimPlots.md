@@ -461,7 +461,7 @@ p <- SCpubr::do_DimPlot(sample,
                         split.by = "seurat_clusters", 
                         ncol = 5, 
                         legend = F,
-                        fontsize = 24)
+                        font.size = 24)
 p
 ```
 
@@ -483,7 +483,7 @@ p <- SCpubr::do_DimPlot(sample,
                         ncol = 3, 
                         idents.keep = c("0", "1", "7"),
                         legend = F,
-                        fontsize = 24)
+                        font.size = 24)
 p
 ```
 
@@ -515,14 +515,14 @@ p1 <- SCpubr::do_DimPlot(sample,
                          ncol = 5, 
                          legend = F, 
                          colors.use = colors,
-                         fontsize = 24)
+                         font.size = 24)
 
 p2 <- SCpubr::do_DimPlot(sample, 
                          split.by = "seurat_clusters", 
                          ncol = 5, 
                          legend = F, 
                          colors.use = "#008080",
-                         fontsize = 24)
+                         font.size = 24)
 p1 / p2
 ```
 

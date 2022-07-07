@@ -237,14 +237,14 @@ Same as in `SCpubr::do_FeaturePlot()`, it is also change the color map of the pl
 - H - turbo  color map.
 
 ```{r, fig.cap = "SCpubr Nebulosa plot modifying viridis color maps.", fig.width=10, fig.height=16}
-p1 <- SCpubr::do_BeeSwarmPlot(sample = sample, feature_to_rank = "Monocyte_signature", group.by = "seurat_clusters", continuous_feature = TRUE, fontsize = 10, viridis_color_map = "A", plot.title = "Magma")
-p2 <- SCpubr::do_BeeSwarmPlot(sample = sample, feature_to_rank = "Monocyte_signature", group.by = "seurat_clusters", continuous_feature = TRUE, fontsize = 10, viridis_color_map = "B", plot.title = "Inferno")
-p3 <- SCpubr::do_BeeSwarmPlot(sample = sample, feature_to_rank = "Monocyte_signature", group.by = "seurat_clusters", continuous_feature = TRUE, fontsize = 10, viridis_color_map = "C", plot.title = "Plasma")
-p4 <- SCpubr::do_BeeSwarmPlot(sample = sample, feature_to_rank = "Monocyte_signature", group.by = "seurat_clusters", continuous_feature = TRUE, fontsize = 10, viridis_color_map = "D", plot.title = "Viridis")
-p5 <- SCpubr::do_BeeSwarmPlot(sample = sample, feature_to_rank = "Monocyte_signature", group.by = "seurat_clusters", continuous_feature = TRUE, fontsize = 10, viridis_color_map = "E", plot.title = "Cividis")
-p6 <- SCpubr::do_BeeSwarmPlot(sample = sample, feature_to_rank = "Monocyte_signature", group.by = "seurat_clusters", continuous_feature = TRUE, fontsize = 10, viridis_color_map = "F", plot.title = "Rocket")
-p7 <- SCpubr::do_BeeSwarmPlot(sample = sample, feature_to_rank = "Monocyte_signature", group.by = "seurat_clusters", continuous_feature = TRUE, fontsize = 10, viridis_color_map = "G", plot.title = "Mako")
-p8 <- SCpubr::do_BeeSwarmPlot(sample = sample, feature_to_rank = "Monocyte_signature", group.by = "seurat_clusters", continuous_feature = TRUE, fontsize = 10, viridis_color_map = "H", plot.title = "Turbo")
+p1 <- SCpubr::do_BeeSwarmPlot(sample = sample, feature_to_rank = "Monocyte_signature", group.by = "seurat_clusters", continuous_feature = TRUE, font.size = 10, viridis_color_map = "A", plot.title = "Magma")
+p2 <- SCpubr::do_BeeSwarmPlot(sample = sample, feature_to_rank = "Monocyte_signature", group.by = "seurat_clusters", continuous_feature = TRUE, font.size = 10, viridis_color_map = "B", plot.title = "Inferno")
+p3 <- SCpubr::do_BeeSwarmPlot(sample = sample, feature_to_rank = "Monocyte_signature", group.by = "seurat_clusters", continuous_feature = TRUE, font.size = 10, viridis_color_map = "C", plot.title = "Plasma")
+p4 <- SCpubr::do_BeeSwarmPlot(sample = sample, feature_to_rank = "Monocyte_signature", group.by = "seurat_clusters", continuous_feature = TRUE, font.size = 10, viridis_color_map = "D", plot.title = "Viridis")
+p5 <- SCpubr::do_BeeSwarmPlot(sample = sample, feature_to_rank = "Monocyte_signature", group.by = "seurat_clusters", continuous_feature = TRUE, font.size = 10, viridis_color_map = "E", plot.title = "Cividis")
+p6 <- SCpubr::do_BeeSwarmPlot(sample = sample, feature_to_rank = "Monocyte_signature", group.by = "seurat_clusters", continuous_feature = TRUE, font.size = 10, viridis_color_map = "F", plot.title = "Rocket")
+p7 <- SCpubr::do_BeeSwarmPlot(sample = sample, feature_to_rank = "Monocyte_signature", group.by = "seurat_clusters", continuous_feature = TRUE, font.size = 10, viridis_color_map = "G", plot.title = "Mako")
+p8 <- SCpubr::do_BeeSwarmPlot(sample = sample, feature_to_rank = "Monocyte_signature", group.by = "seurat_clusters", continuous_feature = TRUE, font.size = 10, viridis_color_map = "H", plot.title = "Turbo")
 
 p <- patchwork::wrap_plots(list(p1, p2, p3, p4, p5, p6, p7, p8), ncol = 2, byrow = TRUE)
 p
