@@ -236,7 +236,7 @@ Same as in `SCpubr::do_FeaturePlot()`, it is also change the color map of the pl
 - G - mako color map.
 - H - turbo  color map.
 
-```{r, fig.cap = "SCpubr Nebulosa plot modifying viridis color maps.", fig.width=10, fig.height=16}
+```{r, fig.cap = "SCpubr::do_BeeSwarmPlot modifying viridis color maps.", fig.width=10, fig.height=16}
 p1 <- SCpubr::do_BeeSwarmPlot(sample = sample, feature_to_rank = "Monocyte_signature", group.by = "seurat_clusters", continuous_feature = TRUE, font.size = 10, viridis_color_map = "A", plot.title = "Magma")
 p2 <- SCpubr::do_BeeSwarmPlot(sample = sample, feature_to_rank = "Monocyte_signature", group.by = "seurat_clusters", continuous_feature = TRUE, font.size = 10, viridis_color_map = "B", plot.title = "Inferno")
 p3 <- SCpubr::do_BeeSwarmPlot(sample = sample, feature_to_rank = "Monocyte_signature", group.by = "seurat_clusters", continuous_feature = TRUE, font.size = 10, viridis_color_map = "C", plot.title = "Plasma")

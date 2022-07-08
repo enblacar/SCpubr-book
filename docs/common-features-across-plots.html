@@ -142,10 +142,14 @@ Figure 1.5: SCpubr do_VlnPlot increasing font.size.
 </p>
 </div>
 <div class="sourceCode" id="cb127"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DotPlot.html">do_DotPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,
-                        features <span class="op">=</span> <span class="st">"CD14"</span><span class="op">)</span> <span class="op">|</span> 
+<code class="sourceCode R"><span class="va">genes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"IL7R"</span>, <span class="st">"CCR7"</span>, <span class="st">"CD14"</span>, <span class="st">"LYZ"</span>, 
+           <span class="st">"S100A4"</span>, <span class="st">"MS4A1"</span>, <span class="st">"CD8A"</span>, <span class="st">"FCGR3A"</span>, 
+           <span class="st">"MS4A7"</span>, <span class="st">"GNLY"</span>, <span class="st">"NKG7"</span>, <span class="st">"FCER1A"</span>, 
+           <span class="st">"CST3"</span>, <span class="st">"PPBP"</span><span class="op">)</span>
+<span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DotPlot.html">do_DotPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,
+                        features <span class="op">=</span> <span class="va">genes</span><span class="op">)</span> <span class="op">|</span> 
      <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DotPlot.html">do_DotPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,
-                        features <span class="op">=</span> <span class="st">"CD14"</span>,
+                        features <span class="op">=</span> <span class="va">genes</span>,
                         font.size <span class="op">=</span> <span class="fl">18</span><span class="op">)</span>
 <span class="va">p</span></code></pre></div>
 <div class="figure" style="text-align: center">
@@ -300,14 +304,19 @@ Figure 1.14: SCpubr do_VlnPlot changing font type.
 </p>
 </div>
 <div class="sourceCode" id="cb136"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DotPlot.html">do_DotPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,
-                        features <span class="op">=</span> <span class="st">"CD14"</span>,
+<code class="sourceCode R"><span class="va">genes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"IL7R"</span>, <span class="st">"CCR7"</span>, <span class="st">"CD14"</span>, <span class="st">"LYZ"</span>, 
+           <span class="st">"S100A4"</span>, <span class="st">"MS4A1"</span>, <span class="st">"CD8A"</span>, <span class="st">"FCGR3A"</span>, 
+           <span class="st">"MS4A7"</span>, <span class="st">"GNLY"</span>, <span class="st">"NKG7"</span>, <span class="st">"FCER1A"</span>, 
+           <span class="st">"CST3"</span>, <span class="st">"PPBP"</span><span class="op">)</span>
+
+<span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DotPlot.html">do_DotPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,
+                        features <span class="op">=</span> <span class="va">genes</span>,
                         font.type <span class="op">=</span> <span class="st">"mono"</span><span class="op">)</span> <span class="op">|</span> 
      <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DotPlot.html">do_DotPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,
-                        features <span class="op">=</span> <span class="st">"CD14"</span>,
+                        features <span class="op">=</span> <span class="va">genes</span>,
                         font.type <span class="op">=</span> <span class="st">"sans"</span><span class="op">)</span> <span class="op">|</span>
      <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DotPlot.html">do_DotPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,
-                        features <span class="op">=</span> <span class="st">"CD14"</span>,
+                        features <span class="op">=</span> <span class="va">genes</span>,
                         font.type <span class="op">=</span> <span class="st">"serif"</span><span class="op">)</span>
 <span class="va">p</span></code></pre></div>
 <div class="figure" style="text-align: center">
@@ -464,8 +473,13 @@ Figure 1.23: SCpubr do_VlnPlot adding title, subtitle and caption.
 </p>
 </div>
 <div class="sourceCode" id="cb145"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DotPlot.html">do_DotPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,
-                        features <span class="op">=</span> <span class="st">"CD14"</span>, 
+<code class="sourceCode R"><span class="va">genes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"IL7R"</span>, <span class="st">"CCR7"</span>, <span class="st">"CD14"</span>, <span class="st">"LYZ"</span>, 
+           <span class="st">"S100A4"</span>, <span class="st">"MS4A1"</span>, <span class="st">"CD8A"</span>, <span class="st">"FCGR3A"</span>, 
+           <span class="st">"MS4A7"</span>, <span class="st">"GNLY"</span>, <span class="st">"NKG7"</span>, <span class="st">"FCER1A"</span>, 
+           <span class="st">"CST3"</span>, <span class="st">"PPBP"</span><span class="op">)</span>
+
+<span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DotPlot.html">do_DotPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,
+                        features <span class="op">=</span> <span class="va">genes</span>, 
                         plot.title <span class="op">=</span> <span class="st">"This is a title"</span>,
                         plot.subtitle <span class="op">=</span> <span class="st">"This is a subtitle"</span>,
                         plot.caption <span class="op">=</span> <span class="st">"This is a caption"</span><span class="op">)</span>
@@ -562,8 +576,8 @@ Figure 11.2: SCpubr do_DimPlot adding title, subtitle and caption with extra mod
 <span class="va">p</span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-30"></span>
-<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-30-1.png" alt="SCpubr do_FeaturePlot changing font type." width="100%" height="100%"><p class="caption">
-Figure 11.3: SCpubr do_FeaturePlot changing font type.
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-30-1.png" alt="SCpubr do_FeaturePlot changing legend type." width="100%" height="100%"><p class="caption">
+Figure 11.3: SCpubr do_FeaturePlot changing legend type.
 </p>
 </div>
 <div class="sourceCode" id="cb151"><pre class="downlit sourceCode r">
@@ -579,8 +593,8 @@ Figure 11.3: SCpubr do_FeaturePlot changing font type.
 <span class="va">p</span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-31"></span>
-<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-31-1.png" alt="SCpubr do_NebulosaPlot changing font type." width="100%" height="100%"><p class="caption">
-Figure 11.4: SCpubr do_NebulosaPlot changing font type.
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-31-1.png" alt="SCpubr do_NebulosaPlot changing legend type." width="100%" height="100%"><p class="caption">
+Figure 11.4: SCpubr do_NebulosaPlot changing legend type.
 </p>
 </div>
 <div class="sourceCode" id="cb152"><pre class="downlit sourceCode r">
@@ -602,12 +616,17 @@ Figure 11.4: SCpubr do_NebulosaPlot changing font type.
 <span class="va">p</span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-32"></span>
-<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-32-1.png" alt="SCpubr do_BeeSwarmPlot changing font type." width="100%" height="100%"><p class="caption">
-Figure 11.5: SCpubr do_BeeSwarmPlot changing font type.
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-32-1.png" alt="SCpubr do_BeeSwarmPlot changing legend type." width="100%" height="100%"><p class="caption">
+Figure 11.5: SCpubr do_BeeSwarmPlot changing legend type.
 </p>
 </div>
 <div class="sourceCode" id="cb153"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DotPlot.html">do_DotPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,
+<code class="sourceCode R"><span class="va">genes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"IL7R"</span>, <span class="st">"CCR7"</span>, <span class="st">"CD14"</span>, <span class="st">"LYZ"</span>, 
+           <span class="st">"S100A4"</span>, <span class="st">"MS4A1"</span>, <span class="st">"CD8A"</span>, <span class="st">"FCGR3A"</span>, 
+           <span class="st">"MS4A7"</span>, <span class="st">"GNLY"</span>, <span class="st">"NKG7"</span>, <span class="st">"FCER1A"</span>, 
+           <span class="st">"CST3"</span>, <span class="st">"PPBP"</span><span class="op">)</span>
+
+<span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DotPlot.html">do_DotPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,
                         features <span class="op">=</span> <span class="st">"PC_1"</span>,
                         legend.type <span class="op">=</span> <span class="st">"normal"</span><span class="op">)</span> <span class="op">|</span> 
      <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DotPlot.html">do_DotPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,
@@ -619,8 +638,8 @@ Figure 11.5: SCpubr do_BeeSwarmPlot changing font type.
 <span class="va">p</span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-33"></span>
-<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-33-1.png" alt="SCpubr do_DotPlot changing font type." width="100%" height="100%"><p class="caption">
-Figure 11.6: SCpubr do_DotPlot changing font type.
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-33-1.png" alt="SCpubr do_DotPlot changing legend type." width="100%" height="100%"><p class="caption">
+Figure 11.6: SCpubr do_DotPlot changing legend type.
 </p>
 </div>
 <div class="sourceCode" id="cb154"><pre class="downlit sourceCode r">
@@ -639,26 +658,595 @@ Figure 11.6: SCpubr do_DotPlot changing font type.
 <span class="va">p</span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-34"></span>
-<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-34-1.png" alt="SCpubr do_TermEnrichmentPlot changing font type." width="100%" height="100%"><p class="caption">
-Figure 11.7: SCpubr do_TermEnrichmentPlot changing font type.
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-34-1.png" alt="SCpubr do_TermEnrichmentPlot changing legend type." width="100%" height="100%"><p class="caption">
+Figure 11.7: SCpubr do_TermEnrichmentPlot changing legend type.
 </p>
 </div>
 </div>
 <div id="relocating-the-legend" class="section level2 unnumbered">
 <h2>Relocating the legend<a class="anchor" aria-label="anchor" href="#relocating-the-legend"><i class="fas fa-link"></i></a>
 </h2>
+<p>Legends can be switched to any of the following positions: top, bottom, left and right. Depending on the set ups of the figure, one location might be more suitable than another. By default, <code>SCpubr</code> locates them either right or bottom, but this can be changed anytime by using <code>legend.position = "top"</code>, <code>legend.position = "bottom"</code>, <code>legend.position = "left"</code> or <code>legend.position = "right"</code>. This only works in <strong>ggplot2-based</strong> plots.</p>
+<div class="sourceCode" id="cb155"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">p</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span><span class="va">sample</span>, 
+                         legend.position <span class="op">=</span> <span class="st">"top"</span><span class="op">)</span> <span class="op">|</span> 
+      <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span><span class="va">sample</span>, 
+                         legend.position <span class="op">=</span> <span class="st">"bottom"</span><span class="op">)</span><span class="op">)</span> <span class="op">/</span>
+     <span class="op">(</span><span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span><span class="va">sample</span>, 
+                         legend.position <span class="op">=</span> <span class="st">"left"</span><span class="op">)</span> <span class="op">|</span>
+      <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span><span class="va">sample</span>, 
+                         legend.position <span class="op">=</span> <span class="st">"right"</span><span class="op">)</span><span class="op">)</span>
+<span class="va">p</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-35"></span>
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-35-1.png" alt="SCpubr do_DimPlot with varying legend positions." width="100%" height="100%"><p class="caption">
+Figure 11.8: SCpubr do_DimPlot with varying legend positions.
+</p>
+</div>
+<div class="sourceCode" id="cb156"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">p</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span><span class="va">sample</span>, 
+                             features <span class="op">=</span> <span class="st">"PC_1"</span>, 
+                             legend.position <span class="op">=</span> <span class="st">"top"</span><span class="op">)</span> <span class="op">|</span> 
+      <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span><span class="va">sample</span>, 
+                             features <span class="op">=</span> <span class="st">"PC_1"</span>, 
+                             legend.position <span class="op">=</span> <span class="st">"bottom"</span><span class="op">)</span><span class="op">)</span> <span class="op">/</span>
+     <span class="op">(</span><span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span><span class="va">sample</span>, 
+                             features <span class="op">=</span> <span class="st">"PC_1"</span>, 
+                             legend.position <span class="op">=</span> <span class="st">"left"</span><span class="op">)</span> <span class="op">|</span>
+      <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span><span class="va">sample</span>, 
+                             features <span class="op">=</span> <span class="st">"PC_1"</span>, 
+                             legend.position <span class="op">=</span> <span class="st">"right"</span><span class="op">)</span><span class="op">)</span>
+<span class="va">p</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-36"></span>
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-36-1.png" alt="SCpubr do_FeaturePlot with varying legend positions." width="100%" height="100%"><p class="caption">
+Figure 11.9: SCpubr do_FeaturePlot with varying legend positions.
+</p>
+</div>
+<div class="sourceCode" id="cb157"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">p</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_NebulosaPlot.html">do_NebulosaPlot</a></span><span class="op">(</span><span class="va">sample</span>, 
+                              features <span class="op">=</span> <span class="st">"PC_1"</span>, 
+                              legend.position <span class="op">=</span> <span class="st">"top"</span><span class="op">)</span> <span class="op">|</span> 
+      <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_NebulosaPlot.html">do_NebulosaPlot</a></span><span class="op">(</span><span class="va">sample</span>, 
+                              features <span class="op">=</span> <span class="st">"PC_1"</span>, 
+                              legend.position <span class="op">=</span> <span class="st">"bottom"</span><span class="op">)</span><span class="op">)</span> <span class="op">/</span>
+     <span class="op">(</span><span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_NebulosaPlot.html">do_NebulosaPlot</a></span><span class="op">(</span><span class="va">sample</span>, 
+                              features <span class="op">=</span> <span class="st">"PC_1"</span>, 
+                              legend.position <span class="op">=</span> <span class="st">"left"</span><span class="op">)</span> <span class="op">|</span>
+      <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_NebulosaPlot.html">do_NebulosaPlot</a></span><span class="op">(</span><span class="va">sample</span>, 
+                              features <span class="op">=</span> <span class="st">"PC_1"</span>, 
+                              legend.position <span class="op">=</span> <span class="st">"right"</span><span class="op">)</span><span class="op">)</span>
+<span class="va">p</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-37"></span>
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-37-1.png" alt="SCpubr do_NebulosaPlot with varying legend positions." width="100%" height="100%"><p class="caption">
+Figure 11.10: SCpubr do_NebulosaPlot with varying legend positions.
+</p>
+</div>
+<div class="sourceCode" id="cb158"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">p</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BeeSwarmPlot.html">do_BeeSwarmPlot</a></span><span class="op">(</span><span class="va">sample</span>,
+                              feature_to_rank <span class="op">=</span> <span class="st">"PC_1"</span>, 
+                              group.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>,
+                              continuous_feature <span class="op">=</span> <span class="cn">TRUE</span>,
+                              legend.position <span class="op">=</span> <span class="st">"top"</span><span class="op">)</span> <span class="op">|</span> 
+      <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BeeSwarmPlot.html">do_BeeSwarmPlot</a></span><span class="op">(</span><span class="va">sample</span>,
+                              feature_to_rank <span class="op">=</span> <span class="st">"PC_1"</span>, 
+                              group.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>,
+                              continuous_feature <span class="op">=</span> <span class="cn">TRUE</span>, 
+                              legend.position <span class="op">=</span> <span class="st">"bottom"</span><span class="op">)</span><span class="op">)</span> <span class="op">/</span>
+     <span class="op">(</span><span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BeeSwarmPlot.html">do_BeeSwarmPlot</a></span><span class="op">(</span><span class="va">sample</span>,
+                              feature_to_rank <span class="op">=</span> <span class="st">"PC_1"</span>, 
+                              group.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>,
+                              continuous_feature <span class="op">=</span> <span class="cn">TRUE</span>, 
+                              legend.position <span class="op">=</span> <span class="st">"left"</span><span class="op">)</span> <span class="op">|</span>
+      <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BeeSwarmPlot.html">do_BeeSwarmPlot</a></span><span class="op">(</span><span class="va">sample</span>,
+                              feature_to_rank <span class="op">=</span> <span class="st">"PC_1"</span>, 
+                              group.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>,
+                              continuous_feature <span class="op">=</span> <span class="cn">TRUE</span>, 
+                              legend.position <span class="op">=</span> <span class="st">"right"</span><span class="op">)</span><span class="op">)</span>
+<span class="va">p</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-38"></span>
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-38-1.png" alt="SCpubr do_BeeSwarmPlot with varying legend positions." width="100%" height="100%"><p class="caption">
+Figure 11.11: SCpubr do_BeeSwarmPlot with varying legend positions.
+</p>
+</div>
+<div class="sourceCode" id="cb159"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">genes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"IL7R"</span>, <span class="st">"CCR7"</span>, <span class="st">"CD14"</span>, <span class="st">"LYZ"</span>, 
+           <span class="st">"S100A4"</span>, <span class="st">"MS4A1"</span>, <span class="st">"CD8A"</span>, <span class="st">"FCGR3A"</span>, 
+           <span class="st">"MS4A7"</span>, <span class="st">"GNLY"</span>, <span class="st">"NKG7"</span>, <span class="st">"FCER1A"</span>, 
+           <span class="st">"CST3"</span>, <span class="st">"PPBP"</span><span class="op">)</span>
+
+<span class="va">p</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DotPlot.html">do_DotPlot</a></span><span class="op">(</span><span class="va">sample</span>,
+                         features <span class="op">=</span> <span class="va">genes</span>, 
+                         legend.position <span class="op">=</span> <span class="st">"top"</span><span class="op">)</span> <span class="op">|</span>
+      <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DotPlot.html">do_DotPlot</a></span><span class="op">(</span><span class="va">sample</span>,
+                         features <span class="op">=</span> <span class="va">genes</span>, 
+                         legend.position <span class="op">=</span> <span class="st">"bottom"</span><span class="op">)</span><span class="op">)</span> <span class="op">/</span>
+     <span class="op">(</span><span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DotPlot.html">do_DotPlot</a></span><span class="op">(</span><span class="va">sample</span>,
+                         features <span class="op">=</span> <span class="va">genes</span>, 
+                         legend.position <span class="op">=</span> <span class="st">"left"</span><span class="op">)</span> <span class="op">|</span>
+      <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DotPlot.html">do_DotPlot</a></span><span class="op">(</span><span class="va">sample</span>,
+                         features <span class="op">=</span> <span class="va">genes</span>, 
+                         legend.position <span class="op">=</span> <span class="st">"right"</span><span class="op">)</span><span class="op">)</span>
+<span class="va">p</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-39"></span>
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-39-1.png" alt="SCpubr do_DotPlot with varying legend positions." width="100%" height="100%"><p class="caption">
+Figure 11.12: SCpubr do_DotPlot with varying legend positions.
+</p>
+</div>
+<div class="sourceCode" id="cb160"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">p</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span><span class="va">sample</span>,
+                         features <span class="op">=</span> <span class="st">"seurat_clusters"</span>, 
+                         legend.position <span class="op">=</span> <span class="st">"top"</span><span class="op">)</span> <span class="op">|</span>
+      <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span><span class="va">sample</span>,
+                         features <span class="op">=</span> <span class="st">"seurat_clusters"</span>, 
+                         legend.position <span class="op">=</span> <span class="st">"bottom"</span><span class="op">)</span><span class="op">)</span> <span class="op">/</span>
+     <span class="op">(</span><span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span><span class="va">sample</span>,
+                         features <span class="op">=</span> <span class="st">"seurat_clusters"</span>, 
+                         legend.position <span class="op">=</span> <span class="st">"left"</span><span class="op">)</span> <span class="op">|</span>
+      <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span><span class="va">sample</span>,
+                         features <span class="op">=</span> <span class="st">"seurat_clusters"</span>, 
+                         legend.position <span class="op">=</span> <span class="st">"right"</span><span class="op">)</span><span class="op">)</span>
+<span class="va">p</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-40"></span>
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-40-1.png" alt="SCpubr do_BarPlot with varying legend positions." width="100%" height="100%"><p class="caption">
+Figure 11.13: SCpubr do_BarPlot with varying legend positions.
+</p>
+</div>
+<div class="sourceCode" id="cb161"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">p</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_TermEnrichmentPlot.html">do_TermEnrichmentPlot</a></span><span class="op">(</span>genes <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"CD14"</span>, <span class="st">"LYN"</span><span class="op">)</span>,
+                                    dbs_use <span class="op">=</span> <span class="st">"GO_Biological_Process_2021"</span>,
+                                    nterms <span class="op">=</span> <span class="fl">2</span>,
+                                    legend.position <span class="op">=</span> <span class="st">"top"</span><span class="op">)</span> <span class="op">|</span>
+      <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_TermEnrichmentPlot.html">do_TermEnrichmentPlot</a></span><span class="op">(</span>genes <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"CD14"</span>, <span class="st">"LYN"</span><span class="op">)</span>,
+                                    dbs_use <span class="op">=</span> <span class="st">"GO_Biological_Process_2021"</span>,
+                                    nterms <span class="op">=</span> <span class="fl">2</span>,
+                                    legend.position <span class="op">=</span> <span class="st">"bottom"</span><span class="op">)</span><span class="op">)</span> <span class="op">/</span> 
+     <span class="op">(</span><span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_TermEnrichmentPlot.html">do_TermEnrichmentPlot</a></span><span class="op">(</span>genes <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"CD14"</span>, <span class="st">"LYN"</span><span class="op">)</span>,
+                                    dbs_use <span class="op">=</span> <span class="st">"GO_Biological_Process_2021"</span>,
+                                    nterms <span class="op">=</span> <span class="fl">2</span>,
+                                    legend.position <span class="op">=</span> <span class="st">"left"</span><span class="op">)</span> <span class="op">|</span>
+      <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_TermEnrichmentPlot.html">do_TermEnrichmentPlot</a></span><span class="op">(</span>genes <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"CD14"</span>, <span class="st">"LYN"</span><span class="op">)</span>,
+                                    dbs_use <span class="op">=</span> <span class="st">"GO_Biological_Process_2021"</span>,
+                                    nterms <span class="op">=</span> <span class="fl">2</span>,
+                                    legend.position <span class="op">=</span> <span class="st">"right"</span><span class="op">)</span><span class="op">)</span>
+<span class="va">p</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-41"></span>
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-41-1.png" alt="SCpubr do_TermEnrichmentPlot with varying legend positions." width="100%" height="100%"><p class="caption">
+Figure 11.14: SCpubr do_TermEnrichmentPlot with varying legend positions.
+</p>
+</div>
+<div class="sourceCode" id="cb162"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">genes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="st">"A"</span> <span class="op">=</span> <span class="fu">Seurat</span><span class="fu">::</span><span class="fu"><a href="https://mojaveazure.github.io/seurat-object/reference/VariableFeatures.html">VariableFeatures</a></span><span class="op">(</span><span class="va">sample</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span>,
+              <span class="st">"B"</span> <span class="op">=</span> <span class="fu">Seurat</span><span class="fu">::</span><span class="fu"><a href="https://mojaveazure.github.io/seurat-object/reference/VariableFeatures.html">VariableFeatures</a></span><span class="op">(</span><span class="va">sample</span><span class="op">)</span><span class="op">[</span><span class="fl">6</span><span class="op">:</span><span class="fl">10</span><span class="op">]</span>,
+              <span class="st">"C"</span> <span class="op">=</span> <span class="fu">Seurat</span><span class="fu">::</span><span class="fu"><a href="https://mojaveazure.github.io/seurat-object/reference/VariableFeatures.html">VariableFeatures</a></span><span class="op">(</span><span class="va">sample</span><span class="op">)</span><span class="op">[</span><span class="fl">11</span><span class="op">:</span><span class="fl">15</span><span class="op">]</span>,
+              <span class="st">"D"</span> <span class="op">=</span> <span class="fu">Seurat</span><span class="fu">::</span><span class="fu"><a href="https://mojaveazure.github.io/seurat-object/reference/VariableFeatures.html">VariableFeatures</a></span><span class="op">(</span><span class="va">sample</span><span class="op">)</span><span class="op">[</span><span class="fl">16</span><span class="op">:</span><span class="fl">20</span><span class="op">]</span><span class="op">)</span>
+
+<span class="va">p</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_CellularStatesPlot.html">do_CellularStatesPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,
+                                    gene_list <span class="op">=</span> <span class="va">genes</span>,
+                                    x1 <span class="op">=</span> <span class="st">"A"</span>,
+                                    y1 <span class="op">=</span> <span class="st">"B"</span>,
+                                    x2 <span class="op">=</span> <span class="st">"C"</span>,
+                                    y2 <span class="op">=</span> <span class="st">"D"</span>,
+                                    enforce_simmetry <span class="op">=</span> <span class="cn">T</span>,
+                                    legend.position <span class="op">=</span> <span class="st">"top"</span><span class="op">)</span> <span class="op">|</span>
+      <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_CellularStatesPlot.html">do_CellularStatesPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,
+                                    gene_list <span class="op">=</span> <span class="va">genes</span>,
+                                    x1 <span class="op">=</span> <span class="st">"A"</span>,
+                                    y1 <span class="op">=</span> <span class="st">"B"</span>,
+                                    x2 <span class="op">=</span> <span class="st">"C"</span>,
+                                    y2 <span class="op">=</span> <span class="st">"D"</span>,
+                                    enforce_simmetry <span class="op">=</span> <span class="cn">T</span>,
+                                    legend.position <span class="op">=</span> <span class="st">"bottom"</span><span class="op">)</span><span class="op">)</span> <span class="op">/</span>
+     <span class="op">(</span><span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_CellularStatesPlot.html">do_CellularStatesPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,
+                                    gene_list <span class="op">=</span> <span class="va">genes</span>,
+                                    x1 <span class="op">=</span> <span class="st">"A"</span>,
+                                    y1 <span class="op">=</span> <span class="st">"B"</span>,
+                                    x2 <span class="op">=</span> <span class="st">"C"</span>,
+                                    y2 <span class="op">=</span> <span class="st">"D"</span>,
+                                    enforce_simmetry <span class="op">=</span> <span class="cn">T</span>,
+                                    legend.position <span class="op">=</span> <span class="st">"left"</span><span class="op">)</span> <span class="op">|</span>
+      <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_CellularStatesPlot.html">do_CellularStatesPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,
+                                    gene_list <span class="op">=</span> <span class="va">genes</span>,
+                                    x1 <span class="op">=</span> <span class="st">"A"</span>,
+                                    y1 <span class="op">=</span> <span class="st">"B"</span>,
+                                    x2 <span class="op">=</span> <span class="st">"C"</span>,
+                                    y2 <span class="op">=</span> <span class="st">"D"</span>,
+                                    enforce_simmetry <span class="op">=</span> <span class="cn">T</span>,
+                                    legend.position <span class="op">=</span> <span class="st">"right"</span><span class="op">)</span><span class="op">)</span>
+   
+<span class="va">p</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-42"></span>
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-42-1.png" alt="SCpubr do_CellularStatesPlot with varying legend positions." width="100%" height="100%"><p class="caption">
+Figure 11.15: SCpubr do_CellularStatesPlot with varying legend positions.
+</p>
+</div>
 </div>
 <div id="modifying-colors" class="section level2 unnumbered">
 <h2>Modifying colors<a class="anchor" aria-label="anchor" href="#modifying-colors"><i class="fas fa-link"></i></a>
 </h2>
+<p>Perhaps, one of the most critical parameters, the possibility to change the colors displayed up to the user’s wish. This is mainly achieved by <code>colors.use</code> in any plot making use of categorical variables and the plots using continuous variables but not implementing a <strong>viridis</strong> color scale. For those cases, <code>viridis_color_map</code> is used.</p>
 <div id="categorical-variables" class="section level3 unnumbered">
 <h3>Categorical variables<a class="anchor" aria-label="anchor" href="#categorical-variables"><i class="fas fa-link"></i></a>
 </h3>
+<p>For plots using categorical variables, colors can be modified using <code>colors.use</code> and a vector of named colors. The names have to match the unique values being displayed on the plot and the colors need to be proper color representations or HEX codes.</p>
+<div class="sourceCode" id="cb163"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Create a color scale for the unique values in seurat clusters.</span>
+<span class="va">colors</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"0"</span> <span class="op">=</span> <span class="st">"#001219"</span>,
+            <span class="st">"1"</span> <span class="op">=</span> <span class="st">"#005f73"</span>,
+            <span class="st">"2"</span> <span class="op">=</span> <span class="st">"#0a9396"</span>,
+            <span class="st">"3"</span> <span class="op">=</span> <span class="st">"#94d2bd"</span>,
+            <span class="st">"4"</span> <span class="op">=</span> <span class="st">"#e9d8a6"</span>,
+            <span class="st">"5"</span> <span class="op">=</span> <span class="st">"#ee9b00"</span>,
+            <span class="st">"6"</span> <span class="op">=</span> <span class="st">"#ca6702"</span>,
+            <span class="st">"7"</span> <span class="op">=</span> <span class="st">"#bb3e03"</span>,
+            <span class="st">"8"</span> <span class="op">=</span> <span class="st">"#ae2012"</span>,
+            <span class="st">"9"</span> <span class="op">=</span> <span class="st">"#9b2226"</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb164"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span><span class="va">sample</span><span class="op">)</span> <span class="op">|</span> 
+     <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span><span class="va">sample</span>, 
+                        colors.use <span class="op">=</span> <span class="va">colors</span><span class="op">)</span>
+<span class="va">p</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-44"></span>
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-44-1.png" alt="SCpubr do_DimPlot modifying colors." width="100%" height="100%"><p class="caption">
+Figure 11.16: SCpubr do_DimPlot modifying colors.
+</p>
+</div>
+<div class="sourceCode" id="cb165"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BeeSwarmPlot.html">do_BeeSwarmPlot</a></span><span class="op">(</span><span class="va">sample</span>,
+                             feature_to_rank <span class="op">=</span> <span class="st">"PC_1"</span>,
+                             group.by <span class="op">=</span> <span class="st">"seurat_clusters"</span><span class="op">)</span> <span class="op">|</span> 
+     <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BeeSwarmPlot.html">do_BeeSwarmPlot</a></span><span class="op">(</span><span class="va">sample</span>,
+                             feature_to_rank <span class="op">=</span> <span class="st">"PC_1"</span>,
+                             group.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>,
+                             colors.use <span class="op">=</span> <span class="va">colors</span><span class="op">)</span>
+<span class="va">p</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-45"></span>
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-45-1.png" alt="SCpubr do_BeeSwarmPlot modifying colors." width="100%" height="100%"><p class="caption">
+Figure 11.17: SCpubr do_BeeSwarmPlot modifying colors.
+</p>
+</div>
+<div class="sourceCode" id="cb166"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_VlnPlot.html">do_VlnPlot</a></span><span class="op">(</span><span class="va">sample</span>,
+                        features <span class="op">=</span> <span class="st">"PC_1"</span><span class="op">)</span> <span class="op">/</span>
+     <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_VlnPlot.html">do_VlnPlot</a></span><span class="op">(</span><span class="va">sample</span>, 
+                        features <span class="op">=</span> <span class="st">"PC_1"</span>,
+                        colors.use <span class="op">=</span> <span class="va">colors</span><span class="op">)</span>
+<span class="va">p</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-46"></span>
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-46-1.png" alt="SCpubr do_VlnPlot modifying colors." width="100%" height="100%"><p class="caption">
+Figure 11.18: SCpubr do_VlnPlot modifying colors.
+</p>
+</div>
+<div class="sourceCode" id="cb167"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span><span class="va">sample</span>,
+                        features <span class="op">=</span> <span class="st">"seurat_clusters"</span>,
+                        horizontal <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op">|</span>
+     <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span><span class="va">sample</span>, 
+                        features <span class="op">=</span> <span class="st">"seurat_clusters"</span>,
+                        horizontal <span class="op">=</span> <span class="cn">T</span>,
+                        colors.use <span class="op">=</span> <span class="va">colors</span><span class="op">)</span>
+<span class="va">p</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-47"></span>
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-47-1.png" alt="SCpubr do_BarPlot modifying colors." width="100%" height="100%"><p class="caption">
+Figure 11.19: SCpubr do_BarPlot modifying colors.
+</p>
+</div>
+<div class="sourceCode" id="cb168"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">genes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="st">"A"</span> <span class="op">=</span> <span class="fu">Seurat</span><span class="fu">::</span><span class="fu"><a href="https://mojaveazure.github.io/seurat-object/reference/VariableFeatures.html">VariableFeatures</a></span><span class="op">(</span><span class="va">sample</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span>,
+              <span class="st">"B"</span> <span class="op">=</span> <span class="fu">Seurat</span><span class="fu">::</span><span class="fu"><a href="https://mojaveazure.github.io/seurat-object/reference/VariableFeatures.html">VariableFeatures</a></span><span class="op">(</span><span class="va">sample</span><span class="op">)</span><span class="op">[</span><span class="fl">6</span><span class="op">:</span><span class="fl">10</span><span class="op">]</span>,
+              <span class="st">"C"</span> <span class="op">=</span> <span class="fu">Seurat</span><span class="fu">::</span><span class="fu"><a href="https://mojaveazure.github.io/seurat-object/reference/VariableFeatures.html">VariableFeatures</a></span><span class="op">(</span><span class="va">sample</span><span class="op">)</span><span class="op">[</span><span class="fl">11</span><span class="op">:</span><span class="fl">15</span><span class="op">]</span>,
+              <span class="st">"D"</span> <span class="op">=</span> <span class="fu">Seurat</span><span class="fu">::</span><span class="fu"><a href="https://mojaveazure.github.io/seurat-object/reference/VariableFeatures.html">VariableFeatures</a></span><span class="op">(</span><span class="va">sample</span><span class="op">)</span><span class="op">[</span><span class="fl">16</span><span class="op">:</span><span class="fl">20</span><span class="op">]</span><span class="op">)</span>
+
+<span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_CellularStatesPlot.html">do_CellularStatesPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,
+                                   gene_list <span class="op">=</span> <span class="va">genes</span>,
+                                   x1 <span class="op">=</span> <span class="st">"A"</span>,
+                                   y1 <span class="op">=</span> <span class="st">"B"</span>,
+                                   x2 <span class="op">=</span> <span class="st">"C"</span>,
+                                   y2 <span class="op">=</span> <span class="st">"D"</span>,
+                                   enforce_simmetry <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op">|</span>
+     <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_CellularStatesPlot.html">do_CellularStatesPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,
+                                   gene_list <span class="op">=</span> <span class="va">genes</span>,
+                                   x1 <span class="op">=</span> <span class="st">"A"</span>,
+                                   y1 <span class="op">=</span> <span class="st">"B"</span>,
+                                   x2 <span class="op">=</span> <span class="st">"C"</span>,
+                                   y2 <span class="op">=</span> <span class="st">"D"</span>,
+                                   enforce_simmetry <span class="op">=</span> <span class="cn">T</span>,
+                                   colors.use <span class="op">=</span> <span class="va">colors</span><span class="op">)</span>
+<span class="va">p</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-48"></span>
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-48-1.png" alt="SCpubr::do_CellularStatesPlot modifying colors." width="100%" height="100%"><p class="caption">
+Figure 11.20: SCpubr::do_CellularStatesPlot modifying colors.
+</p>
+</div>
 </div>
 <div id="continuous-variables" class="section level3 unnumbered">
 <h3>Continuous variables<a class="anchor" aria-label="anchor" href="#continuous-variables"><i class="fas fa-link"></i></a>
 </h3>
+<p>As explained above, modifying the color scales in the plots highly depends on whether the color scale is based on <strong>viridis</strong> or not.</p>
+<div id="viridis-based-plots" class="section level4 unnumbered">
+<h4>Viridis-based plots<a class="anchor" aria-label="anchor" href="#viridis-based-plots"><i class="fas fa-link"></i></a>
+</h4>
+<p>For viridis-based plots, the scale can be changed according to the <strong>different available color maps</strong> in the <a href="https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html">viridis package</a>. Options are:</p>
+<ul>
+<li>A - magma color map.</li>
+<li>B - inferno color map.</li>
+<li>C - plasma color map.</li>
+<li>D - viridis color map.</li>
+<li>E - cividis color map.</li>
+<li>F - rocket color map.</li>
+<li>G - mako color map.</li>
+<li>H - turbo color map.</li>
+</ul>
+<p>To change the color map, just provide either the <strong>letter</strong> or the <strong>name</strong> of the color map to <code>viridis_color_map</code>.</p>
+<div class="sourceCode" id="cb169"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
+                             features <span class="op">=</span> <span class="st">"CD14"</span>, 
+                             viridis_color_map <span class="op">=</span> <span class="st">"A"</span>, 
+                             plot.title <span class="op">=</span> <span class="st">"Magma"</span><span class="op">)</span>
 
+<span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
+                             features <span class="op">=</span> <span class="st">"CD14"</span>, 
+                             viridis_color_map <span class="op">=</span> <span class="st">"B"</span>, 
+                             plot.title <span class="op">=</span> <span class="st">"Inferno"</span><span class="op">)</span>
+
+<span class="va">p3</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
+                             features <span class="op">=</span> <span class="st">"CD14"</span>, 
+                             viridis_color_map <span class="op">=</span> <span class="st">"C"</span>, 
+                             plot.title <span class="op">=</span> <span class="st">"Plasma"</span><span class="op">)</span>
+
+<span class="va">p4</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
+                             features <span class="op">=</span> <span class="st">"CD14"</span>, 
+                             viridis_color_map <span class="op">=</span> <span class="st">"D"</span>, 
+                             plot.title <span class="op">=</span> <span class="st">"Viridis"</span><span class="op">)</span>
+
+<span class="va">p5</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
+                             features <span class="op">=</span> <span class="st">"CD14"</span>, 
+                             viridis_color_map <span class="op">=</span> <span class="st">"E"</span>, 
+                             plot.title <span class="op">=</span> <span class="st">"Cividis"</span><span class="op">)</span>
+
+<span class="va">p6</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
+                             features <span class="op">=</span> <span class="st">"CD14"</span>, 
+                             viridis_color_map <span class="op">=</span> <span class="st">"F"</span>, 
+                             plot.title <span class="op">=</span> <span class="st">"Rocket"</span><span class="op">)</span>
+
+<span class="va">p7</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
+                             features <span class="op">=</span> <span class="st">"CD14"</span>, 
+                             viridis_color_map <span class="op">=</span> <span class="st">"G"</span>, 
+                             plot.title <span class="op">=</span> <span class="st">"Mako"</span><span class="op">)</span>
+
+<span class="va">p8</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
+                             features <span class="op">=</span> <span class="st">"CD14"</span>, 
+                             viridis_color_map <span class="op">=</span> <span class="st">"H"</span>, 
+                             plot.title <span class="op">=</span> <span class="st">"Turbo"</span><span class="op">)</span>
+
+<span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">patchwork</span><span class="fu">::</span><span class="fu"><a href="https://patchwork.data-imaginist.com/reference/wrap_plots.html">wrap_plots</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">p1</span>, <span class="va">p2</span>, <span class="va">p3</span>, <span class="va">p4</span>, <span class="va">p5</span>, <span class="va">p6</span>, <span class="va">p7</span>, <span class="va">p8</span><span class="op">)</span>, ncol <span class="op">=</span> <span class="fl">2</span>, byrow <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<span class="va">p</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-49"></span>
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-49-1.png" alt="SCpubr::do_FeaturePlot modifying viridis color maps." width="100%" height="100%"><p class="caption">
+Figure 11.21: SCpubr::do_FeaturePlot modifying viridis color maps.
+</p>
+</div>
+<div class="sourceCode" id="cb170"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_NebulosaPlot.html">do_NebulosaPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
+                              features <span class="op">=</span> <span class="st">"CD14"</span>, 
+                              viridis_color_map <span class="op">=</span> <span class="st">"A"</span>, 
+                              plot.title <span class="op">=</span> <span class="st">"Magma"</span><span class="op">)</span>
+
+<span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_NebulosaPlot.html">do_NebulosaPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
+                              features <span class="op">=</span> <span class="st">"CD14"</span>, 
+                              viridis_color_map <span class="op">=</span> <span class="st">"B"</span>, 
+                              plot.title <span class="op">=</span> <span class="st">"Inferno"</span><span class="op">)</span>
+
+<span class="va">p3</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_NebulosaPlot.html">do_NebulosaPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
+                              features <span class="op">=</span> <span class="st">"CD14"</span>, 
+                              viridis_color_map <span class="op">=</span> <span class="st">"C"</span>, 
+                              plot.title <span class="op">=</span> <span class="st">"Plasma"</span><span class="op">)</span>
+
+<span class="va">p4</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_NebulosaPlot.html">do_NebulosaPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
+                              features <span class="op">=</span> <span class="st">"CD14"</span>, 
+                              viridis_color_map <span class="op">=</span> <span class="st">"D"</span>, 
+                              plot.title <span class="op">=</span> <span class="st">"Viridis"</span><span class="op">)</span>
+
+<span class="va">p5</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_NebulosaPlot.html">do_NebulosaPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
+                              features <span class="op">=</span> <span class="st">"CD14"</span>, 
+                              viridis_color_map <span class="op">=</span> <span class="st">"E"</span>, 
+                              plot.title <span class="op">=</span> <span class="st">"Cividis"</span><span class="op">)</span>
+
+<span class="va">p6</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_NebulosaPlot.html">do_NebulosaPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
+                              features <span class="op">=</span> <span class="st">"CD14"</span>, 
+                              viridis_color_map <span class="op">=</span> <span class="st">"F"</span>, 
+                              plot.title <span class="op">=</span> <span class="st">"Rocket"</span><span class="op">)</span>
+
+<span class="va">p7</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_NebulosaPlot.html">do_NebulosaPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
+                              features <span class="op">=</span> <span class="st">"CD14"</span>, 
+                              viridis_color_map <span class="op">=</span> <span class="st">"G"</span>, 
+                              plot.title <span class="op">=</span> <span class="st">"Mako"</span><span class="op">)</span>
+
+<span class="va">p8</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_NebulosaPlot.html">do_NebulosaPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
+                              features <span class="op">=</span> <span class="st">"CD14"</span>, 
+                              viridis_color_map <span class="op">=</span> <span class="st">"H"</span>, 
+                              plot.title <span class="op">=</span> <span class="st">"Turbo"</span><span class="op">)</span>
+
+
+<span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">patchwork</span><span class="fu">::</span><span class="fu"><a href="https://patchwork.data-imaginist.com/reference/wrap_plots.html">wrap_plots</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">p1</span>, <span class="va">p2</span>, <span class="va">p3</span>, <span class="va">p4</span>, <span class="va">p5</span>, <span class="va">p6</span>, <span class="va">p7</span>, <span class="va">p8</span><span class="op">)</span>, ncol <span class="op">=</span> <span class="fl">2</span>, byrow <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<span class="va">p</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-50"></span>
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-50-1.png" alt="SCpubr Nebulosa plot modifying viridis color maps." width="100%" height="100%"><p class="caption">
+Figure 11.22: SCpubr Nebulosa plot modifying viridis color maps.
+</p>
+</div>
+<div class="sourceCode" id="cb171"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BeeSwarmPlot.html">do_BeeSwarmPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
+                              feature_to_rank <span class="op">=</span> <span class="st">"PC_1"</span>, 
+                              group.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>, 
+                              continuous_feature <span class="op">=</span> <span class="cn">TRUE</span>, 
+                              viridis_color_map <span class="op">=</span> <span class="st">"A"</span>, 
+                              plot.title <span class="op">=</span> <span class="st">"Magma"</span><span class="op">)</span>
+
+<span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BeeSwarmPlot.html">do_BeeSwarmPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
+                              feature_to_rank <span class="op">=</span> <span class="st">"PC_1"</span>, 
+                              group.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>, 
+                              continuous_feature <span class="op">=</span> <span class="cn">TRUE</span>, 
+                              viridis_color_map <span class="op">=</span> <span class="st">"B"</span>, 
+                              plot.title <span class="op">=</span> <span class="st">"Inferno"</span><span class="op">)</span>
+
+<span class="va">p3</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BeeSwarmPlot.html">do_BeeSwarmPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
+                              feature_to_rank <span class="op">=</span> <span class="st">"PC_1"</span>, 
+                              group.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>, 
+                              continuous_feature <span class="op">=</span> <span class="cn">TRUE</span>, 
+                              viridis_color_map <span class="op">=</span> <span class="st">"C"</span>, 
+                              plot.title <span class="op">=</span> <span class="st">"Plasma"</span><span class="op">)</span>
+
+<span class="va">p4</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BeeSwarmPlot.html">do_BeeSwarmPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
+                              feature_to_rank <span class="op">=</span> <span class="st">"PC_1"</span>, 
+                              group.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>, 
+                              continuous_feature <span class="op">=</span> <span class="cn">TRUE</span>, 
+                              viridis_color_map <span class="op">=</span> <span class="st">"D"</span>, 
+                              plot.title <span class="op">=</span> <span class="st">"Viridis"</span><span class="op">)</span>
+
+<span class="va">p5</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BeeSwarmPlot.html">do_BeeSwarmPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
+                              feature_to_rank <span class="op">=</span> <span class="st">"PC_1"</span>, 
+                              group.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>, 
+                              continuous_feature <span class="op">=</span> <span class="cn">TRUE</span>, 
+                              viridis_color_map <span class="op">=</span> <span class="st">"E"</span>, 
+                              plot.title <span class="op">=</span> <span class="st">"Cividis"</span><span class="op">)</span>
+
+<span class="va">p6</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BeeSwarmPlot.html">do_BeeSwarmPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
+                              feature_to_rank <span class="op">=</span> <span class="st">"PC_1"</span>, 
+                              group.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>, 
+                              continuous_feature <span class="op">=</span> <span class="cn">TRUE</span>, 
+                              viridis_color_map <span class="op">=</span> <span class="st">"F"</span>, 
+                              plot.title <span class="op">=</span> <span class="st">"Rocket"</span><span class="op">)</span>
+
+<span class="va">p7</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BeeSwarmPlot.html">do_BeeSwarmPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
+                              feature_to_rank <span class="op">=</span> <span class="st">"PC_1"</span>, 
+                              group.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>, 
+                              continuous_feature <span class="op">=</span> <span class="cn">TRUE</span>, 
+                              viridis_color_map <span class="op">=</span> <span class="st">"G"</span>, 
+                              plot.title <span class="op">=</span> <span class="st">"Mako"</span><span class="op">)</span>
+
+<span class="va">p8</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BeeSwarmPlot.html">do_BeeSwarmPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
+                              feature_to_rank <span class="op">=</span> <span class="st">"PC_1"</span>, 
+                              group.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>, 
+                              continuous_feature <span class="op">=</span> <span class="cn">TRUE</span>, 
+                              viridis_color_map <span class="op">=</span> <span class="st">"H"</span>, 
+                              plot.title <span class="op">=</span> <span class="st">"Turbo"</span><span class="op">)</span>
+
+<span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">patchwork</span><span class="fu">::</span><span class="fu"><a href="https://patchwork.data-imaginist.com/reference/wrap_plots.html">wrap_plots</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">p1</span>, <span class="va">p2</span>, <span class="va">p3</span>, <span class="va">p4</span>, <span class="va">p5</span>, <span class="va">p6</span>, <span class="va">p7</span>, <span class="va">p8</span><span class="op">)</span>, ncol <span class="op">=</span> <span class="fl">2</span>, byrow <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<span class="va">p</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-51"></span>
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-51-1.png" alt="SCpubr::do_BeeSwarmPlot modifying viridis color maps." width="100%" height="100%"><p class="caption">
+Figure 11.23: SCpubr::do_BeeSwarmPlot modifying viridis color maps.
+</p>
+</div>
+</div>
+<div id="color-gradient-plots" class="section level4 unnumbered">
+<h4>2 color gradient plots<a class="anchor" aria-label="anchor" href="#color-gradient-plots"><i class="fas fa-link"></i></a>
+</h4>
+<p>The rest of plots that do present a continuous color scale, normally define the gradient based on a combination of pair of colors provided by the user to <code>colors.use</code>. This pair of colors do not need to be named, but they do need to be <strong>valid colors</strong> or <strong>HEX codes</strong>.</p>
+<div class="sourceCode" id="cb172"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">genes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"IL7R"</span>, <span class="st">"CCR7"</span>, <span class="st">"CD14"</span>, <span class="st">"LYZ"</span>, 
+           <span class="st">"S100A4"</span>, <span class="st">"MS4A1"</span>, <span class="st">"CD8A"</span>, <span class="st">"FCGR3A"</span>, 
+           <span class="st">"MS4A7"</span>, <span class="st">"GNLY"</span>, <span class="st">"NKG7"</span>, <span class="st">"FCER1A"</span>, 
+           <span class="st">"CST3"</span>, <span class="st">"PPBP"</span><span class="op">)</span>
+
+<span class="va">colors</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"#006d77"</span>, <span class="st">"#e29578"</span><span class="op">)</span>
+
+<span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DotPlot.html">do_DotPlot</a></span><span class="op">(</span><span class="va">sample</span>,
+                        features <span class="op">=</span> <span class="va">genes</span><span class="op">)</span> <span class="op">|</span> 
+     <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DotPlot.html">do_DotPlot</a></span><span class="op">(</span><span class="va">sample</span>,
+                        features <span class="op">=</span> <span class="va">genes</span>,
+                        colors.use <span class="op">=</span> <span class="va">colors</span><span class="op">)</span>
+<span class="va">p</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-52"></span>
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-52-1.png" alt="SCpubr do_DotPlot modifying colors." width="100%" height="100%"><p class="caption">
+Figure 11.24: SCpubr do_DotPlot modifying colors.
+</p>
+</div>
+<div class="sourceCode" id="cb173"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">colors</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"#006d77"</span>, <span class="st">"#e29578"</span><span class="op">)</span>
+
+<span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_TermEnrichmentPlot.html">do_TermEnrichmentPlot</a></span><span class="op">(</span>genes <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"CD14"</span>, <span class="st">"LYN"</span><span class="op">)</span>,
+                                   dbs_use <span class="op">=</span> <span class="st">"GO_Biological_Process_2021"</span>,
+                                   nterms <span class="op">=</span> <span class="fl">4</span><span class="op">)</span> <span class="op">|</span> 
+     <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_TermEnrichmentPlot.html">do_TermEnrichmentPlot</a></span><span class="op">(</span>genes <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"CD14"</span>, <span class="st">"LYN"</span><span class="op">)</span>,
+                                   dbs_use <span class="op">=</span> <span class="st">"GO_Biological_Process_2021"</span>,
+                                   nterms <span class="op">=</span> <span class="fl">4</span>,
+                                   colors.use <span class="op">=</span> <span class="va">colors</span><span class="op">)</span>
+<span class="va">p</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-53"></span>
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-53-1.png" alt="SCpubr do_TermEnrichmentPlot modifying colors." width="100%" height="100%"><p class="caption">
+Figure 11.25: SCpubr do_TermEnrichmentPlot modifying colors.
+</p>
+</div>
+<div class="sourceCode" id="cb174"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">genes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"IL7R"</span>, <span class="st">"CCR7"</span>, <span class="st">"CD14"</span>, <span class="st">"LYZ"</span>, 
+           <span class="st">"S100A4"</span>, <span class="st">"MS4A1"</span>, <span class="st">"CD8A"</span>, <span class="st">"FCGR3A"</span>, 
+           <span class="st">"MS4A7"</span>, <span class="st">"GNLY"</span>, <span class="st">"NKG7"</span>, <span class="st">"FCER1A"</span>, 
+           <span class="st">"CST3"</span>, <span class="st">"PPBP"</span><span class="op">)</span>
+
+<span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_EnrichmentHeatmap.html">do_EnrichmentHeatmap</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,
+                                  list_genes <span class="op">=</span> <span class="va">genes</span>,
+                                  transpose <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> 
+     
+<span class="va">p</span></code></pre></div>
+<div class="inline-figure"><img src="95-CommonFeatures_files/figure-html/unnamed-chunk-54-1.png" width="100%" height="100%" style="display: block; margin: auto;"></div>
+<div class="sourceCode" id="cb175"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">genes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"IL7R"</span>, <span class="st">"CCR7"</span>, <span class="st">"CD14"</span>, <span class="st">"LYZ"</span>, 
+           <span class="st">"S100A4"</span>, <span class="st">"MS4A1"</span>, <span class="st">"CD8A"</span>, <span class="st">"FCGR3A"</span>, 
+           <span class="st">"MS4A7"</span>, <span class="st">"GNLY"</span>, <span class="st">"NKG7"</span>, <span class="st">"FCER1A"</span>, 
+           <span class="st">"CST3"</span>, <span class="st">"PPBP"</span><span class="op">)</span>
+<span class="va">colors</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"#006d77"</span>, <span class="st">"#e29578"</span><span class="op">)</span>
+
+<span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_EnrichmentHeatmap.html">do_EnrichmentHeatmap</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,
+                                  list_genes <span class="op">=</span> <span class="va">genes</span>,
+                                  transpose <span class="op">=</span> <span class="cn">T</span>,
+                                  colors.use <span class="op">=</span> <span class="va">colors</span><span class="op">)</span> 
+     
+<span class="va">p</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-55"></span>
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-55-1.png" alt="SCpubr::do_EnrichmentHeatmap with modified colors" width="100%" height="100%"><p class="caption">
+Figure 11.26: SCpubr::do_EnrichmentHeatmap with modified colors
+</p>
+</div>
+<div class="sourceCode" id="cb176"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_CorrelationPlot.html">do_CorrelationPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,
+                                column_names_rot <span class="op">=</span> <span class="fl">0</span><span class="op">)</span>
+     
+<span class="va">p</span></code></pre></div>
+<div class="inline-figure"><img src="95-CommonFeatures_files/figure-html/unnamed-chunk-56-1.png" width="100%" height="100%" style="display: block; margin: auto;"></div>
+<div class="sourceCode" id="cb177"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">colors</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"#006d77"</span>, <span class="st">"#e29578"</span><span class="op">)</span>
+<span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_CorrelationPlot.html">do_CorrelationPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,
+                                column_names_rot <span class="op">=</span> <span class="fl">0</span>,
+                                colors.use <span class="op">=</span> <span class="va">colors</span><span class="op">)</span>
+     
+<span class="va">p</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-57"></span>
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-57-1.png" alt="SCpubr::do_CorrelationPlot with modified colors" width="100%" height="100%"><p class="caption">
+Figure 11.27: SCpubr::do_CorrelationPlot with modified colors
+</p>
+</div>
+
+</div>
 </div>
 </div>
 </div>
@@ -708,7 +1296,7 @@ Figure 11.7: SCpubr do_TermEnrichmentPlot changing font type.
 <!-- Moved the footer outside of the body to make it span all page width. --><footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 07 July, 2022.</p>
+    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 08 July, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -55,10 +55,14 @@ p
 ```
 
 ```{r, fig.cap="SCpubr do_DotPlot increasing font.size.", fig.width=14, fig.height=7}
+genes <- c("IL7R", "CCR7", "CD14", "LYZ", 
+           "S100A4", "MS4A1", "CD8A", "FCGR3A", 
+           "MS4A7", "GNLY", "NKG7", "FCER1A", 
+           "CST3", "PPBP")
 p <- SCpubr::do_DotPlot(sample = sample,
-                        features = "CD14") | 
+                        features = genes) | 
      SCpubr::do_DotPlot(sample = sample,
-                        features = "CD14",
+                        features = genes,
                         font.size = 18)
 p
 ```
@@ -176,14 +180,19 @@ p
 ```
 
 ```{r, fig.cap="SCpubr do_DotPlot changing font type.", fig.width=21, fig.height=7}
+genes <- c("IL7R", "CCR7", "CD14", "LYZ", 
+           "S100A4", "MS4A1", "CD8A", "FCGR3A", 
+           "MS4A7", "GNLY", "NKG7", "FCER1A", 
+           "CST3", "PPBP")
+
 p <- SCpubr::do_DotPlot(sample = sample,
-                        features = "CD14",
+                        features = genes,
                         font.type = "mono") | 
      SCpubr::do_DotPlot(sample = sample,
-                        features = "CD14",
+                        features = genes,
                         font.type = "sans") |
      SCpubr::do_DotPlot(sample = sample,
-                        features = "CD14",
+                        features = genes,
                         font.type = "serif")
 p
 ```
@@ -303,8 +312,13 @@ p
 ```
 
 ```{r, fig.cap="SCpubr do_DotPlot adding title, subtitle and caption.", fig.width=7, fig.height=7}
+genes <- c("IL7R", "CCR7", "CD14", "LYZ", 
+           "S100A4", "MS4A1", "CD8A", "FCGR3A", 
+           "MS4A7", "GNLY", "NKG7", "FCER1A", 
+           "CST3", "PPBP")
+
 p <- SCpubr::do_DotPlot(sample = sample,
-                        features = "CD14", 
+                        features = genes, 
                         plot.title = "This is a title",
                         plot.subtitle = "This is a subtitle",
                         plot.caption = "This is a caption")
@@ -367,7 +381,7 @@ p
 Users can opt to change between three type of legends **continuous** variables: the one that comes by default with `ggplot2`, a colorbar that is a modified version of the default, with a wider range and more marked ticks, or a colorbar with discrete steps (colorsteps), which can be a nice alternative depending on the situation. This can be achieved by providing `legend.type = "normal"`, `legend.type = "colorbar"` or `legend.type = "colorsteps"`. This can be applied to any **ggplot2-based** plot.
 
 
-```{r, fig.cap="SCpubr do_FeaturePlot changing font type.", fig.width=21, fig.height=7}
+```{r, fig.cap="SCpubr do_FeaturePlot changing legend type.", fig.width=21, fig.height=7}
 p <- SCpubr::do_FeaturePlot(sample = sample,
                             features = "PC_1",
                             legend.type = "normal") | 
@@ -380,7 +394,7 @@ p <- SCpubr::do_FeaturePlot(sample = sample,
 p
 ```
 
-```{r, fig.cap="SCpubr do_NebulosaPlot changing font type.", fig.width=21, fig.height=7}
+```{r, fig.cap="SCpubr do_NebulosaPlot changing legend type.", fig.width=21, fig.height=7}
 p <- SCpubr::do_NebulosaPlot(sample = sample,
                              features = "PC_1",
                              legend.type = "normal") |
@@ -393,7 +407,7 @@ p <- SCpubr::do_NebulosaPlot(sample = sample,
 p
 ```
 
-```{r, fig.cap="SCpubr do_BeeSwarmPlot changing font type.", fig.width=21, fig.height=7}
+```{r, fig.cap="SCpubr do_BeeSwarmPlot changing legend type.", fig.width=21, fig.height=7}
 p <- SCpubr::do_BeeSwarmPlot(sample = sample,
                              feature_to_rank = "PC_1",
                              group.by = "seurat_clusters",
@@ -413,7 +427,12 @@ p
 ```
 
 
-```{r, fig.cap="SCpubr do_DotPlot changing font type.", fig.width=21, fig.height=7}
+```{r, fig.cap="SCpubr do_DotPlot changing legend type.", fig.width=21, fig.height=7}
+genes <- c("IL7R", "CCR7", "CD14", "LYZ", 
+           "S100A4", "MS4A1", "CD8A", "FCGR3A", 
+           "MS4A7", "GNLY", "NKG7", "FCER1A", 
+           "CST3", "PPBP")
+
 p <- SCpubr::do_DotPlot(sample = sample,
                         features = "PC_1",
                         legend.type = "normal") | 
@@ -427,7 +446,7 @@ p
 ```
 
 
-```{r, fig.cap="SCpubr do_TermEnrichmentPlot changing font type.", fig.width=21, fig.height=7}
+```{r, fig.cap="SCpubr do_TermEnrichmentPlot changing legend type.", fig.width=21, fig.height=7}
 p <- SCpubr::do_TermEnrichmentPlot(genes = c("CD14", "LYN"),
                                    dbs_use = "GO_Biological_Process_2021",
                                    nterms = 2,
@@ -444,9 +463,499 @@ p
 ```
 
 ## Relocating the legend {-}
+Legends can be switched to any of the following positions: top, bottom, left and right. Depending on the set ups of the figure, one location might be more suitable than another. By default, `SCpubr` locates them either right or bottom, but this can be changed anytime by using `legend.position = "top"`, `legend.position = "bottom"`, `legend.position = "left"` or `legend.position = "right"`. This only works in **ggplot2-based** plots.
 
+```{r, fig.cap="SCpubr do_DimPlot with varying legend positions.", fig.width=14, fig.height=14}
+p <- (SCpubr::do_DimPlot(sample, 
+                         legend.position = "top") | 
+      SCpubr::do_DimPlot(sample, 
+                         legend.position = "bottom")) /
+     (SCpubr::do_DimPlot(sample, 
+                         legend.position = "left") |
+      SCpubr::do_DimPlot(sample, 
+                         legend.position = "right"))
+p
+```
+
+
+```{r, fig.cap="SCpubr do_FeaturePlot with varying legend positions.", fig.width=14, fig.height=14}
+p <- (SCpubr::do_FeaturePlot(sample, 
+                             features = "PC_1", 
+                             legend.position = "top") | 
+      SCpubr::do_FeaturePlot(sample, 
+                             features = "PC_1", 
+                             legend.position = "bottom")) /
+     (SCpubr::do_FeaturePlot(sample, 
+                             features = "PC_1", 
+                             legend.position = "left") |
+      SCpubr::do_FeaturePlot(sample, 
+                             features = "PC_1", 
+                             legend.position = "right"))
+p
+```
+
+```{r, fig.cap="SCpubr do_NebulosaPlot with varying legend positions.", fig.width=14, fig.height=14}
+p <- (SCpubr::do_NebulosaPlot(sample, 
+                              features = "PC_1", 
+                              legend.position = "top") | 
+      SCpubr::do_NebulosaPlot(sample, 
+                              features = "PC_1", 
+                              legend.position = "bottom")) /
+     (SCpubr::do_NebulosaPlot(sample, 
+                              features = "PC_1", 
+                              legend.position = "left") |
+      SCpubr::do_NebulosaPlot(sample, 
+                              features = "PC_1", 
+                              legend.position = "right"))
+p
+```
+
+```{r, fig.cap="SCpubr do_BeeSwarmPlot with varying legend positions.", fig.width=14, fig.height=14}
+p <- (SCpubr::do_BeeSwarmPlot(sample,
+                              feature_to_rank = "PC_1", 
+                              group.by = "seurat_clusters",
+                              continuous_feature = TRUE,
+                              legend.position = "top") | 
+      SCpubr::do_BeeSwarmPlot(sample,
+                              feature_to_rank = "PC_1", 
+                              group.by = "seurat_clusters",
+                              continuous_feature = TRUE, 
+                              legend.position = "bottom")) /
+     (SCpubr::do_BeeSwarmPlot(sample,
+                              feature_to_rank = "PC_1", 
+                              group.by = "seurat_clusters",
+                              continuous_feature = TRUE, 
+                              legend.position = "left") |
+      SCpubr::do_BeeSwarmPlot(sample,
+                              feature_to_rank = "PC_1", 
+                              group.by = "seurat_clusters",
+                              continuous_feature = TRUE, 
+                              legend.position = "right"))
+p
+```
+
+```{r, fig.cap="SCpubr do_DotPlot with varying legend positions.", fig.width=14, fig.height=14}
+genes <- c("IL7R", "CCR7", "CD14", "LYZ", 
+           "S100A4", "MS4A1", "CD8A", "FCGR3A", 
+           "MS4A7", "GNLY", "NKG7", "FCER1A", 
+           "CST3", "PPBP")
+
+p <- (SCpubr::do_DotPlot(sample,
+                         features = genes, 
+                         legend.position = "top") |
+      SCpubr::do_DotPlot(sample,
+                         features = genes, 
+                         legend.position = "bottom")) /
+     (SCpubr::do_DotPlot(sample,
+                         features = genes, 
+                         legend.position = "left") |
+      SCpubr::do_DotPlot(sample,
+                         features = genes, 
+                         legend.position = "right"))
+p
+```
+
+```{r, fig.cap="SCpubr do_BarPlot with varying legend positions.", fig.width=14, fig.height=14}
+p <- (SCpubr::do_BarPlot(sample,
+                         features = "seurat_clusters", 
+                         legend.position = "top") |
+      SCpubr::do_BarPlot(sample,
+                         features = "seurat_clusters", 
+                         legend.position = "bottom")) /
+     (SCpubr::do_BarPlot(sample,
+                         features = "seurat_clusters", 
+                         legend.position = "left") |
+      SCpubr::do_BarPlot(sample,
+                         features = "seurat_clusters", 
+                         legend.position = "right"))
+p
+```
+```{r, fig.cap="SCpubr do_TermEnrichmentPlot with varying legend positions.", fig.width=28, fig.height=28}
+p <- (SCpubr::do_TermEnrichmentPlot(genes = c("CD14", "LYN"),
+                                    dbs_use = "GO_Biological_Process_2021",
+                                    nterms = 2,
+                                    legend.position = "top") |
+      SCpubr::do_TermEnrichmentPlot(genes = c("CD14", "LYN"),
+                                    dbs_use = "GO_Biological_Process_2021",
+                                    nterms = 2,
+                                    legend.position = "bottom")) / 
+     (SCpubr::do_TermEnrichmentPlot(genes = c("CD14", "LYN"),
+                                    dbs_use = "GO_Biological_Process_2021",
+                                    nterms = 2,
+                                    legend.position = "left") |
+      SCpubr::do_TermEnrichmentPlot(genes = c("CD14", "LYN"),
+                                    dbs_use = "GO_Biological_Process_2021",
+                                    nterms = 2,
+                                    legend.position = "right"))
+p
+```
+
+
+```{r, fig.cap="SCpubr do_CellularStatesPlot with varying legend positions.", fig.width=14, fig.height=14}
+genes <- list("A" = Seurat::VariableFeatures(sample)[1:5],
+              "B" = Seurat::VariableFeatures(sample)[6:10],
+              "C" = Seurat::VariableFeatures(sample)[11:15],
+              "D" = Seurat::VariableFeatures(sample)[16:20])
+
+p <- (SCpubr::do_CellularStatesPlot(sample = sample,
+                                    gene_list = genes,
+                                    x1 = "A",
+                                    y1 = "B",
+                                    x2 = "C",
+                                    y2 = "D",
+                                    enforce_simmetry = T,
+                                    legend.position = "top") |
+      SCpubr::do_CellularStatesPlot(sample = sample,
+                                    gene_list = genes,
+                                    x1 = "A",
+                                    y1 = "B",
+                                    x2 = "C",
+                                    y2 = "D",
+                                    enforce_simmetry = T,
+                                    legend.position = "bottom")) /
+     (SCpubr::do_CellularStatesPlot(sample = sample,
+                                    gene_list = genes,
+                                    x1 = "A",
+                                    y1 = "B",
+                                    x2 = "C",
+                                    y2 = "D",
+                                    enforce_simmetry = T,
+                                    legend.position = "left") |
+      SCpubr::do_CellularStatesPlot(sample = sample,
+                                    gene_list = genes,
+                                    x1 = "A",
+                                    y1 = "B",
+                                    x2 = "C",
+                                    y2 = "D",
+                                    enforce_simmetry = T,
+                                    legend.position = "right"))
+   
+p
+```
 ## Modifying colors {-}
+Perhaps, one of the most critical parameters, the possibility to change the colors displayed up to the user's wish. This is mainly achieved by `colors.use` in any plot making use of categorical variables and the plots using continuous variables but not implementing a **viridis** color scale. For those cases, `viridis_color_map` is used. 
 
 ### Categorical variables {-}
 
+For plots using categorical variables, colors can be modified using `colors.use` and a vector of named colors. The names have to match the unique values being displayed on the plot and the colors need to be proper color representations or HEX codes.
+
+```{r}
+# Create a color scale for the unique values in seurat clusters.
+colors <- c("0" = "#001219",
+            "1" = "#005f73",
+            "2" = "#0a9396",
+            "3" = "#94d2bd",
+            "4" = "#e9d8a6",
+            "5" = "#ee9b00",
+            "6" = "#ca6702",
+            "7" = "#bb3e03",
+            "8" = "#ae2012",
+            "9" = "#9b2226")
+```
+
+```{r, fig.cap="SCpubr do_DimPlot modifying colors.", fig.width=14, fig.height=7}
+p <- SCpubr::do_DimPlot(sample) | 
+     SCpubr::do_DimPlot(sample, 
+                        colors.use = colors)
+p
+```
+```{r, fig.cap="SCpubr do_BeeSwarmPlot modifying colors.", fig.width=14, fig.height=7}
+p <- SCpubr::do_BeeSwarmPlot(sample,
+                             feature_to_rank = "PC_1",
+                             group.by = "seurat_clusters") | 
+     SCpubr::do_BeeSwarmPlot(sample,
+                             feature_to_rank = "PC_1",
+                             group.by = "seurat_clusters",
+                             colors.use = colors)
+p
+```
+```{r, fig.cap="SCpubr do_VlnPlot modifying colors.", fig.width=12, fig.height=10}
+p <- SCpubr::do_VlnPlot(sample,
+                        features = "PC_1") /
+     SCpubr::do_VlnPlot(sample, 
+                        features = "PC_1",
+                        colors.use = colors)
+p
+```
+```{r, fig.cap="SCpubr do_BarPlot modifying colors.", fig.width=14, fig.height=7}
+p <- SCpubr::do_BarPlot(sample,
+                        features = "seurat_clusters",
+                        horizontal = T) |
+     SCpubr::do_BarPlot(sample, 
+                        features = "seurat_clusters",
+                        horizontal = T,
+                        colors.use = colors)
+p
+```
+
+```{r, fig.cap="SCpubr::do_CellularStatesPlot modifying colors.", fig.width=14, fig.height=7}
+genes <- list("A" = Seurat::VariableFeatures(sample)[1:5],
+              "B" = Seurat::VariableFeatures(sample)[6:10],
+              "C" = Seurat::VariableFeatures(sample)[11:15],
+              "D" = Seurat::VariableFeatures(sample)[16:20])
+
+p <- SCpubr::do_CellularStatesPlot(sample = sample,
+                                   gene_list = genes,
+                                   x1 = "A",
+                                   y1 = "B",
+                                   x2 = "C",
+                                   y2 = "D",
+                                   enforce_simmetry = T) |
+     SCpubr::do_CellularStatesPlot(sample = sample,
+                                   gene_list = genes,
+                                   x1 = "A",
+                                   y1 = "B",
+                                   x2 = "C",
+                                   y2 = "D",
+                                   enforce_simmetry = T,
+                                   colors.use = colors)
+p
+```
+
+
 ### Continuous variables {-}
+
+As explained above, modifying the color scales in the plots highly depends on whether the color scale is based on **viridis** or not. 
+
+#### Viridis-based plots {-}
+
+For viridis-based plots, the scale can be changed according to the **different available color maps** in the [viridis package](https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html). Options are:
+
+- A - magma color map.
+- B - inferno color map.
+- C - plasma color map.
+- D - viridis color map.
+- E - cividis color map.
+- F - rocket color map.
+- G - mako color map.
+- H - turbo  color map.
+
+To change the color map, just provide either the **letter** or the **name** of the color map to `viridis_color_map`.
+
+```{r, fig.cap = "SCpubr::do_FeaturePlot modifying viridis color maps.", fig.width=10, fig.height=20}
+p1 <- SCpubr::do_FeaturePlot(sample = sample, 
+                             features = "CD14", 
+                             viridis_color_map = "A", 
+                             plot.title = "Magma")
+
+p2 <- SCpubr::do_FeaturePlot(sample = sample, 
+                             features = "CD14", 
+                             viridis_color_map = "B", 
+                             plot.title = "Inferno")
+
+p3 <- SCpubr::do_FeaturePlot(sample = sample, 
+                             features = "CD14", 
+                             viridis_color_map = "C", 
+                             plot.title = "Plasma")
+
+p4 <- SCpubr::do_FeaturePlot(sample = sample, 
+                             features = "CD14", 
+                             viridis_color_map = "D", 
+                             plot.title = "Viridis")
+
+p5 <- SCpubr::do_FeaturePlot(sample = sample, 
+                             features = "CD14", 
+                             viridis_color_map = "E", 
+                             plot.title = "Cividis")
+
+p6 <- SCpubr::do_FeaturePlot(sample = sample, 
+                             features = "CD14", 
+                             viridis_color_map = "F", 
+                             plot.title = "Rocket")
+
+p7 <- SCpubr::do_FeaturePlot(sample = sample, 
+                             features = "CD14", 
+                             viridis_color_map = "G", 
+                             plot.title = "Mako")
+
+p8 <- SCpubr::do_FeaturePlot(sample = sample, 
+                             features = "CD14", 
+                             viridis_color_map = "H", 
+                             plot.title = "Turbo")
+
+p <- patchwork::wrap_plots(list(p1, p2, p3, p4, p5, p6, p7, p8), ncol = 2, byrow = TRUE)
+p
+```
+
+```{r, fig.cap = "SCpubr Nebulosa plot modifying viridis color maps.", fig.width=10, fig.height=20}
+p1 <- SCpubr::do_NebulosaPlot(sample = sample, 
+                              features = "CD14", 
+                              viridis_color_map = "A", 
+                              plot.title = "Magma")
+
+p2 <- SCpubr::do_NebulosaPlot(sample = sample, 
+                              features = "CD14", 
+                              viridis_color_map = "B", 
+                              plot.title = "Inferno")
+
+p3 <- SCpubr::do_NebulosaPlot(sample = sample, 
+                              features = "CD14", 
+                              viridis_color_map = "C", 
+                              plot.title = "Plasma")
+
+p4 <- SCpubr::do_NebulosaPlot(sample = sample, 
+                              features = "CD14", 
+                              viridis_color_map = "D", 
+                              plot.title = "Viridis")
+
+p5 <- SCpubr::do_NebulosaPlot(sample = sample, 
+                              features = "CD14", 
+                              viridis_color_map = "E", 
+                              plot.title = "Cividis")
+
+p6 <- SCpubr::do_NebulosaPlot(sample = sample, 
+                              features = "CD14", 
+                              viridis_color_map = "F", 
+                              plot.title = "Rocket")
+
+p7 <- SCpubr::do_NebulosaPlot(sample = sample, 
+                              features = "CD14", 
+                              viridis_color_map = "G", 
+                              plot.title = "Mako")
+
+p8 <- SCpubr::do_NebulosaPlot(sample = sample, 
+                              features = "CD14", 
+                              viridis_color_map = "H", 
+                              plot.title = "Turbo")
+
+
+p <- patchwork::wrap_plots(list(p1, p2, p3, p4, p5, p6, p7, p8), ncol = 2, byrow = TRUE)
+p
+```
+
+```{r, fig.cap = "SCpubr::do_BeeSwarmPlot modifying viridis color maps.", fig.width=10, fig.height=20}
+p1 <- SCpubr::do_BeeSwarmPlot(sample = sample, 
+                              feature_to_rank = "PC_1", 
+                              group.by = "seurat_clusters", 
+                              continuous_feature = TRUE, 
+                              viridis_color_map = "A", 
+                              plot.title = "Magma")
+
+p2 <- SCpubr::do_BeeSwarmPlot(sample = sample, 
+                              feature_to_rank = "PC_1", 
+                              group.by = "seurat_clusters", 
+                              continuous_feature = TRUE, 
+                              viridis_color_map = "B", 
+                              plot.title = "Inferno")
+
+p3 <- SCpubr::do_BeeSwarmPlot(sample = sample, 
+                              feature_to_rank = "PC_1", 
+                              group.by = "seurat_clusters", 
+                              continuous_feature = TRUE, 
+                              viridis_color_map = "C", 
+                              plot.title = "Plasma")
+
+p4 <- SCpubr::do_BeeSwarmPlot(sample = sample, 
+                              feature_to_rank = "PC_1", 
+                              group.by = "seurat_clusters", 
+                              continuous_feature = TRUE, 
+                              viridis_color_map = "D", 
+                              plot.title = "Viridis")
+
+p5 <- SCpubr::do_BeeSwarmPlot(sample = sample, 
+                              feature_to_rank = "PC_1", 
+                              group.by = "seurat_clusters", 
+                              continuous_feature = TRUE, 
+                              viridis_color_map = "E", 
+                              plot.title = "Cividis")
+
+p6 <- SCpubr::do_BeeSwarmPlot(sample = sample, 
+                              feature_to_rank = "PC_1", 
+                              group.by = "seurat_clusters", 
+                              continuous_feature = TRUE, 
+                              viridis_color_map = "F", 
+                              plot.title = "Rocket")
+
+p7 <- SCpubr::do_BeeSwarmPlot(sample = sample, 
+                              feature_to_rank = "PC_1", 
+                              group.by = "seurat_clusters", 
+                              continuous_feature = TRUE, 
+                              viridis_color_map = "G", 
+                              plot.title = "Mako")
+
+p8 <- SCpubr::do_BeeSwarmPlot(sample = sample, 
+                              feature_to_rank = "PC_1", 
+                              group.by = "seurat_clusters", 
+                              continuous_feature = TRUE, 
+                              viridis_color_map = "H", 
+                              plot.title = "Turbo")
+
+p <- patchwork::wrap_plots(list(p1, p2, p3, p4, p5, p6, p7, p8), ncol = 2, byrow = TRUE)
+p
+```
+#### 2 color gradient plots {-}
+
+The rest of plots that do present a continuous color scale, normally define the gradient based on a combination of pair of colors provided by the user to `colors.use`. This pair of colors do not need to be named, but they do need to be **valid colors** or **HEX codes**.
+
+```{r, fig.cap="SCpubr do_DotPlot modifying colors.", fig.width=14, fig.height=7}
+genes <- c("IL7R", "CCR7", "CD14", "LYZ", 
+           "S100A4", "MS4A1", "CD8A", "FCGR3A", 
+           "MS4A7", "GNLY", "NKG7", "FCER1A", 
+           "CST3", "PPBP")
+
+colors <- c("#006d77", "#e29578")
+
+p <- SCpubr::do_DotPlot(sample,
+                        features = genes) | 
+     SCpubr::do_DotPlot(sample,
+                        features = genes,
+                        colors.use = colors)
+p
+```
+
+```{r, fig.cap="SCpubr do_TermEnrichmentPlot modifying colors.", fig.width=24, fig.height=10}
+colors <- c("#006d77", "#e29578")
+
+p <- SCpubr::do_TermEnrichmentPlot(genes = c("CD14", "LYN"),
+                                   dbs_use = "GO_Biological_Process_2021",
+                                   nterms = 4) | 
+     SCpubr::do_TermEnrichmentPlot(genes = c("CD14", "LYN"),
+                                   dbs_use = "GO_Biological_Process_2021",
+                                   nterms = 4,
+                                   colors.use = colors)
+p
+```
+
+```{r, fig.width=10, fig.height=5}
+genes <- c("IL7R", "CCR7", "CD14", "LYZ", 
+           "S100A4", "MS4A1", "CD8A", "FCGR3A", 
+           "MS4A7", "GNLY", "NKG7", "FCER1A", 
+           "CST3", "PPBP")
+
+p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
+                                  list_genes = genes,
+                                  transpose = T) 
+     
+p
+```
+
+
+```{r, fig.width=10, fig.height=5, fig.cap = "SCpubr::do_EnrichmentHeatmap with modified colors"}
+genes <- c("IL7R", "CCR7", "CD14", "LYZ", 
+           "S100A4", "MS4A1", "CD8A", "FCGR3A", 
+           "MS4A7", "GNLY", "NKG7", "FCER1A", 
+           "CST3", "PPBP")
+colors <- c("#006d77", "#e29578")
+
+p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
+                                  list_genes = genes,
+                                  transpose = T,
+                                  colors.use = colors) 
+     
+p
+```
+```{r, fig.width=7, fig.height=7}
+p <- SCpubr::do_CorrelationPlot(sample = sample,
+                                column_names_rot = 0)
+     
+p
+```
+
+```{r, fig.width=7, fig.height=7, fig.cap = "SCpubr::do_CorrelationPlot with modified colors"}
+colors <- c("#006d77", "#e29578")
+p <- SCpubr::do_CorrelationPlot(sample = sample,
+                                column_names_rot = 0,
+                                colors.use = colors)
+     
+p
+```

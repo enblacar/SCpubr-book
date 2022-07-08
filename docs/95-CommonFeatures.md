@@ -84,10 +84,14 @@ p
 
 
 ```r
+genes <- c("IL7R", "CCR7", "CD14", "LYZ", 
+           "S100A4", "MS4A1", "CD8A", "FCGR3A", 
+           "MS4A7", "GNLY", "NKG7", "FCER1A", 
+           "CST3", "PPBP")
 p <- SCpubr::do_DotPlot(sample = sample,
-                        features = "CD14") | 
+                        features = genes) | 
      SCpubr::do_DotPlot(sample = sample,
-                        features = "CD14",
+                        features = genes,
                         font.size = 18)
 p
 ```
@@ -259,14 +263,19 @@ p
 
 
 ```r
+genes <- c("IL7R", "CCR7", "CD14", "LYZ", 
+           "S100A4", "MS4A1", "CD8A", "FCGR3A", 
+           "MS4A7", "GNLY", "NKG7", "FCER1A", 
+           "CST3", "PPBP")
+
 p <- SCpubr::do_DotPlot(sample = sample,
-                        features = "CD14",
+                        features = genes,
                         font.type = "mono") | 
      SCpubr::do_DotPlot(sample = sample,
-                        features = "CD14",
+                        features = genes,
                         font.type = "sans") |
      SCpubr::do_DotPlot(sample = sample,
-                        features = "CD14",
+                        features = genes,
                         font.type = "serif")
 p
 ```
@@ -440,8 +449,13 @@ p
 
 
 ```r
+genes <- c("IL7R", "CCR7", "CD14", "LYZ", 
+           "S100A4", "MS4A1", "CD8A", "FCGR3A", 
+           "MS4A7", "GNLY", "NKG7", "FCER1A", 
+           "CST3", "PPBP")
+
 p <- SCpubr::do_DotPlot(sample = sample,
-                        features = "CD14", 
+                        features = genes, 
                         plot.title = "This is a title",
                         plot.subtitle = "This is a subtitle",
                         plot.caption = "This is a caption")
@@ -548,8 +562,8 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-30-1.png" alt="SCpubr do_FeaturePlot changing font type." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-30)SCpubr do_FeaturePlot changing font type.</p>
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-30-1.png" alt="SCpubr do_FeaturePlot changing legend type." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-30)SCpubr do_FeaturePlot changing legend type.</p>
 </div>
 
 
@@ -567,8 +581,8 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-31-1.png" alt="SCpubr do_NebulosaPlot changing font type." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-31)SCpubr do_NebulosaPlot changing font type.</p>
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-31-1.png" alt="SCpubr do_NebulosaPlot changing legend type." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-31)SCpubr do_NebulosaPlot changing legend type.</p>
 </div>
 
 
@@ -592,13 +606,18 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-32-1.png" alt="SCpubr do_BeeSwarmPlot changing font type." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-32)SCpubr do_BeeSwarmPlot changing font type.</p>
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-32-1.png" alt="SCpubr do_BeeSwarmPlot changing legend type." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-32)SCpubr do_BeeSwarmPlot changing legend type.</p>
 </div>
 
 
 
 ```r
+genes <- c("IL7R", "CCR7", "CD14", "LYZ", 
+           "S100A4", "MS4A1", "CD8A", "FCGR3A", 
+           "MS4A7", "GNLY", "NKG7", "FCER1A", 
+           "CST3", "PPBP")
+
 p <- SCpubr::do_DotPlot(sample = sample,
                         features = "PC_1",
                         legend.type = "normal") | 
@@ -612,8 +631,8 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-33-1.png" alt="SCpubr do_DotPlot changing font type." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-33)SCpubr do_DotPlot changing font type.</p>
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-33-1.png" alt="SCpubr do_DotPlot changing legend type." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-33)SCpubr do_DotPlot changing legend type.</p>
 </div>
 
 
@@ -635,14 +654,631 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-34-1.png" alt="SCpubr do_TermEnrichmentPlot changing font type." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-34)SCpubr do_TermEnrichmentPlot changing font type.</p>
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-34-1.png" alt="SCpubr do_TermEnrichmentPlot changing legend type." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-34)SCpubr do_TermEnrichmentPlot changing legend type.</p>
 </div>
 
 ## Relocating the legend {-}
+Legends can be switched to any of the following positions: top, bottom, left and right. Depending on the set ups of the figure, one location might be more suitable than another. By default, `SCpubr` locates them either right or bottom, but this can be changed anytime by using `legend.position = "top"`, `legend.position = "bottom"`, `legend.position = "left"` or `legend.position = "right"`. This only works in **ggplot2-based** plots.
 
+
+```r
+p <- (SCpubr::do_DimPlot(sample, 
+                         legend.position = "top") | 
+      SCpubr::do_DimPlot(sample, 
+                         legend.position = "bottom")) /
+     (SCpubr::do_DimPlot(sample, 
+                         legend.position = "left") |
+      SCpubr::do_DimPlot(sample, 
+                         legend.position = "right"))
+p
+```
+
+<div class="figure" style="text-align: center">
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-35-1.png" alt="SCpubr do_DimPlot with varying legend positions." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-35)SCpubr do_DimPlot with varying legend positions.</p>
+</div>
+
+
+
+```r
+p <- (SCpubr::do_FeaturePlot(sample, 
+                             features = "PC_1", 
+                             legend.position = "top") | 
+      SCpubr::do_FeaturePlot(sample, 
+                             features = "PC_1", 
+                             legend.position = "bottom")) /
+     (SCpubr::do_FeaturePlot(sample, 
+                             features = "PC_1", 
+                             legend.position = "left") |
+      SCpubr::do_FeaturePlot(sample, 
+                             features = "PC_1", 
+                             legend.position = "right"))
+p
+```
+
+<div class="figure" style="text-align: center">
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-36-1.png" alt="SCpubr do_FeaturePlot with varying legend positions." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-36)SCpubr do_FeaturePlot with varying legend positions.</p>
+</div>
+
+
+```r
+p <- (SCpubr::do_NebulosaPlot(sample, 
+                              features = "PC_1", 
+                              legend.position = "top") | 
+      SCpubr::do_NebulosaPlot(sample, 
+                              features = "PC_1", 
+                              legend.position = "bottom")) /
+     (SCpubr::do_NebulosaPlot(sample, 
+                              features = "PC_1", 
+                              legend.position = "left") |
+      SCpubr::do_NebulosaPlot(sample, 
+                              features = "PC_1", 
+                              legend.position = "right"))
+p
+```
+
+<div class="figure" style="text-align: center">
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-37-1.png" alt="SCpubr do_NebulosaPlot with varying legend positions." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-37)SCpubr do_NebulosaPlot with varying legend positions.</p>
+</div>
+
+
+```r
+p <- (SCpubr::do_BeeSwarmPlot(sample,
+                              feature_to_rank = "PC_1", 
+                              group.by = "seurat_clusters",
+                              continuous_feature = TRUE,
+                              legend.position = "top") | 
+      SCpubr::do_BeeSwarmPlot(sample,
+                              feature_to_rank = "PC_1", 
+                              group.by = "seurat_clusters",
+                              continuous_feature = TRUE, 
+                              legend.position = "bottom")) /
+     (SCpubr::do_BeeSwarmPlot(sample,
+                              feature_to_rank = "PC_1", 
+                              group.by = "seurat_clusters",
+                              continuous_feature = TRUE, 
+                              legend.position = "left") |
+      SCpubr::do_BeeSwarmPlot(sample,
+                              feature_to_rank = "PC_1", 
+                              group.by = "seurat_clusters",
+                              continuous_feature = TRUE, 
+                              legend.position = "right"))
+p
+```
+
+<div class="figure" style="text-align: center">
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-38-1.png" alt="SCpubr do_BeeSwarmPlot with varying legend positions." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-38)SCpubr do_BeeSwarmPlot with varying legend positions.</p>
+</div>
+
+
+```r
+genes <- c("IL7R", "CCR7", "CD14", "LYZ", 
+           "S100A4", "MS4A1", "CD8A", "FCGR3A", 
+           "MS4A7", "GNLY", "NKG7", "FCER1A", 
+           "CST3", "PPBP")
+
+p <- (SCpubr::do_DotPlot(sample,
+                         features = genes, 
+                         legend.position = "top") |
+      SCpubr::do_DotPlot(sample,
+                         features = genes, 
+                         legend.position = "bottom")) /
+     (SCpubr::do_DotPlot(sample,
+                         features = genes, 
+                         legend.position = "left") |
+      SCpubr::do_DotPlot(sample,
+                         features = genes, 
+                         legend.position = "right"))
+p
+```
+
+<div class="figure" style="text-align: center">
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-39-1.png" alt="SCpubr do_DotPlot with varying legend positions." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-39)SCpubr do_DotPlot with varying legend positions.</p>
+</div>
+
+
+```r
+p <- (SCpubr::do_BarPlot(sample,
+                         features = "seurat_clusters", 
+                         legend.position = "top") |
+      SCpubr::do_BarPlot(sample,
+                         features = "seurat_clusters", 
+                         legend.position = "bottom")) /
+     (SCpubr::do_BarPlot(sample,
+                         features = "seurat_clusters", 
+                         legend.position = "left") |
+      SCpubr::do_BarPlot(sample,
+                         features = "seurat_clusters", 
+                         legend.position = "right"))
+p
+```
+
+<div class="figure" style="text-align: center">
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-40-1.png" alt="SCpubr do_BarPlot with varying legend positions." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-40)SCpubr do_BarPlot with varying legend positions.</p>
+</div>
+
+```r
+p <- (SCpubr::do_TermEnrichmentPlot(genes = c("CD14", "LYN"),
+                                    dbs_use = "GO_Biological_Process_2021",
+                                    nterms = 2,
+                                    legend.position = "top") |
+      SCpubr::do_TermEnrichmentPlot(genes = c("CD14", "LYN"),
+                                    dbs_use = "GO_Biological_Process_2021",
+                                    nterms = 2,
+                                    legend.position = "bottom")) / 
+     (SCpubr::do_TermEnrichmentPlot(genes = c("CD14", "LYN"),
+                                    dbs_use = "GO_Biological_Process_2021",
+                                    nterms = 2,
+                                    legend.position = "left") |
+      SCpubr::do_TermEnrichmentPlot(genes = c("CD14", "LYN"),
+                                    dbs_use = "GO_Biological_Process_2021",
+                                    nterms = 2,
+                                    legend.position = "right"))
+p
+```
+
+<div class="figure" style="text-align: center">
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-41-1.png" alt="SCpubr do_TermEnrichmentPlot with varying legend positions." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-41)SCpubr do_TermEnrichmentPlot with varying legend positions.</p>
+</div>
+
+
+
+```r
+genes <- list("A" = Seurat::VariableFeatures(sample)[1:5],
+              "B" = Seurat::VariableFeatures(sample)[6:10],
+              "C" = Seurat::VariableFeatures(sample)[11:15],
+              "D" = Seurat::VariableFeatures(sample)[16:20])
+
+p <- (SCpubr::do_CellularStatesPlot(sample = sample,
+                                    gene_list = genes,
+                                    x1 = "A",
+                                    y1 = "B",
+                                    x2 = "C",
+                                    y2 = "D",
+                                    enforce_simmetry = T,
+                                    legend.position = "top") |
+      SCpubr::do_CellularStatesPlot(sample = sample,
+                                    gene_list = genes,
+                                    x1 = "A",
+                                    y1 = "B",
+                                    x2 = "C",
+                                    y2 = "D",
+                                    enforce_simmetry = T,
+                                    legend.position = "bottom")) /
+     (SCpubr::do_CellularStatesPlot(sample = sample,
+                                    gene_list = genes,
+                                    x1 = "A",
+                                    y1 = "B",
+                                    x2 = "C",
+                                    y2 = "D",
+                                    enforce_simmetry = T,
+                                    legend.position = "left") |
+      SCpubr::do_CellularStatesPlot(sample = sample,
+                                    gene_list = genes,
+                                    x1 = "A",
+                                    y1 = "B",
+                                    x2 = "C",
+                                    y2 = "D",
+                                    enforce_simmetry = T,
+                                    legend.position = "right"))
+   
+p
+```
+
+<div class="figure" style="text-align: center">
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-42-1.png" alt="SCpubr do_CellularStatesPlot with varying legend positions." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-42)SCpubr do_CellularStatesPlot with varying legend positions.</p>
+</div>
 ## Modifying colors {-}
+Perhaps, one of the most critical parameters, the possibility to change the colors displayed up to the user's wish. This is mainly achieved by `colors.use` in any plot making use of categorical variables and the plots using continuous variables but not implementing a **viridis** color scale. For those cases, `viridis_color_map` is used. 
 
 ### Categorical variables {-}
 
+For plots using categorical variables, colors can be modified using `colors.use` and a vector of named colors. The names have to match the unique values being displayed on the plot and the colors need to be proper color representations or HEX codes.
+
+
+```r
+# Create a color scale for the unique values in seurat clusters.
+colors <- c("0" = "#001219",
+            "1" = "#005f73",
+            "2" = "#0a9396",
+            "3" = "#94d2bd",
+            "4" = "#e9d8a6",
+            "5" = "#ee9b00",
+            "6" = "#ca6702",
+            "7" = "#bb3e03",
+            "8" = "#ae2012",
+            "9" = "#9b2226")
+```
+
+
+```r
+p <- SCpubr::do_DimPlot(sample) | 
+     SCpubr::do_DimPlot(sample, 
+                        colors.use = colors)
+p
+```
+
+<div class="figure" style="text-align: center">
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-44-1.png" alt="SCpubr do_DimPlot modifying colors." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-44)SCpubr do_DimPlot modifying colors.</p>
+</div>
+
+```r
+p <- SCpubr::do_BeeSwarmPlot(sample,
+                             feature_to_rank = "PC_1",
+                             group.by = "seurat_clusters") | 
+     SCpubr::do_BeeSwarmPlot(sample,
+                             feature_to_rank = "PC_1",
+                             group.by = "seurat_clusters",
+                             colors.use = colors)
+p
+```
+
+<div class="figure" style="text-align: center">
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-45-1.png" alt="SCpubr do_BeeSwarmPlot modifying colors." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-45)SCpubr do_BeeSwarmPlot modifying colors.</p>
+</div>
+
+```r
+p <- SCpubr::do_VlnPlot(sample,
+                        features = "PC_1") /
+     SCpubr::do_VlnPlot(sample, 
+                        features = "PC_1",
+                        colors.use = colors)
+p
+```
+
+<div class="figure" style="text-align: center">
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-46-1.png" alt="SCpubr do_VlnPlot modifying colors." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-46)SCpubr do_VlnPlot modifying colors.</p>
+</div>
+
+```r
+p <- SCpubr::do_BarPlot(sample,
+                        features = "seurat_clusters",
+                        horizontal = T) |
+     SCpubr::do_BarPlot(sample, 
+                        features = "seurat_clusters",
+                        horizontal = T,
+                        colors.use = colors)
+p
+```
+
+<div class="figure" style="text-align: center">
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-47-1.png" alt="SCpubr do_BarPlot modifying colors." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-47)SCpubr do_BarPlot modifying colors.</p>
+</div>
+
+
+```r
+genes <- list("A" = Seurat::VariableFeatures(sample)[1:5],
+              "B" = Seurat::VariableFeatures(sample)[6:10],
+              "C" = Seurat::VariableFeatures(sample)[11:15],
+              "D" = Seurat::VariableFeatures(sample)[16:20])
+
+p <- SCpubr::do_CellularStatesPlot(sample = sample,
+                                   gene_list = genes,
+                                   x1 = "A",
+                                   y1 = "B",
+                                   x2 = "C",
+                                   y2 = "D",
+                                   enforce_simmetry = T) |
+     SCpubr::do_CellularStatesPlot(sample = sample,
+                                   gene_list = genes,
+                                   x1 = "A",
+                                   y1 = "B",
+                                   x2 = "C",
+                                   y2 = "D",
+                                   enforce_simmetry = T,
+                                   colors.use = colors)
+p
+```
+
+<div class="figure" style="text-align: center">
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-48-1.png" alt="SCpubr::do_CellularStatesPlot modifying colors." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-48)SCpubr::do_CellularStatesPlot modifying colors.</p>
+</div>
+
+
 ### Continuous variables {-}
+
+As explained above, modifying the color scales in the plots highly depends on whether the color scale is based on **viridis** or not. 
+
+#### Viridis-based plots {-}
+
+For viridis-based plots, the scale can be changed according to the **different available color maps** in the [viridis package](https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html). Options are:
+
+- A - magma color map.
+- B - inferno color map.
+- C - plasma color map.
+- D - viridis color map.
+- E - cividis color map.
+- F - rocket color map.
+- G - mako color map.
+- H - turbo  color map.
+
+To change the color map, just provide either the **letter** or the **name** of the color map to `viridis_color_map`.
+
+
+```r
+p1 <- SCpubr::do_FeaturePlot(sample = sample, 
+                             features = "CD14", 
+                             viridis_color_map = "A", 
+                             plot.title = "Magma")
+
+p2 <- SCpubr::do_FeaturePlot(sample = sample, 
+                             features = "CD14", 
+                             viridis_color_map = "B", 
+                             plot.title = "Inferno")
+
+p3 <- SCpubr::do_FeaturePlot(sample = sample, 
+                             features = "CD14", 
+                             viridis_color_map = "C", 
+                             plot.title = "Plasma")
+
+p4 <- SCpubr::do_FeaturePlot(sample = sample, 
+                             features = "CD14", 
+                             viridis_color_map = "D", 
+                             plot.title = "Viridis")
+
+p5 <- SCpubr::do_FeaturePlot(sample = sample, 
+                             features = "CD14", 
+                             viridis_color_map = "E", 
+                             plot.title = "Cividis")
+
+p6 <- SCpubr::do_FeaturePlot(sample = sample, 
+                             features = "CD14", 
+                             viridis_color_map = "F", 
+                             plot.title = "Rocket")
+
+p7 <- SCpubr::do_FeaturePlot(sample = sample, 
+                             features = "CD14", 
+                             viridis_color_map = "G", 
+                             plot.title = "Mako")
+
+p8 <- SCpubr::do_FeaturePlot(sample = sample, 
+                             features = "CD14", 
+                             viridis_color_map = "H", 
+                             plot.title = "Turbo")
+
+p <- patchwork::wrap_plots(list(p1, p2, p3, p4, p5, p6, p7, p8), ncol = 2, byrow = TRUE)
+p
+```
+
+<div class="figure" style="text-align: center">
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-49-1.png" alt="SCpubr::do_FeaturePlot modifying viridis color maps." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-49)SCpubr::do_FeaturePlot modifying viridis color maps.</p>
+</div>
+
+
+```r
+p1 <- SCpubr::do_NebulosaPlot(sample = sample, 
+                              features = "CD14", 
+                              viridis_color_map = "A", 
+                              plot.title = "Magma")
+
+p2 <- SCpubr::do_NebulosaPlot(sample = sample, 
+                              features = "CD14", 
+                              viridis_color_map = "B", 
+                              plot.title = "Inferno")
+
+p3 <- SCpubr::do_NebulosaPlot(sample = sample, 
+                              features = "CD14", 
+                              viridis_color_map = "C", 
+                              plot.title = "Plasma")
+
+p4 <- SCpubr::do_NebulosaPlot(sample = sample, 
+                              features = "CD14", 
+                              viridis_color_map = "D", 
+                              plot.title = "Viridis")
+
+p5 <- SCpubr::do_NebulosaPlot(sample = sample, 
+                              features = "CD14", 
+                              viridis_color_map = "E", 
+                              plot.title = "Cividis")
+
+p6 <- SCpubr::do_NebulosaPlot(sample = sample, 
+                              features = "CD14", 
+                              viridis_color_map = "F", 
+                              plot.title = "Rocket")
+
+p7 <- SCpubr::do_NebulosaPlot(sample = sample, 
+                              features = "CD14", 
+                              viridis_color_map = "G", 
+                              plot.title = "Mako")
+
+p8 <- SCpubr::do_NebulosaPlot(sample = sample, 
+                              features = "CD14", 
+                              viridis_color_map = "H", 
+                              plot.title = "Turbo")
+
+
+p <- patchwork::wrap_plots(list(p1, p2, p3, p4, p5, p6, p7, p8), ncol = 2, byrow = TRUE)
+p
+```
+
+<div class="figure" style="text-align: center">
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-50-1.png" alt="SCpubr Nebulosa plot modifying viridis color maps." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-50)SCpubr Nebulosa plot modifying viridis color maps.</p>
+</div>
+
+
+```r
+p1 <- SCpubr::do_BeeSwarmPlot(sample = sample, 
+                              feature_to_rank = "PC_1", 
+                              group.by = "seurat_clusters", 
+                              continuous_feature = TRUE, 
+                              viridis_color_map = "A", 
+                              plot.title = "Magma")
+
+p2 <- SCpubr::do_BeeSwarmPlot(sample = sample, 
+                              feature_to_rank = "PC_1", 
+                              group.by = "seurat_clusters", 
+                              continuous_feature = TRUE, 
+                              viridis_color_map = "B", 
+                              plot.title = "Inferno")
+
+p3 <- SCpubr::do_BeeSwarmPlot(sample = sample, 
+                              feature_to_rank = "PC_1", 
+                              group.by = "seurat_clusters", 
+                              continuous_feature = TRUE, 
+                              viridis_color_map = "C", 
+                              plot.title = "Plasma")
+
+p4 <- SCpubr::do_BeeSwarmPlot(sample = sample, 
+                              feature_to_rank = "PC_1", 
+                              group.by = "seurat_clusters", 
+                              continuous_feature = TRUE, 
+                              viridis_color_map = "D", 
+                              plot.title = "Viridis")
+
+p5 <- SCpubr::do_BeeSwarmPlot(sample = sample, 
+                              feature_to_rank = "PC_1", 
+                              group.by = "seurat_clusters", 
+                              continuous_feature = TRUE, 
+                              viridis_color_map = "E", 
+                              plot.title = "Cividis")
+
+p6 <- SCpubr::do_BeeSwarmPlot(sample = sample, 
+                              feature_to_rank = "PC_1", 
+                              group.by = "seurat_clusters", 
+                              continuous_feature = TRUE, 
+                              viridis_color_map = "F", 
+                              plot.title = "Rocket")
+
+p7 <- SCpubr::do_BeeSwarmPlot(sample = sample, 
+                              feature_to_rank = "PC_1", 
+                              group.by = "seurat_clusters", 
+                              continuous_feature = TRUE, 
+                              viridis_color_map = "G", 
+                              plot.title = "Mako")
+
+p8 <- SCpubr::do_BeeSwarmPlot(sample = sample, 
+                              feature_to_rank = "PC_1", 
+                              group.by = "seurat_clusters", 
+                              continuous_feature = TRUE, 
+                              viridis_color_map = "H", 
+                              plot.title = "Turbo")
+
+p <- patchwork::wrap_plots(list(p1, p2, p3, p4, p5, p6, p7, p8), ncol = 2, byrow = TRUE)
+p
+```
+
+<div class="figure" style="text-align: center">
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-51-1.png" alt="SCpubr::do_BeeSwarmPlot modifying viridis color maps." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-51)SCpubr::do_BeeSwarmPlot modifying viridis color maps.</p>
+</div>
+#### 2 color gradient plots {-}
+
+The rest of plots that do present a continuous color scale, normally define the gradient based on a combination of pair of colors provided by the user to `colors.use`. This pair of colors do not need to be named, but they do need to be **valid colors** or **HEX codes**.
+
+
+```r
+genes <- c("IL7R", "CCR7", "CD14", "LYZ", 
+           "S100A4", "MS4A1", "CD8A", "FCGR3A", 
+           "MS4A7", "GNLY", "NKG7", "FCER1A", 
+           "CST3", "PPBP")
+
+colors <- c("#006d77", "#e29578")
+
+p <- SCpubr::do_DotPlot(sample,
+                        features = genes) | 
+     SCpubr::do_DotPlot(sample,
+                        features = genes,
+                        colors.use = colors)
+p
+```
+
+<div class="figure" style="text-align: center">
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-52-1.png" alt="SCpubr do_DotPlot modifying colors." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-52)SCpubr do_DotPlot modifying colors.</p>
+</div>
+
+
+```r
+colors <- c("#006d77", "#e29578")
+
+p <- SCpubr::do_TermEnrichmentPlot(genes = c("CD14", "LYN"),
+                                   dbs_use = "GO_Biological_Process_2021",
+                                   nterms = 4) | 
+     SCpubr::do_TermEnrichmentPlot(genes = c("CD14", "LYN"),
+                                   dbs_use = "GO_Biological_Process_2021",
+                                   nterms = 4,
+                                   colors.use = colors)
+p
+```
+
+<div class="figure" style="text-align: center">
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-53-1.png" alt="SCpubr do_TermEnrichmentPlot modifying colors." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-53)SCpubr do_TermEnrichmentPlot modifying colors.</p>
+</div>
+
+
+```r
+genes <- c("IL7R", "CCR7", "CD14", "LYZ", 
+           "S100A4", "MS4A1", "CD8A", "FCGR3A", 
+           "MS4A7", "GNLY", "NKG7", "FCER1A", 
+           "CST3", "PPBP")
+
+p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
+                                  list_genes = genes,
+                                  transpose = T) 
+     
+p
+```
+
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-54-1.png" width="100%" height="100%" style="display: block; margin: auto;" />
+
+
+
+```r
+genes <- c("IL7R", "CCR7", "CD14", "LYZ", 
+           "S100A4", "MS4A1", "CD8A", "FCGR3A", 
+           "MS4A7", "GNLY", "NKG7", "FCER1A", 
+           "CST3", "PPBP")
+colors <- c("#006d77", "#e29578")
+
+p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
+                                  list_genes = genes,
+                                  transpose = T,
+                                  colors.use = colors) 
+     
+p
+```
+
+<div class="figure" style="text-align: center">
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-55-1.png" alt="SCpubr::do_EnrichmentHeatmap with modified colors" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-55)SCpubr::do_EnrichmentHeatmap with modified colors</p>
+</div>
+
+```r
+p <- SCpubr::do_CorrelationPlot(sample = sample,
+                                column_names_rot = 0)
+     
+p
+```
+
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-56-1.png" width="100%" height="100%" style="display: block; margin: auto;" />
+
+
+```r
+colors <- c("#006d77", "#e29578")
+p <- SCpubr::do_CorrelationPlot(sample = sample,
+                                column_names_rot = 0,
+                                colors.use = colors)
+     
+p
+```
+
+<div class="figure" style="text-align: center">
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-57-1.png" alt="SCpubr::do_CorrelationPlot with modified colors" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-57)SCpubr::do_CorrelationPlot with modified colors</p>
+</div>

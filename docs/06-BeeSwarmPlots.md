@@ -297,7 +297,7 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="06-BeeSwarmPlots_files/figure-html/unnamed-chunk-10-1.png" alt="SCpubr Nebulosa plot modifying viridis color maps." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-10)SCpubr Nebulosa plot modifying viridis color maps.</p>
+<img src="06-BeeSwarmPlots_files/figure-html/unnamed-chunk-10-1.png" alt="SCpubr::do_BeeSwarmPlot modifying viridis color maps." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-10)SCpubr::do_BeeSwarmPlot modifying viridis color maps.</p>
 </div>
 
