@@ -320,47 +320,6 @@ p1 | p2
 From the time being, the labelling feature is only available on `position = "stack"`.
 
 
-## Adding custom color scales
-
-If necessary, the colors of the plots can be easily changed using the `colors.use` parameter, which requires a **named vector** containing the HEX codes of the colors to show and the names of the unique values that are being used as color groups. Here is one example:
-
-
-```r
-# Create a color scale for the unique values in seurat clusters.
-colors <- c("0" = "#001219",
-            "1" = "#005f73",
-            "2" = "#0a9396",
-            "3" = "#94d2bd",
-            "4" = "#e9d8a6",
-            "5" = "#ee9b00",
-            "6" = "#ca6702",
-            "7" = "#bb3e03",
-            "8" = "#ae2012",
-            "9" = "#9b2226")
-
-p1 <- SCpubr::do_BarPlot(sample = sample, 
-                         features = "seurat_clusters", 
-                         legend = FALSE, 
-                         plot.title = "Number of cells per cluster", 
-                         horizontal = TRUE, 
-                         colors.use = colors)
-p2 <- SCpubr::do_BarPlot(sample, 
-                         features = "modified_orig.ident",
-                         group.by = "seurat_clusters",
-                         plot.title = "With group.by - position = fill",
-                         position = "fill",
-                         legend = TRUE,
-                         horizontal = FALSE,
-                         colors.use = colors)
-p1 | p2
-```
-
-<div class="figure" style="text-align: center">
-<img src="09-BarPlots_files/figure-html/unnamed-chunk-13-1.png" alt="SCpubr, modifying colors" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-13)SCpubr, modifying colors</p>
-</div>
-
-
 ## Retrieving the data matrix
 
 Many times, not only we are interested in actually displaying the data, but we do also want to store the data matrix. This is a common case for supplementary material in publications. To assess this, one can set `return_data_matrix = TRUE`, which will output a list containing both the plot and the data matrix (long and wide format). This does also work when several features are queried at the same time. Both for `position = "fill"` and `position = "stack"` the output will be the same, the total counts.
@@ -399,77 +358,77 @@ knitr::kable(head(data.long, 15), booktabs = TRUE) %>%
   <tr>
    <td style="text-align:left;"> Sample_B </td>
    <td style="text-align:left;"> 0 </td>
-   <td style="text-align:right;"> 2699 </td>
+   <td style="text-align:right;"> 2667 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Sample_B </td>
    <td style="text-align:left;"> 1 </td>
-   <td style="text-align:right;"> 1872 </td>
+   <td style="text-align:right;"> 1851 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Sample_B </td>
    <td style="text-align:left;"> 2 </td>
-   <td style="text-align:right;"> 918 </td>
+   <td style="text-align:right;"> 887 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Sample_B </td>
    <td style="text-align:left;"> 3 </td>
-   <td style="text-align:right;"> 791 </td>
+   <td style="text-align:right;"> 799 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Sample_A </td>
    <td style="text-align:left;"> 0 </td>
-   <td style="text-align:right;"> 767 </td>
+   <td style="text-align:right;"> 778 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Sample_B </td>
    <td style="text-align:left;"> 4 </td>
-   <td style="text-align:right;"> 732 </td>
+   <td style="text-align:right;"> 711 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Sample_A </td>
    <td style="text-align:left;"> 1 </td>
-   <td style="text-align:right;"> 546 </td>
+   <td style="text-align:right;"> 537 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Sample_B </td>
    <td style="text-align:left;"> 5 </td>
-   <td style="text-align:right;"> 425 </td>
+   <td style="text-align:right;"> 408 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Sample_C </td>
    <td style="text-align:left;"> 0 </td>
-   <td style="text-align:right;"> 366 </td>
+   <td style="text-align:right;"> 387 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Sample_B </td>
    <td style="text-align:left;"> 6 </td>
-   <td style="text-align:right;"> 350 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Sample_A </td>
-   <td style="text-align:left;"> 2 </td>
-   <td style="text-align:right;"> 272 </td>
+   <td style="text-align:right;"> 323 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Sample_C </td>
    <td style="text-align:left;"> 1 </td>
-   <td style="text-align:right;"> 263 </td>
+   <td style="text-align:right;"> 293 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sample_A </td>
+   <td style="text-align:left;"> 2 </td>
+   <td style="text-align:right;"> 293 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Sample_B </td>
    <td style="text-align:left;"> 7 </td>
-   <td style="text-align:right;"> 218 </td>
+   <td style="text-align:right;"> 233 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Sample_A </td>
    <td style="text-align:left;"> 3 </td>
-   <td style="text-align:right;"> 205 </td>
+   <td style="text-align:right;"> 223 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Sample_A </td>
    <td style="text-align:left;"> 4 </td>
-   <td style="text-align:right;"> 197 </td>
+   <td style="text-align:right;"> 214 </td>
   </tr>
 </tbody>
 </table>
@@ -493,63 +452,63 @@ knitr::kable(head(data.wide, 15), booktabs = TRUE) %>%
 <tbody>
   <tr>
    <td style="text-align:left;"> 0 </td>
-   <td style="text-align:right;"> 2699 </td>
-   <td style="text-align:right;"> 767 </td>
-   <td style="text-align:right;"> 366 </td>
+   <td style="text-align:right;"> 2667 </td>
+   <td style="text-align:right;"> 778 </td>
+   <td style="text-align:right;"> 387 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> 1 </td>
-   <td style="text-align:right;"> 1872 </td>
-   <td style="text-align:right;"> 546 </td>
-   <td style="text-align:right;"> 263 </td>
+   <td style="text-align:right;"> 1851 </td>
+   <td style="text-align:right;"> 537 </td>
+   <td style="text-align:right;"> 293 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> 2 </td>
-   <td style="text-align:right;"> 918 </td>
-   <td style="text-align:right;"> 272 </td>
-   <td style="text-align:right;"> 120 </td>
+   <td style="text-align:right;"> 887 </td>
+   <td style="text-align:right;"> 293 </td>
+   <td style="text-align:right;"> 130 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> 3 </td>
-   <td style="text-align:right;"> 791 </td>
-   <td style="text-align:right;"> 205 </td>
-   <td style="text-align:right;"> 131 </td>
+   <td style="text-align:right;"> 799 </td>
+   <td style="text-align:right;"> 223 </td>
+   <td style="text-align:right;"> 105 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> 4 </td>
-   <td style="text-align:right;"> 732 </td>
-   <td style="text-align:right;"> 197 </td>
-   <td style="text-align:right;"> 107 </td>
+   <td style="text-align:right;"> 711 </td>
+   <td style="text-align:right;"> 214 </td>
+   <td style="text-align:right;"> 111 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> 5 </td>
-   <td style="text-align:right;"> 425 </td>
-   <td style="text-align:right;"> 118 </td>
-   <td style="text-align:right;"> 53 </td>
+   <td style="text-align:right;"> 408 </td>
+   <td style="text-align:right;"> 127 </td>
+   <td style="text-align:right;"> 61 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> 6 </td>
-   <td style="text-align:right;"> 350 </td>
-   <td style="text-align:right;"> 89 </td>
-   <td style="text-align:right;"> 38 </td>
+   <td style="text-align:right;"> 323 </td>
+   <td style="text-align:right;"> 103 </td>
+   <td style="text-align:right;"> 51 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> 7 </td>
-   <td style="text-align:right;"> 218 </td>
-   <td style="text-align:right;"> 73 </td>
-   <td style="text-align:right;"> 35 </td>
+   <td style="text-align:right;"> 233 </td>
+   <td style="text-align:right;"> 61 </td>
+   <td style="text-align:right;"> 32 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> 8 </td>
    <td style="text-align:right;"> 121 </td>
-   <td style="text-align:right;"> 29 </td>
-   <td style="text-align:right;"> 26 </td>
+   <td style="text-align:right;"> 43 </td>
+   <td style="text-align:right;"> 12 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> 9 </td>
-   <td style="text-align:right;"> 72 </td>
-   <td style="text-align:right;"> 14 </td>
-   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 62 </td>
+   <td style="text-align:right;"> 29 </td>
+   <td style="text-align:right;"> 9 </td>
   </tr>
 </tbody>
 </table>

@@ -301,33 +301,6 @@ p
 </div>
 We can see that cluster 5 allways plots on top of cluster 0 when `order` is set. While still not clear how `order` and `shuffle` interact, it is clear that using `order` cancels the original behavior of `shuffle`. Therefore, if both `order` and `shuffle` are set, `SCpubr::do_DimPlot()` will throw a warning.
 
-## Modifying default colors
-If wanted, we can also change the colors of the identities in the DimPlot based on a custom color scheme. For this, a **named vector** containing the names of the identities as names and the HEX codes as values has to be provided to `colors.use`: 
-
-
-```r
-# Create a color scale for the unique values in seurat clusters.
-colors <- c("0" = "#001219",
-            "1" = "#005f73",
-            "2" = "#0a9396",
-            "3" = "#94d2bd",
-            "4" = "#e9d8a6",
-            "5" = "#ee9b00",
-            "6" = "#ca6702",
-            "7" = "#bb3e03",
-            "8" = "#ae2012",
-            "9" = "#9b2226")
-
-p <- SCpubr::do_DimPlot(sample = sample, 
-                        colors.use = colors)
-p
-```
-
-<div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-17-1.png" alt="SCpubr, modifying default colors in a DimPlot" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-17)SCpubr, modifying default colors in a DimPlot</p>
-</div>
-
 
 ## Highlighting cells
 
@@ -343,8 +316,8 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-18-1.png" alt="Seurat DimPlot highlighting cells." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-18)Seurat DimPlot highlighting cells.</p>
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-17-1.png" alt="Seurat DimPlot highlighting cells." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-17)Seurat DimPlot highlighting cells.</p>
 </div>
 
 To achieve a similar effect in `SCpubr::do_DimPlot()`, we can use the same parameter `cells.highlight`. Also, we can change the color of the highligted cells by providing single color to `colors.use` and the color of the not selected cells with `na.value`:
@@ -363,8 +336,8 @@ p1 | p2
 ```
 
 <div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-19-1.png" alt="SCpubr DimPlot highlighting cells." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-19)SCpubr DimPlot highlighting cells.</p>
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-18-1.png" alt="SCpubr DimPlot highlighting cells." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-18)SCpubr DimPlot highlighting cells.</p>
 </div>
 
 By default, the size of all cells in `SCpubr::do_DimPlot()` is the same. However, the size of the highlighted dots can be modified with the parameter `sizes.highlight` from Seurat.
@@ -378,8 +351,8 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-20-1.png" alt="SCpubr DimPlot highlighting cells bigger dot size." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-20)SCpubr DimPlot highlighting cells bigger dot size.</p>
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-19-1.png" alt="SCpubr DimPlot highlighting cells bigger dot size." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-19)SCpubr DimPlot highlighting cells bigger dot size.</p>
 </div>
 If interested, we can also highlight whole identities with `idents.highlight` parameter. For this, just provide the desired identities to be selected. It can also work in combination with `cells.highlight`.
 
@@ -397,8 +370,8 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-21-1.png" alt="SCpubr DimPlot highlighting cells bigger dot size." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-21)SCpubr DimPlot highlighting cells bigger dot size.</p>
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-20-1.png" alt="SCpubr DimPlot highlighting cells bigger dot size." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-20)SCpubr DimPlot highlighting cells bigger dot size.</p>
 </div>
 
 ## Restrict the identitites shown and grey out the rest
@@ -411,8 +384,8 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-22-1.png" alt="Seurat DimPlot selecting only some identities by subsetting the sample." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-22)Seurat DimPlot selecting only some identities by subsetting the sample.</p>
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-21-1.png" alt="Seurat DimPlot selecting only some identities by subsetting the sample." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-21)Seurat DimPlot selecting only some identities by subsetting the sample.</p>
 </div>
 
 However, we end up losing the UMAP silhouette. For this, `SCpubr::do_DimPlot()` introduces `idents.keep` parameter, for which you can provide a vector with the identities you want to keep. This will treat the rest of the cells as `NA` and they will be colored according to `na.value` parameter:
@@ -430,8 +403,8 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-23-1.png" alt="Seurat DimPlot selecting only some identities by using idents.keep." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-23)Seurat DimPlot selecting only some identities by using idents.keep.</p>
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-22-1.png" alt="Seurat DimPlot selecting only some identities by using idents.keep." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-22)Seurat DimPlot selecting only some identities by using idents.keep.</p>
 </div>
 
 ## Splitting by a category
@@ -448,8 +421,8 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-24-1.png" alt="Seurat DimPlot using split.by." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-24)Seurat DimPlot using split.by.</p>
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-23-1.png" alt="Seurat DimPlot using split.by." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-23)Seurat DimPlot using split.by.</p>
 </div>
 As can be observed, this plots accomplish the task of separating the cells into each panel, but the approach followed actually makes interpretation difficult. Clusters such as Cluster 9, with fewer cells, tell pretty much nothing. Not knowing how the original UMAP looked like is a major downside of this approach. This is where `SCpubr` focus. Instead of using `Seurat`'s `split.by` parameter, it generates as many plots as unique values in the metadata to split the plot by, but uses `cells.highlight` instead, which keeps the rest of cells greyed out. This is how it looks:
 
@@ -466,8 +439,8 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-25-1.png" alt="SCpubr DimPlot using split.by." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-25)SCpubr DimPlot using split.by.</p>
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-24-1.png" alt="SCpubr DimPlot using split.by." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-24)SCpubr DimPlot using split.by.</p>
 </div>
 
 This way, we can see that clusters such as Cluster 7 are way more disperse than the rest, accounting not only for standalone groups of cells but also blending in other bigger clusters. 
@@ -488,8 +461,8 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-26-1.png" alt="SCpubr DimPlot using split.by and idents.keep." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-26)SCpubr DimPlot using split.by and idents.keep.</p>
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-25-1.png" alt="SCpubr DimPlot using split.by and idents.keep." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-25)SCpubr DimPlot using split.by and idents.keep.</p>
 </div>
 
 
@@ -527,8 +500,8 @@ p1 / p2
 ```
 
 <div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-27-1.png" alt="SCpubr DimPlot using split.by with a changed color" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-27)SCpubr DimPlot using split.by with a changed color</p>
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-26-1.png" alt="SCpubr DimPlot using split.by with a changed color" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-26)SCpubr DimPlot using split.by with a changed color</p>
 </div>
 
 

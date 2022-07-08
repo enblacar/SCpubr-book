@@ -103,17 +103,3 @@ p2 <- SCpubr::do_DotPlot(sample = sample,
 p1 | p2
 ```
 
-## Modifying default colors
-
-To modify the default colors, a vector of two colors has to be provided to `colors.use`. The two colors will form a gradient.
-
-```{r, fig.cap = "SCpubr, modifying default colors in a Dot plot", fig.width=10, fig.height=5}
-genes <- c("IL7R", "CCR7", "CD14", "LYZ", 
-           "S100A4", "MS4A1", "CD8A", "FCGR3A", 
-           "MS4A7", "GNLY", "NKG7", "FCER1A", 
-           "CST3", "PPBP")
-p <- SCpubr::do_DotPlot(sample = sample, 
-                        features = genes,
-                        colors.use = c("#001219", "#e9d8a6"))
-p
-```

@@ -105,20 +105,4 @@ p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
 p
 ```
 
-## Changing the color scale.
-
-If one wants to change the color scale of the heatmap, this can be accomplished by providing a two-color vector to `colors.use`. 
-
-```{r, fig.cap= "SCpubr::do_EnrichmentHeatmap transposed matrix using split.by changing the color scale.", fig.width=8, fig.height=3 }
-# Modifying the color scale.
-p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
-                                  list_genes = genes,
-                                  transpose = TRUE,
-                                  column_names_rot = 0,
-                                  cluster_cols = F,
-                                  cluster_rows = T,
-                                  split.by = "custom_group",
-                                  colors.use = c("red", "blue"))
-p
-```
 

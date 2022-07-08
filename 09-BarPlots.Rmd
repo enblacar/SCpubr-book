@@ -257,41 +257,6 @@ p1 | p2
 From the time being, the labelling feature is only available on `position = "stack"`.
 
 
-## Adding custom color scales
-
-If necessary, the colors of the plots can be easily changed using the `colors.use` parameter, which requires a **named vector** containing the HEX codes of the colors to show and the names of the unique values that are being used as color groups. Here is one example:
-
-```{r, fig.cap = "SCpubr, modifying colors", fig.width=12, fig.height=5}
-# Create a color scale for the unique values in seurat clusters.
-colors <- c("0" = "#001219",
-            "1" = "#005f73",
-            "2" = "#0a9396",
-            "3" = "#94d2bd",
-            "4" = "#e9d8a6",
-            "5" = "#ee9b00",
-            "6" = "#ca6702",
-            "7" = "#bb3e03",
-            "8" = "#ae2012",
-            "9" = "#9b2226")
-
-p1 <- SCpubr::do_BarPlot(sample = sample, 
-                         features = "seurat_clusters", 
-                         legend = FALSE, 
-                         plot.title = "Number of cells per cluster", 
-                         horizontal = TRUE, 
-                         colors.use = colors)
-p2 <- SCpubr::do_BarPlot(sample, 
-                         features = "modified_orig.ident",
-                         group.by = "seurat_clusters",
-                         plot.title = "With group.by - position = fill",
-                         position = "fill",
-                         legend = TRUE,
-                         horizontal = FALSE,
-                         colors.use = colors)
-p1 | p2
-```
-
-
 ## Retrieving the data matrix
 
 Many times, not only we are interested in actually displaying the data, but we do also want to store the data matrix. This is a common case for supplementary material in publications. To assess this, one can set `return_data_matrix = TRUE`, which will output a list containing both the plot and the data matrix (long and wide format). This does also work when several features are queried at the same time. Both for `position = "fill"` and `position = "stack"` the output will be the same, the total counts.

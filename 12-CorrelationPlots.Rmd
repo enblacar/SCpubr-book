@@ -40,15 +40,3 @@ p <- SCpubr::do_CorrelationPlot(sample = sample,
                                 cell_size = 7)
 p
 ```
-
-## Changing the color scale
-
-Color scale can be modified using `colors.use` parameter.
-
-```{r, fig.cap="SCpubr::do_CorrelationPlot with rotated axis labels and modified color scale.", fig.width=5, fig.height=5}
-# Modified color scale.
-p <- SCpubr::do_CorrelationPlot(sample = sample,
-                                column_names_rot = 0,
-                                colors.use = c("red", "blue"))
-p
-```

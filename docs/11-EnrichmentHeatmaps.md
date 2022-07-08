@@ -145,26 +145,4 @@ p
 <p class="caption">(\#fig:unnamed-chunk-8)SCpubr::do_EnrichmentHeatmap transposed matrix using split.by changing the tile size.</p>
 </div>
 
-## Changing the color scale.
-
-If one wants to change the color scale of the heatmap, this can be accomplished by providing a two-color vector to `colors.use`. 
-
-
-```r
-# Modifying the color scale.
-p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
-                                  list_genes = genes,
-                                  transpose = TRUE,
-                                  column_names_rot = 0,
-                                  cluster_cols = F,
-                                  cluster_rows = T,
-                                  split.by = "custom_group",
-                                  colors.use = c("red", "blue"))
-p
-```
-
-<div class="figure" style="text-align: center">
-<img src="11-EnrichmentHeatmaps_files/figure-html/unnamed-chunk-9-1.png" alt="SCpubr::do_EnrichmentHeatmap transposed matrix using split.by changing the color scale." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-9)SCpubr::do_EnrichmentHeatmap transposed matrix using split.by changing the color scale.</p>
-</div>
 

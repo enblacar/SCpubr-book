@@ -1230,12 +1230,16 @@ genes <- c("IL7R", "CCR7", "CD14", "LYZ",
 
 p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
                                   list_genes = genes,
-                                  transpose = T) 
+                                  transpose = T,
+                                  row_names_rot = 90) 
      
 p
 ```
 
-<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-54-1.png" width="100%" height="100%" style="display: block; margin: auto;" />
+<div class="figure" style="text-align: center">
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-54-1.png" alt="SCpubr::do_EnrichmentHeatmap with modified colors" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-54)SCpubr::do_EnrichmentHeatmap with modified colors</p>
+</div>
 
 
 
@@ -1249,6 +1253,7 @@ colors <- c("#006d77", "#e29578")
 p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
                                   list_genes = genes,
                                   transpose = T,
+                                  row_names_rot = 90,
                                   colors.use = colors) 
      
 p
@@ -1266,7 +1271,10 @@ p <- SCpubr::do_CorrelationPlot(sample = sample,
 p
 ```
 
-<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-56-1.png" width="100%" height="100%" style="display: block; margin: auto;" />
+<div class="figure" style="text-align: center">
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-56-1.png" alt="SCpubr::do_CorrelationPlot with normal colors" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-56)SCpubr::do_CorrelationPlot with normal colors</p>
+</div>
 
 
 ```r

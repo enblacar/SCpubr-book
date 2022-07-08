@@ -62,21 +62,3 @@ p
 <img src="12-CorrelationPlots_files/figure-html/unnamed-chunk-5-1.png" alt="SCpubr::do_CorrelationPlot with rotated axis labels." width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-5)SCpubr::do_CorrelationPlot with rotated axis labels.</p>
 </div>
-
-## Changing the color scale
-
-Color scale can be modified using `colors.use` parameter.
-
-
-```r
-# Modified color scale.
-p <- SCpubr::do_CorrelationPlot(sample = sample,
-                                column_names_rot = 0,
-                                colors.use = c("red", "blue"))
-p
-```
-
-<div class="figure" style="text-align: center">
-<img src="12-CorrelationPlots_files/figure-html/unnamed-chunk-6-1.png" alt="SCpubr::do_CorrelationPlot with rotated axis labels and modified color scale." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-6)SCpubr::do_CorrelationPlot with rotated axis labels and modified color scale.</p>
-</div>

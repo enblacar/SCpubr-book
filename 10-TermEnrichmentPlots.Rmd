@@ -64,33 +64,18 @@ p
 ```
 In the same way, one can further enhance the limit in order to have each term in just one row.
 
+## Increase the font size of the labels
 
-## Modify colors
-
-Finally, one can always modify the current color scheme with `colors.use`, providing two HEX codes for the two ends of the color gradient.
-
-```{r, fig.cap="SCpubr do_TermEnrichmentPlot with modified colors", fig.width=15, fig.height=15}
-# Genes related to breast cancer.
-genes <- c("ABCB1", "ABCG2", "AHR", "AKT1", "AR")
-p <- SCpubr::do_TermEnrichmentPlot(genes = genes,
-                                   dbs_use = "GO_Biological_Process_2021",
-                                   colors.use = c("#e9d8a6", "#9b2226"))
-
-p
-```
-
-If you want to increase the font size, one can always achieve it by using `text_labels_size` parameter:
+If you want to increase the font size of the labels - this is, anything that is not part of the legend or the titles, use `text_labels_size` parameter:
 
 ```{r, fig.cap="SCpubr do_TermEnrichmentPlot with modified fontsize", fig.width=30, fig.height=15}
 # Genes related to breast cancer.
 genes <- c("ABCB1", "ABCG2", "AHR", "AKT1", "AR")
 p1 <- SCpubr::do_TermEnrichmentPlot(genes = genes,
-                                   dbs_use = "GO_Biological_Process_2021",
-                                   colors.use = c("#e9d8a6", "#9b2226"))
+                                   dbs_use = "GO_Biological_Process_2021")
 p2 <- SCpubr::do_TermEnrichmentPlot(genes = genes,
                                    text_labels_size = 6,
-                                   dbs_use = "GO_Biological_Process_2021",
-                                   colors.use = c("#e9d8a6", "#9b2226"))
+                                   dbs_use = "GO_Biological_Process_2021")
 
 p <- p1 | p2
 p

@@ -83,46 +83,25 @@ p
 </div>
 In the same way, one can further enhance the limit in order to have each term in just one row.
 
+## Increase the font size of the labels
 
-## Modify colors
-
-Finally, one can always modify the current color scheme with `colors.use`, providing two HEX codes for the two ends of the color gradient.
-
-
-```r
-# Genes related to breast cancer.
-genes <- c("ABCB1", "ABCG2", "AHR", "AKT1", "AR")
-p <- SCpubr::do_TermEnrichmentPlot(genes = genes,
-                                   dbs_use = "GO_Biological_Process_2021",
-                                   colors.use = c("#e9d8a6", "#9b2226"))
-
-p
-```
-
-<div class="figure" style="text-align: center">
-<img src="10-TermEnrichmentPlots_files/figure-html/unnamed-chunk-5-1.png" alt="SCpubr do_TermEnrichmentPlot with modified colors" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-5)SCpubr do_TermEnrichmentPlot with modified colors</p>
-</div>
-
-If you want to increase the font size, one can always achieve it by using `text_labels_size` parameter:
+If you want to increase the font size of the labels - this is, anything that is not part of the legend or the titles, use `text_labels_size` parameter:
 
 
 ```r
 # Genes related to breast cancer.
 genes <- c("ABCB1", "ABCG2", "AHR", "AKT1", "AR")
 p1 <- SCpubr::do_TermEnrichmentPlot(genes = genes,
-                                   dbs_use = "GO_Biological_Process_2021",
-                                   colors.use = c("#e9d8a6", "#9b2226"))
+                                   dbs_use = "GO_Biological_Process_2021")
 p2 <- SCpubr::do_TermEnrichmentPlot(genes = genes,
                                    text_labels_size = 6,
-                                   dbs_use = "GO_Biological_Process_2021",
-                                   colors.use = c("#e9d8a6", "#9b2226"))
+                                   dbs_use = "GO_Biological_Process_2021")
 
 p <- p1 | p2
 p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="10-TermEnrichmentPlots_files/figure-html/unnamed-chunk-6-1.png" alt="SCpubr do_TermEnrichmentPlot with modified fontsize" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-6)SCpubr do_TermEnrichmentPlot with modified fontsize</p>
+<img src="10-TermEnrichmentPlots_files/figure-html/unnamed-chunk-5-1.png" alt="SCpubr do_TermEnrichmentPlot with modified fontsize" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-5)SCpubr do_TermEnrichmentPlot with modified fontsize</p>
 </div>

@@ -213,27 +213,6 @@ p
 ```
 We can see that cluster 5 allways plots on top of cluster 0 when `order` is set. While still not clear how `order` and `shuffle` interact, it is clear that using `order` cancels the original behavior of `shuffle`. Therefore, if both `order` and `shuffle` are set, `SCpubr::do_DimPlot()` will throw a warning.
 
-## Modifying default colors
-If wanted, we can also change the colors of the identities in the DimPlot based on a custom color scheme. For this, a **named vector** containing the names of the identities as names and the HEX codes as values has to be provided to `colors.use`: 
-
-```{r, fig.cap = "SCpubr, modifying default colors in a DimPlot", fig.width=8, fig.height=7}
-# Create a color scale for the unique values in seurat clusters.
-colors <- c("0" = "#001219",
-            "1" = "#005f73",
-            "2" = "#0a9396",
-            "3" = "#94d2bd",
-            "4" = "#e9d8a6",
-            "5" = "#ee9b00",
-            "6" = "#ca6702",
-            "7" = "#bb3e03",
-            "8" = "#ae2012",
-            "9" = "#9b2226")
-
-p <- SCpubr::do_DimPlot(sample = sample, 
-                        colors.use = colors)
-p
-```
-
 
 ## Highlighting cells
 

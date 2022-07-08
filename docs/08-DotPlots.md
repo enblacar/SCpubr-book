@@ -136,23 +136,3 @@ p1 | p2
 <p class="caption">(\#fig:unnamed-chunk-7)SCpubr DotPlot using multiple genes and clustering the identities flipping axes</p>
 </div>
 
-## Modifying default colors
-
-To modify the default colors, a vector of two colors has to be provided to `colors.use`. The two colors will form a gradient.
-
-
-```r
-genes <- c("IL7R", "CCR7", "CD14", "LYZ", 
-           "S100A4", "MS4A1", "CD8A", "FCGR3A", 
-           "MS4A7", "GNLY", "NKG7", "FCER1A", 
-           "CST3", "PPBP")
-p <- SCpubr::do_DotPlot(sample = sample, 
-                        features = genes,
-                        colors.use = c("#001219", "#e9d8a6"))
-p
-```
-
-<div class="figure" style="text-align: center">
-<img src="08-DotPlots_files/figure-html/unnamed-chunk-8-1.png" alt="SCpubr, modifying default colors in a Dot plot" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-8)SCpubr, modifying default colors in a Dot plot</p>
-</div>

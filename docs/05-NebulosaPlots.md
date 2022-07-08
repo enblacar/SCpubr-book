@@ -116,34 +116,3 @@ p
 <p class="caption">(\#fig:unnamed-chunk-8)SCpubr Nebulosa plot with joint density, modifying each individual plot's name</p>
 </div>
 
-## Modify color maps
-Same as in `SCpubr::do_FeaturePlot()`, it is also change the color map of the plot to one of the eight possible ones defined in [viridis](https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html). This is achieved by using `viridis_color_map` parameter and the color map name or code (capital letter). Options are:
-
-- A - magma color map.
-- B - inferno color map.
-- C - plasma color map.
-- D - viridis color map.
-- E - cividis color map.
-- F - rocket color map.
-- G - mako color map.
-- H - turbo  color map.
-
-
-```r
-p1 <- SCpubr::do_NebulosaPlot(sample = sample, features = "CD8A", viridis_color_map = "A", plot.title = "Magma")
-p2 <- SCpubr::do_NebulosaPlot(sample = sample, features = "CD8A", viridis_color_map = "B", plot.title = "Inferno")
-p3 <- SCpubr::do_NebulosaPlot(sample = sample, features = "CD8A", viridis_color_map = "C", plot.title = "Plasma")
-p4 <- SCpubr::do_NebulosaPlot(sample = sample, features = "CD8A", viridis_color_map = "D", plot.title = "Viridis")
-p5 <- SCpubr::do_NebulosaPlot(sample = sample, features = "CD8A", viridis_color_map = "E", plot.title = "Cividis")
-p6 <- SCpubr::do_NebulosaPlot(sample = sample, features = "CD8A", viridis_color_map = "F", plot.title = "Rocket")
-p7 <- SCpubr::do_NebulosaPlot(sample = sample, features = "CD8A", viridis_color_map = "G", plot.title = "Mako")
-p8 <- SCpubr::do_NebulosaPlot(sample = sample, features = "CD8A", viridis_color_map = "H", plot.title = "Turbo")
-
-p <- patchwork::wrap_plots(list(p1, p2, p3, p4, p5, p6, p7, p8), ncol = 2, byrow = TRUE)
-p
-```
-
-<div class="figure" style="text-align: center">
-<img src="05-NebulosaPlots_files/figure-html/unnamed-chunk-9-1.png" alt="SCpubr Nebulosa plot modifying viridis color maps." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-9)SCpubr Nebulosa plot modifying viridis color maps.</p>
-</div>

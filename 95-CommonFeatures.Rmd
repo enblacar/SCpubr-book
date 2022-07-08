@@ -916,7 +916,7 @@ p <- SCpubr::do_TermEnrichmentPlot(genes = c("CD14", "LYN"),
 p
 ```
 
-```{r, fig.width=10, fig.height=5}
+```{r, fig.width=10, fig.height=5, fig.cap="SCpubr::do_EnrichmentHeatmap with modified colors"}
 genes <- c("IL7R", "CCR7", "CD14", "LYZ", 
            "S100A4", "MS4A1", "CD8A", "FCGR3A", 
            "MS4A7", "GNLY", "NKG7", "FCER1A", 
@@ -924,7 +924,8 @@ genes <- c("IL7R", "CCR7", "CD14", "LYZ",
 
 p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
                                   list_genes = genes,
-                                  transpose = T) 
+                                  transpose = T,
+                                  row_names_rot = 90) 
      
 p
 ```
@@ -940,11 +941,12 @@ colors <- c("#006d77", "#e29578")
 p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
                                   list_genes = genes,
                                   transpose = T,
+                                  row_names_rot = 90,
                                   colors.use = colors) 
      
 p
 ```
-```{r, fig.width=7, fig.height=7}
+```{r, fig.width=7, fig.height=7, fig.cap="SCpubr::do_CorrelationPlot with normal colors"}
 p <- SCpubr::do_CorrelationPlot(sample = sample,
                                 column_names_rot = 0)
      
