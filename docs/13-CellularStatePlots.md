@@ -141,3 +141,4 @@ p
 <img src="13-CellularStatePlots_files/figure-html/unnamed-chunk-8-1.png" alt="SCpubr::do_CellularStatesPlot, 4 variables symmetry enforced" width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-8)SCpubr::do_CellularStatesPlot, 4 variables symmetry enforced</p>
 </div>
+

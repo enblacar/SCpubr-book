@@ -76,11 +76,11 @@
 <code class="sourceCode R"><span class="va">counts_path</span> <span class="op">&lt;-</span> <span class="st">"path_to_count_matrix"</span>
 
 <span class="co"># Path count matrix.</span>
-<span class="va">counts</span> <span class="op">&lt;-</span> <span class="fu">Seurat</span><span class="fu">::</span><span class="fu"><a href="https://satijalab.org/seurat/reference/Read10X.html">Read10X</a></span><span class="op">(</span><span class="va">counts_path</span><span class="op">)</span>
+<span class="va">counts</span> <span class="op">&lt;-</span> <span class="fu">Seurat</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/Seurat/man/Read10X.html">Read10X</a></span><span class="op">(</span><span class="va">counts_path</span><span class="op">)</span>
 <span class="co"># Create Seurat object.</span>
 <span class="va">sample</span> <span class="op">&lt;-</span> <span class="fu">Seurat</span><span class="fu">::</span><span class="fu"><a href="https://mojaveazure.github.io/seurat-object/reference/CreateSeuratObject.html">CreateSeuratObject</a></span><span class="op">(</span>counts <span class="op">=</span> <span class="va">counts</span>, project <span class="op">=</span> <span class="st">"10K_pbmc"</span><span class="op">)</span>
 <span class="co"># Compute percentage of mithochondrial RNA.</span>
-<span class="va">sample</span> <span class="op">&lt;-</span> <span class="fu">Seurat</span><span class="fu">::</span><span class="fu"><a href="https://satijalab.org/seurat/reference/PercentageFeatureSet.html">PercentageFeatureSet</a></span><span class="op">(</span><span class="va">sample</span>, pattern <span class="op">=</span> <span class="st">"^MT-"</span>, col.name <span class="op">=</span> <span class="st">"percent.mt"</span><span class="op">)</span>
+<span class="va">sample</span> <span class="op">&lt;-</span> <span class="fu">Seurat</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/Seurat/man/PercentageFeatureSet.html">PercentageFeatureSet</a></span><span class="op">(</span><span class="va">sample</span>, pattern <span class="op">=</span> <span class="st">"^MT-"</span>, col.name <span class="op">=</span> <span class="st">"percent.mt"</span><span class="op">)</span>
 <span class="co"># Compute QC.</span>
 <span class="va">mask1</span> <span class="op">&lt;-</span> <span class="va">sample</span><span class="op">$</span><span class="va">nCount_RNA</span> <span class="op">&gt;=</span> <span class="fl">1000</span>
 <span class="va">mask2</span> <span class="op">&lt;-</span> <span class="va">sample</span><span class="op">$</span><span class="va">nFeature_RNA</span> <span class="op">&gt;=</span> <span class="fl">500</span>
@@ -88,14 +88,14 @@
 <span class="va">mask</span> <span class="op">&lt;-</span> <span class="va">mask1</span> <span class="op">&amp;</span> <span class="va">mask2</span> <span class="op">&amp;</span> <span class="va">mask3</span>
 <span class="va">sample</span> <span class="op">&lt;-</span> <span class="va">sample</span><span class="op">[</span>, <span class="va">mask</span><span class="op">]</span>
 <span class="co"># Normalize.</span>
-<span class="va">sample</span> <span class="op">&lt;-</span> <span class="fu">Seurat</span><span class="fu">::</span><span class="fu"><a href="https://satijalab.org/seurat/reference/SCTransform.html">SCTransform</a></span><span class="op">(</span><span class="va">sample</span><span class="op">)</span>
+<span class="va">sample</span> <span class="op">&lt;-</span> <span class="fu">Seurat</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/Seurat/man/SCTransform.html">SCTransform</a></span><span class="op">(</span><span class="va">sample</span><span class="op">)</span>
 
 <span class="co"># Dimensional reduction.</span>
-<span class="va">sample</span> <span class="op">&lt;-</span> <span class="fu">Seurat</span><span class="fu">::</span><span class="fu"><a href="https://satijalab.org/seurat/reference/RunPCA.html">RunPCA</a></span><span class="op">(</span><span class="va">sample</span><span class="op">)</span>
-<span class="va">sample</span> <span class="op">&lt;-</span> <span class="fu">Seurat</span><span class="fu">::</span><span class="fu"><a href="https://satijalab.org/seurat/reference/RunUMAP.html">RunUMAP</a></span><span class="op">(</span><span class="va">sample</span>, dims <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">30</span><span class="op">)</span>
+<span class="va">sample</span> <span class="op">&lt;-</span> <span class="fu">Seurat</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/Seurat/man/RunPCA.html">RunPCA</a></span><span class="op">(</span><span class="va">sample</span><span class="op">)</span>
+<span class="va">sample</span> <span class="op">&lt;-</span> <span class="fu">Seurat</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/Seurat/man/RunUMAP.html">RunUMAP</a></span><span class="op">(</span><span class="va">sample</span>, dims <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">30</span><span class="op">)</span>
 <span class="co"># Find clusters.</span>
-<span class="va">sample</span> <span class="op">&lt;-</span> <span class="fu">Seurat</span><span class="fu">::</span><span class="fu"><a href="https://satijalab.org/seurat/reference/FindNeighbors.html">FindNeighbors</a></span><span class="op">(</span><span class="va">sample</span>, dims <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">30</span><span class="op">)</span>
-<span class="va">sample</span> <span class="op">&lt;-</span> <span class="fu">Seurat</span><span class="fu">::</span><span class="fu"><a href="https://satijalab.org/seurat/reference/FindClusters.html">FindClusters</a></span><span class="op">(</span><span class="va">sample</span>, resolution <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span></code></pre></div>
+<span class="va">sample</span> <span class="op">&lt;-</span> <span class="fu">Seurat</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/Seurat/man/FindNeighbors.html">FindNeighbors</a></span><span class="op">(</span><span class="va">sample</span>, dims <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">30</span><span class="op">)</span>
+<span class="va">sample</span> <span class="op">&lt;-</span> <span class="fu">Seurat</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/Seurat/man/FindClusters.html">FindClusters</a></span><span class="op">(</span><span class="va">sample</span>, resolution <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span></code></pre></div>
 
 </div>
   <div class="chapter-nav">
@@ -129,7 +129,7 @@
 <!-- Moved the footer outside of the body to make it span all page width. --><footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 08 July, 2022.</p>
+    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 11 July, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

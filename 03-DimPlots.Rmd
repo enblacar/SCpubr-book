@@ -1,124 +1,19 @@
 # Dim plots
 
-DimPlots are, probably, one of the most iconic visualizations from `Seurat`. It allows the user to visualize the cells in a dimensional reduction embedding such as `PCA` or `UMAP`. The cells can be, then, colored by any desired groups. In short, this visualization allows the user to plot **any kind of categorical data** onto the cells in the dimensional reduction embedding. 
-
-## Figure build-up
-In this subsection, we will break down the several modifications that are applied to figures by `SCpubr`. First, let's plot a DimPlot. This is achieved by using `Seurat::DimPlot()` function:
-
 ```{r echo = F}
 sample <- readRDS("/b06x-isilon/b06x-g/G703/eblanco/projects/test_SC_datasets/sc_dataset.rds")
 ```
 
-```{r, fig.cap = "Default DimPlot.", fig.width=8, fig.height=7}
-p <- Seurat::DimPlot(sample)
-p
-```
-
-Overall, this is a pretty neat visualization, but there are quite some changes that one would like to implement. For instance, shuffling the cells so that there is no overlap of cells just due to the cluster names.
-
-```{r, fig.cap = "DimPlot with the cells shuffled.", fig.width=8, fig.height=7}
-p <- Seurat::DimPlot(sample, 
-                     shuffle = T)
-p
-```
-
-Furthermore, one would think about the *need* of the axes. If, by consensus, UMAPs are shown plotting the first UMAP component on the X axis and the second on the Y axis, then showing them becomes redundant, specially when one can not truly rely on the numbers shown by the scales. 
-
-```{r, fig.cap = "DimPlot without axes.", fig.width=8, fig.height=7}
-p <- Seurat::DimPlot(sample, 
-                     shuffle = T) + 
-     Seurat::NoAxes()
-p
-```
-
-Right now, we can observe a couple of things. First, is that the dot size is rather small. Let's set it to 0.5.
-
-```{r, fig.cap = "DimPlot with increased dot size.", fig.width=8, fig.height=7}
-p <- Seurat::DimPlot(sample, 
-                     shuffle = T, 
-                     pt.size = 0.5) + 
-     Seurat::NoAxes()
-p
-```
-
-Still, the legend seems rather small. Let's increase it's font size and set it to bold so that it can better read.
-
-```{r, fig.cap = "DimPlot with increased font size.", fig.width=8, fig.height=7}
-p <- Seurat::DimPlot(sample, 
-                     shuffle = T, 
-                     pt.size = 0.5) + 
-    Seurat::NoAxes() +
-    ggplot2::theme(legend.text = ggplot2::element_text(size = 12, 
-                                                       face = "bold"),
-                   legend.title = ggplot2::element_text(size = 12, 
-                                                        face = "bold"))
-p
-```
-
-We would also like to add a title to our plot, to best describe it.
-
-```{r, fig.cap = "DimPlot with title.", fig.width=8, fig.height=7}
-p <- Seurat::DimPlot(sample, 
-                     shuffle = T, 
-                     pt.size = 0.5) + 
-     Seurat::NoAxes() +
-     ggplot2::ggtitle("My awesome SC dataset") +
-     ggplot2::theme(legend.text = ggplot2::element_text(size = 12, 
-                                                        face = "bold"),
-                    legend.title = ggplot2::element_text(size = 12, 
-                                                         face = "bold"))
-p
-```
-
-And, naturally, we would like to increase the font size of the title and put it in bold and centered.
-
-```{r, fig.cap = "DimPlot with bigger and bold title.", fig.width=8, fig.height=7}
-p <- Seurat::DimPlot(sample, 
-                     shuffle = T, 
-                     pt.size = 0.5) + 
-     Seurat::NoAxes() +
-     ggplot2::ggtitle("My awesome SC dataset") +
-     ggplot2::theme(plot.title = ggplot2::element_text(size = 16, 
-                                                       face = "bold", 
-                                                       hjust = 0.5),
-                    legend.text = ggplot2::element_text(size = 12, 
-                                                        face = "bold"),
-                    legend.title = ggplot2::element_text(size = 12, 
-                                                         face = "bold"))
-p
-```
-
-Now, we would like to modify the color palette. This palette has too bright colors, and we want something more toned down.
-
-```{r, fig.cap = "DimPlot with custom color scale.", fig.width=8, fig.height=7}
-num_clusters <- length(unique(sample$seurat_clusters))
-color_scale <- colorspace::qualitative_hcl(num_clusters, palette = "Dark 3")
-names(color_scale) <- sort(unique(sample$seurat_clusters))
-
-p <- Seurat::DimPlot(sample, 
-                     shuffle = T, 
-                     pt.size = 0.5, 
-                     cols = color_scale) + 
-     Seurat::NoAxes() +
-     ggplot2::ggtitle("My awesome SC dataset") +
-     ggplot2::theme(plot.title = ggplot2::element_text(size = 16, 
-                                                       face = "bold", 
-                                                       hjust = 0.5),
-                    legend.text = ggplot2::element_text(size = 12, 
-                                                        face = "bold"),
-                    legend.title = ggplot2::element_text(size = 12, 
-                                                         face = "bold"))
-p
-```
-
-As of now, this plot looks much better and polished than the default counterpart. This, is the setting ground for `SCpubr::do_DimPlot()`. 
+Dimensional reduction Plots (**DimPlots**) are, probably, one of the most iconic visualizations from `Seurat`. It allows the user to visualize the cells in a dimensional reduction embedding such as `PCA` or `UMAP`. The cells can be, then, colored by any desired groups. In short, this visualization allows the user to plot **any kind of categorical data** onto the cells in the dimensional reduction embedding. 
 
 ## Basic usage
 
-This is the default output from `SCpubr::do_DimPlot()`. 
+This is SCpubr's take on `Seurat::DimPlot()`. 
 
-```{r, fig.cap = "SCpubr DimPlot.", fig.width=8, fig.height=7}
-p <- SCpubr::do_DimPlot(sample = sample)
+```{r, fig.cap = "SCpubr DimPlot vs Seurat DimPlot.", fig.width=16, fig.height=7}
+p1 <- Seurat::DimPlot(sample)
+p2 <- SCpubr::do_DimPlot(sample = sample)
+p <- p1 | p2
 p
 ```
 

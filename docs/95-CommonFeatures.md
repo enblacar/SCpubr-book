@@ -1290,3 +1290,240 @@ p
 <img src="95-CommonFeatures_files/figure-html/unnamed-chunk-57-1.png" alt="SCpubr::do_CorrelationPlot with modified colors" width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-57)SCpubr::do_CorrelationPlot with modified colors</p>
 </div>
+
+
+### Plotting marginal distributions.
+In any **scatter plot**, it is possible to draw marginal distributions on top and bottom displaying the distribution of the dots alongside both X and Y axis. This is achieved thanks to [ggExtra package](https://www.rdocumentation.org/packages/ggExtra/versions/0.10.0). This is applicable to any plot with categorical values, such as `SCpubr::do_DimPlot()` and `SCpubr::do_CellularStatesPlot()`. 
+
+One can trigger this behavior by using `plot_marginal_distributions = TRUE`: 
+
+
+```r
+genes <- list("A" = Seurat::VariableFeatures(sample)[1:5],
+              "B" = Seurat::VariableFeatures(sample)[6:10],
+              "C" = Seurat::VariableFeatures(sample)[11:15],
+              "D" = Seurat::VariableFeatures(sample)[16:20])
+
+p1 <- SCpubr::do_DimPlot(sample = sample,
+                         plot_marginal_distributions = TRUE,
+                         legend.position = "bottom")
+
+p2 <- SCpubr:::do_CellularStatesPlot(sample = sample,
+                                     gene_list = genes,
+                                     x1 = "A",
+                                     y1 = "B",
+                                     x2 = "C",
+                                     y2 = "D",
+                                     enforce_simmetry = T,
+                                     legend.position = "bottom",
+                                     plot_marginal_distributions = TRUE)
+
+p <- p1 | p2
+p
+```
+
+<div class="figure" style="text-align: center">
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-58-1.png" alt="Plotting marginal plots" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-58)Plotting marginal plots</p>
+</div>
+
+One can remove the grouping and plot only the overall density of the dots with `marginal.group = FALSE`:
+
+
+```r
+genes <- list("A" = Seurat::VariableFeatures(sample)[1:5],
+              "B" = Seurat::VariableFeatures(sample)[6:10],
+              "C" = Seurat::VariableFeatures(sample)[11:15],
+              "D" = Seurat::VariableFeatures(sample)[16:20])
+
+p1 <- SCpubr::do_DimPlot(sample = sample,
+                         plot_marginal_distributions = TRUE,
+                         legend.position = "bottom",
+                         marginal.group = FALSE)
+
+p2 <- SCpubr:::do_CellularStatesPlot(sample = sample,
+                                     gene_list = genes,
+                                     x1 = "A",
+                                     y1 = "B",
+                                     x2 = "C",
+                                     y2 = "D",
+                                     enforce_simmetry = T,
+                                     legend.position = "bottom",
+                                     plot_marginal_distributions = TRUE,
+                                     marginal.group = FALSE)
+
+p <- p1 | p2
+p
+```
+
+<div class="figure" style="text-align: center">
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-59-1.png" alt="Plotting marginal plots without grouping" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-59)Plotting marginal plots without grouping</p>
+</div>
+
+You can increase the relative ratio between the main plots and the the marginal plots with `marginal.size`. A value of 1 means an equal size between main and marginal plots. A value of 5 means half the size of the marginal plot versus the main plots.:
+
+
+```r
+genes <- list("A" = Seurat::VariableFeatures(sample)[1:5],
+              "B" = Seurat::VariableFeatures(sample)[6:10],
+              "C" = Seurat::VariableFeatures(sample)[11:15],
+              "D" = Seurat::VariableFeatures(sample)[16:20])
+
+p1 <- SCpubr::do_DimPlot(sample = sample,
+                         plot_marginal_distributions = TRUE,
+                         legend.position = "bottom",
+                         marginal.size = 1)
+
+p2 <- SCpubr:::do_CellularStatesPlot(sample = sample,
+                                     gene_list = genes,
+                                     x1 = "A",
+                                     y1 = "B",
+                                     x2 = "C",
+                                     y2 = "D",
+                                     enforce_simmetry = T,
+                                     legend.position = "bottom",
+                                     plot_marginal_distributions = TRUE,
+                                     marginal.size = 1)
+
+p <- p1 | p2
+p
+```
+
+<div class="figure" style="text-align: center">
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-60-1.png" alt="Plotting marginal plots with modified ratio" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-60)Plotting marginal plots with modified ratio</p>
+</div>
+Finally, one can also choose the type of distribution being displayed with `marginal.type`. This can be one of "density", "boxplot", "violin", "histogram" and "densigram".
+
+
+```r
+genes <- list("A" = Seurat::VariableFeatures(sample)[1:5],
+              "B" = Seurat::VariableFeatures(sample)[6:10],
+              "C" = Seurat::VariableFeatures(sample)[11:15],
+              "D" = Seurat::VariableFeatures(sample)[16:20])
+
+p1 <- SCpubr::do_DimPlot(sample = sample,
+                         plot_marginal_distributions = TRUE,
+                         legend.position = "bottom",
+                         marginal.type = "histogram")
+
+p2 <- SCpubr:::do_CellularStatesPlot(sample = sample,
+                                     gene_list = genes,
+                                     x1 = "A",
+                                     y1 = "B",
+                                     x2 = "C",
+                                     y2 = "D",
+                                     enforce_simmetry = T,
+                                     legend.position = "bottom",
+                                     plot_marginal_distributions = TRUE,
+                                     marginal.type = "histogram")
+
+p <- p1 | p2
+p
+```
+
+<div class="figure" style="text-align: center">
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-61-1.png" alt="Plotting marginal plots with modified distributions - histogram" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-61)Plotting marginal plots with modified distributions - histogram</p>
+</div>
+Marginal violin plots might require to tweak the size ratio of the marginal plots.
+
+```r
+genes <- list("A" = Seurat::VariableFeatures(sample)[1:5],
+              "B" = Seurat::VariableFeatures(sample)[6:10],
+              "C" = Seurat::VariableFeatures(sample)[11:15],
+              "D" = Seurat::VariableFeatures(sample)[16:20])
+
+p1 <- SCpubr::do_DimPlot(sample = sample,
+                         plot_marginal_distributions = TRUE,
+                         legend.position = "bottom",
+                         marginal.type = "violin",
+                         marginal.size = 2)
+
+p2 <- SCpubr:::do_CellularStatesPlot(sample = sample,
+                                     gene_list = genes,
+                                     x1 = "A",
+                                     y1 = "B",
+                                     x2 = "C",
+                                     y2 = "D",
+                                     enforce_simmetry = T,
+                                     legend.position = "bottom",
+                                     plot_marginal_distributions = TRUE,
+                                     marginal.type = "violin",
+                                     marginal.size = 2)
+
+p <- p1 | p2
+p
+```
+
+<div class="figure" style="text-align: center">
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-62-1.png" alt="Plotting marginal plots with modified distributions - violin" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-62)Plotting marginal plots with modified distributions - violin</p>
+</div>
+
+
+```r
+genes <- list("A" = Seurat::VariableFeatures(sample)[1:5],
+              "B" = Seurat::VariableFeatures(sample)[6:10],
+              "C" = Seurat::VariableFeatures(sample)[11:15],
+              "D" = Seurat::VariableFeatures(sample)[16:20])
+
+p1 <- SCpubr::do_DimPlot(sample = sample,
+                         plot_marginal_distributions = TRUE,
+                         legend.position = "bottom",
+                         marginal.type = "boxplot",
+                         marginal.size = 2)
+
+p2 <- SCpubr:::do_CellularStatesPlot(sample = sample,
+                                     gene_list = genes,
+                                     x1 = "A",
+                                     y1 = "B",
+                                     x2 = "C",
+                                     y2 = "D",
+                                     enforce_simmetry = T,
+                                     legend.position = "bottom",
+                                     plot_marginal_distributions = TRUE,
+                                     marginal.type = "boxplot",
+                                     marginal.size = 2)
+
+p <- p1 | p2
+p
+```
+
+<div class="figure" style="text-align: center">
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-63-1.png" alt="Plotting marginal plots with modified distributions - boxplot" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-63)Plotting marginal plots with modified distributions - boxplot</p>
+</div>
+
+
+```r
+genes <- list("A" = Seurat::VariableFeatures(sample)[1:5],
+              "B" = Seurat::VariableFeatures(sample)[6:10],
+              "C" = Seurat::VariableFeatures(sample)[11:15],
+              "D" = Seurat::VariableFeatures(sample)[16:20])
+
+p1 <- SCpubr::do_DimPlot(sample = sample,
+                         plot_marginal_distributions = TRUE,
+                         legend.position = "bottom",
+                         marginal.type = "densigram")
+
+p2 <- SCpubr:::do_CellularStatesPlot(sample = sample,
+                                     gene_list = genes,
+                                     x1 = "A",
+                                     y1 = "B",
+                                     x2 = "C",
+                                     y2 = "D",
+                                     enforce_simmetry = T,
+                                     legend.position = "bottom",
+                                     plot_marginal_distributions = TRUE,
+                                     marginal.type = "densigram")
+
+p <- p1 | p2
+p
+```
+
+<div class="figure" style="text-align: center">
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-64-1.png" alt="Plotting marginal plots with modified distributions - densigram" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-64)Plotting marginal plots with modified distributions - densigram</p>
+</div>

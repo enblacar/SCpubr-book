@@ -72,8 +72,8 @@
 <h1>
 <span class="header-section-number">11</span> Cellular State Plots<a class="anchor" aria-label="anchor" href="#cellular-state-plots"><i class="fas fa-link"></i></a>
 </h1>
-<p>These plots are, on their bare basis, scatter plots. As of today, I am not completely sure if this is the correct name for the plot, but I will follow the name provided to such plot in <a href="https://pubmed.ncbi.nlm.nih.gov/31327527/">Neftel, et al, 2019</a>. The core concept of the function computing these plots, <code><a href="https://rdrr.io/pkg/SCpubr/man/do_CellularStatesPlot.html">SCpubr::do_CellularStatesPlot()</a></code> is that you only need a Seurat object and a <em>named list of gene signatures</em>. With this, the function will compute enrichment scores using <code><a href="https://satijalab.org/seurat/reference/AddModuleScore.html">Seurat::AddModuleScore()</a></code> and store them as metadata in the object, that will be use for the plotting later on. That is why, alongside the list of gene signatures, the user needs to provide the names of the lists to be plotted as arguments.</p>
-<div class="sourceCode" id="cb105"><pre class="downlit sourceCode r">
+<p>These plots are, on their bare basis, scatter plots. As of today, I am not completely sure if this is the correct name for the plot, but I will follow the name provided to such plot in <a href="https://pubmed.ncbi.nlm.nih.gov/31327527/">Neftel, et al, 2019</a>. The core concept of the function computing these plots, <code><a href="https://rdrr.io/pkg/SCpubr/man/do_CellularStatesPlot.html">SCpubr::do_CellularStatesPlot()</a></code> is that you only need a Seurat object and a <em>named list of gene signatures</em>. With this, the function will compute enrichment scores using <code><a href="https://rdrr.io/pkg/Seurat/man/AddModuleScore.html">Seurat::AddModuleScore()</a></code> and store them as metadata in the object, that will be use for the plotting later on. That is why, alongside the list of gene signatures, the user needs to provide the names of the lists to be plotted as arguments.</p>
+<div class="sourceCode" id="cb95"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">gene_set</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="st">"A"</span> <span class="op">=</span> <span class="fu">Seurat</span><span class="fu">::</span><span class="fu"><a href="https://mojaveazure.github.io/seurat-object/reference/VariableFeatures.html">VariableFeatures</a></span><span class="op">(</span><span class="va">sample</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">]</span>,
                  <span class="st">"B"</span> <span class="op">=</span> <span class="fu">Seurat</span><span class="fu">::</span><span class="fu"><a href="https://mojaveazure.github.io/seurat-object/reference/VariableFeatures.html">VariableFeatures</a></span><span class="op">(</span><span class="va">sample</span><span class="op">)</span><span class="op">[</span><span class="fl">11</span><span class="op">:</span><span class="fl">20</span><span class="op">]</span>,
                  <span class="st">"C"</span> <span class="op">=</span> <span class="fu">Seurat</span><span class="fu">::</span><span class="fu"><a href="https://mojaveazure.github.io/seurat-object/reference/VariableFeatures.html">VariableFeatures</a></span><span class="op">(</span><span class="va">sample</span><span class="op">)</span><span class="op">[</span><span class="fl">21</span><span class="op">:</span><span class="fl">30</span><span class="op">]</span>,
@@ -86,7 +86,7 @@
 <p>This is the easiest case. For this, the user needs to provide the name of <em>two gene signatures</em> present in the list of genes provided to <code>gene_list</code> parameter:
 - <code>x1</code>: The enrichment scores computed for this list will be displayed on the X axis.
 - <code>y1</code>: The enrichment scores computed for this list will be displayed on the Y axis.</p>
-<div class="sourceCode" id="cb106"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb96"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_CellularStatesPlot.html">do_CellularStatesPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,
                                    gene_list <span class="op">=</span> <span class="va">gene_set</span>,
                                    x1 <span class="op">=</span> <span class="st">"A"</span>,
@@ -99,7 +99,7 @@ Figure 1.2: SCpubr::do_CellularStatesPlot, 2 variables
 </p>
 </div>
 <p>This way, we can see how much effect gene set A has with regards to gene set B. One can further enforce some simmetry in the plot with <code>enforce_symmetry = TRUE</code>. Also, title, subtitle and caption can be provided with <code>plot.title</code>, <code>plot.subtitle</code> and <code>plot.caption</code> parameter.</p>
-<div class="sourceCode" id="cb107"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb97"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_CellularStatesPlot.html">do_CellularStatesPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,
                                    gene_list <span class="op">=</span> <span class="va">gene_set</span>,
                                    x1 <span class="op">=</span> <span class="st">"A"</span>,
@@ -121,9 +121,9 @@ Figure 1.3: SCpubr::do_CellularStatesPlot, 2 variables symmetry enforced
 <span class="header-section-number">11.2</span> 3 variables<a class="anchor" aria-label="anchor" href="#variables"><i class="fas fa-link"></i></a>
 </h2>
 <p><span class="border-0"><img src="images/3_variables.png" class="mx-auto d-block" alt="" style="box-shadow: none; width: 100%"></span></p>
-<p>This plot is retrieved from <a href="https://www.nature.com/articles/nature20123">Tirosh, et al, 2016</a> and plot requires the user to provide three gene sets, for which enrichment scores are computed using <code><a href="https://satijalab.org/seurat/reference/AddModuleScore.html">Seurat::AddModuleScore</a></code>. For the X axis, two gene sets are assigned to it. Cells will be placed towards the right if they are enriched in <code>x1</code> and towards the left if they are enriched in <code>x2</code>. This is decided by, first, retrieving the enrichment scores for both lists and keeping the highest out of the two. The score will turn positive or negative depending on the gene list for which the highest enrichment score belonged to: positive for <code>x1</code> and negative for <code>x2</code>. For the Y axis. one gene set is provided. The value for the Y axis is computed by subtracting to the enrichment scores for <code>y1</code> the value for the X axis.</p>
+<p>This plot is retrieved from <a href="https://www.nature.com/articles/nature20123">Tirosh, et al, 2016</a> and plot requires the user to provide three gene sets, for which enrichment scores are computed using <code><a href="https://rdrr.io/pkg/Seurat/man/AddModuleScore.html">Seurat::AddModuleScore</a></code>. For the X axis, two gene sets are assigned to it. Cells will be placed towards the right if they are enriched in <code>x1</code> and towards the left if they are enriched in <code>x2</code>. This is decided by, first, retrieving the enrichment scores for both lists and keeping the highest out of the two. The score will turn positive or negative depending on the gene list for which the highest enrichment score belonged to: positive for <code>x1</code> and negative for <code>x2</code>. For the Y axis. one gene set is provided. The value for the Y axis is computed by subtracting to the enrichment scores for <code>y1</code> the value for the X axis.</p>
 <p>This plot makes a lot of sense, as showcased by <a href="https://www.nature.com/articles/nature20123">Tirosh, et al, 2016</a>, when the Y axis shows a differentiation trajectory. This is, it contains enrichment scores for <em>stemness</em> genes. Therefore, the lower on the Y axis, the less stem a given cell is. On the X axis, cells will order depending on whether they are enriched more in <code>x1</code> or <code>x2</code>. the more extreme the value on the X axis, the more differentiated towards the given list of genes the cell will be.</p>
-<div class="sourceCode" id="cb108"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb98"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_CellularStatesPlot.html">do_CellularStatesPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,
                                    gene_list <span class="op">=</span> <span class="va">gene_set</span>,
                                    x1 <span class="op">=</span> <span class="st">"A"</span>,
@@ -137,7 +137,7 @@ Figure 1.4: SCpubr::do_CellularStatesPlot, 3 variables
 </p>
 </div>
 <p>If <code>enforce_symmetry</code> is set to true, the X axis will have 0 as middle point.</p>
-<div class="sourceCode" id="cb109"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb99"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_CellularStatesPlot.html">do_CellularStatesPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,
                                    gene_list <span class="op">=</span> <span class="va">gene_set</span>,
                                    x1 <span class="op">=</span> <span class="st">"A"</span>,
@@ -164,7 +164,7 @@ Figure 1.5: SCpubr::do_CellularStatesPlot, 3 variables symmetry enforced
 <p>This is achieved by assuming:
 - <code>x1</code> and <code>x2</code> are connected, so are <code>y1</code> and <code>y2</code>. The first step will be to decide which the highest score out of <code>x1</code>-<code>x2</code> and <code>y1</code>-<code>y2</code>, which will locate the cells either on the upper or lower half (Y axis).
 - Then, for the X axis, and depending on whether the score for the Y axis is positive or negative, the values will be computed as the log2 logarithm of the absolute of the difference in enrichment scores plus 1: <code>log2(abs((x1 or y1) - (x2 or y2)) + 1)</code>. The resulting value will be positive or negative depending on whether the score for <code>x1</code> or <code>y1</code> is higher or lower than the score for <code>x2</code> or <code>y2</code>.</p>
-<div class="sourceCode" id="cb110"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb100"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_CellularStatesPlot.html">do_CellularStatesPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,
                                    gene_list <span class="op">=</span> <span class="va">gene_set</span>,
                                    x1 <span class="op">=</span> <span class="st">"A"</span>,
@@ -179,7 +179,7 @@ Figure 1.6: SCpubr::do_CellularStatesPlot, 4 variables
 </p>
 </div>
 <p>If <code>enforce_symmetry</code> is set to true, then the plot is completely squared.</p>
-<div class="sourceCode" id="cb111"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb101"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_CellularStatesPlot.html">do_CellularStatesPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,
                                    gene_list <span class="op">=</span> <span class="va">gene_set</span>,
                                    x1 <span class="op">=</span> <span class="st">"A"</span>,
@@ -233,7 +233,7 @@ Figure 1.7: SCpubr::do_CellularStatesPlot, 4 variables symmetry enforced
 <!-- Moved the footer outside of the body to make it span all page width. --><footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 08 July, 2022.</p>
+    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 11 July, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

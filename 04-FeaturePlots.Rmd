@@ -1,5 +1,5 @@
 # Feature plots 
-Another broadly used function in `Seurat` is `Seurat::FeaturePlot()`. It is basically the counterpart of `Seurat::DimPlot()` which instead of coloring the cells based on a categorical color scale, it uses a continuous one, according to a variable provided by the user. This can range from gene expression, to metadata variables such as the number of genes, or even values such as PC_1. This is how it looks, plotting the number of UMIs:
+Another broadly used function in `Seurat` is `Seurat::FeaturePlot()`. It is basically the counterpart of `Seurat::DimPlot()` which instead of coloring the cells based on a categorical color scale, it uses a continuous one, according to a variable provided by the user. This can range from gene expression, to metadata variables such as the number of genes, or even values such as PC_1. 
 
 
 
@@ -8,31 +8,18 @@ sample <- readRDS("/b06x-isilon/b06x-g/G703/eblanco/projects/test_SC_datasets/sc
 ```
 
 ## Basic usage
-```{r, fig.cap= "Seurat FeaturePlot", fig.width=8, fig.height=7}
-p <- Seurat::FeaturePlot(sample, 
-                         features = "nCount_RNA")
-p
-```
-First thing that stands out, it that the color scale could be changed to one with two very opposite ends, so that identifying regions with low and high UMIs become an easier task. Apart from that, we want apply the same treatment as in `SCpubr::do_DimPlot()`: 
 
-```{r, fig.cap= "Seurat FeaturePlot, with new color scale and general modifications", fig.width=8, fig.height=7}
-p <- Seurat::FeaturePlot(sample, 
-                         features = "nCount_RNA") + 
-     Seurat::NoAxes() + 
-     viridis::scale_color_viridis()
+This is SCpubr's take on `Seurat::FeaturePlot()`:
+```{r, fig.cap= "SCpubr do_FeaturePlot vs Seurat FeaturePlot", fig.width=14, fig.height=8}
+p1 <- Seurat::FeaturePlot(sample, 
+                          features = "PC_1")
+p2 <- SCpubr::do_FeaturePlot(sample = sample,
+                             features = "PC_1")
+p <- p1 | p2
 p
 ```
 
-This way, we can observe that most of the clusters have a really similar number of UMIs, despite selected ones which have up to 4 times more. These could very well be doublets. This is `SCpubr::do_FeaturePlot()` variation:
-
-```{r, fig.cap = "SCpubr FeaturePlot, with minor modifications", fig.width=7, fig.height=8}
-p <- SCpubr::do_FeaturePlot(sample = sample, 
-                            features = "nCount_RNA", 
-                            plot.title = "Number of UMIs")
-p
-```
-
-By default, `SCpubr` enlarges the dots a bit and makes the legend bold, to better stand out. Even though axes are removed from UMAP reductions, the title for the axes is kept for any other reduction used. The same is applied for UMAP if the default dimension order is altered.
+By default, `SCpubr::do_FeaturePlot()` enlarges the dots a bit and makes the legend bold, to better stand out. Even though axes are removed from UMAP reductions, the title for the axes is kept for any other reduction used. The same is applied for UMAP if the default dimension order is altered.
 
 ```{r, fig.cap = "SCpubr Feature with PCA embedding showing axes titles.", fig.width=14, fig.height=8}
 p1 <- SCpubr::do_FeaturePlot(sample = sample, 
