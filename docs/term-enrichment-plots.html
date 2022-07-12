@@ -80,7 +80,7 @@
 - YeastEnrichr.
 - FishEnrichr.</p>
 <p>Then, we also need to specify the databases to query against. The complete list of databases can be consulted using:</p>
-<div class="sourceCode" id="cb79"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">dbs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sort.html">sort</a></span><span class="op">(</span><span class="fu">enrichR</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/enrichR/man/listEnrichrDbs.html">listEnrichrDbs</a></span><span class="op">(</span><span class="op">)</span><span class="op">[</span>, <span class="st">'libraryName'</span><span class="op">]</span><span class="op">)</span></code></pre></div>
 <p>The databases to use need to be provided as a character vector to <code>dbs_use</code> parameter. However, one can also provide one of the following pre-defined options:</p>
 <ul>
@@ -89,7 +89,7 @@
 <li>“C”: Performs a query for the functional terms (MsigDB, GO-BP, GO-MF and KEGG).</li>
 </ul>
 <p>Any of the previous option will return a list of plots. The plots can, then, be assembled together.</p>
-<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb79"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Genes related to breast cancer.</span>
 <span class="va">genes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ABCB1"</span>, <span class="st">"ABCG2"</span>, <span class="st">"AHR"</span>, <span class="st">"AKT1"</span>, <span class="st">"AR"</span><span class="op">)</span>
 <span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_TermEnrichmentPlot.html">do_TermEnrichmentPlot</a></span><span class="op">(</span>genes <span class="op">=</span> <span class="va">genes</span>,
@@ -106,7 +106,7 @@ Figure 1.1: SCpubr do_TermEnrichmentPlot use case.
 <span class="header-section-number">8.1</span> Modifying the number of terms to retrieve.<a class="anchor" aria-label="anchor" href="#modifying-the-number-of-terms-to-retrieve."><i class="fas fa-link"></i></a>
 </h2>
 <p>Depending on the focus of the analysis, we might want to only focus on one database but retrieve more terms from it. This can be achieved by using <code>nterms</code> parameter.</p>
-<div class="sourceCode" id="cb81"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Genes related to breast cancer.</span>
 <span class="va">genes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ABCB1"</span>, <span class="st">"ABCG2"</span>, <span class="st">"AHR"</span>, <span class="st">"AKT1"</span>, <span class="st">"AR"</span><span class="op">)</span>
 <span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_TermEnrichmentPlot.html">do_TermEnrichmentPlot</a></span><span class="op">(</span>genes <span class="op">=</span> <span class="va">genes</span>,
@@ -125,7 +125,7 @@ Figure 1.2: SCpubr do_TermEnrichmentPlot with increased terms.
 <span class="header-section-number">8.2</span> Modifying the length of the terms<a class="anchor" aria-label="anchor" href="#modifying-the-length-of-the-terms"><i class="fas fa-link"></i></a>
 </h2>
 <p>Another issue with these plots is that, normally, the term itself takes too much space. For this, terms are wrapped according to a cutoff defined in <code>nchar_wrap</code> parameter. If the term has more characters than the value provided, it will be split more or less in half, always preserving whole words.</p>
-<div class="sourceCode" id="cb82"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb81"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Genes related to breast cancer.</span>
 <span class="va">genes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ABCB1"</span>, <span class="st">"ABCG2"</span>, <span class="st">"AHR"</span>, <span class="st">"AKT1"</span>, <span class="st">"AR"</span><span class="op">)</span>
 <span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_TermEnrichmentPlot.html">do_TermEnrichmentPlot</a></span><span class="op">(</span>genes <span class="op">=</span> <span class="va">genes</span>,
@@ -150,7 +150,7 @@ Figure 1.3: SCpubr do_TermEnrichmentPlot with reduced term length.
 <span class="header-section-number">8.3</span> Increase the font size of the labels<a class="anchor" aria-label="anchor" href="#increase-the-font-size-of-the-labels"><i class="fas fa-link"></i></a>
 </h2>
 <p>If you want to increase the font size of the labels - this is, anything that is not part of the legend or the titles, use <code>text_labels_size</code> parameter:</p>
-<div class="sourceCode" id="cb83"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb82"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Genes related to breast cancer.</span>
 <span class="va">genes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ABCB1"</span>, <span class="st">"ABCG2"</span>, <span class="st">"AHR"</span>, <span class="st">"AKT1"</span>, <span class="st">"AR"</span><span class="op">)</span>
 <span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_TermEnrichmentPlot.html">do_TermEnrichmentPlot</a></span><span class="op">(</span>genes <span class="op">=</span> <span class="va">genes</span>,
@@ -206,7 +206,7 @@ Figure 1.4: SCpubr do_TermEnrichmentPlot with modified fontsize
 <!-- Moved the footer outside of the body to make it span all page width. --><footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 11 July, 2022.</p>
+    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 12 July, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

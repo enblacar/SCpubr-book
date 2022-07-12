@@ -108,4 +108,3 @@ cellular-state-plots
 variable-plots
 variables
 variables-1
-plotting-marginal-distributions.
