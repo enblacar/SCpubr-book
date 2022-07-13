@@ -108,3 +108,13 @@ cellular-state-plots
 variable-plots
 variables
 variables-1
+color-palettes
+generate-color-palettes
+generate-combination-of-colors
+opposite-colors.
+adjacent-colors.
+triadic-colors.
+split-complementary-colors.
+tetradic-colors.
+square-colors.
+generate-a-color-report
