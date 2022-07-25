@@ -7,7 +7,7 @@
 <title>7 Bar plots | SCpubr</title>
 <meta name="author" content="Enrique Blanco Carmona">
 <meta name="description" content="Bar plots are another well known data representation. They are a very handy resource to plot summary statistics for the QC part of any single-cell analysis. Consequently, they are part of SCpubr,...">
-<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta name="generator" content="bookdown 0.27 with bs4_book()">
 <meta property="og:title" content="7 Bar plots | SCpubr">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://enblacar.github.io/SCpubr-book/bar-plots.html">
@@ -17,9 +17,9 @@
 <meta name="twitter:title" content="7 Bar plots | SCpubr">
 <meta name="twitter:description" content="Bar plots are another well known data representation. They are a very handy resource to plot summary statistics for the QC part of any single-cell analysis. Consequently, they are part of SCpubr,...">
 <meta name="twitter:image" content="https://enblacar.github.io/SCpubr-book/images/SCpubr_logo.png">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <link rel="shortcut icon" href="images/SCpubr_logo_favicon.png">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="style.css">
@@ -54,7 +54,8 @@
 <li><a class="" href="enrichment-score-heatmaps.html"><span class="header-section-number">9</span> Enrichment score heatmaps</a></li>
 <li><a class="" href="correlation-matrix-heatmaps.html"><span class="header-section-number">10</span> Correlation matrix heatmaps</a></li>
 <li><a class="" href="cellular-state-plots.html"><span class="header-section-number">11</span> Cellular State Plots</a></li>
-<li><a class="" href="color-palettes.html"><span class="header-section-number">12</span> Color palettes</a></li>
+<li><a class="" href="ligand-receptor-analysis.html"><span class="header-section-number">12</span> Ligand-Receptor analysis</a></li>
+<li><a class="" href="color-palettes.html"><span class="header-section-number">13</span> Color palettes</a></li>
 <li><a class="" href="common-features-across-plots.html">Common features across plots</a></li>
 <li><a class="" href="rasterized-figures.html">Rasterized figures</a></li>
 <li><a class="" href="save-the-figures.html">Save the figures</a></li>
@@ -79,16 +80,16 @@
 <span class="header-section-number">7.1</span> Basic usage<a class="anchor" aria-label="anchor" href="#basic-usage-5"><i class="fas fa-link"></i></a>
 </h2>
 <div class="sourceCode" id="cb65"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
-                         features <span class="op">=</span> <span class="st">"seurat_clusters"</span>, 
-                         legend <span class="op">=</span> <span class="cn">F</span>, 
-                         plot.title <span class="op">=</span> <span class="st">"Number of cells per cluster"</span><span class="op">)</span>
-<span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
-                         features <span class="op">=</span> <span class="st">"seurat_clusters"</span>, 
-                         legend <span class="op">=</span> <span class="cn">F</span>, 
-                         plot.title <span class="op">=</span> <span class="st">"Number of cells per cluster"</span>, 
-                         horizontal <span class="op">=</span> <span class="cn">T</span><span class="op">)</span>
-<span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
+<span>                         features <span class="op">=</span> <span class="st">"seurat_clusters"</span>, </span>
+<span>                         legend <span class="op">=</span> <span class="cn">F</span>, </span>
+<span>                         plot.title <span class="op">=</span> <span class="st">"Number of cells per cluster"</span><span class="op">)</span></span>
+<span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
+<span>                         features <span class="op">=</span> <span class="st">"seurat_clusters"</span>, </span>
+<span>                         legend <span class="op">=</span> <span class="cn">F</span>, </span>
+<span>                         plot.title <span class="op">=</span> <span class="st">"Number of cells per cluster"</span>, </span>
+<span>                         horizontal <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></span>
+<span><span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-2"></span>
 <img src="09-BarPlots_files/figure-html/unnamed-chunk-2-1.png" alt="SCpubr Bar plots, plotting single variables" width="100%" height="100%"><p class="caption">
@@ -102,13 +103,13 @@ Figure 1.1: SCpubr Bar plots, plotting single variables
 </ul>
 <p>Focusing on the last point, this would happen if we were to choose a feature with a high number of unique values:</p>
 <div class="sourceCode" id="cb66"><pre class="downlit sourceCode r">
-<code class="sourceCode R">
-<span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
-                        features <span class="op">=</span> <span class="st">"nCount_RNA"</span>, 
-                        legend <span class="op">=</span> <span class="cn">F</span>, 
-                        plot.title <span class="op">=</span> <span class="st">"Number of UMIs?"</span>,
-                        horizontal <span class="op">=</span> <span class="cn">F</span><span class="op">)</span>
-<span class="va">p</span></code></pre></div>
+<code class="sourceCode R"><span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
+<span>                        features <span class="op">=</span> <span class="st">"nCount_RNA"</span>, </span>
+<span>                        legend <span class="op">=</span> <span class="cn">F</span>, </span>
+<span>                        plot.title <span class="op">=</span> <span class="st">"Number of UMIs?"</span>,</span>
+<span>                        horizontal <span class="op">=</span> <span class="cn">F</span><span class="op">)</span></span>
+<span><span class="va">p</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-3"></span>
 <img src="09-BarPlots_files/figure-html/unnamed-chunk-3-1.png" alt="SCpubr Bar plots, choosing the wrong variable" width="100%" height="100%"><p class="caption">
@@ -123,27 +124,27 @@ Figure 1.2: SCpubr Bar plots, choosing the wrong variable
 </h2>
 <p>Let’s expand on the previous example on the number of cells per cluster. What if we were interested not only on that, but we would like to profile <strong>how many cells from each cluster are present in each of the unique samples present in the Seurat object</strong>? For this, we need to provide <code><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">SCpubr::do_BarPlot()</a></code> with a second parameter, <code>group.by</code>, that tackles how we want the feature to be grouped:</p>
 <div class="sourceCode" id="cb67"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># We only have one value in orig.ident. Let's modify it so that it resembles a multi-sample Seurat object.</span>
-<span class="va">sample</span><span class="op">$</span><span class="va">modified_orig.ident</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Sample_A"</span>, <span class="st">"Sample_B"</span>, <span class="st">"Sample_C"</span><span class="op">)</span>, 
-                                     size <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">sample</span><span class="op">)</span>, 
-                                     replace <span class="op">=</span> <span class="cn">T</span>, 
-                                     prob <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.2</span>, <span class="fl">0.7</span>, <span class="fl">0.1</span><span class="op">)</span><span class="op">)</span>
-
-<span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span><span class="va">sample</span>, 
-                         features <span class="op">=</span> <span class="st">"modified_orig.ident"</span>,
-                         plot.title <span class="op">=</span> <span class="st">"Number of cells per sample"</span>,
-                         position <span class="op">=</span> <span class="st">"stack"</span>,
-                         legend <span class="op">=</span> <span class="cn">T</span>,
-                         horizontal <span class="op">=</span> <span class="cn">F</span><span class="op">)</span>
-
-<span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span><span class="va">sample</span>, 
-                         features <span class="op">=</span> <span class="st">"modified_orig.ident"</span>, 
-                         group.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>,
-                         plot.title <span class="op">=</span> <span class="st">"Number of cells per cluster and sample"</span>,
-                         position <span class="op">=</span> <span class="st">"stack"</span>,
-                         legend <span class="op">=</span> <span class="cn">T</span>,
-                         horizontal <span class="op">=</span> <span class="cn">F</span><span class="op">)</span>
-<span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># We only have one value in orig.ident. Let's modify it so that it resembles a multi-sample Seurat object.</span></span>
+<span><span class="va">sample</span><span class="op">$</span><span class="va">modified_orig.ident</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Sample_A"</span>, <span class="st">"Sample_B"</span>, <span class="st">"Sample_C"</span><span class="op">)</span>, </span>
+<span>                                     size <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">sample</span><span class="op">)</span>, </span>
+<span>                                     replace <span class="op">=</span> <span class="cn">T</span>, </span>
+<span>                                     prob <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.2</span>, <span class="fl">0.7</span>, <span class="fl">0.1</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span><span class="va">sample</span>, </span>
+<span>                         features <span class="op">=</span> <span class="st">"modified_orig.ident"</span>,</span>
+<span>                         plot.title <span class="op">=</span> <span class="st">"Number of cells per sample"</span>,</span>
+<span>                         position <span class="op">=</span> <span class="st">"stack"</span>,</span>
+<span>                         legend <span class="op">=</span> <span class="cn">T</span>,</span>
+<span>                         horizontal <span class="op">=</span> <span class="cn">F</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span><span class="va">sample</span>, </span>
+<span>                         features <span class="op">=</span> <span class="st">"modified_orig.ident"</span>, </span>
+<span>                         group.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>,</span>
+<span>                         plot.title <span class="op">=</span> <span class="st">"Number of cells per cluster and sample"</span>,</span>
+<span>                         position <span class="op">=</span> <span class="st">"stack"</span>,</span>
+<span>                         legend <span class="op">=</span> <span class="cn">T</span>,</span>
+<span>                         horizontal <span class="op">=</span> <span class="cn">F</span><span class="op">)</span></span>
+<span><span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-4"></span>
 <img src="09-BarPlots_files/figure-html/unnamed-chunk-4-1.png" alt="SCpubr Bar plots, introducing a variable to group values by" width="100%" height="100%"><p class="caption">
@@ -159,39 +160,39 @@ Figure 1.3: SCpubr Bar plots, introducing a variable to group values by
 </ul>
 <p>Another interesting parameter introduced in the last example is <code>position</code>. Position can be either <code>stack</code> or <code>fill</code>. The difference between them is that <code>position = "stack"</code> will yield the total number of cells for each of the unique values in <code>feature</code>, while <code>position = "fill"</code> will bring all bars to the same height and will split each bar into the proportions within each bar of the different groups (only one if <code>group.by = NULL</code> and as many groups if <code>group.by</code> is used). Therefore, it becomes highly recommended to use <code>position = "stack"</code> when <code>group.by</code> is not used and <code>position = "fill"</code> otherwise. This is also warned by the package. If you want to silence the warnings, use <code>verbose = FALSE</code>.</p>
 <div class="sourceCode" id="cb68"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># We are going to use the previously generated sample assignment.</span>
-
-<span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span><span class="va">sample</span>, 
-                         features <span class="op">=</span> <span class="st">"modified_orig.ident"</span>,
-                         plot.title <span class="op">=</span> <span class="st">"Without group.by - position = stack"</span>,
-                         position <span class="op">=</span> <span class="st">"stack"</span>,
-                         legend <span class="op">=</span> <span class="cn">T</span>,
-                         horizontal <span class="op">=</span> <span class="cn">F</span><span class="op">)</span>
-
-<span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span><span class="va">sample</span>, 
-                         features <span class="op">=</span> <span class="st">"modified_orig.ident"</span>,
-                         plot.title <span class="op">=</span> <span class="st">"Without group.by - position = fill"</span>,
-                         position <span class="op">=</span> <span class="st">"fill"</span>,
-                         legend <span class="op">=</span> <span class="cn">T</span>,
-                         horizontal <span class="op">=</span> <span class="cn">F</span><span class="op">)</span>
-
-<span class="va">p3</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span><span class="va">sample</span>, 
-                         features <span class="op">=</span> <span class="st">"modified_orig.ident"</span>,
-                         group.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>,
-                         plot.title <span class="op">=</span> <span class="st">"With group.by - position = stack"</span>,
-                         position <span class="op">=</span> <span class="st">"stack"</span>,
-                         legend <span class="op">=</span> <span class="cn">T</span>,
-                         horizontal <span class="op">=</span> <span class="cn">F</span><span class="op">)</span>
-
-<span class="va">p4</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span><span class="va">sample</span>, 
-                         features <span class="op">=</span> <span class="st">"modified_orig.ident"</span>,
-                         group.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>,
-                         plot.title <span class="op">=</span> <span class="st">"With group.by - position = fill"</span>,
-                         position <span class="op">=</span> <span class="st">"fill"</span>,
-                         legend <span class="op">=</span> <span class="cn">T</span>,
-                         horizontal <span class="op">=</span> <span class="cn">F</span><span class="op">)</span>
-<span class="va">p</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span><span class="op">)</span> <span class="op">/</span> <span class="op">(</span><span class="va">p3</span> <span class="op">|</span> <span class="va">p4</span><span class="op">)</span>
-<span class="va">p</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># We are going to use the previously generated sample assignment.</span></span>
+<span></span>
+<span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span><span class="va">sample</span>, </span>
+<span>                         features <span class="op">=</span> <span class="st">"modified_orig.ident"</span>,</span>
+<span>                         plot.title <span class="op">=</span> <span class="st">"Without group.by - position = stack"</span>,</span>
+<span>                         position <span class="op">=</span> <span class="st">"stack"</span>,</span>
+<span>                         legend <span class="op">=</span> <span class="cn">T</span>,</span>
+<span>                         horizontal <span class="op">=</span> <span class="cn">F</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span><span class="va">sample</span>, </span>
+<span>                         features <span class="op">=</span> <span class="st">"modified_orig.ident"</span>,</span>
+<span>                         plot.title <span class="op">=</span> <span class="st">"Without group.by - position = fill"</span>,</span>
+<span>                         position <span class="op">=</span> <span class="st">"fill"</span>,</span>
+<span>                         legend <span class="op">=</span> <span class="cn">T</span>,</span>
+<span>                         horizontal <span class="op">=</span> <span class="cn">F</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">p3</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span><span class="va">sample</span>, </span>
+<span>                         features <span class="op">=</span> <span class="st">"modified_orig.ident"</span>,</span>
+<span>                         group.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>,</span>
+<span>                         plot.title <span class="op">=</span> <span class="st">"With group.by - position = stack"</span>,</span>
+<span>                         position <span class="op">=</span> <span class="st">"stack"</span>,</span>
+<span>                         legend <span class="op">=</span> <span class="cn">T</span>,</span>
+<span>                         horizontal <span class="op">=</span> <span class="cn">F</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">p4</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span><span class="va">sample</span>, </span>
+<span>                         features <span class="op">=</span> <span class="st">"modified_orig.ident"</span>,</span>
+<span>                         group.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>,</span>
+<span>                         plot.title <span class="op">=</span> <span class="st">"With group.by - position = fill"</span>,</span>
+<span>                         position <span class="op">=</span> <span class="st">"fill"</span>,</span>
+<span>                         legend <span class="op">=</span> <span class="cn">T</span>,</span>
+<span>                         horizontal <span class="op">=</span> <span class="cn">F</span><span class="op">)</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span><span class="op">)</span> <span class="op">/</span> <span class="op">(</span><span class="va">p3</span> <span class="op">|</span> <span class="va">p4</span><span class="op">)</span></span>
+<span><span class="va">p</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-5"></span>
 <img src="09-BarPlots_files/figure-html/unnamed-chunk-5-1.png" alt="SCpubr Bar plots, difference between position" width="100%" height="100%"><p class="caption">
@@ -205,28 +206,28 @@ Figure 1.4: SCpubr Bar plots, difference between position
 </h2>
 <p>One advanced use of bar plots, but a very useful one is to reorder the columns based on a single entity in a descending order. This works only when <code>group.by</code> is set up and best when <code>position = "fill"</code>. For instance, imagine the scenario in which we are heavily interested in cluster 1, and want to reorder the columns based on it. This is achieved by providing <code>order.by</code> parameter to <code><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">SCpubr::do_BarPlot()</a></code>. The value in <code>order.by</code> has to be necessary one of the unique values in <code>group.by</code>. Therefore, as a best practice, one would want to generate the bar plots without using <code>order.by</code> and then decide. Let’s also, for the sake of this example, modify the proportions of cluster 1 so that it becomes really evident. This is how it looks:</p>
 <div class="sourceCode" id="cb69"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Modify proportions. </span>
-<span class="va">sample</span><span class="op">$</span><span class="va">modified_seurat_clusters</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span><span class="op">(</span><span class="va">sample</span><span class="op">$</span><span class="va">seurat_clusters</span><span class="op">)</span>
-<span class="va">sample</span><span class="op">$</span><span class="va">modified_seurat_clusters</span><span class="op">[</span><span class="va">sample</span><span class="op">$</span><span class="va">modified_orig.ident</span> <span class="op">==</span> <span class="st">"Sample_A"</span> <span class="op">&amp;</span> <span class="va">sample</span><span class="op">$</span><span class="va">modified_seurat_clusters</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"0"</span>, <span class="st">"2"</span>, <span class="st">"3"</span>, <span class="st">"4"</span>, <span class="st">"5"</span>, <span class="st">"6"</span>, <span class="st">"7"</span><span class="op">)</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"1"</span>
-
-<span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span><span class="va">sample</span>, 
-                         features <span class="op">=</span> <span class="st">"modified_orig.ident"</span>,
-                         group.by <span class="op">=</span> <span class="st">"modified_seurat_clusters"</span>,
-                         plot.title <span class="op">=</span> <span class="st">"Number of cells per sample"</span>,
-                         order.by <span class="op">=</span> <span class="st">"1"</span>,
-                         position <span class="op">=</span> <span class="st">"stack"</span>,
-                         legend <span class="op">=</span> <span class="cn">T</span>,
-                         horizontal <span class="op">=</span> <span class="cn">F</span><span class="op">)</span>
-
-<span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span><span class="va">sample</span>, 
-                         features <span class="op">=</span> <span class="st">"modified_orig.ident"</span>, 
-                         group.by <span class="op">=</span> <span class="st">"modified_seurat_clusters"</span>,
-                         plot.title <span class="op">=</span> <span class="st">"Number of cells per cluster and sample"</span>,
-                         order.by <span class="op">=</span> <span class="st">"1"</span>,
-                         position <span class="op">=</span> <span class="st">"fill"</span>,
-                         legend <span class="op">=</span> <span class="cn">T</span>,
-                         horizontal <span class="op">=</span> <span class="cn">F</span><span class="op">)</span>
-<span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Modify proportions. </span></span>
+<span><span class="va">sample</span><span class="op">$</span><span class="va">modified_seurat_clusters</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span><span class="op">(</span><span class="va">sample</span><span class="op">$</span><span class="va">seurat_clusters</span><span class="op">)</span></span>
+<span><span class="va">sample</span><span class="op">$</span><span class="va">modified_seurat_clusters</span><span class="op">[</span><span class="va">sample</span><span class="op">$</span><span class="va">modified_orig.ident</span> <span class="op">==</span> <span class="st">"Sample_A"</span> <span class="op">&amp;</span> <span class="va">sample</span><span class="op">$</span><span class="va">modified_seurat_clusters</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"0"</span>, <span class="st">"2"</span>, <span class="st">"3"</span>, <span class="st">"4"</span>, <span class="st">"5"</span>, <span class="st">"6"</span>, <span class="st">"7"</span><span class="op">)</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"1"</span></span>
+<span></span>
+<span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span><span class="va">sample</span>, </span>
+<span>                         features <span class="op">=</span> <span class="st">"modified_orig.ident"</span>,</span>
+<span>                         group.by <span class="op">=</span> <span class="st">"modified_seurat_clusters"</span>,</span>
+<span>                         plot.title <span class="op">=</span> <span class="st">"Number of cells per sample"</span>,</span>
+<span>                         order.by <span class="op">=</span> <span class="st">"1"</span>,</span>
+<span>                         position <span class="op">=</span> <span class="st">"stack"</span>,</span>
+<span>                         legend <span class="op">=</span> <span class="cn">T</span>,</span>
+<span>                         horizontal <span class="op">=</span> <span class="cn">F</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span><span class="va">sample</span>, </span>
+<span>                         features <span class="op">=</span> <span class="st">"modified_orig.ident"</span>, </span>
+<span>                         group.by <span class="op">=</span> <span class="st">"modified_seurat_clusters"</span>,</span>
+<span>                         plot.title <span class="op">=</span> <span class="st">"Number of cells per cluster and sample"</span>,</span>
+<span>                         order.by <span class="op">=</span> <span class="st">"1"</span>,</span>
+<span>                         position <span class="op">=</span> <span class="st">"fill"</span>,</span>
+<span>                         legend <span class="op">=</span> <span class="cn">T</span>,</span>
+<span>                         horizontal <span class="op">=</span> <span class="cn">F</span><span class="op">)</span></span>
+<span><span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-6"></span>
 <img src="09-BarPlots_files/figure-html/unnamed-chunk-6-1.png" alt="SCpubr Bar plots, reordering the colums using order.by" width="100%" height="100%"><p class="caption">
@@ -240,17 +241,17 @@ Figure 1.5: SCpubr Bar plots, reordering the colums using order.by
 </h2>
 <p>Sometimes, we are interested not only in displaying the bars but also reporting the exact number for each bar. This can be achieved by using <code>add.summary_labels = TRUE</code>:</p>
 <div class="sourceCode" id="cb70"><pre class="downlit sourceCode r">
-<code class="sourceCode R">
-<span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
-                         features <span class="op">=</span> <span class="st">"seurat_clusters"</span>, 
-                         legend <span class="op">=</span> <span class="cn">FALSE</span>,
-                         add.summary_labels <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
-                         features <span class="op">=</span> <span class="st">"seurat_clusters"</span>, 
-                         legend <span class="op">=</span> <span class="cn">FALSE</span>,
-                         horizontal <span class="op">=</span> <span class="cn">TRUE</span>,
-                         add.summary_labels <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span></code></pre></div>
+<code class="sourceCode R"><span></span>
+<span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
+<span>                         features <span class="op">=</span> <span class="st">"seurat_clusters"</span>, </span>
+<span>                         legend <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>                         add.summary_labels <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
+<span>                         features <span class="op">=</span> <span class="st">"seurat_clusters"</span>, </span>
+<span>                         legend <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>                         horizontal <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                         add.summary_labels <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-7"></span>
 <img src="09-BarPlots_files/figure-html/unnamed-chunk-7-1.png" alt="SCpubr, Adding labels to bars" width="100%" height="100%"><p class="caption">
@@ -259,19 +260,19 @@ Figure 1.6: SCpubr, Adding labels to bars
 </div>
 <p>The size of the labels can be adjusted by using <code>size.labels</code>. The default value is 3. This value changes the size quite drastically. Modification by low ammounts is reccomended.</p>
 <div class="sourceCode" id="cb71"><pre class="downlit sourceCode r">
-<code class="sourceCode R">
-<span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
-                         features <span class="op">=</span> <span class="st">"seurat_clusters"</span>, 
-                         legend <span class="op">=</span> <span class="cn">FALSE</span>,
-                         add.summary_labels <span class="op">=</span> <span class="cn">TRUE</span>,
-                         size.labels <span class="op">=</span> <span class="fl">2.5</span><span class="op">)</span>
-<span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
-                         features <span class="op">=</span> <span class="st">"seurat_clusters"</span>, 
-                         legend <span class="op">=</span> <span class="cn">FALSE</span>,
-                         horizontal <span class="op">=</span> <span class="cn">TRUE</span>,
-                         add.summary_labels <span class="op">=</span> <span class="cn">TRUE</span>,
-                         size.labels <span class="op">=</span> <span class="fl">2.5</span><span class="op">)</span>
-<span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span></code></pre></div>
+<code class="sourceCode R"><span></span>
+<span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
+<span>                         features <span class="op">=</span> <span class="st">"seurat_clusters"</span>, </span>
+<span>                         legend <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>                         add.summary_labels <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                         size.labels <span class="op">=</span> <span class="fl">2.5</span><span class="op">)</span></span>
+<span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
+<span>                         features <span class="op">=</span> <span class="st">"seurat_clusters"</span>, </span>
+<span>                         legend <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>                         horizontal <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                         add.summary_labels <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                         size.labels <span class="op">=</span> <span class="fl">2.5</span><span class="op">)</span></span>
+<span><span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-8"></span>
 <img src="09-BarPlots_files/figure-html/unnamed-chunk-8-1.png" alt="SCpubr, Modifying the size of the labels in the bars" width="100%" height="100%"><p class="caption">
@@ -280,18 +281,18 @@ Figure 1.7: SCpubr, Modifying the size of the labels in the bars
 </div>
 <p>When using in combination with <code>group.by</code>, it also adds the value on top of each bar:</p>
 <div class="sourceCode" id="cb72"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
-                         features <span class="op">=</span> <span class="st">"seurat_clusters"</span>,
-                         group.by <span class="op">=</span> <span class="st">"modified_orig.ident"</span>,
-                         legend <span class="op">=</span> <span class="cn">TRUE</span>,
-                         add.summary_labels <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
-                         features <span class="op">=</span> <span class="st">"seurat_clusters"</span>,
-                         group.by <span class="op">=</span> <span class="st">"modified_orig.ident"</span>, 
-                         legend <span class="op">=</span> <span class="cn">TRUE</span>,
-                         horizontal <span class="op">=</span> <span class="cn">TRUE</span>,
-                         add.summary_labels <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
+<span>                         features <span class="op">=</span> <span class="st">"seurat_clusters"</span>,</span>
+<span>                         group.by <span class="op">=</span> <span class="st">"modified_orig.ident"</span>,</span>
+<span>                         legend <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                         add.summary_labels <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
+<span>                         features <span class="op">=</span> <span class="st">"seurat_clusters"</span>,</span>
+<span>                         group.by <span class="op">=</span> <span class="st">"modified_orig.ident"</span>, </span>
+<span>                         legend <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                         horizontal <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                         add.summary_labels <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-9"></span>
 <img src="09-BarPlots_files/figure-html/unnamed-chunk-9-1.png" alt="SCpubr, Adding labels to bars when grouped by another variable" width="100%" height="100%"><p class="caption">
@@ -300,20 +301,20 @@ Figure 1.8: SCpubr, Adding labels to bars when grouped by another variable
 </div>
 <p>If we are also interested in adding labels to each of the bar sugroups, we can do so by using <code>add.subgroup_labels = TRUE</code>:</p>
 <div class="sourceCode" id="cb73"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
-                         features <span class="op">=</span> <span class="st">"seurat_clusters"</span>,
-                         group.by <span class="op">=</span> <span class="st">"modified_orig.ident"</span>,
-                         legend <span class="op">=</span> <span class="cn">TRUE</span>,
-                         add.summary_labels <span class="op">=</span> <span class="cn">TRUE</span>,
-                         add.subgroup_labels <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
-                         features <span class="op">=</span> <span class="st">"seurat_clusters"</span>,
-                         group.by <span class="op">=</span> <span class="st">"modified_orig.ident"</span>, 
-                         legend <span class="op">=</span> <span class="cn">TRUE</span>,
-                         horizontal <span class="op">=</span> <span class="cn">TRUE</span>,
-                         add.summary_labels <span class="op">=</span> <span class="cn">TRUE</span>,
-                         add.subgroup_labels <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
+<span>                         features <span class="op">=</span> <span class="st">"seurat_clusters"</span>,</span>
+<span>                         group.by <span class="op">=</span> <span class="st">"modified_orig.ident"</span>,</span>
+<span>                         legend <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                         add.summary_labels <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                         add.subgroup_labels <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
+<span>                         features <span class="op">=</span> <span class="st">"seurat_clusters"</span>,</span>
+<span>                         group.by <span class="op">=</span> <span class="st">"modified_orig.ident"</span>, </span>
+<span>                         legend <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                         horizontal <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                         add.summary_labels <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                         add.subgroup_labels <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-10"></span>
 <img src="09-BarPlots_files/figure-html/unnamed-chunk-10-1.png" alt="SCpubr, Adding labels to bars and subgroups when grouped by another variable" width="100%" height="100%"><p class="caption">
@@ -322,22 +323,22 @@ Figure 1.9: SCpubr, Adding labels to bars and subgroups when grouped by another 
 </div>
 <p>As can be observed, this type of labelling is very situational and highly depends on the overall structure of the bars and whether it is feasible to plot that many labels. In order to ease this cluttering, one can pass <code>repel.subroup_labels = TRUE</code> to avoid overlapping of the group labels (the colored ones inside the bars).</p>
 <div class="sourceCode" id="cb74"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
-                         features <span class="op">=</span> <span class="st">"seurat_clusters"</span>,
-                         group.by <span class="op">=</span> <span class="st">"modified_orig.ident"</span>,
-                         legend <span class="op">=</span> <span class="cn">TRUE</span>,
-                         add.summary_labels <span class="op">=</span> <span class="cn">TRUE</span>,
-                         add.subgroup_labels <span class="op">=</span> <span class="cn">TRUE</span>,
-                         repel.subgroup_labels <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
-                         features <span class="op">=</span> <span class="st">"seurat_clusters"</span>,
-                         group.by <span class="op">=</span> <span class="st">"modified_orig.ident"</span>, 
-                         legend <span class="op">=</span> <span class="cn">TRUE</span>,
-                         horizontal <span class="op">=</span> <span class="cn">TRUE</span>,
-                         add.summary_labels <span class="op">=</span> <span class="cn">TRUE</span>,
-                         add.subgroup_labels <span class="op">=</span> <span class="cn">TRUE</span>,
-                         repel.subgroup_labels <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
+<span>                         features <span class="op">=</span> <span class="st">"seurat_clusters"</span>,</span>
+<span>                         group.by <span class="op">=</span> <span class="st">"modified_orig.ident"</span>,</span>
+<span>                         legend <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                         add.summary_labels <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                         add.subgroup_labels <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                         repel.subgroup_labels <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
+<span>                         features <span class="op">=</span> <span class="st">"seurat_clusters"</span>,</span>
+<span>                         group.by <span class="op">=</span> <span class="st">"modified_orig.ident"</span>, </span>
+<span>                         legend <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                         horizontal <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                         add.summary_labels <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                         add.subgroup_labels <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                         repel.subgroup_labels <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-11"></span>
 <img src="09-BarPlots_files/figure-html/unnamed-chunk-11-1.png" alt="SCpubr, Relocating group labels" width="100%" height="100%"><p class="caption">
@@ -346,24 +347,24 @@ Figure 1.10: SCpubr, Relocating group labels
 </div>
 <p>If we also want the summary labels (the ones in black at the top of each bar) to relocate, we can use <code>repel.summary_labels = TRUE</code>. This combination of parameters were designed to grant the user freedom to keep either of the two groups of labels centered and to make either group appear or disappear (as each bar plot will have a different scenario and sometimes it might be a viable option).</p>
 <div class="sourceCode" id="cb75"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
-                         features <span class="op">=</span> <span class="st">"seurat_clusters"</span>,
-                         group.by <span class="op">=</span> <span class="st">"modified_orig.ident"</span>,
-                         legend <span class="op">=</span> <span class="cn">TRUE</span>,
-                         add.summary_labels <span class="op">=</span> <span class="cn">TRUE</span>,
-                         add.subgroup_labels <span class="op">=</span> <span class="cn">TRUE</span>,
-                         repel.summary_labels <span class="op">=</span> <span class="cn">TRUE</span>,
-                         repel.subgroup_labels <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
-                         features <span class="op">=</span> <span class="st">"seurat_clusters"</span>,
-                         group.by <span class="op">=</span> <span class="st">"modified_orig.ident"</span>,
-                         legend <span class="op">=</span> <span class="cn">TRUE</span>,
-                         horizontal <span class="op">=</span> <span class="cn">TRUE</span>,
-                         add.summary_labels <span class="op">=</span> <span class="cn">TRUE</span>,
-                         add.subgroup_labels <span class="op">=</span> <span class="cn">TRUE</span>,
-                         repel.summary_labels <span class="op">=</span> <span class="cn">TRUE</span>,
-                         repel.subgroup_labels <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
+<span>                         features <span class="op">=</span> <span class="st">"seurat_clusters"</span>,</span>
+<span>                         group.by <span class="op">=</span> <span class="st">"modified_orig.ident"</span>,</span>
+<span>                         legend <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                         add.summary_labels <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                         add.subgroup_labels <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                         repel.summary_labels <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                         repel.subgroup_labels <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
+<span>                         features <span class="op">=</span> <span class="st">"seurat_clusters"</span>,</span>
+<span>                         group.by <span class="op">=</span> <span class="st">"modified_orig.ident"</span>,</span>
+<span>                         legend <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                         horizontal <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                         add.summary_labels <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                         add.subgroup_labels <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                         repel.summary_labels <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                         repel.subgroup_labels <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-12"></span>
 <img src="09-BarPlots_files/figure-html/unnamed-chunk-12-1.png" alt="SCpubr, Adding relocating all bars" width="100%" height="100%"><p class="caption">
@@ -378,24 +379,24 @@ Figure 1.11: SCpubr, Adding relocating all bars
 </h2>
 <p>Many times, not only we are interested in actually displaying the data, but we do also want to store the data matrix. This is a common case for supplementary material in publications. To assess this, one can set <code>return_data_matrix = TRUE</code>, which will output a list containing both the plot and the data matrix (long and wide format). This does also work when several features are queried at the same time. Both for <code>position = "fill"</code> and <code>position = "stack"</code> the output will be the same, the total counts.</p>
 <div class="sourceCode" id="cb76"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">output</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span><span class="va">sample</span>, 
-                             features <span class="op">=</span> <span class="st">"modified_orig.ident"</span>,
-                             group.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>,
-                             legend <span class="op">=</span> <span class="cn">TRUE</span>,
-                             horizontal <span class="op">=</span> <span class="cn">FALSE</span>,
-                             return_data_matrix <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="co"># Retrieve plot.</span>
-<span class="va">plot</span> <span class="op">&lt;-</span> <span class="va">output</span><span class="op">$</span><span class="va">plot</span>
-
-<span class="co"># Retrieve data in long format.</span>
-<span class="va">data.long</span> <span class="op">&lt;-</span> <span class="va">output</span><span class="op">$</span><span class="va">data</span><span class="op">[[</span><span class="st">"modified_orig.ident"</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">long</span>
-
-<span class="co"># Retrieve data in wide format.</span>
-<span class="va">data.wide</span> <span class="op">&lt;-</span> <span class="va">output</span><span class="op">$</span><span class="va">data</span><span class="op">[[</span><span class="st">"modified_orig.ident"</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">wide</span>
-
-<span class="co"># Show data in long format.</span>
-<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data.long</span>, <span class="fl">15</span><span class="op">)</span>, booktabs <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu">kableExtra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/kableExtra/man/kable_styling.html">kable_styling</a></span><span class="op">(</span>font_size <span class="op">=</span> <span class="fl">12</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">output</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span><span class="va">sample</span>, </span>
+<span>                             features <span class="op">=</span> <span class="st">"modified_orig.ident"</span>,</span>
+<span>                             group.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>,</span>
+<span>                             legend <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                             horizontal <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>                             return_data_matrix <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="co"># Retrieve plot.</span></span>
+<span><span class="va">plot</span> <span class="op">&lt;-</span> <span class="va">output</span><span class="op">$</span><span class="va">plot</span></span>
+<span></span>
+<span><span class="co"># Retrieve data in long format.</span></span>
+<span><span class="va">data.long</span> <span class="op">&lt;-</span> <span class="va">output</span><span class="op">$</span><span class="va">data</span><span class="op">[[</span><span class="st">"modified_orig.ident"</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">long</span></span>
+<span></span>
+<span><span class="co"># Retrieve data in wide format.</span></span>
+<span><span class="va">data.wide</span> <span class="op">&lt;-</span> <span class="va">output</span><span class="op">$</span><span class="va">data</span><span class="op">[[</span><span class="st">"modified_orig.ident"</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">wide</span></span>
+<span></span>
+<span><span class="co"># Show data in long format.</span></span>
+<span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data.long</span>, <span class="fl">15</span><span class="op">)</span>, booktabs <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">kableExtra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/kableExtra/man/kable_styling.html">kable_styling</a></span><span class="op">(</span>font_size <span class="op">=</span> <span class="fl">12</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="table" style="font-size: 12px; margin-left: auto; margin-right: auto;">
 <thead><tr>
 <th style="text-align:left;">
@@ -417,7 +418,7 @@ Sample_B
 0
 </td>
 <td style="text-align:right;">
-2686
+2681
 </td>
 </tr>
 <tr>
@@ -428,7 +429,7 @@ Sample_B
 1
 </td>
 <td style="text-align:right;">
-1870
+1859
 </td>
 </tr>
 <tr>
@@ -439,18 +440,7 @@ Sample_B
 2
 </td>
 <td style="text-align:right;">
-912
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Sample_B
-</td>
-<td style="text-align:left;">
-3
-</td>
-<td style="text-align:right;">
-774
+930
 </td>
 </tr>
 <tr>
@@ -461,7 +451,18 @@ Sample_A
 0
 </td>
 <td style="text-align:right;">
-753
+789
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sample_B
+</td>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:right;">
+785
 </td>
 </tr>
 <tr>
@@ -472,7 +473,7 @@ Sample_B
 4
 </td>
 <td style="text-align:right;">
-744
+733
 </td>
 </tr>
 <tr>
@@ -483,7 +484,7 @@ Sample_A
 1
 </td>
 <td style="text-align:right;">
-541
+556
 </td>
 </tr>
 <tr>
@@ -494,7 +495,7 @@ Sample_B
 5
 </td>
 <td style="text-align:right;">
-398
+408
 </td>
 </tr>
 <tr>
@@ -505,7 +506,7 @@ Sample_C
 0
 </td>
 <td style="text-align:right;">
-393
+362
 </td>
 </tr>
 <tr>
@@ -516,18 +517,7 @@ Sample_B
 6
 </td>
 <td style="text-align:right;">
-323
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Sample_A
-</td>
-<td style="text-align:left;">
-2
-</td>
-<td style="text-align:right;">
-275
+353
 </td>
 </tr>
 <tr>
@@ -538,7 +528,18 @@ Sample_C
 1
 </td>
 <td style="text-align:right;">
-270
+266
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sample_A
+</td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:right;">
+260
 </td>
 </tr>
 <tr>
@@ -549,7 +550,7 @@ Sample_A
 3
 </td>
 <td style="text-align:right;">
-237
+234
 </td>
 </tr>
 <tr>
@@ -560,7 +561,7 @@ Sample_B
 7
 </td>
 <td style="text-align:right;">
-237
+224
 </td>
 </tr>
 <tr>
@@ -571,15 +572,15 @@ Sample_A
 4
 </td>
 <td style="text-align:right;">
-196
+194
 </td>
 </tr>
 </tbody>
 </table></div>
 <div class="sourceCode" id="cb77"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Show data in wide format.</span>
-<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data.wide</span>, <span class="fl">15</span><span class="op">)</span>, booktabs <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu">kableExtra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/kableExtra/man/kable_styling.html">kable_styling</a></span><span class="op">(</span>font_size <span class="op">=</span> <span class="fl">12</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Show data in wide format.</span></span>
+<span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data.wide</span>, <span class="fl">15</span><span class="op">)</span>, booktabs <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">kableExtra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/kableExtra/man/kable_styling.html">kable_styling</a></span><span class="op">(</span>font_size <span class="op">=</span> <span class="fl">12</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="table" style="font-size: 12px; margin-left: auto; margin-right: auto;">
 <thead><tr>
 <th style="text-align:left;">
@@ -601,13 +602,13 @@ Sample_C
 0
 </td>
 <td style="text-align:right;">
-2686
+2681
 </td>
 <td style="text-align:right;">
-753
+789
 </td>
 <td style="text-align:right;">
-393
+362
 </td>
 </tr>
 <tr>
@@ -615,13 +616,13 @@ Sample_C
 1
 </td>
 <td style="text-align:right;">
-1870
+1859
 </td>
 <td style="text-align:right;">
-541
+556
 </td>
 <td style="text-align:right;">
-270
+266
 </td>
 </tr>
 <tr>
@@ -629,13 +630,13 @@ Sample_C
 2
 </td>
 <td style="text-align:right;">
-912
+930
 </td>
 <td style="text-align:right;">
-275
+260
 </td>
 <td style="text-align:right;">
-123
+120
 </td>
 </tr>
 <tr>
@@ -643,13 +644,13 @@ Sample_C
 3
 </td>
 <td style="text-align:right;">
-774
+785
 </td>
 <td style="text-align:right;">
-237
+234
 </td>
 <td style="text-align:right;">
-116
+108
 </td>
 </tr>
 <tr>
@@ -657,13 +658,13 @@ Sample_C
 4
 </td>
 <td style="text-align:right;">
-744
+733
 </td>
 <td style="text-align:right;">
-196
+194
 </td>
 <td style="text-align:right;">
-96
+109
 </td>
 </tr>
 <tr>
@@ -671,13 +672,13 @@ Sample_C
 5
 </td>
 <td style="text-align:right;">
-398
+408
 </td>
 <td style="text-align:right;">
-133
+138
 </td>
 <td style="text-align:right;">
-65
+50
 </td>
 </tr>
 <tr>
@@ -685,13 +686,13 @@ Sample_C
 6
 </td>
 <td style="text-align:right;">
-323
+353
 </td>
 <td style="text-align:right;">
-111
+72
 </td>
 <td style="text-align:right;">
-43
+52
 </td>
 </tr>
 <tr>
@@ -699,13 +700,13 @@ Sample_C
 7
 </td>
 <td style="text-align:right;">
-237
+224
 </td>
 <td style="text-align:right;">
-57
+73
 </td>
 <td style="text-align:right;">
-32
+29
 </td>
 </tr>
 <tr>
@@ -713,13 +714,13 @@ Sample_C
 8
 </td>
 <td style="text-align:right;">
-116
+127
 </td>
 <td style="text-align:right;">
-37
+34
 </td>
 <td style="text-align:right;">
-23
+15
 </td>
 </tr>
 <tr>
@@ -727,13 +728,13 @@ Sample_C
 9
 </td>
 <td style="text-align:right;">
-81
+69
 </td>
 <td style="text-align:right;">
-9
+19
 </td>
 <td style="text-align:right;">
-10
+12
 </td>
 </tr>
 </tbody>
@@ -780,7 +781,7 @@ Sample_C
 <!-- Moved the footer outside of the body to make it span all page width. --><footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 13 July, 2022.</p>
+    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 25 July, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

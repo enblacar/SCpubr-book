@@ -7,7 +7,7 @@
 <title>4 Bee Swarm plots | SCpubr</title>
 <meta name="author" content="Enrique Blanco Carmona">
 <meta name="description" content="This is a very interesting plot. It stems from the idea that we can order (rank) the cells in a given variable. This variable has to be a continuous variable, for a better representation. The...">
-<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta name="generator" content="bookdown 0.27 with bs4_book()">
 <meta property="og:title" content="4 Bee Swarm plots | SCpubr">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://enblacar.github.io/SCpubr-book/bee-swarm-plots.html">
@@ -17,9 +17,9 @@
 <meta name="twitter:title" content="4 Bee Swarm plots | SCpubr">
 <meta name="twitter:description" content="This is a very interesting plot. It stems from the idea that we can order (rank) the cells in a given variable. This variable has to be a continuous variable, for a better representation. The...">
 <meta name="twitter:image" content="https://enblacar.github.io/SCpubr-book/images/SCpubr_logo.png">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <link rel="shortcut icon" href="images/SCpubr_logo_favicon.png">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="style.css">
@@ -54,7 +54,8 @@
 <li><a class="" href="enrichment-score-heatmaps.html"><span class="header-section-number">9</span> Enrichment score heatmaps</a></li>
 <li><a class="" href="correlation-matrix-heatmaps.html"><span class="header-section-number">10</span> Correlation matrix heatmaps</a></li>
 <li><a class="" href="cellular-state-plots.html"><span class="header-section-number">11</span> Cellular State Plots</a></li>
-<li><a class="" href="color-palettes.html"><span class="header-section-number">12</span> Color palettes</a></li>
+<li><a class="" href="ligand-receptor-analysis.html"><span class="header-section-number">12</span> Ligand-Receptor analysis</a></li>
+<li><a class="" href="color-palettes.html"><span class="header-section-number">13</span> Color palettes</a></li>
 <li><a class="" href="common-features-across-plots.html">Common features across plots</a></li>
 <li><a class="" href="rasterized-figures.html">Rasterized figures</a></li>
 <li><a class="" href="save-the-figures.html">Save the figures</a></li>
@@ -76,31 +77,30 @@
 <p>This is a very interesting plot. It stems from the idea that we can order (rank) the cells in a given variable. This variable has to be a continuous variable, for a better representation. The order goes from lowest to maximum value. Then, the cells are grouped into any other variable of interest and displayed in a scatter plot fashion.</p>
 <p>Put it into an example, let’s say that we have our cells queried for enrichement in a given list of genes. This can be done using <code><a href="https://satijalab.org/seurat/reference/AddModuleScore.html">Seurat::AddModuleScore()</a></code>, and returns one score for each cell. This would be our continuous variable. That, we can rank (i.e: provide an order from lowest to highest), giving the cell with the lowest enrichment score the first rank and the one with the maximum value the last rank. If we were to plot this rank right away, we will see that this behaves as a linear distribution:</p>
 <div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Compute enrichment.</span>
-<span class="va">gene_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"OLIG1"</span>, <span class="st">"MBP"</span><span class="op">)</span>
-<span class="va">sample</span> <span class="op">&lt;-</span> <span class="fu">Seurat</span><span class="fu">::</span><span class="fu"><a href="https://satijalab.org/seurat/reference/AddModuleScore.html">AddModuleScore</a></span><span class="op">(</span><span class="va">sample</span>, features <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">gene_list</span><span class="op">)</span>, name <span class="op">=</span> <span class="st">"testing_list"</span><span class="op">)</span>
-
-<span class="co"># Rank the enrichment scores.</span>
-<span class="va">sample</span><span class="op">$</span><span class="va">rank</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rank.html">rank</a></span><span class="op">(</span><span class="va">sample</span><span class="op">$</span><span class="va">testing_list1</span><span class="op">)</span>
-
-<span class="co"># Visualize the two distribution.</span>
-<span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_VlnPlot.html">do_VlnPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,
-                         features <span class="op">=</span> <span class="st">"testing_list1"</span>,
-                         group.by <span class="op">=</span> <span class="st">"orig.ident"</span><span class="op">)</span>
-<span class="va">p2</span> <span class="op">&lt;-</span> <span class="va">sample</span><span class="op">@</span><span class="va">meta.data</span> <span class="op">%&gt;%</span> <span class="co"># Extract metadata</span>
-      <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>cell_name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">sample</span><span class="op">@</span><span class="va">meta.data</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="co"># Get the cell names.</span>
-      <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">.data</span><span class="op">$</span><span class="va">cell_name</span>, <span class="va">.data</span><span class="op">$</span><span class="va">rank</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="co"># Select the columns to plot.</span>
-      <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">.data</span><span class="op">$</span><span class="va">rank</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="co"># Reorder the rows.</span>
-      <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>cell_name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">.data</span><span class="op">$</span><span class="va">cell_name</span>, levels <span class="op">=</span> <span class="va">.data</span><span class="op">$</span><span class="va">cell_name</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="co"># Conver to factor for plotting.</span>
-      <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">.data</span><span class="op">$</span><span class="va">cell_name</span>, y <span class="op">=</span> <span class="va">.data</span><span class="op">$</span><span class="va">rank</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-      <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-      <span class="fu">ggpubr</span><span class="fu">::</span><span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/theme_pubr.html">theme_pubr</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-      <span class="fu">ggpubr</span><span class="fu">::</span><span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/rremove.html">rremove</a></span><span class="op">(</span><span class="st">"x.text"</span><span class="op">)</span> <span class="op">+</span>
-      <span class="fu">ggpubr</span><span class="fu">::</span><span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/rremove.html">rremove</a></span><span class="op">(</span><span class="st">"x.ticks"</span><span class="op">)</span> <span class="op">+</span> 
-      <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"Cell name"</span><span class="op">)</span> <span class="op">+</span> 
-      <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Rank"</span><span class="op">)</span>
-<span class="va">p</span> <span class="op">&lt;-</span> <span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span>
-<span class="va">p</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Compute enrichment.</span></span>
+<span><span class="va">gene_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"OLIG1"</span>, <span class="st">"MBP"</span><span class="op">)</span></span>
+<span><span class="va">sample</span> <span class="op">&lt;-</span> <span class="fu">Seurat</span><span class="fu">::</span><span class="fu"><a href="https://satijalab.org/seurat/reference/AddModuleScore.html">AddModuleScore</a></span><span class="op">(</span><span class="va">sample</span>, features <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">gene_list</span><span class="op">)</span>, name <span class="op">=</span> <span class="st">"testing_list"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Rank the enrichment scores.</span></span>
+<span><span class="va">sample</span><span class="op">$</span><span class="va">rank</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rank.html">rank</a></span><span class="op">(</span><span class="va">sample</span><span class="op">$</span><span class="va">testing_list1</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Visualize the two distribution.</span></span>
+<span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_VlnPlot.html">do_VlnPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
+<span>                         features <span class="op">=</span> <span class="st">"testing_list1"</span>,</span>
+<span>                         group.by <span class="op">=</span> <span class="st">"orig.ident"</span><span class="op">)</span></span>
+<span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="va">sample</span><span class="op">@</span><span class="va">meta.data</span> <span class="op">%&gt;%</span> <span class="co"># Extract metadata</span></span>
+<span>      <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>cell_name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">sample</span><span class="op">@</span><span class="va">meta.data</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="co"># Get the cell names.</span></span>
+<span>      <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">.data</span><span class="op">$</span><span class="va">cell_name</span>, <span class="va">.data</span><span class="op">$</span><span class="va">rank</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="co"># Select the columns to plot.</span></span>
+<span>      <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">.data</span><span class="op">$</span><span class="va">rank</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="co"># Reorder the rows.</span></span>
+<span>      <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>cell_name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">.data</span><span class="op">$</span><span class="va">cell_name</span>, levels <span class="op">=</span> <span class="va">.data</span><span class="op">$</span><span class="va">cell_name</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="co"># Conver to factor for plotting.</span></span>
+<span>      <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">.data</span><span class="op">$</span><span class="va">cell_name</span>, y <span class="op">=</span> <span class="va">.data</span><span class="op">$</span><span class="va">rank</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>      <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>      <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>axis.text <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>                     axis.ticks <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>      <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"Cell name"</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>      <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Rank"</span><span class="op">)</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span></span>
+<span><span class="va">p</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-2"></span>
 <img src="06-BeeSwarmPlots_files/figure-html/unnamed-chunk-2-1.png" alt="Distribution of enrichment scores and ranks." width="100%" height="100%"><p class="caption">
@@ -109,21 +109,20 @@ Figure 1.1: Distribution of enrichment scores and ranks.
 </div>
 <p>As we can observe, the ranks behave in a linear fashion and that is expected. However, the interesting part comes when we further subset this distribution by another variable:</p>
 <div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
-<code class="sourceCode R">
-<span class="va">p</span> <span class="op">&lt;-</span> <span class="va">sample</span><span class="op">@</span><span class="va">meta.data</span> <span class="op">%&gt;%</span> <span class="co"># Extract metadata</span>
-      <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>cell_name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">sample</span><span class="op">@</span><span class="va">meta.data</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="co"># Get the cell names.</span>
-      <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">.data</span><span class="op">$</span><span class="va">cell_name</span>, <span class="va">.data</span><span class="op">$</span><span class="va">rank</span>, <span class="va">.data</span><span class="op">$</span><span class="va">seurat_clusters</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="co"># Select the columns to plot.</span>
-      <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">.data</span><span class="op">$</span><span class="va">rank</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="co"># Reorder the rows.</span>
-      <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>cell_name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">.data</span><span class="op">$</span><span class="va">cell_name</span>, levels <span class="op">=</span> <span class="va">.data</span><span class="op">$</span><span class="va">cell_name</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="co"># Conver to factor for plotting.</span>
-      <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">.data</span><span class="op">$</span><span class="va">cell_name</span>, y <span class="op">=</span> <span class="va">.data</span><span class="op">$</span><span class="va">rank</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-      <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-      <span class="fu">ggpubr</span><span class="fu">::</span><span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/theme_pubr.html">theme_pubr</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-      <span class="fu">ggpubr</span><span class="fu">::</span><span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/rremove.html">rremove</a></span><span class="op">(</span><span class="st">"x.text"</span><span class="op">)</span> <span class="op">+</span>
-      <span class="fu">ggpubr</span><span class="fu">::</span><span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/rremove.html">rremove</a></span><span class="op">(</span><span class="st">"x.ticks"</span><span class="op">)</span> <span class="op">+</span> 
-      <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"Cell name"</span><span class="op">)</span> <span class="op">+</span> 
-      <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Rank"</span><span class="op">)</span> <span class="op">+</span> 
-      <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="st">"seurat_clusters"</span>, ncol <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>
-<span class="va">p</span></code></pre></div>
+<code class="sourceCode R"><span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="va">sample</span><span class="op">@</span><span class="va">meta.data</span> <span class="op">%&gt;%</span> <span class="co"># Extract metadata</span></span>
+<span>      <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>cell_name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">sample</span><span class="op">@</span><span class="va">meta.data</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="co"># Get the cell names.</span></span>
+<span>      <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">.data</span><span class="op">$</span><span class="va">cell_name</span>, <span class="va">.data</span><span class="op">$</span><span class="va">rank</span>, <span class="va">.data</span><span class="op">$</span><span class="va">seurat_clusters</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="co"># Select the columns to plot.</span></span>
+<span>      <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">.data</span><span class="op">$</span><span class="va">rank</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="co"># Reorder the rows.</span></span>
+<span>      <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>cell_name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">.data</span><span class="op">$</span><span class="va">cell_name</span>, levels <span class="op">=</span> <span class="va">.data</span><span class="op">$</span><span class="va">cell_name</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="co"># Conver to factor for plotting.</span></span>
+<span>      <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">.data</span><span class="op">$</span><span class="va">cell_name</span>, y <span class="op">=</span> <span class="va">.data</span><span class="op">$</span><span class="va">rank</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>      <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>      <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>axis.text <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>                     axis.ticks <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>      <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"Cell name"</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>      <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Rank"</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>      <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="st">"seurat_clusters"</span>, ncol <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span>
+<span><span class="va">p</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-3"></span>
 <img src="06-BeeSwarmPlots_files/figure-html/unnamed-chunk-3-1.png" alt="Splitting the ranks by groups." width="100%" height="100%"><p class="caption">
@@ -137,18 +136,18 @@ Figure 1.2: Splitting the ranks by groups.
 </h2>
 <p>Let’s say we want to focus on how much each cluster is driven by the PC_1 and PC_2. The first thought is to just use <code>SCpubr::do_Dimplot()</code> to plot the PCA embedding instead of the UMAP. We also query PC_3 and PC_4 to have a not-so-clear example.</p>
 <div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span><span class="va">sample</span>, 
-                         reduction <span class="op">=</span> <span class="st">"pca"</span>, 
-                         label <span class="op">=</span> <span class="cn">T</span>, 
-                         legend <span class="op">=</span> <span class="cn">F</span>, 
-                         dims <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span> 
-<span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span><span class="va">sample</span>, 
-                         reduction <span class="op">=</span> <span class="st">"pca"</span>, 
-                         label <span class="op">=</span> <span class="cn">T</span>, 
-                         legend <span class="op">=</span> <span class="cn">F</span>, 
-                         dims <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span> 
-
-<span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span><span class="va">sample</span>, </span>
+<span>                         reduction <span class="op">=</span> <span class="st">"pca"</span>, </span>
+<span>                         label <span class="op">=</span> <span class="cn">T</span>, </span>
+<span>                         legend <span class="op">=</span> <span class="cn">F</span>, </span>
+<span>                         dims <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span> </span>
+<span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span><span class="va">sample</span>, </span>
+<span>                         reduction <span class="op">=</span> <span class="st">"pca"</span>, </span>
+<span>                         label <span class="op">=</span> <span class="cn">T</span>, </span>
+<span>                         legend <span class="op">=</span> <span class="cn">F</span>, </span>
+<span>                         dims <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span> </span>
+<span></span>
+<span><span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-4"></span>
 <img src="06-BeeSwarmPlots_files/figure-html/unnamed-chunk-4-1.png" alt="Plotting PCA embeddings with SCpubr::do_DimPlot()" width="100%" height="100%"><p class="caption">
@@ -160,29 +159,29 @@ Figure 1.3: Plotting PCA embeddings with SCpubr::do_DimPlot()
 - The groups to divide the plot into to <code>group.by</code>.
 - Whether the output should be colored with a categorical or continuous scale, with <code>continuous_feature</code>.</p>
 <div class="sourceCode" id="cb44"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
-                         reduction <span class="op">=</span> <span class="st">"pca"</span>, 
-                         label <span class="op">=</span> <span class="cn">T</span>, 
-                         legend <span class="op">=</span> <span class="cn">F</span>, 
-                         dims <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span>
-
-<span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
-                         reduction <span class="op">=</span> <span class="st">"pca"</span>, 
-                         label <span class="op">=</span> <span class="cn">T</span>, 
-                         legend <span class="op">=</span> <span class="cn">F</span>, 
-                         dims <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span> 
-
-<span class="va">p3</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BeeSwarmPlot.html">do_BeeSwarmPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
-                              feature_to_rank <span class="op">=</span> <span class="st">"PC_1"</span>, 
-                              group.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>, 
-                              continuous_feature <span class="op">=</span> <span class="cn">F</span><span class="op">)</span>
-
-<span class="va">p4</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BeeSwarmPlot.html">do_BeeSwarmPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
-                              feature_to_rank <span class="op">=</span> <span class="st">"PC_4"</span>, 
-                              group.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>, 
-                              continuous_feature <span class="op">=</span> <span class="cn">F</span><span class="op">)</span>
-
-<span class="op">(</span><span class="va">p1</span> <span class="op">|</span> <span class="va">p3</span><span class="op">)</span> <span class="op">/</span> <span class="op">(</span><span class="va">p2</span> <span class="op">|</span> <span class="va">p4</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
+<span>                         reduction <span class="op">=</span> <span class="st">"pca"</span>, </span>
+<span>                         label <span class="op">=</span> <span class="cn">T</span>, </span>
+<span>                         legend <span class="op">=</span> <span class="cn">F</span>, </span>
+<span>                         dims <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
+<span>                         reduction <span class="op">=</span> <span class="st">"pca"</span>, </span>
+<span>                         label <span class="op">=</span> <span class="cn">T</span>, </span>
+<span>                         legend <span class="op">=</span> <span class="cn">F</span>, </span>
+<span>                         dims <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span> </span>
+<span></span>
+<span><span class="va">p3</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BeeSwarmPlot.html">do_BeeSwarmPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
+<span>                              feature_to_rank <span class="op">=</span> <span class="st">"PC_1"</span>, </span>
+<span>                              group.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>, </span>
+<span>                              continuous_feature <span class="op">=</span> <span class="cn">F</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">p4</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BeeSwarmPlot.html">do_BeeSwarmPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
+<span>                              feature_to_rank <span class="op">=</span> <span class="st">"PC_4"</span>, </span>
+<span>                              group.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>, </span>
+<span>                              continuous_feature <span class="op">=</span> <span class="cn">F</span><span class="op">)</span></span>
+<span></span>
+<span><span class="op">(</span><span class="va">p1</span> <span class="op">|</span> <span class="va">p3</span><span class="op">)</span> <span class="op">/</span> <span class="op">(</span><span class="va">p2</span> <span class="op">|</span> <span class="va">p4</span><span class="op">)</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-5"></span>
 <img src="06-BeeSwarmPlots_files/figure-html/unnamed-chunk-5-1.png" alt="SCpubr Bee Swarm plots with categorical variables." width="100%" height="100%"><p class="caption">
@@ -192,30 +191,30 @@ Figure 1.4: SCpubr Bee Swarm plots with categorical variables.
 <p>Here, we have selected PC_1 and PC_4. We can observe how the X axis of the Bee Swarm plot displays the ordering (rank) of all of the cells across the selected feature. Focusing on PC_1, we can see that cluster 0 is completely shifted to the right on PC_1, with is nicely displayed in the Bee Swarm plot by having all of the cells also ranked high (the higher the rank, the bigger the “value” of the feature to rank, in this case, the PC_1 value). In the case of PC_4, the Bee Swarm plot nicely shows which clusters lay on the upper, lower or middle part of the PC_4.</p>
 <p>A very important thing to note in these kind of plots is that no cells will have the same rank. This is, imagine a scenario like PC_4, but we artificially remove clusters 0, 3, 5, 7, 8, 9, leaving only those forming a “straight line” in PC_4. The nature of this plot will also separate the remaining clusters:</p>
 <div class="sourceCode" id="cb45"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Clusters to exclude.</span>
-<span class="va">clusters_exclude</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"0"</span>, <span class="st">"3"</span>, <span class="st">"5"</span>, <span class="st">"7"</span>, <span class="st">"8"</span>, <span class="st">"9"</span><span class="op">)</span>
-
-<span class="co"># Keep the original coloring.</span>
-<span class="va">cols.use</span> <span class="op">&lt;-</span> <span class="fu">colorspace</span><span class="fu">::</span><span class="fu"><a href="https://colorspace.R-Forge.R-project.org/reference/hcl_palettes.html">qualitative_hcl</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">sample</span><span class="op">)</span><span class="op">)</span>, 
-                                        palette <span class="op">=</span> <span class="st">"Dark 3"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">cols.use</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">sample</span><span class="op">)</span>
-
-<span class="co"># Only provide the needed colors. If more are provided, an error is thrown.</span>
-<span class="va">cols.use</span> <span class="op">&lt;-</span> <span class="va">cols.use</span><span class="op">[</span><span class="op">!</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">cols.use</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">clusters_exclude</span><span class="op">)</span><span class="op">]</span>
-
-<span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span><span class="op">[</span>, <span class="op">!</span><span class="op">(</span><span class="va">sample</span><span class="op">$</span><span class="va">seurat_clusters</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">clusters_exclude</span><span class="op">)</span><span class="op">]</span>, 
-                         reduction <span class="op">=</span> <span class="st">"pca"</span>, 
-                         label <span class="op">=</span> <span class="cn">T</span>, 
-                         legend <span class="op">=</span> <span class="cn">F</span>, 
-                         dims <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">4</span><span class="op">)</span>, 
-                         colors.use <span class="op">=</span> <span class="va">cols.use</span><span class="op">)</span> 
-<span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BeeSwarmPlot.html">do_BeeSwarmPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span><span class="op">[</span>, <span class="op">!</span><span class="op">(</span><span class="va">sample</span><span class="op">$</span><span class="va">seurat_clusters</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">clusters_exclude</span><span class="op">)</span><span class="op">]</span>, 
-                              feature_to_rank <span class="op">=</span> <span class="st">"PC_4"</span>, 
-                              group.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>, 
-                              continuous_feature <span class="op">=</span> <span class="cn">F</span>, 
-                              colors.use <span class="op">=</span> <span class="va">cols.use</span><span class="op">)</span>
-
-<span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Clusters to exclude.</span></span>
+<span><span class="va">clusters_exclude</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"0"</span>, <span class="st">"3"</span>, <span class="st">"5"</span>, <span class="st">"7"</span>, <span class="st">"8"</span>, <span class="st">"9"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Keep the original coloring.</span></span>
+<span><span class="va">cols.use</span> <span class="op">&lt;-</span> <span class="fu">colorspace</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/colorspace/man/hcl_palettes.html">qualitative_hcl</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">sample</span><span class="op">)</span><span class="op">)</span>, </span>
+<span>                                        palette <span class="op">=</span> <span class="st">"Dark 3"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">cols.use</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">sample</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Only provide the needed colors. If more are provided, an error is thrown.</span></span>
+<span><span class="va">cols.use</span> <span class="op">&lt;-</span> <span class="va">cols.use</span><span class="op">[</span><span class="op">!</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">cols.use</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">clusters_exclude</span><span class="op">)</span><span class="op">]</span></span>
+<span></span>
+<span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span><span class="op">[</span>, <span class="op">!</span><span class="op">(</span><span class="va">sample</span><span class="op">$</span><span class="va">seurat_clusters</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">clusters_exclude</span><span class="op">)</span><span class="op">]</span>, </span>
+<span>                         reduction <span class="op">=</span> <span class="st">"pca"</span>, </span>
+<span>                         label <span class="op">=</span> <span class="cn">T</span>, </span>
+<span>                         legend <span class="op">=</span> <span class="cn">F</span>, </span>
+<span>                         dims <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">4</span><span class="op">)</span>, </span>
+<span>                         colors.use <span class="op">=</span> <span class="va">cols.use</span><span class="op">)</span> </span>
+<span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BeeSwarmPlot.html">do_BeeSwarmPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span><span class="op">[</span>, <span class="op">!</span><span class="op">(</span><span class="va">sample</span><span class="op">$</span><span class="va">seurat_clusters</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">clusters_exclude</span><span class="op">)</span><span class="op">]</span>, </span>
+<span>                              feature_to_rank <span class="op">=</span> <span class="st">"PC_4"</span>, </span>
+<span>                              group.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>, </span>
+<span>                              continuous_feature <span class="op">=</span> <span class="cn">F</span>, </span>
+<span>                              colors.use <span class="op">=</span> <span class="va">cols.use</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-6"></span>
 <img src="06-BeeSwarmPlots_files/figure-html/unnamed-chunk-6-1.png" alt="SCpubr Bee Swarm plots with similar values." width="100%" height="100%"><p class="caption">
@@ -224,31 +223,31 @@ Figure 1.5: SCpubr Bee Swarm plots with similar values.
 </div>
 <p>See, we still clearly see two groups, formed by clusters 1 and 2, and clusters 4 and 6. We could even remove clusters 1 and 2 and still see a similar effect.</p>
 <div class="sourceCode" id="cb46"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Clusters to exclude.</span>
-<span class="va">clusters_exclude</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"0"</span>, <span class="st">"1"</span>, <span class="st">"2"</span>, <span class="st">"3"</span>, <span class="st">"5"</span>, <span class="st">"7"</span>, <span class="st">"8"</span>, <span class="st">"9"</span><span class="op">)</span>
-
-<span class="co"># Keep the original coloring.</span>
-<span class="va">cols.use</span> <span class="op">&lt;-</span> <span class="fu">colorspace</span><span class="fu">::</span><span class="fu"><a href="https://colorspace.R-Forge.R-project.org/reference/hcl_palettes.html">qualitative_hcl</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">sample</span><span class="op">)</span><span class="op">)</span>, 
-                                        palette <span class="op">=</span> <span class="st">"Dark 3"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">cols.use</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">sample</span><span class="op">)</span>
-
-<span class="co"># Only provide the needed colors. If more are provided, an error is thrown.</span>
-<span class="va">cols.use</span> <span class="op">&lt;-</span> <span class="va">cols.use</span><span class="op">[</span><span class="op">!</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">cols.use</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">clusters_exclude</span><span class="op">)</span><span class="op">]</span>
-
-
-<span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span><span class="op">[</span>, <span class="op">!</span><span class="op">(</span><span class="va">sample</span><span class="op">$</span><span class="va">seurat_clusters</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">clusters_exclude</span><span class="op">)</span><span class="op">]</span>, 
-                         reduction <span class="op">=</span> <span class="st">"pca"</span>, 
-                         label <span class="op">=</span> <span class="cn">T</span>, 
-                         legend <span class="op">=</span> <span class="cn">F</span>, 
-                         dims <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">4</span><span class="op">)</span>, 
-                         colors.use <span class="op">=</span> <span class="va">cols.use</span><span class="op">)</span> 
-<span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BeeSwarmPlot.html">do_BeeSwarmPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span><span class="op">[</span>, <span class="op">!</span><span class="op">(</span><span class="va">sample</span><span class="op">$</span><span class="va">seurat_clusters</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">clusters_exclude</span><span class="op">)</span><span class="op">]</span>, 
-                              feature_to_rank <span class="op">=</span> <span class="st">"PC_4"</span>, 
-                              group.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>, 
-                              continuous_feature <span class="op">=</span> <span class="cn">F</span>, 
-                              colors.use <span class="op">=</span> <span class="va">cols.use</span><span class="op">)</span>
-
-<span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Clusters to exclude.</span></span>
+<span><span class="va">clusters_exclude</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"0"</span>, <span class="st">"1"</span>, <span class="st">"2"</span>, <span class="st">"3"</span>, <span class="st">"5"</span>, <span class="st">"7"</span>, <span class="st">"8"</span>, <span class="st">"9"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Keep the original coloring.</span></span>
+<span><span class="va">cols.use</span> <span class="op">&lt;-</span> <span class="fu">colorspace</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/colorspace/man/hcl_palettes.html">qualitative_hcl</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">sample</span><span class="op">)</span><span class="op">)</span>, </span>
+<span>                                        palette <span class="op">=</span> <span class="st">"Dark 3"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">cols.use</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">sample</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Only provide the needed colors. If more are provided, an error is thrown.</span></span>
+<span><span class="va">cols.use</span> <span class="op">&lt;-</span> <span class="va">cols.use</span><span class="op">[</span><span class="op">!</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">cols.use</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">clusters_exclude</span><span class="op">)</span><span class="op">]</span></span>
+<span></span>
+<span></span>
+<span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span><span class="op">[</span>, <span class="op">!</span><span class="op">(</span><span class="va">sample</span><span class="op">$</span><span class="va">seurat_clusters</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">clusters_exclude</span><span class="op">)</span><span class="op">]</span>, </span>
+<span>                         reduction <span class="op">=</span> <span class="st">"pca"</span>, </span>
+<span>                         label <span class="op">=</span> <span class="cn">T</span>, </span>
+<span>                         legend <span class="op">=</span> <span class="cn">F</span>, </span>
+<span>                         dims <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">4</span><span class="op">)</span>, </span>
+<span>                         colors.use <span class="op">=</span> <span class="va">cols.use</span><span class="op">)</span> </span>
+<span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BeeSwarmPlot.html">do_BeeSwarmPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span><span class="op">[</span>, <span class="op">!</span><span class="op">(</span><span class="va">sample</span><span class="op">$</span><span class="va">seurat_clusters</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">clusters_exclude</span><span class="op">)</span><span class="op">]</span>, </span>
+<span>                              feature_to_rank <span class="op">=</span> <span class="st">"PC_4"</span>, </span>
+<span>                              group.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>, </span>
+<span>                              continuous_feature <span class="op">=</span> <span class="cn">F</span>, </span>
+<span>                              colors.use <span class="op">=</span> <span class="va">cols.use</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-7"></span>
 <img src="06-BeeSwarmPlots_files/figure-html/unnamed-chunk-7-1.png" alt="SCpubr Bee Swarm plots with almost identical values." width="100%" height="100%"><p class="caption">
@@ -263,26 +262,26 @@ Figure 1.6: SCpubr Bee Swarm plots with almost identical values.
 </h2>
 <p>There are also scenarios in which we want to rank the cells to a continuous variable, but instead of showing colors for each group (which is anyway depicted in the Y axis), we want to introduce a continuous color scale. This is specially interesting to assess enrichment of clusters towards a given set of features.</p>
 <div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Set up list of a genes to compute enrichment. Let's use a monocyte signature.</span>
-<span class="va">genes.use</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"CD14"</span>, <span class="st">"LYZ"</span><span class="op">)</span>
-
-<span class="co"># Compute enrichment and rename the output.</span>
-<span class="va">sample</span> <span class="op">&lt;-</span> <span class="fu">Seurat</span><span class="fu">::</span><span class="fu"><a href="https://satijalab.org/seurat/reference/AddModuleScore.html">AddModuleScore</a></span><span class="op">(</span><span class="va">sample</span>, 
-                                 features <span class="op">=</span> <span class="va">genes.use</span>, 
-                                 name <span class="op">=</span> <span class="st">"Monocyte_signature"</span><span class="op">)</span>
-<span class="va">sample</span><span class="op">$</span><span class="va">Monocyte_signature</span> <span class="op">&lt;-</span> <span class="va">sample</span><span class="op">$</span><span class="va">Monocyte_signature1</span>
-<span class="va">sample</span><span class="op">$</span><span class="va">Monocyte_signature1</span> <span class="op">&lt;-</span> <span class="cn">NULL</span>
-
-<span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
-                         label <span class="op">=</span> <span class="cn">T</span>, 
-                         legend <span class="op">=</span> <span class="cn">F</span><span class="op">)</span>
-<span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
-                             features <span class="op">=</span> <span class="st">"Monocyte_signature"</span><span class="op">)</span> 
-<span class="va">p3</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BeeSwarmPlot.html">do_BeeSwarmPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
-                              feature_to_rank <span class="op">=</span> <span class="st">"Monocyte_signature"</span>, 
-                              group.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>, 
-                              continuous_feature <span class="op">=</span> <span class="cn">T</span><span class="op">)</span>
-<span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span> <span class="op">|</span> <span class="va">p3</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Set up list of a genes to compute enrichment. Let's use a monocyte signature.</span></span>
+<span><span class="va">genes.use</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"CD14"</span>, <span class="st">"LYZ"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Compute enrichment and rename the output.</span></span>
+<span><span class="va">sample</span> <span class="op">&lt;-</span> <span class="fu">Seurat</span><span class="fu">::</span><span class="fu"><a href="https://satijalab.org/seurat/reference/AddModuleScore.html">AddModuleScore</a></span><span class="op">(</span><span class="va">sample</span>, </span>
+<span>                                 features <span class="op">=</span> <span class="va">genes.use</span>, </span>
+<span>                                 name <span class="op">=</span> <span class="st">"Monocyte_signature"</span><span class="op">)</span></span>
+<span><span class="va">sample</span><span class="op">$</span><span class="va">Monocyte_signature</span> <span class="op">&lt;-</span> <span class="va">sample</span><span class="op">$</span><span class="va">Monocyte_signature1</span></span>
+<span><span class="va">sample</span><span class="op">$</span><span class="va">Monocyte_signature1</span> <span class="op">&lt;-</span> <span class="cn">NULL</span></span>
+<span></span>
+<span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
+<span>                         label <span class="op">=</span> <span class="cn">T</span>, </span>
+<span>                         legend <span class="op">=</span> <span class="cn">F</span><span class="op">)</span></span>
+<span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
+<span>                             features <span class="op">=</span> <span class="st">"Monocyte_signature"</span><span class="op">)</span> </span>
+<span><span class="va">p3</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BeeSwarmPlot.html">do_BeeSwarmPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
+<span>                              feature_to_rank <span class="op">=</span> <span class="st">"Monocyte_signature"</span>, </span>
+<span>                              group.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>, </span>
+<span>                              continuous_feature <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></span>
+<span><span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span> <span class="op">|</span> <span class="va">p3</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-8"></span>
 <img src="06-BeeSwarmPlots_files/figure-html/unnamed-chunk-8-1.png" alt="Using continuous color scale in SCpubr::do_BeeSwarmPlot()." width="100%" height="100%"><p class="caption">
@@ -297,23 +296,23 @@ Figure 1.7: Using continuous color scale in SCpubr::do_BeeSwarmPlot().
 </h2>
 <p>Same as with other categorical representations, we can modify the default color palette by providing a custom one to <code>colors.use</code>. This has to be a named vector of HEX values with the names of the groups as names of the values:</p>
 <div class="sourceCode" id="cb48"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Create a color scale for the unique values in seurat clusters.</span>
-<span class="va">colors</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"0"</span> <span class="op">=</span> <span class="st">"#001219"</span>,
-            <span class="st">"1"</span> <span class="op">=</span> <span class="st">"#005f73"</span>,
-            <span class="st">"2"</span> <span class="op">=</span> <span class="st">"#0a9396"</span>,
-            <span class="st">"3"</span> <span class="op">=</span> <span class="st">"#94d2bd"</span>,
-            <span class="st">"4"</span> <span class="op">=</span> <span class="st">"#e9d8a6"</span>,
-            <span class="st">"5"</span> <span class="op">=</span> <span class="st">"#ee9b00"</span>,
-            <span class="st">"6"</span> <span class="op">=</span> <span class="st">"#ca6702"</span>,
-            <span class="st">"7"</span> <span class="op">=</span> <span class="st">"#bb3e03"</span>,
-            <span class="st">"8"</span> <span class="op">=</span> <span class="st">"#ae2012"</span>,
-            <span class="st">"9"</span> <span class="op">=</span> <span class="st">"#9b2226"</span><span class="op">)</span>
-
-<span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BeeSwarmPlot.html">do_BeeSwarmPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
-                             feature_to_rank <span class="op">=</span> <span class="st">"Monocyte_signature"</span>, 
-                             group.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>,
-                             colors.use <span class="op">=</span> <span class="va">colors</span><span class="op">)</span>
-<span class="va">p</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Create a color scale for the unique values in seurat clusters.</span></span>
+<span><span class="va">colors</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"0"</span> <span class="op">=</span> <span class="st">"#001219"</span>,</span>
+<span>            <span class="st">"1"</span> <span class="op">=</span> <span class="st">"#005f73"</span>,</span>
+<span>            <span class="st">"2"</span> <span class="op">=</span> <span class="st">"#0a9396"</span>,</span>
+<span>            <span class="st">"3"</span> <span class="op">=</span> <span class="st">"#94d2bd"</span>,</span>
+<span>            <span class="st">"4"</span> <span class="op">=</span> <span class="st">"#e9d8a6"</span>,</span>
+<span>            <span class="st">"5"</span> <span class="op">=</span> <span class="st">"#ee9b00"</span>,</span>
+<span>            <span class="st">"6"</span> <span class="op">=</span> <span class="st">"#ca6702"</span>,</span>
+<span>            <span class="st">"7"</span> <span class="op">=</span> <span class="st">"#bb3e03"</span>,</span>
+<span>            <span class="st">"8"</span> <span class="op">=</span> <span class="st">"#ae2012"</span>,</span>
+<span>            <span class="st">"9"</span> <span class="op">=</span> <span class="st">"#9b2226"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BeeSwarmPlot.html">do_BeeSwarmPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
+<span>                             feature_to_rank <span class="op">=</span> <span class="st">"Monocyte_signature"</span>, </span>
+<span>                             group.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>,</span>
+<span>                             colors.use <span class="op">=</span> <span class="va">colors</span><span class="op">)</span></span>
+<span><span class="va">p</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-9"></span>
 <img src="06-BeeSwarmPlots_files/figure-html/unnamed-chunk-9-1.png" alt="SCpubr, modifying default colors in a Bee Swarm plot" width="100%" height="100%"><p class="caption">
@@ -359,7 +358,7 @@ Figure 1.8: SCpubr, modifying default colors in a Bee Swarm plot
 <!-- Moved the footer outside of the body to make it span all page width. --><footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 13 July, 2022.</p>
+    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 25 July, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -35,7 +35,7 @@ p
 <p class="caption">(\#fig:unnamed-chunk-3)SCpubr::do_CellularStatesPlot, 2 variables</p>
 </div>
 
-This way, we can see how much effect gene set A has with regards to gene set B. One can further enforce some simmetry in the plot with `enforce_symmetry = TRUE`. Also, title, subtitle and caption can be provided with `plot.title`, `plot.subtitle` and `plot.caption` parameter.
+This way, we can see how much effect gene set A has with regards to gene set B. One can further enforce some symmetry in the plot with `enforce_symmetry = TRUE`.
 
 
 ```r
@@ -43,10 +43,7 @@ p <- SCpubr::do_CellularStatesPlot(sample = sample,
                                    gene_list = gene_set,
                                    x1 = "A",
                                    y1 = "B",
-                                   enforce_simmetry = TRUE,
-                                   plot.title = "2 Variable plot",
-                                   plot.subtitle = "It shows the relationship between A and B",
-                                   plot.caption = "Showing: Enrichment scores")
+                                   enforce_symmetry = TRUE)
 p
 ```
 
@@ -87,10 +84,7 @@ p <- SCpubr::do_CellularStatesPlot(sample = sample,
                                    x1 = "A",
                                    y1 = "B",
                                    x2 = "C",
-                                   enforce_simmetry = TRUE,
-                                   plot.title = "3 Variable plot",
-                                   plot.subtitle = "It shows the relationship between B (Y axis) and A and C (X axis)",
-                                   plot.caption = "Showing: Enrichment scores")
+                                   enforce_symmetry = TRUE)
 p
 ```
 
@@ -133,12 +127,64 @@ p <- SCpubr::do_CellularStatesPlot(sample = sample,
                                    y1 = "C",
                                    x2 = "B",
                                    y2 = "D",
-                                   enforce_simmetry = TRUE)
+                                   enforce_symmetry = TRUE)
 p
 ```
 
 <div class="figure" style="text-align: center">
 <img src="13-CellularStatePlots_files/figure-html/unnamed-chunk-8-1.png" alt="SCpubr::do_CellularStatesPlot, 4 variables symmetry enforced" width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-8)SCpubr::do_CellularStatesPlot, 4 variables symmetry enforced</p>
+</div>
+
+## Continuous features
+In addition to all the above, one can also further query the resulting plot for any other feature that would be accepted in a regular `SCpubr::do_FeaturePlot().` The plots are returned alongside the original one. This behavior is achieved by using `plot_features = TRUE` and providing the desired features to `features` parameter.
+
+```r
+out <- SCpubr::do_CellularStatesPlot(sample = sample,
+                                     gene_list = gene_set,
+                                     x1 = "A",
+                                     y1 = "C",
+                                     x2 = "B",
+                                     y2 = "D",
+                                     plot_cell_borders = TRUE,
+                                     enforce_symmetry = TRUE,
+                                     plot_features = TRUE,
+                                     features = c("PC_1", "nFeature_RNA"))
+p <- out$main | out$PC_1 | out$nFeature_RNA
+p
+```
+
+<div class="figure" style="text-align: center">
+<img src="13-CellularStatePlots_files/figure-html/unnamed-chunk-9-1.png" alt="SCpubr::do_CellularStatesPlot, 4 variables symmetry enforced querying for features" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-9)SCpubr::do_CellularStatesPlot, 4 variables symmetry enforced querying for features</p>
+</div>
+
+Furthermore, the original list of genes queried can be also plotted as enrichment scores. This can be achieved by `plot_enrichment_scores = TRUE`:
+
+
+```r
+out <- SCpubr::do_CellularStatesPlot(sample = sample,
+                                     gene_list = gene_set,
+                                     x1 = "A",
+                                     y1 = "C",
+                                     x2 = "B",
+                                     y2 = "D",
+                                     plot_cell_borders = TRUE,
+                                     enforce_symmetry = TRUE,
+                                     plot_enrichment_scores = TRUE)
+layout <- "AABC
+           AADE"
+p <- patchwork::wrap_plots(A = out$main,
+                           B = out$A,
+                           C = out$B,
+                           D = out$C,
+                           E = out$D,
+                           design = layout)
+p
+```
+
+<div class="figure" style="text-align: center">
+<img src="13-CellularStatePlots_files/figure-html/unnamed-chunk-10-1.png" alt="SCpubr::do_CellularStatesPlot, 4 variables symmetry enforced querying for enrichment scores of the original list of genes" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-10)SCpubr::do_CellularStatesPlot, 4 variables symmetry enforced querying for enrichment scores of the original list of genes</p>
 </div>
 

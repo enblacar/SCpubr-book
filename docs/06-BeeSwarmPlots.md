@@ -24,9 +24,8 @@ p2 <- sample@meta.data %>% # Extract metadata
       dplyr::mutate(cell_name = factor(.data$cell_name, levels = .data$cell_name)) %>% # Conver to factor for plotting.
       ggplot2::ggplot(mapping = ggplot2::aes(x = .data$cell_name, y = .data$rank)) +
       ggplot2::geom_point() +
-      ggpubr::theme_pubr() +
-      ggpubr::rremove("x.text") +
-      ggpubr::rremove("x.ticks") + 
+      ggplot2::theme(axis.text = ggplot2::element_blank(),
+                     axis.ticks = ggplot2::element_blank()) + 
       ggplot2::xlab("Cell name") + 
       ggplot2::ylab("Rank")
 p <- p1 | p2
@@ -49,9 +48,8 @@ p <- sample@meta.data %>% # Extract metadata
       dplyr::mutate(cell_name = factor(.data$cell_name, levels = .data$cell_name)) %>% # Conver to factor for plotting.
       ggplot2::ggplot(mapping = ggplot2::aes(x = .data$cell_name, y = .data$rank)) +
       ggplot2::geom_point() +
-      ggpubr::theme_pubr() +
-      ggpubr::rremove("x.text") +
-      ggpubr::rremove("x.ticks") + 
+      ggplot2::theme(axis.text = ggplot2::element_blank(),
+                     axis.ticks = ggplot2::element_blank()) + 
       ggplot2::xlab("Cell name") + 
       ggplot2::ylab("Rank") + 
       ggplot2::facet_wrap("seurat_clusters", ncol = 5)

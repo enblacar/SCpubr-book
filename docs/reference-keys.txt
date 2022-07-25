@@ -60,6 +60,11 @@ fig:unnamed-chunk-61
 fig:unnamed-chunk-62
 fig:unnamed-chunk-63
 fig:unnamed-chunk-64
+fig:unnamed-chunk-65
+fig:unnamed-chunk-66
+fig:unnamed-chunk-67
+fig:unnamed-chunk-68
+fig:unnamed-chunk-69
 dim-plots
 basic-usage
 using-labels-instead-of-a-legend
@@ -108,6 +113,8 @@ cellular-state-plots
 variable-plots
 variables
 variables-1
+continuous-features
+ligand-receptor-analysis
 color-palettes
 generate-color-palettes
 generate-combination-of-colors

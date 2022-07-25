@@ -14,6 +14,7 @@ Since this is going to be a very long and plot-rich section, here is a summary o
 - **Relocate the legend**: Use `legend.position` parameter alongside *top*, *bottom*, *left* or *right*.
 - **Changing the font size**: Use `font.size` parameter and provide a number.
 - **Modify default colors**: Use `colors.use` for categorical variables and `viridis_color_map` for continuous (exceptions apply, see the corresponding subsection) and provide valid color representations or a valid viridis color map.
+- **Plot borders around cells**: Use `plot_cell_borders` parameter alongside `border.size` and `border.color` to customise how it looks.
 
 
 
@@ -161,14 +162,14 @@ p <- SCpubr::do_CellularStatesPlot(sample = sample,
                                    y1 = "B",
                                    x2 = "C",
                                    y2 = "D",
-                                   enforce_simmetry = T) |
+                                   enforce_symmetry = T) |
      SCpubr::do_CellularStatesPlot(sample = sample,
                                    gene_list = genes,
                                    x1 = "A",
                                    y1 = "B",
                                    x2 = "C",
                                    y2 = "D",
-                                   enforce_simmetry = T,
+                                   enforce_symmetry = T,
                                    font.size = 18)
 p
 ```
@@ -355,7 +356,7 @@ p <- SCpubr::do_CellularStatesPlot(sample = sample,
                                    y1 = "B",
                                    x2 = "C",
                                    y2 = "D",
-                                   enforce_simmetry = T,
+                                   enforce_symmetry = T,
                                    font.type = "mono") |
      SCpubr::do_CellularStatesPlot(sample = sample,
                                    gene_list = genes,
@@ -363,7 +364,7 @@ p <- SCpubr::do_CellularStatesPlot(sample = sample,
                                    y1 = "B",
                                    x2 = "C",
                                    y2 = "D",
-                                   enforce_simmetry = T,
+                                   enforce_symmetry = T,
                                    font.type = "sans") |
      SCpubr::do_CellularStatesPlot(sample = sample,
                                    gene_list = genes,
@@ -371,7 +372,7 @@ p <- SCpubr::do_CellularStatesPlot(sample = sample,
                                    y1 = "B",
                                    x2 = "C",
                                    y2 = "D",
-                                   enforce_simmetry = T,
+                                   enforce_symmetry = T,
                                    font.type = "serif")
 p
 ```
@@ -525,7 +526,7 @@ p <- SCpubr::do_CellularStatesPlot(sample = sample,
                                    y1 = "B",
                                    x2 = "C",
                                    y2 = "D",
-                                   enforce_simmetry = T,
+                                   enforce_symmetry = T,
                                    plot.title = "This is a title",
                                    plot.subtitle = "This is a subtitle",
                                    plot.caption = "This is a caption")
@@ -855,7 +856,7 @@ p <- (SCpubr::do_CellularStatesPlot(sample = sample,
                                     y1 = "B",
                                     x2 = "C",
                                     y2 = "D",
-                                    enforce_simmetry = T,
+                                    enforce_symmetry = T,
                                     legend.position = "top") |
       SCpubr::do_CellularStatesPlot(sample = sample,
                                     gene_list = genes,
@@ -863,7 +864,7 @@ p <- (SCpubr::do_CellularStatesPlot(sample = sample,
                                     y1 = "B",
                                     x2 = "C",
                                     y2 = "D",
-                                    enforce_simmetry = T,
+                                    enforce_symmetry = T,
                                     legend.position = "bottom")) /
      (SCpubr::do_CellularStatesPlot(sample = sample,
                                     gene_list = genes,
@@ -871,7 +872,7 @@ p <- (SCpubr::do_CellularStatesPlot(sample = sample,
                                     y1 = "B",
                                     x2 = "C",
                                     y2 = "D",
-                                    enforce_simmetry = T,
+                                    enforce_symmetry = T,
                                     legend.position = "left") |
       SCpubr::do_CellularStatesPlot(sample = sample,
                                     gene_list = genes,
@@ -879,7 +880,7 @@ p <- (SCpubr::do_CellularStatesPlot(sample = sample,
                                     y1 = "B",
                                     x2 = "C",
                                     y2 = "D",
-                                    enforce_simmetry = T,
+                                    enforce_symmetry = T,
                                     legend.position = "right"))
    
 p
@@ -983,14 +984,14 @@ p <- SCpubr::do_CellularStatesPlot(sample = sample,
                                    y1 = "B",
                                    x2 = "C",
                                    y2 = "D",
-                                   enforce_simmetry = T) |
+                                   enforce_symmetry = T) |
      SCpubr::do_CellularStatesPlot(sample = sample,
                                    gene_list = genes,
                                    x1 = "A",
                                    y1 = "B",
                                    x2 = "C",
                                    y2 = "D",
-                                   enforce_simmetry = T,
+                                   enforce_symmetry = T,
                                    colors.use = colors)
 p
 ```
@@ -1327,7 +1328,7 @@ p2 <- SCpubr:::do_CellularStatesPlot(sample = sample,
                                      y1 = "B",
                                      x2 = "C",
                                      y2 = "D",
-                                     enforce_simmetry = T,
+                                     enforce_symmetry = T,
                                      legend.position = "bottom",
                                      plot_marginal_distributions = TRUE)
 
@@ -1360,7 +1361,7 @@ p2 <- SCpubr:::do_CellularStatesPlot(sample = sample,
                                      y1 = "B",
                                      x2 = "C",
                                      y2 = "D",
-                                     enforce_simmetry = T,
+                                     enforce_symmetry = T,
                                      legend.position = "bottom",
                                      plot_marginal_distributions = TRUE,
                                      marginal.group = FALSE)
@@ -1394,7 +1395,7 @@ p2 <- SCpubr:::do_CellularStatesPlot(sample = sample,
                                      y1 = "B",
                                      x2 = "C",
                                      y2 = "D",
-                                     enforce_simmetry = T,
+                                     enforce_symmetry = T,
                                      legend.position = "bottom",
                                      plot_marginal_distributions = TRUE,
                                      marginal.size = 1)
@@ -1427,7 +1428,7 @@ p2 <- SCpubr:::do_CellularStatesPlot(sample = sample,
                                      y1 = "B",
                                      x2 = "C",
                                      y2 = "D",
-                                     enforce_simmetry = T,
+                                     enforce_symmetry = T,
                                      legend.position = "bottom",
                                      plot_marginal_distributions = TRUE,
                                      marginal.type = "histogram")
@@ -1460,7 +1461,7 @@ p2 <- SCpubr:::do_CellularStatesPlot(sample = sample,
                                      y1 = "B",
                                      x2 = "C",
                                      y2 = "D",
-                                     enforce_simmetry = T,
+                                     enforce_symmetry = T,
                                      legend.position = "bottom",
                                      plot_marginal_distributions = TRUE,
                                      marginal.type = "violin",
@@ -1494,7 +1495,7 @@ p2 <- SCpubr:::do_CellularStatesPlot(sample = sample,
                                      y1 = "B",
                                      x2 = "C",
                                      y2 = "D",
-                                     enforce_simmetry = T,
+                                     enforce_symmetry = T,
                                      legend.position = "bottom",
                                      plot_marginal_distributions = TRUE,
                                      marginal.type = "boxplot",
@@ -1527,7 +1528,7 @@ p2 <- SCpubr:::do_CellularStatesPlot(sample = sample,
                                      y1 = "B",
                                      x2 = "C",
                                      y2 = "D",
-                                     enforce_simmetry = T,
+                                     enforce_symmetry = T,
                                      legend.position = "bottom",
                                      plot_marginal_distributions = TRUE,
                                      marginal.type = "densigram")
@@ -1539,4 +1540,143 @@ p
 <div class="figure" style="text-align: center">
 <img src="95-CommonFeatures_files/figure-html/unnamed-chunk-64-1.png" alt="Plotting marginal plots with modified distributions - densigram" width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-64)Plotting marginal plots with modified distributions - densigram</p>
+</div>
+
+## Plotting borders around cells. {-}
+In any dot-based visualization, one can plot a border around the cells with `plot_cell_borders = TRUE` and the border size can be controlled with 
+
+
+```r
+p1 <- SCpubr::do_DimPlot(sample = sample)
+
+p2 <- SCpubr::do_DimPlot(sample = sample,
+                         plot_cell_borders = TRUE)
+
+p3 <- SCpubr::do_DimPlot(sample = sample,
+                         plot_cell_borders = TRUE,
+                         border.size = 3)
+
+p <- p1 | p2 | p3
+p
+```
+
+<div class="figure" style="text-align: center">
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-65-1.png" alt="SCpubr::do_DimPlot cell borders" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-65)SCpubr::do_DimPlot cell borders</p>
+</div>
+
+```r
+p1 <- SCpubr::do_FeaturePlot(sample = sample,
+                             features = "CD14")
+
+p2 <- SCpubr::do_FeaturePlot(sample = sample,
+                             plot_cell_borders = TRUE,
+                             features = "CD14")
+
+p3 <- SCpubr::do_FeaturePlot(sample = sample,
+                             plot_cell_borders = TRUE,
+                             border.size = 3,
+                             features = "CD14")
+
+p <- p1 | p2 | p3
+p
+```
+
+<div class="figure" style="text-align: center">
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-66-1.png" alt="SCpubr::do_FeaturePlot cell borders" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-66)SCpubr::do_FeaturePlot cell borders</p>
+</div>
+
+```r
+p1 <- SCpubr::do_NebulosaPlot(sample = sample,
+                              features = "CD14")
+
+p2 <- SCpubr::do_NebulosaPlot(sample = sample,
+                              plot_cell_borders = TRUE,
+                              features = "CD14")
+
+p3 <- SCpubr::do_NebulosaPlot(sample = sample,
+                              plot_cell_borders = TRUE,
+                              border.size = 3,
+                              features = "CD14")
+
+p <- p1 | p2 | p3
+p
+```
+
+<div class="figure" style="text-align: center">
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-67-1.png" alt="SCpubr::do_NebulosaPlot cell borders" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-67)SCpubr::do_NebulosaPlot cell borders</p>
+</div>
+
+
+```r
+p1 <- SCpubr::do_BeeSwarmPlot(sample = sample,
+                              feature_to_rank = "PC_1",
+                              group.by = "seurat_clusters")
+
+p2 <- SCpubr::do_BeeSwarmPlot(sample = sample,
+                              feature_to_rank = "PC_1",
+                              group.by = "seurat_clusters",
+                              plot_cell_borders = TRUE)
+
+p3 <- SCpubr::do_BeeSwarmPlot(sample = sample,
+                              feature_to_rank = "PC_1",
+                              group.by = "seurat_clusters",
+                              plot_cell_borders = TRUE,
+                              border.size = 3)
+
+p <- p1 | p2 | p3
+p
+```
+
+<div class="figure" style="text-align: center">
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-68-1.png" alt="SCpubr::do_BeeSwarmPlot cell borders" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-68)SCpubr::do_BeeSwarmPlot cell borders</p>
+</div>
+
+
+```r
+genes <- list("A" = Seurat::VariableFeatures(sample)[1:5],
+              "B" = Seurat::VariableFeatures(sample)[6:10],
+              "C" = Seurat::VariableFeatures(sample)[11:15],
+              "D" = Seurat::VariableFeatures(sample)[16:20])
+
+p1 <- SCpubr:::do_CellularStatesPlot(sample = sample,
+                                     gene_list = genes,
+                                     x1 = "A",
+                                     y1 = "B",
+                                     x2 = "C",
+                                     y2 = "D",
+                                     enforce_symmetry = T,
+                                     legend.position = "bottom")
+
+p2 <- SCpubr:::do_CellularStatesPlot(sample = sample,
+                                     gene_list = genes,
+                                     x1 = "A",
+                                     y1 = "B",
+                                     x2 = "C",
+                                     y2 = "D",
+                                     enforce_symmetry = T,
+                                     legend.position = "bottom",
+                                     plot_cell_borders = TRUE)
+
+p3 <- SCpubr:::do_CellularStatesPlot(sample = sample,
+                                     gene_list = genes,
+                                     x1 = "A",
+                                     y1 = "B",
+                                     x2 = "C",
+                                     y2 = "D",
+                                     enforce_symmetry = T,
+                                     legend.position = "bottom",
+                                     plot_cell_borders = TRUE,
+                                     border.size = 3)
+
+p <- p1 | p2 | p3
+p
+```
+
+<div class="figure" style="text-align: center">
+<img src="95-CommonFeatures_files/figure-html/unnamed-chunk-69-1.png" alt="SCpubr::do_BeeSwarmPlot cell borders" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-69)SCpubr::do_BeeSwarmPlot cell borders</p>
 </div>

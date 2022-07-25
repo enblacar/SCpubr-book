@@ -7,7 +7,7 @@
 <title>2 Feature plots | SCpubr</title>
 <meta name="author" content="Enrique Blanco Carmona">
 <meta name="description" content="Another flagship function in Seurat is Seurat::FeaturePlot(). It is basically the counterpart of Seurat::DimPlot() which, instead of coloring the cells based on a categorical color scale, it uses...">
-<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta name="generator" content="bookdown 0.27 with bs4_book()">
 <meta property="og:title" content="2 Feature plots | SCpubr">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://enblacar.github.io/SCpubr-book/feature-plots.html">
@@ -17,9 +17,9 @@
 <meta name="twitter:title" content="2 Feature plots | SCpubr">
 <meta name="twitter:description" content="Another flagship function in Seurat is Seurat::FeaturePlot(). It is basically the counterpart of Seurat::DimPlot() which, instead of coloring the cells based on a categorical color scale, it uses...">
 <meta name="twitter:image" content="https://enblacar.github.io/SCpubr-book/images/SCpubr_logo.png">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <link rel="shortcut icon" href="images/SCpubr_logo_favicon.png">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="style.css">
@@ -54,7 +54,8 @@
 <li><a class="" href="enrichment-score-heatmaps.html"><span class="header-section-number">9</span> Enrichment score heatmaps</a></li>
 <li><a class="" href="correlation-matrix-heatmaps.html"><span class="header-section-number">10</span> Correlation matrix heatmaps</a></li>
 <li><a class="" href="cellular-state-plots.html"><span class="header-section-number">11</span> Cellular State Plots</a></li>
-<li><a class="" href="color-palettes.html"><span class="header-section-number">12</span> Color palettes</a></li>
+<li><a class="" href="ligand-receptor-analysis.html"><span class="header-section-number">12</span> Ligand-Receptor analysis</a></li>
+<li><a class="" href="color-palettes.html"><span class="header-section-number">13</span> Color palettes</a></li>
 <li><a class="" href="common-features-across-plots.html">Common features across plots</a></li>
 <li><a class="" href="rasterized-figures.html">Rasterized figures</a></li>
 <li><a class="" href="save-the-figures.html">Save the figures</a></li>
@@ -80,16 +81,16 @@
 </h2>
 <p>This is SCpubr’s take on <code><a href="https://satijalab.org/seurat/reference/FeaturePlot.html">Seurat::FeaturePlot()</a></code>:</p>
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Seurat's Feature Plot.</span>
-<span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">Seurat</span><span class="fu">::</span><span class="fu"><a href="https://satijalab.org/seurat/reference/FeaturePlot.html">FeaturePlot</a></span><span class="op">(</span><span class="va">sample</span>, 
-                          features <span class="op">=</span> <span class="st">"PC_1"</span><span class="op">)</span>
-
-<span class="co"># SCpubr's Feature Plot.</span>
-<span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,
-                             features <span class="op">=</span> <span class="st">"PC_1"</span><span class="op">)</span>
-
-<span class="va">p</span> <span class="op">&lt;-</span> <span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span>
-<span class="va">p</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Seurat's Feature Plot.</span></span>
+<span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">Seurat</span><span class="fu">::</span><span class="fu"><a href="https://satijalab.org/seurat/reference/FeaturePlot.html">FeaturePlot</a></span><span class="op">(</span><span class="va">sample</span>, </span>
+<span>                          features <span class="op">=</span> <span class="st">"PC_1"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># SCpubr's Feature Plot.</span></span>
+<span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
+<span>                             features <span class="op">=</span> <span class="st">"PC_1"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span></span>
+<span><span class="va">p</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-2"></span>
 <img src="04-FeaturePlots_files/figure-html/unnamed-chunk-2-1.png" alt="SCpubr do_FeaturePlot vs Seurat FeaturePlot" width="100%" height="100%"><p class="caption">
@@ -98,20 +99,20 @@ Figure 1.1: SCpubr do_FeaturePlot vs Seurat FeaturePlot
 </div>
 <p>By default, <code><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">SCpubr::do_FeaturePlot()</a></code> enlarges the dots a bit and modifies the legend, to better stand out. Even though axes are removed from UMAP reductions, the title for the axes is kept for any other reduction used. The same is applied for UMAP if the default dimension order is altered.</p>
 <div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Use case with PCA embedding.</span>
-<span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
-                             features <span class="op">=</span> <span class="st">"CD14"</span>,
-                             plot.title <span class="op">=</span> <span class="st">"Plotting PCA coordinates"</span>,
-                             reduction <span class="op">=</span> <span class="st">"pca"</span><span class="op">)</span>
-
-<span class="co"># Use case with non-canonical dimensions.                             </span>
-<span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
-                             features <span class="op">=</span> <span class="st">"CD14"</span>,
-                             plot.title <span class="op">=</span> <span class="st">"Plotting UMAP coordinates in a different order"</span>,
-                             dims <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span>
-
-<span class="va">p</span> <span class="op">&lt;-</span> <span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span>
-<span class="va">p</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Use case with PCA embedding.</span></span>
+<span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
+<span>                             features <span class="op">=</span> <span class="st">"CD14"</span>,</span>
+<span>                             plot.title <span class="op">=</span> <span class="st">"Plotting PCA coordinates"</span>,</span>
+<span>                             reduction <span class="op">=</span> <span class="st">"pca"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Use case with non-canonical dimensions.                             </span></span>
+<span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
+<span>                             features <span class="op">=</span> <span class="st">"CD14"</span>,</span>
+<span>                             plot.title <span class="op">=</span> <span class="st">"Plotting UMAP coordinates in a different order"</span>,</span>
+<span>                             dims <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span></span>
+<span><span class="va">p</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-3"></span>
 <img src="04-FeaturePlots_files/figure-html/unnamed-chunk-3-1.png" alt="SCpubr Feature showing axes titles." width="100%" height="100%"><p class="caption">
@@ -125,15 +126,15 @@ Figure 1.2: SCpubr Feature showing axes titles.
 </h2>
 <p><code><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">SCpubr::do_FeaturePlot()</a></code> can tackle multiple queries at the same time. Plots can be rearranged as desired with <code>ncol</code> parameter:</p>
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Query multiple features at the same time.</span>
-<span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span><span class="va">sample</span>, features <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"nCount_RNA"</span>, 
-                                                 <span class="st">"nFeature_RNA"</span>, 
-                                                 <span class="st">"percent.mt"</span>, 
-                                                 <span class="st">"CD14"</span><span class="op">)</span>, 
-                            plot.title <span class="op">=</span> <span class="st">"A collection of features"</span>, 
-                            ncol <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>
-
-<span class="va">p</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Query multiple features at the same time.</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span><span class="va">sample</span>, features <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"nCount_RNA"</span>, </span>
+<span>                                                 <span class="st">"nFeature_RNA"</span>, </span>
+<span>                                                 <span class="st">"percent.mt"</span>, </span>
+<span>                                                 <span class="st">"CD14"</span><span class="op">)</span>, </span>
+<span>                            plot.title <span class="op">=</span> <span class="st">"A collection of features"</span>, </span>
+<span>                            ncol <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">p</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-4"></span>
 <img src="04-FeaturePlots_files/figure-html/unnamed-chunk-4-1.png" alt="SCpubr FeaturePlot, with 4 features and 2 columns" width="100%" height="100%"><p class="caption">
@@ -142,20 +143,20 @@ Figure 1.3: SCpubr FeaturePlot, with 4 features and 2 columns
 </div>
 <p>With multiple queries, using <code>plot.title</code> parameter actually adds a general title to all plots. If one wants to modify the title of each plot independently, a vector <strong>of the same length as the number of features</strong> needs to be provided to <code>individual.titles</code> parameter. In case a title does not need to be changed, use <code>NA</code> instead.</p>
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Add individual titles to the plots.</span>
-<span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,
-                            features <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"nCount_RNA"</span>,
-                                         <span class="st">"nFeature_RNA"</span>,
-                                         <span class="st">"percent.mt"</span>,
-                                         <span class="st">"CD14"</span><span class="op">)</span>,
-                            plot.title <span class="op">=</span> <span class="st">"A collection of features"</span>,
-                            individual.titles <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Plot A"</span>,
-                                                  <span class="st">"Plot_B"</span>,
-                                                  <span class="cn">NA</span>,
-                                                  <span class="st">"Plot_D"</span><span class="op">)</span>,
-                            ncol <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>
-
-<span class="va">p</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Add individual titles to the plots.</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
+<span>                            features <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"nCount_RNA"</span>,</span>
+<span>                                         <span class="st">"nFeature_RNA"</span>,</span>
+<span>                                         <span class="st">"percent.mt"</span>,</span>
+<span>                                         <span class="st">"CD14"</span><span class="op">)</span>,</span>
+<span>                            plot.title <span class="op">=</span> <span class="st">"A collection of features"</span>,</span>
+<span>                            individual.titles <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Plot A"</span>,</span>
+<span>                                                  <span class="st">"Plot_B"</span>,</span>
+<span>                                                  <span class="cn">NA</span>,</span>
+<span>                                                  <span class="st">"Plot_D"</span><span class="op">)</span>,</span>
+<span>                            ncol <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">p</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-5"></span>
 <img src="04-FeaturePlots_files/figure-html/unnamed-chunk-5-1.png" alt="SCpubr FeaturePlot, with individual modified titles" width="100%" height="100%"><p class="caption">
@@ -164,30 +165,30 @@ Figure 1.4: SCpubr FeaturePlot, with individual modified titles
 </div>
 <p>The very same concept can be applied to individual <strong>subtitles</strong> and <strong>captions</strong>. For this, you need to use <code>individual.subtitles</code> and <code>individual.captions</code> parameters.</p>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Add individual titles, subtitles and captions.</span>
-<span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,
-                            features <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"nCount_RNA"</span>,
-                                         <span class="st">"nFeature_RNA"</span>,
-                                         <span class="st">"percent.mt"</span>,
-                                         <span class="st">"CD14"</span><span class="op">)</span>,
-                            plot.title <span class="op">=</span> <span class="st">"A collection of features"</span>,
-                            plot.subtitle <span class="op">=</span> <span class="st">"Everything is commented!"</span>,
-                            plot.caption <span class="op">=</span> <span class="st">"Dataset from: ..."</span>,
-                            individual.titles <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Plot A"</span>,
-                                                  <span class="st">"Plot_B"</span>,
-                                                  <span class="cn">NA</span>,
-                                                  <span class="st">"Plot_D"</span><span class="op">)</span>,
-                            individual.subtitles <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Subtitle A"</span>,
-                                                  <span class="cn">NA</span>,
-                                                  <span class="st">"Subtitle C"</span>,
-                                                  <span class="st">"Subtitle D"</span><span class="op">)</span>,
-                            individual.captions <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Caption A"</span>,
-                                                  <span class="st">"Caption B"</span>,
-                                                  <span class="st">"Caption C"</span>,
-                                                  <span class="st">"Caption D"</span><span class="op">)</span>,
-                            ncol <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>
-
-<span class="va">p</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Add individual titles, subtitles and captions.</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
+<span>                            features <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"nCount_RNA"</span>,</span>
+<span>                                         <span class="st">"nFeature_RNA"</span>,</span>
+<span>                                         <span class="st">"percent.mt"</span>,</span>
+<span>                                         <span class="st">"CD14"</span><span class="op">)</span>,</span>
+<span>                            plot.title <span class="op">=</span> <span class="st">"A collection of features"</span>,</span>
+<span>                            plot.subtitle <span class="op">=</span> <span class="st">"Everything is commented!"</span>,</span>
+<span>                            plot.caption <span class="op">=</span> <span class="st">"Dataset from: ..."</span>,</span>
+<span>                            individual.titles <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Plot A"</span>,</span>
+<span>                                                  <span class="st">"Plot_B"</span>,</span>
+<span>                                                  <span class="cn">NA</span>,</span>
+<span>                                                  <span class="st">"Plot_D"</span><span class="op">)</span>,</span>
+<span>                            individual.subtitles <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Subtitle A"</span>,</span>
+<span>                                                  <span class="cn">NA</span>,</span>
+<span>                                                  <span class="st">"Subtitle C"</span>,</span>
+<span>                                                  <span class="st">"Subtitle D"</span><span class="op">)</span>,</span>
+<span>                            individual.captions <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Caption A"</span>,</span>
+<span>                                                  <span class="st">"Caption B"</span>,</span>
+<span>                                                  <span class="st">"Caption C"</span>,</span>
+<span>                                                  <span class="st">"Caption D"</span><span class="op">)</span>,</span>
+<span>                            ncol <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">p</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-6"></span>
 <img src="04-FeaturePlots_files/figure-html/unnamed-chunk-6-1.png" alt="SCpubr FeaturePlot, with individual modified titles, subtitles and captions." width="100%" height="100%"><p class="caption">
@@ -201,13 +202,13 @@ Figure 1.5: SCpubr FeaturePlot, with individual modified titles, subtitles and c
 </h2>
 <p>One of the things that can be misleading is that it could be the case that a <strong>very specific subset of cells are driving the ends of the color scales</strong>. Let’s say that we have identified that clusters 2, 5, and 8 are responsible for this behavior. We would like to plot the values without taking those cells into consideration. The very first thing that comes to mind is, indeed, removing the cells completely, resulting in the following:</p>
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Subset the cells in the Seurat object to remove unwanted cells.</span>
-<span class="va">cells.plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">sample</span><span class="op">[</span>, <span class="op">!</span><span class="op">(</span><span class="va">sample</span><span class="op">$</span><span class="va">seurat_clusters</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"2"</span>, <span class="st">"5"</span>, <span class="st">"8"</span><span class="op">)</span><span class="op">)</span><span class="op">]</span><span class="op">)</span>
-
-<span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span><span class="va">sample</span><span class="op">[</span>, <span class="va">cells.plot</span><span class="op">]</span>, 
-                            features <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"CD14"</span><span class="op">)</span><span class="op">)</span>
-
-<span class="va">p</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Subset the cells in the Seurat object to remove unwanted cells.</span></span>
+<span><span class="va">cells.plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">sample</span><span class="op">[</span>, <span class="op">!</span><span class="op">(</span><span class="va">sample</span><span class="op">$</span><span class="va">seurat_clusters</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"2"</span>, <span class="st">"5"</span>, <span class="st">"8"</span><span class="op">)</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span><span class="va">sample</span><span class="op">[</span>, <span class="va">cells.plot</span><span class="op">]</span>, </span>
+<span>                            features <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"CD14"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">p</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-7"></span>
 <img src="04-FeaturePlots_files/figure-html/unnamed-chunk-7-1.png" alt="SCpubr FeaturePlot, removing cells from clusters 2, 5 and 8" width="100%" height="100%"><p class="caption">
@@ -216,12 +217,12 @@ Figure 1.6: SCpubr FeaturePlot, removing cells from clusters 2, 5 and 8
 </div>
 <p>However, this falls back to the same problem as with <code><a href="https://satijalab.org/seurat/reference/DimPlot.html">Seurat::DimPlot</a></code> with the <code>split.by</code> parameter. We lose the overall context of where the cells are, as we lost the original <strong>UMAP silhouette</strong>. This can be fixed by using the <code>cells.highlight</code> parameter:</p>
 <div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Using cells.highlight parameter to select the cells we want to include in the plot.</span>
-<span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
-                            cells.highlight <span class="op">=</span> <span class="va">cells.plot</span>, 
-                            features <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"CD14"</span><span class="op">)</span><span class="op">)</span>
-
-<span class="va">p</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Using cells.highlight parameter to select the cells we want to include in the plot.</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
+<span>                            cells.highlight <span class="op">=</span> <span class="va">cells.plot</span>, </span>
+<span>                            features <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"CD14"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">p</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-8"></span>
 <img src="04-FeaturePlots_files/figure-html/unnamed-chunk-8-1.png" alt="SCpubr FeaturePlot, masking cells from clusters 2, 5 and 8" width="100%" height="100%"><p class="caption">
@@ -230,12 +231,12 @@ Figure 1.7: SCpubr FeaturePlot, masking cells from clusters 2, 5 and 8
 </div>
 <p>This way, by adding the cells back and modifying the legend, we accomplish the desired effect. Furthermore, <code><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">SCpubr::do_FeaturePlot()</a></code> also accepts a vector of the identities to plot, as long as they are part of <code>levels(seurat_object)</code>. This can be achieved by using the <code>idents.highlight</code> instead.</p>
 <div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Selecting given identitites to include in the plot.</span>
-<span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
-                            idents.highlight <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">sample</span><span class="op">)</span><span class="op">[</span><span class="op">!</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">sample</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"0"</span>, <span class="st">"2"</span>, <span class="st">"5"</span>, <span class="st">"8"</span><span class="op">)</span><span class="op">)</span><span class="op">]</span>, 
-                            features <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"CD14"</span><span class="op">)</span><span class="op">)</span>
-
-<span class="va">p</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Selecting given identitites to include in the plot.</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
+<span>                            idents.highlight <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">sample</span><span class="op">)</span><span class="op">[</span><span class="op">!</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">sample</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"0"</span>, <span class="st">"2"</span>, <span class="st">"5"</span>, <span class="st">"8"</span><span class="op">)</span><span class="op">)</span><span class="op">]</span>, </span>
+<span>                            features <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"CD14"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">p</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-9"></span>
 <img src="04-FeaturePlots_files/figure-html/unnamed-chunk-9-1.png" alt="SCpubr FeaturePlot, masking cells from clusters 2, 5 and 8 using idents.highlight" width="100%" height="100%"><p class="caption">
@@ -249,17 +250,17 @@ Figure 1.8: SCpubr FeaturePlot, masking cells from clusters 2, 5 and 8 using ide
 </h2>
 <p>In some cases, we want to visualize a given feature, let’s say, the expression of <code>LYN</code> across another variable, for instance <code>seurat_clusters</code>. This can be achieved easily in <code>Seurat</code> by using the <code>split.by</code> parameter. For the sake of representation, let’s reduce the number of clusters.</p>
 <div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Group clusters into three values for visualization purposes.</span>
-<span class="va">sample</span><span class="op">$</span><span class="va">new_clusters</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span><span class="op">(</span><span class="va">sample</span><span class="op">$</span><span class="va">seurat_clusters</span><span class="op">)</span>
-<span class="va">sample</span><span class="op">$</span><span class="va">new_clusters</span><span class="op">[</span><span class="va">sample</span><span class="op">$</span><span class="va">new_clusters</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"0"</span>, <span class="st">"1"</span>, <span class="st">"2"</span>, <span class="st">"3"</span><span class="op">)</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"Cluster 1"</span>
-<span class="va">sample</span><span class="op">$</span><span class="va">new_clusters</span><span class="op">[</span><span class="va">sample</span><span class="op">$</span><span class="va">new_clusters</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"4"</span>, <span class="st">"5"</span>, <span class="st">"6"</span><span class="op">)</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"Cluster 2"</span>
-<span class="va">sample</span><span class="op">$</span><span class="va">new_clusters</span><span class="op">[</span><span class="va">sample</span><span class="op">$</span><span class="va">new_clusters</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"7"</span>, <span class="st">"8"</span>, <span class="st">"9"</span><span class="op">)</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"Cluster 3"</span>
-
-<span class="co"># Seurat Feature Plot using split.by.</span>
-<span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">Seurat</span><span class="fu">::</span><span class="fu"><a href="https://satijalab.org/seurat/reference/FeaturePlot.html">FeaturePlot</a></span><span class="op">(</span><span class="va">sample</span>, 
-                         features <span class="op">=</span> <span class="st">"LYN"</span>, 
-                         split.by <span class="op">=</span> <span class="st">"new_clusters"</span><span class="op">)</span>
-<span class="va">p</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Group clusters into three values for visualization purposes.</span></span>
+<span><span class="va">sample</span><span class="op">$</span><span class="va">new_clusters</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span><span class="op">(</span><span class="va">sample</span><span class="op">$</span><span class="va">seurat_clusters</span><span class="op">)</span></span>
+<span><span class="va">sample</span><span class="op">$</span><span class="va">new_clusters</span><span class="op">[</span><span class="va">sample</span><span class="op">$</span><span class="va">new_clusters</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"0"</span>, <span class="st">"1"</span>, <span class="st">"2"</span>, <span class="st">"3"</span><span class="op">)</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"Cluster 1"</span></span>
+<span><span class="va">sample</span><span class="op">$</span><span class="va">new_clusters</span><span class="op">[</span><span class="va">sample</span><span class="op">$</span><span class="va">new_clusters</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"4"</span>, <span class="st">"5"</span>, <span class="st">"6"</span><span class="op">)</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"Cluster 2"</span></span>
+<span><span class="va">sample</span><span class="op">$</span><span class="va">new_clusters</span><span class="op">[</span><span class="va">sample</span><span class="op">$</span><span class="va">new_clusters</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"7"</span>, <span class="st">"8"</span>, <span class="st">"9"</span><span class="op">)</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"Cluster 3"</span></span>
+<span></span>
+<span><span class="co"># Seurat Feature Plot using split.by.</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">Seurat</span><span class="fu">::</span><span class="fu"><a href="https://satijalab.org/seurat/reference/FeaturePlot.html">FeaturePlot</a></span><span class="op">(</span><span class="va">sample</span>, </span>
+<span>                         features <span class="op">=</span> <span class="st">"LYN"</span>, </span>
+<span>                         split.by <span class="op">=</span> <span class="st">"new_clusters"</span><span class="op">)</span></span>
+<span><span class="va">p</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-10"></span>
 <img src="04-FeaturePlots_files/figure-html/unnamed-chunk-10-1.png" alt="Seurat FeaturePlot split by clusters." width="100%" height="100%"><p class="caption">
@@ -268,12 +269,12 @@ Figure 1.9: Seurat FeaturePlot split by clusters.
 </div>
 <p>Apart from the general aesthetic discrepancies mentioned before, there are two main aspects missing. First, is the loss of the <strong>UMAP silhouette</strong>. Secondly, knowing that, by default, the color scale is shared across all the plots, we would like to know the range of values this color scale is displaying. In this two aspects is where <code><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">SCpubr::do_FeaturePlot()</a></code> delves into:</p>
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># SCpubr Feature Plot using split.by</span>
-<span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, 
-                            features <span class="op">=</span> <span class="st">"LYN"</span>, 
-                            split.by <span class="op">=</span> <span class="st">"new_clusters"</span><span class="op">)</span>
-
-<span class="va">p</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># SCpubr Feature Plot using split.by</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
+<span>                            features <span class="op">=</span> <span class="st">"LYN"</span>, </span>
+<span>                            split.by <span class="op">=</span> <span class="st">"new_clusters"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">p</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-11"></span>
 <img src="04-FeaturePlots_files/figure-html/unnamed-chunk-11-1.png" alt="SCpubr FeaturePlot split by clusters." width="100%" height="100%"><p class="caption">
@@ -291,12 +292,12 @@ Figure 1.10: SCpubr FeaturePlot split by clusters.
 </li>
 </ul>
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Use split.by with multiple features.</span>
-<span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span><span class="va">sample</span>, 
-                            features <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"LYN"</span>, <span class="st">"nCount_RNA"</span>, <span class="st">"PC_1"</span><span class="op">)</span>, 
-                            split.by <span class="op">=</span> <span class="st">"new_clusters"</span><span class="op">)</span>
-                            
-<span class="va">p</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Use split.by with multiple features.</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span><span class="va">sample</span>, </span>
+<span>                            features <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"LYN"</span>, <span class="st">"nCount_RNA"</span>, <span class="st">"PC_1"</span><span class="op">)</span>, </span>
+<span>                            split.by <span class="op">=</span> <span class="st">"new_clusters"</span><span class="op">)</span></span>
+<span>                            </span>
+<span><span class="va">p</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-12"></span>
 <img src="04-FeaturePlots_files/figure-html/unnamed-chunk-12-1.png" alt="SCpubr FeaturePlot split by clusters using multiple features." width="100%" height="100%"><p class="caption">
@@ -305,13 +306,13 @@ Figure 1.11: SCpubr FeaturePlot split by clusters using multiple features.
 </div>
 <p>We can even subset the previous plot to any set ofidentities in <code>split.by</code> we are particularly interested in. The color scale also limits itself to contain only the values in the selected identities. This can be achieved by provided a vector with the identities to <code>split.by.idents</code> parameter.</p>
 <div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Using split.by.idents parameter alongside split.by.</span>
-<span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span><span class="va">sample</span>, 
-                            features <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"LYN"</span>, <span class="st">"nCount_RNA"</span>, <span class="st">"PC_1"</span><span class="op">)</span>, 
-                            split.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>, 
-                            split.by.idents <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"2"</span>, <span class="st">"5"</span><span class="op">)</span><span class="op">)</span>
-
-<span class="va">p</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Using split.by.idents parameter alongside split.by.</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span><span class="va">sample</span>, </span>
+<span>                            features <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"LYN"</span>, <span class="st">"nCount_RNA"</span>, <span class="st">"PC_1"</span><span class="op">)</span>, </span>
+<span>                            split.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>, </span>
+<span>                            split.by.idents <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"2"</span>, <span class="st">"5"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">p</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-13"></span>
 <img src="04-FeaturePlots_files/figure-html/unnamed-chunk-13-1.png" alt="SCpubr FeaturePlot split by clusters using multiple features and selected identities." width="100%" height="100%"><p class="caption">
@@ -358,7 +359,7 @@ Figure 1.12: SCpubr FeaturePlot split by clusters using multiple features and se
 <!-- Moved the footer outside of the body to make it span all page width. --><footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 13 July, 2022.</p>
+    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 25 July, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

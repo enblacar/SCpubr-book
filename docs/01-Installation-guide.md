@@ -18,13 +18,17 @@ devtools::install_github("enblacar/SCpubr")
 Further packages are needed in order to run the different functions:
 
 - [colortools](https://github.com/gastonstat/colortools)
+- [ComplexHeatmap](https://bioconductor.org/packages/release/bioc/html/ComplexHeatmap.html)
 - [dplyr](https://dplyr.tidyverse.org/)
 - [enrichR](https://cran.r-project.org/web/packages/enrichR/vignettes/enrichR.html)
 - [forcats](https://forcats.tidyverse.org/index.html)
 - [ggbeeswarm](https://cran.r-project.org/web/packages/ggbeeswarm/index.html)
+- [ggExtra](https://cran.r-project.org/web/packages/ggExtra/vignettes/ggExtra.html)
 - [ggplot2](https://ggplot2.tidyverse.org/)
 - [ggrastr](https://cran.r-project.org/web/packages/ggrastr/vignettes/Raster_geoms.html)
 - [ggrepel](https://cran.r-project.org/web/packages/ggrepel/vignettes/ggrepel.html)
+- [ggtext](https://github.com/wilkelab/ggtext)
+- [ggplotify](https://cran.r-project.org/web/packages/ggplotify/index.html)
 - [Matrix](https://cran.r-project.org/web/packages/Matrix/index.html)
 - [Nebulosa](http://bioconductor.org/packages/release/bioc/html/Nebulosa.html)
 - [patchwork](https://patchwork.data-imaginist.com/)
@@ -49,8 +53,11 @@ cran_packages <- c("colortools",
                    "enrichR",
                    "forcats",
                    "ggbeeswarm",
+                   "ggExtra",
                    "ggplot2",
                    "ggrepel",
+                   "ggplotify",
+                   "ggtext",
                    "Matrix",
                    "patchwork",
                    "purrr",
@@ -64,11 +71,20 @@ cran_packages <- c("colortools",
 install.packages(cran_packages)
 
 # Install bioconductor packages.
-bioconductor_packages <- c("Nebulosa")
+bioconductor_packages <- c("ComplexHeatmap", 
+                           "Nebulosa")
 if (!require("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
 
 BiocManager::install(bioconductor_packages)
+
+# Install github packages.
+github_packages <- c("saezlab/liana")
+
+if (!requireNamespace("remotes", quietly = TRUE))
+    install.packages("remotes")
+
+remotes::install_github(github_packages)
 ```
 
 If interested in running only a subset of functions, `SCpubr::state_dependencies()` outputs the different packages and their sources needed for each of the functions.
