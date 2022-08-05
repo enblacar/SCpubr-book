@@ -115,6 +115,10 @@ variables
 variables-1
 continuous-features
 ligand-receptor-analysis
+copy-number-variant-analysis-plots
+transferring-the-scores-to-a-featureplot.
+plotting-the-scores-grouped-by-a-group-of-interest.
+joint-analysis.
 color-palettes
 generate-color-palettes
 generate-combination-of-colors
