@@ -88,7 +88,7 @@ p
 
 The ideal use case for such functions is to plot them side by side with a regular UMAP as well:
 
-```{r, fig.cap="SCpubr::do_CopyNumberVariantPlot joint analysis.", fig.width=16, fig.height=6}
+```{r, fig.cap="SCpubr::do_CopyNumberVariantPlot joint analysis.", fig.width=16, fig.height=16}
 
 p1 <- SCpubr::do_DimPlot(sample = sample,
                          plot_cell_borders = TRUE,
