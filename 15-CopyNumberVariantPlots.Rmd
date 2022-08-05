@@ -54,7 +54,7 @@ out <- SCpubr::do_CopyNumberVariantPlot(sample = sample,
                                         metacell_mapping = sample$metacell_mapping,
                                         chromosome_locations = human_chr_locations,
                                         chromosome_focus = "11",
-                                        rotate_x_axis_labels = TRUE)
+                                        rotate_x_axis_labels = FALSE)
 p <- out$`11p_dotplot`
 p
 
@@ -75,7 +75,7 @@ out <- SCpubr::do_CopyNumberVariantPlot(sample = sample,
                                         metacell_mapping = sample$metacell_mapping,
                                         chromosome_locations = human_chr_locations,
                                         chromosome_focus = "11",
-                                        rotate_x_axis_labels = TRUE)
+                                        rotate_x_axis_labels = FALSE)
 p <- out$`11p_dotplot`
 p
 
@@ -100,7 +100,7 @@ out <- SCpubr::do_CopyNumberVariantPlot(sample = sample,
                                         metacell_mapping = sample$metacell_mapping,
                                         chromosome_locations = human_chr_locations,
                                         chromosome_focus = "11",
-                                        rotate_x_axis_labels = TRUE)
+                                        rotate_x_axis_labels = FALSE)
 p2 <- out$`11p_umap`
 p3 <- out$`11p_dotplot`
 
