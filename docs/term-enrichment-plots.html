@@ -4,17 +4,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>8 Term Enrichment Plots | SCpubr</title>
+<title>9 Term Enrichment Plots | SCpubr</title>
 <meta name="author" content="Enrique Blanco Carmona">
 <meta name="description" content="One key downstream analysis in Single Cell analysis revolves having a list of candidate genes (i.e: DE genes) and one wants to know whether these genes are enriched for a specific biological...">
 <meta name="generator" content="bookdown 0.27 with bs4_book()">
-<meta property="og:title" content="8 Term Enrichment Plots | SCpubr">
+<meta property="og:title" content="9 Term Enrichment Plots | SCpubr">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://enblacar.github.io/SCpubr-book/term-enrichment-plots.html">
 <meta property="og:image" content="https://enblacar.github.io/SCpubr-book/images/SCpubr_logo.png">
 <meta property="og:description" content="One key downstream analysis in Single Cell analysis revolves having a list of candidate genes (i.e: DE genes) and one wants to know whether these genes are enriched for a specific biological...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="8 Term Enrichment Plots | SCpubr">
+<meta name="twitter:title" content="9 Term Enrichment Plots | SCpubr">
 <meta name="twitter:description" content="One key downstream analysis in Single Cell analysis revolves having a list of candidate genes (i.e: DE genes) and one wants to know whether these genes are enriched for a specific biological...">
 <meta name="twitter:image" content="https://enblacar.github.io/SCpubr-book/images/SCpubr_logo.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -50,13 +50,14 @@
 <li><a class="" href="violin-plots.html"><span class="header-section-number">5</span> Violin plots</a></li>
 <li><a class="" href="dot-plots.html"><span class="header-section-number">6</span> Dot plots</a></li>
 <li><a class="" href="bar-plots.html"><span class="header-section-number">7</span> Bar plots</a></li>
-<li><a class="active" href="term-enrichment-plots.html"><span class="header-section-number">8</span> Term Enrichment Plots</a></li>
-<li><a class="" href="enrichment-score-heatmaps.html"><span class="header-section-number">9</span> Enrichment score heatmaps</a></li>
-<li><a class="" href="correlation-matrix-heatmaps.html"><span class="header-section-number">10</span> Correlation matrix heatmaps</a></li>
-<li><a class="" href="cellular-state-plots.html"><span class="header-section-number">11</span> Cellular State Plots</a></li>
-<li><a class="" href="ligand-receptor-analysis.html"><span class="header-section-number">12</span> Ligand-Receptor analysis</a></li>
-<li><a class="" href="copy-number-variant-analysis-plots.html"><span class="header-section-number">13</span> Copy Number Variant analysis plots</a></li>
-<li><a class="" href="color-palettes.html"><span class="header-section-number">14</span> Color palettes</a></li>
+<li><a class="" href="geyser-plots.html"><span class="header-section-number">8</span> Geyser plots</a></li>
+<li><a class="active" href="term-enrichment-plots.html"><span class="header-section-number">9</span> Term Enrichment Plots</a></li>
+<li><a class="" href="enrichment-score-heatmaps.html"><span class="header-section-number">10</span> Enrichment score heatmaps</a></li>
+<li><a class="" href="correlation-matrix-heatmaps.html"><span class="header-section-number">11</span> Correlation matrix heatmaps</a></li>
+<li><a class="" href="cellular-state-plots.html"><span class="header-section-number">12</span> Cellular State Plots</a></li>
+<li><a class="" href="ligand-receptor-analysis.html"><span class="header-section-number">13</span> Ligand-Receptor analysis</a></li>
+<li><a class="" href="copy-number-variant-analysis-plots.html"><span class="header-section-number">14</span> Copy Number Variant analysis plots</a></li>
+<li><a class="" href="color-palettes.html"><span class="header-section-number">15</span> Color palettes</a></li>
 <li><a class="" href="common-features-across-plots.html">Common features across plots</a></li>
 <li><a class="" href="rasterized-figures.html">Rasterized figures</a></li>
 <li><a class="" href="save-the-figures.html">Save the figures</a></li>
@@ -71,9 +72,9 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="term-enrichment-plots" class="section level1" number="8">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="term-enrichment-plots" class="section level1" number="9">
 <h1>
-<span class="header-section-number">8</span> Term Enrichment Plots<a class="anchor" aria-label="anchor" href="#term-enrichment-plots"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9</span> Term Enrichment Plots<a class="anchor" aria-label="anchor" href="#term-enrichment-plots"><i class="fas fa-link"></i></a>
 </h1>
 <p>One key downstream analysis in Single Cell analysis revolves having a list of candidate genes (i.e: DE genes) and one wants to know whether these genes are enriched for a specific biological function, pathway or cell type. This can be easily done using the <a href="https://github.com/wjawaid/enrichR">enrichR package</a>, which is an R interface to their website, <a href="https://maayanlab.cloud/Enrichr/">Enrichr</a>. This package allows to query a list of genes to more than 100 databases and retrieve the terms that are enriched for the list of genes, together with an adjusted p-value. This process, together with data processing and visualization is comprised in <code><a href="https://rdrr.io/pkg/SCpubr/man/do_TermEnrichmentPlot.html">SCpubr::do_TermEnrichmentPlot()</a></code>.</p>
 <p>First of all, <code>enrichR</code> allows you to select the site to query the results for. This can be provided with the <code>site</code> parameter and can be one of the following:
@@ -83,7 +84,7 @@
 - YeastEnrichr.
 - FishEnrichr.</p>
 <p>Then, we also need to specify the databases to query against. The complete list of databases can be consulted using:</p>
-<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb87"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">dbs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sort.html">sort</a></span><span class="op">(</span><span class="fu">enrichR</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/enrichR/man/listEnrichrDbs.html">listEnrichrDbs</a></span><span class="op">(</span><span class="op">)</span><span class="op">[</span>, <span class="st">'libraryName'</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
 <p>The databases to use need to be provided as a character vector to <code>dbs_use</code> parameter. However, one can also provide one of the following pre-defined options:</p>
 <ul>
@@ -92,7 +93,7 @@
 <li>“C”: Performs a query for the functional terms (MsigDB, GO-BP, GO-MF and KEGG).</li>
 </ul>
 <p>Any of the previous option will return a list of plots. The plots can, then, be assembled together.</p>
-<div class="sourceCode" id="cb79"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Genes related to breast cancer.</span></span>
 <span><span class="va">genes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ABCB1"</span>, <span class="st">"ABCG2"</span>, <span class="st">"AHR"</span>, <span class="st">"AKT1"</span>, <span class="st">"AR"</span><span class="op">)</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_TermEnrichmentPlot.html">do_TermEnrichmentPlot</a></span><span class="op">(</span>genes <span class="op">=</span> <span class="va">genes</span>,</span>
@@ -100,16 +101,16 @@
 <span><span class="fu">patchwork</span><span class="fu">::</span><span class="fu"><a href="https://patchwork.data-imaginist.com/reference/wrap_plots.html">wrap_plots</a></span><span class="op">(</span><span class="va">p</span>, ncol <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-2"></span>
-<img src="10-TermEnrichmentPlots_files/figure-html/unnamed-chunk-2-1.png" alt="SCpubr do_TermEnrichmentPlot use case." width="100%" height="100%"><p class="caption">
+<img src="11-TermEnrichmentPlots_files/figure-html/unnamed-chunk-2-1.png" alt="SCpubr do_TermEnrichmentPlot use case." width="100%" height="100%"><p class="caption">
 Figure 1.1: SCpubr do_TermEnrichmentPlot use case.
 </p>
 </div>
-<div id="modifying-the-number-of-terms-to-retrieve." class="section level2" number="8.1">
+<div id="modifying-the-number-of-terms-to-retrieve." class="section level2" number="9.1">
 <h2>
-<span class="header-section-number">8.1</span> Modifying the number of terms to retrieve.<a class="anchor" aria-label="anchor" href="#modifying-the-number-of-terms-to-retrieve."><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.1</span> Modifying the number of terms to retrieve.<a class="anchor" aria-label="anchor" href="#modifying-the-number-of-terms-to-retrieve."><i class="fas fa-link"></i></a>
 </h2>
 <p>Depending on the focus of the analysis, we might want to only focus on one database but retrieve more terms from it. This can be achieved by using <code>nterms</code> parameter.</p>
-<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb89"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Genes related to breast cancer.</span></span>
 <span><span class="va">genes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ABCB1"</span>, <span class="st">"ABCG2"</span>, <span class="st">"AHR"</span>, <span class="st">"AKT1"</span>, <span class="st">"AR"</span><span class="op">)</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_TermEnrichmentPlot.html">do_TermEnrichmentPlot</a></span><span class="op">(</span>genes <span class="op">=</span> <span class="va">genes</span>,</span>
@@ -118,17 +119,17 @@ Figure 1.1: SCpubr do_TermEnrichmentPlot use case.
 <span><span class="va">p</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-3"></span>
-<img src="10-TermEnrichmentPlots_files/figure-html/unnamed-chunk-3-1.png" alt="SCpubr do_TermEnrichmentPlot with increased terms." width="100%" height="100%"><p class="caption">
+<img src="11-TermEnrichmentPlots_files/figure-html/unnamed-chunk-3-1.png" alt="SCpubr do_TermEnrichmentPlot with increased terms." width="100%" height="100%"><p class="caption">
 Figure 1.2: SCpubr do_TermEnrichmentPlot with increased terms.
 </p>
 </div>
 </div>
-<div id="modifying-the-length-of-the-terms" class="section level2" number="8.2">
+<div id="modifying-the-length-of-the-terms" class="section level2" number="9.2">
 <h2>
-<span class="header-section-number">8.2</span> Modifying the length of the terms<a class="anchor" aria-label="anchor" href="#modifying-the-length-of-the-terms"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.2</span> Modifying the length of the terms<a class="anchor" aria-label="anchor" href="#modifying-the-length-of-the-terms"><i class="fas fa-link"></i></a>
 </h2>
 <p>Another issue with these plots is that, normally, the term itself takes too much space. For this, terms are wrapped according to a cutoff defined in <code>nchar_wrap</code> parameter. If the term has more characters than the value provided, it will be split more or less in half, always preserving whole words.</p>
-<div class="sourceCode" id="cb81"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Genes related to breast cancer.</span></span>
 <span><span class="va">genes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ABCB1"</span>, <span class="st">"ABCG2"</span>, <span class="st">"AHR"</span>, <span class="st">"AKT1"</span>, <span class="st">"AR"</span><span class="op">)</span></span>
 <span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_TermEnrichmentPlot.html">do_TermEnrichmentPlot</a></span><span class="op">(</span>genes <span class="op">=</span> <span class="va">genes</span>,</span>
@@ -142,18 +143,18 @@ Figure 1.2: SCpubr do_TermEnrichmentPlot with increased terms.
 <span><span class="va">p</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-4"></span>
-<img src="10-TermEnrichmentPlots_files/figure-html/unnamed-chunk-4-1.png" alt="SCpubr do_TermEnrichmentPlot with reduced term length." width="100%" height="100%"><p class="caption">
+<img src="11-TermEnrichmentPlots_files/figure-html/unnamed-chunk-4-1.png" alt="SCpubr do_TermEnrichmentPlot with reduced term length." width="100%" height="100%"><p class="caption">
 Figure 1.3: SCpubr do_TermEnrichmentPlot with reduced term length.
 </p>
 </div>
 <p>In the same way, one can further enhance the limit in order to have each term in just one row.</p>
 </div>
-<div id="increase-the-font-size-of-the-labels" class="section level2" number="8.3">
+<div id="increase-the-font-size-of-the-labels" class="section level2" number="9.3">
 <h2>
-<span class="header-section-number">8.3</span> Increase the font size of the labels<a class="anchor" aria-label="anchor" href="#increase-the-font-size-of-the-labels"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3</span> Increase the font size of the labels<a class="anchor" aria-label="anchor" href="#increase-the-font-size-of-the-labels"><i class="fas fa-link"></i></a>
 </h2>
 <p>If you want to increase the font size of the labels - this is, anything that is not part of the legend or the titles, use <code>text_labels_size</code> parameter:</p>
-<div class="sourceCode" id="cb82"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb91"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Genes related to breast cancer.</span></span>
 <span><span class="va">genes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ABCB1"</span>, <span class="st">"ABCG2"</span>, <span class="st">"AHR"</span>, <span class="st">"AKT1"</span>, <span class="st">"AR"</span><span class="op">)</span></span>
 <span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_TermEnrichmentPlot.html">do_TermEnrichmentPlot</a></span><span class="op">(</span>genes <span class="op">=</span> <span class="va">genes</span>,</span>
@@ -166,7 +167,7 @@ Figure 1.3: SCpubr do_TermEnrichmentPlot with reduced term length.
 <span><span class="va">p</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-5"></span>
-<img src="10-TermEnrichmentPlots_files/figure-html/unnamed-chunk-5-1.png" alt="SCpubr do_TermEnrichmentPlot with modified fontsize" width="100%" height="100%"><p class="caption">
+<img src="11-TermEnrichmentPlots_files/figure-html/unnamed-chunk-5-1.png" alt="SCpubr do_TermEnrichmentPlot with modified fontsize" width="100%" height="100%"><p class="caption">
 Figure 1.4: SCpubr do_TermEnrichmentPlot with modified fontsize
 </p>
 </div>
@@ -174,24 +175,24 @@ Figure 1.4: SCpubr do_TermEnrichmentPlot with modified fontsize
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="bar-plots.html"><span class="header-section-number">7</span> Bar plots</a></div>
-<div class="next"><a href="enrichment-score-heatmaps.html"><span class="header-section-number">9</span> Enrichment score heatmaps</a></div>
+<div class="prev"><a href="geyser-plots.html"><span class="header-section-number">8</span> Geyser plots</a></div>
+<div class="next"><a href="enrichment-score-heatmaps.html"><span class="header-section-number">10</span> Enrichment score heatmaps</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><form role="search" class="mt-4 mb-4">
         <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
 </form>
       <div class="book-extra">
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#term-enrichment-plots"><span class="header-section-number">8</span> Term Enrichment Plots</a></li>
-<li><a class="nav-link" href="#modifying-the-number-of-terms-to-retrieve."><span class="header-section-number">8.1</span> Modifying the number of terms to retrieve.</a></li>
-<li><a class="nav-link" href="#modifying-the-length-of-the-terms"><span class="header-section-number">8.2</span> Modifying the length of the terms</a></li>
-<li><a class="nav-link" href="#increase-the-font-size-of-the-labels"><span class="header-section-number">8.3</span> Increase the font size of the labels</a></li>
+<li><a class="nav-link" href="#term-enrichment-plots"><span class="header-section-number">9</span> Term Enrichment Plots</a></li>
+<li><a class="nav-link" href="#modifying-the-number-of-terms-to-retrieve."><span class="header-section-number">9.1</span> Modifying the number of terms to retrieve.</a></li>
+<li><a class="nav-link" href="#modifying-the-length-of-the-terms"><span class="header-section-number">9.2</span> Modifying the length of the terms</a></li>
+<li><a class="nav-link" href="#increase-the-font-size-of-the-labels"><span class="header-section-number">9.3</span> Increase the font size of the labels</a></li>
 </ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<!-- Modified page for chapter. --><li><a id="book-source" href="https://github.com/enblacar/SCpubr-book/blob/main/10-TermEnrichmentPlots.Rmd">View chapter source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/enblacar/SCpubr-book/edit/main/10-TermEnrichmentPlots.Rmd">Edit this chapter <i class="fab fa-github"></i></a></li>
+<!-- Modified page for chapter. --><li><a id="book-source" href="https://github.com/enblacar/SCpubr-book/blob/main/11-TermEnrichmentPlots.Rmd">View chapter source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/enblacar/SCpubr-book/edit/main/11-TermEnrichmentPlots.Rmd">Edit this chapter <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     
@@ -209,7 +210,7 @@ Figure 1.4: SCpubr do_TermEnrichmentPlot with modified fontsize
 <!-- Moved the footer outside of the body to make it span all page width. --><footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 05 August, 2022.</p>
+    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 13 August, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

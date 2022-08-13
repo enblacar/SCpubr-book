@@ -1320,7 +1320,8 @@ genes <- list("A" = Seurat::VariableFeatures(sample)[1:5],
 
 p1 <- SCpubr::do_DimPlot(sample = sample,
                          plot_marginal_distributions = TRUE,
-                         legend.position = "bottom")
+                         legend.position = "bottom",
+                         plot_cell_borders = FALSE)
 
 p2 <- SCpubr:::do_CellularStatesPlot(sample = sample,
                                      gene_list = genes,
@@ -1330,7 +1331,8 @@ p2 <- SCpubr:::do_CellularStatesPlot(sample = sample,
                                      y2 = "D",
                                      enforce_symmetry = T,
                                      legend.position = "bottom",
-                                     plot_marginal_distributions = TRUE)
+                                     plot_marginal_distributions = TRUE,
+                                     plot_cell_borders = FALSE)
 
 p <- p1 | p2
 p
@@ -1353,7 +1355,8 @@ genes <- list("A" = Seurat::VariableFeatures(sample)[1:5],
 p1 <- SCpubr::do_DimPlot(sample = sample,
                          plot_marginal_distributions = TRUE,
                          legend.position = "bottom",
-                         marginal.group = FALSE)
+                         marginal.group = FALSE,
+                         plot_cell_borders = FALSE)
 
 p2 <- SCpubr:::do_CellularStatesPlot(sample = sample,
                                      gene_list = genes,
@@ -1364,7 +1367,8 @@ p2 <- SCpubr:::do_CellularStatesPlot(sample = sample,
                                      enforce_symmetry = T,
                                      legend.position = "bottom",
                                      plot_marginal_distributions = TRUE,
-                                     marginal.group = FALSE)
+                                     marginal.group = FALSE,
+                                     plot_cell_borders = FALSE)
 
 p <- p1 | p2
 p
@@ -1387,7 +1391,8 @@ genes <- list("A" = Seurat::VariableFeatures(sample)[1:5],
 p1 <- SCpubr::do_DimPlot(sample = sample,
                          plot_marginal_distributions = TRUE,
                          legend.position = "bottom",
-                         marginal.size = 1)
+                         marginal.size = 1,
+                         plot_cell_borders = FALSE)
 
 p2 <- SCpubr:::do_CellularStatesPlot(sample = sample,
                                      gene_list = genes,
@@ -1398,7 +1403,8 @@ p2 <- SCpubr:::do_CellularStatesPlot(sample = sample,
                                      enforce_symmetry = T,
                                      legend.position = "bottom",
                                      plot_marginal_distributions = TRUE,
-                                     marginal.size = 1)
+                                     marginal.size = 1,
+                                     plot_cell_borders = FALSE)
 
 p <- p1 | p2
 p
@@ -1420,7 +1426,8 @@ genes <- list("A" = Seurat::VariableFeatures(sample)[1:5],
 p1 <- SCpubr::do_DimPlot(sample = sample,
                          plot_marginal_distributions = TRUE,
                          legend.position = "bottom",
-                         marginal.type = "histogram")
+                         marginal.type = "histogram",
+                         plot_cell_borders = FALSE)
 
 p2 <- SCpubr:::do_CellularStatesPlot(sample = sample,
                                      gene_list = genes,
@@ -1431,7 +1438,8 @@ p2 <- SCpubr:::do_CellularStatesPlot(sample = sample,
                                      enforce_symmetry = T,
                                      legend.position = "bottom",
                                      plot_marginal_distributions = TRUE,
-                                     marginal.type = "histogram")
+                                     marginal.type = "histogram",
+                                     plot_cell_borders = FALSE)
 
 p <- p1 | p2
 p
@@ -1453,7 +1461,8 @@ p1 <- SCpubr::do_DimPlot(sample = sample,
                          plot_marginal_distributions = TRUE,
                          legend.position = "bottom",
                          marginal.type = "violin",
-                         marginal.size = 2)
+                         marginal.size = 2,
+                         plot_cell_borders = FALSE)
 
 p2 <- SCpubr:::do_CellularStatesPlot(sample = sample,
                                      gene_list = genes,
@@ -1465,7 +1474,8 @@ p2 <- SCpubr:::do_CellularStatesPlot(sample = sample,
                                      legend.position = "bottom",
                                      plot_marginal_distributions = TRUE,
                                      marginal.type = "violin",
-                                     marginal.size = 2)
+                                     marginal.size = 2,
+                                     plot_cell_borders = FALSE)
 
 p <- p1 | p2
 p
@@ -1487,7 +1497,8 @@ p1 <- SCpubr::do_DimPlot(sample = sample,
                          plot_marginal_distributions = TRUE,
                          legend.position = "bottom",
                          marginal.type = "boxplot",
-                         marginal.size = 2)
+                         marginal.size = 2,
+                         plot_cell_borders = FALSE)
 
 p2 <- SCpubr:::do_CellularStatesPlot(sample = sample,
                                      gene_list = genes,
@@ -1499,7 +1510,8 @@ p2 <- SCpubr:::do_CellularStatesPlot(sample = sample,
                                      legend.position = "bottom",
                                      plot_marginal_distributions = TRUE,
                                      marginal.type = "boxplot",
-                                     marginal.size = 2)
+                                     marginal.size = 2,
+                                     plot_cell_borders = FALSE)
 
 p <- p1 | p2
 p
@@ -1520,7 +1532,8 @@ genes <- list("A" = Seurat::VariableFeatures(sample)[1:5],
 p1 <- SCpubr::do_DimPlot(sample = sample,
                          plot_marginal_distributions = TRUE,
                          legend.position = "bottom",
-                         marginal.type = "densigram")
+                         marginal.type = "densigram",
+                         plot_cell_borders = FALSE)
 
 p2 <- SCpubr:::do_CellularStatesPlot(sample = sample,
                                      gene_list = genes,
@@ -1531,7 +1544,8 @@ p2 <- SCpubr:::do_CellularStatesPlot(sample = sample,
                                      enforce_symmetry = T,
                                      legend.position = "bottom",
                                      plot_marginal_distributions = TRUE,
-                                     marginal.type = "densigram")
+                                     marginal.type = "densigram",
+                                     plot_cell_borders = FALSE)
 
 p <- p1 | p2
 p

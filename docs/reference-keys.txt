@@ -98,6 +98,15 @@ grouping-by-a-second-variable
 reordering-columns-based-on-a-single-entity
 adding-the-exact-values-to-the-bars
 retrieving-the-data-matrix
+geyser-plots
+basic-usage-6
+ordering-by-mean-values.
+plotting-symmetrical-scales.
+select-the-groups-displayed-on-the-x-axis.
+split-the-plot-by-groups.
+rotating-x-axis-labels.
+adding-a-third-variable.
+control-the-jitter-of-the-dots.
 term-enrichment-plots
 modifying-the-number-of-terms-to-retrieve.
 modifying-the-length-of-the-terms

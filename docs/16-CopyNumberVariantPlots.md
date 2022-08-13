@@ -1,9 +1,5 @@
 # Copy Number Variant analysis plots
-```{r echo = F}
-sample <- readRDS("/b06x-isilon/b06x-g/G703/eblanco/projects/test_SC_datasets/inferCNV_metacells_website/sample_metacells.rds")
-infercnv_object <- suppressMessages(readRDS("/b06x-isilon/b06x-g/G703/eblanco/projects/test_SC_datasets/inferCNV_metacells_website/output/run.final.infercnv_obj"))
-library(Seurat)
-```
+
 
 Copy Number Variant analysis are another of the common analysis that one can compute on single-cell transcriptomics data. Provided with a reference one can compute, for the rest of the cells, whether there are Copy Number Variations (CNVs) in the cells across the chromosomes. This comes really handy to distinguish between tumor and healthy cells, provided that one has a CNV reference event to rely on. There are many tools to compute such analysis, but one that is highly used and that will be covered in this section is [inferCNV](https://github.com/broadinstitute/infercnv). 
 
@@ -16,7 +12,8 @@ In it, we can observe that, for the different clusters, regions called as chromo
 
 One of the cool things we can do with this object, is to transfer the inferCNV scores back to our Seurat object and then plot them as a FeaturePlot. This can be achieved with the function `SCpubr::do_CopyNumberVariantPlot()`. For this function, one needs to provide the Seurat object and the final inferCNV object, together with the chromosome locations. If metacells were computed (not necessary, but used in this example), the mapping of cell-metacell has to be provided as well:
 
-```{r, fig.cap="SCpubr::do_CopyNumberVariantPlot FeaturePlot.", fig.width=8, fig.height=8}
+
+```r
 # This loads "human_chr_locations" into the environment.
 utils::data("human_chr_locations", package = "SCpubr")
 
@@ -29,10 +26,16 @@ p <- out$`11p_umap`
 p
 ```
 
+<div class="figure" style="text-align: center">
+<img src="16-CopyNumberVariantPlots_files/figure-html/unnamed-chunk-2-1.png" alt="SCpubr::do_CopyNumberVariantPlot FeaturePlot." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-2)SCpubr::do_CopyNumberVariantPlot FeaturePlot.</p>
+</div>
+
 Scores of 1 mean no chromosome gain or loss. Higher than one mean gain and lower mean loss. The function automatically computes the plots for *all chromosome regions*. If we want to restrict the output to a single chromosome, we can do so by stating it in `chromosome_focus` parameter.
 
 
-```{r, eval = F}
+
+```r
 out <- SCpubr::do_CopyNumberVariantPlot(sample = sample,
                                         infercnv_object = infercnv_object,
                                         using_metacells = T,
@@ -45,9 +48,10 @@ out <- SCpubr::do_CopyNumberVariantPlot(sample = sample,
 
 ## Plotting the scores grouped by a group of interest.
 
-Sometimes, however, the FeaturePlot is not sufficient to get the insights we want from these scores. For this, the output of `SCpubr::do_CopyNumberVariantPlot()` also contains another set of dotplot-like figures, that showcase the distribution of scores per cells, grouped by a variable of interest.
+Sometimes, however, the FeaturePlot is not sufficient to get the insights we want from these scores. For this, the output of `SCpubr::do_CopyNumberVariantPlot()` also contains another set of Geyser plots, that showcase the distribution of scores per cells, grouped by a variable of interest.
 
-```{r, fig.cap="SCpubr::do_CopyNumberVariantPlot dot plot.", fig.width=12, fig.height=8}
+
+```r
 out <- SCpubr::do_CopyNumberVariantPlot(sample = sample,
                                         infercnv_object = infercnv_object,
                                         using_metacells = T,
@@ -55,14 +59,19 @@ out <- SCpubr::do_CopyNumberVariantPlot(sample = sample,
                                         chromosome_locations = human_chr_locations,
                                         chromosome_focus = "11",
                                         rotate_x_axis_labels = FALSE)
-p <- out$`11p_dotplot`
+p <- out$`11p_geyser`
 p
-
 ```
+
+<div class="figure" style="text-align: center">
+<img src="16-CopyNumberVariantPlots_files/figure-html/unnamed-chunk-4-1.png" alt="SCpubr::do_CopyNumberVariantPlot dot plot." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-4)SCpubr::do_CopyNumberVariantPlot dot plot.</p>
+</div>
 
 Here, we can observe the scores for the different groups, being each dot a cells. Due to the overplotting, we also report the distribution of the data for each group in the center, being the dot the median of the distribution, the thicker lines representing the 66% of the data and the thinner lines the 95%. This way, one can also see where the majority of the cells reside in each group. We can also select other variables to group by.
 
-```{r, fig.cap="SCpubr::do_CopyNumberVariantPlot dot plot.", fig.width=12, fig.height=8}
+
+```r
 sample$modified_orig.ident <- sample(x = c("Sample_A", "Sample_B", "Sample_C"), 
                                      size = ncol(sample), 
                                      replace = T, 
@@ -76,10 +85,14 @@ out <- SCpubr::do_CopyNumberVariantPlot(sample = sample,
                                         chromosome_locations = human_chr_locations,
                                         chromosome_focus = "11",
                                         rotate_x_axis_labels = FALSE)
-p <- out$`11p_dotplot`
+p <- out$`11p_geyser`
 p
-
 ```
+
+<div class="figure" style="text-align: center">
+<img src="16-CopyNumberVariantPlots_files/figure-html/unnamed-chunk-5-1.png" alt="SCpubr::do_CopyNumberVariantPlot dot plot." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-5)SCpubr::do_CopyNumberVariantPlot dot plot.</p>
+</div>
 
 
 
@@ -88,7 +101,8 @@ p
 
 The ideal use case for such functions is to plot them side by side with a regular UMAP as well:
 
-```{r, fig.cap="SCpubr::do_CopyNumberVariantPlot joint analysis.", fig.width=16, fig.height=16}
+
+```r
 
 p1 <- SCpubr::do_DimPlot(sample = sample,
                          plot_cell_borders = TRUE,
@@ -102,12 +116,16 @@ out <- SCpubr::do_CopyNumberVariantPlot(sample = sample,
                                         chromosome_focus = "11",
                                         rotate_x_axis_labels = FALSE)
 p2 <- out$`11p_umap`
-p3 <- out$`11p_dotplot`
+p3 <- out$`11p_geyser`
 
 p <- (p1 | p2) / p3
 p
-
 ```
+
+<div class="figure" style="text-align: center">
+<img src="16-CopyNumberVariantPlots_files/figure-html/unnamed-chunk-6-1.png" alt="SCpubr::do_CopyNumberVariantPlot joint analysis." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-6)SCpubr::do_CopyNumberVariantPlot joint analysis.</p>
+</div>
 
 This way, we can see which clusters are in the UMAP, see their scores and also visualize the distributions!
 
