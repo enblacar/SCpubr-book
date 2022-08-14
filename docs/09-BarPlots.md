@@ -358,67 +358,67 @@ knitr::kable(head(data.long, 15), booktabs = TRUE) %>%
   <tr>
    <td style="text-align:left;"> Sample_B </td>
    <td style="text-align:left;"> 0 </td>
-   <td style="text-align:right;"> 2698 </td>
+   <td style="text-align:right;"> 2665 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Sample_B </td>
    <td style="text-align:left;"> 1 </td>
-   <td style="text-align:right;"> 1823 </td>
+   <td style="text-align:right;"> 1893 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Sample_B </td>
    <td style="text-align:left;"> 2 </td>
-   <td style="text-align:right;"> 907 </td>
+   <td style="text-align:right;"> 909 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Sample_B </td>
    <td style="text-align:left;"> 3 </td>
-   <td style="text-align:right;"> 783 </td>
+   <td style="text-align:right;"> 780 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Sample_A </td>
    <td style="text-align:left;"> 0 </td>
-   <td style="text-align:right;"> 766 </td>
+   <td style="text-align:right;"> 767 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Sample_B </td>
    <td style="text-align:left;"> 4 </td>
-   <td style="text-align:right;"> 711 </td>
+   <td style="text-align:right;"> 742 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Sample_A </td>
    <td style="text-align:left;"> 1 </td>
-   <td style="text-align:right;"> 582 </td>
+   <td style="text-align:right;"> 535 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Sample_B </td>
    <td style="text-align:left;"> 5 </td>
-   <td style="text-align:right;"> 431 </td>
+   <td style="text-align:right;"> 427 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Sample_C </td>
    <td style="text-align:left;"> 0 </td>
-   <td style="text-align:right;"> 368 </td>
+   <td style="text-align:right;"> 400 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Sample_B </td>
    <td style="text-align:left;"> 6 </td>
-   <td style="text-align:right;"> 324 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Sample_C </td>
-   <td style="text-align:left;"> 1 </td>
-   <td style="text-align:right;"> 276 </td>
+   <td style="text-align:right;"> 339 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Sample_A </td>
    <td style="text-align:left;"> 2 </td>
-   <td style="text-align:right;"> 250 </td>
+   <td style="text-align:right;"> 271 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sample_C </td>
+   <td style="text-align:left;"> 1 </td>
+   <td style="text-align:right;"> 253 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Sample_A </td>
-   <td style="text-align:left;"> 4 </td>
-   <td style="text-align:right;"> 231 </td>
+   <td style="text-align:left;"> 3 </td>
+   <td style="text-align:right;"> 235 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Sample_B </td>
@@ -427,8 +427,8 @@ knitr::kable(head(data.long, 15), booktabs = TRUE) %>%
   </tr>
   <tr>
    <td style="text-align:left;"> Sample_A </td>
-   <td style="text-align:left;"> 3 </td>
-   <td style="text-align:right;"> 225 </td>
+   <td style="text-align:left;"> 4 </td>
+   <td style="text-align:right;"> 197 </td>
   </tr>
 </tbody>
 </table>
@@ -452,57 +452,57 @@ knitr::kable(head(data.wide, 15), booktabs = TRUE) %>%
 <tbody>
   <tr>
    <td style="text-align:left;"> 0 </td>
-   <td style="text-align:right;"> 2698 </td>
-   <td style="text-align:right;"> 766 </td>
-   <td style="text-align:right;"> 368 </td>
+   <td style="text-align:right;"> 2665 </td>
+   <td style="text-align:right;"> 767 </td>
+   <td style="text-align:right;"> 400 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> 1 </td>
-   <td style="text-align:right;"> 1823 </td>
-   <td style="text-align:right;"> 582 </td>
-   <td style="text-align:right;"> 276 </td>
+   <td style="text-align:right;"> 1893 </td>
+   <td style="text-align:right;"> 535 </td>
+   <td style="text-align:right;"> 253 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> 2 </td>
-   <td style="text-align:right;"> 907 </td>
-   <td style="text-align:right;"> 250 </td>
-   <td style="text-align:right;"> 153 </td>
+   <td style="text-align:right;"> 909 </td>
+   <td style="text-align:right;"> 271 </td>
+   <td style="text-align:right;"> 130 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> 3 </td>
-   <td style="text-align:right;"> 783 </td>
-   <td style="text-align:right;"> 225 </td>
-   <td style="text-align:right;"> 119 </td>
+   <td style="text-align:right;"> 780 </td>
+   <td style="text-align:right;"> 235 </td>
+   <td style="text-align:right;"> 112 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> 4 </td>
-   <td style="text-align:right;"> 711 </td>
-   <td style="text-align:right;"> 231 </td>
-   <td style="text-align:right;"> 94 </td>
+   <td style="text-align:right;"> 742 </td>
+   <td style="text-align:right;"> 197 </td>
+   <td style="text-align:right;"> 97 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> 5 </td>
-   <td style="text-align:right;"> 431 </td>
-   <td style="text-align:right;"> 109 </td>
-   <td style="text-align:right;"> 56 </td>
+   <td style="text-align:right;"> 427 </td>
+   <td style="text-align:right;"> 106 </td>
+   <td style="text-align:right;"> 63 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> 6 </td>
-   <td style="text-align:right;"> 324 </td>
-   <td style="text-align:right;"> 102 </td>
-   <td style="text-align:right;"> 51 </td>
+   <td style="text-align:right;"> 339 </td>
+   <td style="text-align:right;"> 93 </td>
+   <td style="text-align:right;"> 45 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> 7 </td>
    <td style="text-align:right;"> 229 </td>
-   <td style="text-align:right;"> 60 </td>
-   <td style="text-align:right;"> 37 </td>
+   <td style="text-align:right;"> 66 </td>
+   <td style="text-align:right;"> 31 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> 8 </td>
-   <td style="text-align:right;"> 129 </td>
-   <td style="text-align:right;"> 28 </td>
-   <td style="text-align:right;"> 19 </td>
+   <td style="text-align:right;"> 120 </td>
+   <td style="text-align:right;"> 35 </td>
+   <td style="text-align:right;"> 21 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> 9 </td>

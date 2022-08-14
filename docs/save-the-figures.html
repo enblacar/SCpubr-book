@@ -11,12 +11,12 @@
 <meta property="og:title" content="Save the figures | SCpubr">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://enblacar.github.io/SCpubr-book/save-the-figures.html">
-<meta property="og:image" content="https://enblacar.github.io/SCpubr-book/images/SCpubr_logo.png">
+<meta property="og:image" content="https://enblacar.github.io/SCpubr-book/images/logo.png">
 <meta property="og:description" content="Creating good plots is just half of the process. It is equally important to properly save them. This is the purpose of SCpubr::save_Plot. This function is a very handy tool to save your plots...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Save the figures | SCpubr">
 <meta name="twitter:description" content="Creating good plots is just half of the process. It is equally important to properly save them. This is the purpose of SCpubr::save_Plot. This function is a very handy tool to save your plots...">
-<meta name="twitter:image" content="https://enblacar.github.io/SCpubr-book/images/SCpubr_logo.png">
+<meta name="twitter:image" content="https://enblacar.github.io/SCpubr-book/images/logo.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -57,7 +57,9 @@
 <li><a class="" href="cellular-state-plots.html"><span class="header-section-number">12</span> Cellular State Plots</a></li>
 <li><a class="" href="ligand-receptor-analysis.html"><span class="header-section-number">13</span> Ligand-Receptor analysis</a></li>
 <li><a class="" href="copy-number-variant-analysis-plots.html"><span class="header-section-number">14</span> Copy Number Variant analysis plots</a></li>
-<li><a class="" href="color-palettes.html"><span class="header-section-number">15</span> Color palettes</a></li>
+<li><a class="" href="pathway-activity-inference-analysis.html"><span class="header-section-number">15</span> Pathway Activity inference analysis</a></li>
+<li><a class="" href="tf-activity-inference-analysis.html"><span class="header-section-number">16</span> TF Activity inference analysis</a></li>
+<li><a class="" href="color-palettes.html"><span class="header-section-number">17</span> Color palettes</a></li>
 <li><a class="" href="common-features-across-plots.html">Common features across plots</a></li>
 <li><a class="" href="rasterized-figures.html">Rasterized figures</a></li>
 <li><a class="active" href="save-the-figures.html">Save the figures</a></li>
@@ -85,7 +87,7 @@
 <em>Individual format</em>: Provide the desired format and it will only be saved on that one.</li>
 </ul>
 <p><em>Width</em> and <em>Height</em> are set by default to 8 inches each, so the plot is squared. However, it is really important that these parameters are modified to the user’s need. The name of the file can be provided with <code>file_name</code> parameter and the path to store the files can be specified in <code>figure_path</code>. If not provided, <code>figure_path</code> will default to the current working environment and <code>file_name</code> will default to a combination of the current date and time. Here are some examples.</p>
-<div class="sourceCode" id="cb207"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb224"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Generate a plot.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span><span class="op">)</span></span>
 <span></span>
@@ -152,7 +154,7 @@
 <!-- Moved the footer outside of the body to make it span all page width. --><footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 13 August, 2022.</p>
+    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 14 August, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

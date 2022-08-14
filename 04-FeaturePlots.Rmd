@@ -60,7 +60,7 @@ p
 
 With multiple queries, using `plot.title` parameter actually adds a general title to all plots. If one wants to modify the title of each plot independently, a vector **of the same length as the number of features** needs to be provided to `individual.titles` parameter. In case a title does not need to be changed, use `NA` instead.
 
-```{r, fig.cap = "SCpubr FeaturePlot, with individual modified titles", fig.width=16, fig.height=14}
+```{r, fig.cap = "SCpubr FeaturePlot, with individual modified titles", fig.width=14, fig.height=16}
 # Add individual titles to the plots.
 p <- SCpubr::do_FeaturePlot(sample = sample,
                             features = c("nCount_RNA",
@@ -78,7 +78,7 @@ p
 ```
 The very same concept can be applied to individual **subtitles** and **captions**. For this, you need to use `individual.subtitles` and `individual.captions` parameters. 
 
-```{r, fig.cap = "SCpubr FeaturePlot, with individual modified titles, subtitles and captions.", fig.width=16, fig.height=14}
+```{r, fig.cap = "SCpubr FeaturePlot, with individual modified titles, subtitles and captions.", fig.width=14, fig.height=17}
 # Add individual titles, subtitles and captions.
 p <- SCpubr::do_FeaturePlot(sample = sample,
                             features = c("nCount_RNA",
@@ -143,7 +143,7 @@ p
 
 In some cases, we want to visualize a given feature, let's say, the expression of `LYN` across another variable, for instance `seurat_clusters`. This can be achieved easily in `Seurat` by using the `split.by` parameter. For the sake of representation, let's reduce the number of clusters.
 
-```{r, fig.cap = "Seurat FeaturePlot split by clusters.", fig.width=14, fig.height=4}
+```{r, fig.cap = "Seurat FeaturePlot split by clusters.", fig.width=14, fig.height=8}
 # Group clusters into three values for visualization purposes.
 sample$new_clusters <- as.character(sample$seurat_clusters)
 sample$new_clusters[sample$new_clusters %in% c("0", "1", "2", "3")] <- "Cluster 1"
@@ -173,7 +173,7 @@ This way, we are able to achieve a better understandable plot. Furthermore, we c
 - `nCount_RNA` is a metadata variable located in `colnames(sample@meta.data)`.
 - `PC_1` is a column of a dimensional reduction embedding, located in `colnames(sample@reductions[["pca"]][[]])`
 
-```{r, fig.cap = "SCpubr FeaturePlot split by clusters using multiple features.", fig.width=20, fig.height=4}
+```{r, fig.cap = "SCpubr FeaturePlot split by clusters using multiple features.", fig.width=24, fig.height=8}
 # Use split.by with multiple features.
 p <- SCpubr::do_FeaturePlot(sample, 
                             features = c("LYN", "nCount_RNA", "PC_1"), 

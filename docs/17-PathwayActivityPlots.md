@@ -1,0 +1,203 @@
+# Pathway Activity inference analysis
+
+**This section is highly similar to TF Activity inference analysis as it makes use of the same source package and visualizations.**
+
+Another very important analysis that can be carried out, once we have our cells defined into groups (i.e: cell clusters), is Pathway Activity inference analysis. Out of the different tools out there to perform this task, the one we will use is called [decoupleR](https://github.com/saezlab/decoupleR) ([P.Badia-i-Mompel *et al*. 2022](https://academic.oup.com/bioinformaticsadvances/article/2/1/vbac016/6544613?login=true)). This tool allows the inference of biological activities out of Omics data. For this, it requires a dataset to act as prior knowledge. For Pathway Activity inference, [progeny](https://github.com/saezlab/progeny/) is used. This allows for the computation of activity scores on a cell basis depicting how much (or little) each cell is enriched in each of the cancer Pathways stored in the database.
+
+In order to visualize the enrichment of our cells in the pathways, the results need to be computed:
+
+
+
+
+```r
+# Define your sample and assay.
+sample <- your_seurat_object
+assay <- "your_normalized_data_assay"
+
+# Retrieve prior knowledge network.
+network <- decoupleR::get_progeny(organism = "human")
+
+# Run weighted means algorithm.
+activities <- decoupleR::run_wmean(mat = as.matrix(sample@assays[[assay]]@data),
+                                   network = network,
+                                   .source = "source",
+                                   .targe = "target",
+                                   .mor = "weight",
+                                   times = 100,
+                                   minsize = 5)
+```
+
+With this, we can proceed to plot our results with `SCpubr::do_PathwayActivityPlot()`.
+
+## Heatmap of averaged scores.
+
+The most informative and, perhaps, straightforward approach is to visualize the resulting scores averaged by the groups we have defined, as a heatmap. This is the default output of `SCpubr::do_PathwayActivityPlot()`.
+
+
+```r
+# General heatmap.
+out <- SCpubr::do_PathwayActivityPlot(sample = sample,
+                                      activities = activities)
+p <- out$heatmaps$average_scores
+p
+```
+
+<div class="figure" style="text-align: center">
+<img src="17-PathwayActivityPlots_files/figure-html/unnamed-chunk-3-1.png" alt="SCpubr do_PathwayActivityPlot heatmap output." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-3)SCpubr do_PathwayActivityPlot heatmap output.</p>
+</div>
+
+## Feature plots of the scores.
+
+Perhaps we are interested into visualizing the scores as a Feature plot. This way we can observe trends of enrichment in the activities. This can be achieved by providing `plot_FeaturePlots = TRUE`.
+
+
+```r
+# Retrieve feature plots.
+out <- SCpubr::do_PathwayActivityPlot(sample = sample,
+                                      activities = activities,
+                                      plot_FeaturePlots = TRUE)
+p1 <- SCpubr::do_DimPlot(sample)
+p2 <- out$feature_plots$EGFR
+p <- p1 | p2
+p
+```
+
+<div class="figure" style="text-align: center">
+<img src="17-PathwayActivityPlots_files/figure-html/unnamed-chunk-4-1.png" alt="SCpubr do_PathwayActivityPlot feature plot output." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-4)SCpubr do_PathwayActivityPlot feature plot output.</p>
+</div>
+
+## Geyser plots of the scores.
+
+In the same fashion as with the feature plots, we can also visualize the scores as Geyser plots, to get a sense of the distribution of the scores alongside the groups. This can be achieved by providing `plot_GeyserPlots = TRUE`.
+
+
+```r
+# Retrieve Geyser plots.
+out <- SCpubr::do_PathwayActivityPlot(sample = sample,
+                                      activities = activities,
+                                      plot_GeyserPlots = TRUE)
+p1 <- SCpubr::do_DimPlot(sample)
+p2 <- out$geyser_plots$EGFR
+p <- p1 | p2
+p
+```
+
+<div class="figure" style="text-align: center">
+<img src="17-PathwayActivityPlots_files/figure-html/unnamed-chunk-5-1.png" alt="SCpubr do_PathwayActivityPlot geyser plot output." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-5)SCpubr do_PathwayActivityPlot geyser plot output.</p>
+</div>
+
+## Use non-symmetrical color scales
+
+If one wants to just plot a continuous color scale for the Feature plots and the Geyser plots, this can be achieved by using `symmetrical_scale = FALSE`.
+
+
+```r
+# Use non-symmetrical color scale.
+out <- SCpubr::do_PathwayActivityPlot(sample = sample,
+                                      activities = activities,
+                                      plot_GeyserPlots = TRUE,
+                                      plot_FeaturePlots = TRUE,
+                                      symmetrical_scale = FALSE)
+p1 <- out$feature_plots$EGFR
+p2 <- out$geyser_plots$EGFR
+
+out <- SCpubr::do_PathwayActivityPlot(sample = sample,
+                                      activities = activities,
+                                      plot_GeyserPlots = TRUE,
+                                      plot_FeaturePlots = TRUE,
+                                      symmetrical_scale = TRUE)
+p3 <- out$feature_plots$EGFR
+p4 <- out$geyser_plots$EGFR
+
+p <- (p1 | p2) / (p3 | p4)
+p
+```
+
+<div class="figure" style="text-align: center">
+<img src="17-PathwayActivityPlots_files/figure-html/unnamed-chunk-6-1.png" alt="SCpubr do_PathwayActivityPlot non-symmetrical color scale." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-6)SCpubr do_PathwayActivityPlot non-symmetrical color scale.</p>
+</div>
+
+## Order geysers by the mean
+
+We can also decide not to order the Geyser plots by the mean of the values. We can do that by providing `geyser_order_by_mean = FALSE`.
+
+
+```r
+# Not order Geyser plot by mean values.
+out <- SCpubr::do_PathwayActivityPlot(sample = sample,
+                                      activities = activities,
+                                      plot_GeyserPlots = TRUE,
+                                      symmetrical_scale = TRUE,
+                                      geyser_order_by_mean = FALSE)
+p1 <- out$geyser_plots$EGFR
+
+out <- SCpubr::do_PathwayActivityPlot(sample = sample,
+                                      activities = activities,
+                                      plot_GeyserPlots = TRUE,
+                                      symmetrical_scale = TRUE,
+                                      geyser_order_by_mean = TRUE)
+p2 <- out$geyser_plots$EGFR
+
+p <- p1 | p2
+p
+```
+
+<div class="figure" style="text-align: center">
+<img src="17-PathwayActivityPlots_files/figure-html/unnamed-chunk-7-1.png" alt="SCpubr do_PathwayActivityPlot not ordering by mean values." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-7)SCpubr do_PathwayActivityPlot not ordering by mean values.</p>
+</div>
+
+## Plot another variable in the geyser plots.
+
+Furthermore, we can also recolor the Geyser plots based on another variable of our choice. We can achieve this by using `geyser_color.by` and `geyser_scale_type`, providing the name of the variable to plot and the type it is (continuous, categorical).
+
+
+```r
+# Plot a third variable in Geyser plots.
+out <- SCpubr::do_PathwayActivityPlot(sample = sample,
+                                      activities = activities,
+                                      plot_GeyserPlots = TRUE,
+                                      geyser_color.by = "seurat_clusters",
+                                      geyser_scale_type = "categorical")
+p1 <- out$geyser_plots$EGFR
+
+out <- SCpubr::do_PathwayActivityPlot(sample = sample,
+                                      activities = activities,
+                                      plot_GeyserPlots = TRUE,
+                                      geyser_color.by = "nCount_RNA",
+                                      geyser_scale_type = "continuous")
+p2 <- out$geyser_plots$EGFR
+
+p <- p1 | p2
+p
+```
+
+<div class="figure" style="text-align: center">
+<img src="17-PathwayActivityPlots_files/figure-html/unnamed-chunk-8-1.png" alt="SCpubr do_PathwayActivityPlot using color.by." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-8)SCpubr do_PathwayActivityPlot using color.by.</p>
+</div>
+
+## Split the heatmap into different groups.
+
+We can also further divide the heatmap into groups. This can be achieved using `split.by` parameter.
+
+
+```r
+# Split the heatmap by another variable.
+sample$split.me <- ifelse(sample$seurat_clusters %in% c("0", "3", "7"), "Group A","Group B")
+
+out <- SCpubr::do_PathwayActivityPlot(sample = sample,
+                                      activities = activities,
+                                      split.by = "split.me")
+p <- out$heatmaps$average_scores
+p
+```
+
+<div class="figure" style="text-align: center">
+<img src="17-PathwayActivityPlots_files/figure-html/unnamed-chunk-9-1.png" alt="SCpubr do_PathwayActivityPlot splitting the heatmap." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-9)SCpubr do_PathwayActivityPlot splitting the heatmap.</p>
+</div>

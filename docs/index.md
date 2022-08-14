@@ -1,13 +1,13 @@
 --- 
 title: "SCpubr"
 author: "Enrique Blanco Carmona"
-date: "13 August, 2022"
+date: "14 August, 2022"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib]
 url: https://enblacar.github.io/SCpubr-book/
 github-repo: enblacar/SCpubr-book/
-cover-image: images/SCpubr_logo.png
+cover-image: images/logo.png
 description: |
   Collection of functions aimed to streamline quality figure generation for Single Cell transcriptomics experiments.
 biblio-style: apalike
