@@ -145,6 +145,10 @@ use-non-symmetrical-color-scales-1
 order-geysers-by-the-mean-1
 plot-another-variable-in-the-geyser-plots.-1
 split-the-heatmap-into-different-groups.-1
+pseudotime-analysis
+setting-up-partitions-and-clusters.
+visualizing-the-trajectory-graph.
+visualizing-the-pseudotime.
 color-palettes
 generate-color-palettes
 generate-combination-of-colors
