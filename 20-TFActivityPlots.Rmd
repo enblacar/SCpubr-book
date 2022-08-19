@@ -48,7 +48,7 @@ p
 
 We can select the number of TFs to include in the analysis by using `n_tfs` variable.
 
-```{r, fig.cap="SCpubr do_TFActivityPlot heatmap output with increased TFs.", fig.width=8, fig.height=7}
+```{r, fig.cap="SCpubr do_TFActivityPlot heatmap output with increased TFs.", fig.width=12, fig.height=7}
 # Increase number of TFs included in the analysis.
 out <- SCpubr::do_TFActivityPlot(sample = sample,
                                  activities = activities,
