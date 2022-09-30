@@ -48,7 +48,7 @@ p
 
 Other times, one might just want a given combination of colors, following the **color theory**. For this different parameters can be used. Using them will force `n` to be 12, so do not use `n` parameter alongside them, as it will have no effect.
 
-### Opposite colors.
+### Opposite colors
 
 
 ```r
@@ -65,7 +65,7 @@ p
 <p class="caption">(\#fig:unnamed-chunk-4)SCpubr::do_ColorPalette opposite colors.</p>
 </div>
 
-### Adjacent colors.
+### Adjacent colors
 
 
 ```r
@@ -82,7 +82,7 @@ p
 <p class="caption">(\#fig:unnamed-chunk-5)SCpubr::do_ColorPalette adjacent colors.</p>
 </div>
 
-### Triadic colors.
+### Triadic colors
 
 
 ```r
@@ -116,7 +116,7 @@ p
 <p class="caption">(\#fig:unnamed-chunk-7)SCpubr::do_ColorPalette split complementary colors.</p>
 </div>
 
-### Tetradic colors.
+### Tetradic colors
 
 
 ```r
@@ -134,7 +134,7 @@ p
 </div>
 
 
-### Square colors.
+### Square colors
 
 
 ```r

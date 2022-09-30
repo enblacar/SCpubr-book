@@ -62,6 +62,7 @@ p
 <p class="caption">(\#fig:unnamed-chunk-5)SCpubr Nebulosa plot with multiple features.</p>
 </div>
 
+## Compute joint densities
 But, more intriguingly, it can also compute the **joint** density of the features. This is achieved by parsing `joint = TRUE`.
 
 
@@ -96,7 +97,7 @@ p
 <img src="05-NebulosaPlots_files/figure-html/unnamed-chunk-7-1.png" alt="SCpubr Nebulosa plot with joint density, selecting only the last plot" width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-7)SCpubr Nebulosa plot with joint density, selecting only the last plot</p>
 </div>
-
+## Modify titles individually
 If we query multiple features or use `joint = TRUE`, then using `plot.title` will add a general title to the different panels generated. To then modify the plot title of each individual panel, a vector **of the same length as the number of features** needs to be provided to `individual.titles` parameter. In case a title does not need to be changed, use `NA` instead. Please take note that `joint = TRUE` will generate an extra panel that needs another plot title. 
 
 

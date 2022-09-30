@@ -47,10 +47,10 @@
 <li><a class="" href="nebulosa-plots.html"><span class="header-section-number">3</span> Nebulosa plots</a></li>
 <li><a class="" href="bee-swarm-plots.html"><span class="header-section-number">4</span> Bee Swarm plots</a></li>
 <li><a class="" href="violin-plots.html"><span class="header-section-number">5</span> Violin plots</a></li>
-<li><a class="" href="dot-plots.html"><span class="header-section-number">6</span> Dot plots</a></li>
-<li><a class="" href="bar-plots.html"><span class="header-section-number">7</span> Bar plots</a></li>
-<li><a class="" href="geyser-plots.html"><span class="header-section-number">8</span> Geyser plots</a></li>
-<li><a class="" href="volcano-plots.html"><span class="header-section-number">9</span> Volcano plots</a></li>
+<li><a class="" href="ridge-plots.html"><span class="header-section-number">6</span> Ridge plots</a></li>
+<li><a class="" href="dot-plots.html"><span class="header-section-number">7</span> Dot plots</a></li>
+<li><a class="" href="bar-plots.html"><span class="header-section-number">8</span> Bar plots</a></li>
+<li><a class="" href="geyser-plots.html"><span class="header-section-number">9</span> Geyser plots</a></li>
 <li><a class="" href="group-wise-de-analysis-plots.html"><span class="header-section-number">10</span> Group-wise DE analysis plots</a></li>
 <li><a class="" href="term-enrichment-plots.html"><span class="header-section-number">11</span> Term Enrichment Plots</a></li>
 <li><a class="" href="enrichment-score-heatmaps.html"><span class="header-section-number">12</span> Enrichment score heatmaps</a></li>
@@ -89,7 +89,7 @@
 <em>Individual format</em>: Provide the desired format and it will only be saved on that one.</li>
 </ul>
 <p><em>Width</em> and <em>Height</em> are set by default to 8 inches each, so the plot is squared. However, it is really important that these parameters are modified to the user’s need. The name of the file can be provided with <code>file_name</code> parameter and the path to store the files can be specified in <code>figure_path</code>. If not provided, <code>figure_path</code> will default to the current working environment and <code>file_name</code> will default to a combination of the current date and time. Here are some examples.</p>
-<div class="sourceCode" id="cb164"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb178"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Generate a plot.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span><span class="op">)</span></span>
 <span></span>
@@ -151,12 +151,42 @@
 
 
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
 </div>
 </body>
 <!-- Moved the footer outside of the body to make it span all page width. --><footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 30 September, 2022.</p>
+    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 01 October, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

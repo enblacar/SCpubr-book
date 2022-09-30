@@ -47,10 +47,10 @@
 <li><a class="" href="nebulosa-plots.html"><span class="header-section-number">3</span> Nebulosa plots</a></li>
 <li><a class="" href="bee-swarm-plots.html"><span class="header-section-number">4</span> Bee Swarm plots</a></li>
 <li><a class="" href="violin-plots.html"><span class="header-section-number">5</span> Violin plots</a></li>
-<li><a class="" href="dot-plots.html"><span class="header-section-number">6</span> Dot plots</a></li>
-<li><a class="" href="bar-plots.html"><span class="header-section-number">7</span> Bar plots</a></li>
-<li><a class="" href="geyser-plots.html"><span class="header-section-number">8</span> Geyser plots</a></li>
-<li><a class="" href="volcano-plots.html"><span class="header-section-number">9</span> Volcano plots</a></li>
+<li><a class="" href="ridge-plots.html"><span class="header-section-number">6</span> Ridge plots</a></li>
+<li><a class="" href="dot-plots.html"><span class="header-section-number">7</span> Dot plots</a></li>
+<li><a class="" href="bar-plots.html"><span class="header-section-number">8</span> Bar plots</a></li>
+<li><a class="" href="geyser-plots.html"><span class="header-section-number">9</span> Geyser plots</a></li>
 <li><a class="" href="group-wise-de-analysis-plots.html"><span class="header-section-number">10</span> Group-wise DE analysis plots</a></li>
 <li><a class="" href="term-enrichment-plots.html"><span class="header-section-number">11</span> Term Enrichment Plots</a></li>
 <li><a class="active" href="enrichment-score-heatmaps.html"><span class="header-section-number">12</span> Enrichment score heatmaps</a></li>
@@ -86,7 +86,7 @@
 <h2>
 <span class="header-section-number">12.1</span> Single grouping variable<a class="anchor" aria-label="anchor" href="#single-grouping-variable"><i class="fas fa-link"></i></a>
 </h2>
-<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb104"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Define list of genes.</span></span>
 <span><span class="va">genes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="st">"Naive CD4+ T"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"IL7R"</span>, <span class="st">"CCR7"</span><span class="op">)</span>,</span>
 <span>              <span class="st">"CD14+ Mono"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"CD14"</span>, <span class="st">"LYZ"</span><span class="op">)</span>,</span>
@@ -104,12 +104,12 @@
 <span><span class="va">p</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-2"></span>
-<img src="14-EnrichmentHeatmaps_files/figure-html/unnamed-chunk-2-1.png" alt="SCpubr::do_EnrichmentHeatmap with default parameters." width="100%" height="100%"><p class="caption">
+<img src="17-EnrichmentHeatmaps_files/figure-html/unnamed-chunk-2-1.png" alt="SCpubr::do_EnrichmentHeatmap with default parameters." width="100%" height="100%"><p class="caption">
 Figure 1.1: SCpubr::do_EnrichmentHeatmap with default parameters.
 </p>
 </div>
 <p>By default, <code><a href="https://rdrr.io/pkg/SCpubr/man/do_EnrichmentHeatmap.html">SCpubr::do_EnrichmentHeatmap</a></code> aggregates the values by the current identity. However, other metadata variables can be used to aggregate for. For this, provide the name to <code>group.by</code> parameter.</p>
-<div class="sourceCode" id="cb91"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb105"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Custom aggregated values.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_EnrichmentHeatmap.html">do_EnrichmentHeatmap</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                                  input_gene_list <span class="op">=</span> <span class="va">genes</span>,</span>
@@ -117,12 +117,12 @@ Figure 1.1: SCpubr::do_EnrichmentHeatmap with default parameters.
 <span><span class="va">p</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-3"></span>
-<img src="14-EnrichmentHeatmaps_files/figure-html/unnamed-chunk-3-1.png" alt="SCpubr::do_EnrichmentHeatmap with custom aggregation." width="100%" height="100%"><p class="caption">
+<img src="17-EnrichmentHeatmaps_files/figure-html/unnamed-chunk-3-1.png" alt="SCpubr::do_EnrichmentHeatmap with custom aggregation." width="100%" height="100%"><p class="caption">
 Figure 1.2: SCpubr::do_EnrichmentHeatmap with custom aggregation.
 </p>
 </div>
 <p>The matrix can be transposed using <code>transpose = TRUE</code>.</p>
-<div class="sourceCode" id="cb92"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb106"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Transposing the matrix.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_EnrichmentHeatmap.html">do_EnrichmentHeatmap</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                                  input_gene_list <span class="op">=</span> <span class="va">genes</span>,</span>
@@ -130,12 +130,12 @@ Figure 1.2: SCpubr::do_EnrichmentHeatmap with custom aggregation.
 <span><span class="va">p</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-4"></span>
-<img src="14-EnrichmentHeatmaps_files/figure-html/unnamed-chunk-4-1.png" alt="SCpubr::do_EnrichmentHeatmap transposed matrix." width="100%" height="100%"><p class="caption">
+<img src="17-EnrichmentHeatmaps_files/figure-html/unnamed-chunk-4-1.png" alt="SCpubr::do_EnrichmentHeatmap transposed matrix." width="100%" height="100%"><p class="caption">
 Figure 1.3: SCpubr::do_EnrichmentHeatmap transposed matrix.
 </p>
 </div>
 <p>Both rows and column names can be rotated using <code>column_names_rot</code> and <code>row_names_rot</code> parameters, providing the desired angle.</p>
-<div class="sourceCode" id="cb93"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb107"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Rotating the labels.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_EnrichmentHeatmap.html">do_EnrichmentHeatmap</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                                  input_gene_list <span class="op">=</span> <span class="va">genes</span>,</span>
@@ -144,7 +144,7 @@ Figure 1.3: SCpubr::do_EnrichmentHeatmap transposed matrix.
 <span><span class="va">p</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-5"></span>
-<img src="14-EnrichmentHeatmaps_files/figure-html/unnamed-chunk-5-1.png" alt="SCpubr::do_EnrichmentHeatmap transposed matrix different angle for column names." width="100%" height="100%"><p class="caption">
+<img src="17-EnrichmentHeatmaps_files/figure-html/unnamed-chunk-5-1.png" alt="SCpubr::do_EnrichmentHeatmap transposed matrix different angle for column names." width="100%" height="100%"><p class="caption">
 Figure 1.4: SCpubr::do_EnrichmentHeatmap transposed matrix different angle for column names.
 </p>
 </div>
@@ -154,7 +154,7 @@ Figure 1.4: SCpubr::do_EnrichmentHeatmap transposed matrix different angle for c
 <span class="header-section-number">12.2</span> Changing the cell size in the heatmap.<a class="anchor" aria-label="anchor" href="#changing-the-cell-size-in-the-heatmap."><i class="fas fa-link"></i></a>
 </h2>
 <p>By design, the aspect ratio of the tiles in the heatmap is fixed so that cells are squares, and not rectangles. However, the user has the possibility to increase/decrease the cell size of each tile by modifying <code>cell_size</code> parameter. This is set to 5 by default.</p>
-<div class="sourceCode" id="cb94"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb108"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Modifying the tile size.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_EnrichmentHeatmap.html">do_EnrichmentHeatmap</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                                  input_gene_list <span class="op">=</span> <span class="va">genes</span>,</span>
@@ -166,17 +166,17 @@ Figure 1.4: SCpubr::do_EnrichmentHeatmap transposed matrix different angle for c
 <span><span class="va">p</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-6"></span>
-<img src="14-EnrichmentHeatmaps_files/figure-html/unnamed-chunk-6-1.png" alt="SCpubr::do_EnrichmentHeatmap transposed matrix using split.by changing the tile size." width="100%" height="100%"><p class="caption">
+<img src="17-EnrichmentHeatmaps_files/figure-html/unnamed-chunk-6-1.png" alt="SCpubr::do_EnrichmentHeatmap transposed matrix using split.by changing the tile size." width="100%" height="100%"><p class="caption">
 Figure 1.5: SCpubr::do_EnrichmentHeatmap transposed matrix using split.by changing the tile size.
 </p>
 </div>
 </div>
-<div id="symmetrical-scales." class="section level2" number="12.3">
+<div id="symmetrical-scales" class="section level2" number="12.3">
 <h2>
-<span class="header-section-number">12.3</span> Symmetrical scales.<a class="anchor" aria-label="anchor" href="#symmetrical-scales."><i class="fas fa-link"></i></a>
+<span class="header-section-number">12.3</span> Symmetrical scales<a class="anchor" aria-label="anchor" href="#symmetrical-scales"><i class="fas fa-link"></i></a>
 </h2>
 <p>If one wants a symmetrical scale,</p>
-<div class="sourceCode" id="cb95"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb109"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Symmetrical scale viriis.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_EnrichmentHeatmap.html">do_EnrichmentHeatmap</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                                  input_gene_list <span class="op">=</span> <span class="va">genes</span>,</span>
@@ -189,11 +189,11 @@ Figure 1.5: SCpubr::do_EnrichmentHeatmap transposed matrix using split.by changi
 <span><span class="va">p</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-7"></span>
-<img src="14-EnrichmentHeatmaps_files/figure-html/unnamed-chunk-7-1.png" alt="SCpubr::do_EnrichmentHeatmap with symmetrical scale." width="100%" height="100%"><p class="caption">
+<img src="17-EnrichmentHeatmaps_files/figure-html/unnamed-chunk-7-1.png" alt="SCpubr::do_EnrichmentHeatmap with symmetrical scale." width="100%" height="100%"><p class="caption">
 Figure 1.6: SCpubr::do_EnrichmentHeatmap with symmetrical scale.
 </p>
 </div>
-<div class="sourceCode" id="cb96"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb110"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Modifying the symmetrical scale non viridis.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_EnrichmentHeatmap.html">do_EnrichmentHeatmap</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                                  input_gene_list <span class="op">=</span> <span class="va">genes</span>,</span>
@@ -207,7 +207,7 @@ Figure 1.6: SCpubr::do_EnrichmentHeatmap with symmetrical scale.
 <span><span class="va">p</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-8"></span>
-<img src="14-EnrichmentHeatmaps_files/figure-html/unnamed-chunk-8-1.png" alt="SCpubr::do_EnrichmentHeatmap with symmetrical scale." width="100%" height="100%"><p class="caption">
+<img src="17-EnrichmentHeatmaps_files/figure-html/unnamed-chunk-8-1.png" alt="SCpubr::do_EnrichmentHeatmap with symmetrical scale." width="100%" height="100%"><p class="caption">
 Figure 1.7: SCpubr::do_EnrichmentHeatmap with symmetrical scale.
 </p>
 </div>
@@ -226,13 +226,13 @@ Figure 1.7: SCpubr::do_EnrichmentHeatmap with symmetrical scale.
 <li><a class="nav-link" href="#enrichment-score-heatmaps"><span class="header-section-number">12</span> Enrichment score heatmaps</a></li>
 <li><a class="nav-link" href="#single-grouping-variable"><span class="header-section-number">12.1</span> Single grouping variable</a></li>
 <li><a class="nav-link" href="#changing-the-cell-size-in-the-heatmap."><span class="header-section-number">12.2</span> Changing the cell size in the heatmap.</a></li>
-<li><a class="nav-link" href="#symmetrical-scales."><span class="header-section-number">12.3</span> Symmetrical scales.</a></li>
+<li><a class="nav-link" href="#symmetrical-scales"><span class="header-section-number">12.3</span> Symmetrical scales</a></li>
 </ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<!-- Modified page for chapter. --><li><a id="book-source" href="https://github.com/enblacar/SCpubr-book/blob/main/14-EnrichmentHeatmaps.Rmd">View chapter source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/enblacar/SCpubr-book/edit/main/14-EnrichmentHeatmaps.Rmd">Edit this chapter <i class="fab fa-github"></i></a></li>
+<!-- Modified page for chapter. --><li><a id="book-source" href="https://github.com/enblacar/SCpubr-book/blob/main/17-EnrichmentHeatmaps.Rmd">View chapter source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/enblacar/SCpubr-book/edit/main/17-EnrichmentHeatmaps.Rmd">Edit this chapter <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     
@@ -245,12 +245,42 @@ Figure 1.7: SCpubr::do_EnrichmentHeatmap with symmetrical scale.
 
 
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
 </div>
 </body>
 <!-- Moved the footer outside of the body to make it span all page width. --><footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 30 September, 2022.</p>
+    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 01 October, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -47,10 +47,10 @@
 <li><a class="" href="nebulosa-plots.html"><span class="header-section-number">3</span> Nebulosa plots</a></li>
 <li><a class="active" href="bee-swarm-plots.html"><span class="header-section-number">4</span> Bee Swarm plots</a></li>
 <li><a class="" href="violin-plots.html"><span class="header-section-number">5</span> Violin plots</a></li>
-<li><a class="" href="dot-plots.html"><span class="header-section-number">6</span> Dot plots</a></li>
-<li><a class="" href="bar-plots.html"><span class="header-section-number">7</span> Bar plots</a></li>
-<li><a class="" href="geyser-plots.html"><span class="header-section-number">8</span> Geyser plots</a></li>
-<li><a class="" href="volcano-plots.html"><span class="header-section-number">9</span> Volcano plots</a></li>
+<li><a class="" href="ridge-plots.html"><span class="header-section-number">6</span> Ridge plots</a></li>
+<li><a class="" href="dot-plots.html"><span class="header-section-number">7</span> Dot plots</a></li>
+<li><a class="" href="bar-plots.html"><span class="header-section-number">8</span> Bar plots</a></li>
+<li><a class="" href="geyser-plots.html"><span class="header-section-number">9</span> Geyser plots</a></li>
 <li><a class="" href="group-wise-de-analysis-plots.html"><span class="header-section-number">10</span> Group-wise DE analysis plots</a></li>
 <li><a class="" href="term-enrichment-plots.html"><span class="header-section-number">11</span> Term Enrichment Plots</a></li>
 <li><a class="" href="enrichment-score-heatmaps.html"><span class="header-section-number">12</span> Enrichment score heatmaps</a></li>
@@ -81,7 +81,7 @@
 <span class="header-section-number">4</span> Bee Swarm plots<a class="anchor" aria-label="anchor" href="#bee-swarm-plots"><i class="fas fa-link"></i></a>
 </h1>
 <p>This is a very interesting plot. It stems from the idea that we can order (rank) the cells in a given variable. This variable has to be a continuous variable, for a better representation. The order goes from lowest to maximum value. Then, the cells are grouped into any other variable of interest and displayed in a scatter plot fashion.</p>
-<p>Put it into an example, let’s say that we have our cells queried for enrichement in a given list of genes. This can be done using <code><a href="https://satijalab.org/seurat/reference/AddModuleScore.html">Seurat::AddModuleScore()</a></code>, and returns one score for each cell. This would be our continuous variable. That, we can rank (i.e: provide an order from lowest to highest), giving the cell with the lowest enrichment score the first rank and the one with the maximum value the last rank. If we were to plot this rank right away, we will see that this behaves as a linear distribution:</p>
+<p>Put it into an example, let’s say that we have our cells queried for enrichment in a given list of genes. This can be done using <code><a href="https://satijalab.org/seurat/reference/AddModuleScore.html">Seurat::AddModuleScore()</a></code>, and returns one score for each cell. This would be our continuous variable. That, we can rank (i.e: provide an order from lowest to highest), giving the cell with the lowest enrichment score the first rank and the one with the maximum value the last rank. If we were to plot this rank right away, we will see that this behaves as a linear distribution:</p>
 <div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Compute enrichment.</span></span>
 <span><span class="va">gene_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"OLIG1"</span>, <span class="st">"MBP"</span><span class="op">)</span></span>
@@ -297,37 +297,6 @@ Figure 1.7: Using continuous color scale in SCpubr::do_BeeSwarmPlot().
 </p>
 </div>
 <p>By using this combination of figures, we can also assess that the monocyte signature seems to be predominantly enriched in clusters 0 and 7.</p>
-</div>
-<div id="change-default-colors-in-categorical-variables" class="section level2" number="4.3">
-<h2>
-<span class="header-section-number">4.3</span> Change default colors in categorical variables<a class="anchor" aria-label="anchor" href="#change-default-colors-in-categorical-variables"><i class="fas fa-link"></i></a>
-</h2>
-<p>Same as with other categorical representations, we can modify the default color palette by providing a custom one to <code>colors.use</code>. This has to be a named vector of HEX values with the names of the groups as names of the values:</p>
-<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Create a color scale for the unique values in seurat clusters.</span></span>
-<span><span class="va">colors</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"0"</span> <span class="op">=</span> <span class="st">"#001219"</span>,</span>
-<span>            <span class="st">"1"</span> <span class="op">=</span> <span class="st">"#005f73"</span>,</span>
-<span>            <span class="st">"2"</span> <span class="op">=</span> <span class="st">"#0a9396"</span>,</span>
-<span>            <span class="st">"3"</span> <span class="op">=</span> <span class="st">"#94d2bd"</span>,</span>
-<span>            <span class="st">"4"</span> <span class="op">=</span> <span class="st">"#e9d8a6"</span>,</span>
-<span>            <span class="st">"5"</span> <span class="op">=</span> <span class="st">"#ee9b00"</span>,</span>
-<span>            <span class="st">"6"</span> <span class="op">=</span> <span class="st">"#ca6702"</span>,</span>
-<span>            <span class="st">"7"</span> <span class="op">=</span> <span class="st">"#bb3e03"</span>,</span>
-<span>            <span class="st">"8"</span> <span class="op">=</span> <span class="st">"#ae2012"</span>,</span>
-<span>            <span class="st">"9"</span> <span class="op">=</span> <span class="st">"#9b2226"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BeeSwarmPlot.html">do_BeeSwarmPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
-<span>                             feature_to_rank <span class="op">=</span> <span class="st">"Monocyte_signature"</span>, </span>
-<span>                             group.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>,</span>
-<span>                             colors.use <span class="op">=</span> <span class="va">colors</span>,</span>
-<span>                             xlab <span class="op">=</span> <span class="st">"Ranking for monocyte enrichment"</span><span class="op">)</span></span>
-<span><span class="va">p</span></span></code></pre></div>
-<div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-9"></span>
-<img src="06-BeeSwarmPlots_files/figure-html/unnamed-chunk-9-1.png" alt="SCpubr, modifying default colors in a Bee Swarm plot" width="100%" height="100%"><p class="caption">
-Figure 1.8: SCpubr, modifying default colors in a Bee Swarm plot
-</p>
-</div>
 
 </div>
 </div>
@@ -343,7 +312,6 @@ Figure 1.8: SCpubr, modifying default colors in a Bee Swarm plot
 <li><a class="nav-link" href="#bee-swarm-plots"><span class="header-section-number">4</span> Bee Swarm plots</a></li>
 <li><a class="nav-link" href="#using-categorical-variables"><span class="header-section-number">4.1</span> Using categorical variables</a></li>
 <li><a class="nav-link" href="#using-continuous-variables"><span class="header-section-number">4.2</span> Using continuous variables</a></li>
-<li><a class="nav-link" href="#change-default-colors-in-categorical-variables"><span class="header-section-number">4.3</span> Change default colors in categorical variables</a></li>
 </ul>
 
       <div class="book-extra">
@@ -362,12 +330,42 @@ Figure 1.8: SCpubr, modifying default colors in a Bee Swarm plot
 
 
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
 </div>
 </body>
 <!-- Moved the footer outside of the body to make it span all page width. --><footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 30 September, 2022.</p>
+    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 01 October, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
