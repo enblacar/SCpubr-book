@@ -9,14 +9,14 @@ Bar plots are another well known data representation. They are a very handy reso
 
 ```r
 p1 <- SCpubr::do_BarPlot(sample = sample, 
-                         features = "seurat_clusters", 
-                         legend = F, 
+                         group.by = "seurat_clusters", 
+                         legend.position = "none", 
                          plot.title = "Number of cells per cluster")
 p2 <- SCpubr::do_BarPlot(sample = sample, 
-                         features = "seurat_clusters", 
-                         legend = F, 
+                         group.by = "seurat_clusters", 
+                         legend.position = "none",
                          plot.title = "Number of cells per cluster", 
-                         horizontal = T)
+                         flip = TRUE)
 p1 | p2
 ```
 
@@ -24,33 +24,13 @@ p1 | p2
 <img src="09-BarPlots_files/figure-html/unnamed-chunk-2-1.png" alt="SCpubr Bar plots, plotting single variables" width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-2)SCpubr Bar plots, plotting single variables</p>
 </div>
-Using `SCpubr::do_BarPlot()` with only `features` yields a simple bar plot which is ordered by descending value. We can also set up the direction of the bars with `horizontal = TRUE/FALSE`, which by default is set to be vertical There are some underlying assumptions that are being taken to generate these plots:
+Using `SCpubr::do_BarPlot()` with only `group.by` yields a simple bar plot which is ordered by descending value. We can also set up the direction of the bars with `flip = TRUE/FALSE`, which by default is set to be vertical. There is an underlying assumption that is being taken to generate these plots:
 
-- The values in `features` need to be metadata variables, stored in `object@meta.data`. This a design choice, as data need to be grouped using `dplyr` and `tidyr`. This will also later apply to values provided to `group.by`.
-- The feature provided need to have a clear and rather small number of groups. A good estimate on how to assess this is by querying the feature with `table`, as in `table(sample@meta.data[, feature])`.
+- The values in `group.by` need to be metadata variables, stored in `object@meta.data`. They have to be either a **character** or **factor** columns.
 
-Focusing on the last point, this would happen if we were to choose a feature with a high number of unique values:
-
-
-```r
-
-p <- SCpubr::do_BarPlot(sample = sample, 
-                        features = "nCount_RNA", 
-                        legend = F, 
-                        plot.title = "Number of UMIs?",
-                        horizontal = F)
-p
-```
-
-<div class="figure" style="text-align: center">
-<img src="09-BarPlots_files/figure-html/unnamed-chunk-3-1.png" alt="SCpubr Bar plots, choosing the wrong variable" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-3)SCpubr Bar plots, choosing the wrong variable</p>
-</div>
-
-This happens, precisely, because of the high amount of unique values for `nCount_RNA`. These type of continuous values is best suited for other data visualizations like a `histogram`.
 
 ## Grouping by a second variable
-Let's expand on the previous example on the number of cells per cluster. What if we were interested not only on that, but we would like to profile **how many cells from each cluster are present in each of the unique samples present in the Seurat object**? For this, we need to provide `SCpubr::do_BarPlot()` with a second parameter, `group.by`, that tackles how we want the feature to be grouped:
+Let's expand on the previous example on the number of cells per cluster. What if we were interested not only on that, but we would like to profile **how many cells from each cluster are present in each of the unique samples present in the Seurat object**? For this, we need to provide `SCpubr::do_BarPlot()` with a second parameter, `split.by`, that tackles how we want the feature to be grouped:
 
 
 ```r
@@ -60,32 +40,29 @@ sample$modified_orig.ident <- sample(x = c("Sample_A", "Sample_B", "Sample_C"),
                                      replace = T, 
                                      prob = c(0.2, 0.7, 0.1))
 
-p1 <- SCpubr::do_BarPlot(sample, 
-                         features = "modified_orig.ident",
-                         plot.title = "Number of cells per sample",
-                         position = "stack",
-                         legend = T,
-                         horizontal = F)
+p1 <- SCpubr::do_BarPlot(sample,
+                         group.by = "seurat_clusters"
+,                        split.by = "modified_orig.ident",
+                         plot.title = "Number of cells per cluster in each sample",
+                         position = "stack")
 
 p2 <- SCpubr::do_BarPlot(sample, 
-                         features = "modified_orig.ident", 
-                         group.by = "seurat_clusters",
-                         plot.title = "Number of cells per cluster and sample",
-                         position = "stack",
-                         legend = T,
-                         horizontal = F)
+                         group.by = "modified_orig.ident", 
+                         split.by = "seurat_clusters",
+                         plot.title = "Number of cells per sample in each cluster",
+                         position = "stack")
 p1 | p2
 ```
 
 <div class="figure" style="text-align: center">
-<img src="09-BarPlots_files/figure-html/unnamed-chunk-4-1.png" alt="SCpubr Bar plots, introducing a variable to group values by" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-4)SCpubr Bar plots, introducing a variable to group values by</p>
+<img src="09-BarPlots_files/figure-html/unnamed-chunk-3-1.png" alt="SCpubr Bar plots, introducing a variable to group values by" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-3)SCpubr Bar plots, introducing a variable to group values by</p>
 </div>
 
-As we can see, this nicely yields as many number of bars as unique values in the `feature`, and this bars are segmented by as many times as unique values in `group.by`. At first, this is hard to grasp, but it helps thinking of these two parameters, when used together, as:
+As we can see, this nicely yields as many number of bars as unique values in the `group.by`, and this bars are segmented by as many times as unique values in `split.by`. At first, this is hard to grasp, but it helps thinking of these two parameters, when used together, as:
 
-- `feature`: What I want to show as different bars.
-- `group.by`: Secondary variable on which the bars generated by `feature` can be further subdivided.
+- `group.by`: What I want to show as different bars, the total number of counts.
+- `split.by`: Secondary variable on which the bars generated by `group.by` can be further subdivided.
 
 Another interesting parameter introduced in the last example is `position`. Position can be either `stack` or `fill`. The difference between them is that `position = "stack"` will yield the total number of cells for each of the unique values in `feature`, while `position = "fill"` will bring all bars to the same height and will split each bar into the proportions within each bar of the different groups (only one if `group.by = NULL` and as many groups if `group.by` is used). Therefore, it becomes highly recommended to use `position = "stack"` when `group.by` is not used and `position = "fill"` otherwise. This is also warned by the package. If you want to silence the warnings, use `verbose = FALSE`. 
 
@@ -94,426 +71,37 @@ Another interesting parameter introduced in the last example is `position`. Posi
 # We are going to use the previously generated sample assignment.
 
 p1 <- SCpubr::do_BarPlot(sample, 
-                         features = "modified_orig.ident",
-                         plot.title = "Without group.by - position = stack",
+                         group.by = "seurat_clusters",
+                         plot.title = "Without split.by - position = stack",
                          position = "stack",
-                         legend = T,
-                         horizontal = F)
+                         flip = FALSE)
 
 p2 <- SCpubr::do_BarPlot(sample, 
-                         features = "modified_orig.ident",
-                         plot.title = "Without group.by - position = fill",
+                         group.by = "seurat_clusters",
+                         plot.title = "Without split.by - position = fill",
                          position = "fill",
-                         legend = T,
-                         horizontal = F)
+                         flip = FALSE)
 
 p3 <- SCpubr::do_BarPlot(sample, 
-                         features = "modified_orig.ident",
                          group.by = "seurat_clusters",
-                         plot.title = "With group.by - position = stack",
+                         split.by = "modified_orig.ident",
+                         plot.title = "With split.by - position = stack",
                          position = "stack",
-                         legend = T,
-                         horizontal = F)
+                         flip = FALSE)
 
 p4 <- SCpubr::do_BarPlot(sample, 
-                         features = "modified_orig.ident",
                          group.by = "seurat_clusters",
-                         plot.title = "With group.by - position = fill",
+                         split.by = "modified_orig.ident",
+                         plot.title = "With split.by - position = fill",
                          position = "fill",
-                         legend = T,
-                         horizontal = F)
+                         flip = FALSE)
 p <- (p1 | p2) / (p3 | p4)
 p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="09-BarPlots_files/figure-html/unnamed-chunk-5-1.png" alt="SCpubr Bar plots, difference between position" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-5)SCpubr Bar plots, difference between position</p>
+<img src="09-BarPlots_files/figure-html/unnamed-chunk-4-1.png" alt="SCpubr Bar plots, difference between position" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-4)SCpubr Bar plots, difference between position</p>
 </div>
-
-
-## Reordering columns based on a single entity
-
-One advanced use of bar plots, but a very useful one is to reorder the columns based on a single entity in a descending order. This works only when `group.by` is set up and best when `position = "fill"`. For instance, imagine the scenario in which we are heavily interested in cluster 1, and want to reorder the columns based on it. This is achieved by providing `order.by` parameter to `SCpubr::do_BarPlot()`. The value in `order.by` has to be necessary one of the unique values in `group.by`. Therefore, as a best practice, one would want to generate the bar plots without using `order.by` and then decide. Let's also, for the sake of this example, modify the proportions of cluster 1 so that it becomes really evident. This is how it looks:
-
-
-
-```r
-# Modify proportions. 
-sample$modified_seurat_clusters <- as.character(sample$seurat_clusters)
-sample$modified_seurat_clusters[sample$modified_orig.ident == "Sample_A" & sample$modified_seurat_clusters %in% c("0", "2", "3", "4", "5", "6", "7")] <- "1"
-
-p1 <- SCpubr::do_BarPlot(sample, 
-                         features = "modified_orig.ident",
-                         group.by = "modified_seurat_clusters",
-                         plot.title = "Number of cells per sample",
-                         order.by = "1",
-                         position = "stack",
-                         legend = T,
-                         horizontal = F)
-
-p2 <- SCpubr::do_BarPlot(sample, 
-                         features = "modified_orig.ident", 
-                         group.by = "modified_seurat_clusters",
-                         plot.title = "Number of cells per cluster and sample",
-                         order.by = "1",
-                         position = "fill",
-                         legend = T,
-                         horizontal = F)
-p1 | p2
-```
-
-<div class="figure" style="text-align: center">
-<img src="09-BarPlots_files/figure-html/unnamed-chunk-6-1.png" alt="SCpubr Bar plots, reordering the colums using order.by" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-6)SCpubr Bar plots, reordering the colums using order.by</p>
-</div>
-
-## Adding the exact values to the bars
-Sometimes, we are interested not only in displaying the bars but also reporting the exact number for each bar. This can be achieved by using `add.summary_labels = TRUE`:
-
-
-```r
-
-p1 <- SCpubr::do_BarPlot(sample = sample, 
-                         features = "seurat_clusters", 
-                         legend = FALSE,
-                         add.summary_labels = TRUE)
-p2 <- SCpubr::do_BarPlot(sample = sample, 
-                         features = "seurat_clusters", 
-                         legend = FALSE,
-                         horizontal = TRUE,
-                         add.summary_labels = TRUE)
-p1 | p2
-```
-
-<div class="figure" style="text-align: center">
-<img src="09-BarPlots_files/figure-html/unnamed-chunk-7-1.png" alt="SCpubr, Adding labels to bars" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-7)SCpubr, Adding labels to bars</p>
-</div>
-
-The size of the labels can be adjusted by using `size.labels`. The default value is 3. This value changes the size quite drastically. Modification by low ammounts is reccomended. 
-
-```r
-
-p1 <- SCpubr::do_BarPlot(sample = sample, 
-                         features = "seurat_clusters", 
-                         legend = FALSE,
-                         add.summary_labels = TRUE,
-                         size.labels = 2.5)
-p2 <- SCpubr::do_BarPlot(sample = sample, 
-                         features = "seurat_clusters", 
-                         legend = FALSE,
-                         horizontal = TRUE,
-                         add.summary_labels = TRUE,
-                         size.labels = 2.5)
-p1 | p2
-```
-
-<div class="figure" style="text-align: center">
-<img src="09-BarPlots_files/figure-html/unnamed-chunk-8-1.png" alt="SCpubr, Modifying the size of the labels in the bars" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-8)SCpubr, Modifying the size of the labels in the bars</p>
-</div>
-
-When using in combination with `group.by`, it also adds the value on top of each bar:
-
-```r
-p1 <- SCpubr::do_BarPlot(sample = sample, 
-                         features = "seurat_clusters",
-                         group.by = "modified_orig.ident",
-                         legend = TRUE,
-                         add.summary_labels = TRUE)
-p2 <- SCpubr::do_BarPlot(sample = sample, 
-                         features = "seurat_clusters",
-                         group.by = "modified_orig.ident", 
-                         legend = TRUE,
-                         horizontal = TRUE,
-                         add.summary_labels = TRUE)
-p1 | p2
-```
-
-<div class="figure" style="text-align: center">
-<img src="09-BarPlots_files/figure-html/unnamed-chunk-9-1.png" alt="SCpubr, Adding labels to bars when grouped by another variable" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-9)SCpubr, Adding labels to bars when grouped by another variable</p>
-</div>
-
-If we are also interested in adding labels to each of the bar sugroups, we can do so by using `add.subgroup_labels = TRUE`:
-
-
-```r
-p1 <- SCpubr::do_BarPlot(sample = sample, 
-                         features = "seurat_clusters",
-                         group.by = "modified_orig.ident",
-                         legend = TRUE,
-                         add.summary_labels = TRUE,
-                         add.subgroup_labels = TRUE)
-p2 <- SCpubr::do_BarPlot(sample = sample, 
-                         features = "seurat_clusters",
-                         group.by = "modified_orig.ident", 
-                         legend = TRUE,
-                         horizontal = TRUE,
-                         add.summary_labels = TRUE,
-                         add.subgroup_labels = TRUE)
-p1 | p2
-```
-
-<div class="figure" style="text-align: center">
-<img src="09-BarPlots_files/figure-html/unnamed-chunk-10-1.png" alt="SCpubr, Adding labels to bars and subgroups when grouped by another variable" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-10)SCpubr, Adding labels to bars and subgroups when grouped by another variable</p>
-</div>
-
-As can be observed, this type of labelling is very situational and highly depends on the overall structure of the bars and whether it is feasible to plot that many labels. In order to ease this cluttering, one can pass `repel.subroup_labels = TRUE` to avoid overlapping of the group labels (the colored ones inside the bars). 
-
-
-```r
-p1 <- SCpubr::do_BarPlot(sample = sample, 
-                         features = "seurat_clusters",
-                         group.by = "modified_orig.ident",
-                         legend = TRUE,
-                         add.summary_labels = TRUE,
-                         add.subgroup_labels = TRUE,
-                         repel.subgroup_labels = TRUE)
-p2 <- SCpubr::do_BarPlot(sample = sample, 
-                         features = "seurat_clusters",
-                         group.by = "modified_orig.ident", 
-                         legend = TRUE,
-                         horizontal = TRUE,
-                         add.summary_labels = TRUE,
-                         add.subgroup_labels = TRUE,
-                         repel.subgroup_labels = TRUE)
-p1 | p2
-```
-
-<div class="figure" style="text-align: center">
-<img src="09-BarPlots_files/figure-html/unnamed-chunk-11-1.png" alt="SCpubr, Relocating group labels" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-11)SCpubr, Relocating group labels</p>
-</div>
-
-If we also want the summary labels (the ones in black at the top of each bar) to relocate, we can use `repel.summary_labels = TRUE`. This combination of parameters were designed to grant the user freedom to keep either of the two groups of labels centered and to make either group appear or disappear (as each bar plot will have a different scenario and sometimes it might be a viable option).
-
-
-```r
-p1 <- SCpubr::do_BarPlot(sample = sample, 
-                         features = "seurat_clusters",
-                         group.by = "modified_orig.ident",
-                         legend = TRUE,
-                         add.summary_labels = TRUE,
-                         add.subgroup_labels = TRUE,
-                         repel.summary_labels = TRUE,
-                         repel.subgroup_labels = TRUE)
-p2 <- SCpubr::do_BarPlot(sample = sample, 
-                         features = "seurat_clusters",
-                         group.by = "modified_orig.ident",
-                         legend = TRUE,
-                         horizontal = TRUE,
-                         add.summary_labels = TRUE,
-                         add.subgroup_labels = TRUE,
-                         repel.summary_labels = TRUE,
-                         repel.subgroup_labels = TRUE)
-p1 | p2
-```
-
-<div class="figure" style="text-align: center">
-<img src="09-BarPlots_files/figure-html/unnamed-chunk-12-1.png" alt="SCpubr, Adding relocating all bars" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-12)SCpubr, Adding relocating all bars</p>
-</div>
-
-From the time being, the labelling feature is only available on `position = "stack"`.
-
-
-## Retrieving the data matrix
-
-Many times, not only we are interested in actually displaying the data, but we do also want to store the data matrix. This is a common case for supplementary material in publications. To assess this, one can set `return_data_matrix = TRUE`, which will output a list containing both the plot and the data matrix (long and wide format). This does also work when several features are queried at the same time. Both for `position = "fill"` and `position = "stack"` the output will be the same, the total counts.
-
-
-```r
-output <- SCpubr::do_BarPlot(sample, 
-                             features = "modified_orig.ident",
-                             group.by = "seurat_clusters",
-                             legend = TRUE,
-                             horizontal = FALSE,
-                             return_data_matrix = TRUE)
-# Retrieve plot.
-plot <- output$plot
-
-# Retrieve data in long format.
-data.long <- output$data[["modified_orig.ident"]]$long
-
-# Retrieve data in wide format.
-data.wide <- output$data[["modified_orig.ident"]]$wide
-
-# Show data in long format.
-knitr::kable(head(data.long, 15), booktabs = TRUE) %>%
-  kableExtra::kable_styling(font_size = 12)
-```
-
-<table class="table" style="font-size: 12px; margin-left: auto; margin-right: auto;">
- <thead>
-  <tr>
-   <th style="text-align:left;"> modified_orig.ident </th>
-   <th style="text-align:left;"> seurat_clusters </th>
-   <th style="text-align:right;"> n </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Sample_B </td>
-   <td style="text-align:left;"> 0 </td>
-   <td style="text-align:right;"> 2678 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Sample_B </td>
-   <td style="text-align:left;"> 1 </td>
-   <td style="text-align:right;"> 1868 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Sample_B </td>
-   <td style="text-align:left;"> 2 </td>
-   <td style="text-align:right;"> 925 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Sample_B </td>
-   <td style="text-align:left;"> 3 </td>
-   <td style="text-align:right;"> 814 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Sample_A </td>
-   <td style="text-align:left;"> 0 </td>
-   <td style="text-align:right;"> 766 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Sample_B </td>
-   <td style="text-align:left;"> 4 </td>
-   <td style="text-align:right;"> 705 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Sample_A </td>
-   <td style="text-align:left;"> 1 </td>
-   <td style="text-align:right;"> 571 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Sample_B </td>
-   <td style="text-align:left;"> 5 </td>
-   <td style="text-align:right;"> 443 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Sample_C </td>
-   <td style="text-align:left;"> 0 </td>
-   <td style="text-align:right;"> 388 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Sample_B </td>
-   <td style="text-align:left;"> 6 </td>
-   <td style="text-align:right;"> 332 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Sample_A </td>
-   <td style="text-align:left;"> 2 </td>
-   <td style="text-align:right;"> 266 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Sample_C </td>
-   <td style="text-align:left;"> 1 </td>
-   <td style="text-align:right;"> 242 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Sample_B </td>
-   <td style="text-align:left;"> 7 </td>
-   <td style="text-align:right;"> 228 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Sample_A </td>
-   <td style="text-align:left;"> 4 </td>
-   <td style="text-align:right;"> 224 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Sample_A </td>
-   <td style="text-align:left;"> 3 </td>
-   <td style="text-align:right;"> 217 </td>
-  </tr>
-</tbody>
-</table>
-
-
-```r
-# Show data in wide format.
-knitr::kable(head(data.wide, 15), booktabs = TRUE) %>%
-  kableExtra::kable_styling(font_size = 12)
-```
-
-<table class="table" style="font-size: 12px; margin-left: auto; margin-right: auto;">
- <thead>
-  <tr>
-   <th style="text-align:left;"> seurat_clusters </th>
-   <th style="text-align:right;"> Sample_B </th>
-   <th style="text-align:right;"> Sample_A </th>
-   <th style="text-align:right;"> Sample_C </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> 0 </td>
-   <td style="text-align:right;"> 2678 </td>
-   <td style="text-align:right;"> 766 </td>
-   <td style="text-align:right;"> 388 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 1 </td>
-   <td style="text-align:right;"> 1868 </td>
-   <td style="text-align:right;"> 571 </td>
-   <td style="text-align:right;"> 242 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 2 </td>
-   <td style="text-align:right;"> 925 </td>
-   <td style="text-align:right;"> 266 </td>
-   <td style="text-align:right;"> 119 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 3 </td>
-   <td style="text-align:right;"> 814 </td>
-   <td style="text-align:right;"> 217 </td>
-   <td style="text-align:right;"> 96 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 4 </td>
-   <td style="text-align:right;"> 705 </td>
-   <td style="text-align:right;"> 224 </td>
-   <td style="text-align:right;"> 107 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 5 </td>
-   <td style="text-align:right;"> 443 </td>
-   <td style="text-align:right;"> 102 </td>
-   <td style="text-align:right;"> 51 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 6 </td>
-   <td style="text-align:right;"> 332 </td>
-   <td style="text-align:right;"> 94 </td>
-   <td style="text-align:right;"> 51 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 7 </td>
-   <td style="text-align:right;"> 228 </td>
-   <td style="text-align:right;"> 67 </td>
-   <td style="text-align:right;"> 31 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 8 </td>
-   <td style="text-align:right;"> 124 </td>
-   <td style="text-align:right;"> 35 </td>
-   <td style="text-align:right;"> 17 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 9 </td>
-   <td style="text-align:right;"> 67 </td>
-   <td style="text-align:right;"> 28 </td>
-   <td style="text-align:right;"> 5 </td>
-  </tr>
-</tbody>
-</table>
-Each type of data matrix is beneficial for different purposes. Long data is the desired format if you want to store the data matrix for future use in plotting. Wide data, in turn, is easier to understand right away.
-
-
 
 

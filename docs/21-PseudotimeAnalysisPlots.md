@@ -240,7 +240,7 @@ p
 
 As can be observed, if we compute different partitions, the one used will be the one that contains the highest or lowest enrichment score, up to our choice. If not, the whole trajectory for the whole UMAP will be used, providing very different results. The key to this is the kind of sample/cds we provide as input (i.e, if we have a tumor bulk that we want to keep as a single partition or not or similar).
 
-We can also visualize the enrichment scores as a feature plot alongside the pseudotime, either in a symmetrical scale or not with `symmetrical_scale`.
+We can also visualize the enrichment scores as a feature plot alongside the pseudotime, either in a symmetrical scale or not with `enforce_symmetry`.
 
 
 ```r
@@ -250,7 +250,7 @@ out <- SCpubr::do_PseudotimePlot(sample = sample,
                                  compute_monocle_partitions = TRUE,
                                  compute_monocle_clusters = FALSE,
                                  pseudotime_genes = pseudotime_genes,
-                                 symmetrical_scale = FALSE,
+                                 enforce_symmetry = FALSE,
                                  is_max_score_the_start = TRUE)
 p1 <- out$pseudotime
 p3 <- out$enrichment
@@ -260,7 +260,7 @@ out <- SCpubr::do_PseudotimePlot(sample = sample,
                                  compute_monocle_partitions = TRUE,
                                  compute_monocle_clusters = FALSE,
                                  pseudotime_genes = pseudotime_genes,
-                                 symmetrical_scale = TRUE,
+                                 enforce_symmetry = TRUE,
                                  is_max_score_the_start = FALSE)
 p2 <- out$pseudotime
 p4 <- out$enrichment

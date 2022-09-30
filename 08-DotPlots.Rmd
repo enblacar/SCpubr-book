@@ -41,7 +41,7 @@ p
 
 Here, we can clearly distinguish which clusters are highly enriched in which given genes. This proves to be a very interesting way to query for cluster identities. It is highly dependent, though, on the accuracy of the selected genes for the queried dataset. If we actually provide the list of genes as a named list, we can facet the plot in the different list of genes provided:
 
-```{r, fig.cap="SCpubr DotPlot using multiple genes", fig.width=18, fig.height=5}
+```{r, fig.cap="SCpubr DotPlot using multiple genes", fig.width=18, fig.height=8}
 genes <- list("Naive CD4+ T" = c("IL7R", "CCR7"),
               "CD14+ Mono" = c("CD14", "LYZ"),
               "Memory CD4+" = c("S100A4"),
@@ -60,7 +60,7 @@ p
 
 One really cool feature from `Seurat::DotPlot()` is that it lets you cluster the identities in the Y axis depending on how similar they are between them across the values on the X axis. This is achieved by using `cluster.idents = TRUE`, parameter also implemented in `SCpubr::do_DotPlot()`:
 
-```{r, fig.cap="SCpubr DotPlot using multiple genes and clustering the identities", fig.width=18, fig.height=10}
+```{r, fig.cap="SCpubr DotPlot using multiple genes and clustering the identities", fig.width=18, fig.height=14}
 genes <- list("Naive CD4+ T" = c("IL7R", "CCR7"),
               "CD14+ Mono" = c("CD14", "LYZ"),
               "Memory CD4+" = c("S100A4"),
@@ -99,7 +99,7 @@ p2 <- SCpubr::do_DotPlot(sample = sample,
                          cluster.idents = TRUE, 
                          plot.title = "Clustered", 
                          flip = T,
-                         rotate_x_labels = T)
+                         rotate_x_axis_labels = FALSE)
 p1 | p2
 ```
 

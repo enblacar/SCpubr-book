@@ -61,7 +61,7 @@ p
 
 ## Plotting symmetrical scales.
 
-Depending on the case, it might be the case in which we want to plot a continuous variable that spans both in positive and negative values. Although not necessary, there are cases in which this binary nature of the values has a biological meaning and we, therefore, assign two gradient of colors (typically blue for negative values and red for positive values) to better visualize this nature of the data. We can achieve this by using `symmetrical_scale = TRUE`.
+Depending on the case, it might be the case in which we want to plot a continuous variable that spans both in positive and negative values. Although not necessary, there are cases in which this binary nature of the values has a biological meaning and we, therefore, assign two gradient of colors (typically blue for negative values and red for positive values) to better visualize this nature of the data. We can achieve this by using `enforce_symmetry = TRUE`.
 
 
 
@@ -70,13 +70,13 @@ Depending on the case, it might be the case in which we want to plot a continuou
 p1 <- SCpubr::do_GeyserPlot(sample = sample,
                             features = "UMAP_2",
                             scale_type = "continuous",
-                            symmetrical_scale = FALSE)
+                            enforce_symmetry = FALSE)
 
 # Geyser plot with continuous and symmetrical color scale.
 p2 <- SCpubr::do_GeyserPlot(sample = sample,
                             features = "UMAP_2",
                             scale_type = "continuous",
-                            symmetrical_scale = TRUE)
+                            enforce_symmetry = TRUE)
 
 
 p <- p1 / p2
@@ -155,7 +155,7 @@ p
 </div>
 
 ## Rotating X axis labels.
-As with the example above, X axis labels might overlap one with another. This can be changed by using `rotate_x_axis_labels = TRUE`,
+As with the example above, X axis labels might overlap one with another. This can be changed by using `rotate_x_axis_labels = FALSE`,
 
 
 ```r
@@ -165,16 +165,16 @@ p1 <- SCpubr::do_GeyserPlot(sample = sample,
                             scale_type = "categorical",
                             group.by = "modified_orig.ident",
                             split.by = "seurat_clusters",
-                            rotate_x_axis_labels = TRUE)
+                            rotate_x_axis_labels = FALSE)
 
 # Geyser plot with continuous color scale split by seurat clusters rotating labels.
 p2 <- SCpubr::do_GeyserPlot(sample = sample,
                             features = "UMAP_2",
                             scale_type = "continuous",
-                            symmetrical_scale = TRUE,
+                            enforce_symmetry = TRUE,
                             group.by = "modified_orig.ident",
                             split.by = "seurat_clusters",
-                            rotate_x_axis_labels = TRUE)
+                            rotate_x_axis_labels = FALSE)
 
 
 p <- p1 / p2
@@ -203,7 +203,7 @@ p1 <- SCpubr::do_GeyserPlot(sample = sample,
 p2 <- SCpubr::do_GeyserPlot(sample = sample,
                             features = "UMAP_2",
                             scale_type = "continuous",
-                            symmetrical_scale = TRUE,
+                            enforce_symmetry = TRUE,
                             color.by = "nCount_RNA")
 
 
@@ -232,7 +232,7 @@ p1 <- SCpubr::do_GeyserPlot(sample = sample,
 p2 <- SCpubr::do_GeyserPlot(sample = sample,
                             features = "UMAP_2",
                             scale_type = "continuous",
-                            symmetrical_scale = TRUE,
+                            enforce_symmetry = TRUE,
                             color.by = "nCount_RNA",
                             group.by = "orig.ident",
                             split.by = "seurat_clusters")
@@ -257,37 +257,37 @@ If one wants to increase or reduce the degree in which the dots disperse across 
 p0 <- SCpubr::do_GeyserPlot(sample = sample,
                             features = "UMAP_2",
                             scale_type = "continuous",
-                            symmetrical_scale = TRUE,
+                            enforce_symmetry = TRUE,
                             jitter = 0.01)
 
 p1 <- SCpubr::do_GeyserPlot(sample = sample,
                             features = "UMAP_2",
                             scale_type = "continuous",
-                            symmetrical_scale = TRUE,
+                            enforce_symmetry = TRUE,
                             jitter = 0.1)
 
 p2 <- SCpubr::do_GeyserPlot(sample = sample,
                             features = "UMAP_2",
                             scale_type = "continuous",
-                            symmetrical_scale = TRUE,
+                            enforce_symmetry = TRUE,
                             jitter = 0.2)
 
 p3 <- SCpubr::do_GeyserPlot(sample = sample,
                             features = "UMAP_2",
                             scale_type = "continuous",
-                            symmetrical_scale = TRUE,
+                            enforce_symmetry = TRUE,
                             jitter = 0.3)
 
 p4 <- SCpubr::do_GeyserPlot(sample = sample,
                             features = "UMAP_2",
                             scale_type = "continuous",
-                            symmetrical_scale = TRUE,
+                            enforce_symmetry = TRUE,
                             jitter = 0.4)
 
 p5 <- SCpubr::do_GeyserPlot(sample = sample,
                             features = "UMAP_2",
                             scale_type = "continuous",
-                            symmetrical_scale = TRUE,
+                            enforce_symmetry = TRUE,
                             jitter = 0.49)
 
 

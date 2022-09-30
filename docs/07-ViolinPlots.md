@@ -10,7 +10,7 @@ Violin plots require very little description. They are a depiction of the distri
 
 ```r
 p <- Seurat::VlnPlot(sample, 
-                     features = "nCount_RNA")
+                     feature = "nCount_RNA")
 p
 ```
 
@@ -23,7 +23,7 @@ The one thing that really stands out here is, indeed, the extra dots that are be
 
 ```r
 p <- Seurat::VlnPlot(sample, 
-                     features = "nCount_RNA")
+                     feature = "nCount_RNA")
 # "Surgically" add the alpha parameter in the ggplot2 object.
 p$layers[[2]]$aes_params$alpha <- 0.05
 p
@@ -34,12 +34,12 @@ p
 <p class="caption">(\#fig:unnamed-chunk-3)Seurat's violin plot with transparent dots.</p>
 </div>
 
-But still, by making the dots almost invisible, we still observe their dominance on the bigger clusters. Therefore, it's better to remove it. This, together with other modifications are the basis of `SCpubr::do_VlnPlot()`. This is how the default plot looks like:
+But still, by making the dots almost invisible, we still observe their dominance on the bigger clusters. Therefore, it's better to remove it. This, together with other modifications are the basis of `SCpubr::do_ViolinPlot()`. This is how the default plot looks like:
 
 
 ```r
-p <- SCpubr::do_VlnPlot(sample = sample, 
-                        features = "nCount_RNA")
+p <- SCpubr::do_ViolinPlot(sample = sample, 
+                           feature = "nCount_RNA")
 p
 ```
 
@@ -52,9 +52,9 @@ In addition to removing the dots, a boxplot is added to each violin shape, to ge
 
 
 ```r
-p <- SCpubr::do_VlnPlot(sample = sample, 
-                        features = "nCount_RNA",
-                        plot_boxplot = FALSE)
+p <- SCpubr::do_ViolinPlot(sample = sample, 
+                           feature = "nCount_RNA",
+                           plot_boxplot = FALSE)
 p
 ```
 
@@ -63,12 +63,12 @@ p
 <p class="caption">(\#fig:unnamed-chunk-5)SCpubr's violin plot without box plots.</p>
 </div>
 
-If we want to rotate the X axis labels, we can also do that providing `rotate_x_labels = TRUE/FALSE`:
+If we want to rotate the X axis labels, we can also do that providing `rotate_x_axis_labels = TRUE/FALSE`:
 
 ```r
-p <- SCpubr::do_VlnPlot(sample = sample, 
-                        features = c("nCount_RNA"),
-                        rotate_x_labels = TRUE,)
+p <- SCpubr::do_ViolinPlot(sample = sample, 
+                        feature = c("nCount_RNA"),
+                        rotate_x_axis_labels = FALSE)
 p
 ```
 
@@ -77,55 +77,21 @@ p
 <p class="caption">(\#fig:unnamed-chunk-6)SCpubr's violin plot rotating x axis.</p>
 </div>
 
-We can also do that for specific violin plots when more than one feature is queried. For this, `rotate_x_labels` has to be a vector of logical values (TRUE or FALSE) of length equal to the number of features.
-
-
-```r
-p <- SCpubr::do_VlnPlot(sample = sample, 
-                        features = c("nCount_RNA", "nFeature_RNA"),
-                        rotate_x_labels = c(FALSE, TRUE),
-                        ncol = 1)
-p
-```
-
-<div class="figure" style="text-align: center">
-<img src="07-ViolinPlots_files/figure-html/unnamed-chunk-7-1.png" alt="SCpubr's violin plot rotating x axis." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-7)SCpubr's violin plot rotating x axis.</p>
-</div>
-However, please note that if the names of the current identities are long enough, this will result in them overlapping one another.
-
-
 ## Violin plots as a means of QC
 
 For QC analyses, users might want to also add some other features such as a line indicating where to put the cutoff. This can be achieved by using `y_cut` parameter. Currently, only one value per plot for `y_cut` can be used.
 
 
 ```r
-p <- SCpubr::do_VlnPlot(sample = sample, 
-                        features = "nCount_RNA", 
-                        y_cut = 30000)
+p <- SCpubr::do_ViolinPlot(sample = sample, 
+                           feature = "nCount_RNA", 
+                           y_cut = 25000)
 p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="07-ViolinPlots_files/figure-html/unnamed-chunk-8-1.png" alt="SCpubr's violin plot with horizontal line." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-8)SCpubr's violin plot with horizontal line.</p>
-</div>
-When multiple features are queried, the user can set up different horizontal lines parsing them as a vector to `y_cut`. Also, the same can be achieved for the individual plot titles by using the `individual.titles` parameter. The only restriction, is that the vector has to be of the same length as the number of features. If for a particular plot, we do not want to modify anything, use `NA` instead.
-
-
-```r
-p <- SCpubr::do_VlnPlot(sample = sample, 
-                        features = c("nCount_RNA", "nFeature_RNA"), 
-                        y_cut = c(NA, 5000), 
-                        individual.titles = c("UMIs", NA),
-                        ncol = 1)
-p
-```
-
-<div class="figure" style="text-align: center">
-<img src="07-ViolinPlots_files/figure-html/unnamed-chunk-9-1.png" alt="SCpubr's violin plot with multiple features." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-9)SCpubr's violin plot with multiple features.</p>
+<img src="07-ViolinPlots_files/figure-html/unnamed-chunk-7-1.png" alt="SCpubr's violin plot with horizontal line." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-7)SCpubr's violin plot with horizontal line.</p>
 </div>
 
 ## Modifying aesthetics
@@ -133,11 +99,11 @@ Sometimes we might want to modify the overall look of the violin plots. For inst
 
 
 ```r
-p1 <- SCpubr::do_VlnPlot(sample = sample,
-                         features = "nCount_RNA")
+p1 <- SCpubr::do_ViolinPlot(sample = sample,
+                         feature = "nCount_RNA")
 
-p2 <- SCpubr::do_VlnPlot(sample = sample,
-                         features = "nCount_RNA",
+p2 <- SCpubr::do_ViolinPlot(sample = sample,
+                         feature = "nCount_RNA",
                          line_width = 2)
 
 p <- p1 / p2
@@ -145,27 +111,27 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="07-ViolinPlots_files/figure-html/unnamed-chunk-10-1.png" alt="SCpubr's violin plot with increased line width" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-10)SCpubr's violin plot with increased line width</p>
+<img src="07-ViolinPlots_files/figure-html/unnamed-chunk-8-1.png" alt="SCpubr's violin plot with increased line width" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-8)SCpubr's violin plot with increased line width</p>
 </div>
 
 Also, the width of the box plots can be modified with `boxplot_width` parameter, which defaults to 0.2. Be aware that this parameter scales the width of the boxplot. This is, if a value of 1 is provided, the box plot will take as much space as the violin shape. It is recommended to deviate from 0.2 by a small amount.
 
 
 ```r
-p1 <- SCpubr::do_VlnPlot(sample = sample,
-                         features = "nCount_RNA")
+p1 <- SCpubr::do_ViolinPlot(sample = sample,
+                            feature = "nCount_RNA")
 
-p2 <- SCpubr::do_VlnPlot(sample = sample,
-                         features = "nCount_RNA",
-                         boxplot_width = 0.1)
+p2 <- SCpubr::do_ViolinPlot(sample = sample,
+                            feature = "nCount_RNA",
+                            boxplot_width = 0.1)
 
 p <- p1 / p2
 p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="07-ViolinPlots_files/figure-html/unnamed-chunk-11-1.png" alt="SCpubr's violin plot with decreased box plot width" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-11)SCpubr's violin plot with decreased box plot width</p>
+<img src="07-ViolinPlots_files/figure-html/unnamed-chunk-9-1.png" alt="SCpubr's violin plot with decreased box plot width" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-9)SCpubr's violin plot with decreased box plot width</p>
 </div>
 

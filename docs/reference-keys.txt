@@ -27,6 +27,7 @@ basic-usage-1
 multiple-features
 working-with-subsets-of-cells
 splitting-the-featureplot-by-a-variable
+apply-symmetrical-color-scales
 nebulosa-plots
 basic-usage-2
 bee-swarm-plots
@@ -45,9 +46,6 @@ inverting-the-axes
 bar-plots
 basic-usage-5
 grouping-by-a-second-variable
-reordering-columns-based-on-a-single-entity
-adding-the-exact-values-to-the-bars
-retrieving-the-data-matrix
 geyser-plots
 basic-usage-6
 ordering-by-mean-values.
@@ -82,6 +80,7 @@ variables
 variables-1
 continuous-features
 ligand-receptor-analysis
+compute-chord-diagrams-of-the-interactions.
 copy-number-variant-analysis-plots
 transferring-the-scores-to-a-featureplot.
 plotting-the-scores-grouped-by-a-group-of-interest.

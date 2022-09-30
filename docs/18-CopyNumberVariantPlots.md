@@ -85,7 +85,7 @@ out <- SCpubr::do_CopyNumberVariantPlot(sample = sample,
                                         chromosome_locations = human_chr_locations,
                                         chromosome_focus = "11",
                                         rotate_x_axis_labels = FALSE)
-p <- out$`11p_geyser`
+p <- out$`11p_geyser` + ggplot2::xlab("")
 p
 ```
 
@@ -116,7 +116,7 @@ out <- SCpubr::do_CopyNumberVariantPlot(sample = sample,
                                         chromosome_focus = "11",
                                         rotate_x_axis_labels = FALSE)
 p2 <- out$`11p_umap`
-p3 <- out$`11p_geyser`
+p3 <- out$`11p_geyser` + ggplot2::xlab("")
 
 p <- (p1 | p2) / p3
 p

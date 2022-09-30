@@ -20,8 +20,7 @@
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-<link rel="shortcut icon" href="images/SCpubr_logo_favicon.png">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link rel="shortcut icon" href="images/SCpubr_logo_favicon.png">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="style.css">
 </head>
 <body data-spy="scroll" data-target="#toc">
@@ -84,7 +83,7 @@
 <p><strong>This section is highly similar to TF Activity inference analysis as it makes use of the same source package and visualizations.</strong></p>
 <p>Another very important analysis that can be carried out, once we have our cells defined into groups (i.e: cell clusters), is Pathway Activity inference analysis. Out of the different tools out there to perform this task, the one we will use is called <a href="https://github.com/saezlab/decoupleR">decoupleR</a> (<a href="https://academic.oup.com/bioinformaticsadvances/article/2/1/vbac016/6544613?login=true">P.Badia-i-Mompel <em>et al</em>. 2022</a>). This tool allows the inference of biological activities out of Omics data. For this, it requires a dataset to act as prior knowledge. For Pathway Activity inference, <a href="https://github.com/saezlab/progeny/">progeny</a> is used. This allows for the computation of activity scores on a cell basis depicting how much (or little) each cell is enriched in each of the cancer Pathways stored in the database.</p>
 <p>In order to visualize the enrichment of our cells in the pathways, the results need to be computed:</p>
-<div class="sourceCode" id="cb136"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb128"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Define your sample and assay.</span></span>
 <span><span class="va">sample</span> <span class="op">&lt;-</span> <span class="va">your_seurat_object</span></span>
 <span><span class="va">assay</span> <span class="op">&lt;-</span> <span class="st">"your_normalized_data_assay"</span></span>
@@ -106,7 +105,7 @@
 <span class="header-section-number">17.1</span> Heatmap of averaged scores.<a class="anchor" aria-label="anchor" href="#heatmap-of-averaged-scores."><i class="fas fa-link"></i></a>
 </h2>
 <p>The most informative and, perhaps, straightforward approach is to visualize the resulting scores averaged by the groups we have defined, as a heatmap. This is the default output of <code><a href="https://rdrr.io/pkg/SCpubr/man/do_PathwayActivityPlot.html">SCpubr::do_PathwayActivityPlot()</a></code>.</p>
-<div class="sourceCode" id="cb137"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb129"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># General heatmap.</span></span>
 <span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_PathwayActivityPlot.html">do_PathwayActivityPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                                      activities <span class="op">=</span> <span class="va">activities</span><span class="op">)</span></span>
@@ -124,7 +123,7 @@ Figure 1.2: SCpubr do_PathwayActivityPlot heatmap output.
 <span class="header-section-number">17.2</span> Feature plots of the scores.<a class="anchor" aria-label="anchor" href="#feature-plots-of-the-scores."><i class="fas fa-link"></i></a>
 </h2>
 <p>Perhaps we are interested into visualizing the scores as a Feature plot. This way we can observe trends of enrichment in the activities. This can be achieved by providing <code>plot_FeaturePlots = TRUE</code>.</p>
-<div class="sourceCode" id="cb138"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb130"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Retrieve feature plots.</span></span>
 <span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_PathwayActivityPlot.html">do_PathwayActivityPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                                      activities <span class="op">=</span> <span class="va">activities</span>,</span>
@@ -145,7 +144,7 @@ Figure 1.3: SCpubr do_PathwayActivityPlot feature plot output.
 <span class="header-section-number">17.3</span> Geyser plots of the scores.<a class="anchor" aria-label="anchor" href="#geyser-plots-of-the-scores."><i class="fas fa-link"></i></a>
 </h2>
 <p>In the same fashion as with the feature plots, we can also visualize the scores as Geyser plots, to get a sense of the distribution of the scores alongside the groups. This can be achieved by providing <code>plot_GeyserPlots = TRUE</code>.</p>
-<div class="sourceCode" id="cb139"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb131"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Retrieve Geyser plots.</span></span>
 <span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_PathwayActivityPlot.html">do_PathwayActivityPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                                      activities <span class="op">=</span> <span class="va">activities</span>,</span>
@@ -165,14 +164,14 @@ Figure 1.4: SCpubr do_PathwayActivityPlot geyser plot output.
 <h2>
 <span class="header-section-number">17.4</span> Use non-symmetrical color scales<a class="anchor" aria-label="anchor" href="#use-non-symmetrical-color-scales"><i class="fas fa-link"></i></a>
 </h2>
-<p>If one wants to just plot a continuous color scale for the Feature plots and the Geyser plots, this can be achieved by using <code>symmetrical_scale = FALSE</code>.</p>
-<div class="sourceCode" id="cb140"><pre class="downlit sourceCode r">
+<p>If one wants to just plot a continuous color scale for the Feature plots and the Geyser plots, this can be achieved by using <code>enforce_symmetry = FALSE</code>.</p>
+<div class="sourceCode" id="cb132"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Use non-symmetrical color scale.</span></span>
 <span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_PathwayActivityPlot.html">do_PathwayActivityPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                                      activities <span class="op">=</span> <span class="va">activities</span>,</span>
 <span>                                      plot_GeyserPlots <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>                                      plot_FeaturePlots <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>                                      symmetrical_scale <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span>                                      enforce_symmetry <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="va">out</span><span class="op">$</span><span class="va">feature_plots</span><span class="op">$</span><span class="va">EGFR</span></span>
 <span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="va">out</span><span class="op">$</span><span class="va">geyser_plots</span><span class="op">$</span><span class="va">EGFR</span></span>
 <span></span>
@@ -180,7 +179,7 @@ Figure 1.4: SCpubr do_PathwayActivityPlot geyser plot output.
 <span>                                      activities <span class="op">=</span> <span class="va">activities</span>,</span>
 <span>                                      plot_GeyserPlots <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>                                      plot_FeaturePlots <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>                                      symmetrical_scale <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span>                                      enforce_symmetry <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="va">p3</span> <span class="op">&lt;-</span> <span class="va">out</span><span class="op">$</span><span class="va">feature_plots</span><span class="op">$</span><span class="va">EGFR</span></span>
 <span><span class="va">p4</span> <span class="op">&lt;-</span> <span class="va">out</span><span class="op">$</span><span class="va">geyser_plots</span><span class="op">$</span><span class="va">EGFR</span></span>
 <span></span>
@@ -198,19 +197,19 @@ Figure 1.5: SCpubr do_PathwayActivityPlot non-symmetrical color scale.
 <span class="header-section-number">17.5</span> Order geysers by the mean<a class="anchor" aria-label="anchor" href="#order-geysers-by-the-mean"><i class="fas fa-link"></i></a>
 </h2>
 <p>We can also decide not to order the Geyser plots by the mean of the values. We can do that by providing <code>geyser_order_by_mean = FALSE</code>.</p>
-<div class="sourceCode" id="cb141"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb133"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Not order Geyser plot by mean values.</span></span>
 <span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_PathwayActivityPlot.html">do_PathwayActivityPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                                      activities <span class="op">=</span> <span class="va">activities</span>,</span>
 <span>                                      plot_GeyserPlots <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>                                      symmetrical_scale <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                                      enforce_symmetry <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>                                      geyser_order_by_mean <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="va">out</span><span class="op">$</span><span class="va">geyser_plots</span><span class="op">$</span><span class="va">EGFR</span></span>
 <span></span>
 <span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_PathwayActivityPlot.html">do_PathwayActivityPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                                      activities <span class="op">=</span> <span class="va">activities</span>,</span>
 <span>                                      plot_GeyserPlots <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>                                      symmetrical_scale <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                                      enforce_symmetry <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>                                      geyser_order_by_mean <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="va">out</span><span class="op">$</span><span class="va">geyser_plots</span><span class="op">$</span><span class="va">EGFR</span></span>
 <span></span>
@@ -228,7 +227,7 @@ Figure 1.6: SCpubr do_PathwayActivityPlot not ordering by mean values.
 <span class="header-section-number">17.6</span> Plot another variable in the geyser plots.<a class="anchor" aria-label="anchor" href="#plot-another-variable-in-the-geyser-plots."><i class="fas fa-link"></i></a>
 </h2>
 <p>Furthermore, we can also recolor the Geyser plots based on another variable of our choice. We can achieve this by using <code>geyser_color.by</code> and <code>geyser_scale_type</code>, providing the name of the variable to plot and the type it is (continuous, categorical).</p>
-<div class="sourceCode" id="cb142"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb134"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Plot a third variable in Geyser plots.</span></span>
 <span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_PathwayActivityPlot.html">do_PathwayActivityPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                                      activities <span class="op">=</span> <span class="va">activities</span>,</span>
@@ -258,7 +257,7 @@ Figure 1.7: SCpubr do_PathwayActivityPlot using color.by.
 <span class="header-section-number">17.7</span> Split the heatmap into different groups.<a class="anchor" aria-label="anchor" href="#split-the-heatmap-into-different-groups."><i class="fas fa-link"></i></a>
 </h2>
 <p>We can also further divide the heatmap into groups. This can be achieved using <code>split.by</code> parameter.</p>
-<div class="sourceCode" id="cb143"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb135"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Split the heatmap by another variable.</span></span>
 <span><span class="va">sample</span><span class="op">$</span><span class="va">split.me</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">sample</span><span class="op">$</span><span class="va">seurat_clusters</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"0"</span>, <span class="st">"3"</span>, <span class="st">"7"</span><span class="op">)</span>, <span class="st">"Group A"</span>,<span class="st">"Group B"</span><span class="op">)</span></span>
 <span></span>
@@ -316,7 +315,7 @@ Figure 1.8: SCpubr do_PathwayActivityPlot splitting the heatmap.
 <!-- Moved the footer outside of the body to make it span all page width. --><footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 19 August, 2022.</p>
+    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 30 September, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

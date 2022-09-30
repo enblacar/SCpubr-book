@@ -143,7 +143,7 @@ p
 
 In some cases, we want to visualize a given feature, let's say, the expression of `LYN` across another variable, for instance `seurat_clusters`. This can be achieved easily in `Seurat` by using the `split.by` parameter. For the sake of representation, let's reduce the number of clusters.
 
-```{r, fig.cap = "Seurat FeaturePlot split by clusters.", fig.width=14, fig.height=8}
+```{r, fig.cap = "Seurat FeaturePlot split by clusters.", fig.width=21, fig.height=8}
 # Group clusters into three values for visualization purposes.
 sample$new_clusters <- as.character(sample$seurat_clusters)
 sample$new_clusters[sample$new_clusters %in% c("0", "1", "2", "3")] <- "Cluster 1"
@@ -158,7 +158,7 @@ p
 ```
 Apart from the general aesthetic discrepancies mentioned before, there are two main aspects missing. First, is the loss of the **UMAP silhouette**. Secondly, knowing that, by default, the color scale is shared across all the plots, we would like to know the range of values this color scale is displaying. In this two aspects is where `SCpubr::do_FeaturePlot()` delves into: 
 
-```{r, fig.cap = "SCpubr FeaturePlot split by clusters.", fig.width=14, fig.height=4}
+```{r, fig.cap = "SCpubr FeaturePlot split by clusters.", fig.width=21, fig.height=8}
 # SCpubr Feature Plot using split.by
 p <- SCpubr::do_FeaturePlot(sample = sample, 
                             features = "LYN", 
@@ -173,7 +173,7 @@ This way, we are able to achieve a better understandable plot. Furthermore, we c
 - `nCount_RNA` is a metadata variable located in `colnames(sample@meta.data)`.
 - `PC_1` is a column of a dimensional reduction embedding, located in `colnames(sample@reductions[["pca"]][[]])`
 
-```{r, fig.cap = "SCpubr FeaturePlot split by clusters using multiple features.", fig.width=24, fig.height=8}
+```{r, fig.cap = "SCpubr FeaturePlot split by clusters using multiple features.", fig.width=63, fig.height=8}
 # Use split.by with multiple features.
 p <- SCpubr::do_FeaturePlot(sample, 
                             features = c("LYN", "nCount_RNA", "PC_1"), 
@@ -194,4 +194,20 @@ p <- SCpubr::do_FeaturePlot(sample,
 p
 ```
 
+## Apply symmetrical color scales
+There are times in which we want to color the Feature plot using a two-end continuous color scale. We can achieve this by using `enforce_symmetry = TRUE`:
 
+```{r, fig.cap = "SCpubr FeaturePlot using a two-end continuous scale.", fig.width=14, fig.height=8}
+# Enforce two-end symmetrical color scale.
+p1 <- SCpubr::do_FeaturePlot(sample, 
+                             features = "PC_1",
+                             enforce_symmetry = FALSE)
+
+p2 <- SCpubr::do_FeaturePlot(sample, 
+                             features = "PC_1",
+                             enforce_symmetry = TRUE)
+
+p <- p1 | p2
+p
+```
+As one can observe, this parameters sets a scale centered around 0, with the two ends being of the same value. This allows for direct comparison between the colors.

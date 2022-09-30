@@ -23,7 +23,7 @@ genes <- list("Naive CD4+ T" = c("IL7R", "CCR7"),
 
 # Default parameters.
 p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
-                                  list_genes = genes)
+                                  input_gene_list = genes)
 p
 ```
 
@@ -37,7 +37,7 @@ By default, `SCpubr::do_EnrichmentHeatmap` aggregates the values by the current 
 ```r
 # Custom aggregated values.
 p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
-                                  list_genes = genes,
+                                  input_gene_list = genes,
                                   group.by = "orig.ident")
 p
 ```
@@ -53,7 +53,7 @@ The matrix can be transposed using `transpose = TRUE`.
 ```r
 # Transposing the matrix.
 p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
-                                  list_genes = genes,
+                                  input_gene_list = genes,
                                   transpose = TRUE)
 p
 ```
@@ -70,7 +70,7 @@ Both rows and column names can be rotated using `column_names_rot`  and `row_nam
 ```r
 # Rotating the labels.
 p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
-                                  list_genes = genes,
+                                  input_gene_list = genes,
                                   transpose = TRUE,
                                   column_names_rot = 0)
 p
@@ -88,11 +88,11 @@ By design, the aspect ratio of the tiles in the heatmap is fixed so that cells a
 ```r
 # Modifying the tile size.
 p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
-                                  list_genes = genes,
+                                  input_gene_list = genes,
                                   transpose = TRUE,
                                   column_names_rot = 0,
-                                  cluster_cols = F,
-                                  cluster_rows = T,
+                                  cluster_cols = FALSE,
+                                  cluster_rows = TRUE,
                                   cell_size = 7)
 p
 ```
@@ -110,11 +110,11 @@ If one wants a symmetrical scale,
 ```r
 # Symmetrical scale viriis.
 p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
-                                  list_genes = genes,
+                                  input_gene_list = genes,
                                   transpose = TRUE,
                                   column_names_rot = 0,
-                                  cluster_cols = F,
-                                  cluster_rows = T,
+                                  cluster_cols = FALSE,
+                                  cluster_rows = TRUE,
                                   cell_size = 7,
                                   symmetrical_scale = TRUE)
 p
@@ -129,11 +129,11 @@ p
 ```r
 # Modifying the symmetrical scale non viridis.
 p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
-                                  list_genes = genes,
+                                  input_gene_list = genes,
                                   transpose = TRUE,
                                   column_names_rot = 0,
-                                  cluster_cols = F,
-                                  cluster_rows = T,
+                                  cluster_cols = FALSE,
+                                  cluster_rows = TRUE,
                                   cell_size = 7,
                                   symmetrical_scale = TRUE,
                                   use_viridis = FALSE)

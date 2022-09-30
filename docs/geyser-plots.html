@@ -20,8 +20,7 @@
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-<link rel="shortcut icon" href="images/SCpubr_logo_favicon.png">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link rel="shortcut icon" href="images/SCpubr_logo_favicon.png">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="style.css">
 </head>
 <body data-spy="scroll" data-target="#toc">
@@ -88,7 +87,7 @@
 <span class="header-section-number">8.1</span> Basic usage<a class="anchor" aria-label="anchor" href="#basic-usage-6"><i class="fas fa-link"></i></a>
 </h2>
 <p>The most basic version of this plot uses only the X and Y variables, while the color of the cells is assigned to either of the two. We can achieve this by using <code><a href="https://rdrr.io/pkg/SCpubr/man/do_GeyserPlot.html">SCpubr::do_GeyserPlot()</a></code> and stating the kind of color scale we want with <code>scale_type</code> (either continuous or categorical).</p>
-<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb67"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Geyser plot with categorical color scale.</span></span>
 <span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_GeyserPlot.html">do_GeyserPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                            features <span class="op">=</span> <span class="st">"nCount_RNA"</span>,</span>
@@ -114,7 +113,7 @@ Figure 1.1: SCpubr do_GeyserPlot regular use.
 <span class="header-section-number">8.2</span> Ordering by mean values.<a class="anchor" aria-label="anchor" href="#ordering-by-mean-values."><i class="fas fa-link"></i></a>
 </h2>
 <p>First thing that one notice, is that the geysers are ordered from highest to lowest mean values. This can be nullified by using <code>order_by_mean = FALSE</code>. In this case, the geysers will order based on alphabetical order or on the levels if the variable chosen is a factor.</p>
-<div class="sourceCode" id="cb79"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Geyser plot with categorical color scale without ordering by mean.</span></span>
 <span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_GeyserPlot.html">do_GeyserPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                            features <span class="op">=</span> <span class="st">"nCount_RNA"</span>,</span>
@@ -141,19 +140,19 @@ Figure 1.2: SCpubr do_GeyserPlot without ordering by the mean.
 <h2>
 <span class="header-section-number">8.3</span> Plotting symmetrical scales.<a class="anchor" aria-label="anchor" href="#plotting-symmetrical-scales."><i class="fas fa-link"></i></a>
 </h2>
-<p>Depending on the case, it might be the case in which we want to plot a continuous variable that spans both in positive and negative values. Although not necessary, there are cases in which this binary nature of the values has a biological meaning and we, therefore, assign two gradient of colors (typically blue for negative values and red for positive values) to better visualize this nature of the data. We can achieve this by using <code>symmetrical_scale = TRUE</code>.</p>
-<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r">
+<p>Depending on the case, it might be the case in which we want to plot a continuous variable that spans both in positive and negative values. Although not necessary, there are cases in which this binary nature of the values has a biological meaning and we, therefore, assign two gradient of colors (typically blue for negative values and red for positive values) to better visualize this nature of the data. We can achieve this by using <code>enforce_symmetry = TRUE</code>.</p>
+<div class="sourceCode" id="cb69"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Geyser plot with continuous color scale.</span></span>
 <span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_GeyserPlot.html">do_GeyserPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                            features <span class="op">=</span> <span class="st">"UMAP_2"</span>,</span>
 <span>                            scale_type <span class="op">=</span> <span class="st">"continuous"</span>,</span>
-<span>                            symmetrical_scale <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span>                            enforce_symmetry <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Geyser plot with continuous and symmetrical color scale.</span></span>
 <span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_GeyserPlot.html">do_GeyserPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                            features <span class="op">=</span> <span class="st">"UMAP_2"</span>,</span>
 <span>                            scale_type <span class="op">=</span> <span class="st">"continuous"</span>,</span>
-<span>                            symmetrical_scale <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span>                            enforce_symmetry <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span></span>
 <span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="va">p1</span> <span class="op">/</span> <span class="va">p2</span></span>
@@ -170,7 +169,7 @@ Figure 1.3: SCpubr do_GeyserPlot plotting a symmetrical scale.
 <span class="header-section-number">8.4</span> Select the groups displayed on the X axis.<a class="anchor" aria-label="anchor" href="#select-the-groups-displayed-on-the-x-axis."><i class="fas fa-link"></i></a>
 </h2>
 <p>Furhtermore, we can select the groups displayed on the X axis with <code>group.by</code> parameter. It defaults to the current identities in the sample if not provided. That is also the reason why the X axis title is called “Groups”. The titles can be modified by usind <code>xlab</code> and <code>ylab</code>, respectively.</p>
-<div class="sourceCode" id="cb81"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb70"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Geyser plot with categorical color scale default X axis grouping.</span></span>
 <span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_GeyserPlot.html">do_GeyserPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                            features <span class="op">=</span> <span class="st">"UMAP_2"</span>,</span>
@@ -200,7 +199,7 @@ Figure 1.4: SCpubr do_GeyserPlot plotting different groups.
 <span class="header-section-number">8.5</span> Split the plot by groups.<a class="anchor" aria-label="anchor" href="#split-the-plot-by-groups."><i class="fas fa-link"></i></a>
 </h2>
 <p>Apart from selecting the grouping, we can effectively split the plot by another categorical variable. This can be achieved by using <code>split.by</code>.</p>
-<div class="sourceCode" id="cb82"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb71"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># We only have one value in orig.ident. Let's modify it so that it resembles a multi-sample Seurat object.</span></span>
 <span><span class="va">sample</span><span class="op">$</span><span class="va">modified_orig.ident</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Sample_A"</span>, <span class="st">"Sample_B"</span>, <span class="st">"Sample_C"</span><span class="op">)</span>, </span>
 <span>                                     size <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">sample</span><span class="op">)</span>, </span>
@@ -235,24 +234,24 @@ Figure 1.5: SCpubr do_GeyserPlot splitting by groups.
 <h2>
 <span class="header-section-number">8.6</span> Rotating X axis labels.<a class="anchor" aria-label="anchor" href="#rotating-x-axis-labels."><i class="fas fa-link"></i></a>
 </h2>
-<p>As with the example above, X axis labels might overlap one with another. This can be changed by using <code>rotate_x_axis_labels = TRUE</code>,</p>
-<div class="sourceCode" id="cb83"><pre class="downlit sourceCode r">
+<p>As with the example above, X axis labels might overlap one with another. This can be changed by using <code>rotate_x_axis_labels = FALSE</code>,</p>
+<div class="sourceCode" id="cb72"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Geyser plot with categorical color scale split by seurat clusters rotating labels.</span></span>
 <span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_GeyserPlot.html">do_GeyserPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                            features <span class="op">=</span> <span class="st">"UMAP_2"</span>,</span>
 <span>                            scale_type <span class="op">=</span> <span class="st">"categorical"</span>,</span>
 <span>                            group.by <span class="op">=</span> <span class="st">"modified_orig.ident"</span>,</span>
 <span>                            split.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>,</span>
-<span>                            rotate_x_axis_labels <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span>                            rotate_x_axis_labels <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Geyser plot with continuous color scale split by seurat clusters rotating labels.</span></span>
 <span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_GeyserPlot.html">do_GeyserPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                            features <span class="op">=</span> <span class="st">"UMAP_2"</span>,</span>
 <span>                            scale_type <span class="op">=</span> <span class="st">"continuous"</span>,</span>
-<span>                            symmetrical_scale <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                            enforce_symmetry <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>                            group.by <span class="op">=</span> <span class="st">"modified_orig.ident"</span>,</span>
 <span>                            split.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>,</span>
-<span>                            rotate_x_axis_labels <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span>                            rotate_x_axis_labels <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span></span>
 <span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="va">p1</span> <span class="op">/</span> <span class="va">p2</span></span>
@@ -269,7 +268,7 @@ Figure 1.6: SCpubr do_GeyserPlot rotating X axis labels.
 <span class="header-section-number">8.7</span> Adding a third variable.<a class="anchor" aria-label="anchor" href="#adding-a-third-variable."><i class="fas fa-link"></i></a>
 </h2>
 <p>You might have noticed, that so far these plots effectively “waste” one axis: either the continuous color scale and the Y axis depict the same, or the X axis and the categorical color scale do it. For this we can add a third variable using <code>color.by</code> parameter.</p>
-<div class="sourceCode" id="cb84"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb73"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Geyser plot with categorical color scale using color.by.</span></span>
 <span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_GeyserPlot.html">do_GeyserPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                            features <span class="op">=</span> <span class="st">"UMAP_2"</span>,</span>
@@ -280,7 +279,7 @@ Figure 1.6: SCpubr do_GeyserPlot rotating X axis labels.
 <span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_GeyserPlot.html">do_GeyserPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                            features <span class="op">=</span> <span class="st">"UMAP_2"</span>,</span>
 <span>                            scale_type <span class="op">=</span> <span class="st">"continuous"</span>,</span>
-<span>                            symmetrical_scale <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                            enforce_symmetry <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>                            color.by <span class="op">=</span> <span class="st">"nCount_RNA"</span><span class="op">)</span></span>
 <span></span>
 <span></span>
@@ -293,7 +292,7 @@ Figure 1.7: SCpubr do_GeyserPlot adding a third variable.
 </p>
 </div>
 <p>This behaviour can also be applied when using <code>split.by</code>.</p>
-<div class="sourceCode" id="cb85"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb74"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Geyser plot with categorical color scale using color.by and split.by.</span></span>
 <span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_GeyserPlot.html">do_GeyserPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                            features <span class="op">=</span> <span class="st">"UMAP_2"</span>,</span>
@@ -306,7 +305,7 @@ Figure 1.7: SCpubr do_GeyserPlot adding a third variable.
 <span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_GeyserPlot.html">do_GeyserPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                            features <span class="op">=</span> <span class="st">"UMAP_2"</span>,</span>
 <span>                            scale_type <span class="op">=</span> <span class="st">"continuous"</span>,</span>
-<span>                            symmetrical_scale <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                            enforce_symmetry <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>                            color.by <span class="op">=</span> <span class="st">"nCount_RNA"</span>,</span>
 <span>                            group.by <span class="op">=</span> <span class="st">"orig.ident"</span>,</span>
 <span>                            split.by <span class="op">=</span> <span class="st">"seurat_clusters"</span><span class="op">)</span></span>
@@ -326,42 +325,42 @@ Figure 1.8: SCpubr do_GeyserPlot adding a third variable and using split.by.
 <span class="header-section-number">8.8</span> Control the jitter of the dots.<a class="anchor" aria-label="anchor" href="#control-the-jitter-of-the-dots."><i class="fas fa-link"></i></a>
 </h2>
 <p>If one wants to increase or reduce the degree in which the dots disperse across the X axis, <code>jitter</code> parameter can be used, alongside a number in between ]0 - 0.5[.</p>
-<div class="sourceCode" id="cb86"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb75"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Geyser plot with different jitter.</span></span>
 <span><span class="va">p0</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_GeyserPlot.html">do_GeyserPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                            features <span class="op">=</span> <span class="st">"UMAP_2"</span>,</span>
 <span>                            scale_type <span class="op">=</span> <span class="st">"continuous"</span>,</span>
-<span>                            symmetrical_scale <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                            enforce_symmetry <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>                            jitter <span class="op">=</span> <span class="fl">0.01</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_GeyserPlot.html">do_GeyserPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                            features <span class="op">=</span> <span class="st">"UMAP_2"</span>,</span>
 <span>                            scale_type <span class="op">=</span> <span class="st">"continuous"</span>,</span>
-<span>                            symmetrical_scale <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                            enforce_symmetry <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>                            jitter <span class="op">=</span> <span class="fl">0.1</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_GeyserPlot.html">do_GeyserPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                            features <span class="op">=</span> <span class="st">"UMAP_2"</span>,</span>
 <span>                            scale_type <span class="op">=</span> <span class="st">"continuous"</span>,</span>
-<span>                            symmetrical_scale <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                            enforce_symmetry <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>                            jitter <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">p3</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_GeyserPlot.html">do_GeyserPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                            features <span class="op">=</span> <span class="st">"UMAP_2"</span>,</span>
 <span>                            scale_type <span class="op">=</span> <span class="st">"continuous"</span>,</span>
-<span>                            symmetrical_scale <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                            enforce_symmetry <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>                            jitter <span class="op">=</span> <span class="fl">0.3</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">p4</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_GeyserPlot.html">do_GeyserPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                            features <span class="op">=</span> <span class="st">"UMAP_2"</span>,</span>
 <span>                            scale_type <span class="op">=</span> <span class="st">"continuous"</span>,</span>
-<span>                            symmetrical_scale <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                            enforce_symmetry <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>                            jitter <span class="op">=</span> <span class="fl">0.4</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">p5</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_GeyserPlot.html">do_GeyserPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                            features <span class="op">=</span> <span class="st">"UMAP_2"</span>,</span>
 <span>                            scale_type <span class="op">=</span> <span class="st">"continuous"</span>,</span>
-<span>                            symmetrical_scale <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                            enforce_symmetry <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>                            jitter <span class="op">=</span> <span class="fl">0.49</span><span class="op">)</span></span>
 <span></span>
 <span></span>
@@ -417,7 +416,7 @@ Figure 1.9: SCpubr do_GeyserPlot controlling the jittering.
 <!-- Moved the footer outside of the body to make it span all page width. --><footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 19 August, 2022.</p>
+    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 30 September, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -14,8 +14,8 @@ sample <- Seurat::AddModuleScore(sample, features = list(gene_list), name = "tes
 sample$rank <- rank(sample$testing_list1)
 
 # Visualize the two distribution.
-p1 <- SCpubr::do_VlnPlot(sample = sample,
-                         features = "testing_list1",
+p1 <- SCpubr::do_ViolinPlot(sample = sample,
+                         feature = "testing_list1",
                          group.by = "orig.ident")
 p2 <- sample@meta.data %>% # Extract metadata
       dplyr::mutate(cell_name = rownames(sample@meta.data)) %>% # Get the cell names.
@@ -72,12 +72,12 @@ Let's say we want to focus on how much each cluster is driven by the PC_1 and PC
 p1 <- SCpubr::do_DimPlot(sample, 
                          reduction = "pca", 
                          label = T, 
-                         legend = F, 
+                         legend.position = "none", 
                          dims = c(1, 2)) 
 p2 <- SCpubr::do_DimPlot(sample, 
                          reduction = "pca", 
                          label = T, 
-                         legend = F, 
+                         legend.position = "none",
                          dims = c(3, 4)) 
 
 p1 | p2
@@ -98,13 +98,13 @@ With this, we get right away a decent overview. Clusters 0, 5, 7 and 8 separate 
 p1 <- SCpubr::do_DimPlot(sample = sample, 
                          reduction = "pca", 
                          label = T, 
-                         legend = F, 
+                         legend.position = "none",
                          dims = c(1, 2))
 
 p2 <- SCpubr::do_DimPlot(sample = sample, 
                          reduction = "pca", 
                          label = T, 
-                         legend = F, 
+                         legend.position = "none",
                          dims = c(3, 4)) 
 
 p3 <- SCpubr::do_BeeSwarmPlot(sample = sample, 
@@ -145,7 +145,7 @@ cols.use <- cols.use[!(names(cols.use) %in% clusters_exclude)]
 p1 <- SCpubr::do_DimPlot(sample = sample[, !(sample$seurat_clusters %in% clusters_exclude)], 
                          reduction = "pca", 
                          label = T, 
-                         legend = F, 
+                         legend.position = "none",
                          dims = c(3, 4), 
                          colors.use = cols.use) 
 p2 <- SCpubr::do_BeeSwarmPlot(sample = sample[, !(sample$seurat_clusters %in% clusters_exclude)], 
@@ -182,7 +182,7 @@ cols.use <- cols.use[!(names(cols.use) %in% clusters_exclude)]
 p1 <- SCpubr::do_DimPlot(sample = sample[, !(sample$seurat_clusters %in% clusters_exclude)], 
                          reduction = "pca", 
                          label = T, 
-                         legend = F, 
+                         legend.position = "none", 
                          dims = c(3, 4), 
                          colors.use = cols.use) 
 p2 <- SCpubr::do_BeeSwarmPlot(sample = sample[, !(sample$seurat_clusters %in% clusters_exclude)], 
@@ -221,13 +221,15 @@ sample$Monocyte_signature1 <- NULL
 
 p1 <- SCpubr::do_DimPlot(sample = sample, 
                          label = T, 
-                         legend = F)
+                         legend.position = "none")
 p2 <- SCpubr::do_FeaturePlot(sample = sample, 
-                             features = "Monocyte_signature") 
+                             features = "Monocyte_signature",
+                             legend.title = "Monocyte signature") 
 p3 <- SCpubr::do_BeeSwarmPlot(sample = sample, 
                               feature_to_rank = "Monocyte_signature", 
                               group.by = "seurat_clusters", 
-                              continuous_feature = T)
+                              continuous_feature = T,
+                              legend.title = "Monocyte signature")
 p1 | p2 | p3
 ```
 
@@ -258,7 +260,8 @@ colors <- c("0" = "#001219",
 p <- SCpubr::do_BeeSwarmPlot(sample = sample, 
                              feature_to_rank = "Monocyte_signature", 
                              group.by = "seurat_clusters",
-                             colors.use = colors)
+                             colors.use = colors,
+                             xlab = "Ranking for monocyte enrichment")
 p
 ```
 

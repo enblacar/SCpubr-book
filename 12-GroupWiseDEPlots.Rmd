@@ -54,7 +54,7 @@ p <- SCpubr::do_GroupwiseDEPlot(sample = sample,
                                 row_title_p_values = "Title B",
                                 row_title_logfc = "Title C",
                                 row_title_expression = "Title D",
-                                row_title_rotation = 0)
+                                row_title_rot = 0)
 
 p
 ```

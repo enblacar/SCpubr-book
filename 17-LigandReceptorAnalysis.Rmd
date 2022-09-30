@@ -17,26 +17,21 @@ liana_output <- liana::liana_wrap(sce = sample,
                                   assay = "SCT")
 ```
 
-It is very important to note that `liana_output` has to contain the five different methods. This is a design choice. One can get the full output from scratch also running:
-
-```{r eval = F}
-p <- SCPubr::do_LigandReceptorPlot(sample = sample)
-```
-
-The same output can be retrieved from:
-
-```{r, fig.cap = "SCpubr do_LigandReceptorPlot default output.", fig.width=16, fig.height=7}
+It is very important to note that `liana_output` has to contain the five different methods. This is a design choice.
+```{r, fig.cap = "SCpubr do_LigandReceptorPlot default output.", fig.width=16, fig.height=10}
 # Ligand Receptor analysis plot.
-p <- SCpubr::do_LigandReceptorPlot(liana_output = liana_output)
+p <- SCpubr::do_LigandReceptorPlot(liana_output = liana_output,
+                                   dot.size = 2)
 p
 ```
 
 By default, top 25 unique, most significant interactions are retrieved and plotted. However, this can be changed by using `top_interactions`. Also, clusters that have no interactions, both as source and target, will be removed.:
 
-```{r, fig.cap = "SCpubr do_LigandReceptorPlot default output with extra interactions.", fig.width=16, fig.height=22}
+```{r, fig.cap = "SCpubr do_LigandReceptorPlot default output with extra interactions.", fig.width=25, fig.height=50}
 # Ligand Receptor analysis plot with extra interactions.
 p <- SCpubr::do_LigandReceptorPlot(liana_output = liana_output,
-                                   top_interactions = 150)
+                                   top_interactions = 150,
+                                   dot.size = 2)
 p
 ```
 
@@ -53,10 +48,7 @@ One can also draw some grid lines. This is specially useful when the plot gets t
 ```{r, fig.cap = "SCpubr do_LigandReceptorPlot with grid lines.", fig.width=16, fig.height=12}
 # Ligand Receptor analysis plot with grid.
 p <- SCpubr::do_LigandReceptorPlot(liana_output = liana_output,
-                                   dot.size = 2,
-                                   plot_grid = TRUE,
-                                   grid.color = "grey90",
-                                   grid.type = "dotted")
+                                   dot.size = 2)
 p
 ```
 
@@ -66,9 +58,6 @@ For the cases in which one want to plot a lot of interactions, the plot can be f
 # Ligand Receptor analysis plot with inverted axes.
 p <- SCpubr::do_LigandReceptorPlot(liana_output = liana_output,
                                    dot.size = 2,
-                                   plot_grid = TRUE,
-                                   grid.color = "grey90",
-                                   grid.type = "dotted",
                                    flip = TRUE, 
                                    x_labels_angle = 90,
                                    rotate_strip_text = TRUE)
@@ -94,9 +83,6 @@ p
 # Ligand Receptor analysis plot with inverted axes grouped by ligand.complex.
 p <- SCpubr::do_LigandReceptorPlot(liana_output = liana_output,
                                    dot.size = 2,
-                                   plot_grid = TRUE,
-                                   grid.color = "grey90",
-                                   grid.type = "dotted",
                                    flip = TRUE, 
                                    x_labels_angle = 90,
                                    rotate_strip_text = TRUE,
@@ -111,9 +97,6 @@ Finally, one can also restrict the output to given source and target clusters. T
 p <- SCpubr::do_LigandReceptorPlot(liana_output = liana_output,
                                    top_interactions = 150,
                                    dot.size = 2,
-                                   plot_grid = TRUE,
-                                   grid.color = "grey90",
-                                   grid.type = "dotted",
                                    flip = TRUE, 
                                    x_labels_angle = 90,
                                    rotate_strip_text = TRUE,
@@ -121,3 +104,45 @@ p <- SCpubr::do_LigandReceptorPlot(liana_output = liana_output,
                                    keep_target = c("3", "5", "7"))
 p
 ```
+
+## Compute chord diagrams of the interactions.
+
+Another supplementary visualizations that one can do with the results of liana is to visualize:
+- The total number of significant interactions between each pair of clusters. 
+- The number of interactions between the `top_interactions` ligand-receptor pairs. 
+
+This can be achieved by providing `compute_ChordDiagrams = TRUE`. This will return a list with the dot plot and chord diagrams.
+
+
+```{r, fig.cap = "SCpubr do_LigandReceptorPlot output Chord diagram with the total significant interactions between the clusters.", fig.width=16, fig.height=16}
+# Chord diagram of the total significant interactions from each cluster and all the rest.
+out <- SCpubr::do_LigandReceptorPlot(liana_output = liana_output,
+                                     top_interactions = 25,
+                                     compute_ChordDiagrams = TRUE)
+out$chord_total_interactions
+```
+<span class="border-0"><img src="images/chord1.png" class="mx-auto d-block" alt="" style="box-shadow: none; width: 100%"/></span>
+
+```{r, fig.cap = "SCpubr do_LigandReceptorPlot output Chord diagram with the total ligand-receptor interactions from each cluster and all the rest.", fig.width=16, fig.height=16}
+# Chord diagram of the total ligand-receptor interactions from each cluster and all the rest.
+out$chord_ligand_receptor
+```
+<span class="border-0"><img src="images/chord2.png" class="mx-auto d-block" alt="" style="box-shadow: none; width: 100%"/></span>
+
+However, the plot can become quite messy. For this, it becomes more interesting to use in combination of `keep_source` or `keep_target` parameters:
+
+```{r, fig.cap = "SCpubr do_LigandReceptorPlot output Chord diagram with the total significant interactions between the clusters filtering interactions.", fig.width=16, fig.height=16}
+# Chord diagram of the total significant interactions from each cluster and all the rest.
+out <- SCpubr::do_LigandReceptorPlot(liana_output = liana_output,
+                                     top_interactions = 25,
+                                     keep_source = c("0", "7"),
+                                     compute_ChordDiagrams = TRUE)
+out$chord_total_interactions
+```
+<span class="border-0"><img src="images/chord3.png" class="mx-auto d-block" alt="" style="box-shadow: none; width: 100%"/></span>
+
+```{r, fig.cap = "SCpubr do_LigandReceptorPlot output Chord diagram with the total ligand-receptor interactions from each cluster and all the rest filtering interactions.", fig.width=16, fig.height=16}
+# Chord diagram of the total ligand-receptor interactions from each cluster and all the rest.
+out$chord_ligand_receptor
+```
+<span class="border-0"><img src="images/chord4.png" class="mx-auto d-block" alt="" style="box-shadow: none; width: 100%"/></span>

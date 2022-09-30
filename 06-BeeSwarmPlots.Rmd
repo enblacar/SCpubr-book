@@ -16,8 +16,8 @@ sample <- Seurat::AddModuleScore(sample, features = list(gene_list), name = "tes
 sample$rank <- rank(sample$testing_list1)
 
 # Visualize the two distribution.
-p1 <- SCpubr::do_VlnPlot(sample = sample,
-                         features = "testing_list1",
+p1 <- SCpubr::do_ViolinPlot(sample = sample,
+                         feature = "testing_list1",
                          group.by = "orig.ident")
 p2 <- sample@meta.data %>% # Extract metadata
       dplyr::mutate(cell_name = rownames(sample@meta.data)) %>% # Get the cell names.
@@ -62,12 +62,12 @@ Let's say we want to focus on how much each cluster is driven by the PC_1 and PC
 p1 <- SCpubr::do_DimPlot(sample, 
                          reduction = "pca", 
                          label = T, 
-                         legend = F, 
+                         legend.position = "none", 
                          dims = c(1, 2)) 
 p2 <- SCpubr::do_DimPlot(sample, 
                          reduction = "pca", 
                          label = T, 
-                         legend = F, 
+                         legend.position = "none",
                          dims = c(3, 4)) 
 
 p1 | p2
@@ -82,13 +82,13 @@ With this, we get right away a decent overview. Clusters 0, 5, 7 and 8 separate 
 p1 <- SCpubr::do_DimPlot(sample = sample, 
                          reduction = "pca", 
                          label = T, 
-                         legend = F, 
+                         legend.position = "none",
                          dims = c(1, 2))
 
 p2 <- SCpubr::do_DimPlot(sample = sample, 
                          reduction = "pca", 
                          label = T, 
-                         legend = F, 
+                         legend.position = "none",
                          dims = c(3, 4)) 
 
 p3 <- SCpubr::do_BeeSwarmPlot(sample = sample, 
@@ -123,7 +123,7 @@ cols.use <- cols.use[!(names(cols.use) %in% clusters_exclude)]
 p1 <- SCpubr::do_DimPlot(sample = sample[, !(sample$seurat_clusters %in% clusters_exclude)], 
                          reduction = "pca", 
                          label = T, 
-                         legend = F, 
+                         legend.position = "none",
                          dims = c(3, 4), 
                          colors.use = cols.use) 
 p2 <- SCpubr::do_BeeSwarmPlot(sample = sample[, !(sample$seurat_clusters %in% clusters_exclude)], 
@@ -154,7 +154,7 @@ cols.use <- cols.use[!(names(cols.use) %in% clusters_exclude)]
 p1 <- SCpubr::do_DimPlot(sample = sample[, !(sample$seurat_clusters %in% clusters_exclude)], 
                          reduction = "pca", 
                          label = T, 
-                         legend = F, 
+                         legend.position = "none", 
                          dims = c(3, 4), 
                          colors.use = cols.use) 
 p2 <- SCpubr::do_BeeSwarmPlot(sample = sample[, !(sample$seurat_clusters %in% clusters_exclude)], 
@@ -174,7 +174,7 @@ As can be seen here, both clusters now span all X axis. The cells have still ran
 There are also scenarios in which we want to rank the cells to a continuous variable, but instead of showing colors for each group (which is anyway depicted in the Y axis), we want to introduce a continuous color scale. This is specially interesting to assess enrichment of clusters towards a given set of features. 
 
 
-```{r, fig.cap = "Using continuous color scale in SCpubr::do_BeeSwarmPlot().", fig.width=15, fig.height=5}
+```{r, fig.cap = "Using continuous color scale in SCpubr::do_BeeSwarmPlot().", fig.width=21, fig.height=8}
 # Set up list of a genes to compute enrichment. Let's use a monocyte signature.
 genes.use <- c("CD14", "LYZ")
 
@@ -187,13 +187,15 @@ sample$Monocyte_signature1 <- NULL
 
 p1 <- SCpubr::do_DimPlot(sample = sample, 
                          label = T, 
-                         legend = F)
+                         legend.position = "none")
 p2 <- SCpubr::do_FeaturePlot(sample = sample, 
-                             features = "Monocyte_signature") 
+                             features = "Monocyte_signature",
+                             legend.title = "Monocyte signature") 
 p3 <- SCpubr::do_BeeSwarmPlot(sample = sample, 
                               feature_to_rank = "Monocyte_signature", 
                               group.by = "seurat_clusters", 
-                              continuous_feature = T)
+                              continuous_feature = T,
+                              legend.title = "Monocyte signature")
 p1 | p2 | p3
 ```
 
@@ -202,7 +204,7 @@ By using this combination of figures, we can also assess that the monocyte signa
 ## Change default colors in categorical variables
 Same as with other categorical representations, we can modify the default color palette by providing a custom one to `colors.use`. This has to be a named vector of HEX values with the names of the groups as names of the values:
 
-```{r, fig.cap = "SCpubr, modifying default colors in a Bee Swarm plot", fig.width=5, fig.height=5}
+```{r, fig.cap = "SCpubr, modifying default colors in a Bee Swarm plot", fig.width=7, fig.height=8}
 # Create a color scale for the unique values in seurat clusters.
 colors <- c("0" = "#001219",
             "1" = "#005f73",
@@ -218,7 +220,8 @@ colors <- c("0" = "#001219",
 p <- SCpubr::do_BeeSwarmPlot(sample = sample, 
                              feature_to_rank = "Monocyte_signature", 
                              group.by = "seurat_clusters",
-                             colors.use = colors)
+                             colors.use = colors,
+                             xlab = "Ranking for monocyte enrichment")
 p
 ```
 

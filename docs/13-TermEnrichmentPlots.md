@@ -30,7 +30,7 @@ Any of the previous option will return a list of plots. The plots can, then, be 
 genes <- c("ABCB1", "ABCG2", "AHR", "AKT1", "AR")
 p <- SCpubr::do_TermEnrichmentPlot(genes = genes,
                                    dbs_use = "C")
-patchwork::wrap_plots(p, ncol = 2)
+patchwork::wrap_plots(p, ncol = 1)
 ```
 
 <div class="figure" style="text-align: center">
@@ -73,7 +73,7 @@ p2 <- SCpubr::do_TermEnrichmentPlot(genes = genes,
                                     dbs_use = "GO_Biological_Process_2021",
                                     nterms = 15,
                                     nchar_wrap = 30)
-p <- p1 | p2
+p <- p1 / p2
 p
 ```
 
@@ -97,7 +97,7 @@ p2 <- SCpubr::do_TermEnrichmentPlot(genes = genes,
                                    text_labels_size = 6,
                                    dbs_use = "GO_Biological_Process_2021")
 
-p <- p1 | p2
+p <- p1 / p2
 p
 ```
 

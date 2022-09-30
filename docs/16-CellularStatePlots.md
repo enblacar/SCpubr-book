@@ -16,7 +16,7 @@ gene_set <- list("A" = Seurat::VariableFeatures(sample)[1:10],
 
 <span class="border-0"><img src="images/2_variables.png" class="mx-auto d-block" alt="" style="box-shadow: none; width: 100%"/></span>
 
-This is the easiest case. For this, the user needs to provide the name of *two gene signatures* present in the list of genes provided to `gene_list` parameter: 
+This is the easiest case. For this, the user needs to provide the name of *two gene signatures* present in the list of genes provided to `input_gene_list` parameter: 
 - `x1`: The enrichment scores computed for this list will be displayed on the X axis.
 - `y1`: The enrichment scores computed for this list will be displayed on the Y axis.
 
@@ -24,7 +24,7 @@ This is the easiest case. For this, the user needs to provide the name of *two g
 
 ```r
 p <- SCpubr::do_CellularStatesPlot(sample = sample,
-                                   gene_list = gene_set,
+                                   input_gene_list = gene_set,
                                    x1 = "A",
                                    y1 = "B")
 p
@@ -40,7 +40,7 @@ This way, we can see how much effect gene set A has with regards to gene set B. 
 
 ```r
 p <- SCpubr::do_CellularStatesPlot(sample = sample,
-                                   gene_list = gene_set,
+                                   input_gene_list = gene_set,
                                    x1 = "A",
                                    y1 = "B",
                                    enforce_symmetry = TRUE)
@@ -63,7 +63,7 @@ This plot makes a lot of sense, as showcased by  [Tirosh, et al, 2016](https://w
 
 ```r
 p <- SCpubr::do_CellularStatesPlot(sample = sample,
-                                   gene_list = gene_set,
+                                   input_gene_list = gene_set,
                                    x1 = "A",
                                    y1 = "B",
                                    x2 = "C")
@@ -80,7 +80,7 @@ If `enforce_symmetry` is set to true, the X axis will have 0 as middle point.
 
 ```r
 p <- SCpubr::do_CellularStatesPlot(sample = sample,
-                                   gene_list = gene_set,
+                                   input_gene_list = gene_set,
                                    x1 = "A",
                                    y1 = "B",
                                    x2 = "C",
@@ -104,7 +104,7 @@ This is achieved by assuming:
 
 ```r
 p <- SCpubr::do_CellularStatesPlot(sample = sample,
-                                   gene_list = gene_set,
+                                   input_gene_list = gene_set,
                                    x1 = "A",
                                    y1 = "C",
                                    x2 = "B",
@@ -122,7 +122,7 @@ If `enforce_symmetry` is set to true, then the plot is completely squared.
 
 ```r
 p <- SCpubr::do_CellularStatesPlot(sample = sample,
-                                   gene_list = gene_set,
+                                   input_gene_list = gene_set,
                                    x1 = "A",
                                    y1 = "C",
                                    x2 = "B",
@@ -141,7 +141,7 @@ In addition to all the above, one can also further query the resulting plot for 
 
 ```r
 out <- SCpubr::do_CellularStatesPlot(sample = sample,
-                                     gene_list = gene_set,
+                                     input_gene_list = gene_set,
                                      x1 = "A",
                                      y1 = "C",
                                      x2 = "B",
@@ -164,7 +164,7 @@ Furthermore, the original list of genes queried can be also plotted as enrichmen
 
 ```r
 out <- SCpubr::do_CellularStatesPlot(sample = sample,
-                                     gene_list = gene_set,
+                                     input_gene_list = gene_set,
                                      x1 = "A",
                                      y1 = "C",
                                      x2 = "B",

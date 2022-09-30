@@ -23,19 +23,19 @@ The databases to use need to be provided as a character vector to `dbs_use` para
 
 Any of the previous option will return a list of plots. The plots can, then, be assembled together.
 
-```{r, fig.cap="SCpubr do_TermEnrichmentPlot use case.", fig.width=30, fig.height=30}
+```{r, fig.cap="SCpubr do_TermEnrichmentPlot use case.", fig.width=18, fig.height=72}
 # Genes related to breast cancer.
 genes <- c("ABCB1", "ABCG2", "AHR", "AKT1", "AR")
 p <- SCpubr::do_TermEnrichmentPlot(genes = genes,
                                    dbs_use = "C")
-patchwork::wrap_plots(p, ncol = 2)
+patchwork::wrap_plots(p, ncol = 1)
 ```
 
 ## Modifying the number of terms to retrieve.
 
 Depending on the focus of the analysis, we might want to only focus on one database but retrieve more terms from it. This can be achieved by using `nterms` parameter. 
 
-```{r, fig.cap="SCpubr do_TermEnrichmentPlot with increased terms.", fig.width=15, fig.height=15}
+```{r, fig.cap="SCpubr do_TermEnrichmentPlot with increased terms.", fig.width=18, fig.height=18}
 # Genes related to breast cancer.
 genes <- c("ABCB1", "ABCG2", "AHR", "AKT1", "AR")
 p <- SCpubr::do_TermEnrichmentPlot(genes = genes,
@@ -49,7 +49,7 @@ p
 
 Another issue with these plots is that, normally, the term itself takes too much space. For this, terms are wrapped according to a cutoff defined in `nchar_wrap` parameter. If the term has more characters than the value provided, it will be split more or less in half, always preserving whole words. 
 
-```{r, fig.cap="SCpubr do_TermEnrichmentPlot with reduced term length.", fig.width=30, fig.height=15}
+```{r, fig.cap="SCpubr do_TermEnrichmentPlot with reduced term length.", fig.width=18, fig.height=36}
 # Genes related to breast cancer.
 genes <- c("ABCB1", "ABCG2", "AHR", "AKT1", "AR")
 p1 <- SCpubr::do_TermEnrichmentPlot(genes = genes,
@@ -59,7 +59,7 @@ p2 <- SCpubr::do_TermEnrichmentPlot(genes = genes,
                                     dbs_use = "GO_Biological_Process_2021",
                                     nterms = 15,
                                     nchar_wrap = 30)
-p <- p1 | p2
+p <- p1 / p2
 p
 ```
 In the same way, one can further enhance the limit in order to have each term in just one row.
@@ -68,7 +68,7 @@ In the same way, one can further enhance the limit in order to have each term in
 
 If you want to increase the font size of the labels - this is, anything that is not part of the legend or the titles, use `text_labels_size` parameter:
 
-```{r, fig.cap="SCpubr do_TermEnrichmentPlot with modified fontsize", fig.width=30, fig.height=15}
+```{r, fig.cap="SCpubr do_TermEnrichmentPlot with modified fontsize", fig.width=18, fig.height=36}
 # Genes related to breast cancer.
 genes <- c("ABCB1", "ABCG2", "AHR", "AKT1", "AR")
 p1 <- SCpubr::do_TermEnrichmentPlot(genes = genes,
@@ -77,6 +77,6 @@ p2 <- SCpubr::do_TermEnrichmentPlot(genes = genes,
                                    text_labels_size = 6,
                                    dbs_use = "GO_Biological_Process_2021")
 
-p <- p1 | p2
+p <- p1 / p2
 p
 ```

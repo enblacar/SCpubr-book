@@ -264,4 +264,26 @@ p
 <p class="caption">(\#fig:unnamed-chunk-13)SCpubr FeaturePlot split by clusters using multiple features and selected identities.</p>
 </div>
 
+## Apply symmetrical color scales
+There are times in which we want to color the Feature plot using a two-end continuous color scale. We can achieve this by using `enforce_symmetry = TRUE`:
 
+
+```r
+# Enforce two-end symmetrical color scale.
+p1 <- SCpubr::do_FeaturePlot(sample, 
+                             features = "PC_1",
+                             enforce_symmetry = FALSE)
+
+p2 <- SCpubr::do_FeaturePlot(sample, 
+                             features = "PC_1",
+                             enforce_symmetry = TRUE)
+
+p <- p1 | p2
+p
+```
+
+<div class="figure" style="text-align: center">
+<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-14-1.png" alt="SCpubr FeaturePlot using a two-end continuous scale." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-14)SCpubr FeaturePlot using a two-end continuous scale.</p>
+</div>
+As one can observe, this parameters sets a scale centered around 0, with the two ends being of the same value. This allows for direct comparison between the colors.

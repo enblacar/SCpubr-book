@@ -8,7 +8,7 @@ This page aims to list common features present across the different functions in
 - **Changing the font type**: Use `font.type` parameter and provide either *sans*, *mono* or *serif*.
 - **Add plot titles, subtitles and captions**: Use `plot.title`, `plot.subtitle` and `plot.caption` parameters alongside a text to display.
 - **Changing between legend types in continuous variables**: Use `legend.type` parameter and provide either *normal*, *colorbar* or *colorsteps*.
-- **Relocate the legend**: Use `legend.position` parameter alongside *top*, *bottom*, *left* or *right*.
+- **Relocate the legend**: Use `legend.position` parameter alongside *top*, *bottom*, *left* or *right* or *none* to remove it.
 - **Changing the font size**: Use `font.size` parameter and provide a number.
 - **Modify default colors**: Use `colors.use` for categorical variables and `viridis_color_map` for continuous (exceptions apply, see the corresponding subsection) and provide valid color representations or a valid viridis color map.
 - **Plot borders around cells**: Use `plot_cell_borders` parameter alongside `border.size` and `border.color` to customise how it looks.

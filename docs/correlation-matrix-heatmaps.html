@@ -20,8 +20,7 @@
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-<link rel="shortcut icon" href="images/SCpubr_logo_favicon.png">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link rel="shortcut icon" href="images/SCpubr_logo_favicon.png">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="style.css">
 </head>
 <body data-spy="scroll" data-target="#toc">
@@ -86,7 +85,7 @@
 <h2>
 <span class="header-section-number">13.1</span> Using Highly Variable Genes<a class="anchor" aria-label="anchor" href="#using-highly-variable-genes"><i class="fas fa-link"></i></a>
 </h2>
-<div class="sourceCode" id="cb108"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb97"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Default values.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_CorrelationPlot.html">do_CorrelationPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span><span class="op">)</span></span>
 <span><span class="va">p</span></span></code></pre></div>
@@ -97,7 +96,7 @@ Figure 1.1: SCpubr::do_CorrelationPlot with default parameters.
 </p>
 </div>
 <p>By default, it computes the correlation over the current identities in the object. This can be changed by providing another metadata variable to <code>group.by</code>.</p>
-<div class="sourceCode" id="cb109"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb98"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Custom grouping.</span></span>
 <span><span class="va">sample</span><span class="op">$</span><span class="va">custom_group</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">sample</span><span class="op">$</span><span class="va">seurat_clusters</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"1"</span>, <span class="st">"3"</span>, <span class="st">"5"</span>, <span class="st">"7"</span>, <span class="st">"9"</span><span class="op">)</span>, <span class="st">"Group A"</span>, <span class="st">"Group B"</span><span class="op">)</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_CorrelationPlot.html">do_CorrelationPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, group.by <span class="op">=</span> <span class="st">"custom_group"</span><span class="op">)</span></span>
@@ -109,7 +108,7 @@ Figure 1.2: SCpubr::do_CorrelationPlot with custom grouping.
 </p>
 </div>
 <p>Axes labels can also be rotated.</p>
-<div class="sourceCode" id="cb110"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb99"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Rotated axis labels.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_CorrelationPlot.html">do_CorrelationPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                                column_names_rot <span class="op">=</span> <span class="fl">90</span><span class="op">)</span></span>
@@ -126,7 +125,7 @@ Figure 1.3: SCpubr::do_CorrelationPlot with rotated axis labels.
 <span class="header-section-number">13.2</span> Changing the cell size in the heatmap.<a class="anchor" aria-label="anchor" href="#changing-the-cell-size-in-the-heatmap.-1"><i class="fas fa-link"></i></a>
 </h2>
 <p>Same as with Enrichment Heatmaps, the aspect ratio of the tiles in the heatmap is fixed so that cells are squares, and not rectangles. This can be changed modifying <code>cell_size</code> parameter. This is set to 5 by default.</p>
-<div class="sourceCode" id="cb111"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb100"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Increase cell size.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_CorrelationPlot.html">do_CorrelationPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                                column_names_rot <span class="op">=</span> <span class="fl">0</span>,</span>
@@ -176,7 +175,7 @@ Figure 1.4: SCpubr::do_CorrelationPlot with rotated axis labels.
 <!-- Moved the footer outside of the body to make it span all page width. --><footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 19 August, 2022.</p>
+    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 30 September, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

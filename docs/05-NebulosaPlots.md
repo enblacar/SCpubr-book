@@ -87,7 +87,7 @@ p <- SCpubr::do_NebulosaPlot(sample = sample,
                              features = c("CD14", "CD8A"), 
                              joint = TRUE, 
                              return_only_joint = TRUE,
-                             plot.title = "Joint density CD14-CD8A")
+                             plot.title = "Joint density CD14+-CD8A+")
 
 p
 ```

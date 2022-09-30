@@ -100,14 +100,14 @@ p
 <p class="caption">(\#fig:unnamed-chunk-6)Seurat DimPlot with labels on top of the clusters and a different color.</p>
 </div>
 
-Finally, one can alwayss get rid of the legend with `legend = FALSE`:
+Finally, one can always get rid of the legend with `legend.position = "none`:
 
 
 ```r
 # Remove the legend from the plot.
 p <- SCpubr::do_DimPlot(sample = sample, 
                         label = TRUE, 
-                        legend = FALSE)
+                        legend.position = "none")
 p
 ```
 
@@ -198,8 +198,8 @@ One can also change the color of the highligted cells by providing single color 
 # Change color of highlighted and non-highlighted cells.
 p <- SCpubr::do_DimPlot(sample = sample, 
                         cells.highlight = cells.use,
-                        colors.use = "steelblue",
-                        na.value = "grey50")
+                        colors.use = "black",
+                        na.value = "grey90")
 p
 ```
 
@@ -311,7 +311,7 @@ As can be observed, this plot accomplish the task of separating the cells into e
 p <- SCpubr::do_DimPlot(sample, 
                         split.by = "seurat_clusters", 
                         ncol = 5, 
-                        legend = F,
+                        legend.position = "none",
                         font.size = 24)
 
 p
@@ -333,7 +333,7 @@ p <- SCpubr::do_DimPlot(sample,
                         split.by = "seurat_clusters", 
                         ncol = 3, 
                         idents.keep = c("0", "1", "7"),
-                        legend = F,
+                        legend.position = "none",
                         font.size = 24)
 
 p
@@ -365,7 +365,7 @@ colors <- c("0" = "#001219",
 p1 <- SCpubr::do_DimPlot(sample, 
                          split.by = "seurat_clusters", 
                          ncol = 5, 
-                         legend = F, 
+                         legend.position = "none", 
                          colors.use = colors,
                          font.size = 24)
 
@@ -373,7 +373,7 @@ p1 <- SCpubr::do_DimPlot(sample,
 p2 <- SCpubr::do_DimPlot(sample, 
                          split.by = "seurat_clusters", 
                          ncol = 5, 
-                         legend = F, 
+                         legend.position = "none",
                          colors.use = "#008080",
                          font.size = 24)
                          

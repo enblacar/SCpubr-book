@@ -20,8 +20,7 @@
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-<link rel="shortcut icon" href="images/SCpubr_logo_favicon.png">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link rel="shortcut icon" href="images/SCpubr_logo_favicon.png">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="style.css">
 </head>
 <body data-spy="scroll" data-target="#toc">
@@ -90,7 +89,7 @@
 <span class="header-section-number">16.1</span> Transferring the scores to a FeaturePlot.<a class="anchor" aria-label="anchor" href="#transferring-the-scores-to-a-featureplot."><i class="fas fa-link"></i></a>
 </h2>
 <p>One of the cool things we can do with this object, is to transfer the inferCNV scores back to our Seurat object and then plot them as a FeaturePlot. This can be achieved with the function <code><a href="https://rdrr.io/pkg/SCpubr/man/do_CopyNumberVariantPlot.html">SCpubr::do_CopyNumberVariantPlot()</a></code>. For this function, one needs to provide the Seurat object and the final inferCNV object, together with the chromosome locations. If metacells were computed (not necessary, but used in this example), the mapping of cell-metacell has to be provided as well:</p>
-<div class="sourceCode" id="cb131"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb123"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># This loads "human_chr_locations" into the environment.</span></span>
 <span><span class="fu">utils</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"human_chr_locations"</span>, package <span class="op">=</span> <span class="st">"SCpubr"</span><span class="op">)</span></span>
 <span></span>
@@ -108,7 +107,7 @@ Figure 1.1: SCpubr::do_CopyNumberVariantPlot FeaturePlot.
 </p>
 </div>
 <p>Scores of 1 mean no chromosome gain or loss. Higher than one mean gain and lower mean loss. The function automatically computes the plots for <em>all chromosome regions</em>. If we want to restrict the output to a single chromosome, we can do so by stating it in <code>chromosome_focus</code> parameter.</p>
-<div class="sourceCode" id="cb132"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb124"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_CopyNumberVariantPlot.html">do_CopyNumberVariantPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                                        infercnv_object <span class="op">=</span> <span class="va">infercnv_object</span>,</span>
 <span>                                        using_metacells <span class="op">=</span> <span class="cn">T</span>,</span>
@@ -121,7 +120,7 @@ Figure 1.1: SCpubr::do_CopyNumberVariantPlot FeaturePlot.
 <span class="header-section-number">16.2</span> Plotting the scores grouped by a group of interest.<a class="anchor" aria-label="anchor" href="#plotting-the-scores-grouped-by-a-group-of-interest."><i class="fas fa-link"></i></a>
 </h2>
 <p>Sometimes, however, the FeaturePlot is not sufficient to get the insights we want from these scores. For this, the output of <code><a href="https://rdrr.io/pkg/SCpubr/man/do_CopyNumberVariantPlot.html">SCpubr::do_CopyNumberVariantPlot()</a></code> also contains another set of Geyser plots, that showcase the distribution of scores per cells, grouped by a variable of interest.</p>
-<div class="sourceCode" id="cb133"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb125"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_CopyNumberVariantPlot.html">do_CopyNumberVariantPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                                        infercnv_object <span class="op">=</span> <span class="va">infercnv_object</span>,</span>
 <span>                                        using_metacells <span class="op">=</span> <span class="cn">T</span>,</span>
@@ -138,7 +137,7 @@ Figure 1.3: SCpubr::do_CopyNumberVariantPlot dot plot.
 </p>
 </div>
 <p>Here, we can observe the scores for the different groups, being each dot a cells. Due to the overplotting, we also report the distribution of the data for each group in the center, being the dot the median of the distribution, the thicker lines representing the 66% of the data and the thinner lines the 95%. This way, one can also see where the majority of the cells reside in each group. We can also select other variables to group by.</p>
-<div class="sourceCode" id="cb134"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb126"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">sample</span><span class="op">$</span><span class="va">modified_orig.ident</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Sample_A"</span>, <span class="st">"Sample_B"</span>, <span class="st">"Sample_C"</span><span class="op">)</span>, </span>
 <span>                                     size <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">sample</span><span class="op">)</span>, </span>
 <span>                                     replace <span class="op">=</span> <span class="cn">T</span>, </span>
@@ -152,7 +151,7 @@ Figure 1.3: SCpubr::do_CopyNumberVariantPlot dot plot.
 <span>                                        chromosome_locations <span class="op">=</span> <span class="va">human_chr_locations</span>,</span>
 <span>                                        chromosome_focus <span class="op">=</span> <span class="st">"11"</span>,</span>
 <span>                                        rotate_x_axis_labels <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
-<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="va">out</span><span class="op">$</span><span class="va">`11p_geyser`</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="va">out</span><span class="op">$</span><span class="va">`11p_geyser`</span> <span class="op">+</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">""</span><span class="op">)</span></span>
 <span><span class="va">p</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-5"></span>
@@ -166,7 +165,7 @@ Figure 1.4: SCpubr::do_CopyNumberVariantPlot dot plot.
 <span class="header-section-number">16.3</span> Joint analysis.<a class="anchor" aria-label="anchor" href="#joint-analysis."><i class="fas fa-link"></i></a>
 </h2>
 <p>The ideal use case for such functions is to plot them side by side with a regular UMAP as well:</p>
-<div class="sourceCode" id="cb135"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb127"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                         plot_cell_borders <span class="op">=</span> <span class="cn">TRUE</span>,</span>
@@ -180,7 +179,7 @@ Figure 1.4: SCpubr::do_CopyNumberVariantPlot dot plot.
 <span>                                        chromosome_focus <span class="op">=</span> <span class="st">"11"</span>,</span>
 <span>                                        rotate_x_axis_labels <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="va">out</span><span class="op">$</span><span class="va">`11p_umap`</span></span>
-<span><span class="va">p3</span> <span class="op">&lt;-</span> <span class="va">out</span><span class="op">$</span><span class="va">`11p_geyser`</span></span>
+<span><span class="va">p3</span> <span class="op">&lt;-</span> <span class="va">out</span><span class="op">$</span><span class="va">`11p_geyser`</span> <span class="op">+</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">""</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span><span class="op">)</span> <span class="op">/</span> <span class="va">p3</span></span>
 <span><span class="va">p</span></span></code></pre></div>
@@ -230,7 +229,7 @@ Figure 1.5: SCpubr::do_CopyNumberVariantPlot joint analysis.
 <!-- Moved the footer outside of the body to make it span all page width. --><footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 19 August, 2022.</p>
+    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 30 September, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

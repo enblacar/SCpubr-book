@@ -127,7 +127,7 @@ p2 <- SCpubr::do_DotPlot(sample = sample,
                          cluster.idents = TRUE, 
                          plot.title = "Clustered", 
                          flip = T,
-                         rotate_x_labels = T)
+                         rotate_x_axis_labels = FALSE)
 p1 | p2
 ```
 

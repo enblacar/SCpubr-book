@@ -111,7 +111,7 @@ p
 
 ## Use non-symmetrical color scales
 
-If one wants to just plot a continuous color scale for the Feature plots and the Geyser plots, this can be achieved by using `symmetrical_scale = FALSE`.
+If one wants to just plot a continuous color scale for the Feature plots and the Geyser plots, this can be achieved by using `enforce_symmetry = FALSE`.
 
 
 ```r
@@ -120,7 +120,7 @@ out <- SCpubr::do_TFActivityPlot(sample = sample,
                                  activities = activities,
                                  plot_GeyserPlots = TRUE,
                                  plot_FeaturePlots = TRUE,
-                                 symmetrical_scale = FALSE)
+                                 enforce_symmetry = FALSE)
 p1 <- out$feature_plots$GLI2
 p2 <- out$geyser_plots$GLI2
 
@@ -128,7 +128,7 @@ out <- SCpubr::do_TFActivityPlot(sample = sample,
                                  activities = activities,
                                  plot_GeyserPlots = TRUE,
                                  plot_FeaturePlots = TRUE,
-                                 symmetrical_scale = TRUE)
+                                 enforce_symmetry = TRUE)
 p3 <- out$feature_plots$GLI2
 p4 <- out$geyser_plots$GLI2
 
@@ -151,14 +151,14 @@ We can also decide not to order the Geyser plots by the mean of the values. We c
 out <- SCpubr::do_TFActivityPlot(sample = sample,
                                  activities = activities,
                                  plot_GeyserPlots = TRUE,
-                                 symmetrical_scale = TRUE,
+                                 enforce_symmetry = TRUE,
                                  geyser_order_by_mean = FALSE)
 p1 <- out$geyser_plots$GLI2
 
 out <- SCpubr::do_TFActivityPlot(sample = sample,
                                  activities = activities,
                                  plot_GeyserPlots = TRUE,
-                                 symmetrical_scale = TRUE,
+                                 enforce_symmetry = TRUE,
                                  geyser_order_by_mean = TRUE)
 p2 <- out$geyser_plots$GLI2
 
