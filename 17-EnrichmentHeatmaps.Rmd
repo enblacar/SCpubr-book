@@ -74,7 +74,7 @@ p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
 p
 ```
 
-## Symmetrical scales.
+## Symmetrical scales
 
 If one wants a symmetrical scale, 
 

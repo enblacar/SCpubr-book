@@ -30,7 +30,7 @@ p <- SCpubr::do_CorrelationPlot(sample = sample,
                                 column_names_rot = 90)
 p
 ```
-## Changing the cell size in the heatmap.
+## Changing the cell size in the heatmap
 
 Same as with Enrichment Heatmaps, the aspect ratio of the tiles in the heatmap is fixed so that cells are squares, and not rectangles. This can be changed modifying `cell_size` parameter. This is set to 5 by default.
 ```{r, fig.cap="SCpubr::do_CorrelationPlot with rotated axis labels.", fig.width=7, fig.height=7}

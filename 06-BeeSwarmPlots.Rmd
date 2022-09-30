@@ -5,7 +5,7 @@ library(magrittr)
 ```
 This is a very interesting plot. It stems from the idea that we can order (rank) the cells in a given variable. This variable has to be a continuous variable, for a better representation. The order goes from lowest to maximum value. Then, the cells are grouped into any other variable of interest and displayed in a scatter plot fashion. 
 
-Put it into an example, let's say that we have our cells queried for enrichement in a given list of genes. This can be done using `Seurat::AddModuleScore()`, and returns one score for each cell. This would be our continuous variable. That, we can rank (i.e: provide an order from lowest to highest), giving the cell with the lowest enrichment score the first rank and the one with the maximum value the last rank. If we were to plot this rank right away, we will see that this behaves as a linear distribution:
+Put it into an example, let's say that we have our cells queried for enrichment in a given list of genes. This can be done using `Seurat::AddModuleScore()`, and returns one score for each cell. This would be our continuous variable. That, we can rank (i.e: provide an order from lowest to highest), giving the cell with the lowest enrichment score the first rank and the one with the maximum value the last rank. If we were to plot this rank right away, we will see that this behaves as a linear distribution:
 
 ```{r, fig.cap = "Distribution of enrichment scores and ranks.", fig.width=10, fig.height=5}
 # Compute enrichment.
@@ -201,27 +201,5 @@ p1 | p2 | p3
 
 By using this combination of figures, we can also assess that the monocyte signature seems to be predominantly enriched in clusters 0 and 7.
 
-## Change default colors in categorical variables
-Same as with other categorical representations, we can modify the default color palette by providing a custom one to `colors.use`. This has to be a named vector of HEX values with the names of the groups as names of the values:
 
-```{r, fig.cap = "SCpubr, modifying default colors in a Bee Swarm plot", fig.width=7, fig.height=8}
-# Create a color scale for the unique values in seurat clusters.
-colors <- c("0" = "#001219",
-            "1" = "#005f73",
-            "2" = "#0a9396",
-            "3" = "#94d2bd",
-            "4" = "#e9d8a6",
-            "5" = "#ee9b00",
-            "6" = "#ca6702",
-            "7" = "#bb3e03",
-            "8" = "#ae2012",
-            "9" = "#9b2226")
-
-p <- SCpubr::do_BeeSwarmPlot(sample = sample, 
-                             feature_to_rank = "Monocyte_signature", 
-                             group.by = "seurat_clusters",
-                             colors.use = colors,
-                             xlab = "Ranking for monocyte enrichment")
-p
-```
 

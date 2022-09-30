@@ -35,7 +35,7 @@ p
 
 Other times, one might just want a given combination of colors, following the **color theory**. For this different parameters can be used. Using them will force `n` to be 12, so do not use `n` parameter alongside them, as it will have no effect.
 
-### Opposite colors.
+### Opposite colors
 
 ```{r, fig.cap="SCpubr::do_ColorPalette opposite colors.", fig.width=8, fig.height=8}
 # Generate opposite colors.
@@ -46,7 +46,7 @@ p <- SCpubr::do_ColorPalette(colors.use = "steelblue",
 p
 ```
 
-### Adjacent colors.
+### Adjacent colors
 
 ```{r, fig.cap="SCpubr::do_ColorPalette adjacent colors.", fig.width=8, fig.height=8}
 # Generate adjacent colors.
@@ -57,7 +57,7 @@ p <- SCpubr::do_ColorPalette(colors.use = "steelblue",
 p
 ```
 
-### Triadic colors.
+### Triadic colors
 
 ```{r, fig.cap="SCpubr::do_ColorPalette triadic colors.", fig.width=8, fig.height=8}
 # Generate triadic colors.
@@ -79,7 +79,7 @@ p <- SCpubr::do_ColorPalette(colors.use = "steelblue",
 p
 ```
 
-### Tetradic colors.
+### Tetradic colors
 
 ```{r, fig.cap="SCpubr::do_ColorPalette tetradic colors.", fig.width=8, fig.height=8}
 # Generate tetradic colors
@@ -91,7 +91,7 @@ p
 ```
 
 
-### Square colors.
+### Square colors
 
 ```{r, fig.cap="SCpubr::do_ColorPalette square colors.", fig.width=8, fig.height=8}
 # Generate square colors

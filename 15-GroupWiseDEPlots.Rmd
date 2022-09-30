@@ -31,7 +31,7 @@ p
 
 By default, this computes three different heatmaps, all showing the top 5 DE genes for each of the clusters or groups for which we computed the DE genes, and their respective adjusted p-values (- log10), fold change (FC, log2) and mean expression by the groups. Genes are ordered based on the order of the groups. Therefore, these heatmaps have no hierarchical clustering in neither rows or columns. 
 
-## Increase the number of genes.
+## Increase the number of genes
 
 The number of top DE genes by cluster can be increased or reduced by using `top_genes`.
 
@@ -43,7 +43,7 @@ p <- SCpubr::do_GroupwiseDEPlot(sample = sample,
 
 p
 ```
-## Modify the titles of the rows and columns.
+## Modify the titles of the rows and columns
 We can also modify the row titles of the other heatmap bodies with `row_title_p_values`, `row_title_expression`  and `row_title_logfc` and the column titles with `column_title` and the angle of rotation of the row titles with 
 
 ```{r, fig.cap="SCpubr do_GroupwiseDEPlot with modified row and column titles.", fig.width=12, fig.height=12}
@@ -83,7 +83,7 @@ p
 ```
 This can be useful if we have different groupings we want to inspect at the same time. Also, the color scale is shared by all expression heatmaps. 
 
-## Modify color scales.
+## Modify color scales
 
 We can modify the color scales for each of the three main types of heatmaps with `viridis_map_pvalues`, `viridis_map_logfc` and `viridis_map_expression`, and providing a letter corresponding to a color scale.
 

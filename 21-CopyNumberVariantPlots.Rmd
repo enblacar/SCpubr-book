@@ -12,7 +12,7 @@ InferCNV returns many outputs. The most interesting and straightforward one is t
 
 In it, we can observe that, for the different clusters, regions called as chromosome gains are colored as red and regions called as chromosome losses are colored as blue. This image, in the end, is a heatmap, meaning that there is, in the output of inferCNV, a matrix with the scores for each cell and gene, that we can make use of. This object is called, by default, *run.final.infercnv_obj*. This is the one that we will use.
 
-## Transferring the scores to a FeaturePlot.
+## Transferring the scores to a FeaturePlot
 
 One of the cool things we can do with this object, is to transfer the inferCNV scores back to our Seurat object and then plot them as a FeaturePlot. This can be achieved with the function `SCpubr::do_CopyNumberVariantPlot()`. For this function, one needs to provide the Seurat object and the final inferCNV object, together with the chromosome locations. If metacells were computed (not necessary, but used in this example), the mapping of cell-metacell has to be provided as well:
 
@@ -43,7 +43,7 @@ out <- SCpubr::do_CopyNumberVariantPlot(sample = sample,
 ```
 
 
-## Plotting the scores grouped by a group of interest.
+## Plotting the scores grouped by a group of interest
 
 Sometimes, however, the FeaturePlot is not sufficient to get the insights we want from these scores. For this, the output of `SCpubr::do_CopyNumberVariantPlot()` also contains another set of Geyser plots, that showcase the distribution of scores per cells, grouped by a variable of interest.
 
@@ -84,7 +84,7 @@ p
 
 
 
-## Joint analysis.
+## Joint analysis
 
 The ideal use case for such functions is to plot them side by side with a regular UMAP as well:
 

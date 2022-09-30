@@ -7,6 +7,7 @@ liana_output <- readRDS("/b06x-isilon/b06x-g/G703/eblanco/projects/test_SC_datas
 
 One very interesting analysis that can be carried out is **Ligand-Receptor analysis**. This allows to compute whether specific clusters interact with each other based on the co-expression of a ligand and its receptor in the respective clusters. The interactions are retrieved from different databases and a plethora of tools have been released to tackle this analysis. One of them is [liana](https://saezlab.github.io/liana/index.html), which is a framework that allows to run and **integrate** the results of several tools, providing a meta-analysis of the co-expression of ligand-receptor pairs. `SCpubr` makes use of `liana` and has its analysis and visualization integrated in the `SCpubr::do_LigandReceptorPlot()` function. 
 
+## Basic usage
 By default, the user has to run `liana` on their own and provide the resulting output as input for the function. The following code would produces the object that `SCpubr::do_LigandReceptorPlot()` expects as input:
 
 ```{r eval = F}
@@ -17,7 +18,7 @@ liana_output <- liana::liana_wrap(sce = sample,
                                   assay = "SCT")
 ```
 
-It is very important to note that `liana_output` has to contain the five different methods. This is a design choice.
+It is very important to note that `liana_output` has to contain the five different methods. This is a design choice. The output looks like:
 ```{r, fig.cap = "SCpubr do_LigandReceptorPlot default output.", fig.width=16, fig.height=10}
 # Ligand Receptor analysis plot.
 p <- SCpubr::do_LigandReceptorPlot(liana_output = liana_output,
@@ -25,6 +26,8 @@ p <- SCpubr::do_LigandReceptorPlot(liana_output = liana_output,
 p
 ```
 
+
+## Increase the top significant interactions plotted
 By default, top 25 unique, most significant interactions are retrieved and plotted. However, this can be changed by using `top_interactions`. Also, clusters that have no interactions, both as source and target, will be removed.:
 
 ```{r, fig.cap = "SCpubr do_LigandReceptorPlot default output with extra interactions.", fig.width=25, fig.height=50}
@@ -35,23 +38,29 @@ p <- SCpubr::do_LigandReceptorPlot(liana_output = liana_output,
 p
 ```
 
+## Modify the size of dots
 Size of dots can be modified with `dot.size`:
 
 ```{r, fig.cap = "SCpubr do_LigandReceptorPlot with increased dot size.", fig.width=16, fig.height=12}
 # Ligand Receptor analysis plot with increased dot size.
 p <- SCpubr::do_LigandReceptorPlot(liana_output = liana_output,
-                                   dot.size = 2)
+                                   dot.size = 4)
 p
 ```
-One can also draw some grid lines. This is specially useful when the plot gets too big. This can be achieved by using `plot_grid = TRUE`. The grid lines can be controlled using `grid.type` and the color with `grid.color`: 
+
+## Toggle grid lines
+One can also draw some grid lines. This is specially useful when the plot gets too big. This can be achieved by using `plot_grid = TRUE/FALSE`. The grid lines can be controlled using `grid.type` and the color with `grid.color`: 
 
 ```{r, fig.cap = "SCpubr do_LigandReceptorPlot with grid lines.", fig.width=16, fig.height=12}
 # Ligand Receptor analysis plot with grid.
 p <- SCpubr::do_LigandReceptorPlot(liana_output = liana_output,
-                                   dot.size = 2)
+                                   dot.size = 2,
+                                   grid.color = "steelblue")
 p
 ```
 
+
+## Invert axis
 For the cases in which one want to plot a lot of interactions, the plot can be flipped with `flip = TRUE`. X axis labels can be rotated with `x_labels_angle`, providing either 0, 45 or 90 degrees and strip text can be also rotated with `rotate_strip_text = TRUE`.
 
 ```{r, fig.cap = "SCpubr do_LigandReceptorPlot with inverted axes.", fig.width=16, fig.height=12}
@@ -64,6 +73,7 @@ p <- SCpubr::do_LigandReceptorPlot(liana_output = liana_output,
 p
 ```
 
+## Split the plot by ligand or receptor complex
 Furthermore, the plot can be also further divided by grouping the interactions by common ligand or receptor complex. This can be achieved using `split.by` parameter.:
 ```{r, fig.cap = "SCpubr do_LigandReceptorPlot split by ligand.complex.", fig.width=16, fig.height=12}
 # Ligand Receptor analysis plot with inverted axes grouped by ligand.complex.
@@ -90,6 +100,7 @@ p <- SCpubr::do_LigandReceptorPlot(liana_output = liana_output,
 p
 ```
 
+## Restrict the plot to given source and/or targets
 Finally, one can also restrict the output to given source and target clusters. This can be achieved by provided the desired identities to `keep_source` and `keep_target`:
 
 ```{r, fig.cap = "SCpubr do_LigandReceptorPlot with filtered source and targets.", fig.width=16, fig.height=8}
@@ -105,7 +116,7 @@ p <- SCpubr::do_LigandReceptorPlot(liana_output = liana_output,
 p
 ```
 
-## Compute chord diagrams of the interactions.
+## Compute chord diagrams of the interactions
 
 Another supplementary visualizations that one can do with the results of liana is to visualize:
 - The total number of significant interactions between each pair of clusters. 

@@ -28,7 +28,7 @@ p <- p1 / p2
 p
 ```
 
-## Ordering by mean values.
+## Ordering by mean values
 First thing that one notice, is that the geysers are ordered from highest to lowest mean values. This can be nullified by using `order_by_mean = FALSE`. In this case, the geysers will order based on alphabetical order or on the levels if the variable chosen is a factor. 
 
 ```{r, fig.cap = "SCpubr do_GeyserPlot without ordering by the mean.", fig.width=10, fig.height=10}
@@ -49,7 +49,7 @@ p <- p1 / p2
 p
 ```
 
-## Plotting symmetrical scales.
+## Plotting symmetrical scales
 
 Depending on the case, it might be the case in which we want to plot a continuous variable that spans both in positive and negative values. Although not necessary, there are cases in which this binary nature of the values has a biological meaning and we, therefore, assign two gradient of colors (typically blue for negative values and red for positive values) to better visualize this nature of the data. We can achieve this by using `enforce_symmetry = TRUE`.
 
@@ -72,7 +72,7 @@ p <- p1 / p2
 p
 ```
 
-## Select the groups displayed on the X axis.
+## Select the groups displayed on the X axis
 
 Furhtermore, we can select the groups displayed on the X axis with `group.by` parameter. It defaults to the current identities in the sample if not provided. That is also the reason why the X axis title is called "Groups". The titles can be modified by usind `xlab` and `ylab`, respectively. 
 
@@ -96,7 +96,7 @@ p <- p1 / p2
 p
 ```
 
-## Split the plot by groups.
+## Split the plot by groups
 
 Apart from selecting the grouping, we can effectively split the plot by another categorical variable. This can be achieved by using `split.by`.
 
@@ -126,7 +126,7 @@ p <- p1 / p2
 p
 ```
 
-## Rotating X axis labels.
+## Rotating X axis labels
 As with the example above, X axis labels might overlap one with another. This can be changed by using `rotate_x_axis_labels = FALSE`,
 
 ```{r, fig.cap = "SCpubr do_GeyserPlot rotating X axis labels.", fig.width=10, fig.height=10}
@@ -153,7 +153,7 @@ p
 ```
 
 
-## Adding a third variable.
+## Adding a third variable
 
 You might have noticed, that so far these plots effectively "waste" one axis: either the continuous color scale and the Y axis depict the same, or the X axis and the categorical color scale do it. For this we can add a third variable using `color.by` parameter.
 
@@ -201,7 +201,7 @@ p <- p1 / p2
 p
 ```
 
-## Control the jitter of the dots.
+## Control the jitter of the dots
 
 If one wants to increase or reduce the degree in which the dots disperse across the X axis, `jitter` parameter can be used, alongside a number in between ]0 - 0.5[. 
 

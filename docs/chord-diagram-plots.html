@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>1 Chord Diagram plots | SCpubr</title>
+<meta name="author" content="Enrique Blanco Carmona">
+<meta name="description" content="Chord Diagram plots are pretty much the same type of visualization as Sankey and Alluvial plots, but with the twist that the nodes are located forming a circle, therefore the links resembling...">
+<meta name="generator" content="bookdown 0.28 with bs4_book()">
+<meta property="og:title" content="1 Chord Diagram plots | SCpubr">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://enblacar.github.io/SCpubr-book/chord-diagram-plots.html">
+<meta property="og:image" content="https://enblacar.github.io/SCpubr-book/images/logo.png">
+<meta property="og:description" content="Chord Diagram plots are pretty much the same type of visualization as Sankey and Alluvial plots, but with the twist that the nodes are located forming a circle, therefore the links resembling...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="1 Chord Diagram plots | SCpubr">
+<meta name="twitter:description" content="Chord Diagram plots are pretty much the same type of visualization as Sankey and Alluvial plots, but with the twist that the nodes are located forming a circle, therefore the links resembling...">
+<meta name="twitter:image" content="https://enblacar.github.io/SCpubr-book/images/logo.png">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link rel="shortcut icon" href="images/SCpubr_logo_favicon.png">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a id="toc_title" href="index.html" title="">SCpubr</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <div class="book-extra"></div>
+      <nav id="left-panel" aria-label="Table of contents"><ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">About this package</a></li>
+<li><a class="active" href="chord-diagram-plots.html"><span class="header-section-number">1</span> Chord Diagram plots</a></li>
+</ul>
+
+        <div class="book-extra">
+          <!-- Duplicated this entry to point to the package repo. -->
+          <p class="mb-2"><a id="package-repo" href="https://github.com/enblacar/SCpubr">View package source <i class="fab fa-github"></i></a></p>
+          <p><a id="book-repo" href="https://github.com/enblacar/SCpubr-book">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="chord-diagram-plots" class="section level1" number="1">
+<h1>
+<span class="header-section-number">1</span> Chord Diagram plots<a class="anchor" aria-label="anchor" href="#chord-diagram-plots"><i class="fas fa-link"></i></a>
+</h1>
+<p>Chord Diagram plots are pretty much the same type of visualization as Sankey and Alluvial plots, but with the twist that the nodes are located forming a circle, therefore the links resembling chords. These type of visualizations can be achieved using package.</p>
+<div id="basic-usage." class="section level2" number="1.1">
+<h2>
+<span class="header-section-number">1.1</span> Basic usage.<a class="anchor" aria-label="anchor" href="#basic-usage."><i class="fas fa-link"></i></a>
+</h2>
+<p>This is how it looks:</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">sample</span><span class="op">$</span><span class="va">assignment</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">sample</span><span class="op">$</span><span class="va">seurat_clusters</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"0"</span>, <span class="st">"4"</span>, <span class="st">"7"</span><span class="op">)</span>, <span class="st">"A"</span>, <span class="st">"B"</span><span class="op">)</span></span>
+<span><span class="va">sample</span><span class="op">$</span><span class="va">assignment</span><span class="op">[</span><span class="va">sample</span><span class="op">$</span><span class="va">seurat_clusters</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"1"</span>, <span class="st">"2"</span><span class="op">)</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"C"</span></span>
+<span><span class="va">sample</span><span class="op">$</span><span class="va">assignment</span><span class="op">[</span><span class="va">sample</span><span class="op">$</span><span class="va">seurat_clusters</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"10"</span>, <span class="st">"5"</span><span class="op">)</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"D"</span></span>
+<span><span class="va">sample</span><span class="op">$</span><span class="va">assignment</span><span class="op">[</span><span class="va">sample</span><span class="op">$</span><span class="va">seurat_clusters</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"8"</span>, <span class="st">"9"</span><span class="op">)</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"E"</span></span>
+<span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_ChordDiagramPlot.html">do_ChordDiagramPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
+<span>                                 from <span class="op">=</span> <span class="st">"seurat_clusters"</span>,</span>
+<span>                                 to <span class="op">=</span> <span class="st">"assignment"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">p</span></span></code></pre></div>
+<span class="border-0"><img src="images/example_chord1.png" class="mx-auto d-block" alt="" style="box-shadow: none; width: 100%"><p class="caption">
+Basic Chord Diagram.
+</p>
+<p></p></span>
+</div>
+<div id="control-the-gaps-between-and-within-groups." class="section level2" number="1.2">
+<h2>
+<span class="header-section-number">1.2</span> Control the gaps between and within groups.<a class="anchor" aria-label="anchor" href="#control-the-gaps-between-and-within-groups."><i class="fas fa-link"></i></a>
+</h2>
+<p>We can modify the gaps between <code>from</code> and <code>to</code>, provided that there are not so many elements that this can not be accomplished. For this, we use <code>big_gap</code>:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_ChordDiagramPlot.html">do_ChordDiagramPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
+<span>                                 from <span class="op">=</span> <span class="st">"seurat_clusters"</span>,</span>
+<span>                                 to <span class="op">=</span> <span class="st">"assignment"</span>,</span>
+<span>                                 big.gap <span class="op">=</span> <span class="fl">40</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">p</span></span></code></pre></div>
+<span class="border-0"><img src="images/example_chord2.png" class="mx-auto d-block" alt="" style="box-shadow: none; width: 100%"><p class="caption">
+Chord Diagram with increased big gap.
+</p>
+<p></p></span>
+<p>Similarly, we can also modify the gaps between the groups inside <code>from</code> and <code>to</code> with <code>small_gap</code>:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_ChordDiagramPlot.html">do_ChordDiagramPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
+<span>                                 from <span class="op">=</span> <span class="st">"seurat_clusters"</span>,</span>
+<span>                                 to <span class="op">=</span> <span class="st">"assignment"</span>,</span>
+<span>                                 small.gap <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">p</span></span></code></pre></div>
+<span class="border-0"><img src="images/example_chord3.png" class="mx-auto d-block" alt="" style="box-shadow: none; width: 100%"><p class="caption">
+Chord Diagram with increased small gap.
+</p>
+<p></p></span>
+</div>
+<div id="control-the-alignment-of-the-diagram." class="section level2" number="1.3">
+<h2>
+<span class="header-section-number">1.3</span> Control the alignment of the diagram.<a class="anchor" aria-label="anchor" href="#control-the-alignment-of-the-diagram."><i class="fas fa-link"></i></a>
+</h2>
+<p>We can force the alignment of the starting poing of the Chord diagram using the <code>alignment</code> parameter:</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_ChordDiagramPlot.html">do_ChordDiagramPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
+<span>                                 from <span class="op">=</span> <span class="st">"seurat_clusters"</span>,</span>
+<span>                                 to <span class="op">=</span> <span class="st">"assignment"</span>,</span>
+<span>                                 alignment <span class="op">=</span> <span class="st">"horizontal"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/save_Plot.html">save_Plot</a></span><span class="op">(</span><span class="va">p</span>, figure_path <span class="op">=</span> <span class="st">"./images/"</span>, file_name <span class="op">=</span> <span class="st">"example_chord4"</span>, output_format <span class="op">=</span> <span class="st">"png"</span>, width <span class="op">=</span> <span class="fl">7</span>, height <span class="op">=</span> <span class="fl">7</span><span class="op">)</span></span></code></pre></div>
+<span class="border-0"><img src="images/example_chord4.png" class="mx-auto d-block" alt="" style="box-shadow: none; width: 100%"><p class="caption">
+Chord Diagram starting horizontally.
+</p>
+<p></p></span>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_ChordDiagramPlot.html">do_ChordDiagramPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
+<span>                                 from <span class="op">=</span> <span class="st">"seurat_clusters"</span>,</span>
+<span>                                 to <span class="op">=</span> <span class="st">"assignment"</span>,</span>
+<span>                                 alignment <span class="op">=</span> <span class="st">"vertical"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/save_Plot.html">save_Plot</a></span><span class="op">(</span><span class="va">p</span>, figure_path <span class="op">=</span> <span class="st">"./images/"</span>, file_name <span class="op">=</span> <span class="st">"example_chord5"</span>, output_format <span class="op">=</span> <span class="st">"png"</span>, width <span class="op">=</span> <span class="fl">7</span>, height <span class="op">=</span> <span class="fl">7</span><span class="op">)</span></span></code></pre></div>
+<span class="border-0"><img src="images/example_chord5.png" class="mx-auto d-block" alt="" style="box-shadow: none; width: 100%"><p class="caption">
+Chord Diagram starting vertically.
+</p>
+<p></p></span>
+</div>
+<div id="control-the-directions-of-the-links." class="section level2" number="1.4">
+<h2>
+<span class="header-section-number">1.4</span> Control the directions of the links.<a class="anchor" aria-label="anchor" href="#control-the-directions-of-the-links."><i class="fas fa-link"></i></a>
+</h2>
+<p>Also, we can define the direction of the interaction by providing different values to <code>directional</code>:
+- 0: The links have no direction.
+- 1: The links go from <code>from</code> to <code>to</code>.
+- -1: The links go from <code>to</code> to <code>from</code>.
+- 2: The links are bidrectional.</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># We need to set direction.type to diffHeight only as arrows are, by nature, directional.</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_ChordDiagramPlot.html">do_ChordDiagramPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
+<span>                                 from <span class="op">=</span> <span class="st">"seurat_clusters"</span>,</span>
+<span>                                 to <span class="op">=</span> <span class="st">"assignment"</span>,</span>
+<span>                                 directional <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>                                 direction.type <span class="op">=</span> <span class="st">"diffHeight"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/save_Plot.html">save_Plot</a></span><span class="op">(</span><span class="va">p</span>, figure_path <span class="op">=</span> <span class="st">"./images/"</span>, file_name <span class="op">=</span> <span class="st">"example_chord6"</span>, output_format <span class="op">=</span> <span class="st">"png"</span>, width <span class="op">=</span> <span class="fl">7</span>, height <span class="op">=</span> <span class="fl">7</span><span class="op">)</span></span></code></pre></div>
+<span class="border-0"><img src="images/example_chord6.png" class="mx-auto d-block" alt="" style="box-shadow: none; width: 100%"><p class="caption">
+Chord Diagram with links without any direction.
+</p>
+<p></p></span>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_ChordDiagramPlot.html">do_ChordDiagramPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
+<span>                                 from <span class="op">=</span> <span class="st">"seurat_clusters"</span>,</span>
+<span>                                 to <span class="op">=</span> <span class="st">"assignment"</span>,</span>
+<span>                                 directional <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/save_Plot.html">save_Plot</a></span><span class="op">(</span><span class="va">p</span>, figure_path <span class="op">=</span> <span class="st">"./images/"</span>, file_name <span class="op">=</span> <span class="st">"example_chord7"</span>, output_format <span class="op">=</span> <span class="st">"png"</span>, width <span class="op">=</span> <span class="fl">7</span>, height <span class="op">=</span> <span class="fl">7</span><span class="op">)</span></span></code></pre></div>
+<span class="border-0"><img src="images/example_chord7.png" class="mx-auto d-block" alt="" style="box-shadow: none; width: 100%"><p class="caption">
+Chord Diagram with links going from “from” to “to”.
+</p>
+<p></p></span>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_ChordDiagramPlot.html">do_ChordDiagramPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
+<span>                                 from <span class="op">=</span> <span class="st">"seurat_clusters"</span>,</span>
+<span>                                 to <span class="op">=</span> <span class="st">"assignment"</span>,</span>
+<span>                                 directional <span class="op">=</span> <span class="op">-</span><span class="fl">1</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/save_Plot.html">save_Plot</a></span><span class="op">(</span><span class="va">p</span>, figure_path <span class="op">=</span> <span class="st">"./images/"</span>, file_name <span class="op">=</span> <span class="st">"example_chord8"</span>, output_format <span class="op">=</span> <span class="st">"png"</span>, width <span class="op">=</span> <span class="fl">7</span>, height <span class="op">=</span> <span class="fl">7</span><span class="op">)</span></span></code></pre></div>
+<span class="border-0"><img src="images/example_chord8.png" class="mx-auto d-block" alt="" style="box-shadow: none; width: 100%"><p class="caption">
+Chord Diagram with links going from “to” to “from”.
+</p>
+<p></p></span>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># We need to set direction.type to diffHeight only as arrows are, by nature, directional.</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_ChordDiagramPlot.html">do_ChordDiagramPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
+<span>                                 from <span class="op">=</span> <span class="st">"seurat_clusters"</span>,</span>
+<span>                                 to <span class="op">=</span> <span class="st">"assignment"</span>,</span>
+<span>                                 directional <span class="op">=</span> <span class="fl">2</span>,</span>
+<span>                                 direction.type <span class="op">=</span> <span class="st">"diffHeight"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/save_Plot.html">save_Plot</a></span><span class="op">(</span><span class="va">p</span>, figure_path <span class="op">=</span> <span class="st">"./images/"</span>, file_name <span class="op">=</span> <span class="st">"example_chord9"</span>, output_format <span class="op">=</span> <span class="st">"png"</span>, width <span class="op">=</span> <span class="fl">7</span>, height <span class="op">=</span> <span class="fl">7</span><span class="op">)</span></span></code></pre></div>
+<span class="border-0"><img src="images/example_chord9.png" class="mx-auto d-block" alt="" style="box-shadow: none; width: 100%"><p class="caption">
+Chord Diagram with links going in both directions.
+</p>
+<p></p></span>
+</div>
+<div id="add-padding-to-the-labels." class="section level2" number="1.5">
+<h2>
+<span class="header-section-number">1.5</span> Add padding to the labels.<a class="anchor" aria-label="anchor" href="#add-padding-to-the-labels."><i class="fas fa-link"></i></a>
+</h2>
+<p>One can add more padding to the labels by using <code>padding_labels</code>. The number provided is the amount of whitespaces padding the label.</p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Add more padding to the labels.</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_ChordDiagramPlot.html">do_ChordDiagramPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
+<span>                                 from <span class="op">=</span> <span class="st">"seurat_clusters"</span>,</span>
+<span>                                 to <span class="op">=</span> <span class="st">"assignment"</span>,</span>
+<span>                                 padding_labels <span class="op">=</span> <span class="fl">8</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/save_Plot.html">save_Plot</a></span><span class="op">(</span><span class="va">p</span>, figure_path <span class="op">=</span> <span class="st">"./images/"</span>, file_name <span class="op">=</span> <span class="st">"example_chord10"</span>, output_format <span class="op">=</span> <span class="st">"png"</span>, width <span class="op">=</span> <span class="fl">7</span>, height <span class="op">=</span> <span class="fl">7</span><span class="op">)</span></span></code></pre></div>
+<span class="border-0"><img src="images/example_chord10.png" class="mx-auto d-block" alt="" style="box-shadow: none; width: 100%"><p class="caption">
+Chord Diagram with extra padding.
+</p>
+<p></p></span>
+</div>
+<div id="scale-the-nodes." class="section level2" number="1.6">
+<h2>
+<span class="header-section-number">1.6</span> Scale the nodes.<a class="anchor" aria-label="anchor" href="#scale-the-nodes."><i class="fas fa-link"></i></a>
+</h2>
+<p>If we want to show the nodes with equal size, links reflecting a proportion instead, we can set <code>scale = TRUE</code>.</p>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Scale the size of the nodes.</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_ChordDiagramPlot.html">do_ChordDiagramPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
+<span>                                 from <span class="op">=</span> <span class="st">"seurat_clusters"</span>,</span>
+<span>                                 to <span class="op">=</span> <span class="st">"assignment"</span>,</span>
+<span>                                 scale <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                                 padding_labels <span class="op">=</span> <span class="fl">8</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/save_Plot.html">save_Plot</a></span><span class="op">(</span><span class="va">p</span>, figure_path <span class="op">=</span> <span class="st">"./images/"</span>, file_name <span class="op">=</span> <span class="st">"example_chord11"</span>, output_format <span class="op">=</span> <span class="st">"png"</span>, width <span class="op">=</span> <span class="fl">7</span>, height <span class="op">=</span> <span class="fl">7</span><span class="op">)</span></span></code></pre></div>
+<span class="border-0"><img src="images/example_chord11.png" class="mx-auto d-block" alt="" style="box-shadow: none; width: 100%"><p class="caption">
+Chord Diagram with scaled nodes.
+</p>
+<p></p></span>
+</div>
+<div id="self-linking." class="section level2" number="1.7">
+<h2>
+<span class="header-section-number">1.7</span> Self linking.<a class="anchor" aria-label="anchor" href="#self-linking."><i class="fas fa-link"></i></a>
+</h2>
+<p>We can also control whether we want to allow self linking between the nodes or not. For this, we can set <code>self.link = 2</code> to allow them or <code>self.link = 1</code> to prevent them.</p>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Prevent self linking.</span></span>
+<span><span class="va">sample</span><span class="op">$</span><span class="va">seurat_clusters2</span> <span class="op">&lt;-</span> <span class="va">sample</span><span class="op">$</span><span class="va">seurat_clusters</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_ChordDiagramPlot.html">do_ChordDiagramPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
+<span>                                 from <span class="op">=</span> <span class="st">"seurat_clusters"</span>,</span>
+<span>                                 to <span class="op">=</span> <span class="st">"seurat_clusters2"</span>,</span>
+<span>                                 self.link <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>                                 scale <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/save_Plot.html">save_Plot</a></span><span class="op">(</span><span class="va">p</span>, figure_path <span class="op">=</span> <span class="st">"./images/"</span>, file_name <span class="op">=</span> <span class="st">"example_chord12"</span>, output_format <span class="op">=</span> <span class="st">"png"</span>, width <span class="op">=</span> <span class="fl">7</span>, height <span class="op">=</span> <span class="fl">7</span><span class="op">)</span></span></code></pre></div>
+<span class="border-0"><img src="images/example_chord12.png" class="mx-auto d-block" alt="" style="box-shadow: none; width: 100%"><p class="caption">
+Chord Diagram with prevented self linking.
+</p>
+<p></p></span>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Allow self linking.</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_ChordDiagramPlot.html">do_ChordDiagramPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
+<span>                                 from <span class="op">=</span> <span class="st">"seurat_clusters"</span>,</span>
+<span>                                 to <span class="op">=</span> <span class="st">"seurat_clusters2"</span>,</span>
+<span>                                 self.link <span class="op">=</span> <span class="fl">2</span>,</span>
+<span>                                 scale <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/save_Plot.html">save_Plot</a></span><span class="op">(</span><span class="va">p</span>, figure_path <span class="op">=</span> <span class="st">"./images/"</span>, file_name <span class="op">=</span> <span class="st">"example_chord13"</span>, output_format <span class="op">=</span> <span class="st">"png"</span>, width <span class="op">=</span> <span class="fl">7</span>, height <span class="op">=</span> <span class="fl">7</span><span class="op">)</span></span></code></pre></div>
+<span class="border-0"><img src="images/example_chord13.png" class="mx-auto d-block" alt="" style="box-shadow: none; width: 100%"><p class="caption">
+Chord Diagram with allowed self linking.
+</p>
+<p></p></span>
+</div>
+<div id="control-the-appearance-of-the-arrows." class="section level2" number="1.8">
+<h2>
+<span class="header-section-number">1.8</span> Control the appearance of the arrows.<a class="anchor" aria-label="anchor" href="#control-the-appearance-of-the-arrows."><i class="fas fa-link"></i></a>
+</h2>
+<p>The arrows can be modified by using <code>link.arr.type</code> parameter:</p>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Set triangle arrows.</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_ChordDiagramPlot.html">do_ChordDiagramPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
+<span>                                 from <span class="op">=</span> <span class="st">"seurat_clusters"</span>,</span>
+<span>                                 to <span class="op">=</span> <span class="st">"assignment"</span>,</span>
+<span>                                 link.arr.type <span class="op">=</span> <span class="st">"triangle"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/save_Plot.html">save_Plot</a></span><span class="op">(</span><span class="va">p</span>, figure_path <span class="op">=</span> <span class="st">"./images/"</span>, file_name <span class="op">=</span> <span class="st">"example_chord14"</span>, output_format <span class="op">=</span> <span class="st">"png"</span>, width <span class="op">=</span> <span class="fl">7</span>, height <span class="op">=</span> <span class="fl">7</span><span class="op">)</span></span></code></pre></div>
+<span class="border-0"><img src="images/example_chord14.png" class="mx-auto d-block" alt="" style="box-shadow: none; width: 100%"><p class="caption">
+Chord Diagram with triangle arrows.
+</p>
+<p></p></span>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Set big arrows.</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_ChordDiagramPlot.html">do_ChordDiagramPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
+<span>                                 from <span class="op">=</span> <span class="st">"seurat_clusters"</span>,</span>
+<span>                                 to <span class="op">=</span> <span class="st">"assignment"</span>,</span>
+<span>                                 link.arr.type <span class="op">=</span> <span class="st">"big.arrow"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/save_Plot.html">save_Plot</a></span><span class="op">(</span><span class="va">p</span>, figure_path <span class="op">=</span> <span class="st">"./images/"</span>, file_name <span class="op">=</span> <span class="st">"example_chord15"</span>, output_format <span class="op">=</span> <span class="st">"png"</span>, width <span class="op">=</span> <span class="fl">7</span>, height <span class="op">=</span> <span class="fl">7</span><span class="op">)</span></span></code></pre></div>
+<span class="border-0"><img src="images/example_chord15.png" class="mx-auto d-block" alt="" style="box-shadow: none; width: 100%"><p class="caption">
+Chord Diagram with big arrows.
+</p>
+<p></p></span>
+</div>
+<div id="bring-bigger-interactions-to-the-top." class="section level2" number="1.9">
+<h2>
+<span class="header-section-number">1.9</span> Bring bigger interactions to the top.<a class="anchor" aria-label="anchor" href="#bring-bigger-interactions-to-the-top."><i class="fas fa-link"></i></a>
+</h2>
+<p>Sometimes, we want to display the bigger interactions on top. For this, we can set <code>z_index = TRUE</code>.</p>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Set big arrows.</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_ChordDiagramPlot.html">do_ChordDiagramPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
+<span>                                 from <span class="op">=</span> <span class="st">"seurat_clusters"</span>,</span>
+<span>                                 to <span class="op">=</span> <span class="st">"assignment"</span>,</span>
+<span>                                 z_index <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/save_Plot.html">save_Plot</a></span><span class="op">(</span><span class="va">p</span>, figure_path <span class="op">=</span> <span class="st">"./images/"</span>, file_name <span class="op">=</span> <span class="st">"example_chord16"</span>, output_format <span class="op">=</span> <span class="st">"png"</span>, width <span class="op">=</span> <span class="fl">7</span>, height <span class="op">=</span> <span class="fl">7</span><span class="op">)</span></span></code></pre></div>
+<span class="border-0"><img src="images/example_chord16.png" class="mx-auto d-block" alt="" style="box-shadow: none; width: 100%"><p class="caption">
+Chord Diagram with bigger links to the top.
+</p>
+<p></p></span>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="index.html">About this package</a></div>
+<div class="empty"></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><form role="search" class="mt-4 mb-4">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+      <div class="book-extra">
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#chord-diagram-plots"><span class="header-section-number">1</span> Chord Diagram plots</a></li>
+<li><a class="nav-link" href="#basic-usage."><span class="header-section-number">1.1</span> Basic usage.</a></li>
+<li><a class="nav-link" href="#control-the-gaps-between-and-within-groups."><span class="header-section-number">1.2</span> Control the gaps between and within groups.</a></li>
+<li><a class="nav-link" href="#control-the-alignment-of-the-diagram."><span class="header-section-number">1.3</span> Control the alignment of the diagram.</a></li>
+<li><a class="nav-link" href="#control-the-directions-of-the-links."><span class="header-section-number">1.4</span> Control the directions of the links.</a></li>
+<li><a class="nav-link" href="#add-padding-to-the-labels."><span class="header-section-number">1.5</span> Add padding to the labels.</a></li>
+<li><a class="nav-link" href="#scale-the-nodes."><span class="header-section-number">1.6</span> Scale the nodes.</a></li>
+<li><a class="nav-link" href="#self-linking."><span class="header-section-number">1.7</span> Self linking.</a></li>
+<li><a class="nav-link" href="#control-the-appearance-of-the-arrows."><span class="header-section-number">1.8</span> Control the appearance of the arrows.</a></li>
+<li><a class="nav-link" href="#bring-bigger-interactions-to-the-top."><span class="header-section-number">1.9</span> Bring bigger interactions to the top.</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<!-- Modified page for chapter. --><li><a id="book-source" href="https://github.com/enblacar/SCpubr-book/blob/main/07--ChordDiagramPlots.Rmd">View chapter source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/enblacar/SCpubr-book/edit/main/07--ChordDiagramPlots.Rmd">Edit this chapter <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    
+  </div>
+
+</nav>
+</div>
+</div> <!-- .container -->
+
+
+
+
+</div>
+</body>
+<!-- Moved the footer outside of the body to make it span all page width. --><footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 30 September, 2022.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p class="text-center">This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+</html>
