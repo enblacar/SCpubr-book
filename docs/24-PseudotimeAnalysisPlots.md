@@ -87,11 +87,7 @@ p2 <- out$trajectory_partitions
 p <- p1 | p2
 p
 ```
-
-<div class="figure" style="text-align: center">
-<img src="24-PseudotimeAnalysisPlots_files/figure-html/unnamed-chunk-4-1.png" alt="SCpubr do_PseudotimePlot trajectory graph output." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-4)SCpubr do_PseudotimePlot trajectory graph output.</p>
-</div>
+<span class="border-0"><img src="images/example_pseudo1.png" class="mx-auto d-block" alt="" style="box-shadow: none; width: 100%"/> <p class="caption">SCpubr do_PseudotimePlot trajectory graph output.</p></span>
 
 We can increase the trajectory graph width by using `trajectory_graph_segment_size` and the color with `trajectory_graph_color` parameters.
 
@@ -135,12 +131,7 @@ p4 <- out$trajectory_partitions
 p <- (p1 | p2) / (p3 | p4)
 p
 ```
-
-<div class="figure" style="text-align: center">
-<img src="24-PseudotimeAnalysisPlots_files/figure-html/unnamed-chunk-5-1.png" alt="SCpubr do_PseudotimePlot trajectory graph with different widths and color." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-5)SCpubr do_PseudotimePlot trajectory graph with different widths and color.</p>
-</div>
-
+<span class="border-0"><img src="images/example_pseudo1.png" class="mx-auto d-block" alt="" style="box-shadow: none; width: 100%"/> <p class="caption">SCpubr do_PseudotimePlot trajectory graph with different widths and color.</p></span>
 We can also add different elements to the graph, such as the roots, branches and leaves with
 
 
@@ -180,12 +171,7 @@ p3 <- out$trajectory_partitions
 p <- p1 / p2 / p3
 p
 ```
-
-<div class="figure" style="text-align: center">
-<img src="24-PseudotimeAnalysisPlots_files/figure-html/unnamed-chunk-6-1.png" alt="SCpubr do_PseudotimePlot trajectory graph with roots, branches and leaves." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-6)SCpubr do_PseudotimePlot trajectory graph with roots, branches and leaves.</p>
-</div>
-
+<span class="border-0"><img src="images/example_pseudo3.png" class="mx-auto d-block" alt="" style="box-shadow: none; width: 100%"/> <p class="caption">SCpubr do_PseudotimePlot trajectory graph with roots, branches and leaves.</p></span>
 ## Visualizing the pseudotime
 
 We can inspect the pseudotime by providing whether the root of the trajectory is the highest or lowest enrichment score, with `is_max_score_the_start` parameter.
@@ -232,12 +218,7 @@ p4 <- out$pseudotime
 p <- (p1 | p2) / (p3 | p4)
 p
 ```
-
-<div class="figure" style="text-align: center">
-<img src="24-PseudotimeAnalysisPlots_files/figure-html/unnamed-chunk-7-1.png" alt="SCpubr do_PseudotimePlot pseudotime output with different ordering." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-7)SCpubr do_PseudotimePlot pseudotime output with different ordering.</p>
-</div>
-
+<span class="border-0"><img src="images/example_pseudo4.png" class="mx-auto d-block" alt="" style="box-shadow: none; width: 100%"/> <p class="caption">SCpubr do_PseudotimePlot pseudotime output with different ordering.</p></span>
 As can be observed, if we compute different partitions, the one used will be the one that contains the highest or lowest enrichment score, up to our choice. If not, the whole trajectory for the whole UMAP will be used, providing very different results. The key to this is the kind of sample/cds we provide as input (i.e, if we have a tumor bulk that we want to keep as a single partition or not or similar).
 
 We can also visualize the enrichment scores as a feature plot alongside the pseudotime, either in a symmetrical scale or not with `enforce_symmetry`.
@@ -268,8 +249,4 @@ p4 <- out$enrichment
 p <- (p1 | p2) / (p3 | p4)
 p
 ```
-
-<div class="figure" style="text-align: center">
-<img src="24-PseudotimeAnalysisPlots_files/figure-html/unnamed-chunk-8-1.png" alt="SCpubr do_PseudotimePlot pseudotime output with enrichment scores." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-8)SCpubr do_PseudotimePlot pseudotime output with enrichment scores.</p>
-</div>
+<span class="border-0"><img src="images/example_pseudo5.png" class="mx-auto d-block" alt="" style="box-shadow: none; width: 100%"/> <p class="caption">SCpubr do_PseudotimePlot pseudotime output with enrichment scores.</p></span>

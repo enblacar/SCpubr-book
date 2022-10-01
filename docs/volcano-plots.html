@@ -4,17 +4,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>9 Volcano plots | SCpubr</title>
+<title>10 Volcano plots | SCpubr</title>
 <meta name="author" content="Enrique Blanco Carmona">
 <meta name="description" content="Perhaps one of the most known type of plots for bulk transcriptomics. By computing DE genes across two conditions, the results can be plotted as a volcano plot. This plot features the genes as...">
 <meta name="generator" content="bookdown 0.28 with bs4_book()">
-<meta property="og:title" content="9 Volcano plots | SCpubr">
+<meta property="og:title" content="10 Volcano plots | SCpubr">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://enblacar.github.io/SCpubr-book/volcano-plots.html">
 <meta property="og:image" content="https://enblacar.github.io/SCpubr-book/images/logo.png">
 <meta property="og:description" content="Perhaps one of the most known type of plots for bulk transcriptomics. By computing DE genes across two conditions, the results can be plotted as a volcano plot. This plot features the genes as...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="9 Volcano plots | SCpubr">
+<meta name="twitter:title" content="10 Volcano plots | SCpubr">
 <meta name="twitter:description" content="Perhaps one of the most known type of plots for bulk transcriptomics. By computing DE genes across two conditions, the results can be plotted as a volcano plot. This plot features the genes as...">
 <meta name="twitter:image" content="https://enblacar.github.io/SCpubr-book/images/logo.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -47,21 +47,24 @@
 <li><a class="" href="nebulosa-plots.html"><span class="header-section-number">3</span> Nebulosa plots</a></li>
 <li><a class="" href="bee-swarm-plots.html"><span class="header-section-number">4</span> Bee Swarm plots</a></li>
 <li><a class="" href="violin-plots.html"><span class="header-section-number">5</span> Violin plots</a></li>
-<li><a class="" href="dot-plots.html"><span class="header-section-number">6</span> Dot plots</a></li>
-<li><a class="" href="bar-plots.html"><span class="header-section-number">7</span> Bar plots</a></li>
-<li><a class="" href="geyser-plots.html"><span class="header-section-number">8</span> Geyser plots</a></li>
-<li><a class="active" href="volcano-plots.html"><span class="header-section-number">9</span> Volcano plots</a></li>
-<li><a class="" href="group-wise-de-analysis-plots.html"><span class="header-section-number">10</span> Group-wise DE analysis plots</a></li>
-<li><a class="" href="term-enrichment-plots.html"><span class="header-section-number">11</span> Term Enrichment Plots</a></li>
-<li><a class="" href="enrichment-score-heatmaps.html"><span class="header-section-number">12</span> Enrichment score heatmaps</a></li>
-<li><a class="" href="correlation-matrix-heatmaps.html"><span class="header-section-number">13</span> Correlation matrix heatmaps</a></li>
-<li><a class="" href="cellular-state-plots.html"><span class="header-section-number">14</span> Cellular State Plots</a></li>
-<li><a class="" href="ligand-receptor-analysis.html"><span class="header-section-number">15</span> Ligand-Receptor analysis</a></li>
-<li><a class="" href="copy-number-variant-analysis-plots.html"><span class="header-section-number">16</span> Copy Number Variant analysis plots</a></li>
-<li><a class="" href="pathway-activity-inference-analysis.html"><span class="header-section-number">17</span> Pathway Activity inference analysis</a></li>
-<li><a class="" href="tf-activity-inference-analysis.html"><span class="header-section-number">18</span> TF Activity inference analysis</a></li>
-<li><a class="" href="pseudotime-analysis.html"><span class="header-section-number">19</span> Pseudotime analysis</a></li>
-<li><a class="" href="color-palettes.html"><span class="header-section-number">20</span> Color palettes</a></li>
+<li><a class="" href="ridge-plots.html"><span class="header-section-number">6</span> Ridge plots</a></li>
+<li><a class="" href="dot-plots.html"><span class="header-section-number">7</span> Dot plots</a></li>
+<li><a class="" href="bar-plots.html"><span class="header-section-number">8</span> Bar plots</a></li>
+<li><a class="" href="geyser-plots.html"><span class="header-section-number">9</span> Geyser plots</a></li>
+<li><a class="active" href="volcano-plots.html"><span class="header-section-number">10</span> Volcano plots</a></li>
+<li><a class="" href="sankey-and-alluvial-plots.html"><span class="header-section-number">11</span> Sankey and alluvial plots</a></li>
+<li><a class="" href="chord-diagram-plots.html"><span class="header-section-number">12</span> Chord Diagram plots</a></li>
+<li><a class="" href="group-wise-de-analysis-plots.html"><span class="header-section-number">13</span> Group-wise DE analysis plots</a></li>
+<li><a class="" href="term-enrichment-plots.html"><span class="header-section-number">14</span> Term Enrichment Plots</a></li>
+<li><a class="" href="enrichment-score-heatmaps.html"><span class="header-section-number">15</span> Enrichment score heatmaps</a></li>
+<li><a class="" href="correlation-matrix-heatmaps.html"><span class="header-section-number">16</span> Correlation matrix heatmaps</a></li>
+<li><a class="" href="cellular-state-plots.html"><span class="header-section-number">17</span> Cellular State Plots</a></li>
+<li><a class="" href="ligand-receptor-analysis.html"><span class="header-section-number">18</span> Ligand-Receptor analysis</a></li>
+<li><a class="" href="copy-number-variant-analysis-plots.html"><span class="header-section-number">19</span> Copy Number Variant analysis plots</a></li>
+<li><a class="" href="pathway-activity-inference-analysis.html"><span class="header-section-number">20</span> Pathway Activity inference analysis</a></li>
+<li><a class="" href="tf-activity-inference-analysis.html"><span class="header-section-number">21</span> TF Activity inference analysis</a></li>
+<li><a class="" href="pseudotime-analysis.html"><span class="header-section-number">22</span> Pseudotime analysis</a></li>
+<li><a class="" href="color-palettes.html"><span class="header-section-number">23</span> Color palettes</a></li>
 <li><a class="" href="common-features-across-plots.html">Common features across plots</a></li>
 <li><a class="" href="rasterized-figures.html">Rasterized figures</a></li>
 <li><a class="" href="save-the-figures.html">Save the figures</a></li>
@@ -76,19 +79,24 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="volcano-plots" class="section level1" number="9">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="volcano-plots" class="section level1" number="10">
 <h1>
-<span class="header-section-number">9</span> Volcano plots<a class="anchor" aria-label="anchor" href="#volcano-plots"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10</span> Volcano plots<a class="anchor" aria-label="anchor" href="#volcano-plots"><i class="fas fa-link"></i></a>
 </h1>
-<p>Perhaps one of the most known type of plots for bulk transcriptomics. By computing DE genes across two conditions, the results can be plotted as a volcano plot. This plot features the genes as dots, and places them in a scatter plot where the X axis contains the degree in which a gene is differentially expressed (average log2(FC)), while the Y axis shows the how significant the gene is (-log10(p-value adjusted)). To generate such a plot, one can use <code><a href="https://rdrr.io/pkg/SCpubr/man/do_VolcanoPlot.html">SCpubr::do_VolcanoPlot()</a></code>, which needs as input the Seurat object and the result of running <code><a href="https://satijalab.org/seurat/reference/FindMarkers.html">Seurat::FindMarkers()</a></code> choosing two groups.</p>
-<div class="sourceCode" id="cb76"><pre class="downlit sourceCode r">
+<p>Perhaps one of the most known type of plots for bulk transcriptomics. By computing DE genes across two conditions, the results can be plotted as a volcano plot. This plot features the genes as dots, and places them in a scatter plot where the X axis contains the degree in which a gene is differentially expressed (average log2(FC)), while the Y axis shows the how significant the gene is (-log10(p-value adjusted)).</p>
+<div id="basic-usage-8" class="section level2" number="10.1">
+<h2>
+<span class="header-section-number">10.1</span> Basic usage<a class="anchor" aria-label="anchor" href="#basic-usage-8"><i class="fas fa-link"></i></a>
+</h2>
+<p>To generate such a plot, one can use <code><a href="https://rdrr.io/pkg/SCpubr/man/do_VolcanoPlot.html">SCpubr::do_VolcanoPlot()</a></code>, which needs as input the Seurat object and the result of running <code><a href="https://satijalab.org/seurat/reference/FindMarkers.html">Seurat::FindMarkers()</a></code> choosing two groups.</p>
+<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Generate a volcano plot.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_VolcanoPlot.html">do_VolcanoPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                            de_genes <span class="op">=</span> <span class="va">de_genes</span><span class="op">)</span></span>
 <span><span class="va">p</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-2"></span>
-<img src="11-VolcanoPlots_files/figure-html/unnamed-chunk-2-1.png" alt="SCpubr::do_VolcanoPlot with default parameters." width="100%" height="100%"><p class="caption">
+<img src="12-VolcanoPlots_files/figure-html/unnamed-chunk-2-1.png" alt="SCpubr::do_VolcanoPlot with default parameters." width="100%" height="100%"><p class="caption">
 Figure 1.1: SCpubr::do_VolcanoPlot with default parameters.
 </p>
 </div>
@@ -97,12 +105,13 @@ Figure 1.1: SCpubr::do_VolcanoPlot with default parameters.
 - Genes that surpass the p-value cutoff but not the logFC cutoff (orange).
 - Genes that surpass the logFC cutoff but not the p-value cutoff (purple, not shown).
 - Genes that do not surpass any cutoff (green).</p>
-<div id="modify-the-cutoffs." class="section level2" number="9.1">
+</div>
+<div id="modify-the-cutoffss" class="section level2" number="10.2">
 <h2>
-<span class="header-section-number">9.1</span> Modify the cutoffs.<a class="anchor" aria-label="anchor" href="#modify-the-cutoffs."><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.2</span> Modify the cutoffss<a class="anchor" aria-label="anchor" href="#modify-the-cutoffss"><i class="fas fa-link"></i></a>
 </h2>
 <p>The cutofss can be set up by the user using <code>pval_cutoff</code> (without -log10 transforming) and <code>FC_cutoff</code> (avg log2(FC)).</p>
-<div class="sourceCode" id="cb77"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb81"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Modify cutoffs.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_VolcanoPlot.html">do_VolcanoPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                            de_genes <span class="op">=</span> <span class="va">de_genes</span>,</span>
@@ -111,17 +120,17 @@ Figure 1.1: SCpubr::do_VolcanoPlot with default parameters.
 <span><span class="va">p</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-3"></span>
-<img src="11-VolcanoPlots_files/figure-html/unnamed-chunk-3-1.png" alt="SCpubr::do_VolcanoPlot modifying cutoffs." width="100%" height="100%"><p class="caption">
+<img src="12-VolcanoPlots_files/figure-html/unnamed-chunk-3-1.png" alt="SCpubr::do_VolcanoPlot modifying cutoffs." width="100%" height="100%"><p class="caption">
 Figure 1.2: SCpubr::do_VolcanoPlot modifying cutoffs.
 </p>
 </div>
 </div>
-<div id="modify-the-gene-tags." class="section level2" number="9.2">
+<div id="modify-the-gene-tags" class="section level2" number="10.3">
 <h2>
-<span class="header-section-number">9.2</span> Modify the gene tags.<a class="anchor" aria-label="anchor" href="#modify-the-gene-tags."><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.3</span> Modify the gene tags<a class="anchor" aria-label="anchor" href="#modify-the-gene-tags"><i class="fas fa-link"></i></a>
 </h2>
 <p>By default, the top 5 genes on each side, ordered by <code>-log10(p-value adjusted)</code> and <code>average log2(FC)</code> are reported. However, one can increase the number by using</p>
-<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb82"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Modify number of gene tags.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_VolcanoPlot.html">do_VolcanoPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                            de_genes <span class="op">=</span> <span class="va">de_genes</span>,</span>
@@ -129,7 +138,7 @@ Figure 1.2: SCpubr::do_VolcanoPlot modifying cutoffs.
 <span><span class="va">p</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-4"></span>
-<img src="11-VolcanoPlots_files/figure-html/unnamed-chunk-4-1.png" alt="SCpubr::do_VolcanoPlot modifying the number of gene tags." width="100%" height="100%"><p class="caption">
+<img src="12-VolcanoPlots_files/figure-html/unnamed-chunk-4-1.png" alt="SCpubr::do_VolcanoPlot modifying the number of gene tags." width="100%" height="100%"><p class="caption">
 Figure 1.3: SCpubr::do_VolcanoPlot modifying the number of gene tags.
 </p>
 </div>
@@ -137,23 +146,24 @@ Figure 1.3: SCpubr::do_VolcanoPlot modifying the number of gene tags.
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="geyser-plots.html"><span class="header-section-number">8</span> Geyser plots</a></div>
-<div class="next"><a href="group-wise-de-analysis-plots.html"><span class="header-section-number">10</span> Group-wise DE analysis plots</a></div>
+<div class="prev"><a href="geyser-plots.html"><span class="header-section-number">9</span> Geyser plots</a></div>
+<div class="next"><a href="sankey-and-alluvial-plots.html"><span class="header-section-number">11</span> Sankey and alluvial plots</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><form role="search" class="mt-4 mb-4">
         <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
 </form>
       <div class="book-extra">
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#volcano-plots"><span class="header-section-number">9</span> Volcano plots</a></li>
-<li><a class="nav-link" href="#modify-the-cutoffs."><span class="header-section-number">9.1</span> Modify the cutoffs.</a></li>
-<li><a class="nav-link" href="#modify-the-gene-tags."><span class="header-section-number">9.2</span> Modify the gene tags.</a></li>
+<li><a class="nav-link" href="#volcano-plots"><span class="header-section-number">10</span> Volcano plots</a></li>
+<li><a class="nav-link" href="#basic-usage-8"><span class="header-section-number">10.1</span> Basic usage</a></li>
+<li><a class="nav-link" href="#modify-the-cutoffss"><span class="header-section-number">10.2</span> Modify the cutoffss</a></li>
+<li><a class="nav-link" href="#modify-the-gene-tags"><span class="header-section-number">10.3</span> Modify the gene tags</a></li>
 </ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<!-- Modified page for chapter. --><li><a id="book-source" href="https://github.com/enblacar/SCpubr-book/blob/main/11-VolcanoPlots.Rmd">View chapter source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/enblacar/SCpubr-book/edit/main/11-VolcanoPlots.Rmd">Edit this chapter <i class="fab fa-github"></i></a></li>
+<!-- Modified page for chapter. --><li><a id="book-source" href="https://github.com/enblacar/SCpubr-book/blob/main/12-VolcanoPlots.Rmd">View chapter source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/enblacar/SCpubr-book/edit/main/12-VolcanoPlots.Rmd">Edit this chapter <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     
@@ -171,7 +181,7 @@ Figure 1.3: SCpubr::do_VolcanoPlot modifying the number of gene tags.
 <!-- Moved the footer outside of the body to make it span all page width. --><footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 30 September, 2022.</p>
+    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 01 October, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

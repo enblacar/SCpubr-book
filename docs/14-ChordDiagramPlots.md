@@ -59,7 +59,7 @@ p <- SCpubr::do_ChordDiagramPlot(sample = sample,
                                  to = "assignment",
                                  alignment = "horizontal")
 
-SCpubr::save_Plot(p, figure_path = "./images/", file_name = "example_chord4", output_format = "png", width = 7, height = 7)
+p
 ```
 <span class="border-0"><img src="images/example_chord4.png" class="mx-auto d-block" alt="" style="box-shadow: none; width: 100%"/> <p class="caption">Chord Diagram starting horizontally.</p></span>
 
@@ -69,7 +69,7 @@ p <- SCpubr::do_ChordDiagramPlot(sample = sample,
                                  to = "assignment",
                                  alignment = "vertical")
 
-SCpubr::save_Plot(p, figure_path = "./images/", file_name = "example_chord5", output_format = "png", width = 7, height = 7)
+p
 ```
 <span class="border-0"><img src="images/example_chord5.png" class="mx-auto d-block" alt="" style="box-shadow: none; width: 100%"/> <p class="caption">Chord Diagram starting vertically.</p></span>
 
@@ -89,7 +89,7 @@ p <- SCpubr::do_ChordDiagramPlot(sample = sample,
                                  directional = 0,
                                  direction.type = "diffHeight")
 
-SCpubr::save_Plot(p, figure_path = "./images/", file_name = "example_chord6", output_format = "png", width = 7, height = 7)
+p
 ```
 
 <span class="border-0"><img src="images/example_chord6.png" class="mx-auto d-block" alt="" style="box-shadow: none; width: 100%"/> <p class="caption">Chord Diagram with links without any direction.</p></span>
@@ -101,7 +101,7 @@ p <- SCpubr::do_ChordDiagramPlot(sample = sample,
                                  to = "assignment",
                                  directional = 1)
 
-SCpubr::save_Plot(p, figure_path = "./images/", file_name = "example_chord7", output_format = "png", width = 7, height = 7)
+p
 ```
 
 <span class="border-0"><img src="images/example_chord7.png" class="mx-auto d-block" alt="" style="box-shadow: none; width: 100%"/> <p class="caption">Chord Diagram with links going from "from" to "to".</p></span>
@@ -113,7 +113,7 @@ p <- SCpubr::do_ChordDiagramPlot(sample = sample,
                                  to = "assignment",
                                  directional = -1)
 
-SCpubr::save_Plot(p, figure_path = "./images/", file_name = "example_chord8", output_format = "png", width = 7, height = 7)
+p
 ```
 
 <span class="border-0"><img src="images/example_chord8.png" class="mx-auto d-block" alt="" style="box-shadow: none; width: 100%"/> <p class="caption">Chord Diagram with links going from "to" to "from".</p></span>
@@ -127,7 +127,7 @@ p <- SCpubr::do_ChordDiagramPlot(sample = sample,
                                  directional = 2,
                                  direction.type = "diffHeight")
 
-SCpubr::save_Plot(p, figure_path = "./images/", file_name = "example_chord9", output_format = "png", width = 7, height = 7)
+p
 ```
 
 <span class="border-0"><img src="images/example_chord9.png" class="mx-auto d-block" alt="" style="box-shadow: none; width: 100%"/> <p class="caption">Chord Diagram with links going in both directions.</p></span>
@@ -142,7 +142,7 @@ p <- SCpubr::do_ChordDiagramPlot(sample = sample,
                                  to = "assignment",
                                  padding_labels = 8)
 
-SCpubr::save_Plot(p, figure_path = "./images/", file_name = "example_chord10", output_format = "png", width = 7, height = 7)
+p
 ```
 <span class="border-0"><img src="images/example_chord10.png" class="mx-auto d-block" alt="" style="box-shadow: none; width: 100%"/> <p class="caption">Chord Diagram with extra padding.</p></span>
 
@@ -157,7 +157,7 @@ p <- SCpubr::do_ChordDiagramPlot(sample = sample,
                                  scale = TRUE,
                                  padding_labels = 8)
 
-SCpubr::save_Plot(p, figure_path = "./images/", file_name = "example_chord11", output_format = "png", width = 7, height = 7)
+p
 ```
 <span class="border-0"><img src="images/example_chord11.png" class="mx-auto d-block" alt="" style="box-shadow: none; width: 100%"/> <p class="caption">Chord Diagram with scaled nodes.</p></span>
 
@@ -186,7 +186,7 @@ p <- SCpubr::do_ChordDiagramPlot(sample = sample,
                                  self.link = 2,
                                  scale = TRUE)
 
-SCpubr::save_Plot(p, figure_path = "./images/", file_name = "example_chord13", output_format = "png", width = 7, height = 7)
+p
 ```
 <span class="border-0"><img src="images/example_chord13.png" class="mx-auto d-block" alt="" style="box-shadow: none; width: 100%"/> <p class="caption">Chord Diagram with allowed self linking.</p></span>
 
@@ -201,7 +201,7 @@ p <- SCpubr::do_ChordDiagramPlot(sample = sample,
                                  to = "assignment",
                                  link.arr.type = "triangle")
 
-SCpubr::save_Plot(p, figure_path = "./images/", file_name = "example_chord14", output_format = "png", width = 7, height = 7)
+p
 ```
 <span class="border-0"><img src="images/example_chord14.png" class="mx-auto d-block" alt="" style="box-shadow: none; width: 100%"/> <p class="caption">Chord Diagram with triangle arrows.</p></span>
 
@@ -213,7 +213,7 @@ p <- SCpubr::do_ChordDiagramPlot(sample = sample,
                                  to = "assignment",
                                  link.arr.type = "big.arrow")
 
-SCpubr::save_Plot(p, figure_path = "./images/", file_name = "example_chord15", output_format = "png", width = 7, height = 7)
+p
 ```
 <span class="border-0"><img src="images/example_chord15.png" class="mx-auto d-block" alt="" style="box-shadow: none; width: 100%"/> <p class="caption">Chord Diagram with big arrows.</p></span>
 

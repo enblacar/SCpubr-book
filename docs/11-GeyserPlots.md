@@ -249,7 +249,7 @@ p
 
 ## Control the jitter of the dots
 
-If one wants to increase or reduce the degree in which the dots disperse across the X axis, `jitter` parameter can be used, alongside a number in between ]0 - 0.5[. 
+If one wants to increase or reduce the degree in which the dots disperse across the X axis, `jitter` parameter can be used, alongside a number in between 0 and 0.5. 
 
 
 ```r

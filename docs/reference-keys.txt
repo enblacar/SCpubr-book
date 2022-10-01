@@ -62,6 +62,19 @@ split-the-plot-by-groups
 rotating-x-axis-labels
 adding-a-third-variable
 control-the-jitter-of-the-dots
+volcano-plots
+basic-usage-8
+modify-the-cutoffss
+modify-the-gene-tags
+sankey-and-alluvial-plots
+basic-usage-9
+modify-node-aesthetics
+control-alignment-of-the-labels
+increase-the-gap-between-the-nodes
+modify-default-colors
+chord-diagram-plots
+basic-usage-10
+control-the-gaps-between-and-within-groups
 control-the-alignment-of-the-diagram
 control-the-directions-of-the-links
 add-padding-to-the-labels
@@ -90,7 +103,7 @@ variables
 variables-1
 continuous-features
 ligand-receptor-analysis
-basic-usage-8
+basic-usage-11
 increase-the-top-significant-interactions-plotted
 modify-the-size-of-dots
 toggle-grid-lines
@@ -122,7 +135,6 @@ split-the-heatmap-into-different-groups-1
 pseudotime-analysis
 setting-up-partitions-and-clusters
 visualizing-the-trajectory-graph
-visualizing-the-pseudotime
 color-palettes
 generate-color-palettes
 generate-combination-of-colors
