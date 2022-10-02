@@ -23,7 +23,7 @@ cds <- suppressMessages({suppressWarnings({SeuratWrappers::as.cell_data_set(samp
 
 We will use the following genes as a example, that depict CD14+ mono cells.
 
-```{r}
+```{r, eval = F}
 # Genes to use.
 pseudotime_genes <- c("CD14", "LYN")
 ```

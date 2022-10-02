@@ -20,8 +20,7 @@ It is very important to note that `liana_output` has to contain the five differe
 
 ```r
 # Ligand Receptor analysis plot.
-p <- SCpubr::do_LigandReceptorPlot(liana_output = liana_output,
-                                   dot.size = 2)
+p <- SCpubr::do_LigandReceptorPlot(liana_output = liana_output)
 p
 ```
 
@@ -38,8 +37,7 @@ By default, top 25 unique, most significant interactions are retrieved and plott
 ```r
 # Ligand Receptor analysis plot with extra interactions.
 p <- SCpubr::do_LigandReceptorPlot(liana_output = liana_output,
-                                   top_interactions = 150,
-                                   dot.size = 2)
+                                   top_interactions = 50)
 p
 ```
 
@@ -55,7 +53,7 @@ Size of dots can be modified with `dot.size`:
 ```r
 # Ligand Receptor analysis plot with increased dot size.
 p <- SCpubr::do_LigandReceptorPlot(liana_output = liana_output,
-                                   dot.size = 4)
+                                   dot.size = 2)
 p
 ```
 
@@ -65,13 +63,12 @@ p
 </div>
 
 ## Toggle grid lines
-One can also draw some grid lines. This is specially useful when the plot gets too big. This can be achieved by using `plot_grid = TRUE/FALSE`. The grid lines can be controlled using `grid.type` and the color with `grid.color`: 
+One can also draw some grid lines. This is specially useful when the plot gets too big. This can be achieved by using `plot.grid = TRUE/FALSE`. The grid lines can be controlled using `grid.type` and the color with `grid.color`: 
 
 
 ```r
 # Ligand Receptor analysis plot with grid.
 p <- SCpubr::do_LigandReceptorPlot(liana_output = liana_output,
-                                   dot.size = 2,
                                    grid.color = "steelblue")
 p
 ```
@@ -89,7 +86,6 @@ For the cases in which one want to plot a lot of interactions, the plot can be f
 ```r
 # Ligand Receptor analysis plot with inverted axes.
 p <- SCpubr::do_LigandReceptorPlot(liana_output = liana_output,
-                                   dot.size = 2,
                                    flip = TRUE, 
                                    x_labels_angle = 90,
                                    rotate_strip_text = TRUE)
@@ -105,13 +101,11 @@ p
 Furthermore, the plot can be also further divided by grouping the interactions by common ligand or receptor complex. This can be achieved using `split.by` parameter.:
 
 ```r
-# Ligand Receptor analysis plot with inverted axes grouped by ligand.complex.
+# Ligand Receptor analysis plot grouped by ligand.complex.
 p <- SCpubr::do_LigandReceptorPlot(liana_output = liana_output,
-                                   dot.size = 2,
-                                   plot_grid = TRUE,
+                                   plot.grid = TRUE,
                                    grid.color = "grey90",
                                    grid.type = "dotted",
-                                   flip = TRUE, 
                                    x_labels_angle = 90,
                                    rotate_strip_text = TRUE,
                                    split.by = "ligand.complex")
@@ -125,12 +119,8 @@ p
 
 
 ```r
-# Ligand Receptor analysis plot with inverted axes grouped by ligand.complex.
+# Ligand Receptor analysis plot grouped by ligand.complex.
 p <- SCpubr::do_LigandReceptorPlot(liana_output = liana_output,
-                                   dot.size = 2,
-                                   flip = TRUE, 
-                                   x_labels_angle = 90,
-                                   rotate_strip_text = TRUE,
                                    split.by = "receptor.complex")
 p
 ```
@@ -147,13 +137,9 @@ Finally, one can also restrict the output to given source and target clusters. T
 ```r
 # Ligand Receptor analysis plot with inverted axes with filtered source and targets.
 p <- SCpubr::do_LigandReceptorPlot(liana_output = liana_output,
-                                   top_interactions = 150,
-                                   dot.size = 2,
-                                   flip = TRUE, 
-                                   x_labels_angle = 90,
-                                   rotate_strip_text = TRUE,
-                                   keep_source = c("0", "1", "8"),
-                                   keep_target = c("3", "5", "7"))
+                                   flip = F, 
+                                   keep_source = c("0", "3", "9"),
+                                   keep_target = c("3", "4", "9"))
 p
 ```
 

@@ -6,16 +6,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Common features across plots | SCpubr</title>
 <meta name="author" content="Enrique Blanco Carmona">
-<meta name="description" content="This page aims to list common features present across the different functions in the package. Changing the font size: Use font.size parameter and provide a number. Changing the font type: Use...">
+<meta name="description" content="This page aims to list common features present across the different functions in the package (not all functions have them). Changing the font size: Use font.size parameter and provide a number....">
 <meta name="generator" content="bookdown 0.28 with bs4_book()">
 <meta property="og:title" content="Common features across plots | SCpubr">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://enblacar.github.io/SCpubr-book/common-features-across-plots.html">
 <meta property="og:image" content="https://enblacar.github.io/SCpubr-book/images/logo.png">
-<meta property="og:description" content="This page aims to list common features present across the different functions in the package. Changing the font size: Use font.size parameter and provide a number. Changing the font type: Use...">
+<meta property="og:description" content="This page aims to list common features present across the different functions in the package (not all functions have them). Changing the font size: Use font.size parameter and provide a number....">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Common features across plots | SCpubr">
-<meta name="twitter:description" content="This page aims to list common features present across the different functions in the package. Changing the font size: Use font.size parameter and provide a number. Changing the font type: Use...">
+<meta name="twitter:description" content="This page aims to list common features present across the different functions in the package (not all functions have them). Changing the font size: Use font.size parameter and provide a number....">
 <meta name="twitter:image" content="https://enblacar.github.io/SCpubr-book/images/logo.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -82,7 +82,7 @@
   </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="common-features-across-plots" class="section level1 unnumbered">
 <h1>Common features across plots<a class="anchor" aria-label="anchor" href="#common-features-across-plots"><i class="fas fa-link"></i></a>
 </h1>
-<p>This page aims to list common features present across the different functions in the package.</p>
+<p>This page aims to list common features present across the different functions in the package (not all functions have them).</p>
 <ul>
 <li>
 <strong>Changing the font size</strong>: Use <code>font.size</code> parameter and provide a number.</li>
@@ -97,9 +97,14 @@
 <li>
 <strong>Changing the font size</strong>: Use <code>font.size</code> parameter and provide a number.</li>
 <li>
-<strong>Modify default colors</strong>: Use <code>colors.use</code> for categorical variables and <code>viridis_color_map</code> for continuous (exceptions apply, see the corresponding subsection) and provide valid color representations or a valid viridis color map.</li>
+<strong>Modify default colors</strong>: Use <code>colors.use</code> for categorical variables and <code>viridis_color_map</code> for continuous (exceptions apply, see the corresponding subsection) and provide valid color representations or a valid viridis color map.
+_ <strong>Modify the direction of continuous color scales</strong>: Used alongsize <code>viridis_color_map</code>, provide either 1 or -1 to <code>viridis_direction</code> to specify whether the viridis scale goes from dark to light or vice versa.</li>
 <li>
-<strong>Plot borders around cells</strong>: Use <code>plot_cell_borders</code> parameter alongside <code>border.size</code> and <code>border.color</code> to customise how it looks.</li>
+<strong>Plot borders around cells</strong>: Use <code>plot_cell_borders</code> parameter alongside <code>border.size</code> and <code>border.color</code> to customize how it looks.</li>
+<li>
+<strong>Toggle the grid on or off</strong>: Use <code>plot.grid</code> parameter alongside <code>grid.type</code> for the type of lines and <code>grid.color</code> for the grid color to customize it.</li>
+<li>
+<strong>Toggle axes on or off</strong>: Use <code>plot.axes</code> parameter to remove the axes.</li>
 </ul>
 </div>
   <div class="chapter-nav">
@@ -133,7 +138,7 @@
 <!-- Moved the footer outside of the body to make it span all page width. --><footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 01 October, 2022.</p>
+    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 03 October, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
