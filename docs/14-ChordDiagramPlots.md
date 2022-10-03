@@ -9,6 +9,7 @@ This is how it looks:
 
 
 ```r
+# Basic chord diagram.
 sample$assignment <- ifelse(sample$seurat_clusters %in% c("0", "4", "7"), "A", "B")
 sample$assignment[sample$seurat_clusters %in% c("1", "2")] <- "C"
 sample$assignment[sample$seurat_clusters %in% c("10", "5")] <- "D"
@@ -26,6 +27,7 @@ p
 We can modify the gaps between `from` and `to`, provided that there are not so many elements that this can not be accomplished. For this, we use `big_gap`:
 
 ```r
+# Increase gap between from and to groups.
 p <- SCpubr::do_ChordDiagramPlot(sample = sample,
                                  from = "seurat_clusters",
                                  to = "assignment",
@@ -39,6 +41,7 @@ Similarly, we can also modify the gaps between the groups inside `from` and `to`
 
 
 ```r
+# Increase gap width groups in from and to.
 p <- SCpubr::do_ChordDiagramPlot(sample = sample,
                                  from = "seurat_clusters",
                                  to = "assignment",
@@ -54,6 +57,7 @@ We can force the alignment of the starting poing of the Chord diagram using the 
 
 
 ```r
+# Control the alignment of the diagram.
 p <- SCpubr::do_ChordDiagramPlot(sample = sample,
                                  from = "seurat_clusters",
                                  to = "assignment",
@@ -173,7 +177,7 @@ p <- SCpubr::do_ChordDiagramPlot(sample = sample,
                                  self.link = 1,
                                  scale = TRUE)
 
-SCpubr::save_Plot(p, figure_path = "./images/", file_name = "example_chord12", output_format = "png", width = 7, height = 7)
+p
 ```
 <span class="border-0"><img src="images/example_chord12.png" class="mx-auto d-block" alt="" style="box-shadow: none; width: 100%"/> <p class="caption">Chord Diagram with prevented self linking.</p></span>
 

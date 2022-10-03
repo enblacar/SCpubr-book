@@ -90,7 +90,8 @@
 </h2>
 <p>This is how it looks:</p>
 <div class="sourceCode" id="cb91"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">sample</span><span class="op">$</span><span class="va">assignment</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">sample</span><span class="op">$</span><span class="va">seurat_clusters</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"0"</span>, <span class="st">"4"</span>, <span class="st">"7"</span><span class="op">)</span>, <span class="st">"A"</span>, <span class="st">"B"</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="co"># Basic chord diagram.</span></span>
+<span><span class="va">sample</span><span class="op">$</span><span class="va">assignment</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">sample</span><span class="op">$</span><span class="va">seurat_clusters</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"0"</span>, <span class="st">"4"</span>, <span class="st">"7"</span><span class="op">)</span>, <span class="st">"A"</span>, <span class="st">"B"</span><span class="op">)</span></span>
 <span><span class="va">sample</span><span class="op">$</span><span class="va">assignment</span><span class="op">[</span><span class="va">sample</span><span class="op">$</span><span class="va">seurat_clusters</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"1"</span>, <span class="st">"2"</span><span class="op">)</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"C"</span></span>
 <span><span class="va">sample</span><span class="op">$</span><span class="va">assignment</span><span class="op">[</span><span class="va">sample</span><span class="op">$</span><span class="va">seurat_clusters</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"10"</span>, <span class="st">"5"</span><span class="op">)</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"D"</span></span>
 <span><span class="va">sample</span><span class="op">$</span><span class="va">assignment</span><span class="op">[</span><span class="va">sample</span><span class="op">$</span><span class="va">seurat_clusters</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"8"</span>, <span class="st">"9"</span><span class="op">)</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"E"</span></span>
@@ -111,7 +112,8 @@ Basic Chord Diagram.
 </h2>
 <p>We can modify the gaps between <code>from</code> and <code>to</code>, provided that there are not so many elements that this can not be accomplished. For this, we use <code>big_gap</code>:</p>
 <div class="sourceCode" id="cb92"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_ChordDiagramPlot.html">do_ChordDiagramPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
+<code class="sourceCode R"><span><span class="co"># Increase gap between from and to groups.</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_ChordDiagramPlot.html">do_ChordDiagramPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                                 from <span class="op">=</span> <span class="st">"seurat_clusters"</span>,</span>
 <span>                                 to <span class="op">=</span> <span class="st">"assignment"</span>,</span>
 <span>                                 big.gap <span class="op">=</span> <span class="fl">40</span><span class="op">)</span></span>
@@ -123,7 +125,8 @@ Chord Diagram with increased big gap.
 <p></p></span>
 <p>Similarly, we can also modify the gaps between the groups inside <code>from</code> and <code>to</code> with <code>small_gap</code>:</p>
 <div class="sourceCode" id="cb93"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_ChordDiagramPlot.html">do_ChordDiagramPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
+<code class="sourceCode R"><span><span class="co"># Increase gap width groups in from and to.</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_ChordDiagramPlot.html">do_ChordDiagramPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                                 from <span class="op">=</span> <span class="st">"seurat_clusters"</span>,</span>
 <span>                                 to <span class="op">=</span> <span class="st">"assignment"</span>,</span>
 <span>                                 small.gap <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span>
@@ -140,7 +143,8 @@ Chord Diagram with increased small gap.
 </h2>
 <p>We can force the alignment of the starting poing of the Chord diagram using the <code>alignment</code> parameter:</p>
 <div class="sourceCode" id="cb94"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_ChordDiagramPlot.html">do_ChordDiagramPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
+<code class="sourceCode R"><span><span class="co"># Control the alignment of the diagram.</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_ChordDiagramPlot.html">do_ChordDiagramPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                                 from <span class="op">=</span> <span class="st">"seurat_clusters"</span>,</span>
 <span>                                 to <span class="op">=</span> <span class="st">"assignment"</span>,</span>
 <span>                                 alignment <span class="op">=</span> <span class="st">"horizontal"</span><span class="op">)</span></span>
@@ -271,7 +275,7 @@ Chord Diagram with scaled nodes.
 <span>                                 self.link <span class="op">=</span> <span class="fl">1</span>,</span>
 <span>                                 scale <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/save_Plot.html">save_Plot</a></span><span class="op">(</span><span class="va">p</span>, figure_path <span class="op">=</span> <span class="st">"./images/"</span>, file_name <span class="op">=</span> <span class="st">"example_chord12"</span>, output_format <span class="op">=</span> <span class="st">"png"</span>, width <span class="op">=</span> <span class="fl">7</span>, height <span class="op">=</span> <span class="fl">7</span><span class="op">)</span></span></code></pre></div>
+<span><span class="va">p</span></span></code></pre></div>
 <span class="border-0"><img src="images/example_chord12.png" class="mx-auto d-block" alt="" style="box-shadow: none; width: 100%"><p class="caption">
 Chord Diagram with prevented self linking.
 </p>

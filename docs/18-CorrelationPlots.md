@@ -23,7 +23,7 @@ By default, it computes the correlation over the current identities in the objec
 ```r
 # Custom grouping.
 sample$custom_group <- ifelse(sample$seurat_clusters %in% c("1", "3", "5", "7", "9"), "Group A", "Group B")
-p <- SCpubr::do_CorrelationPlot(sample = sample, group.by = "custom_group")
+p <- SCpubr::do_CorrelationPlot(sample = sample, group.by = "custom_group", cell_size = 10)
 p
 ```
 

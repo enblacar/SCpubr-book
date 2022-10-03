@@ -105,6 +105,7 @@ p
 ## Continuous features
 In addition to all the above, one can also further query the resulting plot for any other feature that would be accepted in a regular `SCpubr::do_FeaturePlot().` The plots are returned alongside the original one. This behavior is achieved by using `plot_features = TRUE` and providing the desired features to `features` parameter.
 ```{r, fig.cap="SCpubr::do_CellularStatesPlot, 4 variables symmetry enforced querying for features", fig.width=30, fig.height=10}
+# Plot continuous features.
 out <- SCpubr::do_CellularStatesPlot(sample = sample,
                                      input_gene_list = gene_set,
                                      x1 = "A",
@@ -122,6 +123,7 @@ p
 Furthermore, the original list of genes queried can be also plotted as enrichment scores. This can be achieved by `plot_enrichment_scores = TRUE`:
 
 ```{r, fig.cap="SCpubr::do_CellularStatesPlot, 4 variables symmetry enforced querying for enrichment scores of the original list of genes", fig.width=20, fig.height=10}
+# Plot enrichment scores for the input gene lists.
 out <- SCpubr::do_CellularStatesPlot(sample = sample,
                                      input_gene_list = gene_set,
                                      x1 = "A",

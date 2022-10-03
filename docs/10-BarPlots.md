@@ -8,16 +8,20 @@ Bar plots are another well known data representation. They are a very handy reso
 ## Basic usage
 
 ```r
+# Basic bar plot, horizontal.
 p1 <- SCpubr::do_BarPlot(sample = sample, 
                          group.by = "seurat_clusters", 
                          legend.position = "none", 
                          plot.title = "Number of cells per cluster")
+
+# Basic bar plot, vertical.
 p2 <- SCpubr::do_BarPlot(sample = sample, 
                          group.by = "seurat_clusters", 
                          legend.position = "none",
                          plot.title = "Number of cells per cluster", 
                          flip = TRUE)
-p1 | p2
+p <- p1 | p2
+p
 ```
 
 <div class="figure" style="text-align: center">
@@ -34,15 +38,15 @@ Let's expand on the previous example on the number of cells per cluster. What if
 
 
 ```r
-# We only have one value in orig.ident. Let's modify it so that it resembles a multi-sample Seurat object.
 sample$modified_orig.ident <- sample(x = c("Sample_A", "Sample_B", "Sample_C"), 
                                      size = ncol(sample), 
                                      replace = T, 
                                      prob = c(0.2, 0.7, 0.1))
 
+# Split by a second variable.
 p1 <- SCpubr::do_BarPlot(sample,
-                         group.by = "seurat_clusters"
-,                        split.by = "modified_orig.ident",
+                         group.by = "seurat_clusters",
+                         split.by = "modified_orig.ident",
                          plot.title = "Number of cells per cluster in each sample",
                          position = "stack")
 
@@ -51,7 +55,8 @@ p2 <- SCpubr::do_BarPlot(sample,
                          split.by = "seurat_clusters",
                          plot.title = "Number of cells per sample in each cluster",
                          position = "stack")
-p1 | p2
+p <- p1 | p2
+p
 ```
 
 <div class="figure" style="text-align: center">
@@ -68,8 +73,7 @@ Another interesting parameter introduced in the last example is `position`. Posi
 
 
 ```r
-# We are going to use the previously generated sample assignment.
-
+# Position stack and fill with and without split.by.
 p1 <- SCpubr::do_BarPlot(sample, 
                          group.by = "seurat_clusters",
                          plot.title = "Without split.by - position = stack",

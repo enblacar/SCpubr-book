@@ -75,8 +75,6 @@ By default, the color of the nodes and the fill is white, so that they can not b
 
 
 ```r
-sample$assignment <- ifelse(sample$seurat_clusters %in% c("0", "2", "4"), "A", "B")
-
 # Control the color and fill of the nodes.
 p1 <- SCpubr::do_SankeyPlot(sample = sample,
                             first_group = "sub.cluster",
@@ -106,8 +104,6 @@ As can be seen, the text labels, then, overlap the limits of the nodes. We can f
 
 
 ```r
-sample$assignment <- ifelse(sample$seurat_clusters %in% c("0", "2", "4"), "A", "B")
-
 # Control the width of the nodes.
 p1 <- SCpubr::do_SankeyPlot(sample = sample,
                             first_group = "sub.cluster",
@@ -140,8 +136,6 @@ We can also control the alignment of the labels (goes different by the different
 
 
 ```r
-sample$assignment <- ifelse(sample$seurat_clusters %in% c("0", "2", "4"), "A", "B")
-
 # Control the alignment of the labels.
 p1 <- SCpubr::do_SankeyPlot(sample = sample,
                             first_group = "sub.cluster",
@@ -175,8 +169,6 @@ We can also turn the text into labels, which will then be colored based on the e
 
 
 ```r
-sample$assignment <- ifelse(sample$seurat_clusters %in% c("0", "2", "4"), "A", "B")
-
 # Use text or labels for the nodes.
 p1 <- SCpubr::do_SankeyPlot(sample = sample,
                             first_group = "sub.cluster",
@@ -206,8 +198,6 @@ One can also increase the gaps between the nodes. This is done by providing a nu
 
 
 ```r
-sample$assignment <- ifelse(sample$seurat_clusters %in% c("0", "2", "4"), "A", "B")
-
 # Modify the space between nodes.
 p1 <- SCpubr::do_SankeyPlot(sample = sample,
                             first_group = "sub.cluster",
@@ -237,23 +227,23 @@ Finally, we can modify the default colors by providing our own to `colors.first`
 
 
 ```r
-sample$assignment <- ifelse(sample$seurat_clusters %in% c("0", "2", "4"), "A", "B")
+# Modify default colors.
+colors.first <- SCpubr::do_ColorPalette(colors.use = "steelblue",
+                                        n = length(unique(sample$sub.cluster)))
+names(colors.first) <- unique(sample$sub.cluster)
 
-# Modify the space between nodes.
 p <- SCpubr::do_SankeyPlot(sample = sample,
-                          first_group = "sub.cluster",
-                          middle_groups = c("seurat_clusters", "assignment"),
-                          last_group = "orig.ident",
-                          type = "sankey",
-                          colors.first = stats::setNames(SCpubr::do_ColorPalette(colors.use = "steelblue", 
-                                                                                 n = length(unique(sample$sub.cluster))),
-                                                         unique(sample$sub.cluster)))
+                           first_group = "sub.cluster",
+                           middle_groups = c("seurat_clusters", "assignment"),
+                           last_group = "orig.ident",
+                           type = "sankey",
+                           colors.first = )
 p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="13-SankeyPlots_files/figure-html/unnamed-chunk-9-1.png" alt="Sankey plots with modified spaces between the nodes." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-9)Sankey plots with modified spaces between the nodes.</p>
+<img src="13-SankeyPlots_files/figure-html/unnamed-chunk-9-1.png" alt="Sankey plots with modified default colors." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-9)Sankey plots with modified default colors.</p>
 </div>
 
 

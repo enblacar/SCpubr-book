@@ -140,6 +140,7 @@ p
 In addition to all the above, one can also further query the resulting plot for any other feature that would be accepted in a regular `SCpubr::do_FeaturePlot().` The plots are returned alongside the original one. This behavior is achieved by using `plot_features = TRUE` and providing the desired features to `features` parameter.
 
 ```r
+# Plot continuous features.
 out <- SCpubr::do_CellularStatesPlot(sample = sample,
                                      input_gene_list = gene_set,
                                      x1 = "A",
@@ -163,6 +164,7 @@ Furthermore, the original list of genes queried can be also plotted as enrichmen
 
 
 ```r
+# Plot enrichment scores for the input gene lists.
 out <- SCpubr::do_CellularStatesPlot(sample = sample,
                                      input_gene_list = gene_set,
                                      x1 = "A",

@@ -89,16 +89,20 @@
 <span class="header-section-number">8.1</span> Basic usage<a class="anchor" aria-label="anchor" href="#basic-usage-6"><i class="fas fa-link"></i></a>
 </h2>
 <div class="sourceCode" id="cb68"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
+<code class="sourceCode R"><span><span class="co"># Basic bar plot, horizontal.</span></span>
+<span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
 <span>                         group.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>, </span>
 <span>                         legend.position <span class="op">=</span> <span class="st">"none"</span>, </span>
 <span>                         plot.title <span class="op">=</span> <span class="st">"Number of cells per cluster"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Basic bar plot, vertical.</span></span>
 <span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
 <span>                         group.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>, </span>
 <span>                         legend.position <span class="op">=</span> <span class="st">"none"</span>,</span>
 <span>                         plot.title <span class="op">=</span> <span class="st">"Number of cells per cluster"</span>, </span>
 <span>                         flip <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span><span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span></span></code></pre></div>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span></span>
+<span><span class="va">p</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-2"></span>
 <img src="10-BarPlots_files/figure-html/unnamed-chunk-2-1.png" alt="SCpubr Bar plots, plotting single variables" width="100%" height="100%"><p class="caption">
@@ -116,15 +120,15 @@ Figure 1.1: SCpubr Bar plots, plotting single variables
 </h2>
 <p>Let’s expand on the previous example on the number of cells per cluster. What if we were interested not only on that, but we would like to profile <strong>how many cells from each cluster are present in each of the unique samples present in the Seurat object</strong>? For this, we need to provide <code><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">SCpubr::do_BarPlot()</a></code> with a second parameter, <code>split.by</code>, that tackles how we want the feature to be grouped:</p>
 <div class="sourceCode" id="cb69"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># We only have one value in orig.ident. Let's modify it so that it resembles a multi-sample Seurat object.</span></span>
-<span><span class="va">sample</span><span class="op">$</span><span class="va">modified_orig.ident</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Sample_A"</span>, <span class="st">"Sample_B"</span>, <span class="st">"Sample_C"</span><span class="op">)</span>, </span>
+<code class="sourceCode R"><span><span class="va">sample</span><span class="op">$</span><span class="va">modified_orig.ident</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Sample_A"</span>, <span class="st">"Sample_B"</span>, <span class="st">"Sample_C"</span><span class="op">)</span>, </span>
 <span>                                     size <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">sample</span><span class="op">)</span>, </span>
 <span>                                     replace <span class="op">=</span> <span class="cn">T</span>, </span>
 <span>                                     prob <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.2</span>, <span class="fl">0.7</span>, <span class="fl">0.1</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
+<span><span class="co"># Split by a second variable.</span></span>
 <span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span><span class="va">sample</span>,</span>
-<span>                         group.by <span class="op">=</span> <span class="st">"seurat_clusters"</span></span>
-<span>,                        split.by <span class="op">=</span> <span class="st">"modified_orig.ident"</span>,</span>
+<span>                         group.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>,</span>
+<span>                         split.by <span class="op">=</span> <span class="st">"modified_orig.ident"</span>,</span>
 <span>                         plot.title <span class="op">=</span> <span class="st">"Number of cells per cluster in each sample"</span>,</span>
 <span>                         position <span class="op">=</span> <span class="st">"stack"</span><span class="op">)</span></span>
 <span></span>
@@ -133,7 +137,8 @@ Figure 1.1: SCpubr Bar plots, plotting single variables
 <span>                         split.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>,</span>
 <span>                         plot.title <span class="op">=</span> <span class="st">"Number of cells per sample in each cluster"</span>,</span>
 <span>                         position <span class="op">=</span> <span class="st">"stack"</span><span class="op">)</span></span>
-<span><span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span></span></code></pre></div>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span></span>
+<span><span class="va">p</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-3"></span>
 <img src="10-BarPlots_files/figure-html/unnamed-chunk-3-1.png" alt="SCpubr Bar plots, introducing a variable to group values by" width="100%" height="100%"><p class="caption">
@@ -149,8 +154,7 @@ Figure 1.2: SCpubr Bar plots, introducing a variable to group values by
 </ul>
 <p>Another interesting parameter introduced in the last example is <code>position</code>. Position can be either <code>stack</code> or <code>fill</code>. The difference between them is that <code>position = "stack"</code> will yield the total number of cells for each of the unique values in <code>feature</code>, while <code>position = "fill"</code> will bring all bars to the same height and will split each bar into the proportions within each bar of the different groups (only one if <code>group.by = NULL</code> and as many groups if <code>group.by</code> is used). Therefore, it becomes highly recommended to use <code>position = "stack"</code> when <code>group.by</code> is not used and <code>position = "fill"</code> otherwise. This is also warned by the package. If you want to silence the warnings, use <code>verbose = FALSE</code>.</p>
 <div class="sourceCode" id="cb70"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># We are going to use the previously generated sample assignment.</span></span>
-<span></span>
+<code class="sourceCode R"><span><span class="co"># Position stack and fill with and without split.by.</span></span>
 <span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span><span class="va">sample</span>, </span>
 <span>                         group.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>,</span>
 <span>                         plot.title <span class="op">=</span> <span class="st">"Without split.by - position = stack"</span>,</span>

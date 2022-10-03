@@ -38,6 +38,7 @@ But still, by making the dots almost invisible, we still observe their dominance
 
 
 ```r
+# Basic violin plot.
 p <- SCpubr::do_ViolinPlot(sample = sample, 
                            feature = "nCount_RNA")
 p
@@ -52,6 +53,7 @@ In addition to removing the dots, a boxplot is added to each violin shape, to ge
 
 
 ```r
+# Remove the box plots.
 p <- SCpubr::do_ViolinPlot(sample = sample, 
                            feature = "nCount_RNA",
                            plot_boxplot = FALSE)
@@ -66,6 +68,7 @@ p
 If we want to rotate the X axis labels, we can also do that providing `rotate_x_axis_labels = TRUE/FALSE`:
 
 ```r
+# Rotate x axis labels.
 p <- SCpubr::do_ViolinPlot(sample = sample, 
                         feature = c("nCount_RNA"),
                         rotate_x_axis_labels = FALSE)
@@ -83,6 +86,7 @@ For QC analyses, users might want to also add some other features such as a line
 
 
 ```r
+# Add horizontal lines.
 p <- SCpubr::do_ViolinPlot(sample = sample, 
                            feature = "nCount_RNA", 
                            y_cut = 25000)
@@ -99,6 +103,7 @@ Sometimes we might want to modify the overall look of the violin plots. For inst
 
 
 ```r
+# Increase line width.
 p1 <- SCpubr::do_ViolinPlot(sample = sample,
                          feature = "nCount_RNA")
 
@@ -119,6 +124,7 @@ Also, the width of the box plots can be modified with `boxplot_width` parameter,
 
 
 ```r
+# Decrease boxplot width.
 p1 <- SCpubr::do_ViolinPlot(sample = sample,
                             feature = "nCount_RNA")
 
