@@ -89,7 +89,7 @@
 <span class="header-section-number">10.1</span> Basic usage<a class="anchor" aria-label="anchor" href="#basic-usage-8"><i class="fas fa-link"></i></a>
 </h2>
 <p>To generate such a plot, one can use <code><a href="https://rdrr.io/pkg/SCpubr/man/do_VolcanoPlot.html">SCpubr::do_VolcanoPlot()</a></code>, which needs as input the Seurat object and the result of running <code><a href="https://satijalab.org/seurat/reference/FindMarkers.html">Seurat::FindMarkers()</a></code> choosing two groups.</p>
-<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb79"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Generate a volcano plot.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_VolcanoPlot.html">do_VolcanoPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                            de_genes <span class="op">=</span> <span class="va">de_genes</span><span class="op">)</span></span>
@@ -111,7 +111,7 @@ Figure 1.1: SCpubr::do_VolcanoPlot with default parameters.
 <span class="header-section-number">10.2</span> Modify the cutoffss<a class="anchor" aria-label="anchor" href="#modify-the-cutoffss"><i class="fas fa-link"></i></a>
 </h2>
 <p>The cutofss can be set up by the user using <code>pval_cutoff</code> (without -log10 transforming) and <code>FC_cutoff</code> (avg log2(FC)).</p>
-<div class="sourceCode" id="cb81"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Modify cutoffs.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_VolcanoPlot.html">do_VolcanoPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                            de_genes <span class="op">=</span> <span class="va">de_genes</span>,</span>
@@ -130,7 +130,7 @@ Figure 1.2: SCpubr::do_VolcanoPlot modifying cutoffs.
 <span class="header-section-number">10.3</span> Modify the gene tags<a class="anchor" aria-label="anchor" href="#modify-the-gene-tags"><i class="fas fa-link"></i></a>
 </h2>
 <p>By default, the top 5 genes on each side, ordered by <code>-log10(p-value adjusted)</code> and <code>average log2(FC)</code> are reported. However, one can increase the number by using</p>
-<div class="sourceCode" id="cb82"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb81"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Modify number of gene tags.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_VolcanoPlot.html">do_VolcanoPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                            de_genes <span class="op">=</span> <span class="va">de_genes</span>,</span>

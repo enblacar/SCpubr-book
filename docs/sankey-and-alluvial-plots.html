@@ -89,7 +89,7 @@
 <span class="header-section-number">11.1</span> Basic usage<a class="anchor" aria-label="anchor" href="#basic-usage-9"><i class="fas fa-link"></i></a>
 </h2>
 <p>This is how we can achieve basic Sankey or alluvial plots (using package):</p>
-<div class="sourceCode" id="cb83"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb82"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Generate a more fine-grained clustering.</span></span>
 <span><span class="va">sample</span> <span class="op">&lt;-</span> <span class="fu">Seurat</span><span class="fu">::</span><span class="fu"><a href="https://satijalab.org/seurat/reference/FindSubCluster.html">FindSubCluster</a></span><span class="op">(</span><span class="va">sample</span>, cluster <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"0"</span>, <span class="st">"5"</span><span class="op">)</span>, graph.name <span class="op">=</span> <span class="st">"SCT_snn"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Modularity Optimizer version 1.3.0 by Ludo Waltman and Nees Jan van Eck</span></span>
@@ -124,7 +124,7 @@ Figure 1.1: Basic Sankey and Alluvial plots.
 </p>
 </div>
 <p>The key aspects of this figure is that one has to provide the starting and end groups to <code>first_group</code> and <code>last_group</code> parameters, and the type of plot to <code>type</code>, making it either alluvial or sankey. The major difference between both is simply that the alluvial plot has not space between the groups. This allows for a more compact visualization, although it can get quite messy depending on the colors. We can keep adding as many groups as we want in between by using <code>middle_groups</code> parameter.</p>
-<div class="sourceCode" id="cb84"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb83"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">sample</span><span class="op">$</span><span class="va">assignment</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">sample</span><span class="op">$</span><span class="va">seurat_clusters</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"0"</span>, <span class="st">"2"</span>, <span class="st">"4"</span><span class="op">)</span>, <span class="st">"A"</span>, <span class="st">"B"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Add more groups.</span></span>
@@ -154,7 +154,7 @@ Figure 1.2: Basic Sankey and Alluvial plots with more groups.
 <span class="header-section-number">11.2</span> Modify node aesthetics<a class="anchor" aria-label="anchor" href="#modify-node-aesthetics"><i class="fas fa-link"></i></a>
 </h2>
 <p>By default, the color of the nodes and the fill is white, so that they can not be seen. One Can modify this by using <code>node.fill</code> and <code>node.color</code>.</p>
-<div class="sourceCode" id="cb85"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb84"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Control the color and fill of the nodes.</span></span>
 <span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_SankeyPlot.html">do_SankeyPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                            first_group <span class="op">=</span> <span class="st">"sub.cluster"</span>,</span>
@@ -181,7 +181,7 @@ Figure 1.3: Basic Sankey and Alluvial plots with modified colors for the nodes.
 </p>
 </div>
 <p>As can be seen, the text labels, then, overlap the limits of the nodes. We can fix that using the <code>width</code> parameter:</p>
-<div class="sourceCode" id="cb86"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb85"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Control the width of the nodes.</span></span>
 <span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_SankeyPlot.html">do_SankeyPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                            first_group <span class="op">=</span> <span class="st">"sub.cluster"</span>,</span>
@@ -214,7 +214,7 @@ Figure 1.4: Basic Sankey and Alluvial plots with modified width of the nodes.
 <span class="header-section-number">11.3</span> Control alignment of the labels<a class="anchor" aria-label="anchor" href="#control-alignment-of-the-labels"><i class="fas fa-link"></i></a>
 </h2>
 <p>We can also control the alignment of the labels (goes different by the different groups by default) using the <code>hjust</code> parameter. This will modify it for all the nodes.</p>
-<div class="sourceCode" id="cb87"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb86"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Control the alignment of the labels.</span></span>
 <span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_SankeyPlot.html">do_SankeyPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                            first_group <span class="op">=</span> <span class="st">"sub.cluster"</span>,</span>
@@ -244,7 +244,7 @@ Figure 1.5: Basic Sankey and Alluvial plots with modified label alignment.
 </p>
 </div>
 <p>We can also turn the text into labels, which will then be colored based on the end nodes. We can toggle it by using <code>use_labels = TRUE</code>.</p>
-<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb87"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Use text or labels for the nodes.</span></span>
 <span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_SankeyPlot.html">do_SankeyPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                            first_group <span class="op">=</span> <span class="st">"sub.cluster"</span>,</span>
@@ -274,7 +274,7 @@ Figure 1.6: Sankey plots with texts and labels.
 <span class="header-section-number">11.4</span> Increase the gap between the nodes<a class="anchor" aria-label="anchor" href="#increase-the-gap-between-the-nodes"><i class="fas fa-link"></i></a>
 </h2>
 <p>One can also increase the gaps between the nodes. This is done by providing a number to <code>space</code>. This number would act as “invisible” cells in between the nodes. So one needs to think in terms of how many cells do we have in our dataset. The bigger the dataset, the higher the number we need to notice a difference. It is set by default to 5% of the total number of cells in the dataset.</p>
-<div class="sourceCode" id="cb89"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Modify the space between nodes.</span></span>
 <span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_SankeyPlot.html">do_SankeyPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                            first_group <span class="op">=</span> <span class="st">"sub.cluster"</span>,</span>
@@ -304,7 +304,7 @@ Figure 1.7: Sankey plots with modified spaces between the nodes.
 <span class="header-section-number">11.5</span> Modify default colors<a class="anchor" aria-label="anchor" href="#modify-default-colors"><i class="fas fa-link"></i></a>
 </h2>
 <p>Finally, we can modify the default colors by providing our own to <code>colors.first</code>, <code>colors.middle</code> and <code>colors.last</code>. It has to be a named vector with</p>
-<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb89"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Modify default colors.</span></span>
 <span><span class="va">colors.first</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_ColorPalette.html">do_ColorPalette</a></span><span class="op">(</span>colors.use <span class="op">=</span> <span class="st">"steelblue"</span>,</span>
 <span>                                        n <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">sample</span><span class="op">$</span><span class="va">sub.cluster</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>

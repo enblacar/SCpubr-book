@@ -16,7 +16,8 @@ devtools::install_github("enblacar/SCpubr")
 
 Further packages are needed in order to run the different functions:
 
-- [colortools](https://github.com/gastonstat/colortools)
+- [circlize](https://jokergoo.github.io/circlize_book/book/)
+- [colorspace](https://cran.r-project.org/web/packages/colorspace/vignettes/colorspace.html)
 - [ComplexHeatmap](https://bioconductor.org/packages/release/bioc/html/ComplexHeatmap.html)
 - [dplyr](https://dplyr.tidyverse.org/)
 - [enrichR](https://cran.r-project.org/web/packages/enrichR/vignettes/enrichR.html)
@@ -24,20 +25,25 @@ Further packages are needed in order to run the different functions:
 - [ggbeeswarm](https://cran.r-project.org/web/packages/ggbeeswarm/index.html)
 - [ggExtra](https://cran.r-project.org/web/packages/ggExtra/vignettes/ggExtra.html)
 - [ggplot2](https://ggplot2.tidyverse.org/)
+- [ggplotify](https://cran.r-project.org/web/packages/ggplotify/index.html/)
 - [ggrastr](https://cran.r-project.org/web/packages/ggrastr/vignettes/Raster_geoms.html)
 - [ggrepel](https://cran.r-project.org/web/packages/ggrepel/vignettes/ggrepel.html)
-- [ggtext](https://github.com/wilkelab/ggtext)
-- [ggplotify](https://cran.r-project.org/web/packages/ggplotify/index.html)
-- [Matrix](https://cran.r-project.org/web/packages/Matrix/index.html)
+- [ggridges](https://cran.r-project.org/web/packages/ggridges/vignettes/introduction.html)
+- [ggsankey](https://github.com/davidsjoberg/ggsankey)
+- [liana](https://github.com/saezlab/liana)
+- [maggritr](https://cran.r-project.org/web/packages/magrittr/vignettes/magrittr.html)
+- [monocle3](https://cole-trapnell-lab.github.io/monocle3/)
 - [Nebulosa](http://bioconductor.org/packages/release/bioc/html/Nebulosa.html)
 - [patchwork](https://patchwork.data-imaginist.com/)
 - [pbapply](https://cran.rstudio.com/web/packages/pbapply/index.html)
-- [purrr](https://purrr.tidyverse.org/)
+- [plyr](https://cran.r-project.org/web/packages/plyr/index.html)
 - [rlang](https://cran.r-project.org/web/packages/rlang/index.html)
 - [scales](https://cran.r-project.org/web/packages/scales/index.html)
+- [scattermore](https://cran.rstudio.com/web/packages/scattermore/index.html)
 - [Seurat](https://satijalab.org/seurat/index.html)
 - [stringr](https://cran.r-project.org/web/packages/stringr/index.html)
 - [svglite](https://cran.r-project.org/web/packages/svglite/index.html)
+- [tibble](https://tibble.tidyverse.org/)
 - [tidyr](https://tidyr.tidyverse.org/)
 - [viridis](https://cran.r-project.org/web/packages/viridis/index.html)
 
@@ -46,30 +52,41 @@ All packages can be installed using the following commands:
 
 ```{r, eval = F}
 # Install CRAN packages.
-cran_packages <- c("colortools",
+cran_packages <- c("circlize",
+                   "colorspace",
                    "dplyr",
                    "enrichR",
                    "forcats",
                    "ggbeeswarm",
+                   "ggdist",
                    "ggExtra",
                    "ggplot2",
-                   "ggrepel",
                    "ggplotify",
-                   "ggtext",
-                   "Matrix",
+                   "ggrastr",
+                   "ggrepel",
+                   "ggridges",
+                   "grDevices",
+                   "grid",
+                   "magrittr",
                    "patchwork",
-                   "purrr",
+                   "pbapply",
+                   "plyr",
                    "rlang",
                    "scales",
+                   "scattermore",
                    "Seurat",
+                   "stats",
                    "stringr",
                    "svglite",
+                   "tibble",
                    "tidyr",
                    "viridis")
+
 install.packages(cran_packages)
 
 # Install bioconductor packages.
-bioconductor_packages <- c("ComplexHeatmap", 
+bioconductor_packages <- c("ComplexHeatmap",
+                           "infercnv",
                            "Nebulosa")
 if (!require("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
@@ -77,7 +94,9 @@ if (!require("BiocManager", quietly = TRUE))
 BiocManager::install(bioconductor_packages)
 
 # Install github packages.
-github_packages <- c("saezlab/liana")
+github_packages <- c("ggsankey",
+                     "liana",
+                     "monocle3")
 
 if (!requireNamespace("remotes", quietly = TRUE))
     install.packages("remotes")
@@ -85,15 +104,5 @@ if (!requireNamespace("remotes", quietly = TRUE))
 remotes::install_github(github_packages)
 ```
 
-If interested in running only a subset of functions, `SCpubr::state_dependencies()` outputs the different packages and their sources needed for each of the functions.
+One can check the dependencies by running `SCpubr::state_dependencies()`.
 
-```{r, eval = F}
-# Will return the package dependencies for all functions.
-SCpubr::state_dependencies()
-
-# Will return the package dependencies for selected functions.
-SCpubr::state_dependencies(func_name = c("do_DimPlot", "do_Feature_Plot"))
-
-# Will return the package dependencies of a single function.
-SCpubr::state_dependencies(func_name = "do_DimPlot")
-```
