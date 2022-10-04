@@ -25,7 +25,6 @@ p <- SCpubr::do_LigandReceptorPlot(liana_output = liana_output)
 p
 ```
 
-
 ## Increase the top significant interactions plotted
 By default, top 25 unique, most significant interactions are retrieved and plotted. However, this can be changed by using `top_interactions`. Also, clusters that have no interactions, both as source and target, will be removed.:
 
@@ -33,6 +32,23 @@ By default, top 25 unique, most significant interactions are retrieved and plott
 # Ligand Receptor analysis plot with extra interactions.
 p <- SCpubr::do_LigandReceptorPlot(liana_output = liana_output,
                                    top_interactions = 50)
+p
+```
+
+## Add or remove missing source-target combinations
+Depending on the value we select for `top_interactions`, we might find out that there are specific source-target combinations for which we have no interactions at all. These show up in the resulting dotplot as empty columns. This is a design choice, as **SCpubr** brings these combinations back as NA values, thus making the different panels in the dotplot easier to read. However, with a small number of interactions, this might result in a very empty dotplot. Also, if we have many different sources, the plot can also become very long. 
+
+In cases like these, we might rather go for only the relevant columns. We can toggle on/off this behaviour by using ``: 
+
+```{r, fig.cap = "SCpubr do_LigandReceptorPlot with and without missing LR combinations.", fig.width=20, fig.height=20}
+# Add missing LR combinations.
+p1 <- SCpubr::do_LigandReceptorPlot(liana_output = liana_output,
+                                    add_missing_LR_combinations = TRUE)
+
+# Restrict the results to only the LR combinations that have a value.
+p2 <- SCpubr::do_LigandReceptorPlot(liana_output = liana_output,
+                                    add_missing_LR_combinations = FALSE)
+p <- p1 /p2
 p
 ```
 

@@ -90,21 +90,21 @@
 <span class="header-section-number">23.1</span> Generate color palettes<a class="anchor" aria-label="anchor" href="#generate-color-palettes"><i class="fas fa-link"></i></a>
 </h2>
 <p>The simplest way to generate a color palette with <code><a href="https://rdrr.io/pkg/SCpubr/man/do_ColorPalette.html">SCpubr::do_ColorPalette()</a></code> is to provide <strong>a single color</strong> to <code>colors.use</code> parameter. It is important to remark that only <strong>one color</strong> has to be provided. The function iterates over the whole range of <strong>HUE values</strong> and generate equally spaced colors.</p>
-<div class="sourceCode" id="cb179"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb180"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Generate a color palette.</span></span>
 <span><span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_ColorPalette.html">do_ColorPalette</a></span><span class="op">(</span>colors.use <span class="op">=</span> <span class="st">"steelblue"</span><span class="op">)</span></span>
 <span><span class="co">#&gt;  [1] "#4682B4" "#464BB4" "#7846B4" "#AF46B4" "#B44682"</span></span>
 <span><span class="co">#&gt;  [6] "#B4464B" "#B47846" "#B4AF46" "#82B446" "#4BB446"</span></span>
 <span><span class="co">#&gt; [11] "#46B478" "#46B4AF"</span></span></code></pre></div>
 <p>By default, it returns <strong>12 colors</strong>, but this can be changed by using <code>n</code> parameter.</p>
-<div class="sourceCode" id="cb180"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb181"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Generate a color palette with a given number of colors.</span></span>
 <span><span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_ColorPalette.html">do_ColorPalette</a></span><span class="op">(</span>colors.use <span class="op">=</span> <span class="st">"steelblue"</span>,</span>
 <span>                        n <span class="op">=</span> <span class="fl">7</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "#4682B4" "#6846B4" "#B446A1" "#B44946" "#B4A746"</span></span>
 <span><span class="co">#&gt; [6] "#63B446" "#46B488"</span></span></code></pre></div>
 <p>Just having the colors as a vector is great to use them right away in other plotting functions. However, one can visualize how the colors look like by using <code>plot = TRUE</code>.</p>
-<div class="sourceCode" id="cb181"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb182"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Generate a color palette and plot it.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_ColorPalette.html">do_ColorPalette</a></span><span class="op">(</span>colors.use <span class="op">=</span> <span class="st">"steelblue"</span>,</span>
 <span>                             plot <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
@@ -126,7 +126,7 @@ Figure 1.2: SCpubr::do_ColorPalette basic plot.
 <h3>
 <span class="header-section-number">23.2.1</span> Opposite colors<a class="anchor" aria-label="anchor" href="#opposite-colors"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb182"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb183"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Generate opposite colors.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_ColorPalette.html">do_ColorPalette</a></span><span class="op">(</span>colors.use <span class="op">=</span> <span class="st">"steelblue"</span>,</span>
 <span>                             opposite <span class="op">=</span> <span class="cn">TRUE</span>,</span>
@@ -144,7 +144,7 @@ Figure 1.3: SCpubr::do_ColorPalette opposite colors.
 <h3>
 <span class="header-section-number">23.2.2</span> Adjacent colors<a class="anchor" aria-label="anchor" href="#adjacent-colors"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb183"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb184"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Generate adjacent colors.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_ColorPalette.html">do_ColorPalette</a></span><span class="op">(</span>colors.use <span class="op">=</span> <span class="st">"steelblue"</span>,</span>
 <span>                             adjacent <span class="op">=</span> <span class="cn">TRUE</span>,</span>
@@ -162,7 +162,7 @@ Figure 1.4: SCpubr::do_ColorPalette adjacent colors.
 <h3>
 <span class="header-section-number">23.2.3</span> Triadic colors<a class="anchor" aria-label="anchor" href="#triadic-colors"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb184"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb185"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Generate triadic colors.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_ColorPalette.html">do_ColorPalette</a></span><span class="op">(</span>colors.use <span class="op">=</span> <span class="st">"steelblue"</span>,</span>
 <span>                             triadic <span class="op">=</span> <span class="cn">TRUE</span>,</span>
@@ -180,7 +180,7 @@ Figure 1.5: SCpubr::do_ColorPalette triadic colors.
 <h3>
 <span class="header-section-number">23.2.4</span> Split complementary colors.<a class="anchor" aria-label="anchor" href="#split-complementary-colors."><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb185"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb186"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Generate split complementary colors.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_ColorPalette.html">do_ColorPalette</a></span><span class="op">(</span>colors.use <span class="op">=</span> <span class="st">"steelblue"</span>,</span>
 <span>                             split_complementary <span class="op">=</span> <span class="cn">TRUE</span>,</span>
@@ -198,7 +198,7 @@ Figure 1.6: SCpubr::do_ColorPalette split complementary colors.
 <h3>
 <span class="header-section-number">23.2.5</span> Tetradic colors<a class="anchor" aria-label="anchor" href="#tetradic-colors"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb186"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb187"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Generate tetradic colors</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_ColorPalette.html">do_ColorPalette</a></span><span class="op">(</span>colors.use <span class="op">=</span> <span class="st">"steelblue"</span>,</span>
 <span>                             tetradic <span class="op">=</span> <span class="cn">TRUE</span>,</span>
@@ -216,7 +216,7 @@ Figure 1.7: SCpubr::do_ColorPalette tetradic colors.
 <h3>
 <span class="header-section-number">23.2.6</span> Square colors<a class="anchor" aria-label="anchor" href="#square-colors"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb187"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb188"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Generate square colors</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_ColorPalette.html">do_ColorPalette</a></span><span class="op">(</span>colors.use <span class="op">=</span> <span class="st">"steelblue"</span>,</span>
 <span>                             square <span class="op">=</span> <span class="cn">TRUE</span>,</span>
@@ -236,7 +236,7 @@ Figure 1.8: SCpubr::do_ColorPalette square colors.
 <span class="header-section-number">23.3</span> Generate a color report<a class="anchor" aria-label="anchor" href="#generate-a-color-report"><i class="fas fa-link"></i></a>
 </h2>
 <p>However, it might be the case that one wants all combinations at the same time, to then select the one that works best. To achieve this, set <code>complete_output = TRUE</code>.</p>
-<div class="sourceCode" id="cb188"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb189"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Generate a color report.</span></span>
 <span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_ColorPalette.html">do_ColorPalette</a></span><span class="op">(</span>colors.use <span class="op">=</span> <span class="st">"steelblue"</span>,</span>
 <span>                               complete_output <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
@@ -304,7 +304,7 @@ Figure 1.9: SCpubr::do_ColorPalette square colors.
 <!-- Moved the footer outside of the body to make it span all page width. --><footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 03 October, 2022.</p>
+    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 04 October, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

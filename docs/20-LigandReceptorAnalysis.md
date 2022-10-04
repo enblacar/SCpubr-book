@@ -29,7 +29,6 @@ p
 <p class="caption">(\#fig:unnamed-chunk-3)SCpubr do_LigandReceptorPlot default output.</p>
 </div>
 
-
 ## Increase the top significant interactions plotted
 By default, top 25 unique, most significant interactions are retrieved and plotted. However, this can be changed by using `top_interactions`. Also, clusters that have no interactions, both as source and target, will be removed.:
 
@@ -46,6 +45,29 @@ p
 <p class="caption">(\#fig:unnamed-chunk-4)SCpubr do_LigandReceptorPlot default output with extra interactions.</p>
 </div>
 
+## Add or remove missing source-target combinations
+Depending on the value we select for `top_interactions`, we might find out that there are specific source-target combinations for which we have no interactions at all. These show up in the resulting dotplot as empty columns. This is a design choice, as **SCpubr** brings these combinations back as NA values, thus making the different panels in the dotplot easier to read. However, with a small number of interactions, this might result in a very empty dotplot. Also, if we have many different sources, the plot can also become very long. 
+
+In cases like these, we might rather go for only the relevant columns. We can toggle on/off this behaviour by using ``: 
+
+
+```r
+# Add missing LR combinations.
+p1 <- SCpubr::do_LigandReceptorPlot(liana_output = liana_output,
+                                    add_missing_LR_combinations = TRUE)
+
+# Restrict the results to only the LR combinations that have a value.
+p2 <- SCpubr::do_LigandReceptorPlot(liana_output = liana_output,
+                                    add_missing_LR_combinations = FALSE)
+p <- p1 /p2
+p
+```
+
+<div class="figure" style="text-align: center">
+<img src="20-LigandReceptorAnalysis_files/figure-html/unnamed-chunk-5-1.png" alt="SCpubr do_LigandReceptorPlot with and without missing LR combinations." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-5)SCpubr do_LigandReceptorPlot with and without missing LR combinations.</p>
+</div>
+
 ## Modify the size of dots
 Size of dots can be modified with `dot.size`:
 
@@ -58,8 +80,8 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="20-LigandReceptorAnalysis_files/figure-html/unnamed-chunk-5-1.png" alt="SCpubr do_LigandReceptorPlot with increased dot size." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-5)SCpubr do_LigandReceptorPlot with increased dot size.</p>
+<img src="20-LigandReceptorAnalysis_files/figure-html/unnamed-chunk-6-1.png" alt="SCpubr do_LigandReceptorPlot with increased dot size." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-6)SCpubr do_LigandReceptorPlot with increased dot size.</p>
 </div>
 
 ## Toggle grid lines
@@ -74,8 +96,8 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="20-LigandReceptorAnalysis_files/figure-html/unnamed-chunk-6-1.png" alt="SCpubr do_LigandReceptorPlot with grid lines." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-6)SCpubr do_LigandReceptorPlot with grid lines.</p>
+<img src="20-LigandReceptorAnalysis_files/figure-html/unnamed-chunk-7-1.png" alt="SCpubr do_LigandReceptorPlot with grid lines." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-7)SCpubr do_LigandReceptorPlot with grid lines.</p>
 </div>
 
 
@@ -93,8 +115,8 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="20-LigandReceptorAnalysis_files/figure-html/unnamed-chunk-7-1.png" alt="SCpubr do_LigandReceptorPlot with inverted axes." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-7)SCpubr do_LigandReceptorPlot with inverted axes.</p>
+<img src="20-LigandReceptorAnalysis_files/figure-html/unnamed-chunk-8-1.png" alt="SCpubr do_LigandReceptorPlot with inverted axes." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-8)SCpubr do_LigandReceptorPlot with inverted axes.</p>
 </div>
 
 ## Split the plot by ligand or receptor complex
@@ -113,8 +135,8 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="20-LigandReceptorAnalysis_files/figure-html/unnamed-chunk-8-1.png" alt="SCpubr do_LigandReceptorPlot split by ligand.complex." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-8)SCpubr do_LigandReceptorPlot split by ligand.complex.</p>
+<img src="20-LigandReceptorAnalysis_files/figure-html/unnamed-chunk-9-1.png" alt="SCpubr do_LigandReceptorPlot split by ligand.complex." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-9)SCpubr do_LigandReceptorPlot split by ligand.complex.</p>
 </div>
 
 
@@ -126,8 +148,8 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="20-LigandReceptorAnalysis_files/figure-html/unnamed-chunk-9-1.png" alt="SCpubr do_LigandReceptorPlot split by receptor.complex." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-9)SCpubr do_LigandReceptorPlot split by receptor.complex.</p>
+<img src="20-LigandReceptorAnalysis_files/figure-html/unnamed-chunk-10-1.png" alt="SCpubr do_LigandReceptorPlot split by receptor.complex." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-10)SCpubr do_LigandReceptorPlot split by receptor.complex.</p>
 </div>
 
 ## Restrict the plot to given source and/or targets
@@ -144,8 +166,8 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="20-LigandReceptorAnalysis_files/figure-html/unnamed-chunk-10-1.png" alt="SCpubr do_LigandReceptorPlot with filtered source and targets." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-10)SCpubr do_LigandReceptorPlot with filtered source and targets.</p>
+<img src="20-LigandReceptorAnalysis_files/figure-html/unnamed-chunk-11-1.png" alt="SCpubr do_LigandReceptorPlot with filtered source and targets." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-11)SCpubr do_LigandReceptorPlot with filtered source and targets.</p>
 </div>
 
 ## Compute chord diagrams of the interactions
