@@ -4,7 +4,7 @@
 
 Deep intro goes here.
 
-## Basic usage.
+## Basic usage
 
 To generate a basic box plot you need to provide the seurat object and a feature to plot:
 
@@ -20,6 +20,8 @@ p
 <img src="11-BoxPlots_files/figure-html/unnamed-chunk-2-1.png" alt="Basic box plot." width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-2)Basic box plot.</p>
 </div>
+
+## Use custom grouping
 By default, the groups are the identities in the seurat object, but this can be controlled using `group.by parameter`.
 
 
@@ -55,6 +57,7 @@ p
 <p class="caption">(\#fig:unnamed-chunk-4)Flip the box plot.</p>
 </div>
 
+## Modify aesthetic style
 We can also apply another aesthetic style, which just colors the lines of the boxplots and leave the rest white with `use_silhouette = TRUE`:
 
 
@@ -71,6 +74,7 @@ p
 <p class="caption">(\#fig:unnamed-chunk-5)Apply silhouette style.</p>
 </div>
 
+## Reorder by mean values
 We can reorder the values by their average mean, from highest to lowest with `order = TRUE`:
 
 
@@ -87,6 +91,7 @@ p
 <p class="caption">(\#fig:unnamed-chunk-6)Order by mean.</p>
 </div>
 
+## Split by a second variable
 We can further apply a second grouping by using `split.by`.
 
 
@@ -103,6 +108,7 @@ p
 <p class="caption">(\#fig:unnamed-chunk-7)Apply a second grouping.</p>
 </div>
 
+## Apply statistical tests to compare groups
 Finally we can apply statistical tests to the groups, if we do not use `split.by`. We can do that by setting `use_test = TRUE` and providing the comparison as a list of pairs of items. The test, by default is wilcoxon test, but can be modified using `test`. *The correct use of such tests and their interpretation relies on the user*.
 
 

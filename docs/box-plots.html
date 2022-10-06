@@ -6,16 +6,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>9 Box plots | SCpubr</title>
 <meta name="author" content="Enrique Blanco Carmona">
-<meta name="description" content="Deep intro goes here.  9.1 Basic usage. To generate a basic box plot you need to provide the seurat object and a feature to plot: # Basic box plot. p &lt;- SCpubr::do_BoxPlot(sample = sample,        ...">
+<meta name="description" content="Deep intro goes here.  9.1 Basic usage To generate a basic box plot you need to provide the seurat object and a feature to plot: # Basic box plot. p &lt;- SCpubr::do_BoxPlot(sample = sample,         ...">
 <meta name="generator" content="bookdown 0.28 with bs4_book()">
 <meta property="og:title" content="9 Box plots | SCpubr">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://enblacar.github.io/SCpubr-book/box-plots.html">
 <meta property="og:image" content="https://enblacar.github.io/SCpubr-book/images/logo.png">
-<meta property="og:description" content="Deep intro goes here.  9.1 Basic usage. To generate a basic box plot you need to provide the seurat object and a feature to plot: # Basic box plot. p &lt;- SCpubr::do_BoxPlot(sample = sample,        ...">
+<meta property="og:description" content="Deep intro goes here.  9.1 Basic usage To generate a basic box plot you need to provide the seurat object and a feature to plot: # Basic box plot. p &lt;- SCpubr::do_BoxPlot(sample = sample,         ...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="9 Box plots | SCpubr">
-<meta name="twitter:description" content="Deep intro goes here.  9.1 Basic usage. To generate a basic box plot you need to provide the seurat object and a feature to plot: # Basic box plot. p &lt;- SCpubr::do_BoxPlot(sample = sample,        ...">
+<meta name="twitter:description" content="Deep intro goes here.  9.1 Basic usage To generate a basic box plot you need to provide the seurat object and a feature to plot: # Basic box plot. p &lt;- SCpubr::do_BoxPlot(sample = sample,         ...">
 <meta name="twitter:image" content="https://enblacar.github.io/SCpubr-book/images/logo.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -85,9 +85,9 @@
 <span class="header-section-number">9</span> Box plots<a class="anchor" aria-label="anchor" href="#box-plots"><i class="fas fa-link"></i></a>
 </h1>
 <p>Deep intro goes here.</p>
-<div id="basic-usage." class="section level2" number="9.1">
+<div id="basic-usage-7" class="section level2" number="9.1">
 <h2>
-<span class="header-section-number">9.1</span> Basic usage.<a class="anchor" aria-label="anchor" href="#basic-usage."><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.1</span> Basic usage<a class="anchor" aria-label="anchor" href="#basic-usage-7"><i class="fas fa-link"></i></a>
 </h2>
 <p>To generate a basic box plot you need to provide the seurat object and a feature to plot:</p>
 <div class="sourceCode" id="cb70"><pre class="downlit sourceCode r">
@@ -101,6 +101,11 @@
 Figure 1.1: Basic box plot.
 </p>
 </div>
+</div>
+<div id="use-custom-grouping" class="section level2" number="9.2">
+<h2>
+<span class="header-section-number">9.2</span> Use custom grouping<a class="anchor" aria-label="anchor" href="#use-custom-grouping"><i class="fas fa-link"></i></a>
+</h2>
 <p>By default, the groups are the identities in the seurat object, but this can be controlled using <code>group.by parameter</code>.</p>
 <div class="sourceCode" id="cb71"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Generate a custom group.</span></span>
@@ -130,6 +135,11 @@ Figure 1.2: Custom groups.
 Figure 1.3: Flip the box plot.
 </p>
 </div>
+</div>
+<div id="modify-aesthetic-style" class="section level2" number="9.3">
+<h2>
+<span class="header-section-number">9.3</span> Modify aesthetic style<a class="anchor" aria-label="anchor" href="#modify-aesthetic-style"><i class="fas fa-link"></i></a>
+</h2>
 <p>We can also apply another aesthetic style, which just colors the lines of the boxplots and leave the rest white with <code>use_silhouette = TRUE</code>:</p>
 <div class="sourceCode" id="cb73"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Use silhouette style.</span></span>
@@ -143,6 +153,11 @@ Figure 1.3: Flip the box plot.
 Figure 1.4: Apply silhouette style.
 </p>
 </div>
+</div>
+<div id="reorder-by-mean-values" class="section level2" number="9.4">
+<h2>
+<span class="header-section-number">9.4</span> Reorder by mean values<a class="anchor" aria-label="anchor" href="#reorder-by-mean-values"><i class="fas fa-link"></i></a>
+</h2>
 <p>We can reorder the values by their average mean, from highest to lowest with <code>order = TRUE</code>:</p>
 <div class="sourceCode" id="cb74"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Order by mean values.</span></span>
@@ -156,6 +171,11 @@ Figure 1.4: Apply silhouette style.
 Figure 1.5: Order by mean.
 </p>
 </div>
+</div>
+<div id="split-by-a-second-variable" class="section level2" number="9.5">
+<h2>
+<span class="header-section-number">9.5</span> Split by a second variable<a class="anchor" aria-label="anchor" href="#split-by-a-second-variable"><i class="fas fa-link"></i></a>
+</h2>
 <p>We can further apply a second grouping by using <code>split.by</code>.</p>
 <div class="sourceCode" id="cb75"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Apply second grouping.</span></span>
@@ -169,6 +189,11 @@ Figure 1.5: Order by mean.
 Figure 1.6: Apply a second grouping.
 </p>
 </div>
+</div>
+<div id="apply-statistical-tests-to-compare-groups" class="section level2" number="9.6">
+<h2>
+<span class="header-section-number">9.6</span> Apply statistical tests to compare groups<a class="anchor" aria-label="anchor" href="#apply-statistical-tests-to-compare-groups"><i class="fas fa-link"></i></a>
+</h2>
 <p>Finally we can apply statistical tests to the groups, if we do not use <code>split.by</code>. We can do that by setting <code>use_test = TRUE</code> and providing the comparison as a list of pairs of items. The test, by default is wilcoxon test, but can be modified using <code>test</code>. <em>The correct use of such tests and their interpretation relies on the user</em>.</p>
 <div class="sourceCode" id="cb76"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Apply statistical tests.</span></span>
@@ -215,7 +240,12 @@ Figure 1.8: Apply statistical tests and show the p-value
       <div class="book-extra">
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#box-plots"><span class="header-section-number">9</span> Box plots</a></li>
-<li><a class="nav-link" href="#basic-usage."><span class="header-section-number">9.1</span> Basic usage.</a></li>
+<li><a class="nav-link" href="#basic-usage-7"><span class="header-section-number">9.1</span> Basic usage</a></li>
+<li><a class="nav-link" href="#use-custom-grouping"><span class="header-section-number">9.2</span> Use custom grouping</a></li>
+<li><a class="nav-link" href="#modify-aesthetic-style"><span class="header-section-number">9.3</span> Modify aesthetic style</a></li>
+<li><a class="nav-link" href="#reorder-by-mean-values"><span class="header-section-number">9.4</span> Reorder by mean values</a></li>
+<li><a class="nav-link" href="#split-by-a-second-variable"><span class="header-section-number">9.5</span> Split by a second variable</a></li>
+<li><a class="nav-link" href="#apply-statistical-tests-to-compare-groups"><span class="header-section-number">9.6</span> Apply statistical tests to compare groups</a></li>
 </ul>
 
       <div class="book-extra">
@@ -239,7 +269,7 @@ Figure 1.8: Apply statistical tests and show the p-value
 <!-- Moved the footer outside of the body to make it span all page width. --><footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 06 October, 2022.</p>
+    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 07 October, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
