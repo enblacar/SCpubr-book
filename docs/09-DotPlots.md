@@ -12,7 +12,8 @@ p1 <- Seurat::DotPlot(sample,
                       features = "CD14")
 p2 <- Seurat::DotPlot(sample, 
                       features = "nCount_RNA")
-p1 | p2
+p <- p1 | p2
+p
 ```
 
 <div class="figure" style="text-align: center">
@@ -27,7 +28,8 @@ p1 <- SCpubr::do_DotPlot(sample = sample,
                          features = "CD14")
 p2 <- SCpubr::do_DotPlot(sample = sample, 
                          features = "nFeature_RNA")
-p1 | p2
+p <- p1 | p2
+p
 ```
 
 <div class="figure" style="text-align: center">
@@ -100,7 +102,8 @@ p2 <- SCpubr::do_DotPlot(sample = sample,
                          features = genes, 
                          cluster.idents = TRUE, 
                          plot.title = "Clustered")
-p1 / p2
+p <- p1 / p2
+p
 ```
 
 <div class="figure" style="text-align: center">
@@ -128,7 +131,8 @@ p2 <- SCpubr::do_DotPlot(sample = sample,
                          plot.title = "Clustered", 
                          flip = T,
                          rotate_x_axis_labels = FALSE)
-p1 | p2
+p <- p1 | p2
+p
 ```
 
 <div class="figure" style="text-align: center">

@@ -30,6 +30,7 @@ Further packages are needed in order to run the different functions:
 - [ggrepel](https://cran.r-project.org/web/packages/ggrepel/vignettes/ggrepel.html)
 - [ggridges](https://cran.r-project.org/web/packages/ggridges/vignettes/introduction.html)
 - [ggsankey](https://github.com/davidsjoberg/ggsankey)
+- [ggignif](https://cran.r-project.org/web/packages/ggsignif/vignettes/intro.html)
 - [liana](https://github.com/saezlab/liana)
 - [maggritr](https://cran.r-project.org/web/packages/magrittr/vignettes/magrittr.html)
 - [monocle3](https://cole-trapnell-lab.github.io/monocle3/)
@@ -65,6 +66,7 @@ cran_packages <- c("circlize",
                    "ggrastr",
                    "ggrepel",
                    "ggridges",
+                   "ggsignif",
                    "grDevices",
                    "grid",
                    "magrittr",

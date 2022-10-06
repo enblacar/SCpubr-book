@@ -4,17 +4,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>22 Pseudotime analysis | SCpubr</title>
+<title>23 Pseudotime analysis | SCpubr</title>
 <meta name="author" content="Enrique Blanco Carmona">
 <meta name="description" content="Pseudotime analysis is, perhaps, one of the major analysis that can be carried out in SC data. It aims to depict a trajectory, a sort of order in which cells transition from A to B. What defines...">
 <meta name="generator" content="bookdown 0.28 with bs4_book()">
-<meta property="og:title" content="22 Pseudotime analysis | SCpubr">
+<meta property="og:title" content="23 Pseudotime analysis | SCpubr">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://enblacar.github.io/SCpubr-book/pseudotime-analysis.html">
 <meta property="og:image" content="https://enblacar.github.io/SCpubr-book/images/logo.png">
 <meta property="og:description" content="Pseudotime analysis is, perhaps, one of the major analysis that can be carried out in SC data. It aims to depict a trajectory, a sort of order in which cells transition from A to B. What defines...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="22 Pseudotime analysis | SCpubr">
+<meta name="twitter:title" content="23 Pseudotime analysis | SCpubr">
 <meta name="twitter:description" content="Pseudotime analysis is, perhaps, one of the major analysis that can be carried out in SC data. It aims to depict a trajectory, a sort of order in which cells transition from A to B. What defines...">
 <meta name="twitter:image" content="https://enblacar.github.io/SCpubr-book/images/logo.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -50,21 +50,22 @@
 <li><a class="" href="ridge-plots.html"><span class="header-section-number">6</span> Ridge plots</a></li>
 <li><a class="" href="dot-plots.html"><span class="header-section-number">7</span> Dot plots</a></li>
 <li><a class="" href="bar-plots.html"><span class="header-section-number">8</span> Bar plots</a></li>
-<li><a class="" href="geyser-plots.html"><span class="header-section-number">9</span> Geyser plots</a></li>
-<li><a class="" href="volcano-plots.html"><span class="header-section-number">10</span> Volcano plots</a></li>
+<li><a class="" href="box-plots.html"><span class="header-section-number">9</span> Box plots</a></li>
+<li><a class="" href="geyser-plots.html"><span class="header-section-number">10</span> Geyser plots</a></li>
 <li><a class="" href="sankey-and-alluvial-plots.html"><span class="header-section-number">11</span> Sankey and alluvial plots</a></li>
 <li><a class="" href="chord-diagram-plots.html"><span class="header-section-number">12</span> Chord Diagram plots</a></li>
-<li><a class="" href="group-wise-de-analysis-plots.html"><span class="header-section-number">13</span> Group-wise DE analysis plots</a></li>
-<li><a class="" href="term-enrichment-plots.html"><span class="header-section-number">14</span> Term Enrichment Plots</a></li>
-<li><a class="" href="enrichment-score-heatmaps.html"><span class="header-section-number">15</span> Enrichment score heatmaps</a></li>
-<li><a class="" href="correlation-matrix-heatmaps.html"><span class="header-section-number">16</span> Correlation matrix heatmaps</a></li>
-<li><a class="" href="cellular-state-plots.html"><span class="header-section-number">17</span> Cellular State Plots</a></li>
-<li><a class="" href="ligand-receptor-analysis.html"><span class="header-section-number">18</span> Ligand-Receptor analysis</a></li>
-<li><a class="" href="copy-number-variant-analysis-plots.html"><span class="header-section-number">19</span> Copy Number Variant analysis plots</a></li>
-<li><a class="" href="pathway-activity-inference-analysis.html"><span class="header-section-number">20</span> Pathway Activity inference analysis</a></li>
-<li><a class="" href="tf-activity-inference-analysis.html"><span class="header-section-number">21</span> TF Activity inference analysis</a></li>
-<li><a class="active" href="pseudotime-analysis.html"><span class="header-section-number">22</span> Pseudotime analysis</a></li>
-<li><a class="" href="color-palettes.html"><span class="header-section-number">23</span> Color palettes</a></li>
+<li><a class="" href="volcano-plots.html"><span class="header-section-number">13</span> Volcano plots</a></li>
+<li><a class="" href="group-wise-de-analysis-plots.html"><span class="header-section-number">14</span> Group-wise DE analysis plots</a></li>
+<li><a class="" href="term-enrichment-plots.html"><span class="header-section-number">15</span> Term Enrichment Plots</a></li>
+<li><a class="" href="enrichment-score-heatmaps.html"><span class="header-section-number">16</span> Enrichment score heatmaps</a></li>
+<li><a class="" href="correlation-matrix-heatmaps.html"><span class="header-section-number">17</span> Correlation matrix heatmaps</a></li>
+<li><a class="" href="cellular-state-plots.html"><span class="header-section-number">18</span> Cellular State Plots</a></li>
+<li><a class="" href="ligand-receptor-analysis.html"><span class="header-section-number">19</span> Ligand-Receptor analysis</a></li>
+<li><a class="" href="copy-number-variant-analysis-plots.html"><span class="header-section-number">20</span> Copy Number Variant analysis plots</a></li>
+<li><a class="" href="pathway-activity-inference-analysis.html"><span class="header-section-number">21</span> Pathway Activity inference analysis</a></li>
+<li><a class="" href="tf-activity-inference-analysis.html"><span class="header-section-number">22</span> TF Activity inference analysis</a></li>
+<li><a class="active" href="pseudotime-analysis.html"><span class="header-section-number">23</span> Pseudotime analysis</a></li>
+<li><a class="" href="color-palettes.html"><span class="header-section-number">24</span> Color palettes</a></li>
 <li><a class="" href="common-features-across-plots.html">Common features across plots</a></li>
 <li><a class="" href="rasterized-figures.html">Rasterized figures</a></li>
 <li><a class="" href="save-the-figures.html">Save the figures</a></li>
@@ -79,26 +80,26 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="pseudotime-analysis" class="section level1" number="22">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="pseudotime-analysis" class="section level1" number="23">
 <h1>
-<span class="header-section-number">22</span> Pseudotime analysis<a class="anchor" aria-label="anchor" href="#pseudotime-analysis"><i class="fas fa-link"></i></a>
+<span class="header-section-number">23</span> Pseudotime analysis<a class="anchor" aria-label="anchor" href="#pseudotime-analysis"><i class="fas fa-link"></i></a>
 </h1>
 <p>Pseudotime analysis is, perhaps, one of the major analysis that can be carried out in SC data. It aims to depict a trajectory, a sort of order in which cells transition from A to B. What defines this process, and the starting and end point is <strong>heavily</strong> driven by the research question, the nature of the data and prior knowledge. While inferring this using data-driven approaches is possible, in <code>SCpubr</code> we will implement a prior-knowledge driven approach in a very specific use case.</p>
 <p>For this, we will make use of <a href="https://cole-trapnell-lab.github.io/monocle3/">monocle3</a>. Out of the many uses of monocle3, we can infer a trajectory graph for the cells and, based on a list of marker genes, we can <strong>order</strong> the cells along this graph selecting either the cell with the highest or lowest enrichment score for the provided list of genes as starting point. For example:</p>
 <p><em>In a general sense, we are working with a data set for which a given biological phenotype is expected. For this phenotype, we do have a list of genes that accurately characterize this process. The process needs to be of a differentiation kind, meaning that cells will transition based on this list of genes between state A and state B. Once these conditions are met, we can make use of the trajectory graph alongside enrichment scores for the cells in the list of genes. Depending whether this list of genes depict the start of the end of the process, we can use the cell with the highest or lowest enrichment scores as the starting point of the differentiation trajectory, ordering the rest of the cells based on that and computing the associated pseudotime.</em></p>
 <p>Of course, selecting the one cell with the highest or lowest enrichment scores might be a <em>simplistic</em> approach, as this elevated or low enrichment score might be due to technical bias. In order to correct this a bit, we first select the cluster (or selected group) that, in average, has the highest or lowest mean enrichment score and from this cluster we select the cell with the highest or lowest score, accordingly.</p>
 <p>Having this clear, again, we would like to remark that this is a very specific use case of this analysis and much more can be done using monocle3. Please have a look at their <a href="https://cole-trapnell-lab.github.io/monocle3/docs/trajectories/">vignette</a> for more information about pseudotime analysis. For our specific use case, <code><a href="https://rdrr.io/pkg/SCpubr/man/do_PseudotimePlot.html">SCpubr::do_PseudotimePlot()</a></code> can be used.</p>
-<div id="setting-up-partitions-and-clusters" class="section level2" number="22.1">
+<div id="setting-up-partitions-and-clusters" class="section level2" number="23.1">
 <h2>
-<span class="header-section-number">22.1</span> Setting up partitions and clusters<a class="anchor" aria-label="anchor" href="#setting-up-partitions-and-clusters"><i class="fas fa-link"></i></a>
+<span class="header-section-number">23.1</span> Setting up partitions and clusters<a class="anchor" aria-label="anchor" href="#setting-up-partitions-and-clusters"><i class="fas fa-link"></i></a>
 </h2>
 <p>For this function to work, we need a Seurat object together with a Cell Data Set (CDS) object, that needs to be generated by <code><a href="https://rdrr.io/pkg/SeuratWrappers/man/as.cell_data_set.html">SeuratWrappers::as.cell_data_set()</a></code>.</p>
 <p>First thing to take into account is that monocle3 computes <em>partitions</em> and <em>clusters</em>. This is, when cells are too far away, the trajectory is disconnected, generating partitions with different start and end trajectories. We can tweak this process by forcing all of our data to be in a single partition or to keep as identities the group that we desire. This can be done by using <code>compute_monocle_partitions</code> and <code>compute_monocle_clusters</code> parameters.</p>
 <p>We will use the following genes as a example, that depict CD14+ mono cells.</p>
-<div class="sourceCode" id="cb172"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb180"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Genes to use.</span></span>
 <span><span class="va">pseudotime_genes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"CD14"</span>, <span class="st">"LYN"</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb173"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb181"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Define your sample.</span></span>
 <span><span class="va">sample</span> <span class="op">&lt;-</span> <span class="va">your_seurat_object</span></span>
 <span><span class="co"># Transform into CDS.</span></span>
@@ -139,11 +140,11 @@
 <span>                                 compute_monocle_clusters <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>                                 group.by <span class="op">=</span> <span class="st">"orig.ident"</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div id="visualizing-the-trajectory-graph" class="section level2" number="22.2">
+<div id="visualizing-the-trajectory-graph" class="section level2" number="23.2">
 <h2>
-<span class="header-section-number">22.2</span> Visualizing the trajectory graph<a class="anchor" aria-label="anchor" href="#visualizing-the-trajectory-graph"><i class="fas fa-link"></i></a>
+<span class="header-section-number">23.2</span> Visualizing the trajectory graph<a class="anchor" aria-label="anchor" href="#visualizing-the-trajectory-graph"><i class="fas fa-link"></i></a>
 </h2>
-<div class="sourceCode" id="cb174"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb182"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Compute trajectory graph.</span></span>
 <span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_PseudotimePlot.html">do_PseudotimePlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                                 cds <span class="op">=</span> <span class="va">cds</span>,</span>
@@ -162,7 +163,7 @@ SCpubr do_PseudotimePlot trajectory graph output.
 </p>
 <p></p></span>
 <p>We can increase the trajectory graph width by using <code>trajectory_graph_segment_size</code> and the color with <code>trajectory_graph_color</code> parameters.</p>
-<div class="sourceCode" id="cb175"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb183"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Change trajectory graph width.</span></span>
 <span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_PseudotimePlot.html">do_PseudotimePlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                                 cds <span class="op">=</span> <span class="va">cds</span>,</span>
@@ -205,7 +206,7 @@ SCpubr do_PseudotimePlot trajectory graph with different widths and color.
 </p>
 <p></p></span>
 We can also add different elements to the graph, such as the roots, branches and leaves with
-<div class="sourceCode" id="cb176"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb184"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Add nodes, branches and leaves to the trajectory graph.</span></span>
 <span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_PseudotimePlot.html">do_PseudotimePlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                                 cds <span class="op">=</span> <span class="va">cds</span>,</span>
@@ -246,7 +247,7 @@ SCpubr do_PseudotimePlot trajectory graph with roots, branches and leaves.
 <p></p></span>
 ## Visualizing the pseudotime
 <p>We can inspect the pseudotime by providing whether the root of the trajectory is the highest or lowest enrichment score, with <code>is_max_score_the_start</code> parameter.</p>
-<div class="sourceCode" id="cb177"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb185"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Plot pseudotime with monocle partitions using highest score as root.</span></span>
 <span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_PseudotimePlot.html">do_PseudotimePlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                                 cds <span class="op">=</span> <span class="va">cds</span>,</span>
@@ -292,7 +293,7 @@ SCpubr do_PseudotimePlot pseudotime output with different ordering.
 <p></p></span>
 As can be observed, if we compute different partitions, the one used will be the one that contains the highest or lowest enrichment score, up to our choice. If not, the whole trajectory for the whole UMAP will be used, providing very different results. The key to this is the kind of sample/cds we provide as input (i.e, if we have a tumor bulk that we want to keep as a single partition or not or similar).
 <p>We can also visualize the enrichment scores as a feature plot alongside the pseudotime, either in a symmetrical scale or not with <code>enforce_symmetry</code>.</p>
-<div class="sourceCode" id="cb178"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb186"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Plot pseudotime with monocle partitions using highest score as root.</span></span>
 <span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_PseudotimePlot.html">do_PseudotimePlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                                 cds <span class="op">=</span> <span class="va">cds</span>,</span>
@@ -324,23 +325,23 @@ SCpubr do_PseudotimePlot pseudotime output with enrichment scores.
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="tf-activity-inference-analysis.html"><span class="header-section-number">21</span> TF Activity inference analysis</a></div>
-<div class="next"><a href="color-palettes.html"><span class="header-section-number">23</span> Color palettes</a></div>
+<div class="prev"><a href="tf-activity-inference-analysis.html"><span class="header-section-number">22</span> TF Activity inference analysis</a></div>
+<div class="next"><a href="color-palettes.html"><span class="header-section-number">24</span> Color palettes</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><form role="search" class="mt-4 mb-4">
         <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
 </form>
       <div class="book-extra">
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#pseudotime-analysis"><span class="header-section-number">22</span> Pseudotime analysis</a></li>
-<li><a class="nav-link" href="#setting-up-partitions-and-clusters"><span class="header-section-number">22.1</span> Setting up partitions and clusters</a></li>
-<li><a class="nav-link" href="#visualizing-the-trajectory-graph"><span class="header-section-number">22.2</span> Visualizing the trajectory graph</a></li>
+<li><a class="nav-link" href="#pseudotime-analysis"><span class="header-section-number">23</span> Pseudotime analysis</a></li>
+<li><a class="nav-link" href="#setting-up-partitions-and-clusters"><span class="header-section-number">23.1</span> Setting up partitions and clusters</a></li>
+<li><a class="nav-link" href="#visualizing-the-trajectory-graph"><span class="header-section-number">23.2</span> Visualizing the trajectory graph</a></li>
 </ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<!-- Modified page for chapter. --><li><a id="book-source" href="https://github.com/enblacar/SCpubr-book/blob/main/24-PseudotimeAnalysisPlots.Rmd">View chapter source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/enblacar/SCpubr-book/edit/main/24-PseudotimeAnalysisPlots.Rmd">Edit this chapter <i class="fab fa-github"></i></a></li>
+<!-- Modified page for chapter. --><li><a id="book-source" href="https://github.com/enblacar/SCpubr-book/blob/main/25-PseudotimeAnalysisPlots.Rmd">View chapter source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/enblacar/SCpubr-book/edit/main/25-PseudotimeAnalysisPlots.Rmd">Edit this chapter <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     
@@ -358,7 +359,7 @@ SCpubr do_PseudotimePlot pseudotime output with enrichment scores.
 <!-- Moved the footer outside of the body to make it span all page width. --><footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 04 October, 2022.</p>
+    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 06 October, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

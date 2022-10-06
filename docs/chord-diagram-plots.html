@@ -50,21 +50,22 @@
 <li><a class="" href="ridge-plots.html"><span class="header-section-number">6</span> Ridge plots</a></li>
 <li><a class="" href="dot-plots.html"><span class="header-section-number">7</span> Dot plots</a></li>
 <li><a class="" href="bar-plots.html"><span class="header-section-number">8</span> Bar plots</a></li>
-<li><a class="" href="geyser-plots.html"><span class="header-section-number">9</span> Geyser plots</a></li>
-<li><a class="" href="volcano-plots.html"><span class="header-section-number">10</span> Volcano plots</a></li>
+<li><a class="" href="box-plots.html"><span class="header-section-number">9</span> Box plots</a></li>
+<li><a class="" href="geyser-plots.html"><span class="header-section-number">10</span> Geyser plots</a></li>
 <li><a class="" href="sankey-and-alluvial-plots.html"><span class="header-section-number">11</span> Sankey and alluvial plots</a></li>
 <li><a class="active" href="chord-diagram-plots.html"><span class="header-section-number">12</span> Chord Diagram plots</a></li>
-<li><a class="" href="group-wise-de-analysis-plots.html"><span class="header-section-number">13</span> Group-wise DE analysis plots</a></li>
-<li><a class="" href="term-enrichment-plots.html"><span class="header-section-number">14</span> Term Enrichment Plots</a></li>
-<li><a class="" href="enrichment-score-heatmaps.html"><span class="header-section-number">15</span> Enrichment score heatmaps</a></li>
-<li><a class="" href="correlation-matrix-heatmaps.html"><span class="header-section-number">16</span> Correlation matrix heatmaps</a></li>
-<li><a class="" href="cellular-state-plots.html"><span class="header-section-number">17</span> Cellular State Plots</a></li>
-<li><a class="" href="ligand-receptor-analysis.html"><span class="header-section-number">18</span> Ligand-Receptor analysis</a></li>
-<li><a class="" href="copy-number-variant-analysis-plots.html"><span class="header-section-number">19</span> Copy Number Variant analysis plots</a></li>
-<li><a class="" href="pathway-activity-inference-analysis.html"><span class="header-section-number">20</span> Pathway Activity inference analysis</a></li>
-<li><a class="" href="tf-activity-inference-analysis.html"><span class="header-section-number">21</span> TF Activity inference analysis</a></li>
-<li><a class="" href="pseudotime-analysis.html"><span class="header-section-number">22</span> Pseudotime analysis</a></li>
-<li><a class="" href="color-palettes.html"><span class="header-section-number">23</span> Color palettes</a></li>
+<li><a class="" href="volcano-plots.html"><span class="header-section-number">13</span> Volcano plots</a></li>
+<li><a class="" href="group-wise-de-analysis-plots.html"><span class="header-section-number">14</span> Group-wise DE analysis plots</a></li>
+<li><a class="" href="term-enrichment-plots.html"><span class="header-section-number">15</span> Term Enrichment Plots</a></li>
+<li><a class="" href="enrichment-score-heatmaps.html"><span class="header-section-number">16</span> Enrichment score heatmaps</a></li>
+<li><a class="" href="correlation-matrix-heatmaps.html"><span class="header-section-number">17</span> Correlation matrix heatmaps</a></li>
+<li><a class="" href="cellular-state-plots.html"><span class="header-section-number">18</span> Cellular State Plots</a></li>
+<li><a class="" href="ligand-receptor-analysis.html"><span class="header-section-number">19</span> Ligand-Receptor analysis</a></li>
+<li><a class="" href="copy-number-variant-analysis-plots.html"><span class="header-section-number">20</span> Copy Number Variant analysis plots</a></li>
+<li><a class="" href="pathway-activity-inference-analysis.html"><span class="header-section-number">21</span> Pathway Activity inference analysis</a></li>
+<li><a class="" href="tf-activity-inference-analysis.html"><span class="header-section-number">22</span> TF Activity inference analysis</a></li>
+<li><a class="" href="pseudotime-analysis.html"><span class="header-section-number">23</span> Pseudotime analysis</a></li>
+<li><a class="" href="color-palettes.html"><span class="header-section-number">24</span> Color palettes</a></li>
 <li><a class="" href="common-features-across-plots.html">Common features across plots</a></li>
 <li><a class="" href="rasterized-figures.html">Rasterized figures</a></li>
 <li><a class="" href="save-the-figures.html">Save the figures</a></li>
@@ -84,12 +85,12 @@
 <span class="header-section-number">12</span> Chord Diagram plots<a class="anchor" aria-label="anchor" href="#chord-diagram-plots"><i class="fas fa-link"></i></a>
 </h1>
 <p>Chord Diagram plots are pretty much the same type of visualization as Sankey and Alluvial plots, but with the twist that the nodes are located forming a circle, therefore the links resembling chords. These type of visualizations can be achieved using package.</p>
-<div id="basic-usage-10" class="section level2" number="12.1">
+<div id="basic-usage-9" class="section level2" number="12.1">
 <h2>
-<span class="header-section-number">12.1</span> Basic usage<a class="anchor" aria-label="anchor" href="#basic-usage-10"><i class="fas fa-link"></i></a>
+<span class="header-section-number">12.1</span> Basic usage<a class="anchor" aria-label="anchor" href="#basic-usage-9"><i class="fas fa-link"></i></a>
 </h2>
 <p>This is how it looks:</p>
-<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb95"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Basic chord diagram.</span></span>
 <span><span class="va">sample</span><span class="op">$</span><span class="va">assignment</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">sample</span><span class="op">$</span><span class="va">seurat_clusters</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"0"</span>, <span class="st">"4"</span>, <span class="st">"7"</span><span class="op">)</span>, <span class="st">"A"</span>, <span class="st">"B"</span><span class="op">)</span></span>
 <span><span class="va">sample</span><span class="op">$</span><span class="va">assignment</span><span class="op">[</span><span class="va">sample</span><span class="op">$</span><span class="va">seurat_clusters</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"1"</span>, <span class="st">"2"</span><span class="op">)</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"C"</span></span>
@@ -111,7 +112,7 @@ Basic Chord Diagram.
 <span class="header-section-number">12.2</span> Control the gaps between and within groups<a class="anchor" aria-label="anchor" href="#control-the-gaps-between-and-within-groups"><i class="fas fa-link"></i></a>
 </h2>
 <p>We can modify the gaps between <code>from</code> and <code>to</code>, provided that there are not so many elements that this can not be accomplished. For this, we use <code>big_gap</code>:</p>
-<div class="sourceCode" id="cb91"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb96"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Increase gap between from and to groups.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_ChordDiagramPlot.html">do_ChordDiagramPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                                 from <span class="op">=</span> <span class="st">"seurat_clusters"</span>,</span>
@@ -124,7 +125,7 @@ Chord Diagram with increased big gap.
 </p>
 <p></p></span>
 <p>Similarly, we can also modify the gaps between the groups inside <code>from</code> and <code>to</code> with <code>small_gap</code>:</p>
-<div class="sourceCode" id="cb92"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb97"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Increase gap width groups in from and to.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_ChordDiagramPlot.html">do_ChordDiagramPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                                 from <span class="op">=</span> <span class="st">"seurat_clusters"</span>,</span>
@@ -142,7 +143,7 @@ Chord Diagram with increased small gap.
 <span class="header-section-number">12.3</span> Control the alignment of the diagram<a class="anchor" aria-label="anchor" href="#control-the-alignment-of-the-diagram"><i class="fas fa-link"></i></a>
 </h2>
 <p>We can force the alignment of the starting poing of the Chord diagram using the <code>alignment</code> parameter:</p>
-<div class="sourceCode" id="cb93"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb98"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Control the alignment of the diagram.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_ChordDiagramPlot.html">do_ChordDiagramPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                                 from <span class="op">=</span> <span class="st">"seurat_clusters"</span>,</span>
@@ -154,7 +155,7 @@ Chord Diagram with increased small gap.
 Chord Diagram starting horizontally.
 </p>
 <p></p></span>
-<div class="sourceCode" id="cb94"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb99"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_ChordDiagramPlot.html">do_ChordDiagramPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                                 from <span class="op">=</span> <span class="st">"seurat_clusters"</span>,</span>
 <span>                                 to <span class="op">=</span> <span class="st">"assignment"</span>,</span>
@@ -175,7 +176,7 @@ Chord Diagram starting vertically.
 - 1: The links go from <code>from</code> to <code>to</code>.
 - -1: The links go from <code>to</code> to <code>from</code>.
 - 2: The links are bidrectional.</p>
-<div class="sourceCode" id="cb95"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb100"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># We need to set direction.type to diffHeight only as arrows are, by nature, directional.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_ChordDiagramPlot.html">do_ChordDiagramPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                                 from <span class="op">=</span> <span class="st">"seurat_clusters"</span>,</span>
@@ -188,7 +189,7 @@ Chord Diagram starting vertically.
 Chord Diagram with links without any direction.
 </p>
 <p></p></span>
-<div class="sourceCode" id="cb96"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb101"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_ChordDiagramPlot.html">do_ChordDiagramPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                                 from <span class="op">=</span> <span class="st">"seurat_clusters"</span>,</span>
 <span>                                 to <span class="op">=</span> <span class="st">"assignment"</span>,</span>
@@ -199,7 +200,7 @@ Chord Diagram with links without any direction.
 Chord Diagram with links going from “from” to “to”.
 </p>
 <p></p></span>
-<div class="sourceCode" id="cb97"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb102"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_ChordDiagramPlot.html">do_ChordDiagramPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                                 from <span class="op">=</span> <span class="st">"seurat_clusters"</span>,</span>
 <span>                                 to <span class="op">=</span> <span class="st">"assignment"</span>,</span>
@@ -210,7 +211,7 @@ Chord Diagram with links going from “from” to “to”.
 Chord Diagram with links going from “to” to “from”.
 </p>
 <p></p></span>
-<div class="sourceCode" id="cb98"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb103"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># We need to set direction.type to diffHeight only as arrows are, by nature, directional.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_ChordDiagramPlot.html">do_ChordDiagramPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                                 from <span class="op">=</span> <span class="st">"seurat_clusters"</span>,</span>
@@ -229,7 +230,7 @@ Chord Diagram with links going in both directions.
 <span class="header-section-number">12.5</span> Add padding to the labels<a class="anchor" aria-label="anchor" href="#add-padding-to-the-labels"><i class="fas fa-link"></i></a>
 </h2>
 <p>One can add more padding to the labels by using <code>padding_labels</code>. The number provided is the amount of whitespaces padding the label.</p>
-<div class="sourceCode" id="cb99"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb104"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Add more padding to the labels.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_ChordDiagramPlot.html">do_ChordDiagramPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                                 from <span class="op">=</span> <span class="st">"seurat_clusters"</span>,</span>
@@ -247,7 +248,7 @@ Chord Diagram with extra padding.
 <span class="header-section-number">12.6</span> Scale the nodes<a class="anchor" aria-label="anchor" href="#scale-the-nodes"><i class="fas fa-link"></i></a>
 </h2>
 <p>If we want to show the nodes with equal size, links reflecting a proportion instead, we can set <code>scale = TRUE</code>.</p>
-<div class="sourceCode" id="cb100"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb105"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Scale the size of the nodes.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_ChordDiagramPlot.html">do_ChordDiagramPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                                 from <span class="op">=</span> <span class="st">"seurat_clusters"</span>,</span>
@@ -266,7 +267,7 @@ Chord Diagram with scaled nodes.
 <span class="header-section-number">12.7</span> Self linking<a class="anchor" aria-label="anchor" href="#self-linking"><i class="fas fa-link"></i></a>
 </h2>
 <p>We can also control whether we want to allow self linking between the nodes or not. For this, we can set <code>self.link = 2</code> to allow them or <code>self.link = 1</code> to prevent them.</p>
-<div class="sourceCode" id="cb101"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb106"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Prevent self linking.</span></span>
 <span><span class="va">sample</span><span class="op">$</span><span class="va">seurat_clusters2</span> <span class="op">&lt;-</span> <span class="va">sample</span><span class="op">$</span><span class="va">seurat_clusters</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_ChordDiagramPlot.html">do_ChordDiagramPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
@@ -280,7 +281,7 @@ Chord Diagram with scaled nodes.
 Chord Diagram with prevented self linking.
 </p>
 <p></p></span>
-<div class="sourceCode" id="cb102"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb107"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Allow self linking.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_ChordDiagramPlot.html">do_ChordDiagramPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                                 from <span class="op">=</span> <span class="st">"seurat_clusters"</span>,</span>
@@ -299,7 +300,7 @@ Chord Diagram with allowed self linking.
 <span class="header-section-number">12.8</span> Control the appearance of the arrows<a class="anchor" aria-label="anchor" href="#control-the-appearance-of-the-arrows"><i class="fas fa-link"></i></a>
 </h2>
 <p>The arrows can be modified by using <code>link.arr.type</code> parameter:</p>
-<div class="sourceCode" id="cb103"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb108"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Set triangle arrows.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_ChordDiagramPlot.html">do_ChordDiagramPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                                 from <span class="op">=</span> <span class="st">"seurat_clusters"</span>,</span>
@@ -311,7 +312,7 @@ Chord Diagram with allowed self linking.
 Chord Diagram with triangle arrows.
 </p>
 <p></p></span>
-<div class="sourceCode" id="cb104"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb109"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Set big arrows.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_ChordDiagramPlot.html">do_ChordDiagramPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                                 from <span class="op">=</span> <span class="st">"seurat_clusters"</span>,</span>
@@ -328,7 +329,7 @@ Chord Diagram with big arrows.
 </div>
   <div class="chapter-nav">
 <div class="prev"><a href="sankey-and-alluvial-plots.html"><span class="header-section-number">11</span> Sankey and alluvial plots</a></div>
-<div class="next"><a href="group-wise-de-analysis-plots.html"><span class="header-section-number">13</span> Group-wise DE analysis plots</a></div>
+<div class="next"><a href="volcano-plots.html"><span class="header-section-number">13</span> Volcano plots</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><form role="search" class="mt-4 mb-4">
         <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
@@ -336,7 +337,7 @@ Chord Diagram with big arrows.
       <div class="book-extra">
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#chord-diagram-plots"><span class="header-section-number">12</span> Chord Diagram plots</a></li>
-<li><a class="nav-link" href="#basic-usage-10"><span class="header-section-number">12.1</span> Basic usage</a></li>
+<li><a class="nav-link" href="#basic-usage-9"><span class="header-section-number">12.1</span> Basic usage</a></li>
 <li><a class="nav-link" href="#control-the-gaps-between-and-within-groups"><span class="header-section-number">12.2</span> Control the gaps between and within groups</a></li>
 <li><a class="nav-link" href="#control-the-alignment-of-the-diagram"><span class="header-section-number">12.3</span> Control the alignment of the diagram</a></li>
 <li><a class="nav-link" href="#control-the-directions-of-the-links"><span class="header-section-number">12.4</span> Control the directions of the links</a></li>
@@ -367,7 +368,7 @@ Chord Diagram with big arrows.
 <!-- Moved the footer outside of the body to make it span all page width. --><footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 04 October, 2022.</p>
+    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 06 October, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

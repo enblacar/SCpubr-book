@@ -4,17 +4,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>13 Group-wise DE analysis plots | SCpubr</title>
+<title>14 Group-wise DE analysis plots | SCpubr</title>
 <meta name="author" content="Enrique Blanco Carmona">
 <meta name="description" content="A common analysis that can be performed on SC data is a group-wise DE analysis. This is, for example, we want to compute the differentially expressed (DE) genes between each of our cell clusters...">
 <meta name="generator" content="bookdown 0.28 with bs4_book()">
-<meta property="og:title" content="13 Group-wise DE analysis plots | SCpubr">
+<meta property="og:title" content="14 Group-wise DE analysis plots | SCpubr">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://enblacar.github.io/SCpubr-book/group-wise-de-analysis-plots.html">
 <meta property="og:image" content="https://enblacar.github.io/SCpubr-book/images/logo.png">
 <meta property="og:description" content="A common analysis that can be performed on SC data is a group-wise DE analysis. This is, for example, we want to compute the differentially expressed (DE) genes between each of our cell clusters...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="13 Group-wise DE analysis plots | SCpubr">
+<meta name="twitter:title" content="14 Group-wise DE analysis plots | SCpubr">
 <meta name="twitter:description" content="A common analysis that can be performed on SC data is a group-wise DE analysis. This is, for example, we want to compute the differentially expressed (DE) genes between each of our cell clusters...">
 <meta name="twitter:image" content="https://enblacar.github.io/SCpubr-book/images/logo.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -50,21 +50,22 @@
 <li><a class="" href="ridge-plots.html"><span class="header-section-number">6</span> Ridge plots</a></li>
 <li><a class="" href="dot-plots.html"><span class="header-section-number">7</span> Dot plots</a></li>
 <li><a class="" href="bar-plots.html"><span class="header-section-number">8</span> Bar plots</a></li>
-<li><a class="" href="geyser-plots.html"><span class="header-section-number">9</span> Geyser plots</a></li>
-<li><a class="" href="volcano-plots.html"><span class="header-section-number">10</span> Volcano plots</a></li>
+<li><a class="" href="box-plots.html"><span class="header-section-number">9</span> Box plots</a></li>
+<li><a class="" href="geyser-plots.html"><span class="header-section-number">10</span> Geyser plots</a></li>
 <li><a class="" href="sankey-and-alluvial-plots.html"><span class="header-section-number">11</span> Sankey and alluvial plots</a></li>
 <li><a class="" href="chord-diagram-plots.html"><span class="header-section-number">12</span> Chord Diagram plots</a></li>
-<li><a class="active" href="group-wise-de-analysis-plots.html"><span class="header-section-number">13</span> Group-wise DE analysis plots</a></li>
-<li><a class="" href="term-enrichment-plots.html"><span class="header-section-number">14</span> Term Enrichment Plots</a></li>
-<li><a class="" href="enrichment-score-heatmaps.html"><span class="header-section-number">15</span> Enrichment score heatmaps</a></li>
-<li><a class="" href="correlation-matrix-heatmaps.html"><span class="header-section-number">16</span> Correlation matrix heatmaps</a></li>
-<li><a class="" href="cellular-state-plots.html"><span class="header-section-number">17</span> Cellular State Plots</a></li>
-<li><a class="" href="ligand-receptor-analysis.html"><span class="header-section-number">18</span> Ligand-Receptor analysis</a></li>
-<li><a class="" href="copy-number-variant-analysis-plots.html"><span class="header-section-number">19</span> Copy Number Variant analysis plots</a></li>
-<li><a class="" href="pathway-activity-inference-analysis.html"><span class="header-section-number">20</span> Pathway Activity inference analysis</a></li>
-<li><a class="" href="tf-activity-inference-analysis.html"><span class="header-section-number">21</span> TF Activity inference analysis</a></li>
-<li><a class="" href="pseudotime-analysis.html"><span class="header-section-number">22</span> Pseudotime analysis</a></li>
-<li><a class="" href="color-palettes.html"><span class="header-section-number">23</span> Color palettes</a></li>
+<li><a class="" href="volcano-plots.html"><span class="header-section-number">13</span> Volcano plots</a></li>
+<li><a class="active" href="group-wise-de-analysis-plots.html"><span class="header-section-number">14</span> Group-wise DE analysis plots</a></li>
+<li><a class="" href="term-enrichment-plots.html"><span class="header-section-number">15</span> Term Enrichment Plots</a></li>
+<li><a class="" href="enrichment-score-heatmaps.html"><span class="header-section-number">16</span> Enrichment score heatmaps</a></li>
+<li><a class="" href="correlation-matrix-heatmaps.html"><span class="header-section-number">17</span> Correlation matrix heatmaps</a></li>
+<li><a class="" href="cellular-state-plots.html"><span class="header-section-number">18</span> Cellular State Plots</a></li>
+<li><a class="" href="ligand-receptor-analysis.html"><span class="header-section-number">19</span> Ligand-Receptor analysis</a></li>
+<li><a class="" href="copy-number-variant-analysis-plots.html"><span class="header-section-number">20</span> Copy Number Variant analysis plots</a></li>
+<li><a class="" href="pathway-activity-inference-analysis.html"><span class="header-section-number">21</span> Pathway Activity inference analysis</a></li>
+<li><a class="" href="tf-activity-inference-analysis.html"><span class="header-section-number">22</span> TF Activity inference analysis</a></li>
+<li><a class="" href="pseudotime-analysis.html"><span class="header-section-number">23</span> Pseudotime analysis</a></li>
+<li><a class="" href="color-palettes.html"><span class="header-section-number">24</span> Color palettes</a></li>
 <li><a class="" href="common-features-across-plots.html">Common features across plots</a></li>
 <li><a class="" href="rasterized-figures.html">Rasterized figures</a></li>
 <li><a class="" href="save-the-figures.html">Save the figures</a></li>
@@ -79,12 +80,12 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="group-wise-de-analysis-plots" class="section level1" number="13">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="group-wise-de-analysis-plots" class="section level1" number="14">
 <h1>
-<span class="header-section-number">13</span> Group-wise DE analysis plots<a class="anchor" aria-label="anchor" href="#group-wise-de-analysis-plots"><i class="fas fa-link"></i></a>
+<span class="header-section-number">14</span> Group-wise DE analysis plots<a class="anchor" aria-label="anchor" href="#group-wise-de-analysis-plots"><i class="fas fa-link"></i></a>
 </h1>
 <p>A common analysis that can be performed on SC data is a group-wise DE analysis. This is, for example, we want to compute the differentially expressed (DE) genes between each of our cell clusters vs the rest of the clusters. This yields a data frame in which we have the DE genes between each of the comparisons, that we can then use for visualization purposes, such as heatmaps. This process is implemented in <code><a href="https://rdrr.io/pkg/SCpubr/man/do_GroupwiseDEPlot.html">SCpubr::do_GroupwiseDEPlot()</a></code>. For this, we will need to provide the function a Seurat object and the output of the following command:</p>
-<div class="sourceCode" id="cb105"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb113"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Seurat sample.</span></span>
 <span><span class="va">sample</span> <span class="op">&lt;-</span> <span class="va">your_seurat_object</span></span>
 <span></span>
@@ -94,7 +95,7 @@
 <span><span class="co"># Compute DE genes and transform to a tibble.</span></span>
 <span><span class="va">de_genes</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span><span class="fu">Seurat</span><span class="fu">::</span><span class="fu"><a href="https://satijalab.org/seurat/reference/FindAllMarkers.html">FindAllMarkers</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">sample</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>This is the basic output of the function:</p>
-<div class="sourceCode" id="cb106"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb114"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Default output.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_GroupwiseDEPlot.html">do_GroupwiseDEPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                                de_genes <span class="op">=</span> <span class="va">de_genes</span><span class="op">)</span></span>
@@ -102,17 +103,17 @@
 <span><span class="va">p</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-3"></span>
-<img src="15-GroupWiseDEPlots_files/figure-html/unnamed-chunk-3-1.png" alt="SCpubr do_GroupwiseDEPlot default output." width="100%" height="100%"><p class="caption">
+<img src="16-GroupWiseDEPlots_files/figure-html/unnamed-chunk-3-1.png" alt="SCpubr do_GroupwiseDEPlot default output." width="100%" height="100%"><p class="caption">
 Figure 1.2: SCpubr do_GroupwiseDEPlot default output.
 </p>
 </div>
 <p>By default, this computes three different heatmaps, all showing the top 5 DE genes for each of the clusters or groups for which we computed the DE genes, and their respective adjusted p-values (- log10), fold change (FC, log2) and mean expression by the groups. Genes are ordered based on the order of the groups. Therefore, these heatmaps have no hierarchical clustering in neither rows or columns.</p>
-<div id="increase-the-number-of-genes" class="section level2" number="13.1">
+<div id="increase-the-number-of-genes" class="section level2" number="14.1">
 <h2>
-<span class="header-section-number">13.1</span> Increase the number of genes<a class="anchor" aria-label="anchor" href="#increase-the-number-of-genes"><i class="fas fa-link"></i></a>
+<span class="header-section-number">14.1</span> Increase the number of genes<a class="anchor" aria-label="anchor" href="#increase-the-number-of-genes"><i class="fas fa-link"></i></a>
 </h2>
 <p>The number of top DE genes by cluster can be increased or reduced by using <code>top_genes</code>.</p>
-<div class="sourceCode" id="cb107"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb115"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Increase the number of top DE genes by cluster.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_GroupwiseDEPlot.html">do_GroupwiseDEPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                                de_genes <span class="op">=</span> <span class="va">de_genes</span>,</span>
@@ -121,17 +122,17 @@ Figure 1.2: SCpubr do_GroupwiseDEPlot default output.
 <span><span class="va">p</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-4"></span>
-<img src="15-GroupWiseDEPlots_files/figure-html/unnamed-chunk-4-1.png" alt="SCpubr do_GroupwiseDEPlot increasing the number of DE genes by cluster." width="100%" height="100%"><p class="caption">
+<img src="16-GroupWiseDEPlots_files/figure-html/unnamed-chunk-4-1.png" alt="SCpubr do_GroupwiseDEPlot increasing the number of DE genes by cluster." width="100%" height="100%"><p class="caption">
 Figure 1.3: SCpubr do_GroupwiseDEPlot increasing the number of DE genes by cluster.
 </p>
 </div>
 </div>
-<div id="modify-the-titles-of-the-rows-and-columns" class="section level2" number="13.2">
+<div id="modify-the-titles-of-the-rows-and-columns" class="section level2" number="14.2">
 <h2>
-<span class="header-section-number">13.2</span> Modify the titles of the rows and columns<a class="anchor" aria-label="anchor" href="#modify-the-titles-of-the-rows-and-columns"><i class="fas fa-link"></i></a>
+<span class="header-section-number">14.2</span> Modify the titles of the rows and columns<a class="anchor" aria-label="anchor" href="#modify-the-titles-of-the-rows-and-columns"><i class="fas fa-link"></i></a>
 </h2>
 <p>We can also modify the row titles of the other heatmap bodies with <code>row_title_p_values</code>, <code>row_title_expression</code> and <code>row_title_logfc</code> and the column titles with <code>column_title</code> and the angle of rotation of the row titles with</p>
-<div class="sourceCode" id="cb108"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb116"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Modify the row and column titles and the rotation.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_GroupwiseDEPlot.html">do_GroupwiseDEPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                                de_genes <span class="op">=</span> <span class="va">de_genes</span>,</span>
@@ -144,17 +145,17 @@ Figure 1.3: SCpubr do_GroupwiseDEPlot increasing the number of DE genes by clust
 <span><span class="va">p</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-5"></span>
-<img src="15-GroupWiseDEPlots_files/figure-html/unnamed-chunk-5-1.png" alt="SCpubr do_GroupwiseDEPlot with modified row and column titles." width="100%" height="100%"><p class="caption">
+<img src="16-GroupWiseDEPlots_files/figure-html/unnamed-chunk-5-1.png" alt="SCpubr do_GroupwiseDEPlot with modified row and column titles." width="100%" height="100%"><p class="caption">
 Figure 1.4: SCpubr do_GroupwiseDEPlot with modified row and column titles.
 </p>
 </div>
 </div>
-<div id="add-further-layers-of-mean-expression" class="section level2" number="13.3">
+<div id="add-further-layers-of-mean-expression" class="section level2" number="14.3">
 <h2>
-<span class="header-section-number">13.3</span> Add further layers of mean expression<a class="anchor" aria-label="anchor" href="#add-further-layers-of-mean-expression"><i class="fas fa-link"></i></a>
+<span class="header-section-number">14.3</span> Add further layers of mean expression<a class="anchor" aria-label="anchor" href="#add-further-layers-of-mean-expression"><i class="fas fa-link"></i></a>
 </h2>
 <p>One can add more groupings to the heatmap of mean expression values by making use of <code>group.by</code> parameter, that is set to <code>seurat_clusters</code> by default. As they will surely be other groups different than the ones the DE genes were computed to, we need to provide as many row titles for the new heatmaps as values in <code>group.by</code>, even if it is empty characters.</p>
-<div class="sourceCode" id="cb109"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb117"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">sample</span><span class="op">$</span><span class="va">modified_orig.ident</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Sample_A"</span>, <span class="st">"Sample_B"</span>, <span class="st">"Sample_C"</span><span class="op">)</span>, </span>
 <span>                                     size <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">sample</span><span class="op">)</span>, </span>
 <span>                                     replace <span class="op">=</span> <span class="cn">T</span>, </span>
@@ -173,18 +174,18 @@ Figure 1.4: SCpubr do_GroupwiseDEPlot with modified row and column titles.
 <span><span class="va">p</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-6"></span>
-<img src="15-GroupWiseDEPlots_files/figure-html/unnamed-chunk-6-1.png" alt="SCpubr do_GroupwiseDEPlot with multiple layers of mean expression." width="100%" height="100%"><p class="caption">
+<img src="16-GroupWiseDEPlots_files/figure-html/unnamed-chunk-6-1.png" alt="SCpubr do_GroupwiseDEPlot with multiple layers of mean expression." width="100%" height="100%"><p class="caption">
 Figure 1.5: SCpubr do_GroupwiseDEPlot with multiple layers of mean expression.
 </p>
 </div>
 <p>This can be useful if we have different groupings we want to inspect at the same time. Also, the color scale is shared by all expression heatmaps.</p>
 </div>
-<div id="modify-color-scales" class="section level2" number="13.4">
+<div id="modify-color-scales" class="section level2" number="14.4">
 <h2>
-<span class="header-section-number">13.4</span> Modify color scales<a class="anchor" aria-label="anchor" href="#modify-color-scales"><i class="fas fa-link"></i></a>
+<span class="header-section-number">14.4</span> Modify color scales<a class="anchor" aria-label="anchor" href="#modify-color-scales"><i class="fas fa-link"></i></a>
 </h2>
 <p>We can modify the color scales for each of the three main types of heatmaps with <code>viridis_map_pvalues</code>, <code>viridis_map_logfc</code> and <code>viridis_map_expression</code>, and providing a letter corresponding to a color scale.</p>
-<div class="sourceCode" id="cb110"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb118"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Change the viridis scales.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_GroupwiseDEPlot.html">do_GroupwiseDEPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                                de_genes <span class="op">=</span> <span class="va">de_genes</span>,</span>
@@ -195,7 +196,7 @@ Figure 1.5: SCpubr do_GroupwiseDEPlot with multiple layers of mean expression.
 <span><span class="va">p</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-7"></span>
-<img src="15-GroupWiseDEPlots_files/figure-html/unnamed-chunk-7-1.png" alt="SCpubr do_GroupwiseDEPlot with other viridis scales." width="100%" height="100%"><p class="caption">
+<img src="16-GroupWiseDEPlots_files/figure-html/unnamed-chunk-7-1.png" alt="SCpubr do_GroupwiseDEPlot with other viridis scales." width="100%" height="100%"><p class="caption">
 Figure 1.6: SCpubr do_GroupwiseDEPlot with other viridis scales.
 </p>
 </div>
@@ -203,25 +204,25 @@ Figure 1.6: SCpubr do_GroupwiseDEPlot with other viridis scales.
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="chord-diagram-plots.html"><span class="header-section-number">12</span> Chord Diagram plots</a></div>
-<div class="next"><a href="term-enrichment-plots.html"><span class="header-section-number">14</span> Term Enrichment Plots</a></div>
+<div class="prev"><a href="volcano-plots.html"><span class="header-section-number">13</span> Volcano plots</a></div>
+<div class="next"><a href="term-enrichment-plots.html"><span class="header-section-number">15</span> Term Enrichment Plots</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><form role="search" class="mt-4 mb-4">
         <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
 </form>
       <div class="book-extra">
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#group-wise-de-analysis-plots"><span class="header-section-number">13</span> Group-wise DE analysis plots</a></li>
-<li><a class="nav-link" href="#increase-the-number-of-genes"><span class="header-section-number">13.1</span> Increase the number of genes</a></li>
-<li><a class="nav-link" href="#modify-the-titles-of-the-rows-and-columns"><span class="header-section-number">13.2</span> Modify the titles of the rows and columns</a></li>
-<li><a class="nav-link" href="#add-further-layers-of-mean-expression"><span class="header-section-number">13.3</span> Add further layers of mean expression</a></li>
-<li><a class="nav-link" href="#modify-color-scales"><span class="header-section-number">13.4</span> Modify color scales</a></li>
+<li><a class="nav-link" href="#group-wise-de-analysis-plots"><span class="header-section-number">14</span> Group-wise DE analysis plots</a></li>
+<li><a class="nav-link" href="#increase-the-number-of-genes"><span class="header-section-number">14.1</span> Increase the number of genes</a></li>
+<li><a class="nav-link" href="#modify-the-titles-of-the-rows-and-columns"><span class="header-section-number">14.2</span> Modify the titles of the rows and columns</a></li>
+<li><a class="nav-link" href="#add-further-layers-of-mean-expression"><span class="header-section-number">14.3</span> Add further layers of mean expression</a></li>
+<li><a class="nav-link" href="#modify-color-scales"><span class="header-section-number">14.4</span> Modify color scales</a></li>
 </ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<!-- Modified page for chapter. --><li><a id="book-source" href="https://github.com/enblacar/SCpubr-book/blob/main/15-GroupWiseDEPlots.Rmd">View chapter source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/enblacar/SCpubr-book/edit/main/15-GroupWiseDEPlots.Rmd">Edit this chapter <i class="fab fa-github"></i></a></li>
+<!-- Modified page for chapter. --><li><a id="book-source" href="https://github.com/enblacar/SCpubr-book/blob/main/16-GroupWiseDEPlots.Rmd">View chapter source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/enblacar/SCpubr-book/edit/main/16-GroupWiseDEPlots.Rmd">Edit this chapter <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     
@@ -239,7 +240,7 @@ Figure 1.6: SCpubr do_GroupwiseDEPlot with other viridis scales.
 <!-- Moved the footer outside of the body to make it span all page width. --><footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 04 October, 2022.</p>
+    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 06 October, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -13,7 +13,8 @@ p1 <- Seurat::DotPlot(sample,
                       features = "CD14")
 p2 <- Seurat::DotPlot(sample, 
                       features = "nCount_RNA")
-p1 | p2
+p <- p1 | p2
+p
 ```
 As can be seen, if we try to plot other type of variables, the resulting plot will not contain a color scale. `SCpubr::do_DimPlot()` focuses on enhancing the overall appearance of the plots. Implementation using other types of features is not currently supported. This is how it looks using `SCpubr::do_DimPlot()`:
 
@@ -22,7 +23,8 @@ p1 <- SCpubr::do_DotPlot(sample = sample,
                          features = "CD14")
 p2 <- SCpubr::do_DotPlot(sample = sample, 
                          features = "nFeature_RNA")
-p1 | p2
+p <- p1 | p2
+p
 ```
 
 ## Querying multiple features at once
@@ -77,8 +79,8 @@ p2 <- SCpubr::do_DotPlot(sample = sample,
                          features = genes, 
                          cluster.idents = TRUE, 
                          plot.title = "Clustered")
-p1 / p2
-
+p <- p1 / p2
+p
 ```
 
 ## Inverting the axes
@@ -100,6 +102,7 @@ p2 <- SCpubr::do_DotPlot(sample = sample,
                          plot.title = "Clustered", 
                          flip = T,
                          rotate_x_axis_labels = FALSE)
-p1 | p2
+p <- p1 | p2
+p
 ```
 
