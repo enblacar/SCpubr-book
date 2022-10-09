@@ -159,3 +159,7 @@ out$chord_total_interactions
 out$chord_ligand_receptor
 ```
 <span class="border-0"><img src="images/chord4.png" class="mx-auto d-block" alt="" style="box-shadow: none; width: 100%"/></span>
+
+## Avoid generating a `omnipath-log` folder
+
+If this folder appears in your tree structure, consider applying the hotfix stated [here](https://github.com/saezlab/liana/issues/61#issuecomment-1271589284). 

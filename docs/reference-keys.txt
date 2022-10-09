@@ -119,6 +119,7 @@ invert-axis
 split-the-plot-by-ligand-or-receptor-complex
 restrict-the-plot-to-given-source-andor-targets
 compute-chord-diagrams-of-the-interactions
+avoid-generating-a-omnipath-log-folder
 copy-number-variant-analysis-plots
 transferring-the-scores-to-a-featureplot
 plotting-the-scores-grouped-by-a-group-of-interest
