@@ -5,6 +5,9 @@
 Sankey and alluvial plots are a set of visualizations that help depicting how the cells "flow" from a given group to another. This can be particular interesting, let's say, when we have a merged dataset that has samples from different subtypes and we want to see how the cells from each subtype distribute along the different clusters in our sample. Or, similarly, how the cells from each cluster distribute across the different individual datasets.
 
 ## Basic usage
+
+**Due to an internal bug in ggsankey, the package dplyr has to be loaded with `library(dplyr)` before running this function.**
+
 This is how we can achieve basic Sankey or alluvial plots (using \link[ggsankey]{https://github.com/davidsjoberg/ggsankey} package):
 
 
@@ -42,6 +45,7 @@ p
 <img src="13-SankeyPlots_files/figure-html/unnamed-chunk-2-1.png" alt="Basic Sankey and Alluvial plots." width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-2)Basic Sankey and Alluvial plots.</p>
 </div>
+
 The key aspects of this figure is that one has to provide the starting and end groups to `first_group` and `last_group` parameters, and the type of plot to `type`, making it either alluvial or sankey. The major difference between both is simply that the alluvial plot has not space between the groups. This allows for a more compact visualization, although it can get quite messy depending on the colors. We can keep adding as many groups as we want in between by using `middle_groups` parameter.
 
 
@@ -71,7 +75,8 @@ p
 </div>
 
 ## Modify node aesthetics
-By default, the color of the nodes and the fill is white, so that they can not be seen. One Can modify this by using `node.fill` and `node.color`. 
+
+By default, the color of the nodes and the fill is white, so that they can not be seen. One Can modify this by using `node.fill` and `node.color`.
 
 
 ```r
@@ -100,6 +105,7 @@ p
 <img src="13-SankeyPlots_files/figure-html/unnamed-chunk-4-1.png" alt="Basic Sankey and Alluvial plots with modified colors for the nodes." width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-4)Basic Sankey and Alluvial plots with modified colors for the nodes.</p>
 </div>
+
 As can be seen, the text labels, then, overlap the limits of the nodes. We can fix that using the `width` parameter:
 
 
@@ -132,6 +138,7 @@ p
 </div>
 
 ## Control alignment of the labels
+
 We can also control the alignment of the labels (goes different by the different groups by default) using the `hjust` parameter. This will modify it for all the nodes.
 
 
@@ -194,6 +201,7 @@ p
 </div>
 
 ## Increase the gap between the nodes
+
 One can also increase the gaps between the nodes. This is done by providing a number to `space`. This number would act as "invisible" cells in between the nodes. So one needs to think in terms of how many cells do we have in our dataset. The bigger the dataset, the higher the number we need to notice a difference. It is set by default to 5% of the total number of cells in the dataset.
 
 
@@ -223,7 +231,8 @@ p
 </div>
 
 ## Modify default colors
-Finally, we can modify the default colors by providing our own to `colors.first`, `colors.middle` and `colors.last`. It has to be a named vector with 
+
+Finally, we can modify the default colors by providing our own to `colors.first`, `colors.middle` and `colors.last`. It has to be a named vector with
 
 
 ```r
@@ -245,5 +254,3 @@ p
 <img src="13-SankeyPlots_files/figure-html/unnamed-chunk-9-1.png" alt="Sankey plots with modified default colors." width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-9)Sankey plots with modified default colors.</p>
 </div>
-
-

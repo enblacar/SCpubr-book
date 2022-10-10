@@ -35,7 +35,7 @@ The cutofss can be set up by the user using `pval_cutoff` (without -log10 transf
 # Modify cutoffs.
 p <- SCpubr::do_VolcanoPlot(sample = sample,
                             de_genes = de_genes,
-                            pval_cutoff = 1e-15,
+                            pval_cutoff = 1e-50,
                             FC_cutoff = 0.2)
 p
 ```

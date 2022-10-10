@@ -15,3 +15,4 @@ _ **Modify the direction of continuous color scales**: Used alongsize `viridis_c
 - **Plot borders around cells**: Use `plot_cell_borders` parameter alongside `border.size` and `border.color` to customize how it looks.
 - **Toggle the grid on or off**: Use `plot.grid` parameter alongside `grid.type` for the type of lines and `grid.color` for the grid color to customize it. 
 - **Toggle axes on or off**: Use `plot.axes` parameter to remove the axes. 
+- **Rasterize figures**: Use `raster` and `raster.dpi` parameters. It is important to play around with `pt.size` parameter in order to get the output figure right.
