@@ -1,41 +1,56 @@
 # Term Enrichment Plots
 
-One key downstream analysis in Single Cell analysis revolves having a list of candidate genes (i.e: DE genes) and one wants to know whether these genes are enriched for a specific biological function, pathway or cell type. This can be easily done using the [enrichR package](https://github.com/wjawaid/enrichR), which is an R interface to their website, [Enrichr](https://maayanlab.cloud/Enrichr/). This package allows to query a list of genes to more than 100 databases and retrieve the terms that are enriched for the list of genes, together with an adjusted p-value. This process, together with data processing and visualization is comprised in `SCpubr::do_TermEnrichmentPlot()`. 
+One key downstream analysis in Single Cell analysis revolves having a list of candidate genes (i.e: DE genes) and one wants to know whether these genes are enriched for a specific biological function, pathway or cell type. This can be easily done using the [enrichR package](https://github.com/wjawaid/enrichR), which is an R interface to their website, [Enrichr](https://maayanlab.cloud/Enrichr/). This package allows to query a list of genes to more than 100 databases and retrieve the terms that are enriched for the list of genes, together with an adjusted p-value. The output of this process can be used with `SCpubr::do_TermEnrichmentPlot()` for its visualization. 
 
-First of all, `enrichR` allows you to select the site to query the results for. This can be provided with the `site` parameter and can be one of the following: 
-- Enrichr.
-- FlyEnrichr.
-- WormEnrichr.
-- YeastEnrichr.
-- FishEnrichr.
+Here is an example of how to run *Enrichr* to get the object that we need for `SCpubr::do_TermEnrichmentPlot()`.
 
-Then, we also need to specify the databases to query against. The complete list of databases can be consulted using: 
+
 
 
 ```r
-dbs <- sort(enrichR::listEnrichrDbs()[, 'libraryName'])
+# Set necessary enrichR global options. This is copied from EnrichR code to avoid having to load the package.
+suppressMessages({
+  options(enrichR.base.address = "https://maayanlab.cloud/Enrichr/")
+  options(enrichR.live = TRUE)
+  options(modEnrichR.use = TRUE)
+  options(enrichR.sites.base.address = "https://maayanlab.cloud/")
+  options(enrichR.sites = c("Enrichr", "FlyEnrichr", "WormEnrichr", "YeastEnrichr", "FishEnrichr"))
+
+  # Set the search to Human genes.
+  enrichR::setEnrichrSite(site = "Enrichr")
+
+  websiteLive <- TRUE
+  dbs <- enrichR::listEnrichrDbs()
+  # Get all the possible databases to query.
+  dbs <- sort(dbs$libraryName)
+})
+
+# Choose the dataset to query against.
+dbs_use <- c("GO_Biological_Process_2021", 
+             "GO_Cellular_Component_2021", 
+             "Azimuth_Cell_Types_2021")
+
+# List of genes to use as input.
+genes <- c("ABCB1", "ABCG2", "AHR", "AKT1", "AR")
+
+# Retrieve the enriched terms.
+enriched_terms <- enrichR::enrichr(genes, dbs_use)
 ```
 
-The databases to use need to be provided as a character vector to `dbs_use` parameter. However, one can also provide one of the following pre-defined options:
-
-- "A": Will perform a query to 4 databases for cell types (Azimuth, Descartes, PanglaoDB and Descartes) and 4 databases for functional terms (MsigDB, GO-BP, GO-MF and KEGG). This is the default option if this parameter is not provided.
-- "B": Performs a query for the cell type databases (Azimuth, Descartes, PanglaoDB and Descartes).
-- "C": Performs a query for the functional terms (MsigDB, GO-BP, GO-MF and KEGG).
+For this chapter, we have generated the output for the previous code chunk. By default, `SCpubr::do_TermEnrichmentPlot()` returns a list with as many plots as databases were queried in Enrichr, or a single plot if only was used.
 
 Any of the previous option will return a list of plots. The plots can, then, be assembled together.
 
 
 ```r
-# Genes related to breast cancer.
-genes <- c("ABCB1", "ABCG2", "AHR", "AKT1", "AR")
-p <- SCpubr::do_TermEnrichmentPlot(genes = genes,
-                                   dbs_use = "C")
-patchwork::wrap_plots(p, ncol = 1)
+# Default plot.
+p <- SCpubr::do_TermEnrichmentPlot(enriched_terms = enriched_terms)
+p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="17-TermEnrichmentPlots_files/figure-html/unnamed-chunk-2-1.png" alt="SCpubr do_TermEnrichmentPlot use case." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-2)SCpubr do_TermEnrichmentPlot use case.</p>
+<img src="17-TermEnrichmentPlots_files/figure-html/unnamed-chunk-3-1.png" alt="SCpubr do_TermEnrichmentPlot default use case." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-3)SCpubr do_TermEnrichmentPlot default use case.</p>
 </div>
 
 ## Modifying the number of terms to retrieve.
@@ -44,17 +59,15 @@ Depending on the focus of the analysis, we might want to only focus on one datab
 
 
 ```r
-# Genes related to breast cancer.
-genes <- c("ABCB1", "ABCG2", "AHR", "AKT1", "AR")
-p <- SCpubr::do_TermEnrichmentPlot(genes = genes,
-                                   dbs_use = "GO_Biological_Process_2021",
+# Increased number of terms.
+p <- SCpubr::do_TermEnrichmentPlot(enriched_terms = enriched_terms,
                                    nterms = 15)
 p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="17-TermEnrichmentPlots_files/figure-html/unnamed-chunk-3-1.png" alt="SCpubr do_TermEnrichmentPlot with increased terms." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-3)SCpubr do_TermEnrichmentPlot with increased terms.</p>
+<img src="17-TermEnrichmentPlots_files/figure-html/unnamed-chunk-4-1.png" alt="SCpubr do_TermEnrichmentPlot with increased terms." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-4)SCpubr do_TermEnrichmentPlot with increased terms.</p>
 </div>
 
 
@@ -64,13 +77,10 @@ Another issue with these plots is that, normally, the term itself takes too much
 
 
 ```r
-# Genes related to breast cancer.
-genes <- c("ABCB1", "ABCG2", "AHR", "AKT1", "AR")
-p1 <- SCpubr::do_TermEnrichmentPlot(genes = genes,
-                                    dbs_use = "GO_Biological_Process_2021",
+# Control the length of the terms.
+p1 <- SCpubr::do_TermEnrichmentPlot(enriched_terms = enriched_terms,
                                     nterms = 15)
-p2 <- SCpubr::do_TermEnrichmentPlot(genes = genes,
-                                    dbs_use = "GO_Biological_Process_2021",
+p2 <- SCpubr::do_TermEnrichmentPlot(enriched_terms = enriched_terms,
                                     nterms = 15,
                                     nchar_wrap = 30)
 p <- p1 / p2
@@ -78,8 +88,8 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="17-TermEnrichmentPlots_files/figure-html/unnamed-chunk-4-1.png" alt="SCpubr do_TermEnrichmentPlot with reduced term length." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-4)SCpubr do_TermEnrichmentPlot with reduced term length.</p>
+<img src="17-TermEnrichmentPlots_files/figure-html/unnamed-chunk-5-1.png" alt="SCpubr do_TermEnrichmentPlot with reduced term length." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-5)SCpubr do_TermEnrichmentPlot with reduced term length.</p>
 </div>
 In the same way, one can further enhance the limit in order to have each term in just one row.
 
@@ -89,19 +99,16 @@ If you want to increase the font size of the labels - this is, anything that is 
 
 
 ```r
-# Genes related to breast cancer.
-genes <- c("ABCB1", "ABCG2", "AHR", "AKT1", "AR")
-p1 <- SCpubr::do_TermEnrichmentPlot(genes = genes,
-                                   dbs_use = "GO_Biological_Process_2021")
-p2 <- SCpubr::do_TermEnrichmentPlot(genes = genes,
-                                   text_labels_size = 6,
-                                   dbs_use = "GO_Biological_Process_2021")
+# Modify font size of the terms.
+p1 <- SCpubr::do_TermEnrichmentPlot(enriched_terms = enriched_terms)
+p2 <- SCpubr::do_TermEnrichmentPlot(enriched_terms = enriched_terms,
+                                    text_labels_size = 6)
 
 p <- p1 / p2
 p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="17-TermEnrichmentPlots_files/figure-html/unnamed-chunk-5-1.png" alt="SCpubr do_TermEnrichmentPlot with modified fontsize" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-5)SCpubr do_TermEnrichmentPlot with modified fontsize</p>
+<img src="17-TermEnrichmentPlots_files/figure-html/unnamed-chunk-6-1.png" alt="SCpubr do_TermEnrichmentPlot with modified fontsize" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-6)SCpubr do_TermEnrichmentPlot with modified fontsize</p>
 </div>

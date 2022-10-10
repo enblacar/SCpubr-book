@@ -20,7 +20,6 @@ Further packages are needed in order to run the different functions:
 - [colorspace](https://cran.r-project.org/web/packages/colorspace/vignettes/colorspace.html)
 - [ComplexHeatmap](https://bioconductor.org/packages/release/bioc/html/ComplexHeatmap.html)
 - [dplyr](https://dplyr.tidyverse.org/)
-- [enrichR](https://cran.r-project.org/web/packages/enrichR/vignettes/enrichR.html)
 - [forcats](https://forcats.tidyverse.org/index.html)
 - [ggbeeswarm](https://cran.r-project.org/web/packages/ggbeeswarm/index.html)
 - [ggExtra](https://cran.r-project.org/web/packages/ggExtra/vignettes/ggExtra.html)
@@ -56,7 +55,6 @@ All packages can be installed using the following commands:
 cran_packages <- c("circlize",
                    "colorspace",
                    "dplyr",
-                   "enrichR",
                    "forcats",
                    "ggbeeswarm",
                    "ggdist",
