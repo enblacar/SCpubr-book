@@ -19,7 +19,7 @@ utils::data("human_chr_locations", package = "SCpubr")
 
 out <- SCpubr::do_CopyNumberVariantPlot(sample = sample,
                                         infercnv_object = infercnv_object,
-                                        using_metacells = T,
+                                        using_metacells = TRUE,
                                         metacell_mapping = sample$metacell_mapping,
                                         chromosome_locations = human_chr_locations)
 p <- out$`11p_umap`
@@ -38,7 +38,7 @@ Scores of 1 mean no chromosome gain or loss. Higher than one mean gain and lower
 ```r
 out <- SCpubr::do_CopyNumberVariantPlot(sample = sample,
                                         infercnv_object = infercnv_object,
-                                        using_metacells = T,
+                                        using_metacells = TRUE,
                                         metacell_mapping = sample$metacell_mapping,
                                         chromosome_locations = human_chr_locations,
                                         chromosome_focus = "11")
@@ -54,7 +54,7 @@ Sometimes, however, the FeaturePlot is not sufficient to get the insights we wan
 ```r
 out <- SCpubr::do_CopyNumberVariantPlot(sample = sample,
                                         infercnv_object = infercnv_object,
-                                        using_metacells = T,
+                                        using_metacells = TRUE,
                                         metacell_mapping = sample$metacell_mapping,
                                         chromosome_locations = human_chr_locations,
                                         chromosome_focus = "11",
@@ -74,12 +74,12 @@ Here, we can observe the scores for the different groups, being each dot a cells
 ```r
 sample$modified_orig.ident <- sample(x = c("Sample_A", "Sample_B", "Sample_C"), 
                                      size = ncol(sample), 
-                                     replace = T, 
+                                     replace = TRUE, 
                                      prob = c(0.2, 0.7, 0.1))
 
 out <- SCpubr::do_CopyNumberVariantPlot(sample = sample,
                                         infercnv_object = infercnv_object,
-                                        using_metacells = T,
+                                        using_metacells = TRUE,
                                         group.by = "modified_orig.ident",
                                         metacell_mapping = sample$metacell_mapping,
                                         chromosome_locations = human_chr_locations,
@@ -110,7 +110,7 @@ p1 <- SCpubr::do_DimPlot(sample = sample,
                          pt.size = 1)
 out <- SCpubr::do_CopyNumberVariantPlot(sample = sample,
                                         infercnv_object = infercnv_object,
-                                        using_metacells = T,
+                                        using_metacells = TRUE,
                                         metacell_mapping = sample$metacell_mapping,
                                         chromosome_locations = human_chr_locations,
                                         chromosome_focus = "11",

@@ -97,23 +97,5 @@ p
 <img src="05-NebulosaPlots_files/figure-html/unnamed-chunk-7-1.png" alt="SCpubr Nebulosa plot with joint density, selecting only the last plot" width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-7)SCpubr Nebulosa plot with joint density, selecting only the last plot</p>
 </div>
-## Modify titles individually
-If we query multiple features or use `joint = TRUE`, then using `plot.title` will add a general title to the different panels generated. To then modify the plot title of each individual panel, a vector **of the same length as the number of features** needs to be provided to `individual.titles` parameter. In case a title does not need to be changed, use `NA` instead. Please take note that `joint = TRUE` will generate an extra panel that needs another plot title. 
 
-
-```r
-p <- SCpubr::do_NebulosaPlot(sample = sample, 
-                             features = c("CD14", "CD8A"), 
-                             joint = TRUE, 
-                             individual.titles = c("Plot A",
-                                                   NA,
-                                                   "Combined density"),
-                             plot.title = "Density analysis")
-p
-```
-
-<div class="figure" style="text-align: center">
-<img src="05-NebulosaPlots_files/figure-html/unnamed-chunk-8-1.png" alt="SCpubr Nebulosa plot with joint density, modifying each individual plot's name" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-8)SCpubr Nebulosa plot with joint density, modifying each individual plot's name</p>
-</div>
 

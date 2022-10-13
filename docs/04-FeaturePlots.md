@@ -74,65 +74,6 @@ p
 <p class="caption">(\#fig:unnamed-chunk-4)SCpubr FeaturePlot, with 4 features and 2 columns</p>
 </div>
 
-With multiple queries, using `plot.title` parameter actually adds a general title to all plots. If one wants to modify the title of each plot independently, a vector **of the same length as the number of features** needs to be provided to `individual.titles` parameter. In case a title does not need to be changed, use `NA` instead.
-
-
-```r
-# Add individual titles to the plots.
-p <- SCpubr::do_FeaturePlot(sample = sample,
-                            features = c("nCount_RNA",
-                                         "nFeature_RNA",
-                                         "percent.mt",
-                                         "CD14"),
-                            plot.title = "A collection of features",
-                            individual.titles = c("Plot A",
-                                                  "Plot_B",
-                                                  NA,
-                                                  "Plot_D"),
-                            ncol = 2)
-
-p
-```
-
-<div class="figure" style="text-align: center">
-<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-5-1.png" alt="SCpubr FeaturePlot, with individual modified titles" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-5)SCpubr FeaturePlot, with individual modified titles</p>
-</div>
-The very same concept can be applied to individual **subtitles** and **captions**. For this, you need to use `individual.subtitles` and `individual.captions` parameters. 
-
-
-```r
-# Add individual titles, subtitles and captions.
-p <- SCpubr::do_FeaturePlot(sample = sample,
-                            features = c("nCount_RNA",
-                                         "nFeature_RNA",
-                                         "percent.mt",
-                                         "CD14"),
-                            plot.title = "A collection of features",
-                            plot.subtitle = "Everything is commented!",
-                            plot.caption = "Dataset from: ...",
-                            individual.titles = c("Plot A",
-                                                  "Plot_B",
-                                                  NA,
-                                                  "Plot_D"),
-                            individual.subtitles = c("Subtitle A",
-                                                  NA,
-                                                  "Subtitle C",
-                                                  "Subtitle D"),
-                            individual.captions = c("Caption A",
-                                                  "Caption B",
-                                                  "Caption C",
-                                                  "Caption D"),
-                            ncol = 2)
-
-p
-```
-
-<div class="figure" style="text-align: center">
-<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-6-1.png" alt="SCpubr FeaturePlot, with individual modified titles, subtitles and captions." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-6)SCpubr FeaturePlot, with individual modified titles, subtitles and captions.</p>
-</div>
-
 ## Working with subsets of cells
 
 One of the things that can be misleading is that it could be the case that a **very specific subset of cells are driving the ends of the color scales**. Let's say that we have identified that clusters 2, 5, and 8 are responsible for this behavior. We would like to plot the values without taking those cells into consideration. The very first thing that comes to mind is, indeed, removing the cells completely, resulting in the following:
@@ -149,8 +90,8 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-7-1.png" alt="SCpubr FeaturePlot, removing cells from clusters 2, 5 and 8" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-7)SCpubr FeaturePlot, removing cells from clusters 2, 5 and 8</p>
+<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-5-1.png" alt="SCpubr FeaturePlot, removing cells from clusters 2, 5 and 8" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-5)SCpubr FeaturePlot, removing cells from clusters 2, 5 and 8</p>
 </div>
 
 However, this falls back to the same problem as with `Seurat::DimPlot` with the `split.by` parameter. We lose the overall context of where the cells are, as we lost the original **UMAP silhouette**. This can be fixed by using the `cells.highlight` parameter:
@@ -166,8 +107,8 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-8-1.png" alt="SCpubr FeaturePlot, masking cells from clusters 2, 5 and 8" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-8)SCpubr FeaturePlot, masking cells from clusters 2, 5 and 8</p>
+<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-6-1.png" alt="SCpubr FeaturePlot, masking cells from clusters 2, 5 and 8" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-6)SCpubr FeaturePlot, masking cells from clusters 2, 5 and 8</p>
 </div>
 This way, by adding the cells back and modifying the legend, we accomplish the desired effect. Furthermore, `SCpubr::do_FeaturePlot()` also accepts a vector of the identities to plot, as long as they are part of `levels(seurat_object)`. This can be achieved by using the `idents.highlight` instead.
 
@@ -182,8 +123,8 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-9-1.png" alt="SCpubr FeaturePlot, masking cells from clusters 2, 5 and 8 using idents.highlight" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-9)SCpubr FeaturePlot, masking cells from clusters 2, 5 and 8 using idents.highlight</p>
+<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-7-1.png" alt="SCpubr FeaturePlot, masking cells from clusters 2, 5 and 8 using idents.highlight" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-7)SCpubr FeaturePlot, masking cells from clusters 2, 5 and 8 using idents.highlight</p>
 </div>
 ## Splitting the FeaturePlot by a variable
 
@@ -205,8 +146,8 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-10-1.png" alt="Seurat FeaturePlot split by clusters." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-10)Seurat FeaturePlot split by clusters.</p>
+<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-8-1.png" alt="Seurat FeaturePlot split by clusters." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-8)Seurat FeaturePlot split by clusters.</p>
 </div>
 Apart from the general aesthetic discrepancies mentioned before, there are two main aspects missing. First, is the loss of the **UMAP silhouette**. Secondly, knowing that, by default, the color scale is shared across all the plots, we would like to know the range of values this color scale is displaying. In this two aspects is where `SCpubr::do_FeaturePlot()` delves into: 
 
@@ -221,8 +162,8 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-11-1.png" alt="SCpubr FeaturePlot split by clusters." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-11)SCpubr FeaturePlot split by clusters.</p>
+<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-9-1.png" alt="SCpubr FeaturePlot split by clusters." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-9)SCpubr FeaturePlot split by clusters.</p>
 </div>
 
 This way, we are able to achieve a better understandable plot. Furthermore, we can query multiple features. In the following example, we provide each of the three possible examples of features:
@@ -242,8 +183,8 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-12-1.png" alt="SCpubr FeaturePlot split by clusters using multiple features." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-12)SCpubr FeaturePlot split by clusters using multiple features.</p>
+<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-10-1.png" alt="SCpubr FeaturePlot split by clusters using multiple features." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-10)SCpubr FeaturePlot split by clusters using multiple features.</p>
 </div>
 
 We can even subset the previous plot to any set ofidentities in `split.by` we are particularly interested in. The color scale also limits itself to contain only the values in the selected identities. This can be achieved by provided a vector with the identities to `split.by.idents` parameter.
@@ -260,8 +201,8 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-13-1.png" alt="SCpubr FeaturePlot split by clusters using multiple features and selected identities." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-13)SCpubr FeaturePlot split by clusters using multiple features and selected identities.</p>
+<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-11-1.png" alt="SCpubr FeaturePlot split by clusters using multiple features and selected identities." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-11)SCpubr FeaturePlot split by clusters using multiple features and selected identities.</p>
 </div>
 
 ## Apply symmetrical color scales
@@ -283,7 +224,7 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-14-1.png" alt="SCpubr FeaturePlot using a two-end continuous scale." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-14)SCpubr FeaturePlot using a two-end continuous scale.</p>
+<img src="04-FeaturePlots_files/figure-html/unnamed-chunk-12-1.png" alt="SCpubr FeaturePlot using a two-end continuous scale." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-12)SCpubr FeaturePlot using a two-end continuous scale.</p>
 </div>
 As one can observe, this parameters sets a scale centered around 0, with the two ends being of the same value. This allows for direct comparison between the colors.

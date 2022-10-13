@@ -1,5 +1,12 @@
 # Sankey and alluvial plots
 
+:::: {.warningbox .warning data-latex="warning"}
+
+Due to CRAN policies, this function could not make it to the **official release** and is only available in the **development release** of **SCpubr**.
+Find how to install it [**here**](https://github.com/enblacar/SCpubr/releases/tag/v1.0.0-dev-stable).
+
+::::
+
 
 
 Sankey and alluvial plots are a set of visualizations that help depicting how the cells "flow" from a given group to another. This can be particular interesting, let's say, when we have a merged dataset that has samples from different subtypes and we want to see how the cells from each subtype distribute along the different clusters in our sample. Or, similarly, how the cells from each cluster distribute across the different individual datasets.

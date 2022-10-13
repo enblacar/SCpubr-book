@@ -40,3 +40,19 @@ code {
 #toc_title {
   font-weight: bold;
 }
+
+.warningbox {
+  padding: 1em 1em 1em 1em;
+  margin-bottom: 10px;
+  border: 2px solid #ee964b;
+  border-radius: 10px;
+  background: #ee964b20 5px center/3em no-repeat;
+}
+
+.errorbox {
+  padding: 1em 1em 1em 1em;
+  margin-bottom: 10px;
+  border: 2px solid #EE4B62;
+  border-radius: 10px;
+  background: #EE4B6220 5px center/3em no-repeat;
+}

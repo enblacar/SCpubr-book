@@ -71,12 +71,12 @@ Let's say we want to focus on how much each cluster is driven by the PC_1 and PC
 ```r
 p1 <- SCpubr::do_DimPlot(sample, 
                          reduction = "pca", 
-                         label = T, 
+                         label = TRUE, 
                          legend.position = "none", 
                          dims = c(1, 2)) 
 p2 <- SCpubr::do_DimPlot(sample, 
                          reduction = "pca", 
-                         label = T, 
+                         label = TRUE, 
                          legend.position = "none",
                          dims = c(3, 4)) 
 
@@ -97,25 +97,25 @@ With this, we get right away a decent overview. Clusters 0, 5, 7 and 8 separate 
 ```r
 p1 <- SCpubr::do_DimPlot(sample = sample, 
                          reduction = "pca", 
-                         label = T, 
+                         label = TRUE, 
                          legend.position = "none",
                          dims = c(1, 2))
 
 p2 <- SCpubr::do_DimPlot(sample = sample, 
                          reduction = "pca", 
-                         label = T, 
+                         label = TRUE, 
                          legend.position = "none",
                          dims = c(3, 4)) 
 
 p3 <- SCpubr::do_BeeSwarmPlot(sample = sample, 
                               feature_to_rank = "PC_1", 
                               group.by = "seurat_clusters", 
-                              continuous_feature = F)
+                              continuous_feature = FALSE)
 
 p4 <- SCpubr::do_BeeSwarmPlot(sample = sample, 
                               feature_to_rank = "PC_4", 
                               group.by = "seurat_clusters", 
-                              continuous_feature = F)
+                              continuous_feature = FALSE)
 
 (p1 | p3) / (p2 | p4)
 ```
@@ -144,14 +144,14 @@ cols.use <- cols.use[!(names(cols.use) %in% clusters_exclude)]
 
 p1 <- SCpubr::do_DimPlot(sample = sample[, !(sample$seurat_clusters %in% clusters_exclude)], 
                          reduction = "pca", 
-                         label = T, 
+                         label = TRUE, 
                          legend.position = "none",
                          dims = c(3, 4), 
                          colors.use = cols.use) 
 p2 <- SCpubr::do_BeeSwarmPlot(sample = sample[, !(sample$seurat_clusters %in% clusters_exclude)], 
                               feature_to_rank = "PC_4", 
                               group.by = "seurat_clusters", 
-                              continuous_feature = F, 
+                              continuous_feature = FALSE, 
                               colors.use = cols.use)
 
 p1 | p2
@@ -181,14 +181,14 @@ cols.use <- cols.use[!(names(cols.use) %in% clusters_exclude)]
 
 p1 <- SCpubr::do_DimPlot(sample = sample[, !(sample$seurat_clusters %in% clusters_exclude)], 
                          reduction = "pca", 
-                         label = T, 
+                         label = TRUE, 
                          legend.position = "none", 
                          dims = c(3, 4), 
                          colors.use = cols.use) 
 p2 <- SCpubr::do_BeeSwarmPlot(sample = sample[, !(sample$seurat_clusters %in% clusters_exclude)], 
                               feature_to_rank = "PC_4", 
                               group.by = "seurat_clusters", 
-                              continuous_feature = F, 
+                              continuous_feature = FALSE, 
                               colors.use = cols.use)
 
 p1 | p2
@@ -220,7 +220,7 @@ sample$Monocyte_signature <- sample$Monocyte_signature1
 sample$Monocyte_signature1 <- NULL
 
 p1 <- SCpubr::do_DimPlot(sample = sample, 
-                         label = T, 
+                         label = TRUE, 
                          legend.position = "none")
 p2 <- SCpubr::do_FeaturePlot(sample = sample, 
                              features = "Monocyte_signature",
@@ -228,7 +228,7 @@ p2 <- SCpubr::do_FeaturePlot(sample = sample,
 p3 <- SCpubr::do_BeeSwarmPlot(sample = sample, 
                               feature_to_rank = "Monocyte_signature", 
                               group.by = "seurat_clusters", 
-                              continuous_feature = T,
+                              continuous_feature = TRUE,
                               legend.title = "Monocyte signature")
 p1 | p2 | p3
 ```

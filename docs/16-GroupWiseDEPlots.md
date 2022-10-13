@@ -83,7 +83,7 @@ One can add more groupings to the heatmap of mean expression values by making us
 ```r
 sample$modified_orig.ident <- sample(x = c("Sample_A", "Sample_B", "Sample_C"), 
                                      size = ncol(sample), 
-                                     replace = T, 
+                                     replace = TRUE, 
                                      prob = c(0.2, 0.7, 0.1))
 
 # Add more layers of mean expression with group.by.

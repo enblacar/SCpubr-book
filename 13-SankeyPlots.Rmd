@@ -1,5 +1,12 @@
 # Sankey and alluvial plots
 
+:::: {.warningbox .warning data-latex="warning"}
+
+Due to CRAN policies, this function could not make it to the **official release** and is only available in the **development release** of **SCpubr**.
+Find how to install it [**here**](https://github.com/enblacar/SCpubr/releases/tag/v1.0.0-dev-stable).
+
+::::
+
 ```{r echo = F}
 sample <- readRDS("/b06x-isilon/b06x-g/G703/eblanco/projects/test_SC_datasets/sc_dataset.rds")
 library(dplyr)

@@ -47,14 +47,14 @@ p
 <p class="caption">(\#fig:unnamed-chunk-3)SCpubr::do_EnrichmentHeatmap with custom aggregation.</p>
 </div>
 
-The matrix can be transposed using `transpose = TRUE`.
+The matrix can be transposed using `flip = TRUE`.
 
 
 ```r
 # Transposing the matrix.
 p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
                                   input_gene_list = genes,
-                                  transpose = TRUE)
+                                  flip = TRUE)
 p
 ```
 
@@ -71,7 +71,7 @@ Both rows and column names can be rotated using `column_names_rot`  and `row_nam
 # Rotating the labels.
 p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
                                   input_gene_list = genes,
-                                  transpose = TRUE,
+                                  flip = TRUE,
                                   column_names_rot = 0)
 p
 ```
@@ -89,7 +89,7 @@ By design, the aspect ratio of the tiles in the heatmap is fixed so that cells a
 # Modifying the tile size.
 p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
                                   input_gene_list = genes,
-                                  transpose = TRUE,
+                                  flip = TRUE,
                                   column_names_rot = 0,
                                   cluster_cols = FALSE,
                                   cluster_rows = TRUE,
@@ -111,7 +111,7 @@ If one wants a symmetrical scale,
 # Symmetrical scale viriis.
 p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
                                   input_gene_list = genes,
-                                  transpose = TRUE,
+                                  flip = TRUE,
                                   column_names_rot = 0,
                                   cluster_cols = FALSE,
                                   cluster_rows = TRUE,
@@ -130,7 +130,7 @@ p
 # Modifying the symmetrical scale non viridis.
 p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
                                   input_gene_list = genes,
-                                  transpose = TRUE,
+                                  flip = TRUE,
                                   column_names_rot = 0,
                                   cluster_cols = FALSE,
                                   cluster_rows = TRUE,

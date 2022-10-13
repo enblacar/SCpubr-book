@@ -1,5 +1,12 @@
 # Pseudotime analysis
 
+:::: {.errorbox .warning data-latex="warning"}
+
+Due to a discontinuation of [**Matrix.utils package**](https://cran.r-project.org/web/packages/Matrix.utils/index.html), **monocle3** can not be installed and tested in a CI manner. Until this is resolved,
+this function **will not be available in any official and developmental-stable release**.
+
+::::
+
 Pseudotime analysis is, perhaps, one of the major analysis that can be carried out in SC data. It aims to depict a trajectory, a sort of order in which cells transition from A to B. What defines this process, and the starting and end point is **heavily** driven by the research question, the nature of the data and prior knowledge. While inferring this using data-driven approaches is possible, in `SCpubr` we will implement a prior-knowledge driven approach in a very specific use case.
 
 For this, we will make use of [monocle3](https://cole-trapnell-lab.github.io/monocle3/). Out of the many uses of monocle3, we can infer a trajectory graph for the cells and, based on a list of marker genes, we can **order** the cells along this graph selecting either the cell with the highest or lowest enrichment score for the provided list of genes as starting point. For example:

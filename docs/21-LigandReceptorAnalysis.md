@@ -1,5 +1,13 @@
 # Ligand-Receptor analysis
 
+:::: {.warningbox .warning data-latex="warning"}
+
+Due to CRAN policies, this function could not make it to the **official release** and is only available in the **development release** of **SCpubr**.
+Find how to install it [**here**](https://github.com/enblacar/SCpubr/releases/tag/v1.0.0-dev-stable).
+
+::::
+
+
 
 
 One very interesting analysis that can be carried out is **Ligand-Receptor analysis**. This allows to compute whether specific clusters interact with each other based on the co-expression of a ligand and its receptor in the respective clusters. The interactions are retrieved from different databases and a plethora of tools have been released to tackle this analysis. One of them is [liana](https://saezlab.github.io/liana/index.html), which is a framework that allows to run and **integrate** the results of several tools, providing a meta-analysis of the co-expression of ligand-receptor pairs. `SCpubr` makes use of `liana` and has its analysis and visualization integrated in the `SCpubr::do_LigandReceptorPlot()` function. 
@@ -159,7 +167,7 @@ Finally, one can also restrict the output to given source and target clusters. T
 ```r
 # Ligand Receptor analysis plot with inverted axes with filtered source and targets.
 p <- SCpubr::do_LigandReceptorPlot(liana_output = liana_output,
-                                   flip = F, 
+                                   flip = FALSE, 
                                    keep_source = c("0", "3", "9"),
                                    keep_target = c("3", "4", "9"))
 p

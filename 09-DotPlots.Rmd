@@ -95,12 +95,12 @@ genes <- c("IL7R", "CCR7", "CD14", "LYZ",
 p1 <- SCpubr::do_DotPlot(sample = sample, 
                          features = genes, 
                          plot.title = "Not clustered", 
-                         flip = T)
+                         flip = TRUE)
 p2 <- SCpubr::do_DotPlot(sample = sample, 
                          features = genes, 
                          cluster.idents = TRUE, 
                          plot.title = "Clustered", 
-                         flip = T,
+                         flip = TRUE,
                          rotate_x_axis_labels = FALSE)
 p <- p1 | p2
 p

@@ -7,10 +7,15 @@ This package can be installed using the following commands:
 # Future sumission to CRAN.
 
 # From GitHub.
-if(!requireNamespace("devtools", quietly = T)){
+if(!requireNamespace("devtools", quietly = TRUE)){
   install.packages("devtools") # If not installed.
 }
-devtools::install_github("enblacar/SCpubr")
+
+## Latest stable development version.
+devtools::install_github("enblacar/SCpubr", ref = "v1.0.0-dev-stable")
+
+## Latest release
+devtools::install_github("enblacar/SCpubr", ref = "v1.0.0")
 
 ```
 

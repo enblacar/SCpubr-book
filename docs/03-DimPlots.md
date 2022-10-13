@@ -75,7 +75,7 @@ In some cases, especially early on in the analysis where we do only have numbers
 ```r
 # Put labels on top of the clusters.
 p <- Seurat::DimPlot(sample, 
-                     label = T)
+                     label = TRUE)
 p
 ```
 

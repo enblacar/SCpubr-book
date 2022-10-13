@@ -5,7 +5,7 @@ One key downstream analysis in Single Cell analysis revolves having a list of ca
 Here is an example of how to run *Enrichr* to get the object that we need for `SCpubr::do_TermEnrichmentPlot()`.
 
 ```{r echo = F}
-enriched_terms <- SCpubr:::test.data$enriched_terms
+enriched_terms <- readRDS(system.file("extdata/enriched_terms_example.rds", package = "SCpubr"))
 enriched_terms$GO_Cellular_Component_2021 <- NULL
 enriched_terms$Azimuth_Cell_Types_2021 <- NULL
 ```

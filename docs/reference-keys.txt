@@ -31,7 +31,6 @@ apply-symmetrical-color-scales
 nebulosa-plots
 basic-usage-2
 compute-joint-densities
-modify-titles-individually
 bee-swarm-plots
 using-categorical-variables
 using-continuous-variables
@@ -154,4 +153,6 @@ split-complementary-colors.
 tetradic-colors
 square-colors
 generate-a-color-report
+scpubr-v1.0.0-dev-stable
+scpubr-v1.0.0
 scpubr-0.0.0.9000

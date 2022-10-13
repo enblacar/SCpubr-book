@@ -58,7 +58,7 @@ In some cases, especially early on in the analysis where we do only have numbers
 ```{r, fig.cap = "Seurat DimPlot with labels on top of the clusters.", fig.width=7, fig.height=8}
 # Put labels on top of the clusters.
 p <- Seurat::DimPlot(sample, 
-                     label = T)
+                     label = TRUE)
 p
 ```    
 

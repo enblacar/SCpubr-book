@@ -58,53 +58,6 @@ p <- SCpubr::do_FeaturePlot(sample, features = c("nCount_RNA",
 p
 ```
 
-With multiple queries, using `plot.title` parameter actually adds a general title to all plots. If one wants to modify the title of each plot independently, a vector **of the same length as the number of features** needs to be provided to `individual.titles` parameter. In case a title does not need to be changed, use `NA` instead.
-
-```{r, fig.cap = "SCpubr FeaturePlot, with individual modified titles", fig.width=14, fig.height=16}
-# Add individual titles to the plots.
-p <- SCpubr::do_FeaturePlot(sample = sample,
-                            features = c("nCount_RNA",
-                                         "nFeature_RNA",
-                                         "percent.mt",
-                                         "CD14"),
-                            plot.title = "A collection of features",
-                            individual.titles = c("Plot A",
-                                                  "Plot_B",
-                                                  NA,
-                                                  "Plot_D"),
-                            ncol = 2)
-
-p
-```
-The very same concept can be applied to individual **subtitles** and **captions**. For this, you need to use `individual.subtitles` and `individual.captions` parameters. 
-
-```{r, fig.cap = "SCpubr FeaturePlot, with individual modified titles, subtitles and captions.", fig.width=14, fig.height=17}
-# Add individual titles, subtitles and captions.
-p <- SCpubr::do_FeaturePlot(sample = sample,
-                            features = c("nCount_RNA",
-                                         "nFeature_RNA",
-                                         "percent.mt",
-                                         "CD14"),
-                            plot.title = "A collection of features",
-                            plot.subtitle = "Everything is commented!",
-                            plot.caption = "Dataset from: ...",
-                            individual.titles = c("Plot A",
-                                                  "Plot_B",
-                                                  NA,
-                                                  "Plot_D"),
-                            individual.subtitles = c("Subtitle A",
-                                                  NA,
-                                                  "Subtitle C",
-                                                  "Subtitle D"),
-                            individual.captions = c("Caption A",
-                                                  "Caption B",
-                                                  "Caption C",
-                                                  "Caption D"),
-                            ncol = 2)
-
-p
-```
-
 ## Working with subsets of cells
 
 One of the things that can be misleading is that it could be the case that a **very specific subset of cells are driving the ends of the color scales**. Let's say that we have identified that clusters 2, 5, and 8 are responsible for this behavior. We would like to plot the values without taking those cells into consideration. The very first thing that comes to mind is, indeed, removing the cells completely, resulting in the following:

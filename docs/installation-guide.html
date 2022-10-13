@@ -6,16 +6,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Installation guide | SCpubr</title>
 <meta name="author" content="Enrique Blanco Carmona">
-<meta name="description" content='This package can be installed using the following commands: # From CRAN: # Future sumission to CRAN. # From GitHub. if(!requireNamespace("devtools", quietly = T)){  install.packages("devtools") #...'>
+<meta name="description" content='This package can be installed using the following commands: # From CRAN: # Future sumission to CRAN. # From GitHub. if(!requireNamespace("devtools", quietly = TRUE)){  install.packages("devtools")...'>
 <meta name="generator" content="bookdown 0.28 with bs4_book()">
 <meta property="og:title" content="Installation guide | SCpubr">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://enblacar.github.io/SCpubr-book/installation-guide.html">
 <meta property="og:image" content="https://enblacar.github.io/SCpubr-book/images/logo.png">
-<meta property="og:description" content='This package can be installed using the following commands: # From CRAN: # Future sumission to CRAN. # From GitHub. if(!requireNamespace("devtools", quietly = T)){  install.packages("devtools") #...'>
+<meta property="og:description" content='This package can be installed using the following commands: # From CRAN: # Future sumission to CRAN. # From GitHub. if(!requireNamespace("devtools", quietly = TRUE)){  install.packages("devtools")...'>
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Installation guide | SCpubr">
-<meta name="twitter:description" content='This package can be installed using the following commands: # From CRAN: # Future sumission to CRAN. # From GitHub. if(!requireNamespace("devtools", quietly = T)){  install.packages("devtools") #...'>
+<meta name="twitter:description" content='This package can be installed using the following commands: # From CRAN: # Future sumission to CRAN. # From GitHub. if(!requireNamespace("devtools", quietly = TRUE)){  install.packages("devtools")...'>
 <meta name="twitter:image" content="https://enblacar.github.io/SCpubr-book/images/logo.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -67,6 +67,7 @@
 <li><a class="" href="pseudotime-analysis.html"><span class="header-section-number">23</span> Pseudotime analysis</a></li>
 <li><a class="" href="color-palettes.html"><span class="header-section-number">24</span> Color palettes</a></li>
 <li><a class="" href="common-features-across-plots.html">Common features across plots</a></li>
+<li><a class="" href="save-the-figures.html">Save the figures</a></li>
 <li><a class="" href="citation.html">Citation</a></li>
 <li><a class="" href="news.html">News</a></li>
 <li><a class="" href="acknowledgements.html">Acknowledgements</a></li>
@@ -88,10 +89,15 @@
 <span><span class="co"># Future sumission to CRAN.</span></span>
 <span></span>
 <span><span class="co"># From GitHub.</span></span>
-<span><span class="kw">if</span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html">requireNamespace</a></span><span class="op">(</span><span class="st">"devtools"</span>, quietly <span class="op">=</span> <span class="cn">T</span><span class="op">)</span><span class="op">)</span><span class="op">{</span></span>
+<span><span class="kw">if</span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html">requireNamespace</a></span><span class="op">(</span><span class="st">"devtools"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span><span class="op">{</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span> <span class="co"># If not installed.</span></span>
 <span><span class="op">}</span></span>
-<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"enblacar/SCpubr"</span><span class="op">)</span></span></code></pre></div>
+<span></span>
+<span><span class="co">## Latest stable development version.</span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"enblacar/SCpubr"</span>, ref <span class="op">=</span> <span class="st">"v1.0.0-dev-stable"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">## Latest release</span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"enblacar/SCpubr"</span>, ref <span class="op">=</span> <span class="st">"v1.0.0"</span><span class="op">)</span></span></code></pre></div>
 <p>Further packages are needed in order to run the different functions:</p>
 <ul>
 <li><a href="https://jokergoo.github.io/circlize_book/book/">circlize</a></li>
@@ -212,7 +218,7 @@
 <!-- Moved the footer outside of the body to make it span all page width. --><footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 10 October, 2022.</p>
+    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 13 October, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

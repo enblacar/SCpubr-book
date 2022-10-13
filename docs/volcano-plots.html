@@ -67,6 +67,7 @@
 <li><a class="" href="pseudotime-analysis.html"><span class="header-section-number">23</span> Pseudotime analysis</a></li>
 <li><a class="" href="color-palettes.html"><span class="header-section-number">24</span> Color palettes</a></li>
 <li><a class="" href="common-features-across-plots.html">Common features across plots</a></li>
+<li><a class="" href="save-the-figures.html">Save the figures</a></li>
 <li><a class="" href="citation.html">Citation</a></li>
 <li><a class="" href="news.html">News</a></li>
 <li><a class="" href="acknowledgements.html">Acknowledgements</a></li>
@@ -89,7 +90,7 @@
 <span class="header-section-number">13.1</span> Basic usage<a class="anchor" aria-label="anchor" href="#basic-usage-11"><i class="fas fa-link"></i></a>
 </h2>
 <p>To generate such a plot, one can use <code><a href="https://rdrr.io/pkg/SCpubr/man/do_VolcanoPlot.html">SCpubr::do_VolcanoPlot()</a></code>, which needs as input the Seurat object and the result of running <code><a href="https://satijalab.org/seurat/reference/FindMarkers.html">Seurat::FindMarkers()</a></code> choosing two groups.</p>
-<div class="sourceCode" id="cb110"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb107"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Generate a volcano plot.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_VolcanoPlot.html">do_VolcanoPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                            de_genes <span class="op">=</span> <span class="va">de_genes</span><span class="op">)</span></span>
@@ -111,7 +112,7 @@ Figure 1.1: SCpubr::do_VolcanoPlot with default parameters.
 <span class="header-section-number">13.2</span> Modify the cutoffss<a class="anchor" aria-label="anchor" href="#modify-the-cutoffss"><i class="fas fa-link"></i></a>
 </h2>
 <p>The cutofss can be set up by the user using <code>pval_cutoff</code> (without -log10 transforming) and <code>FC_cutoff</code> (avg log2(FC)).</p>
-<div class="sourceCode" id="cb111"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb108"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Modify cutoffs.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_VolcanoPlot.html">do_VolcanoPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                            de_genes <span class="op">=</span> <span class="va">de_genes</span>,</span>
@@ -130,7 +131,7 @@ Figure 1.2: SCpubr::do_VolcanoPlot modifying cutoffs.
 <span class="header-section-number">13.3</span> Modify the gene tags<a class="anchor" aria-label="anchor" href="#modify-the-gene-tags"><i class="fas fa-link"></i></a>
 </h2>
 <p>By default, the top 5 genes on each side, ordered by <code>-log10(p-value adjusted)</code> and <code>average log2(FC)</code> are reported. However, one can increase the number by using</p>
-<div class="sourceCode" id="cb112"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb109"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Modify number of gene tags.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_VolcanoPlot.html">do_VolcanoPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                            de_genes <span class="op">=</span> <span class="va">de_genes</span>,</span>
@@ -181,7 +182,7 @@ Figure 1.3: SCpubr::do_VolcanoPlot modifying the number of gene tags.
 <!-- Moved the footer outside of the body to make it span all page width. --><footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 10 October, 2022.</p>
+    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 13 October, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -67,6 +67,7 @@
 <li><a class="" href="pseudotime-analysis.html"><span class="header-section-number">23</span> Pseudotime analysis</a></li>
 <li><a class="" href="color-palettes.html"><span class="header-section-number">24</span> Color palettes</a></li>
 <li><a class="" href="common-features-across-plots.html">Common features across plots</a></li>
+<li><a class="" href="save-the-figures.html">Save the figures</a></li>
 <li><a class="" href="citation.html">Citation</a></li>
 <li><a class="" href="news.html">News</a></li>
 <li><a class="" href="acknowledgements.html">Acknowledgements</a></li>
@@ -89,7 +90,7 @@
 <span class="header-section-number">9.1</span> Basic usage<a class="anchor" aria-label="anchor" href="#basic-usage-7"><i class="fas fa-link"></i></a>
 </h2>
 <p>To generate a basic box plot you need to provide the seurat object and a feature to plot:</p>
-<div class="sourceCode" id="cb70"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb67"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Basic box plot.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BoxPlot.html">do_BoxPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                        feature <span class="op">=</span> <span class="st">"nCount_RNA"</span><span class="op">)</span></span>
@@ -106,7 +107,7 @@ Figure 1.1: Basic box plot.
 <span class="header-section-number">9.2</span> Use custom grouping<a class="anchor" aria-label="anchor" href="#use-custom-grouping"><i class="fas fa-link"></i></a>
 </h2>
 <p>By default, the groups are the identities in the seurat object, but this can be controlled using <code>group.by parameter</code>.</p>
-<div class="sourceCode" id="cb71"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Generate a custom group.</span></span>
 <span><span class="va">sample</span><span class="op">$</span><span class="va">custom_group</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">sample</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">sample</span><span class="op">)</span>, <span class="fl">4000</span><span class="op">)</span>, <span class="st">"A"</span>, <span class="st">"B"</span><span class="op">)</span></span>
 <span></span>
@@ -122,7 +123,7 @@ Figure 1.2: Custom groups.
 </p>
 </div>
 <p>We can flip the plot if needed with <code>flip = TRUE</code>:</p>
-<div class="sourceCode" id="cb72"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb69"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Flip the box plot.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BoxPlot.html">do_BoxPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                        feature <span class="op">=</span> <span class="st">"nCount_RNA"</span>,</span>
@@ -140,7 +141,7 @@ Figure 1.3: Flip the box plot.
 <span class="header-section-number">9.3</span> Modify aesthetic style<a class="anchor" aria-label="anchor" href="#modify-aesthetic-style"><i class="fas fa-link"></i></a>
 </h2>
 <p>We can also apply another aesthetic style, which just colors the lines of the boxplots and leave the rest white with <code>use_silhouette = TRUE</code>:</p>
-<div class="sourceCode" id="cb73"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb70"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Use silhouette style.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BoxPlot.html">do_BoxPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                        feature <span class="op">=</span> <span class="st">"nCount_RNA"</span>,</span>
@@ -158,7 +159,7 @@ Figure 1.4: Apply silhouette style.
 <span class="header-section-number">9.4</span> Reorder by mean values<a class="anchor" aria-label="anchor" href="#reorder-by-mean-values"><i class="fas fa-link"></i></a>
 </h2>
 <p>We can reorder the values by their average mean, from highest to lowest with <code>order = TRUE</code>:</p>
-<div class="sourceCode" id="cb74"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb71"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Order by mean values.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BoxPlot.html">do_BoxPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                        feature <span class="op">=</span> <span class="st">"nCount_RNA"</span>,</span>
@@ -176,7 +177,7 @@ Figure 1.5: Order by mean.
 <span class="header-section-number">9.5</span> Split by a second variable<a class="anchor" aria-label="anchor" href="#split-by-a-second-variable"><i class="fas fa-link"></i></a>
 </h2>
 <p>We can further apply a second grouping by using <code>split.by</code>.</p>
-<div class="sourceCode" id="cb75"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb72"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Apply second grouping.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BoxPlot.html">do_BoxPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                        feature <span class="op">=</span> <span class="st">"nCount_RNA"</span>,</span>
@@ -194,7 +195,7 @@ Figure 1.6: Apply a second grouping.
 <span class="header-section-number">9.6</span> Apply statistical tests to compare groups<a class="anchor" aria-label="anchor" href="#apply-statistical-tests-to-compare-groups"><i class="fas fa-link"></i></a>
 </h2>
 <p>Finally we can apply statistical tests to the groups, if we do not use <code>split.by</code>. We can do that by setting <code>use_test = TRUE</code> and providing the comparison as a list of pairs of items. The test, by default is wilcoxon test, but can be modified using <code>test</code>. <em>The correct use of such tests and their interpretation relies on the user</em>.</p>
-<div class="sourceCode" id="cb76"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb73"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Apply statistical tests.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BoxPlot.html">do_BoxPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                        feature <span class="op">=</span> <span class="st">"nCount_RNA"</span>,</span>
@@ -210,7 +211,7 @@ Figure 1.7: Apply statistical tests.
 </p>
 </div>
 <p>One can display this on symbols, or with numbers with <code>map_signif_level</code>:</p>
-<div class="sourceCode" id="cb77"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb74"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Apply statistical tests and show the p-value.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BoxPlot.html">do_BoxPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                        feature <span class="op">=</span> <span class="st">"nCount_RNA"</span>,</span>
@@ -268,7 +269,7 @@ Figure 1.8: Apply statistical tests and show the p-value
 <!-- Moved the footer outside of the body to make it span all page width. --><footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 10 October, 2022.</p>
+    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 13 October, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
