@@ -3,20 +3,15 @@
 This package can be installed using the following commands:
 
 ```r
-# From CRAN:
-# Future sumission to CRAN.
+# From CRAN - Official release:
+install.packages("SCpubr")
 
-# From GitHub.
+# From GitHub - Latest stable development version:
 if(!requireNamespace("devtools", quietly = TRUE)){
   install.packages("devtools") # If not installed.
 }
 
-## Latest stable development version.
 devtools::install_github("enblacar/SCpubr", ref = "v1.0.0-dev-stable")
-
-## Latest release
-devtools::install_github("enblacar/SCpubr", ref = "v1.0.0")
-
 ```
 
 

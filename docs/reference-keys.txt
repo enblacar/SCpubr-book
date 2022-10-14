@@ -153,6 +153,3 @@ split-complementary-colors.
 tetradic-colors
 square-colors
 generate-a-color-report
-scpubr-v1.0.0-dev-stable
-scpubr-v1.0.0
-scpubr-0.0.0.9000
