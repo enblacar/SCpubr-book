@@ -1,7 +1,7 @@
 # News {-}
 Here are the patch notes of the different versions:
 
-## SCpubr v1.0.1
+## SCpubr v1.0.1 {-}
 
 -   Rework on unit tests and examples so that it can pass CRAN R CMD Check without packages in Suggests. This is, to make sure all Suggested packages are used conditionally.
 
@@ -11,13 +11,13 @@ This version can be obtained in the [v1.0.1 release](https://github.com/enblacar
 install.packages("SCpubr")
 ```
 
-### SCpubr v1.0.1-dev-stable
+### SCpubr v1.0.1-dev-stable {-}
 
 -   Same as v1.0.1, but with all the functions that do not pass CRAN checks. These functions are: `SCpubr::save_Plot()` `SCpubr::do_LigandReceptorPlot()` and `SCpubr::do_SankeyPlot()`.
 
 This version can be obtained in the [v1.0.1-dev-stable release](https://github.com/enblacar/SCpubr/releases/tag/v1.0.1-dev-stable) release.
 
-## SCpubr v1.0.0
+## SCpubr v1.0.0 {-}
 
 -   Modified internal checks so that the functions that do not use `Seurat` do not require this to be installed. This is just for the very side case in which somebody downloads the package just for the `SCpubr::do_ColorPalette()` function.
 -   Removed the option to use `individual.titles`, 'individual.subtitles`and`individual.captions`in`SCpubr::do_NebulosaPlot()\` as the benefit of such parameters did not surpass the problems the code was causing. The feature might come back in the future, once fully optimized.
@@ -27,13 +27,13 @@ This version can be obtained in the [v1.0.1-dev-stable release](https://github.c
 
 This version can be obtained in the [v1.0.0 release](https://github.com/enblacar/SCpubr/releases/tag/v1.0.0) release.
 
-### SCpubr v1.0.0-dev-stable
+### SCpubr v1.0.0-dev-stable {-}
 
 -   Same as v1.0.0, but with all the functions that do not pass CRAN checks. These functions are: `SCpubr::save_Plot()` `SCpubr::do_LigandReceptorPlot()` and `SCpubr::do_SankeyPlot()`.
 
 This version can be obtained in the [v1.0.0-dev-stable release](https://github.com/enblacar/SCpubr/releases/tag/v1.0.0-dev-stable) release.
 
-## SCpubr 0.0.0.9000
+## SCpubr 0.0.0.9000 {-}
 
 -   Added a `NEWS.md` file to track changes to the package.
 -   Prepare package for submission to CRAN.
