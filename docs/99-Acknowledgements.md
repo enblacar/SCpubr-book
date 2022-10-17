@@ -2,6 +2,6 @@
 
 In this section I would like to give my thanks to all the people that have helped me developing this package:
 
-- PD. Dr. med. Pascal Johann, Dr. Natalie Jäger, Dr. Marcel Kool and Prof. Dr. Matthias Schlesner for providing a fruitful working environment that made it possible for this project to take place.
-- My co-workers Christina Blume, Areeba Patel and Dina ElHarouni for bearing with me and providing their personal view on the endless tiny details that can be modified in the plots. 
-- The artist [Marta Palop Llacer](https://instagram.com/marta.palop?igshid=YmMyMTA2M2Y=), for creating the flaticon of the webpage.
+- **PD. Dr. med. Pascal Johann**, **Dr. Natalie Jäger**, **Dr. Marcel Kool** and **Prof. Dr. Matthias Schlesner** for providing a fruitful working environment that made it possible for this project to take place.
+- My co-workers **Christina Blume**, **Areeba Patel** and **Dina ElHarouni** for bearing with me and providing their personal view on the endless tiny details that can be modified in the plots. 
+- The artist [**Marta Palop Llacer**](https://instagram.com/marta.palop?igshid=YmMyMTA2M2Y=), for creating the flaticon of the webpage.

@@ -3,7 +3,11 @@
 :::: {.warningbox .warning data-latex="warning"}
 
 Due to CRAN policies, this function could not make it to the **official release** and is only available in the **development release** of **SCpubr**.
-Find how to install it [**here**](https://github.com/enblacar/SCpubr/releases/tag/v1.0.0-dev-stable).
+Find how to install it [**here**](https://github.com/enblacar/SCpubr/releases/tag/v1.0.1-dev-stable).
+
+Once the package becomes available on CRAN/Bioconductor, the function will be integrated in the official release.
+
+Work in progress is being made to bring these plots back to the official release using another package. Stay tuned for the news!
 
 ::::
 
