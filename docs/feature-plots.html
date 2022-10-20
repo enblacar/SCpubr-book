@@ -152,9 +152,15 @@ Figure 1.3: SCpubr FeaturePlot, with 4 features and 2 columns
 </p>
 </div>
 </div>
-<div id="working-with-subsets-of-cells" class="section level2" number="2.3">
+<div id="limit-the-color-scale-to-a-max-and-min-values" class="section level2" number="2.3">
 <h2>
-<span class="header-section-number">2.3</span> Working with subsets of cells<a class="anchor" aria-label="anchor" href="#working-with-subsets-of-cells"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.3</span> Limit the color scale to a max and min values<a class="anchor" aria-label="anchor" href="#limit-the-color-scale-to-a-max-and-min-values"><i class="fas fa-link"></i></a>
+</h2>
+<p>Similar to what <code>Seurat</code> does with the <code>min.cutoff</code> and <code>max.cutoff</code> parameter, this feature will be availble in a future update. In the meantime, please refer to <a href="https://github.com/enblacar/SCpubr/issues/2#issuecomment-1284204643">this hotfix</a>.</p>
+</div>
+<div id="working-with-subsets-of-cells" class="section level2" number="2.4">
+<h2>
+<span class="header-section-number">2.4</span> Working with subsets of cells<a class="anchor" aria-label="anchor" href="#working-with-subsets-of-cells"><i class="fas fa-link"></i></a>
 </h2>
 <p>One of the things that can be misleading is that it could be the case that a <strong>very specific subset of cells are driving the ends of the color scales</strong>. Let’s say that we have identified that clusters 2, 5, and 8 are responsible for this behavior. We would like to plot the values without taking those cells into consideration. The very first thing that comes to mind is, indeed, removing the cells completely, resulting in the following:</p>
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
@@ -200,9 +206,9 @@ Figure 1.6: SCpubr FeaturePlot, masking cells from clusters 2, 5 and 8 using ide
 </p>
 </div>
 </div>
-<div id="splitting-the-featureplot-by-a-variable" class="section level2" number="2.4">
+<div id="splitting-the-featureplot-by-a-variable" class="section level2" number="2.5">
 <h2>
-<span class="header-section-number">2.4</span> Splitting the FeaturePlot by a variable<a class="anchor" aria-label="anchor" href="#splitting-the-featureplot-by-a-variable"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.5</span> Splitting the FeaturePlot by a variable<a class="anchor" aria-label="anchor" href="#splitting-the-featureplot-by-a-variable"><i class="fas fa-link"></i></a>
 </h2>
 <p>In some cases, we want to visualize a given feature, let’s say, the expression of <code>LYN</code> across another variable, for instance <code>seurat_clusters</code>. This can be achieved easily in <code>Seurat</code> by using the <code>split.by</code> parameter. For the sake of representation, let’s reduce the number of clusters.</p>
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
@@ -276,9 +282,9 @@ Figure 1.10: SCpubr FeaturePlot split by clusters using multiple features and se
 </p>
 </div>
 </div>
-<div id="apply-symmetrical-color-scales" class="section level2" number="2.5">
+<div id="apply-symmetrical-color-scales" class="section level2" number="2.6">
 <h2>
-<span class="header-section-number">2.5</span> Apply symmetrical color scales<a class="anchor" aria-label="anchor" href="#apply-symmetrical-color-scales"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.6</span> Apply symmetrical color scales<a class="anchor" aria-label="anchor" href="#apply-symmetrical-color-scales"><i class="fas fa-link"></i></a>
 </h2>
 <p>There are times in which we want to color the Feature plot using a two-end continuous color scale. We can achieve this by using <code>enforce_symmetry = TRUE</code>:</p>
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
@@ -315,9 +321,10 @@ Figure 1.11: SCpubr FeaturePlot using a two-end continuous scale.
 <li><a class="nav-link" href="#feature-plots"><span class="header-section-number">2</span> Feature plots</a></li>
 <li><a class="nav-link" href="#basic-usage-1"><span class="header-section-number">2.1</span> Basic usage</a></li>
 <li><a class="nav-link" href="#multiple-features"><span class="header-section-number">2.2</span> Multiple features</a></li>
-<li><a class="nav-link" href="#working-with-subsets-of-cells"><span class="header-section-number">2.3</span> Working with subsets of cells</a></li>
-<li><a class="nav-link" href="#splitting-the-featureplot-by-a-variable"><span class="header-section-number">2.4</span> Splitting the FeaturePlot by a variable</a></li>
-<li><a class="nav-link" href="#apply-symmetrical-color-scales"><span class="header-section-number">2.5</span> Apply symmetrical color scales</a></li>
+<li><a class="nav-link" href="#limit-the-color-scale-to-a-max-and-min-values"><span class="header-section-number">2.3</span> Limit the color scale to a max and min values</a></li>
+<li><a class="nav-link" href="#working-with-subsets-of-cells"><span class="header-section-number">2.4</span> Working with subsets of cells</a></li>
+<li><a class="nav-link" href="#splitting-the-featureplot-by-a-variable"><span class="header-section-number">2.5</span> Splitting the FeaturePlot by a variable</a></li>
+<li><a class="nav-link" href="#apply-symmetrical-color-scales"><span class="header-section-number">2.6</span> Apply symmetrical color scales</a></li>
 </ul>
 
       <div class="book-extra">
@@ -341,7 +348,7 @@ Figure 1.11: SCpubr FeaturePlot using a two-end continuous scale.
 <!-- Moved the footer outside of the body to make it span all page width. --><footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 17 October, 2022.</p>
+    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 19 October, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

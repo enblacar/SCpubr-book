@@ -74,6 +74,10 @@ p
 <p class="caption">(\#fig:unnamed-chunk-4)SCpubr FeaturePlot, with 4 features and 2 columns</p>
 </div>
 
+## Limit the color scale to a max and min values
+
+Similar to what `Seurat` does with the `min.cutoff` and `max.cutoff` parameter, this feature will be availble in a future update. In the meantime, please refer to [this hotfix](https://github.com/enblacar/SCpubr/issues/2#issuecomment-1284204643).
+
 ## Working with subsets of cells
 
 One of the things that can be misleading is that it could be the case that a **very specific subset of cells are driving the ends of the color scales**. Let's say that we have identified that clusters 2, 5, and 8 are responsible for this behavior. We would like to plot the values without taking those cells into consideration. The very first thing that comes to mind is, indeed, removing the cells completely, resulting in the following:

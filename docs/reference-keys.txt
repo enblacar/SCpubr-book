@@ -25,6 +25,7 @@ splitting-by-a-category
 feature-plots
 basic-usage-1
 multiple-features
+limit-the-color-scale-to-a-max-and-min-values
 working-with-subsets-of-cells
 splitting-the-featureplot-by-a-variable
 apply-symmetrical-color-scales

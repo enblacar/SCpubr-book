@@ -1,7 +1,7 @@
 --- 
 title: "SCpubr"
 author: "Enrique Blanco Carmona"
-date: "17 October, 2022"
+date: "19 October, 2022"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib]
@@ -20,4 +20,5 @@ csl: chicago-fullnote-bibliography.csl
 This package aims to provide a streamlined way of generating publication ready plots for known **S**ingle-**C**ell trascriptomics in a "**pub**lication **r**eady" format (**SCpubr**). This is, the aim is to generate with minimal effort plots with the highest quality possible, that can be used right away or with minimal modifications for a research article. 
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License: BY-NC-SA v4.0" style="border-width:0" class="mx-auto d-block" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />
+
 
