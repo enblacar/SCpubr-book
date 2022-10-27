@@ -139,7 +139,7 @@ p <- SCpubr::do_FeaturePlot(sample,
 p
 ```
 
-We can even subset the previous plot to any set ofidentities in `split.by` we are particularly interested in. The color scale also limits itself to contain only the values in the selected identities. This can be achieved by provided a vector with the identities to `split.by.idents` parameter.
+We can even subset the previous plot to any set of identities in `split.by` we are particularly interested in. The color scale also limits itself to contain only the values in the selected identities. This can be achieved by provided a vector with the identities to `split.by.idents` parameter.
 
 ```{r, fig.cap = "SCpubr FeaturePlot split by clusters using multiple features and selected identities.", fig.width=20, fig.height=5}
 # Using split.by.idents parameter alongside split.by.
@@ -150,6 +150,25 @@ p <- SCpubr::do_FeaturePlot(sample,
 
 p
 ```
+
+## Subset the color scale to a minimum and maximum
+
+The color scale can be restricted to minimum and maximum values using `min.cutoff` and `max.cutoff`:
+
+```{r, fig.cap = "SCpubr FeaturePlot using min.cutoff and max.cutoff.", fig.width=14, fig.height=8}
+# Use min.cutoff and max.cutoff.
+p1 <- SCpubr::do_FeaturePlot(sample, 
+                             features = c("LYN"))
+
+p2 <- SCpubr::do_FeaturePlot(sample, 
+                             features = c("LYN"),
+                             min.cutoff = 1,
+                             max.cutoff = 2)
+p <- p1 | p2
+p
+```
+
+However, it is important to note that **cells outside the range** of `min.cutoff` and `max.cutoff` have their values modified to either `min.cutoff` or `max.cutoff`. Therefore, it is important to take this into account when using this functionality, that the end colors of the continuous scale represent cells outside the desired range, and not the actual values. This is specially important for the values below `min.cutoff`, as it may seem that the cells are not expressed when they truly might be.
 
 ## Apply symmetrical color scales
 There are times in which we want to color the Feature plot using a two-end continuous color scale. We can achieve this by using `enforce_symmetry = TRUE`:

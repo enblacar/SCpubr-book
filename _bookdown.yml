@@ -3,7 +3,39 @@ new_session: true
 output_dir: "docs"
 before_chapter_script: _common.R
 delete_merged_file: true
-
+rmd_files:
+- index.Rmd
+- 01-Installation-guide.Rmd
+- 02-Dataset.Rmd
+- 03-DimPlots.Rmd
+- 04-FeaturePlots.Rmd
+- 05-NebulosaPlots.Rmd
+- 06-BeeSwarmPlots.Rmd
+- 07-ViolinPlots.Rmd
+- 08-RidgePlots.Rmd
+- 09-DotPlots.Rmd
+- 10-BarPlots.Rmd
+- 11-BoxPlots.Rmd
+- 12-GeyserPlots.Rmd
+- 13-SankeyPlots.Rmd
+- 14-ChordDiagramPlots.Rmd
+- 15-VolcanoPlots.Rmd
+- 16-GroupWiseDEPlots.Rmd
+- 17-TermEnrichmentPlots.Rmd
+- 18-EnrichmentHeatmaps.Rmd
+- 19-CorrelationPlots.Rmd
+- 20-CellularStatePlots.Rmd
+- 21-LigandReceptorAnalysis.Rmd
+- 22-CopyNumberVariantPlots.Rmd
+- 23-PathwayActivityPlots.Rmd
+- 24-TFActivityPlots.Rmd
+- 25-PseudotimeAnalysisPlots.Rmd
+- 93-ColorPalettes.Rmd
+- 94-CommonFeatures.Rmd
+- 96-SaveFigures.Rmd
+- 97-Citation.Rmd
+- 98-News.Rmd
+- 99-Acknowledgements.Rmd
 language:
   ui:
     chapter_name: ""

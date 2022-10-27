@@ -10,7 +10,7 @@ Violin plots require very little description. They are a depiction of the distri
 
 ```r
 p <- Seurat::VlnPlot(sample, 
-                     feature = "nCount_RNA")
+                     features = "nCount_RNA")
 p
 ```
 
@@ -23,7 +23,7 @@ The one thing that really stands out here is, indeed, the extra dots that are be
 
 ```r
 p <- Seurat::VlnPlot(sample, 
-                     feature = "nCount_RNA")
+                     features = "nCount_RNA")
 # "Surgically" add the alpha parameter in the ggplot2 object.
 p$layers[[2]]$aes_params$alpha <- 0.05
 p
@@ -40,7 +40,7 @@ But still, by making the dots almost invisible, we still observe their dominance
 ```r
 # Basic violin plot.
 p <- SCpubr::do_ViolinPlot(sample = sample, 
-                           feature = "nCount_RNA")
+                           features = "nCount_RNA")
 p
 ```
 
@@ -55,7 +55,7 @@ In addition to removing the dots, a boxplot is added to each violin shape, to ge
 ```r
 # Remove the box plots.
 p <- SCpubr::do_ViolinPlot(sample = sample, 
-                           feature = "nCount_RNA",
+                           features = "nCount_RNA",
                            plot_boxplot = FALSE)
 p
 ```
@@ -65,13 +65,13 @@ p
 <p class="caption">(\#fig:unnamed-chunk-5)SCpubr's violin plot without box plots.</p>
 </div>
 
-If we want to rotate the X axis labels, we can also do that providing `rotate_x_axis_labels = TRUE/FALSE`:
+If we want to rotate the X axis labels, we can also do that providing `rotate_x_axis_labels` with either 0, 45 or 90:
 
 ```r
 # Rotate x axis labels.
 p <- SCpubr::do_ViolinPlot(sample = sample, 
-                        feature = c("nCount_RNA"),
-                        rotate_x_axis_labels = FALSE)
+                        features = c("nCount_RNA"),
+                        rotate_x_axis_labels = 45)
 p
 ```
 
@@ -88,7 +88,7 @@ For QC analyses, users might want to also add some other features such as a line
 ```r
 # Add horizontal lines.
 p <- SCpubr::do_ViolinPlot(sample = sample, 
-                           feature = "nCount_RNA", 
+                           features = "nCount_RNA", 
                            y_cut = 25000)
 p
 ```
@@ -105,10 +105,10 @@ Sometimes we might want to modify the overall look of the violin plots. For inst
 ```r
 # Increase line width.
 p1 <- SCpubr::do_ViolinPlot(sample = sample,
-                         feature = "nCount_RNA")
+                         features = "nCount_RNA")
 
 p2 <- SCpubr::do_ViolinPlot(sample = sample,
-                         feature = "nCount_RNA",
+                         features = "nCount_RNA",
                          line_width = 2)
 
 p <- p1 / p2
@@ -126,10 +126,10 @@ Also, the width of the box plots can be modified with `boxplot_width` parameter,
 ```r
 # Decrease boxplot width.
 p1 <- SCpubr::do_ViolinPlot(sample = sample,
-                            feature = "nCount_RNA")
+                            features = "nCount_RNA")
 
 p2 <- SCpubr::do_ViolinPlot(sample = sample,
-                            feature = "nCount_RNA",
+                            features = "nCount_RNA",
                             boxplot_width = 0.1)
 
 p <- p1 / p2
@@ -141,3 +141,45 @@ p
 <p class="caption">(\#fig:unnamed-chunk-9)SCpubr's violin plot with decreased box plot width</p>
 </div>
 
+## Force the same limits on different violin plots.
+Finally, we can also set the same range of values for the Y axis using `share.y.lims = TRUE`. For this, we need to provide multiple features to `features` parameter. The maximum and minimum values will be the absolute maximum and minimum across the features. 
+
+
+```r
+# Share the same Y axis.
+p <- SCpubr::do_ViolinPlot(sample = sample,
+                           features = c("nCount_RNA", "nFeature_RNA"),
+                           ncol = 1,
+                           share.y.lims = TRUE)
+p
+```
+
+<div class="figure" style="text-align: center">
+<img src="07-ViolinPlots_files/figure-html/unnamed-chunk-10-1.png" alt="SCpubr's violin plot sharing the same Y axis." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-10)SCpubr's violin plot sharing the same Y axis.</p>
+</div>
+
+## Split by another variable
+
+Finally, we can also generate split violin plots using the `split.by` parameter. However, `plot_boxplot` has to be set to `FALSE`:
+
+
+```r
+# Split violin plots.
+sample$orig.ident <- sample(c("A", "B"),
+                            ncol(sample),
+                            replace = TRUE)
+
+p<- SCpubr::do_ViolinPlot(sample = sample,
+                         features = "nCount_RNA",
+                         split.by = "orig.ident",
+                         plot_boxplot = FALSE,
+                         legend.position = "bottom")
+
+p
+```
+
+<div class="figure" style="text-align: center">
+<img src="07-ViolinPlots_files/figure-html/unnamed-chunk-11-1.png" alt="Generate split violin plots" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-11)Generate split violin plots</p>
+</div>

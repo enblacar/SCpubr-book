@@ -3,8 +3,10 @@
 A common analysis that can be performed on SC data is a group-wise DE analysis. This is, for example, we want to compute the differentially expressed (DE) genes between each of our cell clusters vs the rest of the clusters. This yields a data frame in which we have the DE genes between each of the comparisons, that we can then use for visualization purposes, such as heatmaps. This process is implemented in `SCpubr::do_GroupwiseDEPlot()`. For this, we will need to provide the function a Seurat object and the output of the following command: 
 
 ```{r echo = F}
+library(magrittr)
 sample <- readRDS("/b06x-isilon/b06x-g/G703/eblanco/projects/test_SC_datasets/sc_dataset.rds")
 de_genes <- readRDS("/b06x-isilon/b06x-g/G703/eblanco/projects/test_SC_datasets/de_genes.rds")
+de_genes <- de_genes %>% dplyr::filter(.data$avg_log2FC >= 0)
 ```
 
 

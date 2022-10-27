@@ -155,7 +155,7 @@ p
 </div>
 
 ## Rotating X axis labels
-As with the example above, X axis labels might overlap one with another. This can be changed by using `rotate_x_axis_labels = FALSE`,
+As with the example above, X axis labels might overlap one with another. This can be changed by using `rotate_x_axis_labels` with 0, 45 or 90,
 
 
 ```r
@@ -165,7 +165,7 @@ p1 <- SCpubr::do_GeyserPlot(sample = sample,
                             scale_type = "categorical",
                             group.by = "modified_orig.ident",
                             split.by = "seurat_clusters",
-                            rotate_x_axis_labels = FALSE)
+                            rotate_x_axis_labels = 45)
 
 # Geyser plot with continuous color scale split by seurat clusters rotating labels.
 p2 <- SCpubr::do_GeyserPlot(sample = sample,
@@ -174,7 +174,7 @@ p2 <- SCpubr::do_GeyserPlot(sample = sample,
                             enforce_symmetry = TRUE,
                             group.by = "modified_orig.ident",
                             split.by = "seurat_clusters",
-                            rotate_x_axis_labels = FALSE)
+                            rotate_x_axis_labels = 45)
 
 
 p <- p1 / p2

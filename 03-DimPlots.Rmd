@@ -249,6 +249,21 @@ p <- SCpubr::do_DimPlot(sample,
 
 p
 ```
+## Group by a variable but split by another
+Finally, but also importantly, users might want to **split** the UMAP using `split.by`, while also **grouping** (coloring) the values by another variable using `group.by`. Using these two parameters in combination yields the following:
+
+```{r, fig.cap = "SCpubr DimPlot using split.by and group.by", fig.width=21, fig.height=8}
+# Using split.by and group.by in combination.
+sample$orig.ident <- sample(c("A", "B", "C"), ncol(sample), replace = TRUE, prob = c(0.05, 0.1, 0.85))
+
+p <- SCpubr::do_DimPlot(sample, 
+                        group.by = "seurat_clusters",
+                        split.by = "orig.ident", 
+                        font.size = 24)
+
+p
+```
+
 
 Actually, the user might want to change the color of the highlighted cells in this split DimPlot. This is achieved by using `colors.use` parameter and providing either a vector of **valid color representations** of equal length to unique values in `split.by` or just a single color to use in all panels.
 

@@ -11,14 +11,14 @@ sample <- readRDS("/b06x-isilon/b06x-g/G703/eblanco/projects/test_SC_datasets/sc
 ## Basic usage
 ```{r, fig.cap="Seurat's violin plot.", fig.width=10, fig.height=5}
 p <- Seurat::VlnPlot(sample, 
-                     feature = "nCount_RNA")
+                     features = "nCount_RNA")
 p
 ```
 The one thing that really stands out here is, indeed, the extra dots that are being plotted alongside the violin plot. Since each dot represent a cell, it quickly becomes the dominant feature of the figure. One can play with the alpha of the dots to reduce their presence:
 
 ```{r, fig.cap="Seurat's violin plot with transparent dots.", fig.width=10, fig.height=5}
 p <- Seurat::VlnPlot(sample, 
-                     feature = "nCount_RNA")
+                     features = "nCount_RNA")
 # "Surgically" add the alpha parameter in the ggplot2 object.
 p$layers[[2]]$aes_params$alpha <- 0.05
 p
@@ -29,7 +29,7 @@ But still, by making the dots almost invisible, we still observe their dominance
 ```{r, fig.cap="SCpubr's violin plot.", fig.width=10, fig.height=5}
 # Basic violin plot.
 p <- SCpubr::do_ViolinPlot(sample = sample, 
-                           feature = "nCount_RNA")
+                           features = "nCount_RNA")
 p
 ```
 
@@ -38,17 +38,17 @@ In addition to removing the dots, a boxplot is added to each violin shape, to ge
 ```{r, fig.cap="SCpubr's violin plot without box plots.", fig.width=10, fig.height=5}
 # Remove the box plots.
 p <- SCpubr::do_ViolinPlot(sample = sample, 
-                           feature = "nCount_RNA",
+                           features = "nCount_RNA",
                            plot_boxplot = FALSE)
 p
 ```
 
-If we want to rotate the X axis labels, we can also do that providing `rotate_x_axis_labels = TRUE/FALSE`:
+If we want to rotate the X axis labels, we can also do that providing `rotate_x_axis_labels` with either 0, 45 or 90:
 ```{r, fig.cap="SCpubr's violin plot rotating x axis.", fig.width=10, fig.height=5}
 # Rotate x axis labels.
 p <- SCpubr::do_ViolinPlot(sample = sample, 
-                        feature = c("nCount_RNA"),
-                        rotate_x_axis_labels = FALSE)
+                        features = c("nCount_RNA"),
+                        rotate_x_axis_labels = 45)
 p
 ```
 
@@ -59,7 +59,7 @@ For QC analyses, users might want to also add some other features such as a line
 ```{r, fig.cap="SCpubr's violin plot with horizontal line.", fig.width=10, fig.height=5}
 # Add horizontal lines.
 p <- SCpubr::do_ViolinPlot(sample = sample, 
-                           feature = "nCount_RNA", 
+                           features = "nCount_RNA", 
                            y_cut = 25000)
 p
 ```
@@ -70,10 +70,10 @@ Sometimes we might want to modify the overall look of the violin plots. For inst
 ```{r, fig.cap="SCpubr's violin plot with increased line width", fig.width=10, fig.height=10}
 # Increase line width.
 p1 <- SCpubr::do_ViolinPlot(sample = sample,
-                         feature = "nCount_RNA")
+                         features = "nCount_RNA")
 
 p2 <- SCpubr::do_ViolinPlot(sample = sample,
-                         feature = "nCount_RNA",
+                         features = "nCount_RNA",
                          line_width = 2)
 
 p <- p1 / p2
@@ -85,13 +85,43 @@ Also, the width of the box plots can be modified with `boxplot_width` parameter,
 ```{r, fig.cap="SCpubr's violin plot with decreased box plot width", fig.width=10, fig.height=10}
 # Decrease boxplot width.
 p1 <- SCpubr::do_ViolinPlot(sample = sample,
-                            feature = "nCount_RNA")
+                            features = "nCount_RNA")
 
 p2 <- SCpubr::do_ViolinPlot(sample = sample,
-                            feature = "nCount_RNA",
+                            features = "nCount_RNA",
                             boxplot_width = 0.1)
 
 p <- p1 / p2
 p
 ```
 
+## Force the same limits on different violin plots.
+Finally, we can also set the same range of values for the Y axis using `share.y.lims = TRUE`. For this, we need to provide multiple features to `features` parameter. The maximum and minimum values will be the absolute maximum and minimum across the features. 
+
+```{r, fig.cap="SCpubr's violin plot sharing the same Y axis.", fig.width=10, fig.height=10}
+# Share the same Y axis.
+p <- SCpubr::do_ViolinPlot(sample = sample,
+                           features = c("nCount_RNA", "nFeature_RNA"),
+                           ncol = 1,
+                           share.y.lims = TRUE)
+p
+```
+
+## Split by another variable
+
+Finally, we can also generate split violin plots using the `split.by` parameter. However, `plot_boxplot` has to be set to `FALSE`:
+
+```{r, fig.cap="Generate split violin plots", fig.width=10, fig.height=5}
+# Split violin plots.
+sample$orig.ident <- sample(c("A", "B"),
+                            ncol(sample),
+                            replace = TRUE)
+
+p<- SCpubr::do_ViolinPlot(sample = sample,
+                         features = "nCount_RNA",
+                         split.by = "orig.ident",
+                         plot_boxplot = FALSE,
+                         legend.position = "bottom")
+
+p
+```

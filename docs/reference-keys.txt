@@ -15,6 +15,7 @@ fig:unnamed-chunk-15
 fig:unnamed-chunk-16
 fig:unnamed-chunk-17
 fig:unnamed-chunk-18
+fig:unnamed-chunk-19
 dim-plots
 basic-usage
 using-labels-instead-of-a-legend
@@ -22,12 +23,14 @@ changing-the-order-of-plotting
 highlighting-cells
 restrict-the-identitites-shown-and-grey-out-the-rest
 splitting-by-a-category
+group-by-a-variable-but-split-by-another
 feature-plots
 basic-usage-1
 multiple-features
 limit-the-color-scale-to-a-max-and-min-values
 working-with-subsets-of-cells
 splitting-the-featureplot-by-a-variable
+subset-the-color-scale-to-a-minimum-and-maximum
 apply-symmetrical-color-scales
 nebulosa-plots
 basic-usage-2
@@ -39,6 +42,8 @@ violin-plots
 basic-usage-3
 violin-plots-as-a-means-of-qc
 modifying-aesthetics
+force-the-same-limits-on-different-violin-plots.
+split-by-another-variable
 ridge-plots
 basic-usage-4
 use-continuous-color-scales

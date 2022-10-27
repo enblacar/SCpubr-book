@@ -343,6 +343,27 @@ p
 <img src="03-DimPlots_files/figure-html/unnamed-chunk-17-1.png" alt="SCpubr DimPlot using split.by and idents.keep." width="100%" height="100%" />
 <p class="caption">(\#fig:unnamed-chunk-17)SCpubr DimPlot using split.by and idents.keep.</p>
 </div>
+## Group by a variable but split by another
+Finally, but also importantly, users might want to **split** the UMAP using `split.by`, while also **grouping** (coloring) the values by another variable using `group.by`. Using these two parameters in combination yields the following:
+
+
+```r
+# Using split.by and group.by in combination.
+sample$orig.ident <- sample(c("A", "B", "C"), ncol(sample), replace = TRUE, prob = c(0.05, 0.1, 0.85))
+
+p <- SCpubr::do_DimPlot(sample, 
+                        group.by = "seurat_clusters",
+                        split.by = "orig.ident", 
+                        font.size = 24)
+
+p
+```
+
+<div class="figure" style="text-align: center">
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-18-1.png" alt="SCpubr DimPlot using split.by and group.by" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-18)SCpubr DimPlot using split.by and group.by</p>
+</div>
+
 
 Actually, the user might want to change the color of the highlighted cells in this split DimPlot. This is achieved by using `colors.use` parameter and providing either a vector of **valid color representations** of equal length to unique values in `split.by` or just a single color to use in all panels.
 
@@ -382,8 +403,8 @@ p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="03-DimPlots_files/figure-html/unnamed-chunk-18-1.png" alt="SCpubr DimPlot using split.by with a changed color" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-18)SCpubr DimPlot using split.by with a changed color</p>
+<img src="03-DimPlots_files/figure-html/unnamed-chunk-19-1.png" alt="SCpubr DimPlot using split.by with a changed color" width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-19)SCpubr DimPlot using split.by with a changed color</p>
 </div>
 
 

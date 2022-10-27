@@ -58,7 +58,7 @@ out <- SCpubr::do_CopyNumberVariantPlot(sample = sample,
                                         metacell_mapping = sample$metacell_mapping,
                                         chromosome_locations = human_chr_locations,
                                         chromosome_focus = "11",
-                                        rotate_x_axis_labels = FALSE)
+                                        rotate_x_axis_labels = 45)
 p <- out$`11p_geyser`
 p
 ```
@@ -84,7 +84,7 @@ out <- SCpubr::do_CopyNumberVariantPlot(sample = sample,
                                         metacell_mapping = sample$metacell_mapping,
                                         chromosome_locations = human_chr_locations,
                                         chromosome_focus = "11",
-                                        rotate_x_axis_labels = FALSE)
+                                        rotate_x_axis_labels = 45)
 p <- out$`11p_geyser`
 p
 ```
@@ -114,7 +114,7 @@ out <- SCpubr::do_CopyNumberVariantPlot(sample = sample,
                                         metacell_mapping = sample$metacell_mapping,
                                         chromosome_locations = human_chr_locations,
                                         chromosome_focus = "11",
-                                        rotate_x_axis_labels = FALSE)
+                                        rotate_x_axis_labels = 45)
 p2 <- out$`11p_umap`
 p3 <- out$`11p_geyser`
 

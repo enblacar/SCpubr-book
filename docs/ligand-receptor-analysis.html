@@ -95,14 +95,14 @@ Find how to install it <a href="https://github.com/enblacar/SCpubr/releases/tag/
 <span class="header-section-number">19.1</span> Basic usage<a class="anchor" aria-label="anchor" href="#basic-usage-12"><i class="fas fa-link"></i></a>
 </h2>
 <p>By default, the user has to run <code>liana</code> on their own and provide the resulting output as input for the function. The following code would produces the object that <code><a href="https://rdrr.io/pkg/SCpubr/man/do_LigandReceptorPlot.html">SCpubr::do_LigandReceptorPlot()</a></code> expects as input:</p>
-<div class="sourceCode" id="cb141"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb145"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">liana_output</span> <span class="op">&lt;-</span> <span class="fu">liana</span><span class="fu">::</span><span class="fu"><a href="https://saezlab.github.io/liana/reference/liana_wrap.html">liana_wrap</a></span><span class="op">(</span>sce <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                                  method <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"natmi"</span>, <span class="st">"connectome"</span>, <span class="st">"logfc"</span>, <span class="st">"sca"</span>, <span class="st">"cellphonedb"</span><span class="op">)</span>,</span>
 <span>                                  idents_col <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>                                  verbose <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>                                  assay <span class="op">=</span> <span class="st">"SCT"</span><span class="op">)</span></span></code></pre></div>
 <p>It is very important to note that <code>liana_output</code> has to contain the five different methods. This is a design choice. The output looks like:</p>
-<div class="sourceCode" id="cb142"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb146"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Ligand Receptor analysis plot.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_LigandReceptorPlot.html">do_LigandReceptorPlot</a></span><span class="op">(</span>liana_output <span class="op">=</span> <span class="va">liana_output</span><span class="op">)</span></span>
 <span><span class="va">p</span></span></code></pre></div>
@@ -118,7 +118,7 @@ Figure 1.2: SCpubr do_LigandReceptorPlot default output.
 <span class="header-section-number">19.2</span> Increase the top significant interactions plotted<a class="anchor" aria-label="anchor" href="#increase-the-top-significant-interactions-plotted"><i class="fas fa-link"></i></a>
 </h2>
 <p>By default, top 25 unique, most significant interactions are retrieved and plotted. However, this can be changed by using <code>top_interactions</code>. Also, clusters that have no interactions, both as source and target, will be removed.:</p>
-<div class="sourceCode" id="cb143"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb147"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Ligand Receptor analysis plot with extra interactions.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_LigandReceptorPlot.html">do_LigandReceptorPlot</a></span><span class="op">(</span>liana_output <span class="op">=</span> <span class="va">liana_output</span>,</span>
 <span>                                   top_interactions <span class="op">=</span> <span class="fl">50</span><span class="op">)</span></span>
@@ -136,7 +136,7 @@ Figure 1.3: SCpubr do_LigandReceptorPlot default output with extra interactions.
 </h2>
 <p>Depending on the value we select for <code>top_interactions</code>, we might find out that there are specific source-target combinations for which we have no interactions at all. These show up in the resulting dotplot as empty columns. This is a design choice, as <strong>SCpubr</strong> brings these combinations back as NA values, thus making the different panels in the dotplot easier to read. However, with a small number of interactions, this might result in a very empty dotplot. Also, if we have many different sources, the plot can also become very long.</p>
 <p>In cases like these, we might rather go for only the relevant columns. We can toggle on/off this behaviour by using ``:</p>
-<div class="sourceCode" id="cb144"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb148"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Add missing LR combinations.</span></span>
 <span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_LigandReceptorPlot.html">do_LigandReceptorPlot</a></span><span class="op">(</span>liana_output <span class="op">=</span> <span class="va">liana_output</span>,</span>
 <span>                                    add_missing_LR_combinations <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
@@ -158,7 +158,7 @@ Figure 1.4: SCpubr do_LigandReceptorPlot with and without missing LR combination
 <span class="header-section-number">19.4</span> Modify the size of dots<a class="anchor" aria-label="anchor" href="#modify-the-size-of-dots"><i class="fas fa-link"></i></a>
 </h2>
 <p>Size of dots can be modified with <code>dot.size</code>:</p>
-<div class="sourceCode" id="cb145"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb149"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Ligand Receptor analysis plot with increased dot size.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_LigandReceptorPlot.html">do_LigandReceptorPlot</a></span><span class="op">(</span>liana_output <span class="op">=</span> <span class="va">liana_output</span>,</span>
 <span>                                   dot.size <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
@@ -175,7 +175,7 @@ Figure 1.5: SCpubr do_LigandReceptorPlot with increased dot size.
 <span class="header-section-number">19.5</span> Toggle grid lines<a class="anchor" aria-label="anchor" href="#toggle-grid-lines"><i class="fas fa-link"></i></a>
 </h2>
 <p>One can also draw some grid lines. This is specially useful when the plot gets too big. This can be achieved by using <code>plot.grid = TRUE/FALSE</code>. The grid lines can be controlled using <code>grid.type</code> and the color with <code>grid.color</code>:</p>
-<div class="sourceCode" id="cb146"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb150"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Ligand Receptor analysis plot with grid.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_LigandReceptorPlot.html">do_LigandReceptorPlot</a></span><span class="op">(</span>liana_output <span class="op">=</span> <span class="va">liana_output</span>,</span>
 <span>                                   grid.color <span class="op">=</span> <span class="st">"steelblue"</span><span class="op">)</span></span>
@@ -191,12 +191,12 @@ Figure 1.6: SCpubr do_LigandReceptorPlot with grid lines.
 <h2>
 <span class="header-section-number">19.6</span> Invert axis<a class="anchor" aria-label="anchor" href="#invert-axis"><i class="fas fa-link"></i></a>
 </h2>
-<p>For the cases in which one want to plot a lot of interactions, the plot can be flipped with <code>flip = TRUE</code>. X axis labels can be rotated with <code>x_labels_angle</code>, providing either 0, 45 or 90 degrees and strip text can be also rotated with <code>rotate_strip_text = TRUE</code>.</p>
-<div class="sourceCode" id="cb147"><pre class="downlit sourceCode r">
+<p>For the cases in which one want to plot a lot of interactions, the plot can be flipped with <code>flip = TRUE</code>. X axis labels can be rotated with <code>rotate_x_axis_labels</code>, providing either 0, 45 or 90 degrees and strip text can be also rotated with <code>rotate_strip_text = TRUE</code>.</p>
+<div class="sourceCode" id="cb151"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Ligand Receptor analysis plot with inverted axes.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_LigandReceptorPlot.html">do_LigandReceptorPlot</a></span><span class="op">(</span>liana_output <span class="op">=</span> <span class="va">liana_output</span>,</span>
 <span>                                   flip <span class="op">=</span> <span class="cn">TRUE</span>, </span>
-<span>                                   x_labels_angle <span class="op">=</span> <span class="fl">90</span>,</span>
+<span>                                   rotate_x_axis_labels <span class="op">=</span> <span class="fl">90</span>,</span>
 <span>                                   rotate_strip_text <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="va">p</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
@@ -211,13 +211,13 @@ Figure 1.7: SCpubr do_LigandReceptorPlot with inverted axes.
 <span class="header-section-number">19.7</span> Split the plot by ligand or receptor complex<a class="anchor" aria-label="anchor" href="#split-the-plot-by-ligand-or-receptor-complex"><i class="fas fa-link"></i></a>
 </h2>
 <p>Furthermore, the plot can be also further divided by grouping the interactions by common ligand or receptor complex. This can be achieved using <code>split.by</code> parameter.:</p>
-<div class="sourceCode" id="cb148"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb152"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Ligand Receptor analysis plot grouped by ligand.complex.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_LigandReceptorPlot.html">do_LigandReceptorPlot</a></span><span class="op">(</span>liana_output <span class="op">=</span> <span class="va">liana_output</span>,</span>
 <span>                                   plot.grid <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>                                   grid.color <span class="op">=</span> <span class="st">"grey90"</span>,</span>
 <span>                                   grid.type <span class="op">=</span> <span class="st">"dotted"</span>,</span>
-<span>                                   x_labels_angle <span class="op">=</span> <span class="fl">90</span>,</span>
+<span>                                   rotate_x_axis_labels <span class="op">=</span> <span class="fl">90</span>,</span>
 <span>                                   rotate_strip_text <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>                                   split.by <span class="op">=</span> <span class="st">"ligand.complex"</span><span class="op">)</span></span>
 <span><span class="va">p</span></span></code></pre></div>
@@ -227,7 +227,7 @@ Figure 1.7: SCpubr do_LigandReceptorPlot with inverted axes.
 Figure 1.8: SCpubr do_LigandReceptorPlot split by ligand.complex.
 </p>
 </div>
-<div class="sourceCode" id="cb149"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb153"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Ligand Receptor analysis plot grouped by ligand.complex.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_LigandReceptorPlot.html">do_LigandReceptorPlot</a></span><span class="op">(</span>liana_output <span class="op">=</span> <span class="va">liana_output</span>,</span>
 <span>                                   split.by <span class="op">=</span> <span class="st">"receptor.complex"</span><span class="op">)</span></span>
@@ -244,7 +244,7 @@ Figure 1.9: SCpubr do_LigandReceptorPlot split by receptor.complex.
 <span class="header-section-number">19.8</span> Restrict the plot to given source and/or targets<a class="anchor" aria-label="anchor" href="#restrict-the-plot-to-given-source-andor-targets"><i class="fas fa-link"></i></a>
 </h2>
 <p>Finally, one can also restrict the output to given source and target clusters. This can be achieved by provided the desired identities to <code>keep_source</code> and <code>keep_target</code>:</p>
-<div class="sourceCode" id="cb150"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb154"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Ligand Receptor analysis plot with inverted axes with filtered source and targets.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_LigandReceptorPlot.html">do_LigandReceptorPlot</a></span><span class="op">(</span>liana_output <span class="op">=</span> <span class="va">liana_output</span>,</span>
 <span>                                   flip <span class="op">=</span> <span class="cn">FALSE</span>, </span>
@@ -266,19 +266,19 @@ Figure 1.10: SCpubr do_LigandReceptorPlot with filtered source and targets.
 - The total number of significant interactions between each pair of clusters.
 - The number of interactions between the <code>top_interactions</code> ligand-receptor pairs.</p>
 <p>This can be achieved by providing <code>compute_ChordDiagrams = TRUE</code>. This will return a list with the dot plot and chord diagrams.</p>
-<div class="sourceCode" id="cb151"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb155"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Chord diagram of the total significant interactions from each cluster and all the rest.</span></span>
 <span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_LigandReceptorPlot.html">do_LigandReceptorPlot</a></span><span class="op">(</span>liana_output <span class="op">=</span> <span class="va">liana_output</span>,</span>
 <span>                                     top_interactions <span class="op">=</span> <span class="fl">25</span>,</span>
 <span>                                     compute_ChordDiagrams <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="va">out</span><span class="op">$</span><span class="va">chord_total_interactions</span></span></code></pre></div>
 <p><span class="border-0"><img src="images/chord1.png" class="mx-auto d-block" alt="" style="box-shadow: none; width: 100%"></span></p>
-<div class="sourceCode" id="cb152"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb156"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Chord diagram of the total ligand-receptor interactions from each cluster and all the rest.</span></span>
 <span><span class="va">out</span><span class="op">$</span><span class="va">chord_ligand_receptor</span></span></code></pre></div>
 <p><span class="border-0"><img src="images/chord2.png" class="mx-auto d-block" alt="" style="box-shadow: none; width: 100%"></span></p>
 <p>However, the plot can become quite messy. For this, it becomes more interesting to use in combination of <code>keep_source</code> or <code>keep_target</code> parameters:</p>
-<div class="sourceCode" id="cb153"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb157"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Chord diagram of the total significant interactions from each cluster and all the rest.</span></span>
 <span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_LigandReceptorPlot.html">do_LigandReceptorPlot</a></span><span class="op">(</span>liana_output <span class="op">=</span> <span class="va">liana_output</span>,</span>
 <span>                                     top_interactions <span class="op">=</span> <span class="fl">25</span>,</span>
@@ -286,7 +286,7 @@ Figure 1.10: SCpubr do_LigandReceptorPlot with filtered source and targets.
 <span>                                     compute_ChordDiagrams <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="va">out</span><span class="op">$</span><span class="va">chord_total_interactions</span></span></code></pre></div>
 <p><span class="border-0"><img src="images/chord3.png" class="mx-auto d-block" alt="" style="box-shadow: none; width: 100%"></span></p>
-<div class="sourceCode" id="cb154"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb158"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Chord diagram of the total ligand-receptor interactions from each cluster and all the rest.</span></span>
 <span><span class="va">out</span><span class="op">$</span><span class="va">chord_ligand_receptor</span></span></code></pre></div>
 <p><span class="border-0"><img src="images/chord4.png" class="mx-auto d-block" alt="" style="box-shadow: none; width: 100%"></span></p>
@@ -342,7 +342,7 @@ Figure 1.10: SCpubr do_LigandReceptorPlot with filtered source and targets.
 <!-- Moved the footer outside of the body to make it span all page width. --><footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 19 October, 2022.</p>
+    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 27 October, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

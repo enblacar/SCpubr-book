@@ -90,7 +90,7 @@
 <span class="header-section-number">6.1</span> Basic usage<a class="anchor" aria-label="anchor" href="#basic-usage-4"><i class="fas fa-link"></i></a>
 </h2>
 <p>The most basic ridge plot can be computed as:</p>
-<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Compute the most basic ridge plot.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_RidgePlot.html">do_RidgePlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                          feature <span class="op">=</span> <span class="st">"nFeature_RNA"</span><span class="op">)</span></span>
@@ -107,7 +107,7 @@ Figure 1.1: Basic ridge plot
 <span class="header-section-number">6.2</span> Use continuous color scales<a class="anchor" aria-label="anchor" href="#use-continuous-color-scales"><i class="fas fa-link"></i></a>
 </h2>
 <p>By default, the groups plotted are the current identities in the sample, but this can be changed by using <code>group.by</code>. One can also color the ridges based on the continuous values being represented, using <code>continuous_scale = TRUE</code>. The direction of the color scale can be controlled using <code>viridis_direction</code> :</p>
-<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Use continuous color scale.</span></span>
 <span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_RidgePlot.html">do_RidgePlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                           feature <span class="op">=</span> <span class="st">"nFeature_RNA"</span>,</span>
@@ -133,7 +133,7 @@ Figure 1.2: Basic ridge plot colored using the continuous scale.
 <span class="header-section-number">6.3</span> Plot quantiles of the distribution<a class="anchor" aria-label="anchor" href="#plot-quantiles-of-the-distribution"><i class="fas fa-link"></i></a>
 </h2>
 <p>One can also draw quantiles of the distribution for each of the groups. For this, we need to set up the scale to continuous. Also, we can modify the quantiles by using <code>quantiles</code> parameter:</p>
-<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Draw quantiles of the distribution.</span></span>
 <span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_RidgePlot.html">do_RidgePlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                           feature <span class="op">=</span> <span class="st">"nFeature_RNA"</span>,</span>
@@ -162,7 +162,7 @@ Figure 1.3: RidgePlots with quantiles.
 <span class="header-section-number">6.4</span> Compute probability tails<a class="anchor" aria-label="anchor" href="#compute-probability-tails"><i class="fas fa-link"></i></a>
 </h2>
 <p>One can draw probability tails of the distribution by using <code>compute_distribution_tails</code> and <code>prob_tails</code>.</p>
-<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Draw probability tails.</span></span>
 <span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_RidgePlot.html">do_RidgePlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                           feature <span class="op">=</span> <span class="st">"nFeature_RNA"</span>,</span>
@@ -191,7 +191,7 @@ Figure 1.4: RidgePlots with probability tails.
 <span class="header-section-number">6.5</span> Compute probability densities<a class="anchor" aria-label="anchor" href="#compute-probability-densities"><i class="fas fa-link"></i></a>
 </h2>
 <p>One can also display the probability densities of the distributions by using :</p>
-<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Draw probability tails.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_RidgePlot.html">do_RidgePlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                          feature <span class="op">=</span> <span class="st">"nFeature_RNA"</span>,</span>
@@ -246,7 +246,7 @@ Figure 1.5: RidgePlots with probability densities.
 <!-- Moved the footer outside of the body to make it span all page width. --><footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 19 October, 2022.</p>
+    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 27 October, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

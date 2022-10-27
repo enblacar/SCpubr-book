@@ -89,9 +89,9 @@
 <h2>
 <span class="header-section-number">5.1</span> Basic usage<a class="anchor" aria-label="anchor" href="#basic-usage-3"><i class="fas fa-link"></i></a>
 </h2>
-<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">Seurat</span><span class="fu">::</span><span class="fu"><a href="https://satijalab.org/seurat/reference/VlnPlot.html">VlnPlot</a></span><span class="op">(</span><span class="va">sample</span>, </span>
-<span>                     feature <span class="op">=</span> <span class="st">"nCount_RNA"</span><span class="op">)</span></span>
+<span>                     features <span class="op">=</span> <span class="st">"nCount_RNA"</span><span class="op">)</span></span>
 <span><span class="va">p</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-2"></span>
@@ -100,9 +100,9 @@ Figure 1.1: Seurat’s violin plot.
 </p>
 </div>
 <p>The one thing that really stands out here is, indeed, the extra dots that are being plotted alongside the violin plot. Since each dot represent a cell, it quickly becomes the dominant feature of the figure. One can play with the alpha of the dots to reduce their presence:</p>
-<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">Seurat</span><span class="fu">::</span><span class="fu"><a href="https://satijalab.org/seurat/reference/VlnPlot.html">VlnPlot</a></span><span class="op">(</span><span class="va">sample</span>, </span>
-<span>                     feature <span class="op">=</span> <span class="st">"nCount_RNA"</span><span class="op">)</span></span>
+<span>                     features <span class="op">=</span> <span class="st">"nCount_RNA"</span><span class="op">)</span></span>
 <span><span class="co"># "Surgically" add the alpha parameter in the ggplot2 object.</span></span>
 <span><span class="va">p</span><span class="op">$</span><span class="va">layers</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">aes_params</span><span class="op">$</span><span class="va">alpha</span> <span class="op">&lt;-</span> <span class="fl">0.05</span></span>
 <span><span class="va">p</span></span></code></pre></div>
@@ -113,10 +113,10 @@ Figure 1.2: Seurat’s violin plot with transparent dots.
 </p>
 </div>
 <p>But still, by making the dots almost invisible, we still observe their dominance on the bigger clusters. Therefore, it’s better to remove it. This, together with other modifications are the basis of <code><a href="https://rdrr.io/pkg/SCpubr/man/do_ViolinPlot.html">SCpubr::do_ViolinPlot()</a></code>. This is how the default plot looks like:</p>
-<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Basic violin plot.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_ViolinPlot.html">do_ViolinPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
-<span>                           feature <span class="op">=</span> <span class="st">"nCount_RNA"</span><span class="op">)</span></span>
+<span>                           features <span class="op">=</span> <span class="st">"nCount_RNA"</span><span class="op">)</span></span>
 <span><span class="va">p</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-4"></span>
@@ -125,10 +125,10 @@ Figure 1.3: SCpubr’s violin plot.
 </p>
 </div>
 <p>In addition to removing the dots, a boxplot is added to each violin shape, to get a better sense of the quantiles of the distribution. This effect can be removed by using <code>plot_boxplot = FALSE</code>. Also, legend is by default removed, as the groups are being displayed already in the X axis.</p>
-<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Remove the box plots.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_ViolinPlot.html">do_ViolinPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
-<span>                           feature <span class="op">=</span> <span class="st">"nCount_RNA"</span>,</span>
+<span>                           features <span class="op">=</span> <span class="st">"nCount_RNA"</span>,</span>
 <span>                           plot_boxplot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="va">p</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
@@ -137,12 +137,12 @@ Figure 1.3: SCpubr’s violin plot.
 Figure 1.4: SCpubr’s violin plot without box plots.
 </p>
 </div>
-<p>If we want to rotate the X axis labels, we can also do that providing <code>rotate_x_axis_labels = TRUE/FALSE</code>:</p>
-<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r">
+<p>If we want to rotate the X axis labels, we can also do that providing <code>rotate_x_axis_labels</code> with either 0, 45 or 90:</p>
+<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Rotate x axis labels.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_ViolinPlot.html">do_ViolinPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
-<span>                        feature <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"nCount_RNA"</span><span class="op">)</span>,</span>
-<span>                        rotate_x_axis_labels <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span>                        features <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"nCount_RNA"</span><span class="op">)</span>,</span>
+<span>                        rotate_x_axis_labels <span class="op">=</span> <span class="fl">45</span><span class="op">)</span></span>
 <span><span class="va">p</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-6"></span>
@@ -156,10 +156,10 @@ Figure 1.5: SCpubr’s violin plot rotating x axis.
 <span class="header-section-number">5.2</span> Violin plots as a means of QC<a class="anchor" aria-label="anchor" href="#violin-plots-as-a-means-of-qc"><i class="fas fa-link"></i></a>
 </h2>
 <p>For QC analyses, users might want to also add some other features such as a line indicating where to put the cutoff. This can be achieved by using <code>y_cut</code> parameter. Currently, only one value per plot for <code>y_cut</code> can be used.</p>
-<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Add horizontal lines.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_ViolinPlot.html">do_ViolinPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
-<span>                           feature <span class="op">=</span> <span class="st">"nCount_RNA"</span>, </span>
+<span>                           features <span class="op">=</span> <span class="st">"nCount_RNA"</span>, </span>
 <span>                           y_cut <span class="op">=</span> <span class="fl">25000</span><span class="op">)</span></span>
 <span><span class="va">p</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
@@ -174,13 +174,13 @@ Figure 1.6: SCpubr’s violin plot with horizontal line.
 <span class="header-section-number">5.3</span> Modifying aesthetics<a class="anchor" aria-label="anchor" href="#modifying-aesthetics"><i class="fas fa-link"></i></a>
 </h2>
 <p>Sometimes we might want to modify the overall look of the violin plots. For instance, the line width of both the violin shape and the box plot can be modified with <code>line_width</code> parameter, which defaults to 1.</p>
-<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Increase line width.</span></span>
 <span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_ViolinPlot.html">do_ViolinPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
-<span>                         feature <span class="op">=</span> <span class="st">"nCount_RNA"</span><span class="op">)</span></span>
+<span>                         features <span class="op">=</span> <span class="st">"nCount_RNA"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_ViolinPlot.html">do_ViolinPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
-<span>                         feature <span class="op">=</span> <span class="st">"nCount_RNA"</span>,</span>
+<span>                         features <span class="op">=</span> <span class="st">"nCount_RNA"</span>,</span>
 <span>                         line_width <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="va">p1</span> <span class="op">/</span> <span class="va">p2</span></span>
@@ -192,13 +192,13 @@ Figure 1.7: SCpubr’s violin plot with increased line width
 </p>
 </div>
 <p>Also, the width of the box plots can be modified with <code>boxplot_width</code> parameter, which defaults to 0.2. Be aware that this parameter scales the width of the boxplot. This is, if a value of 1 is provided, the box plot will take as much space as the violin shape. It is recommended to deviate from 0.2 by a small amount.</p>
-<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Decrease boxplot width.</span></span>
 <span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_ViolinPlot.html">do_ViolinPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
-<span>                            feature <span class="op">=</span> <span class="st">"nCount_RNA"</span><span class="op">)</span></span>
+<span>                            features <span class="op">=</span> <span class="st">"nCount_RNA"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_ViolinPlot.html">do_ViolinPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
-<span>                            feature <span class="op">=</span> <span class="st">"nCount_RNA"</span>,</span>
+<span>                            features <span class="op">=</span> <span class="st">"nCount_RNA"</span>,</span>
 <span>                            boxplot_width <span class="op">=</span> <span class="fl">0.1</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="va">p1</span> <span class="op">/</span> <span class="va">p2</span></span>
@@ -207,6 +207,50 @@ Figure 1.7: SCpubr’s violin plot with increased line width
 <span style="display:block;" id="fig:unnamed-chunk-9"></span>
 <img src="07-ViolinPlots_files/figure-html/unnamed-chunk-9-1.png" alt="SCpubr's violin plot with decreased box plot width" width="100%" height="100%"><p class="caption">
 Figure 1.8: SCpubr’s violin plot with decreased box plot width
+</p>
+</div>
+</div>
+<div id="force-the-same-limits-on-different-violin-plots." class="section level2" number="5.4">
+<h2>
+<span class="header-section-number">5.4</span> Force the same limits on different violin plots.<a class="anchor" aria-label="anchor" href="#force-the-same-limits-on-different-violin-plots."><i class="fas fa-link"></i></a>
+</h2>
+<p>Finally, we can also set the same range of values for the Y axis using <code>share.y.lims = TRUE</code>. For this, we need to provide multiple features to <code>features</code> parameter. The maximum and minimum values will be the absolute maximum and minimum across the features.</p>
+<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Share the same Y axis.</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_ViolinPlot.html">do_ViolinPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
+<span>                           features <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"nCount_RNA"</span>, <span class="st">"nFeature_RNA"</span><span class="op">)</span>,</span>
+<span>                           ncol <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>                           share.y.lims <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="va">p</span></span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-10"></span>
+<img src="07-ViolinPlots_files/figure-html/unnamed-chunk-10-1.png" alt="SCpubr's violin plot sharing the same Y axis." width="100%" height="100%"><p class="caption">
+Figure 1.9: SCpubr’s violin plot sharing the same Y axis.
+</p>
+</div>
+</div>
+<div id="split-by-another-variable" class="section level2" number="5.5">
+<h2>
+<span class="header-section-number">5.5</span> Split by another variable<a class="anchor" aria-label="anchor" href="#split-by-another-variable"><i class="fas fa-link"></i></a>
+</h2>
+<p>Finally, we can also generate split violin plots using the <code>split.by</code> parameter. However, <code>plot_boxplot</code> has to be set to <code>FALSE</code>:</p>
+<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Split violin plots.</span></span>
+<span><span class="va">sample</span><span class="op">$</span><span class="va">orig.ident</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span><span class="op">)</span>,</span>
+<span>                            <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">sample</span><span class="op">)</span>,</span>
+<span>                            replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">p</span><span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_ViolinPlot.html">do_ViolinPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
+<span>                         features <span class="op">=</span> <span class="st">"nCount_RNA"</span>,</span>
+<span>                         split.by <span class="op">=</span> <span class="st">"orig.ident"</span>,</span>
+<span>                         plot_boxplot <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>                         legend.position <span class="op">=</span> <span class="st">"bottom"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">p</span></span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-11"></span>
+<img src="07-ViolinPlots_files/figure-html/unnamed-chunk-11-1.png" alt="Generate split violin plots" width="100%" height="100%"><p class="caption">
+Figure 1.10: Generate split violin plots
 </p>
 </div>
 
@@ -225,6 +269,8 @@ Figure 1.8: SCpubr’s violin plot with decreased box plot width
 <li><a class="nav-link" href="#basic-usage-3"><span class="header-section-number">5.1</span> Basic usage</a></li>
 <li><a class="nav-link" href="#violin-plots-as-a-means-of-qc"><span class="header-section-number">5.2</span> Violin plots as a means of QC</a></li>
 <li><a class="nav-link" href="#modifying-aesthetics"><span class="header-section-number">5.3</span> Modifying aesthetics</a></li>
+<li><a class="nav-link" href="#force-the-same-limits-on-different-violin-plots."><span class="header-section-number">5.4</span> Force the same limits on different violin plots.</a></li>
+<li><a class="nav-link" href="#split-by-another-variable"><span class="header-section-number">5.5</span> Split by another variable</a></li>
 </ul>
 
       <div class="book-extra">
@@ -248,7 +294,7 @@ Figure 1.8: SCpubr’s violin plot with decreased box plot width
 <!-- Moved the footer outside of the body to make it span all page width. --><footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 19 October, 2022.</p>
+    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 27 October, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

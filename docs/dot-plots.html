@@ -89,7 +89,7 @@
 <h2>
 <span class="header-section-number">7.1</span> Basic usage<a class="anchor" aria-label="anchor" href="#basic-usage-5"><i class="fas fa-link"></i></a>
 </h2>
-<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">Seurat</span><span class="fu">::</span><span class="fu"><a href="https://satijalab.org/seurat/reference/DotPlot.html">DotPlot</a></span><span class="op">(</span><span class="va">sample</span>, </span>
 <span>                      features <span class="op">=</span> <span class="st">"CD14"</span><span class="op">)</span></span>
 <span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">Seurat</span><span class="fu">::</span><span class="fu"><a href="https://satijalab.org/seurat/reference/DotPlot.html">DotPlot</a></span><span class="op">(</span><span class="va">sample</span>, </span>
@@ -103,7 +103,7 @@ Figure 1.1: Seurat DotPlot
 </p>
 </div>
 <p>As can be seen, if we try to plot other type of variables, the resulting plot will not contain a color scale. <code><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">SCpubr::do_DimPlot()</a></code> focuses on enhancing the overall appearance of the plots. Implementation using other types of features is not currently supported. This is how it looks using <code><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">SCpubr::do_DimPlot()</a></code>:</p>
-<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DotPlot.html">do_DotPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
 <span>                         features <span class="op">=</span> <span class="st">"CD14"</span><span class="op">)</span></span>
 <span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DotPlot.html">do_DotPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
@@ -122,7 +122,7 @@ Figure 1.2: SCpubr DotPlot
 <span class="header-section-number">7.2</span> Querying multiple features at once<a class="anchor" aria-label="anchor" href="#querying-multiple-features-at-once"><i class="fas fa-link"></i></a>
 </h2>
 <p>The true power of this data visualization relies on querying multiple genes at once. Let’s query the ones described in this <a href="https://satijalab.org/seurat/articles/pbmc3k_tutorial.html#assigning-cell-type-identity-to-clusters-1">Seurat vignette</a>:</p>
-<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">genes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"IL7R"</span>, <span class="st">"CCR7"</span>, <span class="st">"CD14"</span>, <span class="st">"LYZ"</span>, </span>
 <span>           <span class="st">"S100A4"</span>, <span class="st">"MS4A1"</span>, <span class="st">"CD8A"</span>, <span class="st">"FCGR3A"</span>, </span>
 <span>           <span class="st">"MS4A7"</span>, <span class="st">"GNLY"</span>, <span class="st">"NKG7"</span>, <span class="st">"FCER1A"</span>, </span>
@@ -137,7 +137,7 @@ Figure 1.3: SCpubr DotPlot using multiple genes
 </p>
 </div>
 <p>Here, we can clearly distinguish which clusters are highly enriched in which given genes. This proves to be a very interesting way to query for cluster identities. It is highly dependent, though, on the accuracy of the selected genes for the queried dataset. If we actually provide the list of genes as a named list, we can facet the plot in the different list of genes provided:</p>
-<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb65"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">genes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="st">"Naive CD4+ T"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"IL7R"</span>, <span class="st">"CCR7"</span><span class="op">)</span>,</span>
 <span>              <span class="st">"CD14+ Mono"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"CD14"</span>, <span class="st">"LYZ"</span><span class="op">)</span>,</span>
 <span>              <span class="st">"Memory CD4+"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"S100A4"</span><span class="op">)</span>,</span>
@@ -162,7 +162,7 @@ Figure 1.4: SCpubr DotPlot using multiple genes
 <span class="header-section-number">7.3</span> Clustering the identities<a class="anchor" aria-label="anchor" href="#clustering-the-identities"><i class="fas fa-link"></i></a>
 </h2>
 <p>One really cool feature from <code><a href="https://satijalab.org/seurat/reference/DotPlot.html">Seurat::DotPlot()</a></code> is that it lets you cluster the identities in the Y axis depending on how similar they are between them across the values on the X axis. This is achieved by using <code>cluster.idents = TRUE</code>, parameter also implemented in <code><a href="https://rdrr.io/pkg/SCpubr/man/do_DotPlot.html">SCpubr::do_DotPlot()</a></code>:</p>
-<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">genes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="st">"Naive CD4+ T"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"IL7R"</span>, <span class="st">"CCR7"</span><span class="op">)</span>,</span>
 <span>              <span class="st">"CD14+ Mono"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"CD14"</span>, <span class="st">"LYZ"</span><span class="op">)</span>,</span>
 <span>              <span class="st">"Memory CD4+"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"S100A4"</span><span class="op">)</span>,</span>
@@ -193,7 +193,7 @@ Figure 1.5: SCpubr DotPlot using multiple genes and clustering the identities
 <span class="header-section-number">7.4</span> Inverting the axes<a class="anchor" aria-label="anchor" href="#inverting-the-axes"><i class="fas fa-link"></i></a>
 </h2>
 <p>In <code><a href="https://rdrr.io/pkg/SCpubr/man/do_DotPlot.html">SCpubr::do_DotPlot()</a></code>, we can also invert the axes, so that the groups are in the X axis and the genes in the Y axis. This is achieved by using <code>flip = TRUE</code>. Note, however, that this does not work when using a named list of genes as input, as it completely distort the way facets are computed. Given this, this combination of parameters is currently blocked by <code>SCpubr</code>.</p>
-<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb67"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">genes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"IL7R"</span>, <span class="st">"CCR7"</span>, <span class="st">"CD14"</span>, <span class="st">"LYZ"</span>, </span>
 <span>           <span class="st">"S100A4"</span>, <span class="st">"MS4A1"</span>, <span class="st">"CD8A"</span>, <span class="st">"FCGR3A"</span>, </span>
 <span>           <span class="st">"MS4A7"</span>, <span class="st">"GNLY"</span>, <span class="st">"NKG7"</span>, <span class="st">"FCER1A"</span>, </span>
@@ -207,7 +207,7 @@ Figure 1.5: SCpubr DotPlot using multiple genes and clustering the identities
 <span>                         cluster.idents <span class="op">=</span> <span class="cn">TRUE</span>, </span>
 <span>                         plot.title <span class="op">=</span> <span class="st">"Clustered"</span>, </span>
 <span>                         flip <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>                         rotate_x_axis_labels <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span>                         rotate_x_axis_labels <span class="op">=</span> <span class="fl">45</span><span class="op">)</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span></span>
 <span><span class="va">p</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
@@ -256,7 +256,7 @@ Figure 1.6: SCpubr DotPlot using multiple genes and clustering the identities fl
 <!-- Moved the footer outside of the body to make it span all page width. --><footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 19 October, 2022.</p>
+    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 27 October, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

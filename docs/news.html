@@ -6,16 +6,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>News | SCpubr</title>
 <meta name="author" content="Enrique Blanco Carmona">
-<meta name="description" content="Here are the patch notes of the different versions: SCpubr v1.0.1 Rework on unit tests and examples so that it can pass CRAN R CMD Check without packages in Suggests. This is, to make sure all...">
+<meta name="description" content="Here are the patch notes of the different versions: SCpubr v1.0.2  General changes Change color palette when using enforce_symmetry = TRUE to have the middle color as grey95 instead of the...">
 <meta name="generator" content="bookdown 0.28 with bs4_book()">
 <meta property="og:title" content="News | SCpubr">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://enblacar.github.io/SCpubr-book/news.html">
 <meta property="og:image" content="https://enblacar.github.io/SCpubr-book/images/logo.png">
-<meta property="og:description" content="Here are the patch notes of the different versions: SCpubr v1.0.1 Rework on unit tests and examples so that it can pass CRAN R CMD Check without packages in Suggests. This is, to make sure all...">
+<meta property="og:description" content="Here are the patch notes of the different versions: SCpubr v1.0.2  General changes Change color palette when using enforce_symmetry = TRUE to have the middle color as grey95 instead of the...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="News | SCpubr">
-<meta name="twitter:description" content="Here are the patch notes of the different versions: SCpubr v1.0.1 Rework on unit tests and examples so that it can pass CRAN R CMD Check without packages in Suggests. This is, to make sure all...">
+<meta name="twitter:description" content="Here are the patch notes of the different versions: SCpubr v1.0.2  General changes Change color palette when using enforce_symmetry = TRUE to have the middle color as grey95 instead of the...">
 <meta name="twitter:image" content="https://enblacar.github.io/SCpubr-book/images/logo.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -84,6 +84,110 @@
 <h1>News<a class="anchor" aria-label="anchor" href="#news"><i class="fas fa-link"></i></a>
 </h1>
 <p>Here are the patch notes of the different versions:</p>
+<div id="scpubr-v1.0.2" class="section level2 unnumbered">
+<h2>SCpubr v1.0.2<a class="anchor" aria-label="anchor" href="#scpubr-v1.0.2"><i class="fas fa-link"></i></a>
+</h2>
+<div id="general-changes" class="section level3 unnumbered">
+<h3>General changes<a class="anchor" aria-label="anchor" href="#general-changes"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>Change color palette when using <code>enforce_symmetry = TRUE</code> to have the middle color as <code>grey95</code> instead of the previous one, which made middle values seem closer to the positive end of the scale.</li>
+<li>Modified internal structure of all functions to abide with <a href="https://tidyselect.r-lib.org/news/index.html#lifecycle-changes-1-2-0">tidyselect v1.2.0 lifecycle modifications</a>.</li>
+<li>Modified <code>rotate_x_axis_labels</code> parameter in all functions that made use of it. Now, instead of accepting a <code>logical</code>, accepts a <code>numeric</code>: either <code>0</code>, <code>45</code> or <code>90</code>, corresponding to the degrees in which the X axis labels should be rotated. (<a href="https://github.com/enblacar/SCpubr/issues/5#issuecomment-1289203453">#5</a>)</li>
+</ul>
+</div>
+<div id="scpubrdo_copynumbervariantplot" class="section level3 unnumbered">
+<h3>
+<code>SCpubr::do_CopyNumberVariantPlot</code><a class="anchor" aria-label="anchor" href="#scpubrdo_copynumbervariantplot"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>Modified the code for <code><a href="https://rdrr.io/pkg/SCpubr/man/do_CopyNumberVariantPlot.html">SCpubr::do_CopyNumberVariantPlot</a></code> to also report results for the whole chromosome as well as for each chromosome arm.</li>
+<li>Include the <code>verbose</code> argument to <code><a href="https://rdrr.io/pkg/SCpubr/man/do_CopyNumberVariantPlot.html">SCpubr::do_CopyNumberVariantPlot</a></code> to silence the messages when there are not enough genes in the chromosome to perform the analysis.</li>
+</ul>
+</div>
+<div id="scpubrdo_dimplot" class="section level3 unnumbered">
+<h3>
+<code>SCpubr::do_DimPlot()</code><a class="anchor" aria-label="anchor" href="#scpubrdo_dimplot"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>Fixed a typo that prevented labels to be bold in <code><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">SCpubr::do_DimPlot()</a></code> when cell borders are displayed.</li>
+<li>Added <code>group.by</code> and <code>split.by</code> functionality to <code><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">SCpubr::do_DimPlot()</a></code>. (<a href="https://github.com/enblacar/SCpubr/issues/4">#4</a>)</li>
+</ul>
+</div>
+<div id="scpubrdo_dotplot" class="section level3 unnumbered">
+<h3>
+<code>SCpubr::do_DotPlot()</code><a class="anchor" aria-label="anchor" href="#scpubrdo_dotplot"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>Added ticks to axes.</li>
+<li>Modified default colors to convey a better aesthetic.</li>
+</ul>
+</div>
+<div id="scpubrdo_featureplot" class="section level3 unnumbered">
+<h3>
+<code>SCpubr::do_FeaturePlot()</code><a class="anchor" aria-label="anchor" href="#scpubrdo_featureplot"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>Fixed potential bugs in <code><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">SCpubr::do_FeaturePlot</a></code> when setting <code>enforce_symmetry = TRUE</code>.</li>
+<li>Changed default value of <code>order</code> in <code><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">SCpubr::do_FeaturePlot()</a></code> from <code>TRUE</code> to <code>FALSE</code>.</li>
+<li>Added <code>min.cutoff</code> and <code>max.cutoff</code> parameters to <code><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">SCpubr::do_FeaturePlot()</a></code>. This allows to effectively subset the color scale to the values provided. Cells outside the range will be converted to the min or max values provided, respectively. (<a href="https://github.com/enblacar/SCpubr/issues/2">#2</a>)</li>
+</ul>
+</div>
+<div id="scpubrdo_geyserplot" class="section level3 unnumbered">
+<h3>
+<code>SCpubr::do_GeyserPlot()</code><a class="anchor" aria-label="anchor" href="#scpubrdo_geyserplot"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>Added <code>flip</code> parameter.</li>
+</ul>
+</div>
+<div id="scpubrdo_groupwisedeplot" class="section level3 unnumbered">
+<h3>
+<code>SCpubr::do_GroupwiseDEPlot()</code><a class="anchor" aria-label="anchor" href="#scpubrdo_groupwisedeplot"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>Fixed bug in <code><a href="https://rdrr.io/pkg/SCpubr/man/do_GroupwiseDEPlot.html">SCpubr::do_GroupwiseDEPlot</a></code> in which the heatmap could not be computed. (<a href="https://github.com/enblacar/SCpubr/issues/3">#3</a>)</li>
+<li>Added extra checks to ensure proper input in <code><a href="https://rdrr.io/pkg/SCpubr/man/do_GroupwiseDEPlot.html">SCpubr::do_GroupwiseDEPlot</a></code>. (<a href="https://github.com/enblacar/SCpubr/issues/3">#3</a>)</li>
+</ul>
+</div>
+<div id="scpubrdo_ligandreceptorplot-development-release" class="section level3 unnumbered">
+<h3>
+<code>SCpubr::do_LigandReceptorPlot()</code> (development release)<a class="anchor" aria-label="anchor" href="#scpubrdo_ligandreceptorplot-development-release"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>Changed parameter <code>x_labels_angle</code> to <code>rotate_x_axis_labels</code> to keep a consistent terminology.</li>
+</ul>
+</div>
+<div id="scpubrdo_ridgeplot" class="section level3 unnumbered">
+<h3>
+<code>SCpubr::do_RidgePlot()</code><a class="anchor" aria-label="anchor" href="#scpubrdo_ridgeplot"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>Fixed a typo that made the lines in <code>panel.grid.minor</code> to be displayed in <code>SCpubr::do_Ridgeplot()</code>.</li>
+<li>Added <code>flip</code> parameter.</li>
+</ul>
+</div>
+<div id="scpubrdo_violinplot" class="section level3 unnumbered">
+<h3>
+<code>SCpubr::do_ViolinPlot()</code><a class="anchor" aria-label="anchor" href="#scpubrdo_violinplot"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>Added <code>split.by</code> functionality to <code><a href="https://rdrr.io/pkg/SCpubr/man/do_ViolinPlot.html">SCpubr::do_ViolinPlot()</a></code>. (<a href="https://github.com/enblacar/SCpubr/issues/4">#4</a>, <a href="https://github.com/enblacar/SCpubr/issues/5">#5</a>)</li>
+<li>Added <code>flip</code> parameter.</li>
+<li>Now multiple features can be queried ad the same time. (<a href="https://github.com/enblacar/SCpubr/issues/5#issuecomment-1289203453">#5</a>)</li>
+<li>Changed <code>feature</code> parameter to <code>features</code>, to better reflect the multiple feature behavior.</li>
+<li>Recreated <code>Seurat</code>’s <code>share.y.lims</code> behavior and set it to <code>share.y.lims</code> parameter. (<a href="https://github.com/enblacar/SCpubr/issues/5#issuecomment-1289203453">#5</a>)</li>
+</ul>
+</div>
+<div id="scpubr-v1.0.2-dev-stable" class="section level3 unnumbered">
+<h3>SCpubr v1.0.2-dev-stable<a class="anchor" aria-label="anchor" href="#scpubr-v1.0.2-dev-stable"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>Same as v1.0.2, but with all the functions that do not pass CRAN checks. These functions are: <code><a href="https://rdrr.io/pkg/SCpubr/man/save_Plot.html">SCpubr::save_Plot()</a></code> <code><a href="https://rdrr.io/pkg/SCpubr/man/do_LigandReceptorPlot.html">SCpubr::do_LigandReceptorPlot()</a></code> and <code><a href="https://rdrr.io/pkg/SCpubr/man/do_SankeyPlot.html">SCpubr::do_SankeyPlot()</a></code>.</li>
+</ul>
+<p>This version can be obtained in the <a href="https://github.com/enblacar/SCpubr/releases/tag/v1.0.2-dev-stable">v1.0.2-dev-stable release</a> release.</p>
+</div>
+</div>
 <div id="scpubr-v1.0.1" class="section level2 unnumbered">
 <h2>SCpubr v1.0.1<a class="anchor" aria-label="anchor" href="#scpubr-v1.0.1"><i class="fas fa-link"></i></a>
 </h2>
@@ -91,7 +195,7 @@
 <li>Rework on unit tests and examples so that it can pass CRAN R CMD Check without packages in Suggests. This is, to make sure all Suggested packages are used conditionally.</li>
 </ul>
 <p>This version can be obtained in the <a href="https://github.com/enblacar/SCpubr/releases/tag/v1.0.1">v1.0.1 release</a> release or <strong>downloading it from CRAN</strong> using:</p>
-<div class="sourceCode" id="cb197"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb201"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"SCpubr"</span><span class="op">)</span></span></code></pre></div>
 <div id="scpubr-v1.0.1-dev-stable" class="section level3 unnumbered">
 <h3>SCpubr v1.0.1-dev-stable<a class="anchor" aria-label="anchor" href="#scpubr-v1.0.1-dev-stable"><i class="fas fa-link"></i></a>
@@ -142,6 +246,21 @@
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#news">News</a></li>
 <li>
+<a class="nav-link" href="#scpubr-v1.0.2">SCpubr v1.0.2</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#general-changes">General changes</a></li>
+<li><a class="nav-link" href="#scpubrdo_copynumbervariantplot">SCpubr::do_CopyNumberVariantPlot</a></li>
+<li><a class="nav-link" href="#scpubrdo_dimplot">SCpubr::do_DimPlot()</a></li>
+<li><a class="nav-link" href="#scpubrdo_dotplot">SCpubr::do_DotPlot()</a></li>
+<li><a class="nav-link" href="#scpubrdo_featureplot">SCpubr::do_FeaturePlot()</a></li>
+<li><a class="nav-link" href="#scpubrdo_geyserplot">SCpubr::do_GeyserPlot()</a></li>
+<li><a class="nav-link" href="#scpubrdo_groupwisedeplot">SCpubr::do_GroupwiseDEPlot()</a></li>
+<li><a class="nav-link" href="#scpubrdo_ligandreceptorplot-development-release">SCpubr::do_LigandReceptorPlot() (development release)</a></li>
+<li><a class="nav-link" href="#scpubrdo_ridgeplot">SCpubr::do_RidgePlot()</a></li>
+<li><a class="nav-link" href="#scpubrdo_violinplot">SCpubr::do_ViolinPlot()</a></li>
+<li><a class="nav-link" href="#scpubr-v1.0.2-dev-stable">SCpubr v1.0.2-dev-stable</a></li>
+</ul>
+</li>
+<li>
 <a class="nav-link" href="#scpubr-v1.0.1">SCpubr v1.0.1</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#scpubr-v1.0.1-dev-stable">SCpubr v1.0.1-dev-stable</a></li></ul>
 </li>
 <li>
@@ -171,7 +290,7 @@
 <!-- Moved the footer outside of the body to make it span all page width. --><footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 19 October, 2022.</p>
+    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 27 October, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

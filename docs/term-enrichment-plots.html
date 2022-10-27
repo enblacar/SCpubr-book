@@ -86,7 +86,7 @@
 </h1>
 <p>One key downstream analysis in Single Cell analysis revolves having a list of candidate genes (i.e: DE genes) and one wants to know whether these genes are enriched for a specific biological function, pathway or cell type. This can be easily done using the <a href="https://github.com/wjawaid/enrichR">enrichR package</a>, which is an R interface to their website, <a href="https://maayanlab.cloud/Enrichr/">Enrichr</a>. This package allows to query a list of genes to more than 100 databases and retrieve the terms that are enriched for the list of genes, together with an adjusted p-value. The output of this process can be used with <code><a href="https://rdrr.io/pkg/SCpubr/man/do_TermEnrichmentPlot.html">SCpubr::do_TermEnrichmentPlot()</a></code> for its visualization.</p>
 <p>Here is an example of how to run <em>Enrichr</em> to get the object that we need for <code><a href="https://rdrr.io/pkg/SCpubr/man/do_TermEnrichmentPlot.html">SCpubr::do_TermEnrichmentPlot()</a></code>.</p>
-<div class="sourceCode" id="cb116"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb120"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Set necessary enrichR global options. This is copied from EnrichR code to avoid having to load the package.</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/message.html">suppressMessages</a></span><span class="op">(</span><span class="op">{</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/options.html">options</a></span><span class="op">(</span>enrichR.base.address <span class="op">=</span> <span class="st">"https://maayanlab.cloud/Enrichr/"</span><span class="op">)</span></span>
@@ -116,7 +116,7 @@
 <span><span class="va">enriched_terms</span> <span class="op">&lt;-</span> <span class="fu">enrichR</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/enrichR/man/enrichr.html">enrichr</a></span><span class="op">(</span><span class="va">genes</span>, <span class="va">dbs_use</span><span class="op">)</span></span></code></pre></div>
 <p>For this chapter, we have generated the output for the previous code chunk. By default, <code><a href="https://rdrr.io/pkg/SCpubr/man/do_TermEnrichmentPlot.html">SCpubr::do_TermEnrichmentPlot()</a></code> returns a list with as many plots as databases were queried in Enrichr, or a single plot if only was used.</p>
 <p>Any of the previous option will return a list of plots. The plots can, then, be assembled together.</p>
-<div class="sourceCode" id="cb117"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb121"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Default plot.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_TermEnrichmentPlot.html">do_TermEnrichmentPlot</a></span><span class="op">(</span>enriched_terms <span class="op">=</span> <span class="va">enriched_terms</span><span class="op">)</span></span>
 <span><span class="va">p</span></span></code></pre></div>
@@ -131,7 +131,7 @@ Figure 1.2: SCpubr do_TermEnrichmentPlot default use case.
 <span class="header-section-number">15.1</span> Modifying the number of terms to retrieve.<a class="anchor" aria-label="anchor" href="#modifying-the-number-of-terms-to-retrieve."><i class="fas fa-link"></i></a>
 </h2>
 <p>Depending on the focus of the analysis, we might want to only focus on one database but retrieve more terms from it. This can be achieved by using <code>nterms</code> parameter.</p>
-<div class="sourceCode" id="cb118"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb122"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Increased number of terms.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_TermEnrichmentPlot.html">do_TermEnrichmentPlot</a></span><span class="op">(</span>enriched_terms <span class="op">=</span> <span class="va">enriched_terms</span>,</span>
 <span>                                   nterms <span class="op">=</span> <span class="fl">15</span><span class="op">)</span></span>
@@ -148,7 +148,7 @@ Figure 1.3: SCpubr do_TermEnrichmentPlot with increased terms.
 <span class="header-section-number">15.2</span> Modifying the length of the terms<a class="anchor" aria-label="anchor" href="#modifying-the-length-of-the-terms"><i class="fas fa-link"></i></a>
 </h2>
 <p>Another issue with these plots is that, normally, the term itself takes too much space. For this, terms are wrapped according to a cutoff defined in <code>nchar_wrap</code> parameter. If the term has more characters than the value provided, it will be split more or less in half, always preserving whole words.</p>
-<div class="sourceCode" id="cb119"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb123"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Control the length of the terms.</span></span>
 <span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_TermEnrichmentPlot.html">do_TermEnrichmentPlot</a></span><span class="op">(</span>enriched_terms <span class="op">=</span> <span class="va">enriched_terms</span>,</span>
 <span>                                    nterms <span class="op">=</span> <span class="fl">15</span><span class="op">)</span></span>
@@ -170,7 +170,7 @@ Figure 1.4: SCpubr do_TermEnrichmentPlot with reduced term length.
 <span class="header-section-number">15.3</span> Increase the font size of the labels<a class="anchor" aria-label="anchor" href="#increase-the-font-size-of-the-labels"><i class="fas fa-link"></i></a>
 </h2>
 <p>If you want to increase the font size of the labels - this is, anything that is not part of the legend or the titles, use <code>text_labels_size</code> parameter:</p>
-<div class="sourceCode" id="cb120"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb124"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Modify font size of the terms.</span></span>
 <span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_TermEnrichmentPlot.html">do_TermEnrichmentPlot</a></span><span class="op">(</span>enriched_terms <span class="op">=</span> <span class="va">enriched_terms</span><span class="op">)</span></span>
 <span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_TermEnrichmentPlot.html">do_TermEnrichmentPlot</a></span><span class="op">(</span>enriched_terms <span class="op">=</span> <span class="va">enriched_terms</span>,</span>
@@ -223,7 +223,7 @@ Figure 1.5: SCpubr do_TermEnrichmentPlot with modified fontsize
 <!-- Moved the footer outside of the body to make it span all page width. --><footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 19 October, 2022.</p>
+    <p class="text-center">Written by <strong>Enrique Blanco Carmona</strong> on 27 October, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
