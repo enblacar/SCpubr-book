@@ -76,6 +76,12 @@ p
 
 Here, we can observe the scores for the different groups, being each dot a cells. Due to the overplotting, we also report the distribution of the data for each group in the center, being the dot the median of the distribution, the thicker lines representing the 66% of the data and the thinner lines the 95%. This way, one can also see where the majority of the cells reside in each group. We can also select other variables to group by.
 
+::: callout-note
+## Tip!
+
+When using `enforce_symmetry = TRUE`, it can be the case that, for a given chromosome, the Y axis scale is completely driven by a single outlier. This can be fixed by adding your own set of limits using `p + ggplot2::ylim(c(y_min, y_max))` and providing the values you want to set the Y axis to.
+:::
+
 ```{r}
 #| fig-width: 12
 #| fig-height: 8
@@ -97,6 +103,7 @@ p <- out$`11p_geyser`
 p
 
 ```
+
 
 ## Joint analysis
 
