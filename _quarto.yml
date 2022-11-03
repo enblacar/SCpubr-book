@@ -4,10 +4,6 @@ project:
 
 book:
   title: "SCpubr"
-  description: |
-    A system that provides a streamlined way of generating publication ready plots for known Single-Cell transcriptomics data in a “publication ready” format.
-    This is, the goal is to automatically generate plots with the highest quality possible,
-    that can be used right away or with minimal modifications for a research article.
   reader-mode: false
   image: "./images/logo.png"
   open-graph: true
