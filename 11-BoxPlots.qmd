@@ -1,0 +1,140 @@
+# Box plots
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("_common.R")
+```
+
+```{r}
+#| echo: false
+sample <- readRDS("/b06x-isilon/b06x-g/G703/eblanco/projects/test_SC_datasets/sc_dataset.rds")
+```
+
+## Basic usage
+
+To generate a basic box plot you need to provide the seurat object and a feature to plot:
+
+```{r}
+#| fig-width: 10
+#| fig-height: 7
+#| fig-cap: "Basic box plot."
+
+# Basic box plot.
+p <- SCpubr::do_BoxPlot(sample = sample,
+                        feature = "nCount_RNA")
+p
+```
+
+## Use custom grouping
+By default, the groups are the identities in the seurat object, but this can be controlled using `group.by parameter`.
+
+```{r}
+#| fig-width: 10
+#| fig-height: 7
+#| fig-cap: "Group by another variable."
+
+# Generate a custom group.
+sample$custom_group = ifelse(colnames(sample) %in% sample(colnames(sample), 4000), "A", "B")
+
+# Use custom grouping.
+p <- SCpubr::do_BoxPlot(sample = sample,
+                        feature = "nCount_RNA",
+                        group.by = "custom_group")
+p
+```
+
+We can flip the plot if needed with `flip = TRUE`:
+
+```{r}
+#| fig-width: 10
+#| fig-height: 7
+#| fig-cap: "Flip the axes."
+
+# Flip the box plot.
+p <- SCpubr::do_BoxPlot(sample = sample,
+                        feature = "nCount_RNA",
+                        flip = TRUE)
+p
+```
+
+## Modify aesthetic style
+We can also apply another aesthetic style, which just colors the lines of the boxplots and leave the rest white with `use_silhouette = TRUE`:
+
+```{r}
+#| fig-width: 10
+#| fig-height: 7
+#| fig-cap: "Change to silhouette style."
+
+# Use silhouette style.
+p <- SCpubr::do_BoxPlot(sample = sample,
+                        feature = "nCount_RNA",
+                        use_silhouette = TRUE)
+p
+```
+
+## Reorder by mean values
+We can reorder the values by their average mean, from highest to lowest with `order = TRUE`:
+
+```{r}
+#| fig-width: 10
+#| fig-height: 7
+#| fig-cap: "Order the boxplots by the mean values of the group."
+
+# Order by mean values.
+p <- SCpubr::do_BoxPlot(sample = sample,
+                        feature = "nCount_RNA",
+                        order = TRUE)
+p
+```
+
+## Split by a second variable
+We can further apply a second grouping by using `split.by`.
+
+```{r}
+#| fig-width: 10
+#| fig-height: 7
+#| fig-cap: "Split by a second variable."
+
+# Apply second grouping.
+p <- SCpubr::do_BoxPlot(sample = sample,
+                        feature = "nCount_RNA",
+                        split.by = "custom_group")
+p
+```
+
+## Apply statistical tests to compare groups
+Finally we can apply statistical tests to the groups, if we do not use `split.by`. We can do that by setting `use_test = TRUE` and providing the comparison as a list of pairs of items. The test, by default is wilcoxon test, but can be modified using `test`. *The correct use of such tests and their interpretation relies on the user*.
+
+```{r}
+#| fig-width: 10
+#| fig-height: 7
+#| fig-cap: "Apply statistical tests."
+
+# Apply statistical tests.
+p <- SCpubr::do_BoxPlot(sample = sample,
+                        feature = "nCount_RNA",
+                        use_test = TRUE,
+                        comparisons = list(c("0", "1"),
+                                           c("3", "4"),
+                                           c("5", "9")))
+p
+```
+
+One can display this on symbols, or with numbers with `map_signif_level`:
+
+```{r}
+#| fig-width: 10
+#| fig-height: 7
+#| fig-cap: "Show the p-value of the statistical tests."
+
+# Apply statistical tests and show the p-value.
+p <- SCpubr::do_BoxPlot(sample = sample,
+                        feature = "nCount_RNA",
+                        use_test = TRUE,
+                        comparisons = list(c("0", "1"),
+                                           c("3", "4"),
+                                           c("5", "9")),
+                        map_signif_level = FALSE)
+p
+```

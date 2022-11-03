@@ -1,0 +1,125 @@
+# Ridge plots
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("_common.R")
+```
+
+```{r}
+#| echo: false
+sample <- readRDS("/b06x-isilon/b06x-g/G703/eblanco/projects/test_SC_datasets/sc_dataset.rds")
+```
+
+Ridge plots are a very interesting way to display multiple *violin plots* together. The main idea of this type of visualization is to observe shifts in the distribution of a given variable across several groups. This can be accomplished using \link[ggridges]{https://cran.r-project.org/web/packages/ggridges/vignettes/introduction.html} package.
+
+## Basic usage
+
+The most basic ridge plot can be computed as:
+
+```{r}
+#| fig-width: 10
+#| fig-height: 10
+#| fig-cap: "A basic Ridge Plot."
+
+# Compute the most basic ridge plot.
+p <- SCpubr::do_RidgePlot(sample = sample,
+                          feature = "nFeature_RNA")
+p
+```
+
+## Use continuous color scales
+
+By default, the groups plotted are the current identities in the sample, but this can be changed by using `group.by`. One can also color the ridges based on the continuous values being represented, using `continuous_scale = TRUE`. The direction of the color scale can be controlled using `viridis_direction` :
+
+```{r}
+#| fig-width: 10
+#| fig-height: 20
+#| fig-cap: "Use a continuous color scale."
+
+# Use continuous color scale.
+p1 <- SCpubr::do_RidgePlot(sample = sample,
+                           feature = "nFeature_RNA",
+                           continuous_scale = TRUE,
+                           viridis_direction = 1)
+
+p2 <- SCpubr::do_RidgePlot(sample = sample,
+                           feature = "nFeature_RNA",
+                           continuous_scale = TRUE,
+                           viridis_direction = -1)
+
+p <- p1 / p2
+p
+```
+
+## Plot quantiles of the distribution
+
+One can also draw quantiles of the distribution for each of the groups. For this, we need to set up the scale to continuous. Also, we can modify the quantiles by using `quantiles` parameter:
+
+```{r}
+#| fig-width: 10
+#| fig-height: 20
+#| fig-cap: "Plot distribution quantiles."
+
+# Draw quantiles of the distribution.
+p1 <- SCpubr::do_RidgePlot(sample = sample,
+                           feature = "nFeature_RNA",
+                           continuous_scale = TRUE,
+                           compute_quantiles = TRUE,
+                           compute_custom_quantiles = TRUE)
+
+p2 <- SCpubr::do_RidgePlot(sample = sample,
+                           feature = "nFeature_RNA",
+                           continuous_scale = TRUE,
+                           compute_quantiles = TRUE,
+                           compute_custom_quantiles = TRUE,
+                           quantiles = c(0.1, 0.5, 0.75))
+
+p <- p1 / p2
+p
+```
+
+## Compute probability tails
+
+One can draw probability tails of the distribution by using `compute_distribution_tails` and `prob_tails`.
+
+```{r}
+#| fig-width: 10
+#| fig-height: 20
+#| fig-cap: "Plot probability tails."
+
+# Draw probability tails.
+p1 <- SCpubr::do_RidgePlot(sample = sample,
+                           feature = "nFeature_RNA",
+                           continuous_scale = TRUE,
+                           compute_quantiles = TRUE,
+                           compute_distribution_tails = TRUE)
+
+p2 <- SCpubr::do_RidgePlot(sample = sample,
+                           feature = "nFeature_RNA",
+                           continuous_scale = TRUE,
+                           compute_quantiles = TRUE,
+                           compute_distribution_tails = TRUE,
+                           prob_tails = 0.3)
+
+p <- p1 / p2
+p
+```
+
+## Compute probability densities
+
+One can also display the probability densities of the distributions by using :
+
+```{r}
+#| fig-width: 10
+#| fig-height: 10
+#| fig-cap: "Plot probability densities."
+
+# Draw probability tails.
+p <- SCpubr::do_RidgePlot(sample = sample,
+                          feature = "nFeature_RNA",
+                          continuous_scale = TRUE,
+                          compute_quantiles = TRUE,
+                          color_by_probabilities = TRUE)
+p
+```

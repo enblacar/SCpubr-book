@@ -1,0 +1,94 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "SCpubr"
+  description: |
+    A system that provides a streamlined way of generating publication ready plots for known Single-Cell transcriptomics data in a “publication ready” format.
+    This is, the goal is to automatically generate plots with the highest quality possible,
+    that can be used right away or with minimal modifications for a research article.
+  reader-mode: false
+  image: "./images/logo.png"
+  open-graph: true
+  license: "CC BY-NC-SA 4.0"
+
+  #navbar:
+  twitter-card: true
+  favicon: /images/SCpubr_logo_favicon.png
+  sidebar:
+    title: "SCpubr  [`v1.0.2`](https://github.com/enblacar/SCpubr/blob/main/NEWS.md)"
+    foreground: "black"
+    collapse-level: 1
+    border: true
+  page-footer:
+    left: |
+      Written by **Enrique Blanco Carmona**
+    right: |
+      This book was built with <a href="https://quarto.org/">Quarto</a>.
+  site-url: https://enblacar.github.io/SCpubr-book/
+  repo-url: https://github.com/enblacar/SCpubr/
+  repo-branch: main
+  repo-actions: [issue]
+  search:
+    location: "navbar"
+    type: "textbox"
+  chapters:
+    - part: "Getting started"
+      chapters:
+      - index.qmd
+      - 01-Installation-guide.qmd
+      - 02-Dataset.qmd
+
+    - part: "Basic plots"
+      chapters:
+      - 03-DimPlots.qmd
+      - 04-FeaturePlots.qmd
+      - 05-NebulosaPlots.qmd
+      - 06-BeeSwarmPlots.qmd
+      - 07-ViolinPlots.qmd
+      - 08-RidgePlots.qmd
+      - 09-DotPlots.qmd
+      - 10-BarPlots.qmd
+      - 11-BoxPlots.qmd
+      - 12-GeyserPlots.qmd
+      - 13-SankeyPlots.qmd
+      - 14-ChordDiagramPlots.qmd
+      - 15-VolcanoPlots.qmd
+
+    - part: "Advanced plots"
+      chapters:
+      - 16-GroupwiseDEPlots.qmd
+      - 17-TermEnrichmentPlots.qmd
+      - 18-EnrichmentHeatmaps.qmd
+      - 19-CorrelationHeatmaps.qmd
+      - 20-CellularStatesPlot.qmd
+      - 21-LigandReceptorPlot.qmd
+      - 22-CopyNumberVariantPlots.qmd
+      - 23-PathwayActivityPlots.qmd
+      - 24-TFActivityPlots.qmd
+      - 25-PseudotimeAnalysisPlots.qmd
+
+    - part: "Miscellaneous"
+      chapters:
+        - 93-ColorPalettes.qmd
+        - 94-CommonFeatures.qmd
+        - 95-SaveFigures.qmd
+        - 96-Citation.qmd
+        - 97-NEWS.qmd
+        - 99-Acknowledgements.qmd
+
+
+
+format:
+  html:
+    theme:
+      - default
+      - SCpubr.scss
+    code-link: true
+    code-block-border-left: false
+    callout-appearance: default
+
+
+editor: visual
+

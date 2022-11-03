@@ -1,0 +1,177 @@
+# Violin plots
+
+Violin plots require very little description. They are a depiction of the distribution of a variable. It makes it ideal in order to show differential enrichment patterns alongside different groups. As such, it is also included in `Seurat` under `Seurat::VlnPlot()` function. The very first time a new user encounters this function is likely going to be when querying for different QC parameters, such as the number of UMIs, the number of genes or the percentage of mitochondrial RNA. This is how it looks for the number of UMIs:
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("_common.R")
+```
+
+```{r}
+#| echo: false
+sample <- readRDS("/b06x-isilon/b06x-g/G703/eblanco/projects/test_SC_datasets/sc_dataset.rds")
+```
+
+## Basic usage
+
+```{r}
+#| fig-width: 10
+#| fig-height: 5
+#| fig-cap: "Violin plots in Seurat."
+
+p <- Seurat::VlnPlot(sample, 
+                     features = "nCount_RNA")
+p
+```
+
+The one thing that really stands out here is, indeed, the extra dots that are being plotted alongside the violin plot. Since each dot represent a cell, it quickly becomes the dominant feature of the figure. One can play with the alpha of the dots to reduce their presence:
+
+```{r}
+#| fig-width: 10
+#| fig-height: 5
+#| fig-cap: "Remove the dots."
+p <- Seurat::VlnPlot(sample, 
+                     features = "nCount_RNA")
+
+# "Surgically" add the alpha parameter in the ggplot2 object.
+p$layers[[2]]$aes_params$alpha <- 0.05
+p
+```
+
+But still, by making the dots almost invisible, we still observe their dominance on the bigger clusters. Therefore, it's better to remove it. This, together with other modifications are the basis of `SCpubr::do_ViolinPlot()`. This is how the default plot looks like:
+
+```{r}
+#| fig-width: 10
+#| fig-height: 5
+#| fig-cap: "Violin plots in SCpubr."
+
+# Basic violin plot.
+p <- SCpubr::do_ViolinPlot(sample = sample, 
+                           features = "nCount_RNA")
+p
+```
+
+In addition to removing the dots, a boxplot is added to each violin shape, to get a better sense of the quantiles of the distribution. This effect can be removed by using `plot_boxplot = FALSE`. Also, legend is by default removed, as the groups are being displayed already in the X axis.
+
+```{r}
+#| fig-width: 10
+#| fig-height: 5
+#| fig-cap: "Remove the boxplots."
+
+# Remove the box plots.
+p <- SCpubr::do_ViolinPlot(sample = sample, 
+                           features = "nCount_RNA",
+                           plot_boxplot = FALSE)
+p
+```
+
+If we want to rotate the X axis labels, we can also do that providing `rotate_x_axis_labels` with either 0, 45 or 90:
+
+```{r}
+#| fig-width: 10
+#| fig-height: 5
+#| fig-cap: "Rotate X axis labels."
+
+# Rotate x axis labels.
+p <- SCpubr::do_ViolinPlot(sample = sample, 
+                        features = c("nCount_RNA"),
+                        rotate_x_axis_labels = 45)
+p
+```
+
+## Violin plots as a means of QC
+
+For QC analyses, users might want to also add some other features such as a line indicating where to put the cutoff. This can be achieved by using `y_cut` parameter. Currently, only one value per plot for `y_cut` can be used.
+
+```{r}
+#| fig-width: 10
+#| fig-height: 5
+#| fig-cap: "Add horizontal lines."
+
+# Add horizontal lines.
+p <- SCpubr::do_ViolinPlot(sample = sample, 
+                           features = "nCount_RNA", 
+                           y_cut = 25000)
+p
+```
+
+## Modifying aesthetics
+
+Sometimes we might want to modify the overall look of the violin plots. For instance, the line width of both the violin shape and the box plot can be modified with `line_width` parameter, which defaults to 1.
+
+```{r}
+#| fig-width: 10
+#| fig-height: 10
+#| fig-cap: "Modify the line width."
+
+# Increase line width.
+p1 <- SCpubr::do_ViolinPlot(sample = sample,
+                         features = "nCount_RNA")
+
+p2 <- SCpubr::do_ViolinPlot(sample = sample,
+                         features = "nCount_RNA",
+                         line_width = 2)
+
+p <- p1 / p2
+p
+```
+
+Also, the width of the box plots can be modified with `boxplot_width` parameter, which defaults to 0.2. Be aware that this parameter scales the width of the boxplot. This is, if a value of 1 is provided, the box plot will take as much space as the violin shape. It is recommended to deviate from 0.2 by a small amount.
+
+```{r}
+#| fig-width: 10
+#| fig-height: 10
+#| fig-cap: "Modify boxplot width."
+
+# Decrease boxplot width.
+p1 <- SCpubr::do_ViolinPlot(sample = sample,
+                            features = "nCount_RNA")
+
+p2 <- SCpubr::do_ViolinPlot(sample = sample,
+                            features = "nCount_RNA",
+                            boxplot_width = 0.1)
+
+p <- p1 / p2
+p
+```
+
+## Force the same limits on different violin plots.
+
+Finally, we can also set the same range of values for the Y axis using `share.y.lims = TRUE`. For this, we need to provide multiple features to `features` parameter. The maximum and minimum values will be the absolute maximum and minimum across the features.
+
+```{r}
+#| fig-width: 10
+#| fig-height: 10
+#| fig-cap: "Enforce the same Y axis over multiple violin plots."
+
+# Share the same Y axis.
+p <- SCpubr::do_ViolinPlot(sample = sample,
+                           features = c("nCount_RNA", "nFeature_RNA"),
+                           ncol = 1,
+                           share.y.lims = TRUE)
+p
+```
+
+## Split by another variable
+
+Finally, we can also generate split violin plots using the `split.by` parameter. However, `plot_boxplot` has to be set to `FALSE`:
+
+```{r}
+#| fig-width: 10
+#| fig-height: 5
+#| fig-cap: "Generate split violin plots."
+
+# Split violin plots.
+sample$orig.ident <- sample(c("A", "B"),
+                            ncol(sample),
+                            replace = TRUE)
+
+p<- SCpubr::do_ViolinPlot(sample = sample,
+                         features = "nCount_RNA",
+                         split.by = "orig.ident",
+                         plot_boxplot = FALSE,
+                         legend.position = "bottom")
+
+p
+```

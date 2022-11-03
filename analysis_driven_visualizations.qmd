@@ -1,0 +1,9 @@
+# Advanced visualizations {.unnumbered}
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("_common.R")
+```
+
+Those are complex data visualizations.

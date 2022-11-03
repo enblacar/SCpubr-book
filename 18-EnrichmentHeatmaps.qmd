@@ -1,0 +1,141 @@
+# Enrichment score heatmaps
+
+A very common approach to make sense of your cells is to query several list of marker genes, retrieved from literature, and compute how enriched each cell is in each given list of genes. This is achieved by using `Seurat::AddModuleScore`. The scores can be then visualized as a Feature plot, but one can also aggregate the enrichment scores by any variable of interest, for instance the different clusters in the sample.
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("_common.R")
+```
+
+```{r}
+#| echo: false
+sample <- readRDS("/b06x-isilon/b06x-g/G703/eblanco/projects/test_SC_datasets/sc_dataset.rds")
+```
+
+This kind of heatmaps can be easily computed using `SCpubr::do_EnrichmentHeatmap()`:
+
+## Single grouping variable
+
+```{r}
+#| fig-width: 12
+#| fig-height: 12
+#| fig-cap: "Basic output."
+
+# Define list of genes.
+genes <- list("Naive CD4+ T" = c("IL7R", "CCR7"),
+              "CD14+ Mono" = c("CD14", "LYZ"),
+              "Memory CD4+" = c("S100A4"),
+              "B" = c("MS4A1"),
+              "CD8+ T" = c("CD8A"),
+              "FCGR3A+ Mono" = c("FCGR3A", "MS4A7"),
+              "NK" = c("GNLY", "NKG7"),
+              "DC" = c("FCER1A", "CST3"),
+              "Platelet" = c("PPBP"))
+
+# Default parameters.
+p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
+                                  input_gene_list = genes)
+p
+```
+By default, `SCpubr::do_EnrichmentHeatmap` aggregates the values by the current identity. However, other metadata variables can be used to aggregate for. For this, provide the name to `group.by` parameter.
+
+```{r}
+#| fig-width: 6
+#| fig-height: 3
+#| fig-cap: "Group by a custom variable."
+
+# Custom aggregated values.
+p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
+                                  input_gene_list = genes,
+                                  group.by = "orig.ident")
+p
+```
+
+The matrix can be transposed using `flip = TRUE`.
+
+```{r}
+#| fig-width: 6
+#| fig-height: 3
+#| fig-cap: "Transpose the matrix."
+
+# Transposing the matrix.
+p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
+                                  input_gene_list = genes,
+                                  flip = TRUE)
+p
+```
+
+
+Both rows and column names can be rotated using `column_names_rot`  and `row_names_rot` parameters, providing the desired angle.
+
+```{r}
+#| fig-width: 6
+#| fig-height: 3
+#| fig-cap: "Rotate the labels."
+
+# Rotating the labels.
+p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
+                                  input_gene_list = genes,
+                                  flip = TRUE,
+                                  column_names_rot = 0)
+p
+```
+
+## Changing the cell size in the heatmap.
+
+By design, the aspect ratio of the tiles in the heatmap is fixed so that cells are squares, and not rectangles. However, the user has the possibility to increase/decrease the cell size of each tile by modifying `cell_size` parameter. This is set to 5 by default.
+```{r}
+#| fig-width: 10
+#| fig-height: 5
+#| fig-cap: "Change the size of the cells."
+
+# Modifying the tile size.
+p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
+                                  input_gene_list = genes,
+                                  flip = TRUE,
+                                  column_names_rot = 0,
+                                  cluster_cols = FALSE,
+                                  cluster_rows = TRUE,
+                                  cell_size = 7)
+p
+```
+
+## Symmetrical scales
+
+If one wants a symmetrical scale, 
+
+```{r}
+#| fig-width: 10
+#| fig-height: 5
+#| fig-cap: "Use a symmetrical color scale."
+
+# Symmetrical scale viriis.
+p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
+                                  input_gene_list = genes,
+                                  flip = TRUE,
+                                  column_names_rot = 0,
+                                  cluster_cols = FALSE,
+                                  cluster_rows = TRUE,
+                                  cell_size = 7,
+                                  symmetrical_scale = TRUE)
+p
+```
+
+```{r}
+#| fig-width: 10
+#| fig-height: 5
+#| fig-cap: "Use a symmetrical color scale that is not viridis."
+
+# Modifying the symmetrical scale non viridis.
+p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
+                                  input_gene_list = genes,
+                                  flip = TRUE,
+                                  column_names_rot = 0,
+                                  cluster_cols = FALSE,
+                                  cluster_rows = TRUE,
+                                  cell_size = 7,
+                                  symmetrical_scale = TRUE,
+                                  use_viridis = FALSE)
+p
+```

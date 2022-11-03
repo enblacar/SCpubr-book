@@ -8,3 +8,6 @@ render*
 _bookdown_files
 omnipathr-log/*
 images/*
+old_book/*
+
+/.quarto/

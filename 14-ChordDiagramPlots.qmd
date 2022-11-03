@@ -1,0 +1,371 @@
+# Chord Diagram plots
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("_common.R")
+```
+
+```{r}
+#| echo: false
+sample <- readRDS("/b06x-isilon/b06x-g/G703/eblanco/projects/test_SC_datasets/sc_dataset.rds")
+library(Seurat)
+```
+
+Chord Diagram plots are pretty much the same type of visualization as Sankey and Alluvial plots, but with the twist that the nodes are located forming a circle, therefore the links resembling chords. These type of visualizations can be achieved using \link[circlize]{https://jokergoo.github.io/circlize_book/book/} package.
+
+## Basic usage
+
+This is how it looks:
+
+```{r}
+#| eval: false
+# Basic chord diagram.
+sample$assignment <- ifelse(sample$seurat_clusters %in% c("0", "4", "7"), "A", "B")
+sample$assignment[sample$seurat_clusters %in% c("1", "2")] <- "C"
+sample$assignment[sample$seurat_clusters %in% c("10", "5")] <- "D"
+sample$assignment[sample$seurat_clusters %in% c("8", "9")] <- "E"
+
+p <- SCpubr::do_ChordDiagramPlot(sample = sample,
+                                 from = "seurat_clusters",
+                                 to = "assignment")
+
+p
+```
+
+<span class="border-0"><img src="images/example_chord1.png" class="mx-auto d-block" style="box-shadow: none; width: 100%"/>
+
+<p class="caption">
+
+Basic Chord Diagram.
+
+</p>
+
+</span>
+
+## Control the gaps between and within groups
+
+We can modify the gaps between `from` and `to`, provided that there are not so many elements that this can not be accomplished. For this, we use `big_gap`:
+
+```{r}
+#| eval: false
+# Increase gap between from and to groups.
+p <- SCpubr::do_ChordDiagramPlot(sample = sample,
+                                 from = "seurat_clusters",
+                                 to = "assignment",
+                                 big.gap = 40)
+
+p
+```
+
+<span class="border-0"><img src="images/example_chord2.png" class="mx-auto d-block" style="box-shadow: none; width: 100%"/>
+
+<p class="caption">
+
+Chord Diagram with increased big gap.
+
+</p>
+
+</span>
+
+Similarly, we can also modify the gaps between the groups inside `from` and `to` with `small_gap`:
+
+```{r}
+#| eval: false
+# Increase gap width groups in from and to.
+p <- SCpubr::do_ChordDiagramPlot(sample = sample,
+                                 from = "seurat_clusters",
+                                 to = "assignment",
+                                 small.gap = 5)
+
+p
+```
+
+<span class="border-0"><img src="images/example_chord3.png" class="mx-auto d-block" style="box-shadow: none; width: 100%"/>
+
+<p class="caption">
+
+Chord Diagram with increased small gap.
+
+</p>
+
+</span>
+
+## Control the alignment of the diagram
+
+We can force the alignment of the starting poing of the Chord diagram using the `alignment` parameter:
+
+```{r}
+#| eval: false
+# Control the alignment of the diagram.
+p <- SCpubr::do_ChordDiagramPlot(sample = sample,
+                                 from = "seurat_clusters",
+                                 to = "assignment",
+                                 alignment = "horizontal")
+
+p
+```
+
+<span class="border-0"><img src="images/example_chord4.png" class="mx-auto d-block" style="box-shadow: none; width: 100%"/>
+
+<p class="caption">
+
+Chord Diagram starting horizontally.
+
+</p>
+
+</span>
+
+```{r}
+#| eval: false
+p <- SCpubr::do_ChordDiagramPlot(sample = sample,
+                                 from = "seurat_clusters",
+                                 to = "assignment",
+                                 alignment = "vertical")
+
+p
+```
+
+<span class="border-0"><img src="images/example_chord5.png" class="mx-auto d-block" style="box-shadow: none; width: 100%"/>
+
+<p class="caption">
+
+Chord Diagram starting vertically.
+
+</p>
+
+</span>
+
+## Control the directions of the links
+
+Also, we can define the direction of the interaction by providing different values to `directional`: - 0: The links have no direction. - 1: The links go from `from` to `to`. - -1: The links go from `to` to `from`. - 2: The links are bidrectional.
+
+```{r}
+#| eval: false
+# We need to set direction.type to diffHeight only as arrows are, by nature, directional.
+p <- SCpubr::do_ChordDiagramPlot(sample = sample,
+                                 from = "seurat_clusters",
+                                 to = "assignment",
+                                 directional = 0,
+                                 direction.type = "diffHeight")
+
+p
+```
+
+<span class="border-0"><img src="images/example_chord6.png" class="mx-auto d-block" style="box-shadow: none; width: 100%"/>
+
+<p class="caption">
+
+Chord Diagram with links without any direction.
+
+</p>
+
+</span>
+
+```{r}
+#| eval: false
+p <- SCpubr::do_ChordDiagramPlot(sample = sample,
+                                 from = "seurat_clusters",
+                                 to = "assignment",
+                                 directional = 1)
+
+p
+```
+
+<span class="border-0"><img src="images/example_chord7.png" class="mx-auto d-block" style="box-shadow: none; width: 100%"/>
+
+<p class="caption">
+
+Chord Diagram with links going from "from" to "to".
+
+</p>
+
+</span>
+
+```{r}
+#| eval: false
+p <- SCpubr::do_ChordDiagramPlot(sample = sample,
+                                 from = "seurat_clusters",
+                                 to = "assignment",
+                                 directional = -1)
+
+p
+```
+
+<span class="border-0"><img src="images/example_chord8.png" class="mx-auto d-block" style="box-shadow: none; width: 100%"/>
+
+<p class="caption">
+
+Chord Diagram with links going from "to" to "from".
+
+</p>
+
+</span>
+
+```{r}
+#| eval: false
+# We need to set direction.type to diffHeight only as arrows are, by nature, directional.
+p <- SCpubr::do_ChordDiagramPlot(sample = sample,
+                                 from = "seurat_clusters",
+                                 to = "assignment",
+                                 directional = 2,
+                                 direction.type = "diffHeight")
+
+p
+```
+
+<span class="border-0"><img src="images/example_chord9.png" class="mx-auto d-block" style="box-shadow: none; width: 100%"/>
+
+<p class="caption">
+
+Chord Diagram with links going in both directions.
+
+</p>
+
+</span>
+
+## Add padding to the labels
+
+One can add more padding to the labels by using `padding_labels`. The number provided is the amount of whitespaces padding the label.
+
+```{r}
+#| eval: false
+# Add more padding to the labels.
+p <- SCpubr::do_ChordDiagramPlot(sample = sample,
+                                 from = "seurat_clusters",
+                                 to = "assignment",
+                                 padding_labels = 8)
+
+p
+```
+
+<span class="border-0"><img src="images/example_chord10.png" class="mx-auto d-block" style="box-shadow: none; width: 100%"/>
+
+<p class="caption">
+
+Chord Diagram with extra padding.
+
+</p>
+
+</span>
+
+## Scale the nodes
+
+If we want to show the nodes with equal size, links reflecting a proportion instead, we can set `scale = TRUE`.
+
+```{r}
+#| eval: false
+# Scale the size of the nodes.
+p <- SCpubr::do_ChordDiagramPlot(sample = sample,
+                                 from = "seurat_clusters",
+                                 to = "assignment",
+                                 scale = TRUE,
+                                 padding_labels = 8)
+
+p
+```
+
+<span class="border-0"><img src="images/example_chord11.png" class="mx-auto d-block" style="box-shadow: none; width: 100%"/>
+
+<p class="caption">
+
+Chord Diagram with scaled nodes.
+
+</p>
+
+</span>
+
+## Self linking
+
+We can also control whether we want to allow self linking between the nodes or not. For this, we can set `self.link = 2` to allow them or `self.link = 1` to prevent them.
+
+```{r}
+#| eval: false
+# Prevent self linking.
+sample$seurat_clusters2 <- sample$seurat_clusters
+p <- SCpubr::do_ChordDiagramPlot(sample = sample,
+                                 from = "seurat_clusters",
+                                 to = "seurat_clusters2",
+                                 self.link = 1,
+                                 scale = TRUE)
+
+p
+```
+
+<span class="border-0"><img src="images/example_chord12.png" class="mx-auto d-block" style="box-shadow: none; width: 100%"/>
+
+<p class="caption">
+
+Chord Diagram with prevented self linking.
+
+</p>
+
+</span>
+
+```{r}
+#| eval: false
+# Allow self linking.
+p <- SCpubr::do_ChordDiagramPlot(sample = sample,
+                                 from = "seurat_clusters",
+                                 to = "seurat_clusters2",
+                                 self.link = 2,
+                                 scale = TRUE)
+
+p
+```
+
+<span class="border-0"><img src="images/example_chord13.png" class="mx-auto d-block" style="box-shadow: none; width: 100%"/>
+
+<p class="caption">
+
+Chord Diagram with allowed self linking.
+
+</p>
+
+</span>
+
+## Control the appearance of the arrows
+
+The arrows can be modified by using `link.arr.type` parameter:
+
+```{r}
+#| eval: false
+# Set triangle arrows.
+p <- SCpubr::do_ChordDiagramPlot(sample = sample,
+                                 from = "seurat_clusters",
+                                 to = "assignment",
+                                 link.arr.type = "triangle")
+
+p
+```
+
+<span class="border-0"><img src="images/example_chord14.png" class="mx-auto d-block" style="box-shadow: none; width: 100%"/>
+
+<p class="caption">
+
+Chord Diagram with triangle arrows.
+
+</p>
+
+</span>
+
+```{r}
+#| eval: false
+# Set big arrows.
+p <- SCpubr::do_ChordDiagramPlot(sample = sample,
+                                 from = "seurat_clusters",
+                                 to = "assignment",
+                                 link.arr.type = "big.arrow")
+
+p
+```
+
+<span class="border-0"><img src="images/example_chord15.png" class="mx-auto d-block" style="box-shadow: none; width: 100%"/>
+
+<p class="caption">
+
+Chord Diagram with big arrows.
+
+</p>
+
+</span>
