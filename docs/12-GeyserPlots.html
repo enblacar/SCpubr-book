@@ -366,8 +366,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#select-the-groups-displayed-on-the-x-axis" id="toc-select-the-groups-displayed-on-the-x-axis" class="nav-link" data-scroll-target="#select-the-groups-displayed-on-the-x-axis"><span class="toc-section-number">10.4</span>  Select the groups displayed on the X axis</a></li>
   <li><a href="#split-the-plot-by-groups" id="toc-split-the-plot-by-groups" class="nav-link" data-scroll-target="#split-the-plot-by-groups"><span class="toc-section-number">10.5</span>  Split the plot by groups</a></li>
   <li><a href="#rotating-x-axis-labels" id="toc-rotating-x-axis-labels" class="nav-link" data-scroll-target="#rotating-x-axis-labels"><span class="toc-section-number">10.6</span>  Rotating X axis labels</a></li>
-  <li><a href="#adding-a-third-variable" id="toc-adding-a-third-variable" class="nav-link" data-scroll-target="#adding-a-third-variable"><span class="toc-section-number">10.7</span>  Adding a third variable</a></li>
-  <li><a href="#control-the-jitter-of-the-dots" id="toc-control-the-jitter-of-the-dots" class="nav-link" data-scroll-target="#control-the-jitter-of-the-dots"><span class="toc-section-number">10.8</span>  Control the jitter of the dots</a></li>
+  <li><a href="#control-the-jitter-of-the-dots" id="toc-control-the-jitter-of-the-dots" class="nav-link" data-scroll-target="#control-the-jitter-of-the-dots"><span class="toc-section-number">10.7</span>  Control the jitter of the dots</a></li>
   </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/enblacar/SCpubr/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
@@ -567,69 +566,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-</section><section id="adding-a-third-variable" class="level2" data-number="10.7"><h2 data-number="10.7" class="anchored" data-anchor-id="adding-a-third-variable">
-<span class="header-section-number">10.7</span> Adding a third variable</h2>
-<p>You might have noticed, that so far these plots effectively “waste” one axis: either the continuous color scale and the Y axis depict the same, or the X axis and the categorical color scale do it. For this we can add a third variable using <code>color.by</code> parameter.</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Geyser plot with categorical color scale using color.by.</span></span>
-<span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_GeyserPlot.html">do_GeyserPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
-<span>                            features <span class="op">=</span> <span class="st">"UMAP_2"</span>,</span>
-<span>                            scale_type <span class="op">=</span> <span class="st">"categorical"</span>,</span>
-<span>                            color.by <span class="op">=</span> <span class="st">"modified_orig.ident"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Geyser plot with continuous color scale using color.by.</span></span>
-<span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_GeyserPlot.html">do_GeyserPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
-<span>                            features <span class="op">=</span> <span class="st">"UMAP_2"</span>,</span>
-<span>                            scale_type <span class="op">=</span> <span class="st">"continuous"</span>,</span>
-<span>                            enforce_symmetry <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>                            color.by <span class="op">=</span> <span class="st">"nCount_RNA"</span><span class="op">)</span></span>
-<span></span>
-<span></span>
-<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="va">p1</span> <span class="op">/</span> <span class="va">p2</span></span>
-<span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="12-GeyserPlots_files/figure-html/unnamed-chunk-9-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
-<p></p><figcaption class="figure-caption">Color by a third variable.</figcaption><p></p>
-</figure>
-</div>
-</div>
-</div>
-<p>This behaviour can also be applied when using <code>split.by</code>.</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Geyser plot with categorical color scale using color.by and split.by.</span></span>
-<span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_GeyserPlot.html">do_GeyserPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
-<span>                            features <span class="op">=</span> <span class="st">"UMAP_2"</span>,</span>
-<span>                            scale_type <span class="op">=</span> <span class="st">"categorical"</span>,</span>
-<span>                            group.by <span class="op">=</span> <span class="st">"orig.ident"</span>,</span>
-<span>                            split.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>,</span>
-<span>                            color.by <span class="op">=</span> <span class="st">"modified_orig.ident"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Geyser plot with continuous color scale using color.by and split.by.</span></span>
-<span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_GeyserPlot.html">do_GeyserPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
-<span>                            features <span class="op">=</span> <span class="st">"UMAP_2"</span>,</span>
-<span>                            scale_type <span class="op">=</span> <span class="st">"continuous"</span>,</span>
-<span>                            enforce_symmetry <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>                            color.by <span class="op">=</span> <span class="st">"nCount_RNA"</span>,</span>
-<span>                            group.by <span class="op">=</span> <span class="st">"orig.ident"</span>,</span>
-<span>                            split.by <span class="op">=</span> <span class="st">"seurat_clusters"</span><span class="op">)</span></span>
-<span></span>
-<span></span>
-<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="va">p1</span> <span class="op">/</span> <span class="va">p2</span></span>
-<span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="12-GeyserPlots_files/figure-html/unnamed-chunk-10-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
-<p></p><figcaption class="figure-caption">Split by another variables and color by a third one.</figcaption><p></p>
-</figure>
-</div>
-</div>
-</div>
-</section><section id="control-the-jitter-of-the-dots" class="level2" data-number="10.8"><h2 data-number="10.8" class="anchored" data-anchor-id="control-the-jitter-of-the-dots">
-<span class="header-section-number">10.8</span> Control the jitter of the dots</h2>
+</section><section id="control-the-jitter-of-the-dots" class="level2" data-number="10.7"><h2 data-number="10.7" class="anchored" data-anchor-id="control-the-jitter-of-the-dots">
+<span class="header-section-number">10.7</span> Control the jitter of the dots</h2>
 <p>If one wants to increase or reduce the degree in which the dots disperse across the X axis, <code>jitter</code> parameter can be used, alongside a number in between 0 and 0.5.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Geyser plot with different jitter.</span></span>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Geyser plot with different jitter.</span></span>
 <span><span class="va">p0</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_GeyserPlot.html">do_GeyserPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                            features <span class="op">=</span> <span class="st">"UMAP_2"</span>,</span>
 <span>                            scale_type <span class="op">=</span> <span class="st">"continuous"</span>,</span>
@@ -671,7 +612,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="12-GeyserPlots_files/figure-html/unnamed-chunk-11-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
+<figure class="figure"><p><img src="12-GeyserPlots_files/figure-html/unnamed-chunk-9-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
 <p></p><figcaption class="figure-caption">Control the jittering.</figcaption><p></p>
 </figure>
 </div>

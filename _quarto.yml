@@ -13,7 +13,7 @@ book:
   twitter-card: true
   favicon: /images/SCpubr_logo_favicon.png
   sidebar:
-    title: "SCpubr  [`v1.0.2`](https://github.com/enblacar/SCpubr/blob/main/NEWS.md)"
+    title: "SCpubr  [`v1.0.3`](https://github.com/enblacar/SCpubr/blob/main/NEWS.md)"
     foreground: "black"
     collapse-level: 1
     border: true

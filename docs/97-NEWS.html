@@ -20,69 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -375,18 +312,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#scpubr-v1.0.2" id="toc-scpubr-v1.0.2" class="nav-link active" data-scroll-target="#scpubr-v1.0.2">SCpubr v1.0.2</a>
+  <li><a href="#scpubr-v1.0.3" id="toc-scpubr-v1.0.3" class="nav-link active" data-scroll-target="#scpubr-v1.0.3">SCpubr v1.0.3</a>
   <ul class="collapse">
   <li><a href="#general-changes" id="toc-general-changes" class="nav-link" data-scroll-target="#general-changes">General changes</a></li>
-  <li><a href="#scpubrdo_copynumbervariantplot" id="toc-scpubrdo_copynumbervariantplot" class="nav-link" data-scroll-target="#scpubrdo_copynumbervariantplot"><code>SCpubr::do_CopyNumberVariantPlot</code></a></li>
   <li><a href="#scpubrdo_dimplot" id="toc-scpubrdo_dimplot" class="nav-link" data-scroll-target="#scpubrdo_dimplot"><code>SCpubr::do_DimPlot()</code></a></li>
-  <li><a href="#scpubrdo_dotplot" id="toc-scpubrdo_dotplot" class="nav-link" data-scroll-target="#scpubrdo_dotplot"><code>SCpubr::do_DotPlot()</code></a></li>
+  <li><a href="#scpubrdo_enrichmentheatmap" id="toc-scpubrdo_enrichmentheatmap" class="nav-link" data-scroll-target="#scpubrdo_enrichmentheatmap"><code>SCpubr::do_EnrichmentHeatmap()</code></a></li>
   <li><a href="#scpubrdo_featureplot" id="toc-scpubrdo_featureplot" class="nav-link" data-scroll-target="#scpubrdo_featureplot"><code>SCpubr::do_FeaturePlot()</code></a></li>
   <li><a href="#scpubrdo_geyserplot" id="toc-scpubrdo_geyserplot" class="nav-link" data-scroll-target="#scpubrdo_geyserplot"><code>SCpubr::do_GeyserPlot()</code></a></li>
-  <li><a href="#scpubrdo_groupwisedeplot" id="toc-scpubrdo_groupwisedeplot" class="nav-link" data-scroll-target="#scpubrdo_groupwisedeplot"><code>SCpubr::do_GroupwiseDEPlot()</code></a></li>
-  <li><a href="#scpubrdo_ligandreceptorplot-development-release" id="toc-scpubrdo_ligandreceptorplot-development-release" class="nav-link" data-scroll-target="#scpubrdo_ligandreceptorplot-development-release"><code>SCpubr::do_LigandReceptorPlot()</code> (development release)</a></li>
   <li><a href="#scpubrdo_ridgeplot" id="toc-scpubrdo_ridgeplot" class="nav-link" data-scroll-target="#scpubrdo_ridgeplot"><code>SCpubr::do_RidgePlot()</code></a></li>
   <li><a href="#scpubrdo_violinplot" id="toc-scpubrdo_violinplot" class="nav-link" data-scroll-target="#scpubrdo_violinplot"><code>SCpubr::do_ViolinPlot()</code></a></li>
+  </ul></li>
+  <li><a href="#scpubr-v1.0.2" id="toc-scpubr-v1.0.2" class="nav-link" data-scroll-target="#scpubr-v1.0.2">SCpubr v1.0.2</a>
+  <ul class="collapse">
+  <li><a href="#general-changes-1" id="toc-general-changes-1" class="nav-link" data-scroll-target="#general-changes-1">General changes</a></li>
+  <li><a href="#scpubrdo_copynumbervariantplot" id="toc-scpubrdo_copynumbervariantplot" class="nav-link" data-scroll-target="#scpubrdo_copynumbervariantplot"><code>SCpubr::do_CopyNumberVariantPlot</code></a></li>
+  <li><a href="#scpubrdo_dimplot-1" id="toc-scpubrdo_dimplot-1" class="nav-link" data-scroll-target="#scpubrdo_dimplot-1"><code>SCpubr::do_DimPlot()</code></a></li>
+  <li><a href="#scpubrdo_dotplot" id="toc-scpubrdo_dotplot" class="nav-link" data-scroll-target="#scpubrdo_dotplot"><code>SCpubr::do_DotPlot()</code></a></li>
+  <li><a href="#scpubrdo_featureplot-1" id="toc-scpubrdo_featureplot-1" class="nav-link" data-scroll-target="#scpubrdo_featureplot-1"><code>SCpubr::do_FeaturePlot()</code></a></li>
+  <li><a href="#scpubrdo_geyserplot-1" id="toc-scpubrdo_geyserplot-1" class="nav-link" data-scroll-target="#scpubrdo_geyserplot-1"><code>SCpubr::do_GeyserPlot()</code></a></li>
+  <li><a href="#scpubrdo_groupwisedeplot" id="toc-scpubrdo_groupwisedeplot" class="nav-link" data-scroll-target="#scpubrdo_groupwisedeplot"><code>SCpubr::do_GroupwiseDEPlot()</code></a></li>
+  <li><a href="#scpubrdo_ligandreceptorplot-development-release" id="toc-scpubrdo_ligandreceptorplot-development-release" class="nav-link" data-scroll-target="#scpubrdo_ligandreceptorplot-development-release"><code>SCpubr::do_LigandReceptorPlot()</code> (development release)</a></li>
+  <li><a href="#scpubrdo_ridgeplot-1" id="toc-scpubrdo_ridgeplot-1" class="nav-link" data-scroll-target="#scpubrdo_ridgeplot-1"><code>SCpubr::do_RidgePlot()</code></a></li>
+  <li><a href="#scpubrdo_violinplot-1" id="toc-scpubrdo_violinplot-1" class="nav-link" data-scroll-target="#scpubrdo_violinplot-1"><code>SCpubr::do_ViolinPlot()</code></a></li>
   <li><a href="#scpubr-v1.0.2-dev-stable" id="toc-scpubr-v1.0.2-dev-stable" class="nav-link" data-scroll-target="#scpubr-v1.0.2-dev-stable">SCpubr v1.0.2-dev-stable</a></li>
   </ul></li>
   <li><a href="#scpubr-v1.0.1" id="toc-scpubr-v1.0.1" class="nav-link" data-scroll-target="#scpubr-v1.0.1">SCpubr v1.0.1</a>
@@ -422,10 +369,74 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </header>
 
 <p>Here are the patch notes of the different versions:</p>
-<section id="scpubr-v1.0.2" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="scpubr-v1.0.2">SCpubr v1.0.2</h2>
+<section id="scpubr-v1.0.3" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="scpubr-v1.0.3">SCpubr v1.0.3</h2>
 <section id="general-changes" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="general-changes">General changes</h3>
+<ul>
+<li>Added <code>min.cutoff</code> and <code>max.cutoff</code> parameter to effectively subset the color scale and remove the effect of extreme outliers in all ComplexHeatmap-based functions.</li>
+<li>Added <code>min.cutoff</code> and <code>max.cutoff</code> parameter to effectively subset the color scale and remove the effect of extreme outliers in all ggplot2-based functions susceptible to be biased by outliers.</li>
+</ul>
+</section>
+<section id="scpubrdo_dimplot" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="scpubrdo_dimplot"><code>SCpubr::do_DimPlot()</code></h3>
+<ul>
+<li>Implemented a change in which when using <code>split.by</code> and <code>group.by</code> in combination, the cells colored on top of the UMAP also have a border.</li>
+<li>Implemented a bug-fix in which when using <code>split.by</code> and <code>group.by</code> in combination, the extra new layers would not raster if <code>raster = TRUE</code>.</li>
+<li>Implemented a bug-fix in which when using <code>split.by</code> and <code>group.by</code> in combination, no plots will appear if <code>ncol</code> is set.</li>
+<li>Implemented a new feature to add density line contours using <code>plot_density_contour</code>.</li>
+<li>Implemented the conditional use of <code>raster.dpi</code> to Seurat versions higher or equal to 4.1.0.</li>
+</ul>
+</section>
+<section id="scpubrdo_enrichmentheatmap" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="scpubrdo_enrichmentheatmap"><code>SCpubr::do_EnrichmentHeatmap()</code></h3>
+<ul>
+<li>Implemented a bug fix for internal checks in the function.</li>
+<li>Added <code>plot_FeaturePlots</code> and <code>plot_GeyserPlots</code> to also report the enrichment scores in a gene set-based manner.</li>
+<li>Added <code>flavor</code> parameter, that accepts <code>Seurat</code> and <code>UCell</code> to allow for different enrichment scoring methods. It requires <code>R 4.2.0</code> to run.</li>
+<li>Renamed <code>symmetrical_scale</code> to <code>enforce_symmetry</code> to have a greater coherence accross functions.</li>
+</ul>
+</section>
+<section id="scpubrdo_featureplot" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="scpubrdo_featureplot"><code>SCpubr::do_FeaturePlot()</code></h3>
+<ul>
+<li>Implemented a new feature to add density line contours using <code>plot_density_contour</code>.</li>
+<li>Implemented the conditional use of <code>raster.dpi</code> to Seurat versions higher or equal to 4.1.0.</li>
+</ul>
+</section>
+<section id="scpubrdo_geyserplot" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="scpubrdo_geyserplot"><code>SCpubr::do_GeyserPlot()</code></h3>
+<ul>
+<li>Fixed bug in which internal parameter names made it to the X axis title.</li>
+<li>Removed <code>color.by</code> implementation due to it being very buggy. This will be re-implemented in a future patch.</li>
+</ul>
+</section>
+<section id="scpubrdo_ridgeplot" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="scpubrdo_ridgeplot"><code>SCpubr::do_RidgePlot()</code></h3>
+<ul>
+<li>Implemented a bug-fix in which using <code>assay = "RNA"</code> or, in fact, any other assay rather than <code>SCT</code> will result in an error.</li>
+</ul>
+</section>
+<section id="scpubrdo_violinplot" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="scpubrdo_violinplot"><code>SCpubr::do_ViolinPlot()</code></h3>
+<ul>
+<li>Corrected a bug in which legend title when using <code>split.by</code> was an actual line of code.</li>
+<li>Added <code>legend.title</code> parameter to control the title of the legend.</li>
+</ul>
+<p>This version can be obtained in the <a href="https://github.com/enblacar/SCpubr/releases/tag/v1.0.3">v1.0.3 release</a> release or <strong>downloading it from CRAN</strong> using:</p>
+<section id="scpubr-v.1.0.3-dev-stable" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="scpubr-v.1.0.3-dev-stable">SCpubr v.1.0.3-dev-stable</h4>
+<ul>
+<li>Same as v1.0.3, but with all the functions that do not pass CRAN checks. These functions are: <code>SCpubr::save_Plot()</code> <code>SCpubr::do_LigandReceptorPlot()</code> and <code>SCpubr::do_SankeyPlot()</code>.</li>
+</ul>
+<p>This version can be obtained in the <a href="https://github.com/enblacar/SCpubr/releases/tag/v.1.0.3-dev-stable">v1.0.3-dev-stable release</a> release.</p>
+</section>
+</section>
+</section>
+<section id="scpubr-v1.0.2" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="scpubr-v1.0.2">SCpubr v1.0.2</h2>
+<section id="general-changes-1" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="general-changes-1">General changes</h3>
 <ul>
 <li>Change color palette when using <code>enforce_symmetry = TRUE</code> to have the middle color as <code>grey95</code> instead of the previous one, which made middle values seem closer to the positive end of the scale.</li>
 <li>Modified internal structure of all functions to abide with <a href="https://tidyselect.r-lib.org/news/index.html#lifecycle-changes-1-2-0">tidyselect v1.2.0 lifecycle modifications</a>.</li>
@@ -439,8 +450,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Include the <code>verbose</code> argument to <code>SCpubr::do_CopyNumberVariantPlot</code> to silence the messages when there are not enough genes in the chromosome to perform the analysis.</li>
 </ul>
 </section>
-<section id="scpubrdo_dimplot" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="scpubrdo_dimplot"><code>SCpubr::do_DimPlot()</code></h3>
+<section id="scpubrdo_dimplot-1" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="scpubrdo_dimplot-1"><code>SCpubr::do_DimPlot()</code></h3>
 <ul>
 <li>Fixed a typo that prevented labels to be bold in <code>SCpubr::do_DimPlot()</code> when cell borders are displayed.</li>
 <li>Added <code>group.by</code> and <code>split.by</code> functionality to <code>SCpubr::do_DimPlot()</code>. (<a href="https://github.com/enblacar/SCpubr/issues/4">#4</a>)</li>
@@ -453,16 +464,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Modified default colors to convey a better aesthetic.</li>
 </ul>
 </section>
-<section id="scpubrdo_featureplot" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="scpubrdo_featureplot"><code>SCpubr::do_FeaturePlot()</code></h3>
+<section id="scpubrdo_featureplot-1" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="scpubrdo_featureplot-1"><code>SCpubr::do_FeaturePlot()</code></h3>
 <ul>
 <li>Fixed potential bugs in <code>SCpubr::do_FeaturePlot</code> when setting <code>enforce_symmetry = TRUE</code>.</li>
 <li>Changed default value of <code>order</code> in <code>SCpubr::do_FeaturePlot()</code> from <code>TRUE</code> to <code>FALSE</code>.</li>
 <li>Added <code>min.cutoff</code> and <code>max.cutoff</code> parameters to <code>SCpubr::do_FeaturePlot()</code>. This allows to effectively subset the color scale to the values provided. Cells outside the range will be converted to the min or max values provided, respectively. (<a href="https://github.com/enblacar/SCpubr/issues/2">#2</a>)</li>
 </ul>
 </section>
-<section id="scpubrdo_geyserplot" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="scpubrdo_geyserplot"><code>SCpubr::do_GeyserPlot()</code></h3>
+<section id="scpubrdo_geyserplot-1" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="scpubrdo_geyserplot-1"><code>SCpubr::do_GeyserPlot()</code></h3>
 <ul>
 <li>Added <code>flip</code> parameter.</li>
 </ul>
@@ -480,15 +491,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Changed parameter <code>x_labels_angle</code> to <code>rotate_x_axis_labels</code> to keep a consistent terminology.</li>
 </ul>
 </section>
-<section id="scpubrdo_ridgeplot" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="scpubrdo_ridgeplot"><code>SCpubr::do_RidgePlot()</code></h3>
+<section id="scpubrdo_ridgeplot-1" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="scpubrdo_ridgeplot-1"><code>SCpubr::do_RidgePlot()</code></h3>
 <ul>
 <li>Fixed a typo that made the lines in <code>panel.grid.minor</code> to be displayed in <code>SCpubr::do_Ridgeplot()</code>.</li>
 <li>Added <code>flip</code> parameter.</li>
 </ul>
 </section>
-<section id="scpubrdo_violinplot" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="scpubrdo_violinplot"><code>SCpubr::do_ViolinPlot()</code></h3>
+<section id="scpubrdo_violinplot-1" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="scpubrdo_violinplot-1"><code>SCpubr::do_ViolinPlot()</code></h3>
 <ul>
 <li>Added <code>split.by</code> functionality to <code>SCpubr::do_ViolinPlot()</code>. (<a href="https://github.com/enblacar/SCpubr/issues/4">#4</a>, <a href="https://github.com/enblacar/SCpubr/issues/5">#5</a>)</li>
 <li>Added <code>flip</code> parameter.</li>
@@ -510,8 +521,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Rework on unit tests and examples so that it can pass CRAN R CMD Check without packages in Suggests. This is, to make sure all Suggested packages are used conditionally.</li>
 </ul>
-<p>This version can be obtained in the <a href="https://github.com/enblacar/SCpubr/releases/tag/v1.0.1">v1.0.1 release</a> release or <strong>downloading it from CRAN</strong> using:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"SCpubr"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <section id="scpubr-v1.0.1-dev-stable" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="scpubr-v1.0.1-dev-stable">SCpubr v1.0.1-dev-stable</h3>
 <ul>

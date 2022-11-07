@@ -184,61 +184,6 @@ p <- p1 / p2
 p
 ```
 
-## Adding a third variable
-
-You might have noticed, that so far these plots effectively "waste" one axis: either the continuous color scale and the Y axis depict the same, or the X axis and the categorical color scale do it. For this we can add a third variable using `color.by` parameter.
-
-```{r}
-#| fig-width: 10
-#| fig-height: 10
-#| fig-cap: "Color by a third variable."
-
-# Geyser plot with categorical color scale using color.by.
-p1 <- SCpubr::do_GeyserPlot(sample = sample,
-                            features = "UMAP_2",
-                            scale_type = "categorical",
-                            color.by = "modified_orig.ident")
-
-# Geyser plot with continuous color scale using color.by.
-p2 <- SCpubr::do_GeyserPlot(sample = sample,
-                            features = "UMAP_2",
-                            scale_type = "continuous",
-                            enforce_symmetry = TRUE,
-                            color.by = "nCount_RNA")
-
-
-p <- p1 / p2
-p
-```
-
-This behaviour can also be applied when using `split.by`.
-
-```{r}
-#| fig-width: 10
-#| fig-height: 10
-#| fig-cap: "Split by another variables and color by a third one."
-
-# Geyser plot with categorical color scale using color.by and split.by.
-p1 <- SCpubr::do_GeyserPlot(sample = sample,
-                            features = "UMAP_2",
-                            scale_type = "categorical",
-                            group.by = "orig.ident",
-                            split.by = "seurat_clusters",
-                            color.by = "modified_orig.ident")
-
-# Geyser plot with continuous color scale using color.by and split.by.
-p2 <- SCpubr::do_GeyserPlot(sample = sample,
-                            features = "UMAP_2",
-                            scale_type = "continuous",
-                            enforce_symmetry = TRUE,
-                            color.by = "nCount_RNA",
-                            group.by = "orig.ident",
-                            split.by = "seurat_clusters")
-
-
-p <- p1 / p2
-p
-```
 
 ## Control the jitter of the dots
 

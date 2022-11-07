@@ -56,6 +56,46 @@ p <- out$heatmaps$average_scores
 p
 ```
 
+## Set the scale limits.
+
+We can set the limits of the color scale by using `min.cutoff` and/or `max.cutoff`:
+
+```{r}
+#| fig-width: 8
+#| fig-height: 7
+#| fig-cap: "Set scale limits"
+
+# General heatmap.
+out <- SCpubr::do_PathwayActivityPlot(sample = sample,
+                                      activities = activities,
+                                      min.cutoff = -1,
+                                      max.cutoff = 1)
+p <- out$heatmaps$average_scores
+p
+```
+
+However, be mindful that if `enforce_symmetry = TRUE`, this will override these settings, to achieve a symmetrical color scale:
+
+```{r}
+#| fig-width: 8
+#| fig-height: 7
+#| fig-cap: "Effect of enforce_symmetry in min.cutoff and max.cutoff"
+# Effect of enforce symmetry on the scale limits.
+out <- SCpubr::do_PathwayActivityPlot(sample = sample,
+                                      activities = activities,
+                                      min.cutoff = -1.25,
+                                      max.cutoff = 1,
+                                      enforce_symmetry = TRUE)
+p <- out$heatmaps$average_scores
+p
+```
+
+::: callout-note
+## Take-home message
+
+Be mindful when using `min.cutoff` and `max.cutoff`, as this behavior might be overriden by `enforce_symmetry = TRUE`. Consider setting it to `FALSE`.
+:::
+
 ## Feature plots of the scores
 
 Perhaps we are interested into visualizing the scores as a Feature plot. This way we can observe trends of enrichment in the activities. This can be achieved by providing `plot_FeaturePlots = TRUE`.
@@ -75,6 +115,8 @@ p <- p1 | p2
 p
 
 ```
+
+This effect will also be seen if only `min.cutoff` or `max.cutoff` is set and the other end of the color scale has a higher absolute value.
 
 ## Geyser plots of the scores
 
@@ -153,40 +195,13 @@ p <- p1 | p2
 p
 ```
 
-## Plot another variable in the geyser plots
-
-Furthermore, we can also recolor the Geyser plots based on another variable of our choice. We can achieve this by using `geyser_color.by` and `geyser_scale_type`, providing the name of the variable to plot and the type it is (continuous, categorical).
-
-```{r}
-#| fig-width: 14
-#| fig-height: 8
-#| fig-cap: "Color the geyser plot by another variable."
-
-# Plot a third variable in Geyser plots.
-out <- SCpubr::do_PathwayActivityPlot(sample = sample,
-                                      activities = activities,
-                                      plot_GeyserPlots = TRUE,
-                                      geyser_color.by = "seurat_clusters",
-                                      geyser_scale_type = "categorical")
-p1 <- out$geyser_plots$EGFR
-
-out <- SCpubr::do_PathwayActivityPlot(sample = sample,
-                                      activities = activities,
-                                      plot_GeyserPlots = TRUE,
-                                      geyser_color.by = "nCount_RNA",
-                                      geyser_scale_type = "continuous")
-p2 <- out$geyser_plots$EGFR
-
-p <- p1 | p2
-p
-```
 
 ## Split the heatmap into different groups
 
 We can also further divide the heatmap into groups. This can be achieved using `split.by` parameter.
 
 ```{r}
-#| fig-width: 14
+#| fig-width: 8
 #| fig-height: 8
 #| fig-cap: "Split the heatmap."
 
@@ -197,5 +212,37 @@ out <- SCpubr::do_PathwayActivityPlot(sample = sample,
                                       activities = activities,
                                       split.by = "split.me")
 p <- out$heatmaps$average_scores
+p
+```
+
+## Control the color scale
+
+Again, we can control the color scale using `min.cutoff` and `max.cutoff`. This will apply to all plot types:
+
+```{r}
+#| fig-width: 8
+#| fig-height: 8
+#| fig-cap: "Control the color scale - heatmap."
+
+# Control the color scale
+out <- SCpubr::do_PathwayActivityPlot(sample = sample,
+                                      activities = activities,
+                                      split.by = "split.me",
+                                      min.cutoff = 0.1,
+                                      max.cutoff = 0.7,
+                                      plot_FeaturePlots = TRUE,
+                                      plot_GeyserPlots = TRUE)
+p <- out$heatmaps$average_scores
+p
+```
+
+```{r}
+#| fig-width: 14
+#| fig-height: 8
+#| fig-cap: "Control the color scale - FeaturePlot and GeyserPlot"
+
+p1 <- out$feature_plots$PI3K
+p2 <- out$geyser_plots$PI3K
+p <- p1 | p2
 p
 ```

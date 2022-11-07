@@ -21,10 +21,10 @@ In it, we can observe that, for the different clusters, regions called as chromo
 
 ## Transferring the scores to a FeaturePlot
 
-One of the cool things we can do with this object, is to transfer the inferCNV scores back to our Seurat object and then plot them as a FeaturePlot. This can be achieved with the function `SCpubr::do_CopyNumberVariantPlot()`. For this function, one needs to provide the Seurat object and the final inferCNV object, together with the chromosome locations. If metacells were computed (not necessary, but used in this example), the mapping of cell-metacell has to be provided as well:
+One of the cool things we can do with this object, is to transfer the inferCNV scores back to our Seurat object and then plot them as a FeaturePlot. This can be achieved with the function `SCpubr::do_CopyNumberVariantPlot()`. For this function, one needs to provide the Seurat object and the final inferCNV object, together with the chromosome locations. If metacells were computed (not necessary, but used in this example), the mapping of cell-metacell has to be provided as well. Normally, you want to run it with `chromosome_focus` set to a given chromosome. If not, it computes the results in a chromosome-wise manner:
 
 ```{r}
-#| fig-width: 8
+#| fig-width: 21
 #| fig-height: 8
 #| fig-cap: "Retrieve a UMAP of the desired scores."
 
@@ -35,12 +35,13 @@ out <- SCpubr::do_CopyNumberVariantPlot(sample = sample,
                                         infercnv_object = infercnv_object,
                                         using_metacells = TRUE,
                                         metacell_mapping = sample$metacell_mapping,
-                                        chromosome_locations = human_chr_locations)
-p <- out$`11p_umap`
+                                        chromosome_locations = human_chr_locations,
+                                        chromosome_focus = "11")
+p <- out$`11_umap` |out$`11p_umap` | out$`11q_umap`
 p
 ```
 
-Scores of 1 mean no chromosome gain or loss. Higher than one mean gain and lower mean loss. The function automatically computes the plots for *all chromosome regions*. If we want to restrict the output to a single chromosome, we can do so by stating it in `chromosome_focus` parameter.
+Scores close to 1 mean no chromosome gain or loss. Higher than one mean gain and lower mean loss. The function automatically computes the plots for *all chromosome regions*. If we want to restrict the output to a single chromosome, we can do so by stating it in `chromosome_focus` parameter.
 
 ```{r}
 #| eval: false
@@ -103,7 +104,6 @@ p <- out$`11p_geyser`
 p
 
 ```
-
 
 ## Joint analysis
 

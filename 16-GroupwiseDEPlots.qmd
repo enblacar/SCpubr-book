@@ -38,7 +38,8 @@ This is the basic output of the function:
 
 # Default output.
 p <- SCpubr::do_GroupwiseDEPlot(sample = sample,
-                                de_genes = de_genes)
+                                de_genes = de_genes,
+                                min.cutoff = 1)
 
 p
 ```

@@ -118,7 +118,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit"
   }
-}</script>
+}</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 <meta property="og:title" content="SCpubr - 22&nbsp; TF Activity inference analysis">
 <meta property="og:description" content="This section is highly similar to Pathway Activity inference analysis as it makes use of the same source package and visualizations.">
 <meta property="og:site-name" content="SCpubr">
@@ -361,13 +361,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    
   <ul>
 <li><a href="#heatmap-of-averaged-scores" id="toc-heatmap-of-averaged-scores" class="nav-link active" data-scroll-target="#heatmap-of-averaged-scores"><span class="toc-section-number">22.1</span>  Heatmap of averaged scores</a></li>
-  <li><a href="#select-the-number-of-top-tfs-to-plot" id="toc-select-the-number-of-top-tfs-to-plot" class="nav-link" data-scroll-target="#select-the-number-of-top-tfs-to-plot"><span class="toc-section-number">22.2</span>  Select the number of top TFs to plot</a></li>
-  <li><a href="#feature-plots-of-the-scores" id="toc-feature-plots-of-the-scores" class="nav-link" data-scroll-target="#feature-plots-of-the-scores"><span class="toc-section-number">22.3</span>  Feature plots of the scores</a></li>
-  <li><a href="#geyser-plots-of-the-scores" id="toc-geyser-plots-of-the-scores" class="nav-link" data-scroll-target="#geyser-plots-of-the-scores"><span class="toc-section-number">22.4</span>  Geyser plots of the scores</a></li>
-  <li><a href="#use-non-symmetrical-color-scales" id="toc-use-non-symmetrical-color-scales" class="nav-link" data-scroll-target="#use-non-symmetrical-color-scales"><span class="toc-section-number">22.5</span>  Use non-symmetrical color scales</a></li>
-  <li><a href="#order-geysers-by-the-mean" id="toc-order-geysers-by-the-mean" class="nav-link" data-scroll-target="#order-geysers-by-the-mean"><span class="toc-section-number">22.6</span>  Order geysers by the mean</a></li>
-  <li><a href="#plot-another-variable-in-the-geyser-plots" id="toc-plot-another-variable-in-the-geyser-plots" class="nav-link" data-scroll-target="#plot-another-variable-in-the-geyser-plots"><span class="toc-section-number">22.7</span>  Plot another variable in the geyser plots</a></li>
+  <li><a href="#set-the-scale-limits." id="toc-set-the-scale-limits." class="nav-link" data-scroll-target="#set-the-scale-limits."><span class="toc-section-number">22.2</span>  Set the scale limits.</a></li>
+  <li><a href="#select-the-number-of-top-tfs-to-plot" id="toc-select-the-number-of-top-tfs-to-plot" class="nav-link" data-scroll-target="#select-the-number-of-top-tfs-to-plot"><span class="toc-section-number">22.3</span>  Select the number of top TFs to plot</a></li>
+  <li><a href="#feature-plots-of-the-scores" id="toc-feature-plots-of-the-scores" class="nav-link" data-scroll-target="#feature-plots-of-the-scores"><span class="toc-section-number">22.4</span>  Feature plots of the scores</a></li>
+  <li><a href="#geyser-plots-of-the-scores" id="toc-geyser-plots-of-the-scores" class="nav-link" data-scroll-target="#geyser-plots-of-the-scores"><span class="toc-section-number">22.5</span>  Geyser plots of the scores</a></li>
+  <li><a href="#use-non-symmetrical-color-scales" id="toc-use-non-symmetrical-color-scales" class="nav-link" data-scroll-target="#use-non-symmetrical-color-scales"><span class="toc-section-number">22.6</span>  Use non-symmetrical color scales</a></li>
+  <li><a href="#order-geysers-by-the-mean" id="toc-order-geysers-by-the-mean" class="nav-link" data-scroll-target="#order-geysers-by-the-mean"><span class="toc-section-number">22.7</span>  Order geysers by the mean</a></li>
   <li><a href="#split-the-heatmap-into-different-groups" id="toc-split-the-heatmap-into-different-groups" class="nav-link" data-scroll-target="#split-the-heatmap-into-different-groups"><span class="toc-section-number">22.8</span>  Split the heatmap into different groups</a></li>
+  <li><a href="#control-the-color-scale" id="toc-control-the-color-scale" class="nav-link" data-scroll-target="#control-the-color-scale"><span class="toc-section-number">22.9</span>  Control the color scale</a></li>
   </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/enblacar/SCpubr/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
@@ -429,11 +430,62 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-</section><section id="select-the-number-of-top-tfs-to-plot" class="level2" data-number="22.2"><h2 data-number="22.2" class="anchored" data-anchor-id="select-the-number-of-top-tfs-to-plot">
-<span class="header-section-number">22.2</span> Select the number of top TFs to plot</h2>
+</section><section id="set-the-scale-limits." class="level2" data-number="22.2"><h2 data-number="22.2" class="anchored" data-anchor-id="set-the-scale-limits.">
+<span class="header-section-number">22.2</span> Set the scale limits.</h2>
+<p>We can set the limits of the color scale by using <code>min.cutoff</code> and/or <code>max.cutoff</code>:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Set the scale limits.</span></span>
+<span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_TFActivityPlot.html">do_TFActivityPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
+<span>                                 activities <span class="op">=</span> <span class="va">activities</span>,</span>
+<span>                                 min.cutoff <span class="op">=</span> <span class="op">-</span><span class="fl">2</span>,</span>
+<span>                                 max.cutoff <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="va">out</span><span class="op">$</span><span class="va">heatmaps</span><span class="op">$</span><span class="va">average_scores</span></span>
+<span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="24-TFActivityPlots_files/figure-html/unnamed-chunk-5-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
+<p></p><figcaption class="figure-caption">Set scale limits</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>However, be mindful that if <code>enforce_symmetry = TRUE</code>, this will override these settings, to achieve a symmetrical color scale:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Effect of enforce symmetry on the scale limits.</span></span>
+<span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_TFActivityPlot.html">do_TFActivityPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
+<span>                                 activities <span class="op">=</span> <span class="va">activities</span>,</span>
+<span>                                 min.cutoff <span class="op">=</span> <span class="op">-</span><span class="fl">2</span>,</span>
+<span>                                 max.cutoff <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>                                 enforce_symmetry <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="va">out</span><span class="op">$</span><span class="va">heatmaps</span><span class="op">$</span><span class="va">average_scores</span></span>
+<span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="24-TFActivityPlots_files/figure-html/unnamed-chunk-6-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
+<p></p><figcaption class="figure-caption">Effect of enforce_symmetry in min.cutoff and max.cutoff</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>This effect will also be seen if only <code>min.cutoff</code> or <code>max.cutoff</code> is set and the other end of the color scale has a higher absolute value.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Take-home message
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Be mindful when using <code>min.cutoff</code> and <code>max.cutoff</code>, as this behavior might be overriden by <code>enforce_symmetry = TRUE</code>. Consider setting it to <code>FALSE</code>.</p>
+</div>
+</div>
+</section><section id="select-the-number-of-top-tfs-to-plot" class="level2" data-number="22.3"><h2 data-number="22.3" class="anchored" data-anchor-id="select-the-number-of-top-tfs-to-plot">
+<span class="header-section-number">22.3</span> Select the number of top TFs to plot</h2>
 <p>We can select the number of TFs to include in the analysis by using <code>n_tfs</code> variable.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Increase number of TFs included in the analysis.</span></span>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Increase number of TFs included in the analysis.</span></span>
 <span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_TFActivityPlot.html">do_TFActivityPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                                 activities <span class="op">=</span> <span class="va">activities</span>,</span>
 <span>                                 n_tfs <span class="op">=</span> <span class="fl">40</span><span class="op">)</span></span>
@@ -441,17 +493,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="24-TFActivityPlots_files/figure-html/unnamed-chunk-5-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
+<figure class="figure"><p><img src="24-TFActivityPlots_files/figure-html/unnamed-chunk-7-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
 <p></p><figcaption class="figure-caption">Increase the number of reported TFs.</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
-</section><section id="feature-plots-of-the-scores" class="level2" data-number="22.3"><h2 data-number="22.3" class="anchored" data-anchor-id="feature-plots-of-the-scores">
-<span class="header-section-number">22.3</span> Feature plots of the scores</h2>
+</section><section id="feature-plots-of-the-scores" class="level2" data-number="22.4"><h2 data-number="22.4" class="anchored" data-anchor-id="feature-plots-of-the-scores">
+<span class="header-section-number">22.4</span> Feature plots of the scores</h2>
 <p>Perhaps we are interested into visualizing the scores as a Feature plot. This way we can observe trends of enrichment in the activities. This can be achieved by providing <code>plot_FeaturePlots = TRUE</code>.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Retrieve feature plots.</span></span>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Retrieve feature plots.</span></span>
 <span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_TFActivityPlot.html">do_TFActivityPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                                 activities <span class="op">=</span> <span class="va">activities</span>,</span>
 <span>                                 plot_FeaturePlots <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
@@ -461,17 +513,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="24-TFActivityPlots_files/figure-html/unnamed-chunk-6-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
+<figure class="figure"><p><img src="24-TFActivityPlots_files/figure-html/unnamed-chunk-8-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
 <p></p><figcaption class="figure-caption">Retrieve the feature plot output.</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
-</section><section id="geyser-plots-of-the-scores" class="level2" data-number="22.4"><h2 data-number="22.4" class="anchored" data-anchor-id="geyser-plots-of-the-scores">
-<span class="header-section-number">22.4</span> Geyser plots of the scores</h2>
+</section><section id="geyser-plots-of-the-scores" class="level2" data-number="22.5"><h2 data-number="22.5" class="anchored" data-anchor-id="geyser-plots-of-the-scores">
+<span class="header-section-number">22.5</span> Geyser plots of the scores</h2>
 <p>In the same fashion as with the feature plots, we can also visualize the scores as Geyser plots, to get a sense of the distribution of the scores alongside the groups. This can be achieved by providing <code>plot_GeyserPlots = TRUE</code>.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Retrieve Geyser plots.</span></span>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Retrieve Geyser plots.</span></span>
 <span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_TFActivityPlot.html">do_TFActivityPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                                 activities <span class="op">=</span> <span class="va">activities</span>,</span>
 <span>                                 plot_GeyserPlots <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
@@ -481,17 +533,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="24-TFActivityPlots_files/figure-html/unnamed-chunk-7-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
+<figure class="figure"><p><img src="24-TFActivityPlots_files/figure-html/unnamed-chunk-9-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
 <p></p><figcaption class="figure-caption">Retrieve the geyser plot output.</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
-</section><section id="use-non-symmetrical-color-scales" class="level2" data-number="22.5"><h2 data-number="22.5" class="anchored" data-anchor-id="use-non-symmetrical-color-scales">
-<span class="header-section-number">22.5</span> Use non-symmetrical color scales</h2>
+</section><section id="use-non-symmetrical-color-scales" class="level2" data-number="22.6"><h2 data-number="22.6" class="anchored" data-anchor-id="use-non-symmetrical-color-scales">
+<span class="header-section-number">22.6</span> Use non-symmetrical color scales</h2>
 <p>If one wants to just plot a continuous color scale for the Feature plots and the Geyser plots, this can be achieved by using <code>enforce_symmetry = FALSE</code>.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Use non-symmetrical color scale.</span></span>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Use non-symmetrical color scale.</span></span>
 <span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_TFActivityPlot.html">do_TFActivityPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                                 activities <span class="op">=</span> <span class="va">activities</span>,</span>
 <span>                                 plot_GeyserPlots <span class="op">=</span> <span class="cn">TRUE</span>,</span>
@@ -512,17 +564,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="24-TFActivityPlots_files/figure-html/unnamed-chunk-8-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
+<figure class="figure"><p><img src="24-TFActivityPlots_files/figure-html/unnamed-chunk-10-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
 <p></p><figcaption class="figure-caption">Apply a non-symmetrical color scale.</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
-</section><section id="order-geysers-by-the-mean" class="level2" data-number="22.6"><h2 data-number="22.6" class="anchored" data-anchor-id="order-geysers-by-the-mean">
-<span class="header-section-number">22.6</span> Order geysers by the mean</h2>
+</section><section id="order-geysers-by-the-mean" class="level2" data-number="22.7"><h2 data-number="22.7" class="anchored" data-anchor-id="order-geysers-by-the-mean">
+<span class="header-section-number">22.7</span> Order geysers by the mean</h2>
 <p>We can also decide not to order the Geyser plots by the mean of the values. We can do that by providing <code>geyser_order_by_mean = FALSE</code>.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Not order Geyser plot by mean values.</span></span>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Not order Geyser plot by mean values.</span></span>
 <span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_TFActivityPlot.html">do_TFActivityPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                                 activities <span class="op">=</span> <span class="va">activities</span>,</span>
 <span>                                 plot_GeyserPlots <span class="op">=</span> <span class="cn">TRUE</span>,</span>
@@ -541,37 +593,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="24-TFActivityPlots_files/figure-html/unnamed-chunk-9-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
+<figure class="figure"><p><img src="24-TFActivityPlots_files/figure-html/unnamed-chunk-11-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
 <p></p><figcaption class="figure-caption">Order by mean values.</figcaption><p></p>
-</figure>
-</div>
-</div>
-</div>
-</section><section id="plot-another-variable-in-the-geyser-plots" class="level2" data-number="22.7"><h2 data-number="22.7" class="anchored" data-anchor-id="plot-another-variable-in-the-geyser-plots">
-<span class="header-section-number">22.7</span> Plot another variable in the geyser plots</h2>
-<p>Furthermore, we can also recolor the Geyser plots based on another variable of our choice. We can achieve this by using <code>geyser_color.by</code> and <code>geyser_scale_type</code>, providing the name of the variable to plot and the type it is (continuous, categorical).</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Plot a third variable in Geyser plots.</span></span>
-<span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_TFActivityPlot.html">do_TFActivityPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
-<span>                                 activities <span class="op">=</span> <span class="va">activities</span>,</span>
-<span>                                 plot_GeyserPlots <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>                                 geyser_color.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>,</span>
-<span>                                 geyser_scale_type <span class="op">=</span> <span class="st">"categorical"</span><span class="op">)</span></span>
-<span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="va">out</span><span class="op">$</span><span class="va">geyser_plots</span><span class="op">$</span><span class="va">GLI2</span></span>
-<span></span>
-<span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_TFActivityPlot.html">do_TFActivityPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
-<span>                                 activities <span class="op">=</span> <span class="va">activities</span>,</span>
-<span>                                 plot_GeyserPlots <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>                                 geyser_color.by <span class="op">=</span> <span class="st">"nCount_RNA"</span>,</span>
-<span>                                 geyser_scale_type <span class="op">=</span> <span class="st">"continuous"</span><span class="op">)</span></span>
-<span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="va">out</span><span class="op">$</span><span class="va">geyser_plots</span><span class="op">$</span><span class="va">GLI2</span></span>
-<span></span>
-<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span></span>
-<span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="24-TFActivityPlots_files/figure-html/unnamed-chunk-10-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
-<p></p><figcaption class="figure-caption">Color the geyser plot by another variable.</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -580,7 +603,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span class="header-section-number">22.8</span> Split the heatmap into different groups</h2>
 <p>We can also further divide the heatmap into groups. This can be achieved using <code>split.by</code> parameter.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Split the heatmap by another variable.</span></span>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Split the heatmap by another variable.</span></span>
 <span><span class="va">sample</span><span class="op">$</span><span class="va">split.me</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">sample</span><span class="op">$</span><span class="va">seurat_clusters</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"0"</span>, <span class="st">"3"</span>, <span class="st">"7"</span><span class="op">)</span>, <span class="st">"Group A"</span>,<span class="st">"Group B"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_TFActivityPlot.html">do_TFActivityPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
@@ -590,12 +613,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="24-TFActivityPlots_files/figure-html/unnamed-chunk-11-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
+<figure class="figure"><p><img src="24-TFActivityPlots_files/figure-html/unnamed-chunk-12-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
 <p></p><figcaption class="figure-caption">Split the heatmap by another variable.</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
+</section><section id="control-the-color-scale" class="level2" data-number="22.9"><h2 data-number="22.9" class="anchored" data-anchor-id="control-the-color-scale">
+<span class="header-section-number">22.9</span> Control the color scale</h2>
+<p>Again, we can control the color scale using <code>min.cutoff</code> and <code>max.cutoff</code>. This will apply to all plot types:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Control the color scale</span></span>
+<span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_TFActivityPlot.html">do_TFActivityPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
+<span>                                      activities <span class="op">=</span> <span class="va">activities</span>,</span>
+<span>                                      split.by <span class="op">=</span> <span class="st">"split.me"</span>,</span>
+<span>                                      min.cutoff <span class="op">=</span> <span class="fl">0.1</span>,</span>
+<span>                                      max.cutoff <span class="op">=</span> <span class="fl">0.7</span>,</span>
+<span>                                      plot_FeaturePlots <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                                      plot_GeyserPlots <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="va">out</span><span class="op">$</span><span class="va">heatmaps</span><span class="op">$</span><span class="va">average_scores</span></span>
+<span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="24-TFActivityPlots_files/figure-html/unnamed-chunk-13-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
+<p></p><figcaption class="figure-caption">Control the color scale - heatmap.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>#| fig-width: 14 #| fig-height: 8 #| fig-cap: “Control the color scale - FeaturePlot and GeyserPlot”</p>
+<p>p1 &lt;- out<span class="math inline">\(feature_plots\)</span>PI3K p2 &lt;- out<span class="math inline">\(geyser_plots\)</span>PI3K p &lt;- p1 | p2 p</p>
 
 
 </section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">

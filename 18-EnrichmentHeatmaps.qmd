@@ -18,8 +18,8 @@ This kind of heatmaps can be easily computed using `SCpubr::do_EnrichmentHeatmap
 ## Single grouping variable
 
 ```{r}
-#| fig-width: 12
-#| fig-height: 12
+#| fig-width: 8
+#| fig-height: 5
 #| fig-cap: "Basic output."
 
 # Define list of genes.
@@ -38,11 +38,12 @@ p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
                                   input_gene_list = genes)
 p
 ```
+
 By default, `SCpubr::do_EnrichmentHeatmap` aggregates the values by the current identity. However, other metadata variables can be used to aggregate for. For this, provide the name to `group.by` parameter.
 
 ```{r}
-#| fig-width: 6
-#| fig-height: 3
+#| fig-width: 8
+#| fig-height: 5
 #| fig-cap: "Group by a custom variable."
 
 # Custom aggregated values.
@@ -66,8 +67,7 @@ p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
 p
 ```
 
-
-Both rows and column names can be rotated using `column_names_rot`  and `row_names_rot` parameters, providing the desired angle.
+Both rows and column names can be rotated using `column_names_rot` and `row_names_rot` parameters, providing the desired angle.
 
 ```{r}
 #| fig-width: 6
@@ -85,8 +85,9 @@ p
 ## Changing the cell size in the heatmap.
 
 By design, the aspect ratio of the tiles in the heatmap is fixed so that cells are squares, and not rectangles. However, the user has the possibility to increase/decrease the cell size of each tile by modifying `cell_size` parameter. This is set to 5 by default.
+
 ```{r}
-#| fig-width: 10
+#| fig-width: 8
 #| fig-height: 5
 #| fig-cap: "Change the size of the cells."
 
@@ -94,7 +95,6 @@ By design, the aspect ratio of the tiles in the heatmap is fixed so that cells a
 p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
                                   input_gene_list = genes,
                                   flip = TRUE,
-                                  column_names_rot = 0,
                                   cluster_cols = FALSE,
                                   cluster_rows = TRUE,
                                   cell_size = 7)
@@ -103,10 +103,10 @@ p
 
 ## Symmetrical scales
 
-If one wants a symmetrical scale, 
+If one wants a symmetrical scale,
 
 ```{r}
-#| fig-width: 10
+#| fig-width: 8
 #| fig-height: 5
 #| fig-cap: "Use a symmetrical color scale."
 
@@ -114,16 +114,16 @@ If one wants a symmetrical scale,
 p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
                                   input_gene_list = genes,
                                   flip = TRUE,
-                                  column_names_rot = 0,
                                   cluster_cols = FALSE,
                                   cluster_rows = TRUE,
                                   cell_size = 7,
-                                  symmetrical_scale = TRUE)
+                                  enforce_symmetry = TRUE)
 p
 ```
 
+For such cases, it is best to set `use_viridis = FALSE`.
 ```{r}
-#| fig-width: 10
+#| fig-width: 8
 #| fig-height: 5
 #| fig-cap: "Use a symmetrical color scale that is not viridis."
 
@@ -131,11 +131,50 @@ p
 p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
                                   input_gene_list = genes,
                                   flip = TRUE,
-                                  column_names_rot = 0,
                                   cluster_cols = FALSE,
                                   cluster_rows = TRUE,
                                   cell_size = 7,
-                                  symmetrical_scale = TRUE,
+                                  enforce_symmetry = TRUE,
                                   use_viridis = FALSE)
+p
+```
+
+## Compute UCell scoring
+
+Similar to `Seurat::AddModuleScore()`, other enrichment scoring methods have been developed. One of such is [**UCell**](https://github.com/carmonalab/UCell). To use it as scoring method, simply pass `flavor = "UCell`:
+```{r}
+#| fig-width: 8
+#| fig-height: 5
+#| fig-cap: "Use UCell Scoring."
+
+# Use UCell scoring.
+p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
+                                  input_gene_list = genes,
+                                  flip = TRUE,
+                                  cluster_cols = FALSE,
+                                  cluster_rows = TRUE,
+                                  cell_size = 7,
+                                  flavor = "UCell")
+p
+```
+
+## Subset the color scale.
+It might be the case that a single gene set, for a single cluster, drives the color scale entirely. We can treat this as an outlier, so that we can subset the color scale to better represent the values in between. We can achieve that by using `min.cutoff` and/or `max.cutoff`.
+
+```{r}
+#| fig-width: 8
+#| fig-height: 5
+#| fig-cap: "Subset the color scale."
+
+# Subset the color scale.
+p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
+                                  input_gene_list = genes,
+                                  flip = TRUE,
+                                  cluster_cols = FALSE,
+                                  cluster_rows = TRUE,
+                                  cell_size = 7,
+                                  flavor = "UCell",
+                                  min.cutoff = 0.2,
+                                  max.cutoff = 0.7)
 p
 ```

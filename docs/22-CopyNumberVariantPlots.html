@@ -390,7 +390,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>In it, we can observe that, for the different clusters, regions called as chromosome gains are colored as red and regions called as chromosome losses are colored as blue. This image, in the end, is a heatmap, meaning that there is, in the output of inferCNV, a matrix with the scores for each cell and gene, that we can make use of. This object is called, by default, <em>run.final.infercnv_obj</em>. This is the one that we will use.</p>
 <section id="transferring-the-scores-to-a-featureplot" class="level2" data-number="20.1"><h2 data-number="20.1" class="anchored" data-anchor-id="transferring-the-scores-to-a-featureplot">
 <span class="header-section-number">20.1</span> Transferring the scores to a FeaturePlot</h2>
-<p>One of the cool things we can do with this object, is to transfer the inferCNV scores back to our Seurat object and then plot them as a FeaturePlot. This can be achieved with the function <code><a href="https://rdrr.io/pkg/SCpubr/man/do_CopyNumberVariantPlot.html">SCpubr::do_CopyNumberVariantPlot()</a></code>. For this function, one needs to provide the Seurat object and the final inferCNV object, together with the chromosome locations. If metacells were computed (not necessary, but used in this example), the mapping of cell-metacell has to be provided as well:</p>
+<p>One of the cool things we can do with this object, is to transfer the inferCNV scores back to our Seurat object and then plot them as a FeaturePlot. This can be achieved with the function <code><a href="https://rdrr.io/pkg/SCpubr/man/do_CopyNumberVariantPlot.html">SCpubr::do_CopyNumberVariantPlot()</a></code>. For this function, one needs to provide the Seurat object and the final inferCNV object, together with the chromosome locations. If metacells were computed (not necessary, but used in this example), the mapping of cell-metacell has to be provided as well. Normally, you want to run it with <code>chromosome_focus</code> set to a given chromosome. If not, it computes the results in a chromosome-wise manner:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># This loads "human_chr_locations" into the environment.</span></span>
 <span><span class="fu">utils</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"human_chr_locations"</span>, package <span class="op">=</span> <span class="st">"SCpubr"</span><span class="op">)</span></span>
@@ -399,8 +399,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span>                                        infercnv_object <span class="op">=</span> <span class="va">infercnv_object</span>,</span>
 <span>                                        using_metacells <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>                                        metacell_mapping <span class="op">=</span> <span class="va">sample</span><span class="op">$</span><span class="va">metacell_mapping</span>,</span>
-<span>                                        chromosome_locations <span class="op">=</span> <span class="va">human_chr_locations</span><span class="op">)</span></span>
-<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="va">out</span><span class="op">$</span><span class="va">`11p_umap`</span></span>
+<span>                                        chromosome_locations <span class="op">=</span> <span class="va">human_chr_locations</span>,</span>
+<span>                                        chromosome_focus <span class="op">=</span> <span class="st">"11"</span><span class="op">)</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="va">out</span><span class="op">$</span><span class="va">`11_umap`</span> <span class="op">|</span><span class="va">out</span><span class="op">$</span><span class="va">`11p_umap`</span> <span class="op">|</span> <span class="va">out</span><span class="op">$</span><span class="va">`11q_umap`</span></span>
 <span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -410,7 +411,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-<p>Scores of 1 mean no chromosome gain or loss. Higher than one mean gain and lower mean loss. The function automatically computes the plots for <em>all chromosome regions</em>. If we want to restrict the output to a single chromosome, we can do so by stating it in <code>chromosome_focus</code> parameter.</p>
+<p>Scores close to 1 mean no chromosome gain or loss. Higher than one mean gain and lower mean loss. The function automatically computes the plots for <em>all chromosome regions</em>. If we want to restrict the output to a single chromosome, we can do so by stating it in <code>chromosome_focus</code> parameter.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_CopyNumberVariantPlot.html">do_CopyNumberVariantPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                                        infercnv_object <span class="op">=</span> <span class="va">infercnv_object</span>,</span>
