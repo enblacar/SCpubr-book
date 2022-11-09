@@ -1,6 +1,8 @@
 # News {.unnumbered}
 
 Here are the patch notes of the different versions:
+## SCpubr v1.0.4 {.unnumbered}
+-   Hotfix for v1.0.3 in which `do_GeyserPlot` with categorical variables had a bug that mapped the legend to the continuous axis.
 
 ## SCpubr v1.0.3 {.unnumbered}
 

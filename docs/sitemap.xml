@@ -2,130 +2,130 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://enblacar.github.io/SCpubr-book/index.html</loc>
-    <lastmod>2022-11-07T08:50:39.842Z</lastmod>
+    <lastmod>2022-11-07T14:41:12.408Z</lastmod>
   </url>
   <url>
     <loc>https://enblacar.github.io/SCpubr-book/01-Installation-guide.html</loc>
-    <lastmod>2022-11-07T00:04:24.299Z</lastmod>
+    <lastmod>2022-11-07T14:41:12.418Z</lastmod>
   </url>
   <url>
     <loc>https://enblacar.github.io/SCpubr-book/02-Dataset.html</loc>
-    <lastmod>2022-11-06T23:45:05.539Z</lastmod>
+    <lastmod>2022-11-07T14:41:12.426Z</lastmod>
   </url>
   <url>
     <loc>https://enblacar.github.io/SCpubr-book/03-DimPlots.html</loc>
-    <lastmod>2022-11-06T23:45:05.552Z</lastmod>
+    <lastmod>2022-11-07T14:41:12.441Z</lastmod>
   </url>
   <url>
     <loc>https://enblacar.github.io/SCpubr-book/04-FeaturePlots.html</loc>
-    <lastmod>2022-11-06T23:45:05.565Z</lastmod>
+    <lastmod>2022-11-07T14:41:12.460Z</lastmod>
   </url>
   <url>
     <loc>https://enblacar.github.io/SCpubr-book/05-NebulosaPlots.html</loc>
-    <lastmod>2022-11-06T23:45:05.576Z</lastmod>
+    <lastmod>2022-11-07T14:41:12.528Z</lastmod>
   </url>
   <url>
     <loc>https://enblacar.github.io/SCpubr-book/06-BeeSwarmPlots.html</loc>
-    <lastmod>2022-11-06T23:45:05.587Z</lastmod>
+    <lastmod>2022-11-07T14:41:12.562Z</lastmod>
   </url>
   <url>
     <loc>https://enblacar.github.io/SCpubr-book/07-ViolinPlots.html</loc>
-    <lastmod>2022-11-06T23:45:05.599Z</lastmod>
+    <lastmod>2022-11-07T14:41:12.605Z</lastmod>
   </url>
   <url>
     <loc>https://enblacar.github.io/SCpubr-book/08-RidgePlots.html</loc>
-    <lastmod>2022-11-06T23:45:05.610Z</lastmod>
+    <lastmod>2022-11-07T14:41:12.669Z</lastmod>
   </url>
   <url>
     <loc>https://enblacar.github.io/SCpubr-book/09-DotPlots.html</loc>
-    <lastmod>2022-11-06T23:45:05.619Z</lastmod>
+    <lastmod>2022-11-07T14:41:12.698Z</lastmod>
   </url>
   <url>
     <loc>https://enblacar.github.io/SCpubr-book/10-BarPlots.html</loc>
-    <lastmod>2022-11-06T23:45:05.626Z</lastmod>
+    <lastmod>2022-11-07T14:41:12.717Z</lastmod>
   </url>
   <url>
     <loc>https://enblacar.github.io/SCpubr-book/11-BoxPlots.html</loc>
-    <lastmod>2022-11-06T23:45:05.633Z</lastmod>
+    <lastmod>2022-11-07T14:41:12.735Z</lastmod>
   </url>
   <url>
     <loc>https://enblacar.github.io/SCpubr-book/12-GeyserPlots.html</loc>
-    <lastmod>2022-11-06T23:45:05.642Z</lastmod>
+    <lastmod>2022-11-07T14:41:12.755Z</lastmod>
   </url>
   <url>
     <loc>https://enblacar.github.io/SCpubr-book/13-SankeyPlots.html</loc>
-    <lastmod>2022-11-06T23:45:05.650Z</lastmod>
+    <lastmod>2022-11-07T14:41:12.788Z</lastmod>
   </url>
   <url>
     <loc>https://enblacar.github.io/SCpubr-book/14-ChordDiagramPlots.html</loc>
-    <lastmod>2022-11-06T23:45:05.659Z</lastmod>
+    <lastmod>2022-11-07T14:41:12.819Z</lastmod>
   </url>
   <url>
     <loc>https://enblacar.github.io/SCpubr-book/15-VolcanoPlots.html</loc>
-    <lastmod>2022-11-06T23:45:05.665Z</lastmod>
+    <lastmod>2022-11-07T14:41:12.853Z</lastmod>
   </url>
   <url>
     <loc>https://enblacar.github.io/SCpubr-book/16-GroupwiseDEPlots.html</loc>
-    <lastmod>2022-11-06T23:45:05.672Z</lastmod>
+    <lastmod>2022-11-07T14:41:12.880Z</lastmod>
   </url>
   <url>
     <loc>https://enblacar.github.io/SCpubr-book/17-TermEnrichmentPlots.html</loc>
-    <lastmod>2022-11-06T23:45:05.680Z</lastmod>
+    <lastmod>2022-11-07T14:41:12.900Z</lastmod>
   </url>
   <url>
     <loc>https://enblacar.github.io/SCpubr-book/18-EnrichmentHeatmaps.html</loc>
-    <lastmod>2022-11-06T23:45:05.689Z</lastmod>
+    <lastmod>2022-11-07T14:41:12.913Z</lastmod>
   </url>
   <url>
     <loc>https://enblacar.github.io/SCpubr-book/19-CorrelationHeatmaps.html</loc>
-    <lastmod>2022-11-06T23:45:05.699Z</lastmod>
+    <lastmod>2022-11-07T14:41:12.924Z</lastmod>
   </url>
   <url>
     <loc>https://enblacar.github.io/SCpubr-book/20-CellularStatesPlot.html</loc>
-    <lastmod>2022-11-06T23:45:05.710Z</lastmod>
+    <lastmod>2022-11-07T14:41:12.935Z</lastmod>
   </url>
   <url>
     <loc>https://enblacar.github.io/SCpubr-book/21-LigandReceptorPlot.html</loc>
-    <lastmod>2022-11-06T23:45:05.720Z</lastmod>
+    <lastmod>2022-11-07T14:41:12.947Z</lastmod>
   </url>
   <url>
     <loc>https://enblacar.github.io/SCpubr-book/22-CopyNumberVariantPlots.html</loc>
-    <lastmod>2022-11-06T23:45:05.729Z</lastmod>
+    <lastmod>2022-11-07T14:41:12.958Z</lastmod>
   </url>
   <url>
     <loc>https://enblacar.github.io/SCpubr-book/23-PathwayActivityPlots.html</loc>
-    <lastmod>2022-11-06T23:45:05.749Z</lastmod>
+    <lastmod>2022-11-07T14:41:12.974Z</lastmod>
   </url>
   <url>
     <loc>https://enblacar.github.io/SCpubr-book/24-TFActivityPlots.html</loc>
-    <lastmod>2022-11-06T23:45:05.759Z</lastmod>
+    <lastmod>2022-11-07T14:41:12.989Z</lastmod>
   </url>
   <url>
     <loc>https://enblacar.github.io/SCpubr-book/25-PseudotimeAnalysisPlots.html</loc>
-    <lastmod>2022-11-06T23:45:05.770Z</lastmod>
+    <lastmod>2022-11-07T14:41:13.001Z</lastmod>
   </url>
   <url>
     <loc>https://enblacar.github.io/SCpubr-book/93-ColorPalettes.html</loc>
-    <lastmod>2022-11-06T23:45:05.781Z</lastmod>
+    <lastmod>2022-11-07T14:41:13.013Z</lastmod>
   </url>
   <url>
     <loc>https://enblacar.github.io/SCpubr-book/94-CommonFeatures.html</loc>
-    <lastmod>2022-11-06T23:45:05.789Z</lastmod>
+    <lastmod>2022-11-07T14:41:13.041Z</lastmod>
   </url>
   <url>
     <loc>https://enblacar.github.io/SCpubr-book/95-SaveFigures.html</loc>
-    <lastmod>2022-11-06T23:45:05.798Z</lastmod>
+    <lastmod>2022-11-07T14:41:13.063Z</lastmod>
   </url>
   <url>
     <loc>https://enblacar.github.io/SCpubr-book/96-Citation.html</loc>
-    <lastmod>2022-11-06T23:45:05.805Z</lastmod>
+    <lastmod>2022-11-07T14:41:13.094Z</lastmod>
   </url>
   <url>
     <loc>https://enblacar.github.io/SCpubr-book/97-NEWS.html</loc>
-    <lastmod>2022-11-06T23:45:05.815Z</lastmod>
+    <lastmod>2022-11-07T14:41:13.110Z</lastmod>
   </url>
   <url>
     <loc>https://enblacar.github.io/SCpubr-book/99-Acknowledgements.html</loc>
-    <lastmod>2022-11-06T23:45:05.823Z</lastmod>
+    <lastmod>2022-11-07T14:41:13.124Z</lastmod>
   </url>
 </urlset>
