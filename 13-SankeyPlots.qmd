@@ -1,14 +1,12 @@
-# Sankey and alluvial plots
+# Sankey plots
 
-::: callout-warning
+::: callout-important
 ## Please note:
 
-Due to CRAN policies, this function could not make it to the **official release** and is only available in the **development release** of **SCpubr**. Find how to install it [**here**](https://github.com/enblacar/SCpubr/releases/tag/v1.0.1-dev-stable).
-
-Once the package becomes available on CRAN/Bioconductor, the function will be integrated in the official release.
-
-Work in progress is being made to bring these plots back to the official release using another package. Stay tuned for the news!
+`SCpubr::do_SankeyPlot()` has been replaced by `SCpubr::do_AlluvialPlot()`, which will make its way to the official release in v1.1.0. Therefore, `SCpubr::do_SankeyPlot()` will be discontinued.
 :::
+
+
 
 ```{r}
 #| results: "asis"

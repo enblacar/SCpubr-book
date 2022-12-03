@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.2.226">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>SCpubr - 14&nbsp; Group-wise DE analysis plots</title>
+<title>SCpubr - 15&nbsp; Group-wise DE analysis plots</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -119,10 +119,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-submit-button-title": "Submit"
   }
 }</script>
-<meta property="og:title" content="SCpubr - 14&nbsp; Group-wise DE analysis plots">
+<meta property="og:title" content="SCpubr - 15&nbsp; Group-wise DE analysis plots">
 <meta property="og:description" content="A common analysis that can be performed on SC data is a group-wise DE analysis.">
 <meta property="og:site-name" content="SCpubr">
-<meta name="twitter:title" content="SCpubr - 14&nbsp; Group-wise DE analysis plots">
+<meta name="twitter:title" content="SCpubr - 15&nbsp; Group-wise DE analysis plots">
 <meta name="twitter:description" content="A common analysis that can be performed on SC data is a group-wise DE analysis.">
 <meta name="twitter:card" content="summary">
 </head>
@@ -131,7 +131,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
       <h1 class="quarto-secondary-nav-title">
-<span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Group-wise DE analysis plots</span>
+<span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Group-wise DE analysis plots</span>
 </h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
@@ -239,17 +239,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./13-SankeyPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Sankey and alluvial plots</span></a>
+  <a href="./13-AlluvialPlot.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Alluvial plots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./14-ChordDiagramPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Chord Diagram plots</span></a>
+  <a href="./13-SankeyPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Sankey plots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./15-VolcanoPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Volcano plots</span></a>
+  <a href="./14-ChordDiagramPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Chord Diagram plots</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15-VolcanoPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Volcano plots</span></a>
   </div>
 </li>
       </ul>
@@ -264,52 +269,57 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./16-GroupwiseDEPlots.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Group-wise DE analysis plots</span></a>
+  <a href="./16-GroupwiseDEPlots.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Group-wise DE analysis plots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./17-TermEnrichmentPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Term Enrichment Plots</span></a>
+  <a href="./17-TermEnrichmentPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Term Enrichment Plots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./18-EnrichmentHeatmaps.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Enrichment score heatmaps</span></a>
+  <a href="./18-ExpressionHeatmaps.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Expression heatmaps</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./19-CorrelationHeatmaps.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Correlation matrix heatmaps</span></a>
+  <a href="./18-EnrichmentHeatmaps.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Enrichment score heatmaps</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20-CellularStatesPlot.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Cellular State Plots</span></a>
+  <a href="./19-CorrelationHeatmaps.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Correlation matrix heatmaps</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./21-LigandReceptorPlot.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Ligand-Receptor analysis</span></a>
+  <a href="./20-CellularStatesPlot.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Cellular State Plots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./22-CopyNumberVariantPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Copy Number Variant analysis plots</span></a>
+  <a href="./21-LigandReceptorPlot.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Ligand-Receptor analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./23-PathwayActivityPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Pathway Activity inference analysis</span></a>
+  <a href="./22-CopyNumberVariantPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Copy Number Variant analysis plots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./24-TFActivityPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">TF Activity inference analysis</span></a>
+  <a href="./23-PathwayActivityPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Pathway Activity inference analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./25-PseudotimeAnalysisPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Pseudotime analysis</span></a>
+  <a href="./24-TFActivityPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">TF Activity inference analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./25-PseudotimeAnalysisPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Pseudotime analysis</span></a>
   </div>
 </li>
       </ul>
@@ -360,16 +370,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-<li><a href="#increase-the-number-of-genes" id="toc-increase-the-number-of-genes" class="nav-link active" data-scroll-target="#increase-the-number-of-genes"><span class="toc-section-number">14.1</span>  Increase the number of genes</a></li>
-  <li><a href="#modify-the-titles-of-the-rows-and-columns" id="toc-modify-the-titles-of-the-rows-and-columns" class="nav-link" data-scroll-target="#modify-the-titles-of-the-rows-and-columns"><span class="toc-section-number">14.2</span>  Modify the titles of the rows and columns</a></li>
-  <li><a href="#add-further-layers-of-mean-expression" id="toc-add-further-layers-of-mean-expression" class="nav-link" data-scroll-target="#add-further-layers-of-mean-expression"><span class="toc-section-number">14.3</span>  Add further layers of mean expression</a></li>
-  <li><a href="#modify-color-scales" id="toc-modify-color-scales" class="nav-link" data-scroll-target="#modify-color-scales"><span class="toc-section-number">14.4</span>  Modify color scales</a></li>
+<li><a href="#increase-the-number-of-genes" id="toc-increase-the-number-of-genes" class="nav-link active" data-scroll-target="#increase-the-number-of-genes"><span class="toc-section-number">15.1</span>  Increase the number of genes</a></li>
+  <li><a href="#modify-the-titles-of-the-rows-and-columns" id="toc-modify-the-titles-of-the-rows-and-columns" class="nav-link" data-scroll-target="#modify-the-titles-of-the-rows-and-columns"><span class="toc-section-number">15.2</span>  Modify the titles of the rows and columns</a></li>
+  <li><a href="#add-further-layers-of-mean-expression" id="toc-add-further-layers-of-mean-expression" class="nav-link" data-scroll-target="#add-further-layers-of-mean-expression"><span class="toc-section-number">15.3</span>  Add further layers of mean expression</a></li>
+  <li><a href="#modify-color-scales" id="toc-modify-color-scales" class="nav-link" data-scroll-target="#modify-color-scales"><span class="toc-section-number">15.4</span>  Modify color scales</a></li>
   </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/enblacar/SCpubr/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <h1 class="title d-none d-lg-block">
-<span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Group-wise DE analysis plots</span>
+<span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Group-wise DE analysis plots</span>
 </h1>
 </div>
 
@@ -414,8 +424,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>By default, this computes three different heatmaps, all showing the top 5 DE genes for each of the clusters or groups for which we computed the DE genes, and their respective adjusted p-values (- log10), fold change (FC, log2) and mean expression by the groups. Genes are ordered based on the order of the groups. Therefore, these heatmaps have no hierarchical clustering in neither rows or columns.</p>
-<section id="increase-the-number-of-genes" class="level2" data-number="14.1"><h2 data-number="14.1" class="anchored" data-anchor-id="increase-the-number-of-genes">
-<span class="header-section-number">14.1</span> Increase the number of genes</h2>
+<section id="increase-the-number-of-genes" class="level2" data-number="15.1"><h2 data-number="15.1" class="anchored" data-anchor-id="increase-the-number-of-genes">
+<span class="header-section-number">15.1</span> Increase the number of genes</h2>
 <p>The number of top DE genes by cluster can be increased or reduced by using <code>top_genes</code>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Increase the number of top DE genes by cluster.</span></span>
@@ -432,8 +442,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-</section><section id="modify-the-titles-of-the-rows-and-columns" class="level2" data-number="14.2"><h2 data-number="14.2" class="anchored" data-anchor-id="modify-the-titles-of-the-rows-and-columns">
-<span class="header-section-number">14.2</span> Modify the titles of the rows and columns</h2>
+</section><section id="modify-the-titles-of-the-rows-and-columns" class="level2" data-number="15.2"><h2 data-number="15.2" class="anchored" data-anchor-id="modify-the-titles-of-the-rows-and-columns">
+<span class="header-section-number">15.2</span> Modify the titles of the rows and columns</h2>
 <p>We can also modify the row titles of the other heatmap bodies with <code>row_title_p_values</code>, <code>row_title_expression</code> and <code>row_title_logfc</code> and the column titles with <code>column_title</code> and the angle of rotation of the row titles with</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Modify the row and column titles and the rotation.</span></span>
@@ -454,8 +464,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-</section><section id="add-further-layers-of-mean-expression" class="level2" data-number="14.3"><h2 data-number="14.3" class="anchored" data-anchor-id="add-further-layers-of-mean-expression">
-<span class="header-section-number">14.3</span> Add further layers of mean expression</h2>
+</section><section id="add-further-layers-of-mean-expression" class="level2" data-number="15.3"><h2 data-number="15.3" class="anchored" data-anchor-id="add-further-layers-of-mean-expression">
+<span class="header-section-number">15.3</span> Add further layers of mean expression</h2>
 <p>One can add more groupings to the heatmap of mean expression values by making use of <code>group.by</code> parameter, that is set to <code>seurat_clusters</code> by default. As they will surely be other groups different than the ones the DE genes were computed to, we need to provide as many row titles for the new heatmaps as values in <code>group.by</code>, even if it is empty characters.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sample</span><span class="op">$</span><span class="va">modified_orig.ident</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Sample_A"</span>, <span class="st">"Sample_B"</span>, <span class="st">"Sample_C"</span><span class="op">)</span>, </span>
@@ -483,8 +493,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>This can be useful if we have different groupings we want to inspect at the same time. Also, the color scale is shared by all expression heatmaps.</p>
-</section><section id="modify-color-scales" class="level2" data-number="14.4"><h2 data-number="14.4" class="anchored" data-anchor-id="modify-color-scales">
-<span class="header-section-number">14.4</span> Modify color scales</h2>
+</section><section id="modify-color-scales" class="level2" data-number="15.4"><h2 data-number="15.4" class="anchored" data-anchor-id="modify-color-scales">
+<span class="header-section-number">15.4</span> Modify color scales</h2>
 <p>We can modify the color scales for each of the three main types of heatmaps with <code>viridis_map_pvalues</code>, <code>viridis_map_logfc</code> and <code>viridis_map_expression</code>, and providing a letter corresponding to a color scale.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Change the viridis scales.</span></span>
@@ -639,12 +649,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./15-VolcanoPlots.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Volcano plots</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Volcano plots</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./17-TermEnrichmentPlots.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Term Enrichment Plots</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Term Enrichment Plots</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

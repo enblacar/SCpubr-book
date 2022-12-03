@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.2.226">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>SCpubr - 13&nbsp; Volcano plots</title>
+<title>SCpubr - 14&nbsp; Volcano plots</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -119,10 +119,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-submit-button-title": "Submit"
   }
 }</script>
-<meta property="og:title" content="SCpubr - 13&nbsp; Volcano plots">
+<meta property="og:title" content="SCpubr - 14&nbsp; Volcano plots">
 <meta property="og:description" content="Perhaps one of the most known type of plots for bulk transcriptomics. By computing DE genes across two conditions, the results can be plotted as a volcano plot.">
 <meta property="og:site-name" content="SCpubr">
-<meta name="twitter:title" content="SCpubr - 13&nbsp; Volcano plots">
+<meta name="twitter:title" content="SCpubr - 14&nbsp; Volcano plots">
 <meta name="twitter:description" content="Perhaps one of the most known type of plots for bulk transcriptomics. By computing DE genes across two conditions, the results can be plotted as a volcano plot.">
 <meta name="twitter:card" content="summary">
 </head>
@@ -131,7 +131,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
       <h1 class="quarto-secondary-nav-title">
-<span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Volcano plots</span>
+<span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Volcano plots</span>
 </h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
@@ -239,17 +239,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./13-SankeyPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Sankey and alluvial plots</span></a>
+  <a href="./13-AlluvialPlot.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Alluvial plots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./14-ChordDiagramPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Chord Diagram plots</span></a>
+  <a href="./13-SankeyPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Sankey plots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./15-VolcanoPlots.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Volcano plots</span></a>
+  <a href="./14-ChordDiagramPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Chord Diagram plots</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15-VolcanoPlots.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Volcano plots</span></a>
   </div>
 </li>
       </ul>
@@ -264,52 +269,57 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./16-GroupwiseDEPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Group-wise DE analysis plots</span></a>
+  <a href="./16-GroupwiseDEPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Group-wise DE analysis plots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./17-TermEnrichmentPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Term Enrichment Plots</span></a>
+  <a href="./17-TermEnrichmentPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Term Enrichment Plots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./18-EnrichmentHeatmaps.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Enrichment score heatmaps</span></a>
+  <a href="./18-ExpressionHeatmaps.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Expression heatmaps</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./19-CorrelationHeatmaps.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Correlation matrix heatmaps</span></a>
+  <a href="./18-EnrichmentHeatmaps.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Enrichment score heatmaps</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20-CellularStatesPlot.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Cellular State Plots</span></a>
+  <a href="./19-CorrelationHeatmaps.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Correlation matrix heatmaps</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./21-LigandReceptorPlot.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Ligand-Receptor analysis</span></a>
+  <a href="./20-CellularStatesPlot.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Cellular State Plots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./22-CopyNumberVariantPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Copy Number Variant analysis plots</span></a>
+  <a href="./21-LigandReceptorPlot.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Ligand-Receptor analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./23-PathwayActivityPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Pathway Activity inference analysis</span></a>
+  <a href="./22-CopyNumberVariantPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Copy Number Variant analysis plots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./24-TFActivityPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">TF Activity inference analysis</span></a>
+  <a href="./23-PathwayActivityPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Pathway Activity inference analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./25-PseudotimeAnalysisPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Pseudotime analysis</span></a>
+  <a href="./24-TFActivityPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">TF Activity inference analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./25-PseudotimeAnalysisPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Pseudotime analysis</span></a>
   </div>
 </li>
       </ul>
@@ -360,15 +370,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-<li><a href="#basic-usage" id="toc-basic-usage" class="nav-link active" data-scroll-target="#basic-usage"><span class="toc-section-number">13.1</span>  Basic usage</a></li>
-  <li><a href="#modify-the-cutoffss" id="toc-modify-the-cutoffss" class="nav-link" data-scroll-target="#modify-the-cutoffss"><span class="toc-section-number">13.2</span>  Modify the cutoffss</a></li>
-  <li><a href="#modify-the-gene-tags" id="toc-modify-the-gene-tags" class="nav-link" data-scroll-target="#modify-the-gene-tags"><span class="toc-section-number">13.3</span>  Modify the gene tags</a></li>
+<li><a href="#basic-usage" id="toc-basic-usage" class="nav-link active" data-scroll-target="#basic-usage"><span class="toc-section-number">14.1</span>  Basic usage</a></li>
+  <li><a href="#modify-the-cutoffss" id="toc-modify-the-cutoffss" class="nav-link" data-scroll-target="#modify-the-cutoffss"><span class="toc-section-number">14.2</span>  Modify the cutoffss</a></li>
+  <li><a href="#modify-the-gene-tags" id="toc-modify-the-gene-tags" class="nav-link" data-scroll-target="#modify-the-gene-tags"><span class="toc-section-number">14.3</span>  Modify the gene tags</a></li>
   </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/enblacar/SCpubr/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <h1 class="title d-none d-lg-block">
-<span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Volcano plots</span>
+<span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Volcano plots</span>
 </h1>
 </div>
 
@@ -383,8 +393,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   
 
 </header><p>Perhaps one of the most known type of plots for bulk transcriptomics. By computing DE genes across two conditions, the results can be plotted as a volcano plot. This plot features the genes as dots, and places them in a scatter plot where the X axis contains the degree in which a gene is differentially expressed (average log2(FC)), while the Y axis shows the how significant the gene is (-log10(p-value adjusted)).</p>
-<section id="basic-usage" class="level2" data-number="13.1"><h2 data-number="13.1" class="anchored" data-anchor-id="basic-usage">
-<span class="header-section-number">13.1</span> Basic usage</h2>
+<section id="basic-usage" class="level2" data-number="14.1"><h2 data-number="14.1" class="anchored" data-anchor-id="basic-usage">
+<span class="header-section-number">14.1</span> Basic usage</h2>
 <p>To generate such a plot, one can use <code><a href="https://rdrr.io/pkg/SCpubr/man/do_VolcanoPlot.html">SCpubr::do_VolcanoPlot()</a></code>, which needs as input the Seurat object and the result of running <code><a href="https://satijalab.org/seurat/reference/FindMarkers.html">Seurat::FindMarkers()</a></code> choosing two groups.</p>
 <div class="cell" data-layout-align="center">
 
@@ -403,8 +413,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>As you can see, there are four major groups of genes: - Genes that surpass our p-value and logFC cutoffs (blue). - Genes that surpass the p-value cutoff but not the logFC cutoff (orange). - Genes that surpass the logFC cutoff but not the p-value cutoff (purple, not shown). - Genes that do not surpass any cutoff (green).</p>
-</section><section id="modify-the-cutoffss" class="level2" data-number="13.2"><h2 data-number="13.2" class="anchored" data-anchor-id="modify-the-cutoffss">
-<span class="header-section-number">13.2</span> Modify the cutoffss</h2>
+</section><section id="modify-the-cutoffss" class="level2" data-number="14.2"><h2 data-number="14.2" class="anchored" data-anchor-id="modify-the-cutoffss">
+<span class="header-section-number">14.2</span> Modify the cutoffss</h2>
 <p>The cutofss can be set up by the user using <code>pval_cutoff</code> (without -log10 transforming) and <code>FC_cutoff</code> (avg log2(FC)).</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Modify cutoffs.</span></span>
@@ -421,8 +431,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-</section><section id="modify-the-gene-tags" class="level2" data-number="13.3"><h2 data-number="13.3" class="anchored" data-anchor-id="modify-the-gene-tags">
-<span class="header-section-number">13.3</span> Modify the gene tags</h2>
+</section><section id="modify-the-gene-tags" class="level2" data-number="14.3"><h2 data-number="14.3" class="anchored" data-anchor-id="modify-the-gene-tags">
+<span class="header-section-number">14.3</span> Modify the gene tags</h2>
 <p>By default, the top 5 genes on each side, ordered by <code>-log10(p-value adjusted)</code> and <code>average log2(FC)</code> are reported. However, one can increase the number by using</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Modify number of gene tags.</span></span>
@@ -574,12 +584,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./14-ChordDiagramPlots.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Chord Diagram plots</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Chord Diagram plots</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./16-GroupwiseDEPlots.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Group-wise DE analysis plots</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Group-wise DE analysis plots</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

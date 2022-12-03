@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.2.226">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>SCpubr - 11&nbsp; Sankey and alluvial plots</title>
+<title>SCpubr - 12&nbsp; Sankey plots</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -90,7 +90,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./14-ChordDiagramPlots.html" rel="next">
-<link href="./12-GeyserPlots.html" rel="prev">
+<link href="./13-AlluvialPlot.html" rel="prev">
 <link href=".//images/SCpubr_logo_favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -119,10 +119,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-submit-button-title": "Submit"
   }
 }</script>
-<meta property="og:title" content="SCpubr - 11&nbsp; Sankey and alluvial plots">
+<meta property="og:title" content="SCpubr - 12&nbsp; Sankey plots">
 <meta property="og:description" content="Sankey and alluvial plots are a set of visualizations that help depicting how the cells “flow” from a given group to another.">
 <meta property="og:site-name" content="SCpubr">
-<meta name="twitter:title" content="SCpubr - 11&nbsp; Sankey and alluvial plots">
+<meta name="twitter:title" content="SCpubr - 12&nbsp; Sankey plots">
 <meta name="twitter:description" content="Sankey and alluvial plots are a set of visualizations that help depicting how the cells “flow” from a given group to another.">
 <meta name="twitter:card" content="summary">
 </head>
@@ -131,7 +131,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
       <h1 class="quarto-secondary-nav-title">
-<span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Sankey and alluvial plots</span>
+<span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Sankey plots</span>
 </h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
@@ -239,17 +239,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./13-SankeyPlots.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Sankey and alluvial plots</span></a>
+  <a href="./13-AlluvialPlot.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Alluvial plots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./14-ChordDiagramPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Chord Diagram plots</span></a>
+  <a href="./13-SankeyPlots.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Sankey plots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./15-VolcanoPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Volcano plots</span></a>
+  <a href="./14-ChordDiagramPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Chord Diagram plots</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15-VolcanoPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Volcano plots</span></a>
   </div>
 </li>
       </ul>
@@ -264,52 +269,57 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./16-GroupwiseDEPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Group-wise DE analysis plots</span></a>
+  <a href="./16-GroupwiseDEPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Group-wise DE analysis plots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./17-TermEnrichmentPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Term Enrichment Plots</span></a>
+  <a href="./17-TermEnrichmentPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Term Enrichment Plots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./18-EnrichmentHeatmaps.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Enrichment score heatmaps</span></a>
+  <a href="./18-ExpressionHeatmaps.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Expression heatmaps</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./19-CorrelationHeatmaps.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Correlation matrix heatmaps</span></a>
+  <a href="./18-EnrichmentHeatmaps.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Enrichment score heatmaps</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20-CellularStatesPlot.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Cellular State Plots</span></a>
+  <a href="./19-CorrelationHeatmaps.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Correlation matrix heatmaps</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./21-LigandReceptorPlot.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Ligand-Receptor analysis</span></a>
+  <a href="./20-CellularStatesPlot.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Cellular State Plots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./22-CopyNumberVariantPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Copy Number Variant analysis plots</span></a>
+  <a href="./21-LigandReceptorPlot.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Ligand-Receptor analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./23-PathwayActivityPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Pathway Activity inference analysis</span></a>
+  <a href="./22-CopyNumberVariantPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Copy Number Variant analysis plots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./24-TFActivityPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">TF Activity inference analysis</span></a>
+  <a href="./23-PathwayActivityPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Pathway Activity inference analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./25-PseudotimeAnalysisPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Pseudotime analysis</span></a>
+  <a href="./24-TFActivityPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">TF Activity inference analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./25-PseudotimeAnalysisPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Pseudotime analysis</span></a>
   </div>
 </li>
       </ul>
@@ -360,17 +370,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-<li><a href="#basic-usage" id="toc-basic-usage" class="nav-link active" data-scroll-target="#basic-usage"><span class="toc-section-number">11.1</span>  Basic usage</a></li>
-  <li><a href="#modify-node-aesthetics" id="toc-modify-node-aesthetics" class="nav-link" data-scroll-target="#modify-node-aesthetics"><span class="toc-section-number">11.2</span>  Modify node aesthetics</a></li>
-  <li><a href="#control-alignment-of-the-labels" id="toc-control-alignment-of-the-labels" class="nav-link" data-scroll-target="#control-alignment-of-the-labels"><span class="toc-section-number">11.3</span>  Control alignment of the labels</a></li>
-  <li><a href="#increase-the-gap-between-the-nodes" id="toc-increase-the-gap-between-the-nodes" class="nav-link" data-scroll-target="#increase-the-gap-between-the-nodes"><span class="toc-section-number">11.4</span>  Increase the gap between the nodes</a></li>
-  <li><a href="#modify-default-colors" id="toc-modify-default-colors" class="nav-link" data-scroll-target="#modify-default-colors"><span class="toc-section-number">11.5</span>  Modify default colors</a></li>
+<li><a href="#basic-usage" id="toc-basic-usage" class="nav-link active" data-scroll-target="#basic-usage"><span class="toc-section-number">12.1</span>  Basic usage</a></li>
+  <li><a href="#modify-node-aesthetics" id="toc-modify-node-aesthetics" class="nav-link" data-scroll-target="#modify-node-aesthetics"><span class="toc-section-number">12.2</span>  Modify node aesthetics</a></li>
+  <li><a href="#control-alignment-of-the-labels" id="toc-control-alignment-of-the-labels" class="nav-link" data-scroll-target="#control-alignment-of-the-labels"><span class="toc-section-number">12.3</span>  Control alignment of the labels</a></li>
+  <li><a href="#increase-the-gap-between-the-nodes" id="toc-increase-the-gap-between-the-nodes" class="nav-link" data-scroll-target="#increase-the-gap-between-the-nodes"><span class="toc-section-number">12.4</span>  Increase the gap between the nodes</a></li>
+  <li><a href="#modify-default-colors" id="toc-modify-default-colors" class="nav-link" data-scroll-target="#modify-default-colors"><span class="toc-section-number">12.5</span>  Modify default colors</a></li>
   </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/enblacar/SCpubr/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <h1 class="title d-none d-lg-block">
-<span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Sankey and alluvial plots</span>
+<span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Sankey plots</span>
 </h1>
 </div>
 
@@ -384,7 +394,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
   
 
-</header><div class="callout-warning callout callout-style-default callout-captioned">
+</header><div class="callout-important callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -394,17 +404,15 @@ Please note:
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Due to CRAN policies, this function could not make it to the <strong>official release</strong> and is only available in the <strong>development release</strong> of <strong>SCpubr</strong>. Find how to install it <a href="https://github.com/enblacar/SCpubr/releases/tag/v1.0.1-dev-stable"><strong>here</strong></a>.</p>
-<p>Once the package becomes available on CRAN/Bioconductor, the function will be integrated in the official release.</p>
-<p>Work in progress is being made to bring these plots back to the official release using another package. Stay tuned for the news!</p>
+<p><code><a href="https://rdrr.io/pkg/SCpubr/man/do_SankeyPlot.html">SCpubr::do_SankeyPlot()</a></code> has been replaced by <code><a href="https://rdrr.io/pkg/SCpubr/man/do_AlluvialPlot.html">SCpubr::do_AlluvialPlot()</a></code>, which will make its way to the official release in v1.1.0. Therefore, <code><a href="https://rdrr.io/pkg/SCpubr/man/do_SankeyPlot.html">SCpubr::do_SankeyPlot()</a></code> will be discontinued.</p>
 </div>
 </div>
 <div class="cell" data-layout-align="center">
 
 </div>
 <p>Sankey and alluvial plots are a set of visualizations that help depicting how the cells “flow” from a given group to another. This can be particular interesting, let’s say, when we have a merged dataset that has samples from different subtypes and we want to see how the cells from each subtype distribute along the different clusters in our sample. Or, similarly, how the cells from each cluster distribute across the different individual datasets.</p>
-<section id="basic-usage" class="level2" data-number="11.1"><h2 data-number="11.1" class="anchored" data-anchor-id="basic-usage">
-<span class="header-section-number">11.1</span> Basic usage</h2>
+<section id="basic-usage" class="level2" data-number="12.1"><h2 data-number="12.1" class="anchored" data-anchor-id="basic-usage">
+<span class="header-section-number">12.1</span> Basic usage</h2>
 <p><strong>Due to an internal bug in ggsankey, the package dplyr has to be loaded with <code><a href="https://dplyr.tidyverse.org">library(dplyr)</a></code> before running this function.</strong></p>
 <p>This is how we can achieve basic Sankey or alluvial plots (using package):</p>
 <div class="cell" data-layout-align="center">
@@ -470,8 +478,8 @@ Please note:
 </div>
 </div>
 </div>
-</section><section id="modify-node-aesthetics" class="level2" data-number="11.2"><h2 data-number="11.2" class="anchored" data-anchor-id="modify-node-aesthetics">
-<span class="header-section-number">11.2</span> Modify node aesthetics</h2>
+</section><section id="modify-node-aesthetics" class="level2" data-number="12.2"><h2 data-number="12.2" class="anchored" data-anchor-id="modify-node-aesthetics">
+<span class="header-section-number">12.2</span> Modify node aesthetics</h2>
 <p>By default, the color of the nodes and the fill is white, so that they can not be seen. One Can modify this by using <code>node.fill</code> and <code>node.color</code>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Control the color and fill of the nodes.</span></span>
@@ -531,8 +539,8 @@ Please note:
 </div>
 </div>
 </div>
-</section><section id="control-alignment-of-the-labels" class="level2" data-number="11.3"><h2 data-number="11.3" class="anchored" data-anchor-id="control-alignment-of-the-labels">
-<span class="header-section-number">11.3</span> Control alignment of the labels</h2>
+</section><section id="control-alignment-of-the-labels" class="level2" data-number="12.3"><h2 data-number="12.3" class="anchored" data-anchor-id="control-alignment-of-the-labels">
+<span class="header-section-number">12.3</span> Control alignment of the labels</h2>
 <p>We can also control the alignment of the labels (goes different by the different groups by default) using the <code>hjust</code> parameter. This will modify it for all the nodes.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Control the alignment of the labels.</span></span>
@@ -592,8 +600,8 @@ Please note:
 </div>
 </div>
 </div>
-</section><section id="increase-the-gap-between-the-nodes" class="level2" data-number="11.4"><h2 data-number="11.4" class="anchored" data-anchor-id="increase-the-gap-between-the-nodes">
-<span class="header-section-number">11.4</span> Increase the gap between the nodes</h2>
+</section><section id="increase-the-gap-between-the-nodes" class="level2" data-number="12.4"><h2 data-number="12.4" class="anchored" data-anchor-id="increase-the-gap-between-the-nodes">
+<span class="header-section-number">12.4</span> Increase the gap between the nodes</h2>
 <p>One can also increase the gaps between the nodes. This is done by providing a number to <code>space</code>. This number would act as “invisible” cells in between the nodes. So one needs to think in terms of how many cells do we have in our dataset. The bigger the dataset, the higher the number we need to notice a difference. It is set by default to 5% of the total number of cells in the dataset.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Modify the space between nodes.</span></span>
@@ -621,8 +629,8 @@ Please note:
 </div>
 </div>
 </div>
-</section><section id="modify-default-colors" class="level2" data-number="11.5"><h2 data-number="11.5" class="anchored" data-anchor-id="modify-default-colors">
-<span class="header-section-number">11.5</span> Modify default colors</h2>
+</section><section id="modify-default-colors" class="level2" data-number="12.5"><h2 data-number="12.5" class="anchored" data-anchor-id="modify-default-colors">
+<span class="header-section-number">12.5</span> Modify default colors</h2>
 <p>Finally, we can modify the default colors by providing our own to <code>colors.first</code>, <code>colors.middle</code> and <code>colors.last</code>. It has to be a named vector with</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Modify default colors.</span></span>
@@ -780,13 +788,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="./12-GeyserPlots.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Geyser plots</span></span>
+      <a href="./13-AlluvialPlot.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Alluvial plots</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./14-ChordDiagramPlots.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Chord Diagram plots</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Chord Diagram plots</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

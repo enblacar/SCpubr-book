@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.2.226">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>SCpubr - 21&nbsp; Pathway Activity inference analysis</title>
+<title>SCpubr - 23&nbsp; Pathway Activity inference analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -119,10 +119,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-submit-button-title": "Submit"
   }
 }</script>
-<meta property="og:title" content="SCpubr - 21&nbsp; Pathway Activity inference analysis">
+<meta property="og:title" content="SCpubr - 23&nbsp; Pathway Activity inference analysis">
 <meta property="og:description" content="This section is highly similar to TF Activity inference analysis as it makes use of the same source package and visualizations.">
 <meta property="og:site-name" content="SCpubr">
-<meta name="twitter:title" content="SCpubr - 21&nbsp; Pathway Activity inference analysis">
+<meta name="twitter:title" content="SCpubr - 23&nbsp; Pathway Activity inference analysis">
 <meta name="twitter:description" content="This section is highly similar to TF Activity inference analysis as it makes use of the same source package and visualizations.">
 <meta name="twitter:card" content="summary">
 </head>
@@ -131,7 +131,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
       <h1 class="quarto-secondary-nav-title">
-<span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Pathway Activity inference analysis</span>
+<span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Pathway Activity inference analysis</span>
 </h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
@@ -239,17 +239,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./13-SankeyPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Sankey and alluvial plots</span></a>
+  <a href="./13-AlluvialPlot.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Alluvial plots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./14-ChordDiagramPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Chord Diagram plots</span></a>
+  <a href="./13-SankeyPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Sankey plots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./15-VolcanoPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Volcano plots</span></a>
+  <a href="./14-ChordDiagramPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Chord Diagram plots</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15-VolcanoPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Volcano plots</span></a>
   </div>
 </li>
       </ul>
@@ -264,52 +269,57 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./16-GroupwiseDEPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Group-wise DE analysis plots</span></a>
+  <a href="./16-GroupwiseDEPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Group-wise DE analysis plots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./17-TermEnrichmentPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Term Enrichment Plots</span></a>
+  <a href="./17-TermEnrichmentPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Term Enrichment Plots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./18-EnrichmentHeatmaps.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Enrichment score heatmaps</span></a>
+  <a href="./18-ExpressionHeatmaps.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Expression heatmaps</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./19-CorrelationHeatmaps.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Correlation matrix heatmaps</span></a>
+  <a href="./18-EnrichmentHeatmaps.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Enrichment score heatmaps</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20-CellularStatesPlot.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Cellular State Plots</span></a>
+  <a href="./19-CorrelationHeatmaps.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Correlation matrix heatmaps</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./21-LigandReceptorPlot.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Ligand-Receptor analysis</span></a>
+  <a href="./20-CellularStatesPlot.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Cellular State Plots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./22-CopyNumberVariantPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Copy Number Variant analysis plots</span></a>
+  <a href="./21-LigandReceptorPlot.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Ligand-Receptor analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./23-PathwayActivityPlots.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Pathway Activity inference analysis</span></a>
+  <a href="./22-CopyNumberVariantPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Copy Number Variant analysis plots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./24-TFActivityPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">TF Activity inference analysis</span></a>
+  <a href="./23-PathwayActivityPlots.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Pathway Activity inference analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./25-PseudotimeAnalysisPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Pseudotime analysis</span></a>
+  <a href="./24-TFActivityPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">TF Activity inference analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./25-PseudotimeAnalysisPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Pseudotime analysis</span></a>
   </div>
 </li>
       </ul>
@@ -360,20 +370,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-<li><a href="#heatmap-of-averaged-scores" id="toc-heatmap-of-averaged-scores" class="nav-link active" data-scroll-target="#heatmap-of-averaged-scores"><span class="toc-section-number">21.1</span>  Heatmap of averaged scores</a></li>
-  <li><a href="#set-the-scale-limits." id="toc-set-the-scale-limits." class="nav-link" data-scroll-target="#set-the-scale-limits."><span class="toc-section-number">21.2</span>  Set the scale limits.</a></li>
-  <li><a href="#feature-plots-of-the-scores" id="toc-feature-plots-of-the-scores" class="nav-link" data-scroll-target="#feature-plots-of-the-scores"><span class="toc-section-number">21.3</span>  Feature plots of the scores</a></li>
-  <li><a href="#geyser-plots-of-the-scores" id="toc-geyser-plots-of-the-scores" class="nav-link" data-scroll-target="#geyser-plots-of-the-scores"><span class="toc-section-number">21.4</span>  Geyser plots of the scores</a></li>
-  <li><a href="#use-non-symmetrical-color-scales" id="toc-use-non-symmetrical-color-scales" class="nav-link" data-scroll-target="#use-non-symmetrical-color-scales"><span class="toc-section-number">21.5</span>  Use non-symmetrical color scales</a></li>
-  <li><a href="#order-geysers-by-the-mean" id="toc-order-geysers-by-the-mean" class="nav-link" data-scroll-target="#order-geysers-by-the-mean"><span class="toc-section-number">21.6</span>  Order geysers by the mean</a></li>
-  <li><a href="#split-the-heatmap-into-different-groups" id="toc-split-the-heatmap-into-different-groups" class="nav-link" data-scroll-target="#split-the-heatmap-into-different-groups"><span class="toc-section-number">21.7</span>  Split the heatmap into different groups</a></li>
-  <li><a href="#control-the-color-scale" id="toc-control-the-color-scale" class="nav-link" data-scroll-target="#control-the-color-scale"><span class="toc-section-number">21.8</span>  Control the color scale</a></li>
+<li><a href="#heatmap-of-averaged-scores" id="toc-heatmap-of-averaged-scores" class="nav-link active" data-scroll-target="#heatmap-of-averaged-scores"><span class="toc-section-number">23.1</span>  Heatmap of averaged scores</a></li>
+  <li><a href="#set-the-scale-limits." id="toc-set-the-scale-limits." class="nav-link" data-scroll-target="#set-the-scale-limits."><span class="toc-section-number">23.2</span>  Set the scale limits.</a></li>
+  <li><a href="#feature-plots-of-the-scores" id="toc-feature-plots-of-the-scores" class="nav-link" data-scroll-target="#feature-plots-of-the-scores"><span class="toc-section-number">23.3</span>  Feature plots of the scores</a></li>
+  <li><a href="#geyser-plots-of-the-scores" id="toc-geyser-plots-of-the-scores" class="nav-link" data-scroll-target="#geyser-plots-of-the-scores"><span class="toc-section-number">23.4</span>  Geyser plots of the scores</a></li>
+  <li><a href="#use-non-symmetrical-color-scales" id="toc-use-non-symmetrical-color-scales" class="nav-link" data-scroll-target="#use-non-symmetrical-color-scales"><span class="toc-section-number">23.5</span>  Use non-symmetrical color scales</a></li>
+  <li><a href="#order-geysers-by-the-mean" id="toc-order-geysers-by-the-mean" class="nav-link" data-scroll-target="#order-geysers-by-the-mean"><span class="toc-section-number">23.6</span>  Order geysers by the mean</a></li>
+  <li><a href="#split-the-heatmap-into-different-groups" id="toc-split-the-heatmap-into-different-groups" class="nav-link" data-scroll-target="#split-the-heatmap-into-different-groups"><span class="toc-section-number">23.7</span>  Split the heatmap into different groups</a></li>
+  <li><a href="#control-the-color-scale" id="toc-control-the-color-scale" class="nav-link" data-scroll-target="#control-the-color-scale"><span class="toc-section-number">23.8</span>  Control the color scale</a></li>
   </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/enblacar/SCpubr/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <h1 class="title d-none d-lg-block">
-<span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Pathway Activity inference analysis</span>
+<span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Pathway Activity inference analysis</span>
 </h1>
 </div>
 
@@ -411,8 +421,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span>                                   minsize <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>With this, we can proceed to plot our results with <code><a href="https://rdrr.io/pkg/SCpubr/man/do_PathwayActivityPlot.html">SCpubr::do_PathwayActivityPlot()</a></code>.</p>
-<section id="heatmap-of-averaged-scores" class="level2" data-number="21.1"><h2 data-number="21.1" class="anchored" data-anchor-id="heatmap-of-averaged-scores">
-<span class="header-section-number">21.1</span> Heatmap of averaged scores</h2>
+<section id="heatmap-of-averaged-scores" class="level2" data-number="23.1"><h2 data-number="23.1" class="anchored" data-anchor-id="heatmap-of-averaged-scores">
+<span class="header-section-number">23.1</span> Heatmap of averaged scores</h2>
 <p>The most informative and, perhaps, straightforward approach is to visualize the resulting scores averaged by the groups we have defined, as a heatmap. This is the default output of <code><a href="https://rdrr.io/pkg/SCpubr/man/do_PathwayActivityPlot.html">SCpubr::do_PathwayActivityPlot()</a></code>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># General heatmap.</span></span>
@@ -428,8 +438,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-</section><section id="set-the-scale-limits." class="level2" data-number="21.2"><h2 data-number="21.2" class="anchored" data-anchor-id="set-the-scale-limits.">
-<span class="header-section-number">21.2</span> Set the scale limits.</h2>
+</section><section id="set-the-scale-limits." class="level2" data-number="23.2"><h2 data-number="23.2" class="anchored" data-anchor-id="set-the-scale-limits.">
+<span class="header-section-number">23.2</span> Set the scale limits.</h2>
 <p>We can set the limits of the color scale by using <code>min.cutoff</code> and/or <code>max.cutoff</code>:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># General heatmap.</span></span>
@@ -478,8 +488,8 @@ Take-home message
 <p>Be mindful when using <code>min.cutoff</code> and <code>max.cutoff</code>, as this behavior might be overriden by <code>enforce_symmetry = TRUE</code>. Consider setting it to <code>FALSE</code>.</p>
 </div>
 </div>
-</section><section id="feature-plots-of-the-scores" class="level2" data-number="21.3"><h2 data-number="21.3" class="anchored" data-anchor-id="feature-plots-of-the-scores">
-<span class="header-section-number">21.3</span> Feature plots of the scores</h2>
+</section><section id="feature-plots-of-the-scores" class="level2" data-number="23.3"><h2 data-number="23.3" class="anchored" data-anchor-id="feature-plots-of-the-scores">
+<span class="header-section-number">23.3</span> Feature plots of the scores</h2>
 <p>Perhaps we are interested into visualizing the scores as a Feature plot. This way we can observe trends of enrichment in the activities. This can be achieved by providing <code>plot_FeaturePlots = TRUE</code>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Retrieve feature plots.</span></span>
@@ -499,8 +509,8 @@ Take-home message
 </div>
 </div>
 <p>This effect will also be seen if only <code>min.cutoff</code> or <code>max.cutoff</code> is set and the other end of the color scale has a higher absolute value.</p>
-</section><section id="geyser-plots-of-the-scores" class="level2" data-number="21.4"><h2 data-number="21.4" class="anchored" data-anchor-id="geyser-plots-of-the-scores">
-<span class="header-section-number">21.4</span> Geyser plots of the scores</h2>
+</section><section id="geyser-plots-of-the-scores" class="level2" data-number="23.4"><h2 data-number="23.4" class="anchored" data-anchor-id="geyser-plots-of-the-scores">
+<span class="header-section-number">23.4</span> Geyser plots of the scores</h2>
 <p>In the same fashion as with the feature plots, we can also visualize the scores as Geyser plots, to get a sense of the distribution of the scores alongside the groups. This can be achieved by providing <code>plot_GeyserPlots = TRUE</code>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Retrieve Geyser plots.</span></span>
@@ -519,8 +529,8 @@ Take-home message
 </div>
 </div>
 </div>
-</section><section id="use-non-symmetrical-color-scales" class="level2" data-number="21.5"><h2 data-number="21.5" class="anchored" data-anchor-id="use-non-symmetrical-color-scales">
-<span class="header-section-number">21.5</span> Use non-symmetrical color scales</h2>
+</section><section id="use-non-symmetrical-color-scales" class="level2" data-number="23.5"><h2 data-number="23.5" class="anchored" data-anchor-id="use-non-symmetrical-color-scales">
+<span class="header-section-number">23.5</span> Use non-symmetrical color scales</h2>
 <p>If one wants to just plot a continuous color scale for the Feature plots and the Geyser plots, this can be achieved by using <code>enforce_symmetry = FALSE</code>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Use non-symmetrical color scale.</span></span>
@@ -550,8 +560,8 @@ Take-home message
 </div>
 </div>
 </div>
-</section><section id="order-geysers-by-the-mean" class="level2" data-number="21.6"><h2 data-number="21.6" class="anchored" data-anchor-id="order-geysers-by-the-mean">
-<span class="header-section-number">21.6</span> Order geysers by the mean</h2>
+</section><section id="order-geysers-by-the-mean" class="level2" data-number="23.6"><h2 data-number="23.6" class="anchored" data-anchor-id="order-geysers-by-the-mean">
+<span class="header-section-number">23.6</span> Order geysers by the mean</h2>
 <p>We can also decide not to order the Geyser plots by the mean of the values. We can do that by providing <code>geyser_order_by_mean = FALSE</code>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Not order Geyser plot by mean values.</span></span>
@@ -579,8 +589,8 @@ Take-home message
 </div>
 </div>
 </div>
-</section><section id="split-the-heatmap-into-different-groups" class="level2" data-number="21.7"><h2 data-number="21.7" class="anchored" data-anchor-id="split-the-heatmap-into-different-groups">
-<span class="header-section-number">21.7</span> Split the heatmap into different groups</h2>
+</section><section id="split-the-heatmap-into-different-groups" class="level2" data-number="23.7"><h2 data-number="23.7" class="anchored" data-anchor-id="split-the-heatmap-into-different-groups">
+<span class="header-section-number">23.7</span> Split the heatmap into different groups</h2>
 <p>We can also further divide the heatmap into groups. This can be achieved using <code>split.by</code> parameter.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Split the heatmap by another variable.</span></span>
@@ -599,8 +609,8 @@ Take-home message
 </div>
 </div>
 </div>
-</section><section id="control-the-color-scale" class="level2" data-number="21.8"><h2 data-number="21.8" class="anchored" data-anchor-id="control-the-color-scale">
-<span class="header-section-number">21.8</span> Control the color scale</h2>
+</section><section id="control-the-color-scale" class="level2" data-number="23.8"><h2 data-number="23.8" class="anchored" data-anchor-id="control-the-color-scale">
+<span class="header-section-number">23.8</span> Control the color scale</h2>
 <p>Again, we can control the color scale using <code>min.cutoff</code> and <code>max.cutoff</code>. This will apply to all plot types:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Control the color scale</span></span>
@@ -770,12 +780,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./22-CopyNumberVariantPlots.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Copy Number Variant analysis plots</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Copy Number Variant analysis plots</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./24-TFActivityPlots.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">TF Activity inference analysis</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">TF Activity inference analysis</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

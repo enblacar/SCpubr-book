@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.2.226">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>SCpubr - 12&nbsp; Chord Diagram plots</title>
+<title>SCpubr - 13&nbsp; Chord Diagram plots</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -119,10 +119,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-submit-button-title": "Submit"
   }
 }</script>
-<meta property="og:title" content="SCpubr - 12&nbsp; Chord Diagram plots">
+<meta property="og:title" content="SCpubr - 13&nbsp; Chord Diagram plots">
 <meta property="og:description" content="Chord Diagram plots are pretty much the same type of visualization as Sankey and Alluvial plots, but with the twist that the nodes are located forming a circle, therefore the links resembling chords.">
 <meta property="og:site-name" content="SCpubr">
-<meta name="twitter:title" content="SCpubr - 12&nbsp; Chord Diagram plots">
+<meta name="twitter:title" content="SCpubr - 13&nbsp; Chord Diagram plots">
 <meta name="twitter:description" content="Chord Diagram plots are pretty much the same type of visualization as Sankey and Alluvial plots, but with the twist that the nodes are located forming a circle, therefore the links resembling chords.">
 <meta name="twitter:card" content="summary">
 </head>
@@ -131,7 +131,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
       <h1 class="quarto-secondary-nav-title">
-<span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Chord Diagram plots</span>
+<span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Chord Diagram plots</span>
 </h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
@@ -239,17 +239,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./13-SankeyPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Sankey and alluvial plots</span></a>
+  <a href="./13-AlluvialPlot.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Alluvial plots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./14-ChordDiagramPlots.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Chord Diagram plots</span></a>
+  <a href="./13-SankeyPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Sankey plots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./15-VolcanoPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Volcano plots</span></a>
+  <a href="./14-ChordDiagramPlots.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Chord Diagram plots</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15-VolcanoPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Volcano plots</span></a>
   </div>
 </li>
       </ul>
@@ -264,52 +269,57 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./16-GroupwiseDEPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Group-wise DE analysis plots</span></a>
+  <a href="./16-GroupwiseDEPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Group-wise DE analysis plots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./17-TermEnrichmentPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Term Enrichment Plots</span></a>
+  <a href="./17-TermEnrichmentPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Term Enrichment Plots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./18-EnrichmentHeatmaps.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Enrichment score heatmaps</span></a>
+  <a href="./18-ExpressionHeatmaps.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Expression heatmaps</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./19-CorrelationHeatmaps.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Correlation matrix heatmaps</span></a>
+  <a href="./18-EnrichmentHeatmaps.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Enrichment score heatmaps</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20-CellularStatesPlot.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Cellular State Plots</span></a>
+  <a href="./19-CorrelationHeatmaps.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Correlation matrix heatmaps</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./21-LigandReceptorPlot.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Ligand-Receptor analysis</span></a>
+  <a href="./20-CellularStatesPlot.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Cellular State Plots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./22-CopyNumberVariantPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Copy Number Variant analysis plots</span></a>
+  <a href="./21-LigandReceptorPlot.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Ligand-Receptor analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./23-PathwayActivityPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Pathway Activity inference analysis</span></a>
+  <a href="./22-CopyNumberVariantPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Copy Number Variant analysis plots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./24-TFActivityPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">TF Activity inference analysis</span></a>
+  <a href="./23-PathwayActivityPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Pathway Activity inference analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./25-PseudotimeAnalysisPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Pseudotime analysis</span></a>
+  <a href="./24-TFActivityPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">TF Activity inference analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./25-PseudotimeAnalysisPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Pseudotime analysis</span></a>
   </div>
 </li>
       </ul>
@@ -360,20 +370,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-<li><a href="#basic-usage" id="toc-basic-usage" class="nav-link active" data-scroll-target="#basic-usage"><span class="toc-section-number">12.1</span>  Basic usage</a></li>
-  <li><a href="#control-the-gaps-between-and-within-groups" id="toc-control-the-gaps-between-and-within-groups" class="nav-link" data-scroll-target="#control-the-gaps-between-and-within-groups"><span class="toc-section-number">12.2</span>  Control the gaps between and within groups</a></li>
-  <li><a href="#control-the-alignment-of-the-diagram" id="toc-control-the-alignment-of-the-diagram" class="nav-link" data-scroll-target="#control-the-alignment-of-the-diagram"><span class="toc-section-number">12.3</span>  Control the alignment of the diagram</a></li>
-  <li><a href="#control-the-directions-of-the-links" id="toc-control-the-directions-of-the-links" class="nav-link" data-scroll-target="#control-the-directions-of-the-links"><span class="toc-section-number">12.4</span>  Control the directions of the links</a></li>
-  <li><a href="#add-padding-to-the-labels" id="toc-add-padding-to-the-labels" class="nav-link" data-scroll-target="#add-padding-to-the-labels"><span class="toc-section-number">12.5</span>  Add padding to the labels</a></li>
-  <li><a href="#scale-the-nodes" id="toc-scale-the-nodes" class="nav-link" data-scroll-target="#scale-the-nodes"><span class="toc-section-number">12.6</span>  Scale the nodes</a></li>
-  <li><a href="#self-linking" id="toc-self-linking" class="nav-link" data-scroll-target="#self-linking"><span class="toc-section-number">12.7</span>  Self linking</a></li>
-  <li><a href="#control-the-appearance-of-the-arrows" id="toc-control-the-appearance-of-the-arrows" class="nav-link" data-scroll-target="#control-the-appearance-of-the-arrows"><span class="toc-section-number">12.8</span>  Control the appearance of the arrows</a></li>
+<li><a href="#basic-usage" id="toc-basic-usage" class="nav-link active" data-scroll-target="#basic-usage"><span class="toc-section-number">13.1</span>  Basic usage</a></li>
+  <li><a href="#control-the-gaps-between-and-within-groups" id="toc-control-the-gaps-between-and-within-groups" class="nav-link" data-scroll-target="#control-the-gaps-between-and-within-groups"><span class="toc-section-number">13.2</span>  Control the gaps between and within groups</a></li>
+  <li><a href="#control-the-alignment-of-the-diagram" id="toc-control-the-alignment-of-the-diagram" class="nav-link" data-scroll-target="#control-the-alignment-of-the-diagram"><span class="toc-section-number">13.3</span>  Control the alignment of the diagram</a></li>
+  <li><a href="#control-the-directions-of-the-links" id="toc-control-the-directions-of-the-links" class="nav-link" data-scroll-target="#control-the-directions-of-the-links"><span class="toc-section-number">13.4</span>  Control the directions of the links</a></li>
+  <li><a href="#add-padding-to-the-labels" id="toc-add-padding-to-the-labels" class="nav-link" data-scroll-target="#add-padding-to-the-labels"><span class="toc-section-number">13.5</span>  Add padding to the labels</a></li>
+  <li><a href="#scale-the-nodes" id="toc-scale-the-nodes" class="nav-link" data-scroll-target="#scale-the-nodes"><span class="toc-section-number">13.6</span>  Scale the nodes</a></li>
+  <li><a href="#self-linking" id="toc-self-linking" class="nav-link" data-scroll-target="#self-linking"><span class="toc-section-number">13.7</span>  Self linking</a></li>
+  <li><a href="#control-the-appearance-of-the-arrows" id="toc-control-the-appearance-of-the-arrows" class="nav-link" data-scroll-target="#control-the-appearance-of-the-arrows"><span class="toc-section-number">13.8</span>  Control the appearance of the arrows</a></li>
   </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/enblacar/SCpubr/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <h1 class="title d-none d-lg-block">
-<span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Chord Diagram plots</span>
+<span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Chord Diagram plots</span>
 </h1>
 </div>
 
@@ -391,8 +401,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </div>
 <p>Chord Diagram plots are pretty much the same type of visualization as Sankey and Alluvial plots, but with the twist that the nodes are located forming a circle, therefore the links resembling chords. These type of visualizations can be achieved using package.</p>
-<section id="basic-usage" class="level2" data-number="12.1"><h2 data-number="12.1" class="anchored" data-anchor-id="basic-usage">
-<span class="header-section-number">12.1</span> Basic usage</h2>
+<section id="basic-usage" class="level2" data-number="13.1"><h2 data-number="13.1" class="anchored" data-anchor-id="basic-usage">
+<span class="header-section-number">13.1</span> Basic usage</h2>
 <p>This is how it looks:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Basic chord diagram.</span></span>
@@ -413,8 +423,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Basic Chord Diagram.</p>
 
 <p></p>
-</section><section id="control-the-gaps-between-and-within-groups" class="level2" data-number="12.2"><h2 data-number="12.2" class="anchored" data-anchor-id="control-the-gaps-between-and-within-groups">
-<span class="header-section-number">12.2</span> Control the gaps between and within groups</h2>
+</section><section id="control-the-gaps-between-and-within-groups" class="level2" data-number="13.2"><h2 data-number="13.2" class="anchored" data-anchor-id="control-the-gaps-between-and-within-groups">
+<span class="header-section-number">13.2</span> Control the gaps between and within groups</h2>
 <p>We can modify the gaps between <code>from</code> and <code>to</code>, provided that there are not so many elements that this can not be accomplished. For this, we use <code>big_gap</code>:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Increase gap between from and to groups.</span></span>
@@ -447,8 +457,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Chord Diagram with increased small gap.</p>
 
 <p></p>
-</section><section id="control-the-alignment-of-the-diagram" class="level2" data-number="12.3"><h2 data-number="12.3" class="anchored" data-anchor-id="control-the-alignment-of-the-diagram">
-<span class="header-section-number">12.3</span> Control the alignment of the diagram</h2>
+</section><section id="control-the-alignment-of-the-diagram" class="level2" data-number="13.3"><h2 data-number="13.3" class="anchored" data-anchor-id="control-the-alignment-of-the-diagram">
+<span class="header-section-number">13.3</span> Control the alignment of the diagram</h2>
 <p>We can force the alignment of the starting poing of the Chord diagram using the <code>alignment</code> parameter:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Control the alignment of the diagram.</span></span>
@@ -479,8 +489,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Chord Diagram starting vertically.</p>
 
 <p></p>
-</section><section id="control-the-directions-of-the-links" class="level2" data-number="12.4"><h2 data-number="12.4" class="anchored" data-anchor-id="control-the-directions-of-the-links">
-<span class="header-section-number">12.4</span> Control the directions of the links</h2>
+</section><section id="control-the-directions-of-the-links" class="level2" data-number="13.4"><h2 data-number="13.4" class="anchored" data-anchor-id="control-the-directions-of-the-links">
+<span class="header-section-number">13.4</span> Control the directions of the links</h2>
 <p>Also, we can define the direction of the interaction by providing different values to <code>directional</code>: - 0: The links have no direction. - 1: The links go from <code>from</code> to <code>to</code>. - -1: The links go from <code>to</code> to <code>from</code>. - 2: The links are bidrectional.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># We need to set direction.type to diffHeight only as arrows are, by nature, directional.</span></span>
@@ -542,8 +552,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Chord Diagram with links going in both directions.</p>
 
 <p></p>
-</section><section id="add-padding-to-the-labels" class="level2" data-number="12.5"><h2 data-number="12.5" class="anchored" data-anchor-id="add-padding-to-the-labels">
-<span class="header-section-number">12.5</span> Add padding to the labels</h2>
+</section><section id="add-padding-to-the-labels" class="level2" data-number="13.5"><h2 data-number="13.5" class="anchored" data-anchor-id="add-padding-to-the-labels">
+<span class="header-section-number">13.5</span> Add padding to the labels</h2>
 <p>One can add more padding to the labels by using <code>padding_labels</code>. The number provided is the amount of whitespaces padding the label.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Add more padding to the labels.</span></span>
@@ -560,8 +570,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Chord Diagram with extra padding.</p>
 
 <p></p>
-</section><section id="scale-the-nodes" class="level2" data-number="12.6"><h2 data-number="12.6" class="anchored" data-anchor-id="scale-the-nodes">
-<span class="header-section-number">12.6</span> Scale the nodes</h2>
+</section><section id="scale-the-nodes" class="level2" data-number="13.6"><h2 data-number="13.6" class="anchored" data-anchor-id="scale-the-nodes">
+<span class="header-section-number">13.6</span> Scale the nodes</h2>
 <p>If we want to show the nodes with equal size, links reflecting a proportion instead, we can set <code>scale = TRUE</code>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Scale the size of the nodes.</span></span>
@@ -579,8 +589,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Chord Diagram with scaled nodes.</p>
 
 <p></p>
-</section><section id="self-linking" class="level2" data-number="12.7"><h2 data-number="12.7" class="anchored" data-anchor-id="self-linking">
-<span class="header-section-number">12.7</span> Self linking</h2>
+</section><section id="self-linking" class="level2" data-number="13.7"><h2 data-number="13.7" class="anchored" data-anchor-id="self-linking">
+<span class="header-section-number">13.7</span> Self linking</h2>
 <p>We can also control whether we want to allow self linking between the nodes or not. For this, we can set <code>self.link = 2</code> to allow them or <code>self.link = 1</code> to prevent them.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Prevent self linking.</span></span>
@@ -615,8 +625,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Chord Diagram with allowed self linking.</p>
 
 <p></p>
-</section><section id="control-the-appearance-of-the-arrows" class="level2" data-number="12.8"><h2 data-number="12.8" class="anchored" data-anchor-id="control-the-appearance-of-the-arrows">
-<span class="header-section-number">12.8</span> Control the appearance of the arrows</h2>
+</section><section id="control-the-appearance-of-the-arrows" class="level2" data-number="13.8"><h2 data-number="13.8" class="anchored" data-anchor-id="control-the-appearance-of-the-arrows">
+<span class="header-section-number">13.8</span> Control the appearance of the arrows</h2>
 <p>The arrows can be modified by using <code>link.arr.type</code> parameter:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Set triangle arrows.</span></span>
@@ -784,12 +794,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./13-SankeyPlots.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Sankey and alluvial plots</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Sankey plots</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./15-VolcanoPlots.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Volcano plots</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Volcano plots</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

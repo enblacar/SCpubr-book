@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.2.226">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>SCpubr - 18&nbsp; Cellular State Plots</title>
+<title>SCpubr - 20&nbsp; Cellular State Plots</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -119,10 +119,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-submit-button-title": "Submit"
   }
 }</script>
-<meta property="og:title" content="SCpubr - 18&nbsp; Cellular State Plots">
+<meta property="og:title" content="SCpubr - 20&nbsp; Cellular State Plots">
 <meta property="og:description" content="These plots are, on their bare basis, scatter plots.">
 <meta property="og:site-name" content="SCpubr">
-<meta name="twitter:title" content="SCpubr - 18&nbsp; Cellular State Plots">
+<meta name="twitter:title" content="SCpubr - 20&nbsp; Cellular State Plots">
 <meta name="twitter:description" content="These plots are, on their bare basis, scatter plots.">
 <meta name="twitter:card" content="summary">
 </head>
@@ -131,7 +131,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
       <h1 class="quarto-secondary-nav-title">
-<span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Cellular State Plots</span>
+<span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Cellular State Plots</span>
 </h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
@@ -239,17 +239,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./13-SankeyPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Sankey and alluvial plots</span></a>
+  <a href="./13-AlluvialPlot.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Alluvial plots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./14-ChordDiagramPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Chord Diagram plots</span></a>
+  <a href="./13-SankeyPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Sankey plots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./15-VolcanoPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Volcano plots</span></a>
+  <a href="./14-ChordDiagramPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Chord Diagram plots</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15-VolcanoPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Volcano plots</span></a>
   </div>
 </li>
       </ul>
@@ -264,52 +269,57 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./16-GroupwiseDEPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Group-wise DE analysis plots</span></a>
+  <a href="./16-GroupwiseDEPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Group-wise DE analysis plots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./17-TermEnrichmentPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Term Enrichment Plots</span></a>
+  <a href="./17-TermEnrichmentPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Term Enrichment Plots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./18-EnrichmentHeatmaps.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Enrichment score heatmaps</span></a>
+  <a href="./18-ExpressionHeatmaps.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Expression heatmaps</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./19-CorrelationHeatmaps.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Correlation matrix heatmaps</span></a>
+  <a href="./18-EnrichmentHeatmaps.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Enrichment score heatmaps</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20-CellularStatesPlot.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Cellular State Plots</span></a>
+  <a href="./19-CorrelationHeatmaps.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Correlation matrix heatmaps</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./21-LigandReceptorPlot.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Ligand-Receptor analysis</span></a>
+  <a href="./20-CellularStatesPlot.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Cellular State Plots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./22-CopyNumberVariantPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Copy Number Variant analysis plots</span></a>
+  <a href="./21-LigandReceptorPlot.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Ligand-Receptor analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./23-PathwayActivityPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Pathway Activity inference analysis</span></a>
+  <a href="./22-CopyNumberVariantPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Copy Number Variant analysis plots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./24-TFActivityPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">TF Activity inference analysis</span></a>
+  <a href="./23-PathwayActivityPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Pathway Activity inference analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./25-PseudotimeAnalysisPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Pseudotime analysis</span></a>
+  <a href="./24-TFActivityPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">TF Activity inference analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./25-PseudotimeAnalysisPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Pseudotime analysis</span></a>
   </div>
 </li>
       </ul>
@@ -360,16 +370,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-<li><a href="#variable-plots" id="toc-variable-plots" class="nav-link active" data-scroll-target="#variable-plots"><span class="toc-section-number">18.1</span>  2 variable plots</a></li>
-  <li><a href="#variables" id="toc-variables" class="nav-link" data-scroll-target="#variables"><span class="toc-section-number">18.2</span>  3 variables</a></li>
-  <li><a href="#variables-1" id="toc-variables-1" class="nav-link" data-scroll-target="#variables-1"><span class="toc-section-number">18.3</span>  4 variables</a></li>
-  <li><a href="#continuous-features" id="toc-continuous-features" class="nav-link" data-scroll-target="#continuous-features"><span class="toc-section-number">18.4</span>  Continuous features</a></li>
+<li><a href="#variable-plots" id="toc-variable-plots" class="nav-link active" data-scroll-target="#variable-plots"><span class="toc-section-number">20.1</span>  2 variable plots</a></li>
+  <li><a href="#variables" id="toc-variables" class="nav-link" data-scroll-target="#variables"><span class="toc-section-number">20.2</span>  3 variables</a></li>
+  <li><a href="#variables-1" id="toc-variables-1" class="nav-link" data-scroll-target="#variables-1"><span class="toc-section-number">20.3</span>  4 variables</a></li>
+  <li><a href="#continuous-features" id="toc-continuous-features" class="nav-link" data-scroll-target="#continuous-features"><span class="toc-section-number">20.4</span>  Continuous features</a></li>
   </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/enblacar/SCpubr/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <h1 class="title d-none d-lg-block">
-<span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Cellular State Plots</span>
+<span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Cellular State Plots</span>
 </h1>
 </div>
 
@@ -393,8 +403,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span>                 <span class="st">"C"</span> <span class="op">=</span> <span class="fu">Seurat</span><span class="fu">::</span><span class="fu"><a href="https://mojaveazure.github.io/seurat-object/reference/VariableFeatures.html">VariableFeatures</a></span><span class="op">(</span><span class="va">sample</span><span class="op">)</span><span class="op">[</span><span class="fl">21</span><span class="op">:</span><span class="fl">30</span><span class="op">]</span>,</span>
 <span>                 <span class="st">"D"</span> <span class="op">=</span> <span class="fu">Seurat</span><span class="fu">::</span><span class="fu"><a href="https://mojaveazure.github.io/seurat-object/reference/VariableFeatures.html">VariableFeatures</a></span><span class="op">(</span><span class="va">sample</span><span class="op">)</span><span class="op">[</span><span class="fl">31</span><span class="op">:</span><span class="fl">40</span><span class="op">]</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="variable-plots" class="level2" data-number="18.1"><h2 data-number="18.1" class="anchored" data-anchor-id="variable-plots">
-<span class="header-section-number">18.1</span> 2 variable plots</h2>
+<section id="variable-plots" class="level2" data-number="20.1"><h2 data-number="20.1" class="anchored" data-anchor-id="variable-plots">
+<span class="header-section-number">20.1</span> 2 variable plots</h2>
 <p><span class="border-0"><img src="images/2_variables.png" class="mx-auto d-block" alt="" style="box-shadow: none; width: 100%"></span></p>
 <p>This is the easiest case. For this, the user needs to provide the name of <em>two gene signatures</em> present in the list of genes provided to <code>input_gene_list</code> parameter: - <code>x1</code>: The enrichment scores computed for this list will be displayed on the X axis. - <code>y1</code>: The enrichment scores computed for this list will be displayed on the Y axis.</p>
 <div class="cell" data-layout-align="center">
@@ -428,8 +438,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-</section><section id="variables" class="level2" data-number="18.2"><h2 data-number="18.2" class="anchored" data-anchor-id="variables">
-<span class="header-section-number">18.2</span> 3 variables</h2>
+</section><section id="variables" class="level2" data-number="20.2"><h2 data-number="20.2" class="anchored" data-anchor-id="variables">
+<span class="header-section-number">20.2</span> 3 variables</h2>
 <p><span class="border-0"><img src="images/3_variables.png" class="mx-auto d-block" alt="" style="box-shadow: none; width: 100%"></span></p>
 <p>This plot is retrieved from <a href="https://www.nature.com/articles/nature20123">Tirosh, et al, 2016</a> and plot requires the user to provide three gene sets, for which enrichment scores are computed using <code><a href="https://satijalab.org/seurat/reference/AddModuleScore.html">Seurat::AddModuleScore</a></code>. For the X axis, two gene sets are assigned to it. Cells will be placed towards the right if they are enriched in <code>x1</code> and towards the left if they are enriched in <code>x2</code>. This is decided by, first, retrieving the enrichment scores for both lists and keeping the highest out of the two. The score will turn positive or negative depending on the gene list for which the highest enrichment score belonged to: positive for <code>x1</code> and negative for <code>x2</code>. For the Y axis. one gene set is provided. The value for the Y axis is computed by subtracting to the enrichment scores for <code>y1</code> the value for the X axis.</p>
 <p>This plot makes a lot of sense, as showcased by <a href="https://www.nature.com/articles/nature20123">Tirosh, et al, 2016</a>, when the Y axis shows a differentiation trajectory. This is, it contains enrichment scores for <em>stemness</em> genes. Therefore, the lower on the Y axis, the less stem a given cell is. On the X axis, cells will order depending on whether they are enriched more in <code>x1</code> or <code>x2</code>. the more extreme the value on the X axis, the more differentiated towards the given list of genes the cell will be.</p>
@@ -465,8 +475,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-</section><section id="variables-1" class="level2" data-number="18.3"><h2 data-number="18.3" class="anchored" data-anchor-id="variables-1">
-<span class="header-section-number">18.3</span> 4 variables</h2>
+</section><section id="variables-1" class="level2" data-number="20.3"><h2 data-number="20.3" class="anchored" data-anchor-id="variables-1">
+<span class="header-section-number">20.3</span> 4 variables</h2>
 <p><span class="border-0"><img src="images/4_variables.png" class="mx-auto d-block" alt="" style="box-shadow: none; width: 100%"></span></p>
 <p>This the most complicated variant of the plot, retrieved from <a href="https://pubmed.ncbi.nlm.nih.gov/31327527/">Neftel, et al, 2019</a>. This makes use of four gene sets: <code>x1</code>, <code>x2</code>, <code>y1</code> and <code>y2</code>. As a general, brief description, enrichment scores are computed for all 4 gene sets and the cells will locate in the resulting figure according to the list they are most enriched on, towards a given corner, following the scheme shown above.</p>
 <p>This is achieved by assuming: - <code>x1</code> and <code>x2</code> are connected, so are <code>y1</code> and <code>y2</code>. The first step will be to decide which the highest score out of <code>x1</code>-<code>x2</code> and <code>y1</code>-<code>y2</code>, which will locate the cells either on the upper or lower half (Y axis). - Then, for the X axis, and depending on whether the score for the Y axis is positive or negative, the values will be computed as the log2 logarithm of the absolute of the difference in enrichment scores plus 1: <code>log2(abs((x1 or y1) - (x2 or y2)) + 1)</code>. The resulting value will be positive or negative depending on whether the score for <code>x1</code> or <code>y1</code> is higher or lower than the score for <code>x2</code> or <code>y2</code>.</p>
@@ -504,8 +514,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-</section><section id="continuous-features" class="level2" data-number="18.4"><h2 data-number="18.4" class="anchored" data-anchor-id="continuous-features">
-<span class="header-section-number">18.4</span> Continuous features</h2>
+</section><section id="continuous-features" class="level2" data-number="20.4"><h2 data-number="20.4" class="anchored" data-anchor-id="continuous-features">
+<span class="header-section-number">20.4</span> Continuous features</h2>
 <p>In addition to all the above, one can also further query the resulting plot for any other feature that would be accepted in a regular <code>SCpubr::do_FeaturePlot().</code> The plots are returned alongside the original one. This behavior is achieved by using <code>plot_features = TRUE</code> and providing the desired features to <code>features</code> parameter.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Plot continuous features.</span></span>
@@ -694,12 +704,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./19-CorrelationHeatmaps.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Correlation matrix heatmaps</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Correlation matrix heatmaps</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./21-LigandReceptorPlot.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Ligand-Receptor analysis</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Ligand-Receptor analysis</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

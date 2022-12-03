@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.2.226">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>SCpubr - 16&nbsp; Enrichment score heatmaps</title>
+<title>SCpubr - 18&nbsp; Enrichment score heatmaps</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -90,7 +90,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./19-CorrelationHeatmaps.html" rel="next">
-<link href="./17-TermEnrichmentPlots.html" rel="prev">
+<link href="./18-ExpressionHeatmaps.html" rel="prev">
 <link href=".//images/SCpubr_logo_favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -119,10 +119,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-submit-button-title": "Submit"
   }
 }</script>
-<meta property="og:title" content="SCpubr - 16&nbsp; Enrichment score heatmaps">
+<meta property="og:title" content="SCpubr - 18&nbsp; Enrichment score heatmaps">
 <meta property="og:description" content="A very common approach to make sense of your cells is to query several list of marker genes, retrieved from literature, and compute how enriched each cell is in each given list of genes.">
 <meta property="og:site-name" content="SCpubr">
-<meta name="twitter:title" content="SCpubr - 16&nbsp; Enrichment score heatmaps">
+<meta name="twitter:title" content="SCpubr - 18&nbsp; Enrichment score heatmaps">
 <meta name="twitter:description" content="A very common approach to make sense of your cells is to query several list of marker genes, retrieved from literature, and compute how enriched each cell is in each given list of genes.">
 <meta name="twitter:card" content="summary">
 </head>
@@ -131,7 +131,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
       <h1 class="quarto-secondary-nav-title">
-<span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Enrichment score heatmaps</span>
+<span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Enrichment score heatmaps</span>
 </h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
@@ -239,17 +239,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./13-SankeyPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Sankey and alluvial plots</span></a>
+  <a href="./13-AlluvialPlot.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Alluvial plots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./14-ChordDiagramPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Chord Diagram plots</span></a>
+  <a href="./13-SankeyPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Sankey plots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./15-VolcanoPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Volcano plots</span></a>
+  <a href="./14-ChordDiagramPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Chord Diagram plots</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15-VolcanoPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Volcano plots</span></a>
   </div>
 </li>
       </ul>
@@ -264,52 +269,57 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./16-GroupwiseDEPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Group-wise DE analysis plots</span></a>
+  <a href="./16-GroupwiseDEPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Group-wise DE analysis plots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./17-TermEnrichmentPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Term Enrichment Plots</span></a>
+  <a href="./17-TermEnrichmentPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Term Enrichment Plots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./18-EnrichmentHeatmaps.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Enrichment score heatmaps</span></a>
+  <a href="./18-ExpressionHeatmaps.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Expression heatmaps</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./19-CorrelationHeatmaps.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Correlation matrix heatmaps</span></a>
+  <a href="./18-EnrichmentHeatmaps.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Enrichment score heatmaps</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20-CellularStatesPlot.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Cellular State Plots</span></a>
+  <a href="./19-CorrelationHeatmaps.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Correlation matrix heatmaps</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./21-LigandReceptorPlot.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Ligand-Receptor analysis</span></a>
+  <a href="./20-CellularStatesPlot.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Cellular State Plots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./22-CopyNumberVariantPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Copy Number Variant analysis plots</span></a>
+  <a href="./21-LigandReceptorPlot.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Ligand-Receptor analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./23-PathwayActivityPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Pathway Activity inference analysis</span></a>
+  <a href="./22-CopyNumberVariantPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Copy Number Variant analysis plots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./24-TFActivityPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">TF Activity inference analysis</span></a>
+  <a href="./23-PathwayActivityPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Pathway Activity inference analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./25-PseudotimeAnalysisPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Pseudotime analysis</span></a>
+  <a href="./24-TFActivityPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">TF Activity inference analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./25-PseudotimeAnalysisPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Pseudotime analysis</span></a>
   </div>
 </li>
       </ul>
@@ -360,17 +370,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-<li><a href="#single-grouping-variable" id="toc-single-grouping-variable" class="nav-link active" data-scroll-target="#single-grouping-variable"><span class="toc-section-number">16.1</span>  Single grouping variable</a></li>
-  <li><a href="#changing-the-cell-size-in-the-heatmap." id="toc-changing-the-cell-size-in-the-heatmap." class="nav-link" data-scroll-target="#changing-the-cell-size-in-the-heatmap."><span class="toc-section-number">16.2</span>  Changing the cell size in the heatmap.</a></li>
-  <li><a href="#symmetrical-scales" id="toc-symmetrical-scales" class="nav-link" data-scroll-target="#symmetrical-scales"><span class="toc-section-number">16.3</span>  Symmetrical scales</a></li>
-  <li><a href="#compute-ucell-scoring" id="toc-compute-ucell-scoring" class="nav-link" data-scroll-target="#compute-ucell-scoring"><span class="toc-section-number">16.4</span>  Compute UCell scoring</a></li>
-  <li><a href="#subset-the-color-scale." id="toc-subset-the-color-scale." class="nav-link" data-scroll-target="#subset-the-color-scale."><span class="toc-section-number">16.5</span>  Subset the color scale.</a></li>
+<li><a href="#single-grouping-variable" id="toc-single-grouping-variable" class="nav-link active" data-scroll-target="#single-grouping-variable"><span class="toc-section-number">18.1</span>  Single grouping variable</a></li>
+  <li><a href="#several-groupoing-variables" id="toc-several-groupoing-variables" class="nav-link" data-scroll-target="#several-groupoing-variables"><span class="toc-section-number">18.2</span>  Several groupoing variables</a></li>
+  <li><a href="#transpose-the-heatmaps" id="toc-transpose-the-heatmaps" class="nav-link" data-scroll-target="#transpose-the-heatmaps"><span class="toc-section-number">18.3</span>  Transpose the heatmaps</a></li>
+  <li><a href="#modify-the-rotation-of-row-and-column-titles" id="toc-modify-the-rotation-of-row-and-column-titles" class="nav-link" data-scroll-target="#modify-the-rotation-of-row-and-column-titles"><span class="toc-section-number">18.4</span>  Modify the rotation of row and column titles</a></li>
+  <li><a href="#changing-the-cell-size-in-the-heatmap." id="toc-changing-the-cell-size-in-the-heatmap." class="nav-link" data-scroll-target="#changing-the-cell-size-in-the-heatmap."><span class="toc-section-number">18.5</span>  Changing the cell size in the heatmap.</a></li>
+  <li><a href="#symmetrical-scales" id="toc-symmetrical-scales" class="nav-link" data-scroll-target="#symmetrical-scales"><span class="toc-section-number">18.6</span>  Symmetrical scales</a></li>
+  <li><a href="#compute-other-type-of-scorings" id="toc-compute-other-type-of-scorings" class="nav-link" data-scroll-target="#compute-other-type-of-scorings"><span class="toc-section-number">18.7</span>  Compute other type of scorings</a></li>
+  <li><a href="#subset-the-color-scale." id="toc-subset-the-color-scale." class="nav-link" data-scroll-target="#subset-the-color-scale."><span class="toc-section-number">18.8</span>  Subset the color scale.</a></li>
   </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/enblacar/SCpubr/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <h1 class="title d-none d-lg-block">
-<span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Enrichment score heatmaps</span>
+<span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Enrichment score heatmaps</span>
 </h1>
 </div>
 
@@ -385,14 +398,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   
 
 </header><p>A very common approach to make sense of your cells is to query several list of marker genes, retrieved from literature, and compute how enriched each cell is in each given list of genes. This is achieved by using <code><a href="https://satijalab.org/seurat/reference/AddModuleScore.html">Seurat::AddModuleScore</a></code>. The scores can be then visualized as a Feature plot, but one can also aggregate the enrichment scores by any variable of interest, for instance the different clusters in the sample.</p>
+<pre><code>Attaching SeuratObject</code></pre>
+<pre><code>Attaching sp</code></pre>
 <div class="cell" data-layout-align="center">
 
 </div>
 <p>This kind of heatmaps can be easily computed using <code><a href="https://rdrr.io/pkg/SCpubr/man/do_EnrichmentHeatmap.html">SCpubr::do_EnrichmentHeatmap()</a></code>:</p>
-<section id="single-grouping-variable" class="level2" data-number="16.1"><h2 data-number="16.1" class="anchored" data-anchor-id="single-grouping-variable">
-<span class="header-section-number">16.1</span> Single grouping variable</h2>
+<section id="single-grouping-variable" class="level2" data-number="18.1"><h2 data-number="18.1" class="anchored" data-anchor-id="single-grouping-variable">
+<span class="header-section-number">18.1</span> Single grouping variable</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Define list of genes.</span></span>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Define list of genes.</span></span>
 <span><span class="va">genes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="st">"Naive CD4+ T"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"IL7R"</span>, <span class="st">"CCR7"</span><span class="op">)</span>,</span>
 <span>              <span class="st">"CD14+ Mono"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"CD14"</span>, <span class="st">"LYZ"</span><span class="op">)</span>,</span>
 <span>              <span class="st">"Memory CD4+"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"S100A4"</span><span class="op">)</span>,</span>
@@ -405,7 +420,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span></span>
 <span><span class="co"># Default parameters.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_EnrichmentHeatmap.html">do_EnrichmentHeatmap</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
-<span>                                  input_gene_list <span class="op">=</span> <span class="va">genes</span><span class="op">)</span></span>
+<span>                                  input_gene_list <span class="op">=</span> <span class="va">genes</span>,</span>
+<span>                                  viridis_direction <span class="op">=</span> <span class="op">-</span><span class="fl">1</span><span class="op">)</span></span>
 <span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -415,12 +431,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Please note:
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In these cases, inverting the color scale with <code>viridis_direction = -1</code> is the best choice as makes it easir to identify dark colors in the heatmap and they stand out more than it would do when it comes to using light colors on dark background.</p>
+</div>
+</div>
 <p>By default, <code><a href="https://rdrr.io/pkg/SCpubr/man/do_EnrichmentHeatmap.html">SCpubr::do_EnrichmentHeatmap</a></code> aggregates the values by the current identity. However, other metadata variables can be used to aggregate for. For this, provide the name to <code>group.by</code> parameter.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Custom aggregated values.</span></span>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Custom aggregated values.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_EnrichmentHeatmap.html">do_EnrichmentHeatmap</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                                  input_gene_list <span class="op">=</span> <span class="va">genes</span>,</span>
-<span>                                  group.by <span class="op">=</span> <span class="st">"orig.ident"</span><span class="op">)</span></span>
+<span>                                  group.by <span class="op">=</span> <span class="st">"orig.ident"</span>,</span>
+<span>                                  viridis_direction <span class="op">=</span> <span class="op">-</span><span class="fl">1</span><span class="op">)</span></span>
 <span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -430,73 +460,114 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-<p>The matrix can be transposed using <code>flip = TRUE</code>.</p>
+</section><section id="several-groupoing-variables" class="level2" data-number="18.2"><h2 data-number="18.2" class="anchored" data-anchor-id="several-groupoing-variables">
+<span class="header-section-number">18.2</span> Several groupoing variables</h2>
+<p>However, more than one variable can be passsed at the same time to <code>group.by</code>:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Transposing the matrix.</span></span>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Group by several variables.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_EnrichmentHeatmap.html">do_EnrichmentHeatmap</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                                  input_gene_list <span class="op">=</span> <span class="va">genes</span>,</span>
-<span>                                  flip <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span>                                  group.by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"seurat_clusters"</span>, <span class="st">"orig.ident"</span>, <span class="st">"annotation"</span><span class="op">)</span>,</span>
+<span>                                  viridis_direction <span class="op">=</span> <span class="op">-</span><span class="fl">1</span><span class="op">)</span></span>
 <span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="18-EnrichmentHeatmaps_files/figure-html/unnamed-chunk-5-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
+<p></p><figcaption class="figure-caption">Group by several variables.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>One can also customize the group titles by providing as many characters as variables in <code>group.by</code> to <code>row_title</code>:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Custom aggregated values.</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_EnrichmentHeatmap.html">do_EnrichmentHeatmap</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
+<span>                                  input_gene_list <span class="op">=</span> <span class="va">genes</span>,</span>
+<span>                                  group.by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"seurat_clusters"</span>, <span class="st">"orig.ident"</span>, <span class="st">"annotation"</span><span class="op">)</span>,</span>
+<span>                                  row_title <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span><span class="op">)</span>,</span>
+<span>                                  viridis_direction <span class="op">=</span> <span class="op">-</span><span class="fl">1</span><span class="op">)</span></span>
+<span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="18-EnrichmentHeatmaps_files/figure-html/unnamed-chunk-6-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
+<p></p><figcaption class="figure-caption">Group by a custom variable.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="transpose-the-heatmaps" class="level2" data-number="18.3"><h2 data-number="18.3" class="anchored" data-anchor-id="transpose-the-heatmaps">
+<span class="header-section-number">18.3</span> Transpose the heatmaps</h2>
+<p>The heatmaps can be transposed using <code>flip = TRUE</code>.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Transposing the matrix.</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_EnrichmentHeatmap.html">do_EnrichmentHeatmap</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
+<span>                                  input_gene_list <span class="op">=</span> <span class="va">genes</span>,</span>
+<span>                                  flip <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                                  viridis_direction <span class="op">=</span> <span class="op">-</span><span class="fl">1</span><span class="op">)</span></span>
+<span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="18-EnrichmentHeatmaps_files/figure-html/unnamed-chunk-7-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
 <p></p><figcaption class="figure-caption">Transpose the matrix.</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
+</section><section id="modify-the-rotation-of-row-and-column-titles" class="level2" data-number="18.4"><h2 data-number="18.4" class="anchored" data-anchor-id="modify-the-rotation-of-row-and-column-titles">
+<span class="header-section-number">18.4</span> Modify the rotation of row and column titles</h2>
 <p>Both rows and column names can be rotated using <code>column_names_rot</code> and <code>row_names_rot</code> parameters, providing the desired angle.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Rotating the labels.</span></span>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Rotating the labels.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_EnrichmentHeatmap.html">do_EnrichmentHeatmap</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                                  input_gene_list <span class="op">=</span> <span class="va">genes</span>,</span>
 <span>                                  flip <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>                                  column_names_rot <span class="op">=</span> <span class="fl">0</span><span class="op">)</span></span>
+<span>                                  column_names_rot <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>                                  viridis_direction <span class="op">=</span> <span class="op">-</span><span class="fl">1</span><span class="op">)</span></span>
 <span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="18-EnrichmentHeatmaps_files/figure-html/unnamed-chunk-6-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
+<figure class="figure"><p><img src="18-EnrichmentHeatmaps_files/figure-html/unnamed-chunk-8-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
 <p></p><figcaption class="figure-caption">Rotate the labels.</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
-</section><section id="changing-the-cell-size-in-the-heatmap." class="level2" data-number="16.2"><h2 data-number="16.2" class="anchored" data-anchor-id="changing-the-cell-size-in-the-heatmap.">
-<span class="header-section-number">16.2</span> Changing the cell size in the heatmap.</h2>
+</section><section id="changing-the-cell-size-in-the-heatmap." class="level2" data-number="18.5"><h2 data-number="18.5" class="anchored" data-anchor-id="changing-the-cell-size-in-the-heatmap.">
+<span class="header-section-number">18.5</span> Changing the cell size in the heatmap.</h2>
 <p>By design, the aspect ratio of the tiles in the heatmap is fixed so that cells are squares, and not rectangles. However, the user has the possibility to increase/decrease the cell size of each tile by modifying <code>cell_size</code> parameter. This is set to 5 by default.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Modifying the tile size.</span></span>
-<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_EnrichmentHeatmap.html">do_EnrichmentHeatmap</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
-<span>                                  input_gene_list <span class="op">=</span> <span class="va">genes</span>,</span>
-<span>                                  flip <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>                                  cluster_cols <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>                                  cluster_rows <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>                                  cell_size <span class="op">=</span> <span class="fl">7</span><span class="op">)</span></span>
-<span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="18-EnrichmentHeatmaps_files/figure-html/unnamed-chunk-7-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
-<p></p><figcaption class="figure-caption">Change the size of the cells.</figcaption><p></p>
-</figure>
-</div>
-</div>
-</div>
-</section><section id="symmetrical-scales" class="level2" data-number="16.3"><h2 data-number="16.3" class="anchored" data-anchor-id="symmetrical-scales">
-<span class="header-section-number">16.3</span> Symmetrical scales</h2>
-<p>If one wants a symmetrical scale,</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Symmetrical scale viriis.</span></span>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Modifying the tile size.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_EnrichmentHeatmap.html">do_EnrichmentHeatmap</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                                  input_gene_list <span class="op">=</span> <span class="va">genes</span>,</span>
 <span>                                  flip <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>                                  cluster_cols <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>                                  cluster_rows <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>                                  cell_size <span class="op">=</span> <span class="fl">7</span>,</span>
+<span>                                  viridis_direction <span class="op">=</span> <span class="op">-</span><span class="fl">1</span><span class="op">)</span></span>
+<span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="18-EnrichmentHeatmaps_files/figure-html/unnamed-chunk-9-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
+<p></p><figcaption class="figure-caption">Change the size of the cells.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="symmetrical-scales" class="level2" data-number="18.6"><h2 data-number="18.6" class="anchored" data-anchor-id="symmetrical-scales">
+<span class="header-section-number">18.6</span> Symmetrical scales</h2>
+<p>If one wants a symmetrical scale,</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Symmetrical scale viriis.</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_EnrichmentHeatmap.html">do_EnrichmentHeatmap</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
+<span>                                  input_gene_list <span class="op">=</span> <span class="va">genes</span>,</span>
+<span>                                  flip <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                                  cluster_cols <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>                                  cluster_rows <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>                                  enforce_symmetry <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="18-EnrichmentHeatmaps_files/figure-html/unnamed-chunk-8-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
+<figure class="figure"><p><img src="18-EnrichmentHeatmaps_files/figure-html/unnamed-chunk-10-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
 <p></p><figcaption class="figure-caption">Use a symmetrical color scale.</figcaption><p></p>
 </figure>
 </div>
@@ -504,63 +575,81 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>For such cases, it is best to set <code>use_viridis = FALSE</code>.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Modifying the symmetrical scale non viridis.</span></span>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Modifying the symmetrical scale non viridis.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_EnrichmentHeatmap.html">do_EnrichmentHeatmap</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                                  input_gene_list <span class="op">=</span> <span class="va">genes</span>,</span>
 <span>                                  flip <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>                                  cluster_cols <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>                                  cluster_rows <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>                                  cell_size <span class="op">=</span> <span class="fl">7</span>,</span>
 <span>                                  enforce_symmetry <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>                                  use_viridis <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="18-EnrichmentHeatmaps_files/figure-html/unnamed-chunk-9-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
+<figure class="figure"><p><img src="18-EnrichmentHeatmaps_files/figure-html/unnamed-chunk-11-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
 <p></p><figcaption class="figure-caption">Use a symmetrical color scale that is not viridis.</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
-</section><section id="compute-ucell-scoring" class="level2" data-number="16.4"><h2 data-number="16.4" class="anchored" data-anchor-id="compute-ucell-scoring">
-<span class="header-section-number">16.4</span> Compute UCell scoring</h2>
-<p>Similar to <code><a href="https://satijalab.org/seurat/reference/AddModuleScore.html">Seurat::AddModuleScore()</a></code>, other enrichment scoring methods have been developed. One of such is <a href="https://github.com/carmonalab/UCell"><strong>UCell</strong></a>. To use it as scoring method, simply pass <code>flavor = "UCell</code>:</p>
+</section><section id="compute-other-type-of-scorings" class="level2" data-number="18.7"><h2 data-number="18.7" class="anchored" data-anchor-id="compute-other-type-of-scorings">
+<span class="header-section-number">18.7</span> Compute other type of scorings</h2>
+<p>Similar to <code><a href="https://satijalab.org/seurat/reference/AddModuleScore.html">Seurat::AddModuleScore()</a></code>, other enrichment scoring methods have been developed. One of such is <a href="https://github.com/carmonalab/UCell"><strong>UCell</strong></a>. To use it as scoring method, simply pass <code>flavor = "UCell"</code>:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Use UCell scoring.</span></span>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Use UCell scoring.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_EnrichmentHeatmap.html">do_EnrichmentHeatmap</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                                  input_gene_list <span class="op">=</span> <span class="va">genes</span>,</span>
 <span>                                  flip <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>                                  cluster_cols <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>                                  cluster_rows <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>                                  cell_size <span class="op">=</span> <span class="fl">7</span>,</span>
-<span>                                  flavor <span class="op">=</span> <span class="st">"UCell"</span><span class="op">)</span></span>
+<span>                                  flavor <span class="op">=</span> <span class="st">"UCell"</span>,</span>
+<span>                                  viridis_direction <span class="op">=</span> <span class="op">-</span><span class="fl">1</span><span class="op">)</span></span>
 <span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="18-EnrichmentHeatmaps_files/figure-html/unnamed-chunk-10-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
+<figure class="figure"><p><img src="18-EnrichmentHeatmaps_files/figure-html/unnamed-chunk-12-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
 <p></p><figcaption class="figure-caption">Use UCell Scoring.</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
-</section><section id="subset-the-color-scale." class="level2" data-number="16.5"><h2 data-number="16.5" class="anchored" data-anchor-id="subset-the-color-scale.">
-<span class="header-section-number">16.5</span> Subset the color scale.</h2>
-<p>It might be the case that a single gene set, for a single cluster, drives the color scale entirely. We can treat this as an outlier, so that we can subset the color scale to better represent the values in between. We can achieve that by using <code>min.cutoff</code> and/or <code>max.cutoff</code>.</p>
+<p>Alternatively, <a href="https://bioconductor.org/packages/release/bioc/html/AUCell.html"><strong>AUCell</strong></a> scoring is also available using <code>flavor = "AUCell"</code>.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Subset the color scale.</span></span>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Use AUCell scoring.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_EnrichmentHeatmap.html">do_EnrichmentHeatmap</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                                  input_gene_list <span class="op">=</span> <span class="va">genes</span>,</span>
 <span>                                  flip <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>                                  cluster_cols <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>                                  cluster_rows <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>                                  cell_size <span class="op">=</span> <span class="fl">7</span>,</span>
-<span>                                  flavor <span class="op">=</span> <span class="st">"UCell"</span>,</span>
-<span>                                  min.cutoff <span class="op">=</span> <span class="fl">0.2</span>,</span>
-<span>                                  max.cutoff <span class="op">=</span> <span class="fl">0.7</span><span class="op">)</span></span>
+<span>                                  flavor <span class="op">=</span> <span class="st">"AUCell"</span>,</span>
+<span>                                  viridis_direction <span class="op">=</span> <span class="op">-</span><span class="fl">1</span><span class="op">)</span></span>
 <span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="18-EnrichmentHeatmaps_files/figure-html/unnamed-chunk-11-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
+<figure class="figure"><p><img src="18-EnrichmentHeatmaps_files/figure-html/unnamed-chunk-13-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
+<p></p><figcaption class="figure-caption">Use AUCell Scoring.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="subset-the-color-scale." class="level2" data-number="18.8"><h2 data-number="18.8" class="anchored" data-anchor-id="subset-the-color-scale.">
+<span class="header-section-number">18.8</span> Subset the color scale.</h2>
+<p>It might be the case that a single gene set, for a single cluster, drives the color scale entirely. We can treat this as an outlier, so that we can subset the color scale to better represent the values in between. We can achieve that by using <code>min.cutoff</code> and/or <code>max.cutoff</code>.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Subset the color scale.</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_EnrichmentHeatmap.html">do_EnrichmentHeatmap</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
+<span>                                  input_gene_list <span class="op">=</span> <span class="va">genes</span>,</span>
+<span>                                  flip <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                                  cluster_cols <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>                                  cluster_rows <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                                  flavor <span class="op">=</span> <span class="st">"UCell"</span>,</span>
+<span>                                  min.cutoff <span class="op">=</span> <span class="fl">0.2</span>,</span>
+<span>                                  max.cutoff <span class="op">=</span> <span class="fl">0.7</span>,</span>
+<span>                                  viridis_direction <span class="op">=</span> <span class="op">-</span><span class="fl">1</span><span class="op">)</span></span>
+<span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="18-EnrichmentHeatmaps_files/figure-html/unnamed-chunk-14-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
 <p></p><figcaption class="figure-caption">Subset the color scale.</figcaption><p></p>
 </figure>
 </div>
@@ -701,13 +790,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="./17-TermEnrichmentPlots.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Term Enrichment Plots</span></span>
+      <a href="./18-ExpressionHeatmaps.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Expression heatmaps</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./19-CorrelationHeatmaps.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Correlation matrix heatmaps</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Correlation matrix heatmaps</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

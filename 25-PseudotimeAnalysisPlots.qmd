@@ -3,8 +3,7 @@
 ::: callout-important
 ## Attention:
 
-Due to a discontinuation of [**Matrix.utils package**](https://cran.r-project.org/web/packages/Matrix.utils/index.html), **monocle3** can not be installed and tested in a CI manner. Until this is resolved,
-this function **will not be available in any official and developmental-stable release**.
+Due to a discontinuation of [**Matrix.utils package**](https://cran.r-project.org/web/packages/Matrix.utils/index.html), **monocle3** can not be installed and tested in a CI manner. Until this is resolved, this function **will not be available in any official and developmental-stable release**.
 :::
 
 Pseudotime analysis is, perhaps, one of the major analysis that can be carried out in SC data. It aims to depict a trajectory, a sort of order in which cells transition from A to B. What defines this process, and the starting and end point is **heavily** driven by the research question, the nature of the data and prior knowledge. While inferring this using data-driven approaches is possible, in `SCpubr` we will implement a prior-knowledge driven approach in a very specific use case.
@@ -34,7 +33,6 @@ source("_common.R")
 sample <- readRDS("/b06x-isilon/b06x-g/G703/eblanco/projects/test_SC_datasets/sc_dataset.rds")
 cds <- suppressMessages({suppressWarnings({SeuratWrappers::as.cell_data_set(sample)})})
 ```
-
 
 We will use the following genes as a example, that depict CD14+ mono cells.
 
@@ -108,7 +106,16 @@ p2 <- out$trajectory_partitions
 p <- p1 | p2
 p
 ```
-<span class="border-0"><img src="images/example_pseudo1.png" class="mx-auto d-block" alt="" style="box-shadow: none; width: 100%"/> <p class="caption">SCpubr do_PseudotimePlot trajectory graph output.</p></span>
+
+<span class="border-0"><img src="images/example_pseudo1.png" class="mx-auto d-block" style="box-shadow: none; width: 100%"/>
+
+<p class="caption">
+
+SCpubr do_PseudotimePlot trajectory graph output.
+
+</p>
+
+</span>
 
 We can increase the trajectory graph width by using `trajectory_graph_segment_size` and the color with `trajectory_graph_color` parameters.
 
@@ -153,8 +160,16 @@ p4 <- out$trajectory_partitions
 p <- (p1 | p2) / (p3 | p4)
 p
 ```
-<span class="border-0"><img src="images/example_pseudo1.png" class="mx-auto d-block" alt="" style="box-shadow: none; width: 100%"/> <p class="caption">SCpubr do_PseudotimePlot trajectory graph with different widths and color.</p></span>
-We can also add different elements to the graph, such as the roots, branches and leaves with
+
+<span class="border-0"><img src="images/example_pseudo1.png" class="mx-auto d-block" style="box-shadow: none; width: 100%"/>
+
+<p class="caption">
+
+SCpubr do_PseudotimePlot trajectory graph with different widths and color.
+
+</p>
+
+</span> We can also add different elements to the graph, such as the roots, branches and leaves with
 
 ```{r}
 #| eval: false
@@ -194,8 +209,16 @@ p3 <- out$trajectory_partitions
 p <- p1 / p2 / p3
 p
 ```
-<span class="border-0"><img src="images/example_pseudo3.png" class="mx-auto d-block" alt="" style="box-shadow: none; width: 100%"/> <p class="caption">SCpubr do_PseudotimePlot trajectory graph with roots, branches and leaves.</p></span>
-## Visualizing the pseudotime
+
+<span class="border-0"><img src="images/example_pseudo3.png" class="mx-auto d-block" style="box-shadow: none; width: 100%"/>
+
+<p class="caption">
+
+SCpubr do_PseudotimePlot trajectory graph with roots, branches and leaves.
+
+</p>
+
+</span> \## Visualizing the pseudotime
 
 We can inspect the pseudotime by providing whether the root of the trajectory is the highest or lowest enrichment score, with `is_max_score_the_start` parameter.
 
@@ -242,8 +265,16 @@ p4 <- out$pseudotime
 p <- (p1 | p2) / (p3 | p4)
 p
 ```
-<span class="border-0"><img src="images/example_pseudo4.png" class="mx-auto d-block" alt="" style="box-shadow: none; width: 100%"/> <p class="caption">SCpubr do_PseudotimePlot pseudotime output with different ordering.</p></span>
-As can be observed, if we compute different partitions, the one used will be the one that contains the highest or lowest enrichment score, up to our choice. If not, the whole trajectory for the whole UMAP will be used, providing very different results. The key to this is the kind of sample/cds we provide as input (i.e, if we have a tumor bulk that we want to keep as a single partition or not or similar).
+
+<span class="border-0"><img src="images/example_pseudo4.png" class="mx-auto d-block" style="box-shadow: none; width: 100%"/>
+
+<p class="caption">
+
+SCpubr do_PseudotimePlot pseudotime output with different ordering.
+
+</p>
+
+</span> As can be observed, if we compute different partitions, the one used will be the one that contains the highest or lowest enrichment score, up to our choice. If not, the whole trajectory for the whole UMAP will be used, providing very different results. The key to this is the kind of sample/cds we provide as input (i.e, if we have a tumor bulk that we want to keep as a single partition or not or similar).
 
 We can also visualize the enrichment scores as a feature plot alongside the pseudotime, either in a symmetrical scale or not with `enforce_symmetry`.
 
@@ -274,5 +305,13 @@ p4 <- out$enrichment
 p <- (p1 | p2) / (p3 | p4)
 p
 ```
-<span class="border-0"><img src="images/example_pseudo5.png" class="mx-auto d-block" alt="" style="box-shadow: none; width: 100%"/> <p class="caption">SCpubr do_PseudotimePlot pseudotime output with enrichment scores.</p></span>
 
+<span class="border-0"><img src="images/example_pseudo5.png" class="mx-auto d-block" style="box-shadow: none; width: 100%"/>
+
+<p class="caption">
+
+SCpubr do_PseudotimePlot pseudotime output with enrichment scores.
+
+</p>
+
+</span>

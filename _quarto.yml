@@ -48,6 +48,7 @@ book:
       - 10-BarPlots.qmd
       - 11-BoxPlots.qmd
       - 12-GeyserPlots.qmd
+      - 13-AlluvialPlot.qmd
       - 13-SankeyPlots.qmd
       - 14-ChordDiagramPlots.qmd
       - 15-VolcanoPlots.qmd
@@ -56,6 +57,7 @@ book:
       chapters:
       - 16-GroupwiseDEPlots.qmd
       - 17-TermEnrichmentPlots.qmd
+      - 18-ExpressionHeatmaps.qmd
       - 18-EnrichmentHeatmaps.qmd
       - 19-CorrelationHeatmaps.qmd
       - 20-CellularStatesPlot.qmd
