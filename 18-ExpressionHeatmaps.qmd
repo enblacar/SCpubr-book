@@ -9,7 +9,6 @@
 One of the major ways to assess cell identities in your data is to query the expression of several marker genes across the different clusters in you data. While computing `FeaturePlots` might be a very good idea to assess this, sometimes one wants to query multiple features at the same time. This can be achieved with `SCpubr::do_ExpressionHeatmap()`.
 
 ```{r}
-#| results: "asis"
 #| echo: false
 source("_common.R")
 library(Seurat)
@@ -199,7 +198,6 @@ p <- SCpubr::do_ExpressionHeatmap(sample = sample,
 p
 ```
 
-
 ## Subset the color scale.
 
 It might be the case that a single gene set, for a single cluster, drives the color scale entirely. We can treat this as an outlier, so that we can subset the color scale to better represent the values in between. We can achieve that by using `min.cutoff` and/or `max.cutoff`.
@@ -220,3 +218,39 @@ p <- SCpubr::do_ExpressionHeatmap(sample = sample,
                                   viridis_direction = -1)
 p
 ```
+
+## Use of metadata variables
+
+By design, this function expects to work with **expression** values, as the overall idea of the plot is to assess similarities/differences between averaged expression levels. However, it might be the case that you might have some **metadata** values that you would also like to plot in a similar way.
+
+Here is a workaround to make that possible:
+
+```{r}
+#| eval = FALSE
+
+# Vector of features stored in the metadata.
+my_features <- c("A", "B", "C")
+
+# Retrieve your scores.
+scores <- sample@meta.data[, my_features]
+
+# Turn it into a matrix (metadata columns become the features - rows, cells remain as columns).
+scores <- t(as.matrix(scores))
+
+# Create an assay object.
+scores_assay <- Seurat::CreateAssayObject(counts = scores)
+
+# Add it to your Seurat object.
+sample@assays$my_new_assay <- scores_assay
+
+# Plot the features.
+p <- SCpubr::do_ExpressionHeatmap(sample = sample, 
+                                  features = my_features, 
+                                  assay = "my_new_assay")
+p
+```
+
+
+
+
+
