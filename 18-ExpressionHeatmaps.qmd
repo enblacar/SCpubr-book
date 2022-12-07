@@ -11,7 +11,7 @@ One of the major ways to assess cell identities in your data is to query the exp
 ```{r}
 #| echo: false
 source("_common.R")
-library(Seurat)
+suppressMessages(library(Seurat)) 
 ```
 
 ```{r}
