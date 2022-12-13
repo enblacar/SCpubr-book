@@ -16,7 +16,7 @@ Dimensional reduction Plots (**DimPlots**) are, probably, one of the most iconic
 
 ## Basic usage
 
-This is SCpubr's take on `Seurat::DimPlot()`.
+`SCpubr` makes use of the default output and `Seurat::DimPlot()` and further modifies it to achieve the following result.
 
 ```{r}
 #| fig-width: 14
@@ -32,6 +32,8 @@ p2 <- SCpubr::do_DimPlot(sample = sample)
 p <- p1 | p2
 p
 ```
+
+## Modifying axes behavior
 
 Even though axes are removed from UMAP reductions, the title for the axes is kept for any other reduction used. The same is applied for UMAP if the default dimension order is altered.
 
@@ -52,6 +54,21 @@ p <- p1 | p2
 p
 ```
 
+Furthermore, this behavior can be completely cancelled by using `plot.axes = TRUE`.
+
+```{r}
+#| fig-width: 7
+#| fig-height: 8
+#| fig-cap: "Bring back the axes."
+
+# Bring back the Axes.
+p <- SCpubr::do_DimPlot(sample = sample,
+                        plot.axes = TRUE)
+p
+```
+
+## Modify legend appearance
+
 We can change the legend's number of columns or rows with `legend.ncol` and `legend.nrow`.
 
 ```{r}
@@ -71,9 +88,28 @@ p <- p1 | p2
 p
 ```
 
-## Using labels instead of a legend
+You can also alter how the legend is being "filled" with `legend.byrow = TRUE/FALSE`. This is, by default the legend items are being placed column-wise. If we set `legend.byrow = FALSE`, the legend items are placed row-wise.
 
-In some cases, especially early on in the analysis where we do only have numbers as cluster names, we might want to remove the legend entirely, and instead plot labels on top of each cluster. This is achieved by using `label = TRUE`. This is how it looks in Seurat:
+```{r}
+#| fig-width: 14
+#| fig-height: 8
+#| fig-cap: "Modify legend item placement behavior."
+
+# Fill the legend by column.
+p1 <- SCpubr::do_DimPlot(sample = sample,
+                         legend.byrow = FALSE)
+
+# Fill the legend by rows.
+p2 <- SCpubr::do_DimPlot(sample = sample,
+                         legend.byrow = TRUE)
+
+p <- p1 | p2 
+p
+```
+
+## Label the clusters
+
+In some cases, especially early on in the analysis where we do only have numbers as cluster names, we might want to remove the legend entirely, and instead plot labels on top of each cluster. This is achieved by using `label = TRUE`.
 
 ```{r}
 #| fig-width: 7
@@ -81,26 +117,95 @@ In some cases, especially early on in the analysis where we do only have numbers
 #| fig-cap: "Labels on top of the clusters."
 
 # Put labels on top of the clusters.
-p <- Seurat::DimPlot(sample, 
+p <- SCpubr::do_DimPlot(sample, 
                      label = TRUE)
+p
+```
+
+These labels are, in essence the result of applying `ggplot2::geom_label()` on the plot. However, we might also want to have them as pure text instead of the labels. We can achieve that by providing `label.box = FALSE`.
+
+```{r}
+#| fig-width: 7
+#| fig-height: 8
+#| fig-cap: "Labels as text."
+
+# Labels as text
+p <- SCpubr::do_DimPlot(sample = sample, 
+                        label = TRUE,
+                        label.box = FALSE)
 p
 ```
 
 However, we can play further with other parameters of the function such as `label.color` which will provide a different color for the text inside the labels:
 
 ```{r}
-#| fig-width: 7
+#| fig-width: 14
 #| fig-height: 8
-#| fig-cap: "Change label color."
+#| fig-cap: "Change label/text color."
 
-# Change the color of the text in the labels.
-p <- SCpubr::do_DimPlot(sample = sample, 
-                        label = TRUE, 
-                        label.color = "black")
+# Change the color of the label text.
+p1 <- SCpubr::do_DimPlot(sample = sample, 
+                         label = TRUE, 
+                         label.color = "black")
+
+# Change the color of the text.
+p2 <- SCpubr::do_DimPlot(sample = sample, 
+                         label = TRUE, 
+                         label.color = "black",
+                         label.box = FALSE)
+p <- p1 | p2
 p
 ```
 
-Finally, one can always get rid of the legend with `legend.position = "none`:
+Also, we can modify the size of the labels/text by using `label.size` paramter:
+
+```{r}
+#| fig-width: 14
+#| fig-height: 8
+#| fig-cap: "Change label/text size"
+
+# Change the size of the label text.
+p1 <- SCpubr::do_DimPlot(sample = sample, 
+                         label = TRUE, 
+                         label.color = "black",
+                         label.size = 6)
+
+# Change the size of the text.
+p2 <- SCpubr::do_DimPlot(sample = sample, 
+                         label = TRUE, 
+                         label.color = "black",
+                         label.box = FALSE,
+                         label.size = 6)
+p <- p1 | p2
+p
+```
+
+Finally, if the labels/text are overlapping one to another, we can try to fix that by repelling the labels from one to another. We can achieve this by using `repel = TRUE`:
+
+```{r}
+#| fig-width: 14
+#| fig-height: 8
+#| fig-cap: "Repel the labels/text."
+
+# Repel the labels.
+p1 <- SCpubr::do_DimPlot(sample = sample, 
+                         label = TRUE, 
+                         label.color = "black",
+                         repel = TRUE)
+
+# Repel the text.
+p2 <- SCpubr::do_DimPlot(sample = sample, 
+                         label = TRUE, 
+                         label.color = "black",
+                         label.box = FALSE,
+                         repel = TRUE)
+p <- p1 | p2
+p
+```
+
+## Legend behavior
+
+Sometimes, the legend is completely redundant, as we are already displaying the same information as labels in the text. Othertimes, we just want to remove it. In any case, this can be achieved by using `legend.position = "none"`.
 
 ```{r}
 #| fig-width: 7
@@ -111,6 +216,74 @@ Finally, one can always get rid of the legend with `legend.position = "none`:
 p <- SCpubr::do_DimPlot(sample = sample, 
                         label = TRUE, 
                         legend.position = "none")
+p
+```
+
+In other cases, we might just be interested in modifying **the placement** of the legend. This can also be achieved by using `legend.position = "bottom/top/right/left"`:
+
+```{r}
+#| fig-width: 14
+#| fig-height: 16
+#| fig-cap: "Modify legend placement."
+
+# Top
+p1 <- SCpubr::do_DimPlot(sample = sample, 
+                         legend.position = "top")
+
+p2 <- SCpubr::do_DimPlot(sample = sample, 
+                         legend.position = "bottom")
+
+p3 <- SCpubr::do_DimPlot(sample = sample, 
+                         legend.position = "left")
+
+p4 <- SCpubr::do_DimPlot(sample = sample, 
+                         legend.position = "right")
+
+p <- (p1 | p2) / (p3 | p4)
+p
+```
+
+Finally, we can add a custom legend title to the plot by using `legend.title` parameter:
+
+```{r}
+#| fig-width: 7
+#| fig-height: 8
+#| fig-cap: "Add a legend.title."
+
+# Add a legend title.
+p <- SCpubr::do_DimPlot(sample = sample, 
+                        legend.title = "My clusters")
+p
+```
+
+We can also control the position of the legend title by using `legend.title.position`:
+
+```{r}
+#| fig-width: 14
+#| fig-height: 16
+#| fig-cap: "Modify legend title placement."
+
+# Top
+p1 <- SCpubr::do_DimPlot(sample = sample, 
+                         legend.title = "My clusters",
+                         legend.title.position = "top")
+
+# Bottom
+p2 <- SCpubr::do_DimPlot(sample = sample, 
+                         legend.title = "My clusters",
+                         legend.title.position = "bottom")
+
+# Left
+p3 <- SCpubr::do_DimPlot(sample = sample, 
+                         legend.title = "My clusters",
+                         legend.title.position = "left")
+
+# Right
+p4 <- SCpubr::do_DimPlot(sample = sample, 
+                         legend.title = "My clusters",
+                         legend.title.position = "right")
+
+p <- (p1 | p2) / (p3 | p4)
 p
 ```
 
@@ -238,9 +411,9 @@ p <- p1 | p2 | p3
 p
 ```
 
-## Restrict the identitites shown and grey out the rest
+## Restrict the identitites displayed
 
-Sometimes, we are interested in showing only some of the identities or groups in our sample, but instead of the previous approach, we still want to keep the original colors and legend. For this, we might be inclined to just subset this sample, as follows:
+Sometimes, we are interested in showing only some of the identities or groups in our sample. Instead of highlighting cells, we still want to keep the original colors and legend. For this use case, one might be tempted to just subset the sample as follows:
 
 ```{r}
 #| fig-width: 7
@@ -268,6 +441,29 @@ p1 <- SCpubr::do_DimPlot(sample = sample,
 p2 <- SCpubr::do_DimPlot(sample = sample,
                          idents.keep = c("0", "5"),
                          na.value = "grey50")
+p <- p1 | p2
+p
+```
+
+## Group by another metadata variable
+
+So far, all the DimPlots displayed have shown the identities as the ones that are currently set in the object. This can be consulted by using `Seurat::Idents(sample)`. However, naturally, we might want to display different metadata variables. This can be easily achieved by using `group.by` parameter:
+
+```{r}
+#| fig-width: 14
+#| fig-height: 8
+#| fig-cap: Group by another metadata variable.
+
+# Generate another metadata variable to group the cells by.
+sample$annotation <- sample(c("A", "B", "C"), ncol(sample), replace = TRUE)
+
+# Group by another metadata variable.
+p1 <- SCpubr::do_DimPlot(sample, 
+                         group.by = "seurat_clusters")
+
+p2 <- SCpubr::do_DimPlot(sample, 
+                         group.by = "annotation")
+
 p <- p1 | p2
 p
 ```

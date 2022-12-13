@@ -65,6 +65,7 @@ book:
       - 22-CopyNumberVariantPlots.qmd
       - 23-PathwayActivityPlots.qmd
       - 24-TFActivityPlots.qmd
+      - 25-AzimuthAnalysisPlots.qmd
       - 25-PseudotimeAnalysisPlots.qmd
 
     - part: "Miscellaneous"

@@ -3,7 +3,7 @@
 ::: callout-warning
 ## Please note:
 
-Due to CRAN policies, this function could not make it to the **official release** and is only available in the **development release** of **SCpubr**. Find how to install it [**here**](https://github.com/enblacar/SCpubr/releases/tag/v1.0.1-dev-stable).
+Due to CRAN policies, this function could not make it to the **official release** and is only available in the **development release** of **SCpubr**. Find how to install it [**here**](https://github.com/enblacar/SCpubr/releases/tag/v1.0.4-dev-stable).
 
 Once the package becomes available on CRAN/Bioconductor, the function will be integrated in the official release.
 :::
@@ -61,13 +61,100 @@ In the GitHub issue, **liana's developer** discuss how different metrics from di
 
 Following this line of thought, this is what is then implemented in `SCpubr::do_LigandReceptorAnalysis()`:
 
--   Originally, interactions were filtered out using `aggregate_rank <= 0.05`, but now this is not applied as we also want to display the non-significant interactions in contrast with the significant ones. If we were to filter them out, the dotplot will only containg statistically significant interactions. This will render the dotplot completely blank. In order to populate it with plot with the rest of interactions, a design choice was made to also include non-significant interactions to get a better sense of the plot by comparing them to the significant ones.
+-   Originally, interactions were filtered out using `aggregate_rank <= 0.05`, but now this is not applied as we also want to display the non-significant interactions in contrast with the significant ones. If we were to filter them out, the dotplot will only containing statistically significant interactions. This will render the dotplot completely blank. In order to populate it with plot with the rest of interactions, a design choice was made to also include non-significant interactions to get a better sense of the plot by comparing them to the significant ones.
 -   Then, interactions are sorted out by `decresing significance` (**natmi.edge_specificity column**) and `decreasing magnitude` (**sca.LRscore column**).
 -   For plotting, the *top N* interactions (designated by the user) with the `top_interactions parameter` are displayed (thus including, if `top_interactions` is **really** large, potentially non-significant interactions).
 
 This means that, **depending on the number of top interactions retrieved**, we might end up with non-significant interactions across any source-target combinations. However, this will be clearly evident in contrast with the top hits. One has also to understand the meaning behind the chosen **specificity** and **magnitude** columns used to sort the interactions. For this, individual inspection of the methods used by **liana** is advisable.
 
 Finally, for the **chord diagram plots**, different number of interactions are used: - To represent the **total number of interactions** between **source** and **target**, interactions are filtered out using `aggregate_rank <= 0.05`. The remaining ones are considered significant and therefore included in the diagram. - To represent the **total number of interactions** between **ligand.complex** and **receptor.complex**, the **top interactions** are used instead. Since this means retreaving the interactions across all possible **source/target pairs**, like in the output dotplots, they include potential non-significant interactions as well.
+
+## Control how interactions are arranged
+
+::: callout-note
+## Please note:
+
+This feature will be available in the next CRAN release! (v1.1.0)
+:::
+
+The result of `liana::liana_aggregate()` can be processed in multiple ways:
+
+- By default, the output matrix is already arranged by ascending `aggregate_rank`, which acts as a kind of p-value.
+- The interactions can be arranged by descending `magnitude` (how strong is the interaction) or `specificity` (how significant is the interaction).
+- Or both. 
+
+In this context, users can decide how the results are arranged in the final plot by providing `arrange_interactions_by` and one of: `aggregate_rank`, `magnitude`, `specificity` or `both`.
+
+```{r}
+#| fig-width: 20
+#| fig-height: 10
+#| fig-cap: "Arrange the interactions by aggregate_rank."
+# Arrange the interactions by aggregate_rank
+# Ligand Receptor analysis plot with extra interactions.
+p <- SCpubr::do_LigandReceptorPlot(liana_output = liana_output,
+                                   arrange_interactions_by = "aggregate_rank",
+                                   top_interactions = 10)
+p
+```
+
+```{r}
+#| fig-width: 20
+#| fig-height: 10
+#| fig-cap: "Arrange the interactions by specificity."
+# Arrange the interactions by specificity
+# Ligand Receptor analysis plot with extra interactions.
+p <- SCpubr::do_LigandReceptorPlot(liana_output = liana_output,
+                                   arrange_interactions_by = "specificity",
+                                   top_interactions = 10)
+p
+```
+
+```{r}
+#| fig-width: 20
+#| fig-height: 10
+#| fig-cap: "Arrange the interactions by magnitude."
+# Arrange the interactions by magnitude
+# Ligand Receptor analysis plot with extra interactions.
+p <- SCpubr::do_LigandReceptorPlot(liana_output = liana_output,
+                                   arrange_interactions_by = "magnitude",
+                                   top_interactions = 10)
+p
+```
+
+```{r}
+#| fig-width: 20
+#| fig-height: 10
+#| fig-cap: "Arrange the interactions by both magnitude and specificity."
+# Arrange the interactions by both magnitude and specificity.
+# Ligand Receptor analysis plot with extra interactions.
+p <- SCpubr::do_LigandReceptorPlot(liana_output = liana_output,
+                                   arrange_interactions_by = "both",
+                                   top_interactions = 10)
+p
+```
+
+
+## Order interacting pairs alphabetically
+
+::: callout-note
+## Please note:
+
+This feature will be available in the next CRAN release! (v1.1.0)
+:::
+
+By default, the interactions are shown as they are in the original matrix. However, we can also order them alphabetically by using `sort_interactions_alphabetically = TRUE`:
+
+```{r}
+#| fig-width: 20
+#| fig-height: 10
+#| fig-cap: "Arrange the interactions alphabetically."
+# Arrange the interactions alphabetically.
+# Ligand Receptor analysis plot with extra interactions.
+p <- SCpubr::do_LigandReceptorPlot(liana_output = liana_output,
+                                   sort_interactions_alphabetically = TRUE,
+                                   top_interactions = 10)
+p
+```
 
 ## Increase the top significant interactions plotted
 
@@ -88,7 +175,7 @@ p
 
 Depending on the value we select for `top_interactions`, we might find out that there are specific source-target combinations for which we have no interactions at all. These show up in the resulting dotplot as empty columns. This is a design choice, as **SCpubr** brings these combinations back as NA values, thus making the different panels in the dotplot easier to read. However, with a small number of interactions, this might result in a very empty dotplot. Also, if we have many different sources, the plot can also become very long.
 
-In cases like these, we might rather go for only the relevant columns. We can toggle on/off this behaviour by using \`\`:
+In cases like these, we might rather go for only the relevant columns. We can toggle on/off this behaviour by using `add_missing_LR_combinations = TRUE/FALSE`:
 
 ```{r}
 #| fig-width: 20

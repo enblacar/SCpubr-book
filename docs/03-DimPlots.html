@@ -319,7 +319,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./25-PseudotimeAnalysisPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Pseudotime analysis</span></a>
+  <a href="./25-AzimuthAnalysisPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Azimuth reference mapping reports</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./25-PseudotimeAnalysisPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Pseudotime analysis</span></a>
   </div>
 </li>
       </ul>
@@ -371,12 +376,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    
   <ul>
 <li><a href="#basic-usage" id="toc-basic-usage" class="nav-link active" data-scroll-target="#basic-usage"><span class="toc-section-number">1.1</span>  Basic usage</a></li>
-  <li><a href="#using-labels-instead-of-a-legend" id="toc-using-labels-instead-of-a-legend" class="nav-link" data-scroll-target="#using-labels-instead-of-a-legend"><span class="toc-section-number">1.2</span>  Using labels instead of a legend</a></li>
-  <li><a href="#changing-the-order-of-plotting" id="toc-changing-the-order-of-plotting" class="nav-link" data-scroll-target="#changing-the-order-of-plotting"><span class="toc-section-number">1.3</span>  Changing the order of plotting</a></li>
-  <li><a href="#highlighting-cells" id="toc-highlighting-cells" class="nav-link" data-scroll-target="#highlighting-cells"><span class="toc-section-number">1.4</span>  Highlighting cells</a></li>
-  <li><a href="#restrict-the-identitites-shown-and-grey-out-the-rest" id="toc-restrict-the-identitites-shown-and-grey-out-the-rest" class="nav-link" data-scroll-target="#restrict-the-identitites-shown-and-grey-out-the-rest"><span class="toc-section-number">1.5</span>  Restrict the identitites shown and grey out the rest</a></li>
-  <li><a href="#splitting-by-a-category" id="toc-splitting-by-a-category" class="nav-link" data-scroll-target="#splitting-by-a-category"><span class="toc-section-number">1.6</span>  Splitting by a category</a></li>
-  <li><a href="#group-by-a-variable-but-split-by-another" id="toc-group-by-a-variable-but-split-by-another" class="nav-link" data-scroll-target="#group-by-a-variable-but-split-by-another"><span class="toc-section-number">1.7</span>  Group by a variable but split by another</a></li>
+  <li><a href="#modifying-axes-behavior" id="toc-modifying-axes-behavior" class="nav-link" data-scroll-target="#modifying-axes-behavior"><span class="toc-section-number">1.2</span>  Modifying axes behavior</a></li>
+  <li><a href="#modify-legend-appearance" id="toc-modify-legend-appearance" class="nav-link" data-scroll-target="#modify-legend-appearance"><span class="toc-section-number">1.3</span>  Modify legend appearance</a></li>
+  <li><a href="#label-the-clusters" id="toc-label-the-clusters" class="nav-link" data-scroll-target="#label-the-clusters"><span class="toc-section-number">1.4</span>  Label the clusters</a></li>
+  <li><a href="#legend-behavior" id="toc-legend-behavior" class="nav-link" data-scroll-target="#legend-behavior"><span class="toc-section-number">1.5</span>  Legend behavior</a></li>
+  <li><a href="#changing-the-order-of-plotting" id="toc-changing-the-order-of-plotting" class="nav-link" data-scroll-target="#changing-the-order-of-plotting"><span class="toc-section-number">1.6</span>  Changing the order of plotting</a></li>
+  <li><a href="#highlighting-cells" id="toc-highlighting-cells" class="nav-link" data-scroll-target="#highlighting-cells"><span class="toc-section-number">1.7</span>  Highlighting cells</a></li>
+  <li><a href="#restrict-the-identitites-displayed" id="toc-restrict-the-identitites-displayed" class="nav-link" data-scroll-target="#restrict-the-identitites-displayed"><span class="toc-section-number">1.8</span>  Restrict the identitites displayed</a></li>
+  <li><a href="#group-by-another-metadata-variable" id="toc-group-by-another-metadata-variable" class="nav-link" data-scroll-target="#group-by-another-metadata-variable"><span class="toc-section-number">1.9</span>  Group by another metadata variable</a></li>
+  <li><a href="#splitting-by-a-category" id="toc-splitting-by-a-category" class="nav-link" data-scroll-target="#splitting-by-a-category"><span class="toc-section-number">1.10</span>  Splitting by a category</a></li>
+  <li><a href="#group-by-a-variable-but-split-by-another" id="toc-group-by-a-variable-but-split-by-another" class="nav-link" data-scroll-target="#group-by-a-variable-but-split-by-another"><span class="toc-section-number">1.11</span>  Group by a variable but split by another</a></li>
   </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/enblacar/SCpubr/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
@@ -404,7 +413,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Dimensional reduction Plots (<strong>DimPlots</strong>) are, probably, one of the most iconic visualizations from <code>Seurat</code>. It allows the user to visualize the cells in a dimensional reduction embedding such as <code>PCA</code> or <code>UMAP</code>. The cells can be, then, colored by any desired groups. In short, this visualization allows the user to plot <strong>any kind of categorical data</strong> onto the cells in the dimensional reduction embedding.</p>
 <section id="basic-usage" class="level2" data-number="1.1"><h2 data-number="1.1" class="anchored" data-anchor-id="basic-usage">
 <span class="header-section-number">1.1</span> Basic usage</h2>
-<p>This is SCpubr’s take on <code><a href="https://satijalab.org/seurat/reference/DimPlot.html">Seurat::DimPlot()</a></code>.</p>
+<p><code>SCpubr</code> makes use of the default output and <code><a href="https://satijalab.org/seurat/reference/DimPlot.html">Seurat::DimPlot()</a></code> and further modifies it to achieve the following result.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Seurat's DimPlot.</span></span>
 <span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">Seurat</span><span class="fu">::</span><span class="fu"><a href="https://satijalab.org/seurat/reference/DimPlot.html">DimPlot</a></span><span class="op">(</span><span class="va">sample</span><span class="op">)</span></span>
@@ -422,6 +431,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
+</section><section id="modifying-axes-behavior" class="level2" data-number="1.2"><h2 data-number="1.2" class="anchored" data-anchor-id="modifying-axes-behavior">
+<span class="header-section-number">1.2</span> Modifying axes behavior</h2>
 <p>Even though axes are removed from UMAP reductions, the title for the axes is kept for any other reduction used. The same is applied for UMAP if the default dimension order is altered.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Example using PCA reduction.</span></span>
@@ -442,9 +453,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
+<p>Furthermore, this behavior can be completely cancelled by using <code>plot.axes = TRUE</code>.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Bring back the Axes.</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
+<span>                        plot.axes <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="03-DimPlots_files/figure-html/unnamed-chunk-5-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
+<p></p><figcaption class="figure-caption">Bring back the axes.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="modify-legend-appearance" class="level2" data-number="1.3"><h2 data-number="1.3" class="anchored" data-anchor-id="modify-legend-appearance">
+<span class="header-section-number">1.3</span> Modify legend appearance</h2>
 <p>We can change the legend’s number of columns or rows with <code>legend.ncol</code> and <code>legend.nrow</code>.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Modify the number of columns in the legend.</span></span>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Modify the number of columns in the legend.</span></span>
 <span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
 <span>                         legend.ncol <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
 <span></span>
@@ -456,60 +483,223 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="03-DimPlots_files/figure-html/unnamed-chunk-5-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
+<figure class="figure"><p><img src="03-DimPlots_files/figure-html/unnamed-chunk-6-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
 <p></p><figcaption class="figure-caption">Modify legend rows and colums.</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
-</section><section id="using-labels-instead-of-a-legend" class="level2" data-number="1.2"><h2 data-number="1.2" class="anchored" data-anchor-id="using-labels-instead-of-a-legend">
-<span class="header-section-number">1.2</span> Using labels instead of a legend</h2>
-<p>In some cases, especially early on in the analysis where we do only have numbers as cluster names, we might want to remove the legend entirely, and instead plot labels on top of each cluster. This is achieved by using <code>label = TRUE</code>. This is how it looks in Seurat:</p>
+<p>You can also alter how the legend is being “filled” with <code>legend.byrow = TRUE/FALSE</code>. This is, by default the legend items are being placed column-wise. If we set <code>legend.byrow = FALSE</code>, the legend items are placed row-wise.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Put labels on top of the clusters.</span></span>
-<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">Seurat</span><span class="fu">::</span><span class="fu"><a href="https://satijalab.org/seurat/reference/DimPlot.html">DimPlot</a></span><span class="op">(</span><span class="va">sample</span>, </span>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Fill the legend by column.</span></span>
+<span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
+<span>                         legend.byrow <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Fill the legend by rows.</span></span>
+<span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
+<span>                         legend.byrow <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span> </span>
+<span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="03-DimPlots_files/figure-html/unnamed-chunk-7-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
+<p></p><figcaption class="figure-caption">Modify legend item placement behavior.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="label-the-clusters" class="level2" data-number="1.4"><h2 data-number="1.4" class="anchored" data-anchor-id="label-the-clusters">
+<span class="header-section-number">1.4</span> Label the clusters</h2>
+<p>In some cases, especially early on in the analysis where we do only have numbers as cluster names, we might want to remove the legend entirely, and instead plot labels on top of each cluster. This is achieved by using <code>label = TRUE</code>.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Put labels on top of the clusters.</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span><span class="va">sample</span>, </span>
 <span>                     label <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="03-DimPlots_files/figure-html/unnamed-chunk-6-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
+<figure class="figure"><p><img src="03-DimPlots_files/figure-html/unnamed-chunk-8-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
 <p></p><figcaption class="figure-caption">Labels on top of the clusters.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>These labels are, in essence the result of applying <code><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">ggplot2::geom_label()</a></code> on the plot. However, we might also want to have them as pure text instead of the labels. We can achieve that by providing <code>label.box = FALSE</code>.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Labels as text</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
+<span>                        label <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                        label.box <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="03-DimPlots_files/figure-html/unnamed-chunk-9-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
+<p></p><figcaption class="figure-caption">Labels as text.</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
 <p>However, we can play further with other parameters of the function such as <code>label.color</code> which will provide a different color for the text inside the labels:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Change the color of the text in the labels.</span></span>
-<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
-<span>                        label <span class="op">=</span> <span class="cn">TRUE</span>, </span>
-<span>                        label.color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Change the color of the label text.</span></span>
+<span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
+<span>                         label <span class="op">=</span> <span class="cn">TRUE</span>, </span>
+<span>                         label.color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Change the color of the text.</span></span>
+<span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
+<span>                         label <span class="op">=</span> <span class="cn">TRUE</span>, </span>
+<span>                         label.color <span class="op">=</span> <span class="st">"black"</span>,</span>
+<span>                         label.box <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span></span>
 <span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="03-DimPlots_files/figure-html/unnamed-chunk-7-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
-<p></p><figcaption class="figure-caption">Change label color.</figcaption><p></p>
+<figure class="figure"><p><img src="03-DimPlots_files/figure-html/unnamed-chunk-10-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
+<p></p><figcaption class="figure-caption">Change label/text color.</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
-<p>Finally, one can always get rid of the legend with <code>legend.position = "none</code>:</p>
+<p>Also, we can modify the size of the labels/text by using <code>label.size</code> paramter:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Remove the legend from the plot.</span></span>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Change the size of the label text.</span></span>
+<span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
+<span>                         label <span class="op">=</span> <span class="cn">TRUE</span>, </span>
+<span>                         label.color <span class="op">=</span> <span class="st">"black"</span>,</span>
+<span>                         label.size <span class="op">=</span> <span class="fl">6</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Change the size of the text.</span></span>
+<span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
+<span>                         label <span class="op">=</span> <span class="cn">TRUE</span>, </span>
+<span>                         label.color <span class="op">=</span> <span class="st">"black"</span>,</span>
+<span>                         label.box <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>                         label.size <span class="op">=</span> <span class="fl">6</span><span class="op">)</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span></span>
+<span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="03-DimPlots_files/figure-html/unnamed-chunk-11-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
+<p></p><figcaption class="figure-caption">Change label/text size</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Finally, if the labels/text are overlapping one to another, we can try to fix that by repelling the labels from one to another. We can achieve this by using <code>repel = TRUE</code>:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Repel the labels.</span></span>
+<span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
+<span>                         label <span class="op">=</span> <span class="cn">TRUE</span>, </span>
+<span>                         label.color <span class="op">=</span> <span class="st">"black"</span>,</span>
+<span>                         repel <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Repel the text.</span></span>
+<span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
+<span>                         label <span class="op">=</span> <span class="cn">TRUE</span>, </span>
+<span>                         label.color <span class="op">=</span> <span class="st">"black"</span>,</span>
+<span>                         label.box <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>                         repel <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span></span>
+<span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="03-DimPlots_files/figure-html/unnamed-chunk-12-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
+<p></p><figcaption class="figure-caption">Repel the labels/text.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="legend-behavior" class="level2" data-number="1.5"><h2 data-number="1.5" class="anchored" data-anchor-id="legend-behavior">
+<span class="header-section-number">1.5</span> Legend behavior</h2>
+<p>Sometimes, the legend is completely redundant, as we are already displaying the same information as labels in the text. Othertimes, we just want to remove it. In any case, this can be achieved by using <code>legend.position = "none"</code>.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Remove the legend from the plot.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
 <span>                        label <span class="op">=</span> <span class="cn">TRUE</span>, </span>
 <span>                        legend.position <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span></span>
 <span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="03-DimPlots_files/figure-html/unnamed-chunk-8-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
+<figure class="figure"><p><img src="03-DimPlots_files/figure-html/unnamed-chunk-13-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
 <p></p><figcaption class="figure-caption">Remove the legend.</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
-</section><section id="changing-the-order-of-plotting" class="level2" data-number="1.3"><h2 data-number="1.3" class="anchored" data-anchor-id="changing-the-order-of-plotting">
-<span class="header-section-number">1.3</span> Changing the order of plotting</h2>
+<p>In other cases, we might just be interested in modifying <strong>the placement</strong> of the legend. This can also be achieved by using <code>legend.position = "bottom/top/right/left"</code>:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Top</span></span>
+<span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
+<span>                         legend.position <span class="op">=</span> <span class="st">"top"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
+<span>                         legend.position <span class="op">=</span> <span class="st">"bottom"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">p3</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
+<span>                         legend.position <span class="op">=</span> <span class="st">"left"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">p4</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
+<span>                         legend.position <span class="op">=</span> <span class="st">"right"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span><span class="op">)</span> <span class="op">/</span> <span class="op">(</span><span class="va">p3</span> <span class="op">|</span> <span class="va">p4</span><span class="op">)</span></span>
+<span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="03-DimPlots_files/figure-html/unnamed-chunk-14-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
+<p></p><figcaption class="figure-caption">Modify legend placement.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Finally, we can add a custom legend title to the plot by using <code>legend.title</code> parameter:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Add a legend title.</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
+<span>                        legend.title <span class="op">=</span> <span class="st">"My clusters"</span><span class="op">)</span></span>
+<span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="03-DimPlots_files/figure-html/unnamed-chunk-15-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
+<p></p><figcaption class="figure-caption">Add a legend.title.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We can also control the position of the legend title by using <code>legend.title.position</code>:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Top</span></span>
+<span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
+<span>                         legend.title <span class="op">=</span> <span class="st">"My clusters"</span>,</span>
+<span>                         legend.title.position <span class="op">=</span> <span class="st">"top"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Bottom</span></span>
+<span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
+<span>                         legend.title <span class="op">=</span> <span class="st">"My clusters"</span>,</span>
+<span>                         legend.title.position <span class="op">=</span> <span class="st">"bottom"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Left</span></span>
+<span><span class="va">p3</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
+<span>                         legend.title <span class="op">=</span> <span class="st">"My clusters"</span>,</span>
+<span>                         legend.title.position <span class="op">=</span> <span class="st">"left"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Right</span></span>
+<span><span class="va">p4</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
+<span>                         legend.title <span class="op">=</span> <span class="st">"My clusters"</span>,</span>
+<span>                         legend.title.position <span class="op">=</span> <span class="st">"right"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span><span class="op">)</span> <span class="op">/</span> <span class="op">(</span><span class="va">p3</span> <span class="op">|</span> <span class="va">p4</span><span class="op">)</span></span>
+<span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="03-DimPlots_files/figure-html/unnamed-chunk-16-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
+<p></p><figcaption class="figure-caption">Modify legend title placement.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="changing-the-order-of-plotting" class="level2" data-number="1.6"><h2 data-number="1.6" class="anchored" data-anchor-id="changing-the-order-of-plotting">
+<span class="header-section-number">1.6</span> Changing the order of plotting</h2>
 <p>By default, cells in <code><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">SCpubr::do_DimPlot()</a></code> are randomly plotted by using <code>shuffle = TRUE</code>. This is done as the default behavior of <code><a href="https://satijalab.org/seurat/reference/DimPlot.html">Seurat::DimPlot()</a></code> is to plot the cells based on the factor levels of the identities. Sometimes, this way of plotting results in some clusters not being visible as another one is on top of it. However, this behavior might be intended, and even more, we would like a <strong>specific</strong> identity to stand out from the rest. This can be achieved by providing to <code>order</code> parameter either a vector with all the identities ordered however you want, or just some of the identities, which will then be plotted on top of the rest. However, it is still not clear whether using <code>order</code> alongside <code>shuffle = TRUE</code> have unexpected side effects. For this, please use it alongside <code>shuffle = FALSE</code>. For the following example, we are going to test:</p>
 <ul>
 <li>We are going to bring cluster 5 to the front.</li>
@@ -520,7 +710,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>We will increase the dot size to better see cells in cluster 7, as this data set has a lack of overlapping clusters..</li>
 </ul>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Regular SCpubr DimPlot.</span></span>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Regular SCpubr DimPlot.</span></span>
 <span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                         reduction <span class="op">=</span> <span class="st">"pca"</span>,</span>
 <span>                         plot.title <span class="op">=</span> <span class="st">"Normal DimPlot"</span><span class="op">)</span></span>
@@ -552,18 +742,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="03-DimPlots_files/figure-html/unnamed-chunk-9-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
+<figure class="figure"><p><img src="03-DimPlots_files/figure-html/unnamed-chunk-17-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
 <p></p><figcaption class="figure-caption">Modifying order of plotted identities in a DimPlot</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
 <p>We can see that cluster 5 always plots on top of cluster 0 when <code>order</code> is set. While still not clear how <code>order</code> and <code>shuffle</code> interact, it is apparent that using <code>order</code> cancels the original behavior of <code>shuffle</code>. Therefore, if both <code>order</code> and <code>shuffle</code> are set, <code><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">SCpubr::do_DimPlot()</a></code> will throw a warning.</p>
-</section><section id="highlighting-cells" class="level2" data-number="1.4"><h2 data-number="1.4" class="anchored" data-anchor-id="highlighting-cells">
-<span class="header-section-number">1.4</span> Highlighting cells</h2>
+</section><section id="highlighting-cells" class="level2" data-number="1.7"><h2 data-number="1.7" class="anchored" data-anchor-id="highlighting-cells">
+<span class="header-section-number">1.7</span> Highlighting cells</h2>
 <p>One of the nice features of <code><a href="https://satijalab.org/seurat/reference/DimPlot.html">Seurat::DimPlot()</a></code> is the possibility of highlighting a certain group of cells in the plot. This is achieved by using the <code>cells.highligh</code> parameter. This is how the default plot looks like and <code><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">SCpubr::do_DimPlot()</a></code>’s take on it:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cells.use</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">sample</span><span class="op">)</span>, </span>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cells.use</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">sample</span><span class="op">)</span>, </span>
 <span>                    size <span class="op">=</span> <span class="fl">1500</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Compare Seurat and SCpubr way of highlighting cells.</span></span>
@@ -577,7 +767,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="03-DimPlots_files/figure-html/unnamed-chunk-10-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
+<figure class="figure"><p><img src="03-DimPlots_files/figure-html/unnamed-chunk-18-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
 <p></p><figcaption class="figure-caption">Highlighting cells, a comparison.</figcaption><p></p>
 </figure>
 </div>
@@ -585,7 +775,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>One can also change the color of the highligted cells by providing single color to <code>colors.use</code> and the color of the not selected cells with <code>na.value</code>:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Change color of highlighted and non-highlighted cells.</span></span>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Change color of highlighted and non-highlighted cells.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
 <span>                        cells.highlight <span class="op">=</span> <span class="va">cells.use</span>,</span>
 <span>                        colors.use <span class="op">=</span> <span class="st">"black"</span>,</span>
@@ -593,7 +783,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="03-DimPlots_files/figure-html/unnamed-chunk-11-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
+<figure class="figure"><p><img src="03-DimPlots_files/figure-html/unnamed-chunk-19-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
 <p></p><figcaption class="figure-caption">Change default color of highlighted and non-highlighted cells.</figcaption><p></p>
 </figure>
 </div>
@@ -601,14 +791,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>By default, the size of all cells in <code><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">SCpubr::do_DimPlot()</a></code> is the same. However, the size of the highlighted dots can be modified with the parameter <code>sizes.highlight</code>.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Increase the size of the highlighted cells.</span></span>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Increase the size of the highlighted cells.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
 <span>                        cells.highlight <span class="op">=</span> <span class="va">cells.use</span>, </span>
 <span>                        sizes.highlight <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
 <span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="03-DimPlots_files/figure-html/unnamed-chunk-12-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
+<figure class="figure"><p><img src="03-DimPlots_files/figure-html/unnamed-chunk-20-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
 <p></p><figcaption class="figure-caption">Increase dot size of highlighted cells.</figcaption><p></p>
 </figure>
 </div>
@@ -616,7 +806,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>We can also highlight <strong>whole identities</strong> with <code>idents.highlight</code> parameter. For this, just provide the desired identities to be selected. It can also work in combination with <code>cells.highlight</code>.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Using cells.highlight.</span></span>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Using cells.highlight.</span></span>
 <span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
 <span>                         cells.highlight <span class="op">=</span> <span class="va">cells.use</span><span class="op">)</span></span>
 <span></span>
@@ -633,23 +823,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="03-DimPlots_files/figure-html/unnamed-chunk-13-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
+<figure class="figure"><p><img src="03-DimPlots_files/figure-html/unnamed-chunk-21-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
 <p></p><figcaption class="figure-caption">Using a combination of <code>cells.highlight</code> and <code>idents.highlight</code>.</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
-</section><section id="restrict-the-identitites-shown-and-grey-out-the-rest" class="level2" data-number="1.5"><h2 data-number="1.5" class="anchored" data-anchor-id="restrict-the-identitites-shown-and-grey-out-the-rest">
-<span class="header-section-number">1.5</span> Restrict the identitites shown and grey out the rest</h2>
-<p>Sometimes, we are interested in showing only some of the identities or groups in our sample, but instead of the previous approach, we still want to keep the original colors and legend. For this, we might be inclined to just subset this sample, as follows:</p>
+</section><section id="restrict-the-identitites-displayed" class="level2" data-number="1.8"><h2 data-number="1.8" class="anchored" data-anchor-id="restrict-the-identitites-displayed">
+<span class="header-section-number">1.8</span> Restrict the identitites displayed</h2>
+<p>Sometimes, we are interested in showing only some of the identities or groups in our sample. Instead of highlighting cells, we still want to keep the original colors and legend. For this use case, one might be tempted to just subset the sample as follows:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Subset desired identities in a DimPlot.</span></span>
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Subset desired identities in a DimPlot.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span><span class="op">[</span>, <span class="va">sample</span><span class="op">$</span><span class="va">seurat_clusters</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"0"</span>, <span class="st">"5"</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="03-DimPlots_files/figure-html/unnamed-chunk-14-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
+<figure class="figure"><p><img src="03-DimPlots_files/figure-html/unnamed-chunk-22-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
 <p></p><figcaption class="figure-caption">Subsetting the Seurat object to restrict the identities shown.</figcaption><p></p>
 </figure>
 </div>
@@ -657,7 +847,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>However, we end up losing the <strong>UMAP silhouette</strong>. For this, <code><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">SCpubr::do_DimPlot()</a></code> introduces <code>idents.keep</code> parameter, for which you can provide a vector with the identities you want to keep. This will assign to the rest of the cells a value of <code>NA</code> and they will be colored according to <code>na.value</code> parameter:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Select identities with idents.keep.</span></span>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Select identities with idents.keep.</span></span>
 <span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
 <span>                         idents.keep <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"0"</span>, <span class="st">"5"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
@@ -669,17 +859,41 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="03-DimPlots_files/figure-html/unnamed-chunk-15-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
+<figure class="figure"><p><img src="03-DimPlots_files/figure-html/unnamed-chunk-23-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
 <p></p><figcaption class="figure-caption">Select the identities to display.</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
-</section><section id="splitting-by-a-category" class="level2" data-number="1.6"><h2 data-number="1.6" class="anchored" data-anchor-id="splitting-by-a-category">
-<span class="header-section-number">1.6</span> Splitting by a category</h2>
+</section><section id="group-by-another-metadata-variable" class="level2" data-number="1.9"><h2 data-number="1.9" class="anchored" data-anchor-id="group-by-another-metadata-variable">
+<span class="header-section-number">1.9</span> Group by another metadata variable</h2>
+<p>So far, all the DimPlots displayed have shown the identities as the ones that are currently set in the object. This can be consulted by using <code>Seurat::Idents(sample)</code>. However, naturally, we might want to display different metadata variables. This can be easily achieved by using <code>group.by</code> parameter:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Generate another metadata variable to group the cells by.</span></span>
+<span><span class="va">sample</span><span class="op">$</span><span class="va">annotation</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">sample</span><span class="op">)</span>, replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Group by another metadata variable.</span></span>
+<span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span><span class="va">sample</span>, </span>
+<span>                         group.by <span class="op">=</span> <span class="st">"seurat_clusters"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span><span class="va">sample</span>, </span>
+<span>                         group.by <span class="op">=</span> <span class="st">"annotation"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span></span>
+<span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="03-DimPlots_files/figure-html/unnamed-chunk-24-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
+<p></p><figcaption class="figure-caption">Group by another metadata variable.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="splitting-by-a-category" class="level2" data-number="1.10"><h2 data-number="1.10" class="anchored" data-anchor-id="splitting-by-a-category">
+<span class="header-section-number">1.10</span> Splitting by a category</h2>
 <p>Another useful parameter of <code><a href="https://satijalab.org/seurat/reference/DimPlot.html">Seurat::DimPlot</a></code> is <code>split.by</code>, which allows you to split your DimPlot into multiple panels, each one containing a different unique value of the metadata variable you have provided to the argument. One can understand this as using the <code>group.by</code> parameter and then splitting the resulting DimPlot into different panels. In this example, we are going to use the different clusters as an example. This is how it looks by default:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Seurat's DimPlot using split.by</span></span>
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Seurat's DimPlot using split.by</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">Seurat</span><span class="fu">::</span><span class="fu"><a href="https://satijalab.org/seurat/reference/DimPlot.html">DimPlot</a></span><span class="op">(</span><span class="va">sample</span>, </span>
 <span>                     split.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>, </span>
 <span>                     ncol <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span>
@@ -687,7 +901,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="03-DimPlots_files/figure-html/unnamed-chunk-16-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
+<figure class="figure"><p><img src="03-DimPlots_files/figure-html/unnamed-chunk-25-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
 <p></p><figcaption class="figure-caption">Using <code>split.by</code> in Seurat.</figcaption><p></p>
 </figure>
 </div>
@@ -695,7 +909,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>As can be observed, this plot accomplish the task of separating the cells into each panel, but the approach followed actually makes <strong>interpretation difficult</strong>. Clusters such as Cluster 9, with fewer cells, tell pretty much nothing. Besides, losing the <strong>UMAP silhouette</strong> is a major downside of this approach. This is where <code>SCpubr</code> focus on. It generates as many plots as unique values in the metadata to split the plot by, but uses <code>cells.highlight</code> instead, which keeps the rest of cells greyed out according to <code>na.value</code> color. This is how it looks:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># SCpubr's DimPlot using split.by</span></span>
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># SCpubr's DimPlot using split.by</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span><span class="va">sample</span>, </span>
 <span>                        split.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>, </span>
 <span>                        ncol <span class="op">=</span> <span class="fl">5</span>, </span>
@@ -705,7 +919,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="03-DimPlots_files/figure-html/unnamed-chunk-17-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
+<figure class="figure"><p><img src="03-DimPlots_files/figure-html/unnamed-chunk-26-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
 <p></p><figcaption class="figure-caption">Using <code>split.by</code> in SCpubr.</figcaption><p></p>
 </figure>
 </div>
@@ -714,7 +928,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>This way, we can see that clusters such as Cluster 7 are way more disperse than the rest, accounting not only for standalone groups of cells but also blending into other bigger clusters.</p>
 <p>If we are interested only in a subset of the possible values, we can use <code>idents.keep</code> alongside a vector containing the values to keep from the unique values in <code>split.by</code>:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Using split.by and restricting the number of output plots with idents.keep.</span></span>
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Using split.by and restricting the number of output plots with idents.keep.</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span><span class="va">sample</span>, </span>
 <span>                        split.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>, </span>
 <span>                        ncol <span class="op">=</span> <span class="fl">3</span>, </span>
@@ -725,17 +939,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="03-DimPlots_files/figure-html/unnamed-chunk-18-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
+<figure class="figure"><p><img src="03-DimPlots_files/figure-html/unnamed-chunk-27-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
 <p></p><figcaption class="figure-caption">Select only some identities in split.by</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
-</section><section id="group-by-a-variable-but-split-by-another" class="level2" data-number="1.7"><h2 data-number="1.7" class="anchored" data-anchor-id="group-by-a-variable-but-split-by-another">
-<span class="header-section-number">1.7</span> Group by a variable but split by another</h2>
+</section><section id="group-by-a-variable-but-split-by-another" class="level2" data-number="1.11"><h2 data-number="1.11" class="anchored" data-anchor-id="group-by-a-variable-but-split-by-another">
+<span class="header-section-number">1.11</span> Group by a variable but split by another</h2>
 <p>Finally, but also importantly, users might want to <strong>split</strong> the UMAP using <code>split.by</code>, while also <strong>grouping</strong> (coloring) the values by another variable using <code>group.by</code>. Using these two parameters in combination yields the following:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Using split.by and group.by in combination.</span></span>
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Using split.by and group.by in combination.</span></span>
 <span><span class="va">sample</span><span class="op">$</span><span class="va">orig.ident</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span><span class="op">)</span>, </span>
 <span>                            <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">sample</span><span class="op">)</span>, </span>
 <span>                            replace <span class="op">=</span> <span class="cn">TRUE</span>, </span>
@@ -749,7 +963,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="03-DimPlots_files/figure-html/unnamed-chunk-19-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
+<figure class="figure"><p><img src="03-DimPlots_files/figure-html/unnamed-chunk-28-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
 <p></p><figcaption class="figure-caption">Split by a variable but color by another one.</figcaption><p></p>
 </figure>
 </div>
@@ -757,7 +971,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>Actually, the user might want to change the color of the highlighted cells in this split DimPlot. This is achieved by using <code>colors.use</code> parameter and providing either a vector of <strong>valid color representations</strong> of equal length to unique values in <code>split.by</code> or just a single color to use in all panels.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Create a color scale for the unique values in seurat clusters.</span></span>
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Create a color scale for the unique values in seurat clusters.</span></span>
 <span><span class="va">colors</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"0"</span> <span class="op">=</span> <span class="st">"#001219"</span>,</span>
 <span>            <span class="st">"1"</span> <span class="op">=</span> <span class="st">"#005f73"</span>,</span>
 <span>            <span class="st">"2"</span> <span class="op">=</span> <span class="st">"#0a9396"</span>,</span>
@@ -789,7 +1003,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="03-DimPlots_files/figure-html/unnamed-chunk-20-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
+<figure class="figure"><p><img src="03-DimPlots_files/figure-html/unnamed-chunk-29-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
 <p></p><figcaption class="figure-caption">Change default colors.</figcaption><p></p>
 </figure>
 </div>

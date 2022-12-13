@@ -6,7 +6,11 @@
 `SCpubr::do_SankeyPlot()` has been replaced by `SCpubr::do_AlluvialPlot()`, which will make its way to the official release in v1.1.0. Therefore, `SCpubr::do_SankeyPlot()` will be discontinued.
 :::
 
+::: callout-warning
+## Please note:
 
+Due to CRAN policies, this function could not make it to the **official release** and is only available in the **development release** of **SCpubr**. Find how to install it [**here**](https://github.com/enblacar/SCpubr/releases/tag/v1.0.4-dev-stable).
+:::
 
 ```{r}
 #| results: "asis"
