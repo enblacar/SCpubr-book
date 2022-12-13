@@ -80,7 +80,7 @@ As follows:
 out <- SCpubr::do_AzimuthAnalysisPlot(sample = sample,
                                       annotation.labels = "predicted.celltype.l1",
                                       annotation.scoring = "predicted.celltype.l1.score",
-                                      font.size = 28)
+                                      font.size = 18)
 ```
 
 
@@ -144,7 +144,7 @@ out <- SCpubr::do_AzimuthAnalysisPlot(sample = sample,
                                       annotation.scoring = "predicted.celltype.l1.score",
                                       ref.obj = reference,
                                       ref.reduction = "refUMAP",
-                                      font.size = 28)
+                                      font.size = 18)
 ```
 
 ```{r}
@@ -182,7 +182,7 @@ out <- SCpubr::do_AzimuthAnalysisPlot(sample = sample,
                                       annotation.scoring = "predicted.celltype.l1.score",
                                       ref.obj = reference,
                                       ref.reduction = "refUMAP",
-                                      font.size = 28)
+                                      font.size = 18)
 ```
 
 ```{r}
@@ -222,7 +222,7 @@ out <- SCpubr::do_AzimuthAnalysisPlot(sample = sample,
                                       colors.use = colors.use,
                                       viridis_color_map = "C",
                                       viridis_direction = 1,
-                                      font.size = 28)
+                                      font.size = 18)
 ```
 
 ```{r}
