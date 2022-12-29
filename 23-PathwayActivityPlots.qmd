@@ -16,7 +16,7 @@ source("_common.R")
 #| echo: false
 sample <- readRDS("/b06x-isilon/b06x-g/G703/eblanco/projects/test_SC_datasets/sc_dataset.rds")
 activities <- readRDS("/b06x-isilon/b06x-g/G703/eblanco/projects/test_SC_datasets/progeny_scores_decoupleR.rds")
-library(Seurat)
+suppressMessages(library("Seurat"))
 ```
 
 ```{r}
@@ -194,7 +194,6 @@ p2 <- out$geyser_plots$EGFR
 p <- p1 | p2
 p
 ```
-
 
 ## Split the heatmap into different groups
 

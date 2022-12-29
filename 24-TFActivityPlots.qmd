@@ -10,6 +10,7 @@ In order to visualize the enrichment of our cells in the pathways, the results n
 #| results: "asis"
 #| echo: false
 source("_common.R")
+suppressMessages(library("Seurat"))
 ```
 
 ```{r}
@@ -62,7 +63,7 @@ p
 We can set the limits of the color scale by using `min.cutoff` and/or `max.cutoff`:
 
 ```{r}
-#| fig-width: 8
+#| fig-width: 12
 #| fig-height: 7
 #| fig-cap: "Set scale limits"
 
@@ -78,7 +79,7 @@ p
 However, be mindful that if `enforce_symmetry = TRUE`, this will override these settings, to achieve a symmetrical color scale:
 
 ```{r}
-#| fig-width: 8
+#| fig-width: 12
 #| fig-height: 7
 #| fig-cap: "Effect of enforce_symmetry in min.cutoff and max.cutoff"
 
@@ -105,7 +106,7 @@ Be mindful when using `min.cutoff` and `max.cutoff`, as this behavior might be o
 We can select the number of TFs to include in the analysis by using `n_tfs` variable.
 
 ```{r}
-#| fig-width: 12
+#| fig-width: 16
 #| fig-height: 7
 #| fig-cap: "Increase the number of reported TFs."
 
@@ -218,7 +219,7 @@ p
 We can also further divide the heatmap into groups. This can be achieved using `split.by` parameter.
 
 ```{r}
-#| fig-width: 8
+#| fig-width: 12
 #| fig-height: 7
 #| fig-cap: "Split the heatmap by another variable."
 
@@ -232,13 +233,12 @@ p <- out$heatmaps$average_scores
 p
 ```
 
-
 ## Control the color scale
 
 Again, we can control the color scale using `min.cutoff` and `max.cutoff`. This will apply to all plot types:
 
 ```{r}
-#| fig-width: 8
+#| fig-width: 12
 #| fig-height: 8
 #| fig-cap: "Control the color scale - heatmap."
 
@@ -254,12 +254,6 @@ p <- out$heatmaps$average_scores
 p
 ```
 
-```{r}
-#| fig-width: 14
-#| fig-height: 8
-#| fig-cap: "Control the color scale - FeaturePlot and GeyserPlot"
+\`\`\`{r} #\| fig-width: 14 #\| fig-height: 8 #\| fig-cap: "Control the color scale - FeaturePlot and GeyserPlot"
 
-p1 <- out$feature_plots$PI3K
-p2 <- out$geyser_plots$PI3K
-p <- p1 | p2
-p
+p1 \<- out$feature_plots$PI3K p2 \<- out$geyser_plots$PI3K p \<- p1 \| p2 p

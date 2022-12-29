@@ -56,6 +56,7 @@ book:
     - part: "Advanced plots"
       chapters:
       - 16-GroupwiseDEPlots.qmd
+      - 17-GroupedGOPlots.qmd
       - 17-TermEnrichmentPlots.qmd
       - 18-ExpressionHeatmaps.qmd
       - 18-EnrichmentHeatmaps.qmd

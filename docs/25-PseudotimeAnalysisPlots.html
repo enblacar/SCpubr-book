@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.2.226">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>SCpubr - 26&nbsp; Pseudotime analysis</title>
+<title>SCpubr - 27&nbsp; Pseudotime analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -119,10 +119,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-submit-button-title": "Submit"
   }
 }</script>
-<meta property="og:title" content="SCpubr - 26&nbsp; Pseudotime analysis">
+<meta property="og:title" content="SCpubr - 27&nbsp; Pseudotime analysis">
 <meta property="og:description" content="Pseudotime analysis is, perhaps, one of the major analysis that can be carried out in SC data. It aims to depict a trajectory, a sort of order in which cells transition from A to B.">
 <meta property="og:site-name" content="SCpubr">
-<meta name="twitter:title" content="SCpubr - 26&nbsp; Pseudotime analysis">
+<meta name="twitter:title" content="SCpubr - 27&nbsp; Pseudotime analysis">
 <meta name="twitter:description" content="Pseudotime analysis is, perhaps, one of the major analysis that can be carried out in SC data. It aims to depict a trajectory, a sort of order in which cells transition from A to B.">
 <meta name="twitter:card" content="summary">
 </head>
@@ -131,7 +131,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
       <h1 class="quarto-secondary-nav-title">
-<span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Pseudotime analysis</span>
+<span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Pseudotime analysis</span>
 </h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
@@ -274,57 +274,62 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./17-TermEnrichmentPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Term Enrichment Plots</span></a>
+  <a href="./17-GroupedGOPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Grouped GO Term analysis plots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./18-ExpressionHeatmaps.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Expression heatmaps</span></a>
+  <a href="./17-TermEnrichmentPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Term Enrichment Plots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./18-EnrichmentHeatmaps.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Enrichment score heatmaps</span></a>
+  <a href="./18-ExpressionHeatmaps.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Expression heatmaps</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./19-CorrelationHeatmaps.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Correlation matrix heatmaps</span></a>
+  <a href="./18-EnrichmentHeatmaps.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Enrichment score heatmaps</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20-CellularStatesPlot.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Cellular State Plots</span></a>
+  <a href="./19-CorrelationHeatmaps.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Correlation matrix heatmaps</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./21-LigandReceptorPlot.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Ligand-Receptor analysis</span></a>
+  <a href="./20-CellularStatesPlot.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Cellular State Plots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./22-CopyNumberVariantPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Copy Number Variant analysis plots</span></a>
+  <a href="./21-LigandReceptorPlot.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Ligand-Receptor analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./23-PathwayActivityPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Pathway Activity inference analysis</span></a>
+  <a href="./22-CopyNumberVariantPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Copy Number Variant analysis plots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./24-TFActivityPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">TF Activity inference analysis</span></a>
+  <a href="./23-PathwayActivityPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Pathway Activity inference analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./25-AzimuthAnalysisPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Azimuth reference mapping reports</span></a>
+  <a href="./24-TFActivityPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">TF Activity inference analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./25-PseudotimeAnalysisPlots.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Pseudotime analysis</span></a>
+  <a href="./25-AzimuthAnalysisPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Azimuth reference mapping reports</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./25-PseudotimeAnalysisPlots.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Pseudotime analysis</span></a>
   </div>
 </li>
       </ul>
@@ -375,14 +380,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-<li><a href="#setting-up-partitions-and-clusters" id="toc-setting-up-partitions-and-clusters" class="nav-link active" data-scroll-target="#setting-up-partitions-and-clusters"><span class="toc-section-number">26.1</span>  Setting up partitions and clusters</a></li>
-  <li><a href="#visualizing-the-trajectory-graph" id="toc-visualizing-the-trajectory-graph" class="nav-link" data-scroll-target="#visualizing-the-trajectory-graph"><span class="toc-section-number">26.2</span>  Visualizing the trajectory graph</a></li>
+<li><a href="#setting-up-partitions-and-clusters" id="toc-setting-up-partitions-and-clusters" class="nav-link active" data-scroll-target="#setting-up-partitions-and-clusters"><span class="toc-section-number">27.1</span>  Setting up partitions and clusters</a></li>
+  <li><a href="#visualizing-the-trajectory-graph" id="toc-visualizing-the-trajectory-graph" class="nav-link" data-scroll-target="#visualizing-the-trajectory-graph"><span class="toc-section-number">27.2</span>  Visualizing the trajectory graph</a></li>
   </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/enblacar/SCpubr/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <h1 class="title d-none d-lg-block">
-<span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Pseudotime analysis</span>
+<span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Pseudotime analysis</span>
 </h1>
 </div>
 
@@ -414,8 +419,8 @@ Attention:
 <p><em>In a general sense, we are working with a data set for which a given biological phenotype is expected. For this phenotype, we do have a list of genes that accurately characterize this process. The process needs to be of a differentiation kind, meaning that cells will transition based on this list of genes between state A and state B. Once these conditions are met, we can make use of the trajectory graph alongside enrichment scores for the cells in the list of genes. Depending whether this list of genes depict the start of the end of the process, we can use the cell with the highest or lowest enrichment scores as the starting point of the differentiation trajectory, ordering the rest of the cells based on that and computing the associated pseudotime.</em></p>
 <p>Of course, selecting the one cell with the highest or lowest enrichment scores might be a <em>simplistic</em> approach, as this elevated or low enrichment score might be due to technical bias. In order to correct this a bit, we first select the cluster (or selected group) that, in average, has the highest or lowest mean enrichment score and from this cluster we select the cell with the highest or lowest score, accordingly.</p>
 <p>Having this clear, again, we would like to remark that this is a very specific use case of this analysis and much more can be done using monocle3. Please have a look at their <a href="https://cole-trapnell-lab.github.io/monocle3/docs/trajectories/">vignette</a> for more information about pseudotime analysis. For our specific use case, <code>SCpubr::do_PseudotimePlot()</code> can be used.</p>
-<section id="setting-up-partitions-and-clusters" class="level2" data-number="26.1"><h2 data-number="26.1" class="anchored" data-anchor-id="setting-up-partitions-and-clusters">
-<span class="header-section-number">26.1</span> Setting up partitions and clusters</h2>
+<section id="setting-up-partitions-and-clusters" class="level2" data-number="27.1"><h2 data-number="27.1" class="anchored" data-anchor-id="setting-up-partitions-and-clusters">
+<span class="header-section-number">27.1</span> Setting up partitions and clusters</h2>
 <p>For this function to work, we need a Seurat object together with a Cell Data Set (CDS) object, that needs to be generated by <code><a href="https://rdrr.io/pkg/SeuratWrappers/man/as.cell_data_set.html">SeuratWrappers::as.cell_data_set()</a></code>.</p>
 <p>First thing to take into account is that monocle3 computes <em>partitions</em> and <em>clusters</em>. This is, when cells are too far away, the trajectory is disconnected, generating partitions with different start and end trajectories. We can tweak this process by forcing all of our data to be in a single partition or to keep as identities the group that we desire. This can be done by using <code>compute_monocle_partitions</code> and <code>compute_monocle_clusters</code> parameters.</p>
 <div class="cell" data-layout-align="center">
@@ -467,8 +472,8 @@ Attention:
 <span>                                 compute_monocle_clusters <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>                                 group.by <span class="op">=</span> <span class="st">"orig.ident"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="visualizing-the-trajectory-graph" class="level2" data-number="26.2"><h2 data-number="26.2" class="anchored" data-anchor-id="visualizing-the-trajectory-graph">
-<span class="header-section-number">26.2</span> Visualizing the trajectory graph</h2>
+</section><section id="visualizing-the-trajectory-graph" class="level2" data-number="27.2"><h2 data-number="27.2" class="anchored" data-anchor-id="visualizing-the-trajectory-graph">
+<span class="header-section-number">27.2</span> Visualizing the trajectory graph</h2>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Compute trajectory graph.</span></span>
 <span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu">do_PseudotimePlot</span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
@@ -794,7 +799,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./25-AzimuthAnalysisPlots.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Azimuth reference mapping reports</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Azimuth reference mapping reports</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

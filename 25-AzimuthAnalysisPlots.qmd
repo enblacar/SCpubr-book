@@ -237,7 +237,7 @@ out$report_portrait
 ```{r}
 #| fig-width: 28
 #| fig-height: 16
-#| fig-cap: "Basic Azimuth report - landscape with reference and custom grouping"
+#| fig-cap: "Basic Azimuth report - landscape with reference and custom colors"
 
 # Azimuth report - landscape with reference and custom colors.
 out$report_landscape

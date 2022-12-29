@@ -6,7 +6,7 @@ A very common approach to make sense of your cells is to query several list of m
 #| results: "asis"
 #| echo: false
 source("_common.R")
-library(Seurat)
+suppressMessages(library("Seurat"))
 ```
 
 ```{r}
@@ -45,7 +45,7 @@ p
 ::: callout-note
 ## Please note:
 
-In these cases, inverting the color scale with `viridis_direction = -1` is the best choice as makes it easir to identify dark colors in the heatmap and they stand out more than it would do when it comes to using light colors on dark background. 
+In these cases, inverting the color scale with `viridis_direction = -1` is the best choice as makes it easir to identify dark colors in the heatmap and they stand out more than it would do when it comes to using light colors on dark background.
 :::
 
 By default, `SCpubr::do_EnrichmentHeatmap` aggregates the values by the current identity. However, other metadata variables can be used to aggregate for. For this, provide the name to `group.by` parameter.
@@ -66,6 +66,7 @@ p
 ## Several groupoing variables
 
 However, more than one variable can be passsed at the same time to `group.by`:
+
 ```{r}
 #| fig-width: 8
 #| fig-height: 8
@@ -78,6 +79,7 @@ p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
                                   viridis_direction = -1)
 p
 ```
+
 One can also customize the group titles by providing as many characters as variables in `group.by` to `row_title`:
 
 ```{r}
@@ -95,6 +97,7 @@ p
 ```
 
 ## Transpose the heatmaps
+
 The heatmaps can be transposed using `flip = TRUE`.
 
 ```{r}
@@ -111,6 +114,7 @@ p
 ```
 
 ## Modify the rotation of row and column titles
+
 Both rows and column names can be rotated using `column_names_rot` and `row_names_rot` parameters, providing the desired angle.
 
 ```{r}

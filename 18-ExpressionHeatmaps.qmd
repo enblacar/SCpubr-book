@@ -249,8 +249,3 @@ p <- SCpubr::do_ExpressionHeatmap(sample = sample,
                                   assay = "my_new_assay")
 p
 ```
-
-
-
-
-

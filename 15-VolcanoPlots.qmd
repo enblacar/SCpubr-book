@@ -1,8 +1,9 @@
 # Volcano plots
 
-Perhaps one of the most known type of plots for bulk transcriptomics. By computing DE genes across two conditions, the results can be plotted as a volcano plot. This plot features the genes as dots, and places them in a scatter plot where the X axis contains the degree in which a gene is differentially expressed (average log2(FC)), while the Y axis shows the how significant the gene is (-log10(p-value adjusted)). 
+Perhaps one of the most known type of plots for bulk transcriptomics. By computing DE genes across two conditions, the results can be plotted as a volcano plot. This plot features the genes as dots, and places them in a scatter plot where the X axis contains the degree in which a gene is differentially expressed (average log2(FC)), while the Y axis shows the how significant the gene is (-log10(p-value adjusted)).
 
 ## Basic usage
+
 To generate such a plot, one can use `SCpubr::do_VolcanoPlot()`, which needs as input the Seurat object and the result of running `Seurat::FindMarkers()` choosing two groups.
 
 ```{r}
@@ -28,11 +29,7 @@ p <- SCpubr::do_VolcanoPlot(sample = sample,
 p
 ```
 
-As you can see, there are four major groups of genes:
-- Genes that surpass our p-value and logFC cutoffs (blue).
-- Genes that surpass the p-value cutoff but not the logFC cutoff (orange).
-- Genes that surpass the logFC cutoff but not the p-value cutoff (purple, not shown).
-- Genes that do not surpass any cutoff (green).
+As you can see, there are four major groups of genes: - Genes that surpass our p-value and logFC cutoffs (blue). - Genes that surpass the p-value cutoff but not the logFC cutoff (orange). - Genes that surpass the logFC cutoff but not the p-value cutoff (purple, not shown). - Genes that do not surpass any cutoff (green).
 
 ## Modify the cutoffss
 
@@ -52,6 +49,7 @@ p
 ```
 
 ## Modify the gene tags
+
 By default, the top 5 genes on each side, ordered by `-log10(p-value adjusted)` and `average log2(FC)` are reported. However, one can increase the number by using
 
 ```{r}
@@ -65,11 +63,3 @@ p <- SCpubr::do_VolcanoPlot(sample = sample,
                             n_genes = 15)
 p
 ```
-
-
-
-
-
-
-
-
