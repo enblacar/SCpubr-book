@@ -12,7 +12,7 @@ More often than not in a Single-Cell Transcriptomics analysis, one comes across 
 
 ## Basic usage
 
-The basic usage of this function will compute all the GO terms associated with the genes for the **Biological Process** ontology, and return all the matrices for all the levels as well as the individual heatmaps for each level plus a combined one with all of them. All of this is returned **as a list** object, that we can then navigate to obtain the plot/matrix that we want. We will also need a **database** object, such as the one provided by the [**org.Hs.eg.html**](https://bioconductor.org/packages/release/data/annotation/html/org.Hs.eg.db.html) package.
+The basic usage of this function will compute all the GO terms associated with the genes for the **Biological Process** ontology, and return all the matrices for all the levels as well as the individual heatmaps for each level plus a combined one with all of them. All of this is returned **as a list** object, that we can then navigate to obtain the plot/matrix that we want. We will also need a **database** object, such as the one provided by the [**org.Hs.eg.db**](https://bioconductor.org/packages/release/data/annotation/html/org.Hs.eg.db.html) package.
 
 ```{r}
 #| results: "asis"
@@ -39,7 +39,7 @@ head(out$Matrices$BP$`Lv. 3`)
 And this is the output combined heatmap:
 
 ```{r}
-#| fig-width: 14
+#| fig-width: 20
 #| fig-height: 6
 #| fig-cap: "Combined heatmap."
 

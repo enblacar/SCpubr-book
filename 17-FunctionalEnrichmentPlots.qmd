@@ -1,118 +1,148 @@
-# Term Enrichment Plots
+# Functional Annotation Analysis plots
 
-One key downstream analysis in Single Cell analysis revolves having a list of candidate genes (i.e: DE genes) and one wants to know whether these genes are enriched for a specific biological function, pathway or cell type. This can be easily done using the [enrichR package](https://github.com/wjawaid/enrichR), which is an R interface to their website, [Enrichr](https://maayanlab.cloud/Enrichr/). This package allows to query a list of genes to more than 100 databases and retrieve the terms that are enriched for the list of genes, together with an adjusted p-value. The output of this process can be used with `SCpubr::do_TermEnrichmentPlot()` for its visualization.
+::: callout-note
+## Please note:
 
-Here is an example of how to run *Enrichr* to get the object that we need for `SCpubr::do_TermEnrichmentPlot()`.
+`SCpubr::do_FunctionalAnnotationPlot()` will be available in the next CRAN release! (v1.1.0)
+:::
+
+A major analysis in Single-Cell transcriptomics, and subsequential to the previous chapter, is **Functional Annotation Analysis**. This allows to get more insights in a list of genes that we might have at hand, and retrieve a set of statistically enriched terms ([**GO**](http://geneontology.org/) terms, [**KEGG**](https://www.genome.jp/kegg/) terms) shared amongst the genes in the gene signature. For this purpose, **SCpubr** makes use of [**clusterProfiler**](https://bioconductor.org/packages/release/bioc/html/clusterProfiler.html) and [**enrichplot**](https://bioconductor.org/packages/release/bioc/html/enrichplot.html) packages together with some own plots to provide a set of comprehensive data visualization to understand the output of functional enrichment analyses using **clusterProfiler**. This can be accessed using `SCpubr::do_FunctionalAnnotationPlot()`.
+
+## Basic output
 
 ```{r}
 #| results: "asis"
 #| echo: false
 source("_common.R")
+suppressMessages(library("org.Hs.eg.db"))
+```
+
+The basic output of `SCpubr::do_FunctionalAnnotationPlot()`contains a list with several plots, and can be computed by providing the function with a list of genes and a **database** object, such as the one provided by the [**org.Hs.eg.db**](https://bioconductor.org/packages/release/data/annotation/html/org.Hs.eg.db.html) package:
+
+```{r}
+genes.use <- c("CCR7", "CD14", "LYZ", 
+           "S100A4", "MS4A1", 
+           "MS4A7", "GNLY", "NKG7", "FCER1A", 
+           "CST3", "PPBP")
+
+# Compute the grouped GO terms.
+out <- SCpubr::do_FunctionalAnnotationPlot(genes = genes.use,
+                                           org.db = org.Hs.eg.db)
+```
+This reports a list containing four complementary plots. The first, is a heatmap that contains the overlap between the genes and the term, the gene count and their corresponding adjusted p-value:
+
+```{r}
+#| fig-width: 12
+#| fig-height: 7
+#| fig-cap: "Heatmap of reported terms."
+
+# Retrieve the heatmap.
+out$Heatmap
+```
+
+Second, is a bar plot showing the enriched terms with the height of the bars corresponding to the gene count per term, and the color or the bars corresponding to the adjusted p-value associated to the terms:
+
+```{r}
+#| fig-width: 7
+#| fig-height: 7
+#| fig-cap: "Bar plot of reported terms."
+
+# Retrieve the Bar plot.
+out$BarPlot
+```
+
+Almost identical, we can also retrieve a Dot plot in which the size of the dots correspond to the number of genes supporting the term and the color to the adjusted p-value:
+
+```{r}
+#| fig-width: 10
+#| fig-height: 7
+#| fig-cap: "Dot plot of reported terms."
+
+# Retrieve the Dot plot.
+out$DotPlot
+```
+
+Finally, and thanks to [**enrichplot**](https://bioconductor.org/packages/release/bioc/html/enrichplot.html) package, we can also obtain a customized hierarchical visualization of the enriched terms called Tree plot:
+
+
+```{r}
+#| fig-width: 12
+#| fig-height: 7
+#| fig-cap: "Tree plot of reported terms."
+
+# Retrieve the Tree plot.
+out$TreePlot
+```
+We can control the number of clusters and the number of high-frequency words with `nClusters` and `nWords` parameters. Similarly, the total number of terms to display (if available), can be controlled using `showCategory` parameter.
+
+::: callout-note
+## Please note:
+
+The right-most labels refer to high frequency words, not to the GO terms on a level above. For more information please consult the [**official documentation for enrichplot package**](https://yulab-smu.top/biomedical-knowledge-mining-book/enrichplot.html#tree-plot)
+
+It can also be the case that the high frequency words and the clusters behave a bit wonky. This has been observed already but is also related entirely to enrichplot package and the number of clusters selected by `nClusters`. If you are experiencing problems with this, consider reducing the number of `nClusters`.
+:::
+
+## Limit the number of terms reported
+
+Similar to the previous chapter, we can decide whether we want more or less overlap between the genes for the reported terms using `min.overlap`:
+
+```{r}
+# Compute the grouped GO terms.
+out <- SCpubr::do_FunctionalAnnotationPlot(genes = genes.use,
+                                           org.db = org.Hs.eg.db,
+                                           min.overlap = 2)
 ```
 
 ```{r}
-#| echo: false
-enriched_terms <- readRDS(system.file("extdata/enriched_terms_example.rds", package = "SCpubr"))
-enriched_terms$GO_Cellular_Component_2021 <- NULL
-enriched_terms$Azimuth_Cell_Types_2021 <- NULL
+#| fig-width: 14
+#| fig-height: 9
+#| fig-cap: "Heatmap of reported terms."
+
+# Retrieve the heatmap.
+out$Heatmap
 ```
 
 ```{r}
-#| eval: false
+#| fig-width: 20
+#| fig-height: 7
+#| fig-cap: "Bar plot of reported terms."
 
-# Set necessary enrichR global options. This is copied from EnrichR code to avoid having to load the package.
-suppressMessages({
-  options(enrichR.base.address = "https://maayanlab.cloud/Enrichr/")
-  options(enrichR.live = TRUE)
-  options(modEnrichR.use = TRUE)
-  options(enrichR.sites.base.address = "https://maayanlab.cloud/")
-  options(enrichR.sites = c("Enrichr", "FlyEnrichr", "WormEnrichr", "YeastEnrichr", "FishEnrichr"))
-
-  # Set the search to Human genes.
-  enrichR::setEnrichrSite(site = "Enrichr")
-
-  websiteLive <- TRUE
-  dbs <- enrichR::listEnrichrDbs()
-  # Get all the possible databases to query.
-  dbs <- sort(dbs$libraryName)
-})
-
-# Choose the dataset to query against.
-dbs_use <- c("GO_Biological_Process_2021", 
-             "GO_Cellular_Component_2021", 
-             "Azimuth_Cell_Types_2021")
-
-# List of genes to use as input.
-genes <- c("ABCB1", "ABCG2", "AHR", "AKT1", "AR")
-
-# Retrieve the enriched terms.
-enriched_terms <- enrichR::enrichr(genes, dbs_use)
+# Retrieve the Bar and Dot plot.
+out$BarPlot | out$DotPlot
 ```
 
-For this chapter, we have generated the output for the previous code chunk. By default, `SCpubr::do_TermEnrichmentPlot()` returns a list with as many plots as databases were queried in Enrichr, or a single plot if only was used.
-
-Any of the previous option will return a list of plots. The plots can, then, be assembled together.
-
 ```{r}
-#| fig-width: 18
-#| fig-height: 18
-#| fig-cap: "Basic output."
+#| fig-width: 14
+#| fig-height: 7
+#| fig-cap: "Tree plot of reported terms."
 
-# Default plot.
-p <- SCpubr::do_TermEnrichmentPlot(enriched_terms = enriched_terms)
-p
+# Retrieve the Tree plot.
+out$TreePlot
 ```
 
-## Modifying the number of terms to retrieve.
 
-Depending on the focus of the analysis, we might want to only focus on one database but retrieve more terms from it. This can be achieved by using `nterms` parameter.
+## Compute the results for different databases
+
+We can also query other database apart from GO. KEGG and MKEGG are also available, and can be selected using `database` parameter:
 
 ```{r}
-#| fig-width: 18
-#| fig-height: 18
-#| fig-cap: "Increase the number of terms."
+genes.use <- c("IL7R", "CCR7", "CD14", "LYZ", 
+           "S100A4", "MS4A1", "CD8A", "FCGR3A", 
+           "MS4A7", "GNLY", "NKG7", "FCER1A", 
+           "CST3", "PPBP")
 
-# Increased number of terms.
-p <- SCpubr::do_TermEnrichmentPlot(enriched_terms = enriched_terms,
-                                   nterms = 15)
-p
+# Compute the grouped KEGG terms.
+out1 <- SCpubr::do_FunctionalAnnotationPlot(genes = genes.use,
+                                            org.db = org.Hs.eg.db,
+                                            database = "KEGG")
 ```
 
-## Modifying the length of the terms
-
-Another issue with these plots is that, normally, the term itself takes too much space. For this, terms are wrapped according to a cutoff defined in `nchar_wrap` parameter. If the term has more characters than the value provided, it will be split more or less in half, always preserving whole words.
-
 ```{r}
-#| fig-width: 18
-#| fig-height: 36
-#| fig-cap: "Control the length of the terms."
+#| fig-width: 10
+#| fig-height: 7
+#| fig-cap: "Dot plot of reported KEGG terms."
 
-# Control the length of the terms.
-p1 <- SCpubr::do_TermEnrichmentPlot(enriched_terms = enriched_terms,
-                                    nterms = 15)
-p2 <- SCpubr::do_TermEnrichmentPlot(enriched_terms = enriched_terms,
-                                    nterms = 15,
-                                    nchar_wrap = 30)
-p <- p1 / p2
-p
-```
-
-In the same way, one can further enhance the limit in order to have each term in just one row.
-
-## Increase the font size of the labels
-
-If you want to increase the font size of the labels - this is, anything that is not part of the legend or the titles, use `text_labels_size` parameter:
-
-```{r}
-#| fig-width: 18
-#| fig-height: 36
-#| fig-cap: "Modify the font size of the terms."
-
-# Modify font size of the terms.
-p1 <- SCpubr::do_TermEnrichmentPlot(enriched_terms = enriched_terms)
-p2 <- SCpubr::do_TermEnrichmentPlot(enriched_terms = enriched_terms,
-                                    text_labels_size = 6)
-
-p <- p1 / p2
-p
+# Retrieve the Bar and Dot plot.
+out1$DotPlot
 ```
