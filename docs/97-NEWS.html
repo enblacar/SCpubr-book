@@ -64,10 +64,10 @@ ul.task-list li input[type="checkbox"] {
 
 
 <meta property="og:title" content="SCpubr - News">
-<meta property="og:description" content="Here are the patch notes of the different versions: ## SCpubr v1.0.4 {.unnumbered} - Hotfix for v1.0.">
+<meta property="og:description" content="Here are the patch notes of the different versions:">
 <meta property="og:site-name" content="SCpubr">
 <meta name="twitter:title" content="SCpubr - News">
-<meta name="twitter:description" content="Here are the patch notes of the different versions: ## SCpubr v1.0.4 {.unnumbered} - Hotfix for v1.0.">
+<meta name="twitter:description" content="Here are the patch notes of the different versions:">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -337,28 +337,44 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#scpubr-v1.0.3" id="toc-scpubr-v1.0.3" class="nav-link active" data-scroll-target="#scpubr-v1.0.3">SCpubr v1.0.3</a>
+  <li><a href="#scpubr-v1.1.0" id="toc-scpubr-v1.1.0" class="nav-link active" data-scroll-target="#scpubr-v1.1.0">SCpubr v1.1.0</a>
   <ul class="collapse">
-  <li><a href="#general-changes" id="toc-general-changes" class="nav-link" data-scroll-target="#general-changes">General changes</a></li>
+  <li><a href="#general" id="toc-general" class="nav-link" data-scroll-target="#general">General</a></li>
+  <li><a href="#scpubrdo_beeswarmplot" id="toc-scpubrdo_beeswarmplot" class="nav-link" data-scroll-target="#scpubrdo_beeswarmplot"><code>SCpubr::do_BeeSwarmPlot()</code></a></li>
+  <li><a href="#scpubrdo_barplot" id="toc-scpubrdo_barplot" class="nav-link" data-scroll-target="#scpubrdo_barplot"><code>SCpubr::do_BarPlot()</code></a></li>
+  <li><a href="#scpubrdo_boxplot" id="toc-scpubrdo_boxplot" class="nav-link" data-scroll-target="#scpubrdo_boxplot"><code>SCpubr::do_BoxPlot()</code></a></li>
+  <li><a href="#scpubrdo_cellularstatesplot" id="toc-scpubrdo_cellularstatesplot" class="nav-link" data-scroll-target="#scpubrdo_cellularstatesplot"><code>SCpubr::do_CellularStatesPlot()</code></a></li>
+  <li><a href="#scpubrdo_correlationplot" id="toc-scpubrdo_correlationplot" class="nav-link" data-scroll-target="#scpubrdo_correlationplot"><code>SCpubr::do_CorrelationPlot()</code></a></li>
   <li><a href="#scpubrdo_dimplot" id="toc-scpubrdo_dimplot" class="nav-link" data-scroll-target="#scpubrdo_dimplot"><code>SCpubr::do_DimPlot()</code></a></li>
   <li><a href="#scpubrdo_enrichmentheatmap" id="toc-scpubrdo_enrichmentheatmap" class="nav-link" data-scroll-target="#scpubrdo_enrichmentheatmap"><code>SCpubr::do_EnrichmentHeatmap()</code></a></li>
   <li><a href="#scpubrdo_featureplot" id="toc-scpubrdo_featureplot" class="nav-link" data-scroll-target="#scpubrdo_featureplot"><code>SCpubr::do_FeaturePlot()</code></a></li>
+  <li><a href="#scpubrdo_groupwisedeplot" id="toc-scpubrdo_groupwisedeplot" class="nav-link" data-scroll-target="#scpubrdo_groupwisedeplot"><code>SCpubr::do_GroupwiseDEPlot()</code></a></li>
+  <li><a href="#scpubrdo_ligandreceptorplot" id="toc-scpubrdo_ligandreceptorplot" class="nav-link" data-scroll-target="#scpubrdo_ligandreceptorplot"><code>SCpubr::do_LigandReceptorPlot()</code></a></li>
+  <li><a href="#scpubrdo_violinplot" id="toc-scpubrdo_violinplot" class="nav-link" data-scroll-target="#scpubrdo_violinplot"><code>SCpubr::do_ViolinPlot()</code></a></li>
+  </ul></li>
+  <li><a href="#scpubr-v1.0.4" id="toc-scpubr-v1.0.4" class="nav-link" data-scroll-target="#scpubr-v1.0.4">SCpubr v1.0.4</a></li>
+  <li><a href="#scpubr-v1.0.3" id="toc-scpubr-v1.0.3" class="nav-link" data-scroll-target="#scpubr-v1.0.3">SCpubr v1.0.3</a>
+  <ul class="collapse">
+  <li><a href="#general-changes" id="toc-general-changes" class="nav-link" data-scroll-target="#general-changes">General changes</a></li>
+  <li><a href="#scpubrdo_dimplot-1" id="toc-scpubrdo_dimplot-1" class="nav-link" data-scroll-target="#scpubrdo_dimplot-1"><code>SCpubr::do_DimPlot()</code></a></li>
+  <li><a href="#scpubrdo_enrichmentheatmap-1" id="toc-scpubrdo_enrichmentheatmap-1" class="nav-link" data-scroll-target="#scpubrdo_enrichmentheatmap-1"><code>SCpubr::do_EnrichmentHeatmap()</code></a></li>
+  <li><a href="#scpubrdo_featureplot-1" id="toc-scpubrdo_featureplot-1" class="nav-link" data-scroll-target="#scpubrdo_featureplot-1"><code>SCpubr::do_FeaturePlot()</code></a></li>
   <li><a href="#scpubrdo_geyserplot" id="toc-scpubrdo_geyserplot" class="nav-link" data-scroll-target="#scpubrdo_geyserplot"><code>SCpubr::do_GeyserPlot()</code></a></li>
   <li><a href="#scpubrdo_ridgeplot" id="toc-scpubrdo_ridgeplot" class="nav-link" data-scroll-target="#scpubrdo_ridgeplot"><code>SCpubr::do_RidgePlot()</code></a></li>
-  <li><a href="#scpubrdo_violinplot" id="toc-scpubrdo_violinplot" class="nav-link" data-scroll-target="#scpubrdo_violinplot"><code>SCpubr::do_ViolinPlot()</code></a></li>
+  <li><a href="#scpubrdo_violinplot-1" id="toc-scpubrdo_violinplot-1" class="nav-link" data-scroll-target="#scpubrdo_violinplot-1"><code>SCpubr::do_ViolinPlot()</code></a></li>
   </ul></li>
   <li><a href="#scpubr-v1.0.2" id="toc-scpubr-v1.0.2" class="nav-link" data-scroll-target="#scpubr-v1.0.2">SCpubr v1.0.2</a>
   <ul class="collapse">
   <li><a href="#general-changes-1" id="toc-general-changes-1" class="nav-link" data-scroll-target="#general-changes-1">General changes</a></li>
   <li><a href="#scpubrdo_copynumbervariantplot" id="toc-scpubrdo_copynumbervariantplot" class="nav-link" data-scroll-target="#scpubrdo_copynumbervariantplot"><code>SCpubr::do_CopyNumberVariantPlot</code></a></li>
-  <li><a href="#scpubrdo_dimplot-1" id="toc-scpubrdo_dimplot-1" class="nav-link" data-scroll-target="#scpubrdo_dimplot-1"><code>SCpubr::do_DimPlot()</code></a></li>
+  <li><a href="#scpubrdo_dimplot-2" id="toc-scpubrdo_dimplot-2" class="nav-link" data-scroll-target="#scpubrdo_dimplot-2"><code>SCpubr::do_DimPlot()</code></a></li>
   <li><a href="#scpubrdo_dotplot" id="toc-scpubrdo_dotplot" class="nav-link" data-scroll-target="#scpubrdo_dotplot"><code>SCpubr::do_DotPlot()</code></a></li>
-  <li><a href="#scpubrdo_featureplot-1" id="toc-scpubrdo_featureplot-1" class="nav-link" data-scroll-target="#scpubrdo_featureplot-1"><code>SCpubr::do_FeaturePlot()</code></a></li>
+  <li><a href="#scpubrdo_featureplot-2" id="toc-scpubrdo_featureplot-2" class="nav-link" data-scroll-target="#scpubrdo_featureplot-2"><code>SCpubr::do_FeaturePlot()</code></a></li>
   <li><a href="#scpubrdo_geyserplot-1" id="toc-scpubrdo_geyserplot-1" class="nav-link" data-scroll-target="#scpubrdo_geyserplot-1"><code>SCpubr::do_GeyserPlot()</code></a></li>
-  <li><a href="#scpubrdo_groupwisedeplot" id="toc-scpubrdo_groupwisedeplot" class="nav-link" data-scroll-target="#scpubrdo_groupwisedeplot"><code>SCpubr::do_GroupwiseDEPlot()</code></a></li>
+  <li><a href="#scpubrdo_groupwisedeplot-1" id="toc-scpubrdo_groupwisedeplot-1" class="nav-link" data-scroll-target="#scpubrdo_groupwisedeplot-1"><code>SCpubr::do_GroupwiseDEPlot()</code></a></li>
   <li><a href="#scpubrdo_ligandreceptorplot-development-release" id="toc-scpubrdo_ligandreceptorplot-development-release" class="nav-link" data-scroll-target="#scpubrdo_ligandreceptorplot-development-release"><code>SCpubr::do_LigandReceptorPlot()</code> (development release)</a></li>
   <li><a href="#scpubrdo_ridgeplot-1" id="toc-scpubrdo_ridgeplot-1" class="nav-link" data-scroll-target="#scpubrdo_ridgeplot-1"><code>SCpubr::do_RidgePlot()</code></a></li>
-  <li><a href="#scpubrdo_violinplot-1" id="toc-scpubrdo_violinplot-1" class="nav-link" data-scroll-target="#scpubrdo_violinplot-1"><code>SCpubr::do_ViolinPlot()</code></a></li>
+  <li><a href="#scpubrdo_violinplot-2" id="toc-scpubrdo_violinplot-2" class="nav-link" data-scroll-target="#scpubrdo_violinplot-2"><code>SCpubr::do_ViolinPlot()</code></a></li>
   <li><a href="#scpubr-v1.0.2-dev-stable" id="toc-scpubr-v1.0.2-dev-stable" class="nav-link" data-scroll-target="#scpubr-v1.0.2-dev-stable">SCpubr v1.0.2-dev-stable</a></li>
   </ul></li>
   <li><a href="#scpubr-v1.0.1" id="toc-scpubr-v1.0.1" class="nav-link" data-scroll-target="#scpubr-v1.0.1">SCpubr v1.0.1</a>
@@ -393,7 +409,105 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Here are the patch notes of the different versions: ## SCpubr v1.0.4 {.unnumbered} - Hotfix for v1.0.3 in which <code>do_GeyserPlot</code> with categorical variables had a bug that mapped the legend to the continuous axis.</p>
+<p>Here are the patch notes of the different versions:</p>
+<section id="scpubr-v1.1.0" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="scpubr-v1.1.0">SCpubr v1.1.0</h2>
+<section id="general" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="general">General</h3>
+<ul>
+<li>Increased the cell size of all heatmap-based functions from 5 to 8.</li>
+<li>Decreased the thickness of frame and ticks of all ggplot2-based continuous legends to retrieve a similar behavior as in previous versions of ggplot2, as with the new update, the overall thickness of the frame and ticks increased, probably due to the changes related to <code>element_line</code>,</li>
+<li>Added five new functions: <code>do_AlluvialPlot()</code>, <code>do_AzimuthAnalysisPlot()</code>, <code>do_ExpressionHeatmap()</code>, <code>do_GroupedGOTermPlot()</code> and <code>do_FunctionalAnnotationPlot()</code>.</li>
+<li>Added <code>legend.ncol</code>, <code>legend.nrow</code>, <code>legend.title</code> and <code>legend.byrow</code> to as many functions as possible to further customize legend appearance.</li>
+</ul>
+</section>
+<section id="scpubrdo_beeswarmplot" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="scpubrdo_beeswarmplot"><code>SCpubr::do_BeeSwarmPlot()</code></h3>
+<ul>
+<li>Added <code>min.cutoff</code> and <code>max.cutoff</code> parameter.</li>
+<li>Added ticks to the plot, that were missing.</li>
+<li>Added missing axes titles.</li>
+<li>Added <code>viridis_direction</code> parameter to control how the continuous color scale is formed.</li>
+<li>Added <code>return_object</code> parameter to return the Seurat object with the enrichment scores computed.</li>
+<li>Added BoxPlots, BeeSwarmPlots and ViolinPlots to the possible outputs the user can choose from.</li>
+<li>Make <code>legend.position</code> conditional of whether <code>continuous_feature</code> is set to TRUE. If it is false, legend is not displayed unless the user specifies otherwise.</li>
+</ul>
+</section>
+<section id="scpubrdo_barplot" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="scpubrdo_barplot"><code>SCpubr::do_BarPlot()</code></h3>
+<ul>
+<li>Fixed a bug in which axes titles were not displaying correctly under certain combinations of <code>flip</code> and <code>split.by</code>.</li>
+<li>Fixed a bug in which <code>x_lab</code> and <code>y_lab</code> would not rotate accordingly when using <code>flip = TRUE</code>.</li>
+</ul>
+</section>
+<section id="scpubrdo_boxplot" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="scpubrdo_boxplot"><code>SCpubr::do_BoxPlot()</code></h3>
+<ul>
+<li>Set <code>assay</code> to NULL and will default to the default assay in the seurat object.</li>
+</ul>
+</section>
+<section id="scpubrdo_cellularstatesplot" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="scpubrdo_cellularstatesplot"><code>SCpubr::do_CellularStatesPlot()</code></h3>
+<ul>
+<li>Fixed a bug that prevented FeaturePlots to have symmetrical axes with respect to the main plot.</li>
+</ul>
+</section>
+<section id="scpubrdo_correlationplot" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="scpubrdo_correlationplot"><code>SCpubr::do_CorrelationPlot()</code></h3>
+<ul>
+<li>Added <code>viridis_direction</code> parameter.</li>
+</ul>
+</section>
+<section id="scpubrdo_dimplot" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="scpubrdo_dimplot"><code>SCpubr::do_DimPlot()</code></h3>
+<ul>
+<li>Fixed a bug in which the legend title will not show up in regular basic plots even though the parameter <code>legend.title</code> was used.</li>
+<li>Completely reformatted the way <code>split.by</code> works, so that now only one legend is displayed for the whole group and cells have border.</li>
+<li>Added <code>label.size</code> and <code>label.box</code> parameters for further customize the appearance of the plot when using <code>label = TRUE</code>.</li>
+<li>Changed <code>repel</code> to <code>FALSE</code> by default.</li>
+</ul>
+</section>
+<section id="scpubrdo_enrichmentheatmap" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="scpubrdo_enrichmentheatmap"><code>SCpubr::do_EnrichmentHeatmap()</code></h3>
+<ul>
+<li>Fixed a bug in the code that prevented the feature plots and the geyser plots to be computed if the input gene list was not a named list of genes.</li>
+<li>Added <code>flavor = "AUCell"</code>, that lets the user compute AUCell scoring of the gene sets.</li>
+<li>Added the option to query multiple <code>group.by</code> parameters at the same time.</li>
+<li>Fixed a bug in the code that prevented multiple outputs with different values of <code>group.by</code> to be returned properly, leading to the last value of <code>group.by</code> replacing all the rest.</li>
+</ul>
+</section>
+<section id="scpubrdo_featureplot" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="scpubrdo_featureplot"><code>SCpubr::do_FeaturePlot()</code></h3>
+<ul>
+<li>Added <code>label</code>, <code>label.size</code> and <code>label.color</code> parameter to reproduce the same behavior as in <code>Seurat::FeaturePlot()</code>.</li>
+</ul>
+</section>
+<section id="scpubrdo_groupwisedeplot" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="scpubrdo_groupwisedeplot"><code>SCpubr::do_GroupwiseDEPlot()</code></h3>
+<ul>
+<li>Set <code>assay</code> to NULL and will default to the default assay in the seurat object.</li>
+</ul>
+</section>
+<section id="scpubrdo_ligandreceptorplot" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="scpubrdo_ligandreceptorplot"><code>SCpubr::do_LigandReceptorPlot()</code></h3>
+<ul>
+<li>Added <code>arrange_interactions_by</code> to control how output interactions are arranged (either by aggreagate_rank, specificity, magnitude or a combination of magnitude and specificity).</li>
+<li>Added <code>sort_interactions_alphabetically</code> to control whether the output dotplot has the interactions ordered alphabetically or as they come in the original matrix (meaning, they follow the arrangement specified in <code>arrange_interactions_by</code>). ((<a href="https://github.com/saezlab/liana/issues/72">liana’s issue #72</a>))</li>
+</ul>
+</section>
+<section id="scpubrdo_violinplot" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="scpubrdo_violinplot"><code>SCpubr::do_ViolinPlot()</code></h3>
+<ul>
+<li>Fixed a bug in the code in which no different colors could be passed to <code>colors.use</code>.</li>
+</ul>
+</section>
+</section>
+<section id="scpubr-v1.0.4" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="scpubr-v1.0.4">SCpubr v1.0.4</h2>
+<ul>
+<li>Hotfix for v1.0.3 in which <code>do_GeyserPlot</code> with categorical variables had a bug that mapped the legend to the continuous axis.</li>
+</ul>
+</section>
 <section id="scpubr-v1.0.3" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="scpubr-v1.0.3">SCpubr v1.0.3</h2>
 <section id="general-changes" class="level3 unnumbered">
@@ -403,8 +517,8 @@ ul.task-list li input[type="checkbox"] {
 <li>Added <code>min.cutoff</code> and <code>max.cutoff</code> parameter to effectively subset the color scale and remove the effect of extreme outliers in all ggplot2-based functions susceptible to be biased by outliers.</li>
 </ul>
 </section>
-<section id="scpubrdo_dimplot" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="scpubrdo_dimplot"><code>SCpubr::do_DimPlot()</code></h3>
+<section id="scpubrdo_dimplot-1" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="scpubrdo_dimplot-1"><code>SCpubr::do_DimPlot()</code></h3>
 <ul>
 <li>Implemented a change in which when using <code>split.by</code> and <code>group.by</code> in combination, the cells colored on top of the UMAP also have a border.</li>
 <li>Implemented a bug-fix in which when using <code>split.by</code> and <code>group.by</code> in combination, the extra new layers would not raster if <code>raster = TRUE</code>.</li>
@@ -413,8 +527,8 @@ ul.task-list li input[type="checkbox"] {
 <li>Implemented the conditional use of <code>raster.dpi</code> to Seurat versions higher or equal to 4.1.0.</li>
 </ul>
 </section>
-<section id="scpubrdo_enrichmentheatmap" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="scpubrdo_enrichmentheatmap"><code>SCpubr::do_EnrichmentHeatmap()</code></h3>
+<section id="scpubrdo_enrichmentheatmap-1" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="scpubrdo_enrichmentheatmap-1"><code>SCpubr::do_EnrichmentHeatmap()</code></h3>
 <ul>
 <li>Implemented a bug fix for internal checks in the function.</li>
 <li>Added <code>plot_FeaturePlots</code> and <code>plot_GeyserPlots</code> to also report the enrichment scores in a gene set-based manner.</li>
@@ -422,8 +536,8 @@ ul.task-list li input[type="checkbox"] {
 <li>Renamed <code>symmetrical_scale</code> to <code>enforce_symmetry</code> to have a greater coherence accross functions.</li>
 </ul>
 </section>
-<section id="scpubrdo_featureplot" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="scpubrdo_featureplot"><code>SCpubr::do_FeaturePlot()</code></h3>
+<section id="scpubrdo_featureplot-1" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="scpubrdo_featureplot-1"><code>SCpubr::do_FeaturePlot()</code></h3>
 <ul>
 <li>Implemented a new feature to add density line contours using <code>plot_density_contour</code>.</li>
 <li>Implemented the conditional use of <code>raster.dpi</code> to Seurat versions higher or equal to 4.1.0.</li>
@@ -442,8 +556,8 @@ ul.task-list li input[type="checkbox"] {
 <li>Implemented a bug-fix in which using <code>assay = "RNA"</code> or, in fact, any other assay rather than <code>SCT</code> will result in an error.</li>
 </ul>
 </section>
-<section id="scpubrdo_violinplot" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="scpubrdo_violinplot"><code>SCpubr::do_ViolinPlot()</code></h3>
+<section id="scpubrdo_violinplot-1" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="scpubrdo_violinplot-1"><code>SCpubr::do_ViolinPlot()</code></h3>
 <ul>
 <li>Corrected a bug in which legend title when using <code>split.by</code> was an actual line of code.</li>
 <li>Added <code>legend.title</code> parameter to control the title of the legend.</li>
@@ -475,8 +589,8 @@ ul.task-list li input[type="checkbox"] {
 <li>Include the <code>verbose</code> argument to <code>SCpubr::do_CopyNumberVariantPlot</code> to silence the messages when there are not enough genes in the chromosome to perform the analysis.</li>
 </ul>
 </section>
-<section id="scpubrdo_dimplot-1" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="scpubrdo_dimplot-1"><code>SCpubr::do_DimPlot()</code></h3>
+<section id="scpubrdo_dimplot-2" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="scpubrdo_dimplot-2"><code>SCpubr::do_DimPlot()</code></h3>
 <ul>
 <li>Fixed a typo that prevented labels to be bold in <code>SCpubr::do_DimPlot()</code> when cell borders are displayed.</li>
 <li>Added <code>group.by</code> and <code>split.by</code> functionality to <code>SCpubr::do_DimPlot()</code>. (<a href="https://github.com/enblacar/SCpubr/issues/4">#4</a>)</li>
@@ -489,8 +603,8 @@ ul.task-list li input[type="checkbox"] {
 <li>Modified default colors to convey a better aesthetic.</li>
 </ul>
 </section>
-<section id="scpubrdo_featureplot-1" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="scpubrdo_featureplot-1"><code>SCpubr::do_FeaturePlot()</code></h3>
+<section id="scpubrdo_featureplot-2" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="scpubrdo_featureplot-2"><code>SCpubr::do_FeaturePlot()</code></h3>
 <ul>
 <li>Fixed potential bugs in <code>SCpubr::do_FeaturePlot</code> when setting <code>enforce_symmetry = TRUE</code>.</li>
 <li>Changed default value of <code>order</code> in <code>SCpubr::do_FeaturePlot()</code> from <code>TRUE</code> to <code>FALSE</code>.</li>
@@ -503,8 +617,8 @@ ul.task-list li input[type="checkbox"] {
 <li>Added <code>flip</code> parameter.</li>
 </ul>
 </section>
-<section id="scpubrdo_groupwisedeplot" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="scpubrdo_groupwisedeplot"><code>SCpubr::do_GroupwiseDEPlot()</code></h3>
+<section id="scpubrdo_groupwisedeplot-1" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="scpubrdo_groupwisedeplot-1"><code>SCpubr::do_GroupwiseDEPlot()</code></h3>
 <ul>
 <li>Fixed bug in <code>SCpubr::do_GroupwiseDEPlot</code> in which the heatmap could not be computed. (<a href="https://github.com/enblacar/SCpubr/issues/3">#3</a>)</li>
 <li>Added extra checks to ensure proper input in <code>SCpubr::do_GroupwiseDEPlot</code>. (<a href="https://github.com/enblacar/SCpubr/issues/3">#3</a>)</li>
@@ -523,8 +637,8 @@ ul.task-list li input[type="checkbox"] {
 <li>Added <code>flip</code> parameter.</li>
 </ul>
 </section>
-<section id="scpubrdo_violinplot-1" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="scpubrdo_violinplot-1"><code>SCpubr::do_ViolinPlot()</code></h3>
+<section id="scpubrdo_violinplot-2" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="scpubrdo_violinplot-2"><code>SCpubr::do_ViolinPlot()</code></h3>
 <ul>
 <li>Added <code>split.by</code> functionality to <code>SCpubr::do_ViolinPlot()</code>. (<a href="https://github.com/enblacar/SCpubr/issues/4">#4</a>, <a href="https://github.com/enblacar/SCpubr/issues/5">#5</a>)</li>
 <li>Added <code>flip</code> parameter.</li>
