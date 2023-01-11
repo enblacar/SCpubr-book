@@ -33,6 +33,7 @@ cran_packages <- c("assertthat",
                    "ggbeeswarm",
                    "ggdist",
                    "ggExtra",
+                   "ggnewscale",
                    "ggplot2",
                    "ggplotify",
                    "ggrastr",
@@ -60,9 +61,13 @@ cran_packages <- c("assertthat",
 install.packages(cran_packages)
 
 # Install bioconductor packages.
-bioconductor_packages <- c("ComplexHeatmap",
+bioconductor_packages <- c("AUCell",
+                           "ComplexHeatmap",
+                           "clusterProfiler",
+                           "enrichplot",
                            "infercnv",
-                           "Nebulosa")
+                           "Nebulosa",
+                           "UCell")
 if (!require("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
 
