@@ -39,7 +39,7 @@ head(out$Matrices$BP$`Lv. 3`)
 And this is the output combined heatmap:
 
 ```{r}
-#| fig-width: 24
+#| fig-width: 22
 #| fig-height: 6
 #| fig-cap: "Combined heatmap."
 
@@ -49,14 +49,14 @@ out$Plots$BP$Combined
 ::: callout-note
 ## Please note:
 
-This function might take a while to compute, specially for the **Biological Process** ontology. If you are running it interactively, conside passing `verbose = TRUE` to see the process.
+This function might take a while to compute, specially for the **Biological Process** ontology. If you are running it interactively, consider passing `verbose = TRUE` to see the process.
 :::
 
 ## Control the clustering of the rows and columns
 By default, both rows and columns are clustered to group the terms together. If one wants to customize this behaviour, we just need to pass `cluster_cols = FALSE` or `cluster_rows = FALSE` to the function:
 
 ```{r}
-#| fig-width: 14
+#| fig-width: 22
 #| fig-height: 6
 #| fig-cap: "Control the clustering of rows and columns."
 
