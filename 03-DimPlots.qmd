@@ -109,12 +109,6 @@ p
 
 ## Label the clusters
 
-::: callout-note
-## Please note:
-
-This feature will be available in the next CRAN release! (v1.1.0)
-:::
-
 In some cases, especially early on in the analysis where we do only have numbers as cluster names, we might want to remove the legend entirely, and instead plot labels on top of each cluster. This is achieved by using `label = TRUE`.
 
 ```{r}

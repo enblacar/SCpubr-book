@@ -141,7 +141,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">SCpubr </a><a href="https://github.com/enblacar/SCpubr/blob/main/NEWS.md"><code>v1.0.4</code></a> 
+      <a href="./">SCpubr </a><a href="https://github.com/enblacar/SCpubr/blob/main/NEWS.md"><code>v1.1.0</code></a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/enblacar/SCpubr/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
 </div>
@@ -416,11 +416,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Seurat's dot plot.</span></span>
-<span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">Seurat</span><span class="fu">::</span><span class="fu"><a href="https://satijalab.org/seurat/reference/DotPlot.html">DotPlot</a></span><span class="op">(</span><span class="va">sample</span>, </span>
-<span>                      features <span class="op">=</span> <span class="st">"CD14"</span><span class="op">)</span></span>
-<span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">Seurat</span><span class="fu">::</span><span class="fu"><a href="https://satijalab.org/seurat/reference/DotPlot.html">DotPlot</a></span><span class="op">(</span><span class="va">sample</span>, </span>
-<span>                      features <span class="op">=</span> <span class="st">"nCount_RNA"</span><span class="op">)</span></span>
-<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">Seurat</span><span class="fu">::</span><span class="fu"><a href="https://satijalab.org/seurat/reference/DotPlot.html">DotPlot</a></span><span class="op">(</span><span class="va">sample</span>, </span>
+<span>                     features <span class="op">=</span> <span class="st">"CD14"</span><span class="op">)</span></span>
 <span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -433,11 +430,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>As can be seen, if we try to plot other type of variables, the resulting plot will not contain a color scale. <code><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">SCpubr::do_DimPlot()</a></code> focuses on enhancing the overall appearance of the plots. Implementation using other types of features is not currently supported. This is how it looks using <code><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">SCpubr::do_DimPlot()</a></code>:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># SCpubr's dot plot.</span></span>
-<span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DotPlot.html">do_DotPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
-<span>                         features <span class="op">=</span> <span class="st">"CD14"</span><span class="op">)</span></span>
-<span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DotPlot.html">do_DotPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
-<span>                         features <span class="op">=</span> <span class="st">"nFeature_RNA"</span><span class="op">)</span></span>
-<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DotPlot.html">do_DotPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>, </span>
+<span>                        features <span class="op">=</span> <span class="st">"CD14"</span><span class="op">)</span></span>
 <span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">

@@ -13,12 +13,6 @@ sample <- readRDS("/b06x-isilon/b06x-g/G703/eblanco/projects/test_SC_datasets/sc
 library(dplyr)
 ```
 
-::: callout-note
-## Please note:
-
-`SCpubr::do_AlluvialPlot()` will be available in the next CRAN release! (v1.1.0)
-:::
-
 Alluvial plots are a set of visualizations that help depicting how the cells "flow" from a given group to another. This can be particular interesting, let's say, when we have a merged dataset that has samples from different subtypes and we want to see how the cells from each subtype distribute along the different clusters in our sample. Or, similarly, how the cells from each cluster distribute across the different individual datasets. \## Basic usage
 
 The most basic Alluvial plot can be achieved by using:

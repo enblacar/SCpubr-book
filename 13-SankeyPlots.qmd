@@ -3,13 +3,13 @@
 ::: callout-important
 ## Please note:
 
-`SCpubr::do_SankeyPlot()` has been replaced by `SCpubr::do_AlluvialPlot()`, which will make its way to the official release in v1.1.0. Therefore, `SCpubr::do_SankeyPlot()` will be discontinued.
+`SCpubr::do_SankeyPlot()` is discontinued and will be removed from SCpubr in the following version. Please consider using `SCpubr::do_AlluvialPlot()` instead.
 :::
 
 ::: callout-warning
 ## Please note:
 
-Due to CRAN policies, this function could not make it to the **official release** and is only available in the **development release** of **SCpubr**. Find how to install it [**here**](https://github.com/enblacar/SCpubr/releases/tag/v1.0.4-dev-stable).
+Due to CRAN policies, this function could not make it to the **official release** and is only available in the **development release** of **SCpubr**. Find how to install it [**here**](https://github.com/enblacar/SCpubr/releases/tag/v1.1.0-dev-stable).
 :::
 
 ```{r}

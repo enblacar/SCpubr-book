@@ -12,16 +12,9 @@ sample <- readRDS("/b06x-isilon/b06x-g/G703/eblanco/projects/test_SC_datasets/sc
 library(dplyr)
 ```
 
-::: callout-note
-## Please note:
-
-`SCpubr::do_AzimuthAnalysisPlot()` will be available in the next CRAN release! (v1.1.0)
-:::
-
 Reference mapping has become a very handy tool in our disposal to assess the identity of our clusters. This normally works by using a dataset as a reference (normally, a single-cell atlas), and projecting our cells onto the atlas. Out of the many tools available to perform such analyses, [Azimuth](https://azimuth.hubmapconsortium.org/) is one worth noting. Developed by the **Seurat** team, it perfectly integrates and works with Seurat objects.
 
-Running `Azimuth` requires some preparation, and the results can be a bit complex to interpret at first glance. To cover this need,  one can use `SCpubr::do_AzimuthAnalysisPlot()`. This function requires as input the `output Seurat object` resulting of running Azimuth in R (not in their interactive website). Here is a piece of code to get a suitable input:
-
+Running `Azimuth` requires some preparation, and the results can be a bit complex to interpret at first glance. To cover this need, one can use `SCpubr::do_AzimuthAnalysisPlot()`. This function requires as input the `output Seurat object` resulting of running Azimuth in R (not in their interactive website). Here is a piece of code to get a suitable input:
 
 ```{r}
 #| eval: false
@@ -58,20 +51,20 @@ The basic analysis that can be carried out from `Azimuth`'s output goes as follo
 
 Azimuth provides an `annotation score` as well as a `mapping score`. Both have a meaning and are perfectly explained [in their website](https://azimuth.hubmapconsortium.org/). From there:
 
-> **Prediction scores**: Cell prediction scores range from 0 to 1 and reflect the confidence associated with each annotation. Cells with high-confidence annotations (for example, prediction scores > 0.75) reflect predictions that are supported by mulitple consistent anchors. Prediction scores can be visualized on the Feature Plots tab, or downloaded on the Download Results tab. The prediction depends on the specific annotation for each cell. Therefore, if you are mapping cells at multiple levels of resolution (for example level 1/2/3 annotations in the Human PBMC reference), each level will be associated with a different prediction score.
+> **Prediction scores**: Cell prediction scores range from 0 to 1 and reflect the confidence associated with each annotation. Cells with high-confidence annotations (for example, prediction scores \> 0.75) reflect predictions that are supported by mulitple consistent anchors. Prediction scores can be visualized on the Feature Plots tab, or downloaded on the Download Results tab. The prediction depends on the specific annotation for each cell. Therefore, if you are mapping cells at multiple levels of resolution (for example level 1/2/3 annotations in the Human PBMC reference), each level will be associated with a different prediction score.
 
-> **Mapping scores**: This value from 0 to 1 reflects confidence that this cell is well represented by the reference. The “mapping.score” column is available to plot in the Feature Plots tab, and is provided in the download TSV file. The mapping score is independent of a specific annotation, is calculated using the MappingScore function in Seurat, and reflects how well the unique structure of a cell’s local neighborhood is preserved during reference mapping.
+> **Mapping scores**: This value from 0 to 1 reflects confidence that this cell is well represented by the reference. The "mapping.score" column is available to plot in the Feature Plots tab, and is provided in the download TSV file. The mapping score is independent of a specific annotation, is calculated using the MappingScore function in Seurat, and reflects how well the unique structure of a cell's local neighborhood is preserved during reference mapping.
 
-This means, that depending on how strict we want to be in our analyses, we can set a cutoff for either of the scores (or both). This is defined in `SCpubr::do_AzimuthAnalysisPlot()` by  the parameters `mapping.cutoff` (for the mapping scores) and `annotation.cutoff` (for the annotation scores). The cells that do not surpass the cutoffs will turn into NA for the plotting, as Azimuth will always give a labelling to each of the cells regardless of the mapping and annotation scores.
+This means, that depending on how strict we want to be in our analyses, we can set a cutoff for either of the scores (or both). This is defined in `SCpubr::do_AzimuthAnalysisPlot()` by the parameters `mapping.cutoff` (for the mapping scores) and `annotation.cutoff` (for the annotation scores). The cells that do not surpass the cutoffs will turn into NA for the plotting, as Azimuth will always give a labelling to each of the cells regardless of the mapping and annotation scores.
 
 Then, in order to run `SCpubr::do_AzimuthAnalysisPlot()` one needs to provide:
 
-- The Seurat object that has undergone `Azimuth::RunAzimuth()`.
-- The name of the **metadata column** that stores the **annotation** (to `annotation.labels`).
-- The name of the **metadata column** that stores the **annotation scores** (to `annotation.scoring`).
-- The name of the **metadata column** that stores the **mapping scores** (to `mapping.scoring`).
-- The **cutoff** for the **annotation scores** (0.75 by default).
-- The **cutoff** for the **mapping scores** (0 by default).
+-   The Seurat object that has undergone `Azimuth::RunAzimuth()`.
+-   The name of the **metadata column** that stores the **annotation** (to `annotation.labels`).
+-   The name of the **metadata column** that stores the **annotation scores** (to `annotation.scoring`).
+-   The name of the **metadata column** that stores the **mapping scores** (to `mapping.scoring`).
+-   The **cutoff** for the **annotation scores** (0.75 by default).
+-   The **cutoff** for the **mapping scores** (0 by default).
 
 As follows:
 
@@ -83,19 +76,17 @@ out <- SCpubr::do_AzimuthAnalysisPlot(sample = sample,
                                       font.size = 18)
 ```
 
-
 By default, it will generate a list of objects, that contain:
 
-- A vector of the resulting annotation (to use or store).
-- A **FeaturePlot** of the mapping scores.
-- A **FeaturePlot** of the annotation scores.
-- A **DimPlot** of the current annotation (or whatever metadata annotaiton provided to `group.by`).
-- A **DimPlot** of the inferred annotation.
-- A **DimPlot** of our queried cells in the reference UMAP.
-- A **stacked BarPlot** showing the proportion of the different datasets of origin (stored in `orig.ident`) across the current annotation. This is specially useful in merged tumor datasets in which the tumor microenvironment clustes will merge together in single clusters while the tumor cells from each individual datasets will form single clusters. Otherwise, this plot will be very little informative.
-- A **stacked BarPlo**t showing the proportion of the inferred annotation in each of our original clusters.
-- A **report** containing all of the above plots in **landscape** and **portrait** formats.
-
+-   A vector of the resulting annotation (to use or store).
+-   A **FeaturePlot** of the mapping scores.
+-   A **FeaturePlot** of the annotation scores.
+-   A **DimPlot** of the current annotation (or whatever metadata annotaiton provided to `group.by`).
+-   A **DimPlot** of the inferred annotation.
+-   A **DimPlot** of our queried cells in the reference UMAP.
+-   A **stacked BarPlot** showing the proportion of the different datasets of origin (stored in `orig.ident`) across the current annotation. This is specially useful in merged tumor datasets in which the tumor microenvironment clustes will merge together in single clusters while the tumor cells from each individual datasets will form single clusters. Otherwise, this plot will be very little informative.
+-   A **stacked BarPlo**t showing the proportion of the inferred annotation in each of our original clusters.
+-   A **report** containing all of the above plots in **landscape** and **portrait** formats.
 
 Let's have a look at the report:
 
@@ -108,7 +99,6 @@ Let's have a look at the report:
 out$report_portrait
 ```
 
-
 ```{r}
 #| fig-width: 28
 #| fig-height: 16
@@ -118,8 +108,8 @@ out$report_portrait
 out$report_landscape
 ```
 
-
 ## Add the reference dataset to the report
+
 As can be observed, there is an empty space in the report. This is meant to be filled by a UMAP of the original reference, if we happen to have the original object at hand. In the cases of the datasets installed using `SeuratData`, one can retrieve them as:
 
 ```{r}
@@ -137,6 +127,7 @@ The path to this object varies from package to package and also depends on the u
 :::
 
 Then, we can provide the reference object using `ref.obj` parameter and it is also highly recommended to provided the UMAP dimensional reduction name, which in this case is `refUMAP`, but also can vary from dataset to dataset. The names can be checked using `Seurat::Reductions(sample)` and the name has to be fed to `ref.reduction` parameter, as such:
+
 ```{r}
 # Generate an Azimuth report with the reference object.
 out <- SCpubr::do_AzimuthAnalysisPlot(sample = sample,
@@ -165,8 +156,7 @@ out$report_portrait
 out$report_landscape
 ```
 
-As can be observed, a new **DimPlot** with the original UMAP is now displayed at the top left of the report. What is more interesting, since now we have the original UMAP coordinates, we can also project the UMAP silhouette onto the UMAP **where our cells in the reference UMAP** were shown, so we have a better understanding of where exactly in the UMAP they are actually located. 
-
+As can be observed, a new **DimPlot** with the original UMAP is now displayed at the top left of the report. What is more interesting, since now we have the original UMAP coordinates, we can also project the UMAP silhouette onto the UMAP **where our cells in the reference UMAP** were shown, so we have a better understanding of where exactly in the UMAP they are actually located.
 
 ## Use custom grouping
 
@@ -205,8 +195,7 @@ out$report_landscape
 
 ## Use custom colors
 
-Finally, as usual, we can provide our custom color scheme to the DimPlots using `colors.use` and to the FeaturePlots using `viridis_color_map` and `viridis_direction`: 
-
+Finally, as usual, we can provide our custom color scheme to the DimPlots using `colors.use` and to the FeaturePlots using `viridis_color_map` and `viridis_direction`:
 
 ```{r}
 # Generate an Azimuth report with a custom grouping.

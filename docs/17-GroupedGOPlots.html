@@ -141,7 +141,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">SCpubr </a><a href="https://github.com/enblacar/SCpubr/blob/main/NEWS.md"><code>v1.0.4</code></a> 
+      <a href="./">SCpubr </a><a href="https://github.com/enblacar/SCpubr/blob/main/NEWS.md"><code>v1.1.0</code></a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/enblacar/SCpubr/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
 </div>
@@ -414,20 +414,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
   
 
-</header><div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Please note:
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><code><a href="https://rdrr.io/pkg/SCpubr/man/do_GroupedGOTermPlot.html">SCpubr::do_GroupedGOTermPlot()</a></code> will be available in the next CRAN release! (v1.1.0)</p>
-</div>
-</div>
-<p>More often than not in a Single-Cell Transcriptomics analysis, one comes across a list of genes. This might be the result of computing Differentially Expressed genes, running Non-Negative Matrix Factorization, for instance. In order to get a sense of what the role that the genes in the list play, we can make use of <a href="https://bioconductor.org/packages/release/bioc/html/clusterProfiler.html"><strong>clusterProfiler</strong></a> package. This package has, among other incredible functions, one called <code>groupGO()</code>, which outputs a matrix of the GO terms associated with the genes in the list, across the different GO ontologies and levels.</p>
+</header><p>More often than not in a Single-Cell Transcriptomics analysis, one comes across a list of genes. This might be the result of computing Differentially Expressed genes, running Non-Negative Matrix Factorization, for instance. In order to get a sense of what the role that the genes in the list play, we can make use of <a href="https://bioconductor.org/packages/release/bioc/html/clusterProfiler.html"><strong>clusterProfiler</strong></a> package. This package has, among other incredible functions, one called <code>groupGO()</code>, which outputs a matrix of the GO terms associated with the genes in the list, across the different GO ontologies and levels.</p>
 <p><code>SCpubr</code>makes use of these output matrices and represent them as heatmaps with the <code><a href="https://rdrr.io/pkg/SCpubr/man/do_GroupedGOTermPlot.html">SCpubr::do_GroupedGOTermPlot()</a></code> function.</p>
 <section id="basic-usage" class="level2" data-number="16.1"><h2 data-number="16.1" class="anchored" data-anchor-id="basic-usage">
 <span class="header-section-number">16.1</span> Basic usage</h2>
@@ -487,7 +474,7 @@ Please note:
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This function might take a while to compute, specially for the <strong>Biological Process</strong> ontology. If you are running it interactively, conside passing <code>verbose = TRUE</code> to see the process.</p>
+<p>This function might take a while to compute, specially for the <strong>Biological Process</strong> ontology. If you are running it interactively, consider passing <code>verbose = TRUE</code> to see the process.</p>
 </div>
 </div>
 </section><section id="control-the-clustering-of-the-rows-and-columns" class="level2" data-number="16.2"><h2 data-number="16.2" class="anchored" data-anchor-id="control-the-clustering-of-the-rows-and-columns">

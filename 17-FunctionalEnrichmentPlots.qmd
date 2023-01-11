@@ -1,11 +1,5 @@
 # Functional Annotation Analysis plots
 
-::: callout-note
-## Please note:
-
-`SCpubr::do_FunctionalAnnotationPlot()` will be available in the next CRAN release! (v1.1.0)
-:::
-
 A major analysis in Single-Cell transcriptomics, and subsequential to the previous chapter, is **Functional Annotation Analysis**. This allows to get more insights in a list of genes that we might have at hand, and retrieve a set of statistically enriched terms ([**GO**](http://geneontology.org/) terms, [**KEGG**](https://www.genome.jp/kegg/) terms) shared amongst the genes in the gene signature. For this purpose, **SCpubr** makes use of [**clusterProfiler**](https://bioconductor.org/packages/release/bioc/html/clusterProfiler.html) and [**enrichplot**](https://bioconductor.org/packages/release/bioc/html/enrichplot.html) packages together with some own plots to provide a set of comprehensive data visualization to understand the output of functional enrichment analyses using **clusterProfiler**. This can be accessed using `SCpubr::do_FunctionalAnnotationPlot()`.
 
 ## Basic output

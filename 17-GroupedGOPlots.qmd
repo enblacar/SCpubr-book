@@ -1,11 +1,5 @@
 # Grouped GO Term analysis plots
 
-::: callout-note
-## Please note:
-
-`SCpubr::do_GroupedGOTermPlot()` will be available in the next CRAN release! (v1.1.0)
-:::
-
 More often than not in a Single-Cell Transcriptomics analysis, one comes across a list of genes. This might be the result of computing Differentially Expressed genes, running Non-Negative Matrix Factorization, for instance. In order to get a sense of what the role that the genes in the list play, we can make use of [**clusterProfiler**](https://bioconductor.org/packages/release/bioc/html/clusterProfiler.html) package. This package has, among other incredible functions, one called `groupGO()`, which outputs a matrix of the GO terms associated with the genes in the list, across the different GO ontologies and levels. 
 
 `SCpubr`makes use of these output matrices and represent them as heatmaps with the `SCpubr::do_GroupedGOTermPlot()` function. 

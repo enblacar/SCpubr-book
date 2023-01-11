@@ -141,7 +141,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">SCpubr </a><a href="https://github.com/enblacar/SCpubr/blob/main/NEWS.md"><code>v1.0.4</code></a> 
+      <a href="./">SCpubr </a><a href="https://github.com/enblacar/SCpubr/blob/main/NEWS.md"><code>v1.1.0</code></a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/enblacar/SCpubr/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
 </div>
@@ -407,20 +407,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
   
 
-</header><div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Please note:
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><code><a href="https://rdrr.io/pkg/SCpubr/man/do_FunctionalAnnotationPlot.html">SCpubr::do_FunctionalAnnotationPlot()</a></code> will be available in the next CRAN release! (v1.1.0)</p>
-</div>
-</div>
-<p>A major analysis in Single-Cell transcriptomics, and subsequential to the previous chapter, is <strong>Functional Annotation Analysis</strong>. This allows to get more insights in a list of genes that we might have at hand, and retrieve a set of statistically enriched terms (<a href="http://geneontology.org/"><strong>GO</strong></a> terms, <a href="https://www.genome.jp/kegg/"><strong>KEGG</strong></a> terms) shared amongst the genes in the gene signature. For this purpose, <strong>SCpubr</strong> makes use of <a href="https://bioconductor.org/packages/release/bioc/html/clusterProfiler.html"><strong>clusterProfiler</strong></a> and <a href="https://bioconductor.org/packages/release/bioc/html/enrichplot.html"><strong>enrichplot</strong></a> packages together with some own plots to provide a set of comprehensive data visualization to understand the output of functional enrichment analyses using <strong>clusterProfiler</strong>. This can be accessed using <code><a href="https://rdrr.io/pkg/SCpubr/man/do_FunctionalAnnotationPlot.html">SCpubr::do_FunctionalAnnotationPlot()</a></code>.</p>
+</header><p>A major analysis in Single-Cell transcriptomics, and subsequential to the previous chapter, is <strong>Functional Annotation Analysis</strong>. This allows to get more insights in a list of genes that we might have at hand, and retrieve a set of statistically enriched terms (<a href="http://geneontology.org/"><strong>GO</strong></a> terms, <a href="https://www.genome.jp/kegg/"><strong>KEGG</strong></a> terms) shared amongst the genes in the gene signature. For this purpose, <strong>SCpubr</strong> makes use of <a href="https://bioconductor.org/packages/release/bioc/html/clusterProfiler.html"><strong>clusterProfiler</strong></a> and <a href="https://bioconductor.org/packages/release/bioc/html/enrichplot.html"><strong>enrichplot</strong></a> packages together with some own plots to provide a set of comprehensive data visualization to understand the output of functional enrichment analyses using <strong>clusterProfiler</strong>. This can be accessed using <code><a href="https://rdrr.io/pkg/SCpubr/man/do_FunctionalAnnotationPlot.html">SCpubr::do_FunctionalAnnotationPlot()</a></code>.</p>
 <section id="basic-output" class="level2" data-number="17.1"><h2 data-number="17.1" class="anchored" data-anchor-id="basic-output">
 <span class="header-section-number">17.1</span> Basic output</h2>
 <p>The basic output of <code><a href="https://rdrr.io/pkg/SCpubr/man/do_FunctionalAnnotationPlot.html">SCpubr::do_FunctionalAnnotationPlot()</a></code>contains a list with several plots, and can be computed by providing the function with a list of genes and a <strong>database</strong> object, such as the one provided by the <a href="https://bioconductor.org/packages/release/data/annotation/html/org.Hs.eg.db.html"><strong>org.Hs.eg.db</strong></a> package:</p>

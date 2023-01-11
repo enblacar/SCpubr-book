@@ -21,11 +21,8 @@ sample <- readRDS("/b06x-isilon/b06x-g/G703/eblanco/projects/test_SC_datasets/sc
 #| fig-cap: "Seurat DotPlot."
 
 # Seurat's dot plot.
-p1 <- Seurat::DotPlot(sample, 
-                      features = "CD14")
-p2 <- Seurat::DotPlot(sample, 
-                      features = "nCount_RNA")
-p <- p1 | p2
+p <- Seurat::DotPlot(sample, 
+                     features = "CD14")
 p
 ```
 
@@ -37,11 +34,8 @@ As can be seen, if we try to plot other type of variables, the resulting plot wi
 #| fig-cap: "SCpubr DotPlot."
 
 # SCpubr's dot plot.
-p1 <- SCpubr::do_DotPlot(sample = sample, 
-                         features = "CD14")
-p2 <- SCpubr::do_DotPlot(sample = sample, 
-                         features = "nFeature_RNA")
-p <- p1 | p2
+p <- SCpubr::do_DotPlot(sample = sample, 
+                        features = "CD14")
 p
 ```
 
