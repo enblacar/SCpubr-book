@@ -1,6 +1,6 @@
 # Term Enrichment Plots
 
-One key downstream analysis in Single Cell analysis revolves having a list of candidate genes (i.e: DE genes) and one wants to know whether these genes are enriched for a specific biological function, pathway or cell type. This can be easily done using the [enrichR package](https://github.com/wjawaid/enrichR), which is an R interface to their website, [Enrichr](https://maayanlab.cloud/Enrichr/). This package allows to query a list of genes to more than 100 databases and retrieve the terms that are enriched for the list of genes, together with an adjusted p-value. The output of this process can be used with `SCpubr::do_TermEnrichmentPlot()` for its visualization.
+Outside the scope of GO and KEGG ontologies, there are many other databases for which we can also compute functional enrichment for. This can be easily done using the [enrichR package](https://github.com/wjawaid/enrichR), which is an R interface to their website, [Enrichr](https://maayanlab.cloud/Enrichr/). This package allows to query a list of genes to more than 100 databases and retrieve the terms that are enriched for the list of genes, together with an adjusted p-value. The output of this process can be used with `SCpubr::do_TermEnrichmentPlot()` for its visualization.
 
 Here is an example of how to run *Enrichr* to get the object that we need for `SCpubr::do_TermEnrichmentPlot()`.
 

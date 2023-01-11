@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.2.226">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>SCpubr - 17&nbsp; Term Enrichment Plots</title>
+<title>SCpubr - 18&nbsp; Term Enrichment Plots</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -89,8 +89,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./17-FunctionalEnrichmentPlots.html" rel="next">
-<link href="./17-GroupedGOPlots.html" rel="prev">
+<link href="./18-ExpressionHeatmaps.html" rel="next">
+<link href="./17-FunctionalEnrichmentPlots.html" rel="prev">
 <link href=".//images/SCpubr_logo_favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -119,11 +119,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-submit-button-title": "Submit"
   }
 }</script>
-<meta property="og:title" content="SCpubr - 17&nbsp; Term Enrichment Plots">
-<meta property="og:description" content="One key downstream analysis in Single Cell analysis revolves having a list of candidate genes (i.">
+<meta property="og:title" content="SCpubr - 18&nbsp; Term Enrichment Plots">
+<meta property="og:description" content="Outside the scope of GO and KEGG ontologies, there are many other databases for which we can also compute functional enrichment for.">
 <meta property="og:site-name" content="SCpubr">
-<meta name="twitter:title" content="SCpubr - 17&nbsp; Term Enrichment Plots">
-<meta name="twitter:description" content="One key downstream analysis in Single Cell analysis revolves having a list of candidate genes (i.">
+<meta name="twitter:title" content="SCpubr - 18&nbsp; Term Enrichment Plots">
+<meta name="twitter:description" content="Outside the scope of GO and KEGG ontologies, there are many other databases for which we can also compute functional enrichment for.">
 <meta name="twitter:card" content="summary">
 </head>
 <body class="nav-sidebar floating">
@@ -131,7 +131,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
       <h1 class="quarto-secondary-nav-title">
-<span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Term Enrichment Plots</span>
+<span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Term Enrichment Plots</span>
 </h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
@@ -279,12 +279,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./17-TermEnrichmentPlots.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Term Enrichment Plots</span></a>
+  <a href="./17-FunctionalEnrichmentPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Functional Annotation Analysis plots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./17-FunctionalEnrichmentPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Functional Annotation Analysis plots</span></a>
+  <a href="./17-TermEnrichmentPlots.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Term Enrichment Plots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -385,15 +385,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-<li><a href="#modifying-the-number-of-terms-to-retrieve." id="toc-modifying-the-number-of-terms-to-retrieve." class="nav-link active" data-scroll-target="#modifying-the-number-of-terms-to-retrieve."><span class="toc-section-number">17.1</span>  Modifying the number of terms to retrieve.</a></li>
-  <li><a href="#modifying-the-length-of-the-terms" id="toc-modifying-the-length-of-the-terms" class="nav-link" data-scroll-target="#modifying-the-length-of-the-terms"><span class="toc-section-number">17.2</span>  Modifying the length of the terms</a></li>
-  <li><a href="#increase-the-font-size-of-the-labels" id="toc-increase-the-font-size-of-the-labels" class="nav-link" data-scroll-target="#increase-the-font-size-of-the-labels"><span class="toc-section-number">17.3</span>  Increase the font size of the labels</a></li>
+<li><a href="#modifying-the-number-of-terms-to-retrieve." id="toc-modifying-the-number-of-terms-to-retrieve." class="nav-link active" data-scroll-target="#modifying-the-number-of-terms-to-retrieve."><span class="toc-section-number">18.1</span>  Modifying the number of terms to retrieve.</a></li>
+  <li><a href="#modifying-the-length-of-the-terms" id="toc-modifying-the-length-of-the-terms" class="nav-link" data-scroll-target="#modifying-the-length-of-the-terms"><span class="toc-section-number">18.2</span>  Modifying the length of the terms</a></li>
+  <li><a href="#increase-the-font-size-of-the-labels" id="toc-increase-the-font-size-of-the-labels" class="nav-link" data-scroll-target="#increase-the-font-size-of-the-labels"><span class="toc-section-number">18.3</span>  Increase the font size of the labels</a></li>
   </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/enblacar/SCpubr/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <h1 class="title d-none d-lg-block">
-<span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Term Enrichment Plots</span>
+<span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Term Enrichment Plots</span>
 </h1>
 </div>
 
@@ -407,7 +407,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
   
 
-</header><p>One key downstream analysis in Single Cell analysis revolves having a list of candidate genes (i.e: DE genes) and one wants to know whether these genes are enriched for a specific biological function, pathway or cell type. This can be easily done using the <a href="https://github.com/wjawaid/enrichR">enrichR package</a>, which is an R interface to their website, <a href="https://maayanlab.cloud/Enrichr/">Enrichr</a>. This package allows to query a list of genes to more than 100 databases and retrieve the terms that are enriched for the list of genes, together with an adjusted p-value. The output of this process can be used with <code><a href="https://rdrr.io/pkg/SCpubr/man/do_TermEnrichmentPlot.html">SCpubr::do_TermEnrichmentPlot()</a></code> for its visualization.</p>
+</header><p>Outside the scope of GO and KEGG ontologies, there are many other databases for which we can also compute functional enrichment for. This can be easily done using the <a href="https://github.com/wjawaid/enrichR">enrichR package</a>, which is an R interface to their website, <a href="https://maayanlab.cloud/Enrichr/">Enrichr</a>. This package allows to query a list of genes to more than 100 databases and retrieve the terms that are enriched for the list of genes, together with an adjusted p-value. The output of this process can be used with <code><a href="https://rdrr.io/pkg/SCpubr/man/do_TermEnrichmentPlot.html">SCpubr::do_TermEnrichmentPlot()</a></code> for its visualization.</p>
 <p>Here is an example of how to run <em>Enrichr</em> to get the object that we need for <code><a href="https://rdrr.io/pkg/SCpubr/man/do_TermEnrichmentPlot.html">SCpubr::do_TermEnrichmentPlot()</a></code>.</p>
 <div class="cell" data-layout-align="center">
 
@@ -455,8 +455,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-<section id="modifying-the-number-of-terms-to-retrieve." class="level2" data-number="17.1"><h2 data-number="17.1" class="anchored" data-anchor-id="modifying-the-number-of-terms-to-retrieve.">
-<span class="header-section-number">17.1</span> Modifying the number of terms to retrieve.</h2>
+<section id="modifying-the-number-of-terms-to-retrieve." class="level2" data-number="18.1"><h2 data-number="18.1" class="anchored" data-anchor-id="modifying-the-number-of-terms-to-retrieve.">
+<span class="header-section-number">18.1</span> Modifying the number of terms to retrieve.</h2>
 <p>Depending on the focus of the analysis, we might want to only focus on one database but retrieve more terms from it. This can be achieved by using <code>nterms</code> parameter.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Increased number of terms.</span></span>
@@ -471,8 +471,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-</section><section id="modifying-the-length-of-the-terms" class="level2" data-number="17.2"><h2 data-number="17.2" class="anchored" data-anchor-id="modifying-the-length-of-the-terms">
-<span class="header-section-number">17.2</span> Modifying the length of the terms</h2>
+</section><section id="modifying-the-length-of-the-terms" class="level2" data-number="18.2"><h2 data-number="18.2" class="anchored" data-anchor-id="modifying-the-length-of-the-terms">
+<span class="header-section-number">18.2</span> Modifying the length of the terms</h2>
 <p>Another issue with these plots is that, normally, the term itself takes too much space. For this, terms are wrapped according to a cutoff defined in <code>nchar_wrap</code> parameter. If the term has more characters than the value provided, it will be split more or less in half, always preserving whole words.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Control the length of the terms.</span></span>
@@ -492,8 +492,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>In the same way, one can further enhance the limit in order to have each term in just one row.</p>
-</section><section id="increase-the-font-size-of-the-labels" class="level2" data-number="17.3"><h2 data-number="17.3" class="anchored" data-anchor-id="increase-the-font-size-of-the-labels">
-<span class="header-section-number">17.3</span> Increase the font size of the labels</h2>
+</section><section id="increase-the-font-size-of-the-labels" class="level2" data-number="18.3"><h2 data-number="18.3" class="anchored" data-anchor-id="increase-the-font-size-of-the-labels">
+<span class="header-section-number">18.3</span> Increase the font size of the labels</h2>
 <p>If you want to increase the font size of the labels - this is, anything that is not part of the legend or the titles, use <code>text_labels_size</code> parameter:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Modify font size of the terms.</span></span>
@@ -646,13 +646,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="./17-GroupedGOPlots.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Grouped GO Term analysis plots</span></span>
+      <a href="./17-FunctionalEnrichmentPlots.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Functional Annotation Analysis plots</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./17-FunctionalEnrichmentPlots.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Functional Annotation Analysis plots</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./18-ExpressionHeatmaps.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Expression heatmaps</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.2.226">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>SCpubr - 18&nbsp; Functional Annotation Analysis plots</title>
+<title>SCpubr - 17&nbsp; Functional Annotation Analysis plots</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -89,8 +89,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./18-ExpressionHeatmaps.html" rel="next">
-<link href="./17-TermEnrichmentPlots.html" rel="prev">
+<link href="./17-TermEnrichmentPlots.html" rel="next">
+<link href="./17-GroupedGOPlots.html" rel="prev">
 <link href=".//images/SCpubr_logo_favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -119,10 +119,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-submit-button-title": "Submit"
   }
 }</script>
-<meta property="og:title" content="SCpubr - 18&nbsp; Functional Annotation Analysis plots">
+<meta property="og:title" content="SCpubr - 17&nbsp; Functional Annotation Analysis plots">
 <meta property="og:description" content="A major analysis in Single-Cell transcriptomics, and subsequential to the previous chapter, is Functional Annotation Analysis.">
 <meta property="og:site-name" content="SCpubr">
-<meta name="twitter:title" content="SCpubr - 18&nbsp; Functional Annotation Analysis plots">
+<meta name="twitter:title" content="SCpubr - 17&nbsp; Functional Annotation Analysis plots">
 <meta name="twitter:description" content="A major analysis in Single-Cell transcriptomics, and subsequential to the previous chapter, is Functional Annotation Analysis.">
 <meta name="twitter:card" content="summary">
 </head>
@@ -131,7 +131,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
       <h1 class="quarto-secondary-nav-title">
-<span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Functional Annotation Analysis plots</span>
+<span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Functional Annotation Analysis plots</span>
 </h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
@@ -279,12 +279,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./17-TermEnrichmentPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Term Enrichment Plots</span></a>
+  <a href="./17-FunctionalEnrichmentPlots.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Functional Annotation Analysis plots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./17-FunctionalEnrichmentPlots.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Functional Annotation Analysis plots</span></a>
+  <a href="./17-TermEnrichmentPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Term Enrichment Plots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -385,15 +385,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-<li><a href="#basic-output" id="toc-basic-output" class="nav-link active" data-scroll-target="#basic-output"><span class="toc-section-number">18.1</span>  Basic output</a></li>
-  <li><a href="#limit-the-number-of-terms-reported" id="toc-limit-the-number-of-terms-reported" class="nav-link" data-scroll-target="#limit-the-number-of-terms-reported"><span class="toc-section-number">18.2</span>  Limit the number of terms reported</a></li>
-  <li><a href="#compute-the-results-for-different-databases" id="toc-compute-the-results-for-different-databases" class="nav-link" data-scroll-target="#compute-the-results-for-different-databases"><span class="toc-section-number">18.3</span>  Compute the results for different databases</a></li>
+<li><a href="#basic-output" id="toc-basic-output" class="nav-link active" data-scroll-target="#basic-output"><span class="toc-section-number">17.1</span>  Basic output</a></li>
+  <li><a href="#limit-the-number-of-terms-reported" id="toc-limit-the-number-of-terms-reported" class="nav-link" data-scroll-target="#limit-the-number-of-terms-reported"><span class="toc-section-number">17.2</span>  Limit the number of terms reported</a></li>
+  <li><a href="#compute-the-results-for-different-databases" id="toc-compute-the-results-for-different-databases" class="nav-link" data-scroll-target="#compute-the-results-for-different-databases"><span class="toc-section-number">17.3</span>  Compute the results for different databases</a></li>
   </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/enblacar/SCpubr/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <h1 class="title d-none d-lg-block">
-<span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Functional Annotation Analysis plots</span>
+<span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Functional Annotation Analysis plots</span>
 </h1>
 </div>
 
@@ -421,8 +421,8 @@ Please note:
 </div>
 </div>
 <p>A major analysis in Single-Cell transcriptomics, and subsequential to the previous chapter, is <strong>Functional Annotation Analysis</strong>. This allows to get more insights in a list of genes that we might have at hand, and retrieve a set of statistically enriched terms (<a href="http://geneontology.org/"><strong>GO</strong></a> terms, <a href="https://www.genome.jp/kegg/"><strong>KEGG</strong></a> terms) shared amongst the genes in the gene signature. For this purpose, <strong>SCpubr</strong> makes use of <a href="https://bioconductor.org/packages/release/bioc/html/clusterProfiler.html"><strong>clusterProfiler</strong></a> and <a href="https://bioconductor.org/packages/release/bioc/html/enrichplot.html"><strong>enrichplot</strong></a> packages together with some own plots to provide a set of comprehensive data visualization to understand the output of functional enrichment analyses using <strong>clusterProfiler</strong>. This can be accessed using <code><a href="https://rdrr.io/pkg/SCpubr/man/do_FunctionalAnnotationPlot.html">SCpubr::do_FunctionalAnnotationPlot()</a></code>.</p>
-<section id="basic-output" class="level2" data-number="18.1"><h2 data-number="18.1" class="anchored" data-anchor-id="basic-output">
-<span class="header-section-number">18.1</span> Basic output</h2>
+<section id="basic-output" class="level2" data-number="17.1"><h2 data-number="17.1" class="anchored" data-anchor-id="basic-output">
+<span class="header-section-number">17.1</span> Basic output</h2>
 <p>The basic output of <code><a href="https://rdrr.io/pkg/SCpubr/man/do_FunctionalAnnotationPlot.html">SCpubr::do_FunctionalAnnotationPlot()</a></code>contains a list with several plots, and can be computed by providing the function with a list of genes and a <strong>database</strong> object, such as the one provided by the <a href="https://bioconductor.org/packages/release/data/annotation/html/org.Hs.eg.db.html"><strong>org.Hs.eg.db</strong></a> package:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">genes.use</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"CCR7"</span>, <span class="st">"CD14"</span>, <span class="st">"LYZ"</span>, </span>
@@ -497,8 +497,8 @@ Please note:
 <p>It can also be the case that the high frequency words and the clusters behave a bit wonky. This has been observed already but is also related entirely to enrichplot package and the number of clusters selected by <code>nClusters</code>. If you are experiencing problems with this, consider reducing the number of <code>nClusters</code>.</p>
 </div>
 </div>
-</section><section id="limit-the-number-of-terms-reported" class="level2" data-number="18.2"><h2 data-number="18.2" class="anchored" data-anchor-id="limit-the-number-of-terms-reported">
-<span class="header-section-number">18.2</span> Limit the number of terms reported</h2>
+</section><section id="limit-the-number-of-terms-reported" class="level2" data-number="17.2"><h2 data-number="17.2" class="anchored" data-anchor-id="limit-the-number-of-terms-reported">
+<span class="header-section-number">17.2</span> Limit the number of terms reported</h2>
 <p>Similar to the previous chapter, we can decide whether we want more or less overlap between the genes for the reported terms using <code>min.overlap</code>:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Compute the grouped GO terms.</span></span>
@@ -539,8 +539,8 @@ Please note:
 </div>
 </div>
 </div>
-</section><section id="compute-the-results-for-different-databases" class="level2" data-number="18.3"><h2 data-number="18.3" class="anchored" data-anchor-id="compute-the-results-for-different-databases">
-<span class="header-section-number">18.3</span> Compute the results for different databases</h2>
+</section><section id="compute-the-results-for-different-databases" class="level2" data-number="17.3"><h2 data-number="17.3" class="anchored" data-anchor-id="compute-the-results-for-different-databases">
+<span class="header-section-number">17.3</span> Compute the results for different databases</h2>
 <p>We can also query other database apart from GO. KEGG and MKEGG are also available, and can be selected using <code>database</code> parameter:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">genes.use</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"IL7R"</span>, <span class="st">"CCR7"</span>, <span class="st">"CD14"</span>, <span class="st">"LYZ"</span>, </span>
@@ -699,13 +699,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="./17-TermEnrichmentPlots.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Term Enrichment Plots</span></span>
+      <a href="./17-GroupedGOPlots.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Grouped GO Term analysis plots</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./18-ExpressionHeatmaps.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Expression heatmaps</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./17-TermEnrichmentPlots.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Term Enrichment Plots</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

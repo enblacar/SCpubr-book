@@ -228,12 +228,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./17-TermEnrichmentPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Term Enrichment Plots</span></a>
+  <a href="./17-FunctionalEnrichmentPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Functional Annotation Analysis plots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./17-FunctionalEnrichmentPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Functional Annotation Analysis plots</span></a>
+  <a href="./17-TermEnrichmentPlots.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Term Enrichment Plots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -350,6 +350,8 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#scpubrdo_featureplot" id="toc-scpubrdo_featureplot" class="nav-link" data-scroll-target="#scpubrdo_featureplot"><code>SCpubr::do_FeaturePlot()</code></a></li>
   <li><a href="#scpubrdo_groupwisedeplot" id="toc-scpubrdo_groupwisedeplot" class="nav-link" data-scroll-target="#scpubrdo_groupwisedeplot"><code>SCpubr::do_GroupwiseDEPlot()</code></a></li>
   <li><a href="#scpubrdo_ligandreceptorplot" id="toc-scpubrdo_ligandreceptorplot" class="nav-link" data-scroll-target="#scpubrdo_ligandreceptorplot"><code>SCpubr::do_LigandReceptorPlot()</code></a></li>
+  <li><a href="#do_pathwayactivityplot" id="toc-do_pathwayactivityplot" class="nav-link" data-scroll-target="#do_pathwayactivityplot"><code>do_PathwayActivityPlot()</code></a></li>
+  <li><a href="#do_tfactivityplot" id="toc-do_tfactivityplot" class="nav-link" data-scroll-target="#do_tfactivityplot"><code>do_TFActivityPlot()</code></a></li>
   <li><a href="#scpubrdo_violinplot" id="toc-scpubrdo_violinplot" class="nav-link" data-scroll-target="#scpubrdo_violinplot"><code>SCpubr::do_ViolinPlot()</code></a></li>
   </ul></li>
   <li><a href="#scpubr-v1.0.4" id="toc-scpubr-v1.0.4" class="nav-link" data-scroll-target="#scpubr-v1.0.4">SCpubr v1.0.4</a></li>
@@ -491,8 +493,20 @@ ul.task-list li input[type="checkbox"] {
 <section id="scpubrdo_ligandreceptorplot" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="scpubrdo_ligandreceptorplot"><code>SCpubr::do_LigandReceptorPlot()</code></h3>
 <ul>
-<li>Added <code>arrange_interactions_by</code> to control how output interactions are arranged (either by aggreagate_rank, specificity, magnitude or a combination of magnitude and specificity).</li>
+<li>Added <code>arrange_interactions_by</code> to control how output interactions are arranged (either by aggregate_rank, specificity, magnitude or a combination of magnitude and specificity).</li>
 <li>Added <code>sort_interactions_alphabetically</code> to control whether the output dotplot has the interactions ordered alphabetically or as they come in the original matrix (meaning, they follow the arrangement specified in <code>arrange_interactions_by</code>). ((<a href="https://github.com/saezlab/liana/issues/72">liana’s issue #72</a>))</li>
+</ul>
+</section>
+<section id="do_pathwayactivityplot" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="do_pathwayactivityplot"><code>do_PathwayActivityPlot()</code></h3>
+<ul>
+<li>Added a fix in which when <code>enforce_symmetry</code> is set to <code>FALSE</code>, then the color scale turns into a viridis-based one instead of a two-color gradient scale.</li>
+</ul>
+</section>
+<section id="do_tfactivityplot" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="do_tfactivityplot"><code>do_TFActivityPlot()</code></h3>
+<ul>
+<li>Added a fix in which when <code>enforce_symmetry</code> is set to <code>FALSE</code>, then the color scale turns into a viridis-based one instead of a two-color gradient scale.</li>
 </ul>
 </section>
 <section id="scpubrdo_violinplot" class="level3 unnumbered">

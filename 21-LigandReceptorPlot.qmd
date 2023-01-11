@@ -79,9 +79,9 @@ This feature will be available in the next CRAN release! (v1.1.0)
 
 The result of `liana::liana_aggregate()` can be processed in multiple ways:
 
-- By default, the output matrix is already arranged by ascending `aggregate_rank`, which acts as a kind of p-value.
-- The interactions can be arranged by descending `magnitude` (how strong is the interaction) or `specificity` (how significant is the interaction).
-- Or both. 
+-   By default, the output matrix is already arranged by ascending `aggregate_rank`, which acts as a kind of p-value.
+-   The interactions can be arranged by descending `magnitude` (how strong is the interaction) or `specificity` (how significant is the interaction).
+-   Or both.
 
 In this context, users can decide how the results are arranged in the final plot by providing `arrange_interactions_by` and one of: `aggregate_rank`, `magnitude`, `specificity` or `both`.
 
@@ -132,7 +132,6 @@ p <- SCpubr::do_LigandReceptorPlot(liana_output = liana_output,
                                    top_interactions = 10)
 p
 ```
-
 
 ## Order interacting pairs alphabetically
 

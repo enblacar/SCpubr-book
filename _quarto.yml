@@ -57,8 +57,8 @@ book:
       chapters:
       - 16-GroupwiseDEPlots.qmd
       - 17-GroupedGOPlots.qmd
-      - 17-TermEnrichmentPlots.qmd
       - 17-FunctionalEnrichmentPlots.qmd
+      - 17-TermEnrichmentPlots.qmd
       - 18-ExpressionHeatmaps.qmd
       - 18-EnrichmentHeatmaps.qmd
       - 19-CorrelationHeatmaps.qmd
