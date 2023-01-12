@@ -2,6 +2,13 @@
 
 Here are the patch notes of the different versions: 
 
+
+## SCpubr v1.1.1.9000 {.unnumbered}
+Current development release.
+
+## SCpubr v1.1.1 {.unnumbered}
+Hotfixes in unit tests to comply with CRAN checks.
+
 ## SCpubr v1.1.0 {.unnumbered}
 
 ### General {.unnumbered}
