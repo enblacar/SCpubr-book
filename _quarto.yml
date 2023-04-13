@@ -14,9 +14,10 @@ book:
   favicon: /images/SCpubr_logo_favicon.png
   sidebar:
     title: "SCpubr  [`v2.0.0`](https://github.com/enblacar/SCpubr/blob/main/NEWS.md)"
-    foreground: "black"
+    foreground: primary
     collapse-level: 1
     border: true
+    style: floating
   page-footer:
     left: |
       Written by **Enrique Blanco Carmona**
@@ -84,11 +85,17 @@ book:
 format:
   html:
     theme:
-      - default
-      - SCpubr.scss
+      light: [flatly, SCpubr.scss]
+      dark: [darkly, SCpubr-dark.scss]
+
     code-link: true
     code-block-border-left: false
     callout-appearance: default
+    grid:
+      sidebar-width: 250px
+      body-width: 1800px
+      margin-width: 300px
+      gutter-width: 1.5rem
 
 
 editor: visual
