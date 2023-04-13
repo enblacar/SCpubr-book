@@ -13,4 +13,5 @@ knitr::opts_chunk$set(
   out.width = "100%",
   out.height = "100%",
   dpi=300
+  eval = FALSE
 )
