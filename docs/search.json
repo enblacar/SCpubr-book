@@ -5,5 +5,12 @@
     "title": "SCpubr",
     "section": "",
     "text": "About this package\n\n\n\n\n\n\nWoops! You stumbled upon the in-development website for SCpubr v2.0.0! There is still a bit of time before the release, but stay tuned for the update!\nYou can have a peek to the changes here and in this website as it is being rebuilt!\n\n\n\n\n\n\nPrevious documentation:\n\n\n\nTo consult the previous documentation, go here instead.\n\n\nThanks!!"
+  },
+  {
+    "objectID": "01-Installation-guide.html",
+    "href": "01-Installation-guide.html",
+    "title": "Installation guide",
+    "section": "",
+    "text": "Note:\n\n\n\nThe outputs of this site will show v2.0.0 once the official release is on CRAN.\n\n\nThis package can be installed using the following commands:\n\n# From CRAN - Official release:\ninstall.packages(\"SCpubr\")\n\n# From GitHub - Latest stable development version:\nif(!requireNamespace(\"devtools\", quietly = TRUE)){\n  install.packages(\"devtools\") # If not installed.\n}\n\ndevtools::install_github(\"enblacar/SCpubr\", ref = \"v2.0.0-dev-stable\")\n\nFurther packages are needed in order to run the different functions. This is normally displayed whenever you load the package for the first time in the session.\n\nlibrary(\"SCpubr\")\n\n\nIn this, you will have at glance the information needed to run the package:\n\nWhich SCpubr version you have installed and which is the latest version.\nWhich dependencies are installed or missing.\nWhich functions can be run with the current installed dependencies.\n\nIf this message does not appear, you can always generate it using SCpubr::package_report():\n\nSCpubr::package_report()\n\n\nThis will print the concise version of the startup message. If you want the exact same as the startup, use startup = TRUE.\nAlso, it is possible to check the packages needed on a function by function manner. For this, use SCpubr::check_dependencies(), providing the name of the function to check. If not, all functions will be printed.\n\nSCpubr::check_dependencies(function_name = \"do_DimPlot\")"
   }
 ]

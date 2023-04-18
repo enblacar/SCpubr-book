@@ -1,21 +1,21 @@
 
 /*-- scss:defaults --*/
 
-  /*$primary: #096B72 !default;*/
-  $footer-bg: #096B72;
-  $sidebar-hl: #096B72;
-  $code-color: #096B72;
-  $code-color: #096B72;
-  $code-bg: #096B7230;
-  $callout-color-note: #096B72;
+  $primary: #dbb42c !default;
+  $footer-bg: #dbb42c;
+  $sidebar-hl: #dbb42c;
+  $code-color: #dbb42c;
+  $code-color: #dbb42c;
+  $code-bg: #dbb42c30;
+  $callout-color-note: #dbb42c;
   $callout-color-warning: #d4a411;
   $callout-color-important: #a50d0d;
 
   /*-- scss:rules --*/
 
   .sidebar-title {
-    color: #096B72;
-      font-weight: bold;
+    color: #dbb42c;
+    font-weight: bold;
   }
 
 
@@ -44,7 +44,7 @@ h1, h2, h3, h4, h5 {
 
 .quarto-section-identifier {
   color: #6C6C6C;
-    font-weight: bold;
+  font-weight: bold;
 }
 
 
@@ -52,7 +52,7 @@ h1, h2, h3, h4, h5 {
 
   code {
     font-weight: bold;
-    background-color: #096b7235
+    background-color: #dbb42c35
   }
 
 pre {
@@ -83,7 +83,7 @@ pre {
 /* Modify captions */
   p.caption {
     color: #777;
-      margin-top: 10px;
+    margin-top: 10px;
   }
 p code {
   white-space: inherit;
@@ -113,14 +113,14 @@ pre code {
 /* Change the settings for the inline code */
   p code:not(.sourceCode) {
     font-weight: bold;
-    color: #096B72;
-      background-color: #096B7230;
+    color: #dbb42c;
+    background-color: #dbb42c30;
   }
 
 /* Change the border of the search buttom to the primary color. */
   .form-control:focus {
-    border-color: #096B72;
-      box-shadow: white;
+    border-color: #dbb42c;
+    box-shadow: white;
   }
 
 
@@ -130,27 +130,26 @@ a.text-start {
 }
 
 i.bi{
-  color: #096B72;
+  color: #dbb42c;
 }
 
 
 i.bi-github{
-  color: #096B72;
+  color: #dbb42c;
 }
 
 .sidebar-item .chapter-number{
-  color: #096B72;
-    font-family: monospace;
+  color: #dbb42c;
+  font-family: monospace;
   font-weight: bold;
 }
 
 .toc-section-number{
-  color: #096B72;
-    font-family: monospace;
+  color: #dbb42c;
+  font-family: monospace;
   font-weight: bold;
 }
 
 .nav-footer{
-  align-items: center;
+  align-items: center !important;
 }
-
