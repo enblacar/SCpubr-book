@@ -1,0 +1,499 @@
+# Dim plots
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("_common.R")
+suppressMessages(library("Seurat"))
+```
+
+```{r}
+#| echo: false
+sample <- readRDS("/b06x-isilon/b06x-g/G703/eblanco/projects/test_SC_datasets/sc_dataset.rds")
+```
+
+
+Dimensional reduction Plots (`DimPlots`) are a highly recognizable visualization in single-cell experiments. They allow users to visualize cells in a dimensional reduction embedding, such as `PCA` or `UMAP`. Users can color cells according to any desired groups, enabling visualization of any kind of categorical data on the cells in the dimensional reduction embedding.
+
+## Basic usage
+
+DimPlots can be generated in `SCpubr` using the function `SCpubr::do_DimPlot()`:
+
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+#| fig-cap: "SCpubr DimPlot"
+
+p <- SCpubr::do_DimPlot(sample = sample)
+
+p
+```
+
+## Modifying axes behavior
+
+Axes are removed by default from the plot, together with the axes titles if they match any of the following combinations:
+
+- TSNE_1 / TSNE_2
+- UMAP_1 / UMAP_2
+
+In any other combination, the titles will come back:
+
+```{r}
+#| fig-width: 20
+#| fig-height: 11
+#| fig-cap: "Axes titles come back whenever it is not UMAP_1 vs UMAP_2."
+
+# Example using PCA reduction.
+p1 <- SCpubr::do_DimPlot(sample = sample, 
+                         reduction = "pca")
+
+# Example using a non-canonical set of dimensions.
+p2 <- SCpubr::do_DimPlot(sample = sample, 
+                         dims = c(2, 1))
+
+p <- p1 | p2
+p
+```
+
+This behaviour can be overridden with `plot.axes = TRUE`:
+
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+#| fig-cap: "Bring back the axes."
+
+# Bring back the Axes.
+p <- SCpubr::do_DimPlot(sample = sample,
+                        plot.axes = TRUE)
+p
+```
+
+
+## Label the clusters
+
+In some cases,  we might want to remove the legend entirely, and instead plot labels on top of each cluster. This can be achieved by using `label = TRUE`.
+
+```{r}
+#| fig-width: 10
+#| fig-height: 10
+#| fig-cap: "Labels on top of the clusters."
+
+# Put labels on top of the clusters.
+p <- SCpubr::do_DimPlot(sample, 
+                     label = TRUE)
+p
+```
+
+These labels are, in essence the result of applying `ggplot2::geom_label()` on the plot. However, we might also want to have them as pure text instead of the labels. We can achieve that by providing `label.box = FALSE`.
+
+```{r}
+#| fig-width: 10
+#| fig-height: 10
+#| fig-cap: "Labels as text."
+
+# Labels as text
+p <- SCpubr::do_DimPlot(sample = sample, 
+                        label = TRUE,
+                        label.box = FALSE)
+p
+```
+
+However, we can play further with other parameters of the function such as `label.color` which will provide a different color for the text inside the labels:
+
+```{r}
+#| fig-width: 20
+#| fig-height: 10
+#| fig-cap: "Change label/text color."
+
+# Change the color of the label text.
+p1 <- SCpubr::do_DimPlot(sample = sample, 
+                         label = TRUE, 
+                         label.color = "black")
+
+# Change the color of the text.
+p2 <- SCpubr::do_DimPlot(sample = sample, 
+                         label = TRUE, 
+                         label.color = "black",
+                         label.box = FALSE)
+p <- p1 | p2
+p
+```
+
+Also, we can modify the size of the labels/text by using `label.size` paramter:
+
+```{r}
+#| fig-width: 20
+#| fig-height: 10
+#| fig-cap: "Change label/text size"
+
+# Change the size of the label text.
+p1 <- SCpubr::do_DimPlot(sample = sample, 
+                         label = TRUE, 
+                         label.size = 6)
+
+# Change the size of the text.
+p2 <- SCpubr::do_DimPlot(sample = sample, 
+                         label = TRUE, 
+                         label.box = FALSE,
+                         label.size = 6)
+p <- p1 | p2
+p
+```
+
+Finally, if the labels/text are overlapping one to another, we can try to fix that by repelling the labels from one to another. We can achieve this by using `repel = TRUE`:
+
+```{r}
+#| fig-width: 20
+#| fig-height: 10
+#| fig-cap: "Repel the labels/text."
+
+# Repel the labels.
+p1 <- SCpubr::do_DimPlot(sample = sample, 
+                         label = TRUE, 
+                         label.color = "black",
+                         repel = TRUE)
+
+# Repel the text.
+p2 <- SCpubr::do_DimPlot(sample = sample, 
+                         label = TRUE, 
+                         label.color = "black",
+                         label.box = FALSE,
+                         repel = TRUE)
+p <- p1 | p2
+p
+```
+
+## Modify legend appearance
+
+There are several ways we can interact with how the legend is displayed. 
+
+For instance, we can change the number of columns or rows with `legend.ncol` and `legend.nrow`.
+
+```{r}
+#| fig-width: 20
+#| fig-height: 11
+#| fig-cap: "Modify legend rows and colums."
+
+# Modify the number of columns in the legend.
+p1 <- SCpubr::do_DimPlot(sample = sample, 
+                         legend.ncol = 4)
+
+# Modify the number of rows in the legend.
+p2 <- SCpubr::do_DimPlot(sample = sample, 
+                         legend.nrow = 3)
+
+p <- p1 | p2 
+p
+```
+
+You can also alter how the legend is being "filled" with `legend.byrow = TRUE/FALSE`. This is, by default the legend items are being placed column-wise. If we set `legend.byrow = FALSE`, the legend items are placed row-wise.
+
+```{r}
+#| fig-width: 20
+#| fig-height: 11
+#| fig-cap: "Modify legend item placement behavior."
+
+# Fill the legend by column.
+p1 <- SCpubr::do_DimPlot(sample = sample,
+                         legend.byrow = FALSE)
+
+# Fill the legend by rows.
+p2 <- SCpubr::do_DimPlot(sample = sample,
+                         legend.byrow = TRUE)
+
+p <- p1 | p2 
+p
+```
+Finally, we can add a custom legend title to the plot by using `legend.title` parameter:
+
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+#| fig-cap: "Add a legend.title."
+
+# Add a legend title.
+p <- SCpubr::do_DimPlot(sample = sample, 
+                        legend.title = "My clusters")
+p
+```
+
+We can also control the position of the legend title by using `legend.title.position = top/bottom/left/right`:
+
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+#| fig-cap: "Modify legend title placement."
+
+p <- SCpubr::do_DimPlot(sample = sample, 
+                        legend.title = "My clusters",
+                        legend.title.position = "bottom")
+
+p
+```
+
+
+## Legend placement
+
+Sometimes, the legend is completely redundant, as we are already displaying the same information as labels in the text. Other times, we just want to remove it. In any case, this can be achieved by using `legend.position = "none"`.
+
+```{r}
+#| fig-width: 10
+#| fig-height: 10
+#| fig-cap: "Remove the legend."
+
+# Remove the legend from the plot.
+p <- SCpubr::do_DimPlot(sample = sample, 
+                        legend.position = "none")
+p
+```
+
+In other cases, we might just be interested in modifying **the placement** of the legend. This can also be achieved by using `legend.position = "bottom/top/right/left"`:
+
+```{r}
+#| fig-width: 11
+#| fig-height: 10
+#| fig-cap: "Modify legend placement."
+
+p <- SCpubr::do_DimPlot(sample = sample, 
+                        legend.position = "right")
+
+p
+```
+
+## Changing the order of plotting
+
+Be default `SCpubr::do_DimPlot()` plots cells randomly using `shuffle = TRUE`. This is different from the default behavior of `Seurat::DimPlot()`, which plots cells based on their identity factor levels.
+
+```{r}
+#| fig-width: 20
+#| fig-height: 11
+#| fig-cap: "Shuffling cells"
+
+p1 <- SCpubr::do_DimPlot(sample = sample,
+                         reduction = "pca",
+                         shuffle = TRUE)
+
+p2 <- SCpubr::do_DimPlot(sample = sample,
+                         reduction = "pca",
+                         shuffle = FALSE)
+
+p <- p1 | p2
+p
+```
+
+
+## Highlighting cells
+
+We can highlight a certain group of cells in the plot. This is achieved by using the `cells.highlight` parameter.
+
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+#| fig-cap: "Highlighting cells."
+
+cells.use <- sample(x = colnames(sample), 
+                    size = 1500)
+
+p <- SCpubr::do_DimPlot(sample = sample,
+                        cells.highlight = cells.use)
+
+p
+```
+
+One can also change the color of the highligted cells by providing single color to `colors.use` and the color of the not selected cells with `na.value`:
+
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+#| fig-cap: "Change default color of highlighted and non-highlighted cells."
+
+# Change color of highlighted and non-highlighted cells.
+p <- SCpubr::do_DimPlot(sample = sample, 
+                        cells.highlight = cells.use,
+                        colors.use = "dodgerblue",
+                        na.value = "grey90")
+p
+```
+
+The size of the highlighted dots can be modified with the parameter `sizes.highlight`.
+
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+#| fig-cap: "Increase dot size of highlighted cells."
+
+# Increase the size of the highlighted cells.
+p <- SCpubr::do_DimPlot(sample = sample, 
+                        cells.highlight = cells.use, 
+                        sizes.highlight = 2)
+p
+```
+
+We can also highlight **whole identities** with `idents.highlight` parameter. For this, just provide the desired identities to be selected. It can also work in combination with `cells.highlight`.
+
+```{r}
+#| fig-width: 30
+#| fig-height: 11
+#| fig-cap: "Using a combination of `cells.highlight` and `idents.highlight`."
+
+# Using cells.highlight.
+p1 <- SCpubr::do_DimPlot(sample = sample, 
+                         cells.highlight = cells.use)
+
+# Using idents.highlight.
+p2 <- SCpubr::do_DimPlot(sample = sample, 
+                         idents.highlight = c("6"))
+
+# Using both.
+p3 <- SCpubr::do_DimPlot(sample = sample, 
+                         cells.highlight = cells.use, 
+                         idents.highlight = c("6"))
+
+p <- p1 | p2 | p3
+p
+```
+
+## Restrict the identitites displayed
+
+Sometimes, we are interested in showing only some of the identities or groups in our sample. Instead of highlighting cells, we still want to keep the original colors and legend. For this use case, one might be tempted to just subset the sample as follows:
+
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+#| fig-cap: "Subsetting the Seurat object to restrict the identities shown."
+
+# Subset desired identities in a DimPlot.
+p <- SCpubr::do_DimPlot(sample = sample[, sample$seurat_clusters %in% c("0", "5", "2", "4")])
+
+p
+```
+
+However, we end up losing the **UMAP silhouette**. For this use case, `SCpubr::do_DimPlot()` introduces `idents.keep` parameter, for which you can provide a vector with the identities you want to keep. This will assign to the rest of the cells a value of `NA` and they will be colored according to `na.value` parameter:
+
+```{r}
+#| fig-width: 20
+#| fig-height: 11
+#| fig-cap: "Select the identities to display."
+
+# Select identities with idents.keep.
+p1 <- SCpubr::do_DimPlot(sample = sample,
+                         idents.keep = c("0", "5", "2",  "4"))
+
+# Also, non-selected cells's color can be modified.
+p2 <- SCpubr::do_DimPlot(sample = sample,
+                         idents.keep = c("0", "5", "2",  "4"),
+                         na.value = "grey50")
+p <- p1 | p2
+p
+```
+
+## Group by another metadata variable
+
+So far, all the DimPlots displayed have shown the identities as the ones that are currently set in the object. This can be consulted by using `Seurat::Idents(sample)`. However, naturally, we might want to display different metadata variables. This can be easily achieved by using `group.by` parameter:
+
+```{r}
+#| fig-width: 20
+#| fig-height: 11
+#| fig-cap: Group by another metadata variable.
+
+# Generate another metadata variable to group the cells by.
+sample$annotation <- sample(c("A", "B", "C"), ncol(sample), replace = TRUE)
+
+# Group by another metadata variable.
+p1 <- SCpubr::do_DimPlot(sample, 
+                         group.by = "seurat_clusters")
+
+p2 <- SCpubr::do_DimPlot(sample, 
+                         group.by = "annotation")
+
+p <- p1 | p2
+p
+```
+
+## Splitting by a category
+
+Another useful parameter is `split.by`, which allows you to split your DimPlot into multiple panels, each one containing a different unique value of the metadata variable you have provided to the argument. One can understand this as using the `group.by` parameter and then splitting the resulting DimPlot into different panels. In this example, we are going to use the different clusters as an example. This is how it looks by default:
+
+
+```{r}
+#| fig-width: 25
+#| fig-height: 10
+#| fig-cap: "Using `split.by` in SCpubr."
+
+# SCpubr's DimPlot using split.by
+p <- SCpubr::do_DimPlot(sample, 
+                        split.by = "seurat_clusters", 
+                        ncol = 5, 
+                        legend.position = "none",
+                        font.size = 24)
+
+p
+```
+
+If we are interested only in a subset of the possible values, we can use `idents.keep` alongside a vector containing the values to keep from the unique values in `split.by`:
+
+```{r}
+#| fig-width: 21
+#| fig-height: 8
+#| fig-cap: "Select only some identities in split.by"
+
+# Using split.by and restricting the number of output plots with idents.keep.
+p <- SCpubr::do_DimPlot(sample, 
+                        split.by = "seurat_clusters", 
+                        ncol = 3, 
+                        idents.keep = c("0", "1", "7"),
+                        legend.position = "none",
+                        font.size = 24)
+
+p
+```
+
+## Group by a variable but split by another
+
+Finally, but also importantly, users might want to **split** the UMAP using `split.by`, while also **grouping** (coloring) the values by another variable using `group.by`. Using these two parameters in combination yields the following:
+
+```{r}
+#| fig-width: 30
+#| fig-height: 11
+#| fig-cap: "Split by a variable but color by another one."
+
+# Using split.by and group.by in combination.
+sample$orig.ident <- sample(c("A", "B", "C"), 
+                            ncol(sample), 
+                            replace = TRUE, 
+                            prob = c(0.05, 0.1, 0.85))
+
+p <- SCpubr::do_DimPlot(sample, 
+                        group.by = "seurat_clusters",
+                        split.by = "orig.ident", 
+                        font.size = 24)
+
+p
+```
+## Change default colors
+
+Actually, the user might want to change the color of the highlighted cells in this split DimPlot. This is achieved by using `colors.use` parameter and providing either a vector of **valid color representations** of equal length to unique values in `split.by` or just a single color to use in all panels.
+
+```{r}
+#| fig-width: 25
+#| fig-height: 20
+#| fig-cap: "Change default colors."
+
+# Create a color scale for the unique values in seurat clusters.
+colors <- c("0" = "#001219",
+            "1" = "#005f73",
+            "2" = "#0a9396",
+            "3" = "#94d2bd",
+            "4" = "#e9d8a6",
+            "5" = "#ee9b00",
+            "6" = "#ca6702",
+            "7" = "#bb3e03",
+            "8" = "#ae2012",
+            "9" = "#9b2226")
+
+p <- SCpubr::do_DimPlot(sample, 
+                        colors.use = colors,
+                        font.size = 24)
+
+p
+```

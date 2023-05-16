@@ -2,10 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://enblacar.github.io/SCpubr-book/index.html</loc>
-    <lastmod>2023-04-18T22:57:20.222Z</lastmod>
+    <lastmod>2023-05-16T12:16:22.133Z</lastmod>
   </url>
   <url>
-    <loc>https://enblacar.github.io/SCpubr-book/01-Installation-guide.html</loc>
-    <lastmod>2023-04-18T22:57:20.224Z</lastmod>
+    <loc>https://enblacar.github.io/SCpubr-book/preface/Installation-guide.html</loc>
+    <lastmod>2023-05-16T12:10:00.641Z</lastmod>
+  </url>
+  <url>
+    <loc>https://enblacar.github.io/SCpubr-book/preface/Dataset.html</loc>
+    <lastmod>2023-05-16T12:10:11.898Z</lastmod>
+  </url>
+  <url>
+    <loc>https://enblacar.github.io/SCpubr-book/basic_functions/DimPlots.html</loc>
+    <lastmod>2023-05-16T12:16:20.906Z</lastmod>
   </url>
 </urlset>

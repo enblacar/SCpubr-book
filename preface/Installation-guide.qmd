@@ -1,0 +1,45 @@
+# Installation guide {.unnumbered}
+
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("_common.R")
+```
+
+
+To install this package, use the following commands:
+
+```{r}
+#| eval: false
+# From CRAN - Official release:
+install.packages("SCpubr")
+
+# From GitHub - Latest stable development version:
+if(!requireNamespace("devtools", quietly = TRUE)){
+  install.packages("devtools") # If not installed.
+}
+
+devtools::install_github("enblacar/SCpubr", ref = "v2.0.0-dev-stable")
+```
+
+Note that additional packages may be required to run certain functions. This information is usually displayed when you load the package for the first time in the session.
+
+```{r}
+#| eval: false
+library("SCpubr")
+```
+
+<img src="images/Installation_1.png" class="mx-auto d-block" style="box-shadow: none; width: 100%"/>
+
+This summary will provide you with the information you need to run the package:
+
+- The version of **SCpubr** you have installed and the latest version available.
+- The status of your **dependencies** (installed or missing), including the current and latest version of each installed dependency.
+- The **functions** that can be run based on your currently installed dependencies.
+
+Note that some packages, such as `Seurat`, `ggplot2`, or `dplyr`, require a minimum version. If your installed version is not high enough, these packages will be marked with an exclamation mark.
+
+If you do not see this message, you can always generate it by using `SCpubr::package_report()`.
+
+You can also check the required packages for a specific function by using `SCpubr::check_dependencies()` and specifying the function name.
