@@ -1,0 +1,455 @@
+# Shared features across functions
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+suppressMessages(library("Seurat"))
+```
+
+```{r}
+#| echo: false
+sample <- readRDS("/b06x-isilon/b06x-g/G703/eblanco/projects/test_SC_datasets/sc_dataset.rds")
+```
+
+
+In this package, there are a lot of shared functionalities across functions. The idea is to generate a common framework for people to intuitively know what to expect from current and new functions. Several functions will be used here to better illustrate the shared functionalities.
+
+## Basic parameters
+There are a handful of parameters needed to run mostly any function in `SCpubr`:
+
+- `sample`: Seurat object to use for plotting.
+- `group.by`: Metadata variable to group the values to plot by.
+- `split.by`: Metadata variable to split the values to plot by.
+- `features`: Genes, metadata columns, dimensional reduction column names to use for plotting.
+- `input_gene_list`: Named list with different gene sets to use for plotting.
+- `assay`: Assay name to pull the data from.
+- `slot`: Slot in `assay` to pull the data from.
+- `reduction`: Which dimensional reduction to use for plottin.
+- `dims`: A vector with numbers representing which dimensions of the dimensional reduction embedding to use.
+- `na.value`: Color used for `NA` values.
+- `raster`: Whether or not to rasterize an image.
+- `raster.dpi`: Resolution of the rasterization.
+
+## Change colors | categorical
+
+`SCpubr` has a built-in custom color palette (used throughout this book) for `categorical variables`. However, it is very often the case that we do want our own color system in the plots. This is always achieved by using the `colors.use` parameter. The input to this parameter can vary depending of the function, but it is always one for the following three:
+
+- A vector of `named values`. The names correspond to each of the unique values that the categorical variable to plot has, and the values are the colors corresponding to each of those values.
+
+``` {r}
+#| eval: false
+colors <- c("A" = "blue",
+            "B" = "red",
+            "C" = "green")
+```
+
+- A `named list` of vectors of `named values`. In more complex scenarios, we have many different categorical color palettes. For this, the names of the list will correspond to the names of the categorical variables stored in the `metadata` of the `Seurat object`, and the values will be the vectors of `named values`. 
+
+``` {r}
+#| eval: false
+colors <- list("Variable 1" = c("A" = "blue",
+                                "B" = "red",
+                                "C" = "green"),
+               "Varibale 2" = c("D" = "pink",
+                                "E" = "purple",
+                                "F" = "brown"))
+```
+
+With this, here are some examples of how to use it:
+
+
+```{r}
+#| fig-width: 25
+#| fig-height: 20
+#| fig-cap: "Using a vector of named values."
+
+# Create a color scale for the unique values in seurat clusters.
+colors <- c("0" = "#001219",
+            "1" = "#005f73",
+            "2" = "#0a9396",
+            "3" = "#94d2bd",
+            "4" = "#e9d8a6",
+            "5" = "#ee9b00",
+            "6" = "#ca6702",
+            "7" = "#bb3e03",
+            "8" = "#ae2012",
+            "9" = "#9b2226")
+
+p <- SCpubr::do_DimPlot(sample, 
+                        colors.use = colors,
+                        font.size = 24)
+
+p
+```
+
+
+```{r}
+#| fig-width: 25
+#| fig-height: 20
+#| fig-cap: "Using a vector of named values."
+
+# Create a color scale for the unique values in seurat clusters.
+colors1 <- c("0" = "#001219",
+             "1" = "#005f73",
+             "2" = "#0a9396",
+             "3" = "#94d2bd",
+             "4" = "#e9d8a6",
+             "5" = "#ee9b00",
+             "6" = "#ca6702",
+             "7" = "#bb3e03",
+             "8" = "#ae2012",
+             "9" = "#9b2226")
+
+colors2 <- c("A" = "#669bbc",
+             "B" = "#003049")
+
+colors3 <- c("10K_pbmc" = "#83c5be")
+
+colors.use <- list("seurat_clusters" = colors1,
+                   "annotation" = colors2,
+                   "orig.ident" = colors3)
+
+p <- SCpubr::do_SCExpressionHeatmap(sample,
+                                    features = Seurat::VariableFeatures(sample)[1:20],
+                                    metadata = c("seurat_clusters", 
+                                                 "annotation", 
+                                                 "orig.ident"),
+                                    metadata.colors = colors.use)
+
+p
+```
+
+
+## Change colors | continuous
+
+For continuous variables, we do have a more complex system. First of all, `SCpubr` has implemented both `RColorBrewer` and `viridis` palettes, and use them interchangeably depending on the function. 
+
+- [Viridis palettes](https://search.r-project.org/CRAN/refmans/viridisLite/html/viridis.html): Accepts both the long names and the shortened ones (i.e: A, B, C).
+- [RColorBrewer palettes](https://r-graph-gallery.com/38-rcolorbrewers-palettes.html): Accepts the long names.
+
+To choose whether to use `viridis` or `RColorBrewer` palettes, you need to set up `use_viridis = TRUE/FALSE`. To indicate the color palette you want to use, there are two parameters:
+
+- `viridis.palette`: For `viridis` palettes.
+- `sequential.palette`: For `RColorBrewer` palettes.
+
+And finally, you can also choose the `direction` of the scale. This is, whether you want to use the darker colors as lower values or not. For this, we have two more parameters:
+
+- `viridis.direction`: For `viridis` palettes.
+- `sequential.direction`: For `RColorBrewer` palettes.
+
+It is easier to understand with some examples:
+
+
+```{r}
+#| fig-width: 20
+#| fig-height: 40
+#| fig-cap: "Modify viridis palettes, also use different directions."
+
+p1 <- SCpubr::do_FeaturePlot(sample, 
+                             features = "PC_1",
+                             pt.size = 0.5,
+                             use_viridis = TRUE,
+                             viridis.palette = "A",
+                             viridis.direction = 1)
+
+p2 <- SCpubr::do_FeaturePlot(sample, 
+                             features = "PC_1",
+                             pt.size = 0.5,
+                             use_viridis = TRUE,
+                             viridis.palette = "B",
+                             viridis.direction = -1)
+
+p3 <- SCpubr::do_FeaturePlot(sample, 
+                             features = "PC_1",
+                             pt.size = 0.5,
+                             use_viridis = TRUE,
+                             viridis.palette = "C",
+                             viridis.direction = 1)
+
+p4 <- SCpubr::do_FeaturePlot(sample, 
+                             features = "PC_1",
+                             pt.size = 0.5,
+                             use_viridis = TRUE,
+                             viridis.palette = "D",
+                             viridis.direction = -1)
+
+p5 <- SCpubr::do_FeaturePlot(sample, 
+                             features = "PC_1",
+                             pt.size = 0.5,
+                             use_viridis = TRUE,
+                             viridis.palette = "E",
+                             viridis.direction = 1)
+
+p6 <- SCpubr::do_FeaturePlot(sample, 
+                             features = "PC_1",
+                             pt.size = 0.5,
+                             use_viridis = TRUE,
+                             viridis.palette = "F",
+                             viridis.direction = -1)
+
+p7 <- SCpubr::do_FeaturePlot(sample, 
+                             features = "PC_1",
+                             pt.size = 0.5,
+                             use_viridis = TRUE,
+                             viridis.palette = "G",
+                             viridis.direction = 1)
+
+p8 <- SCpubr::do_FeaturePlot(sample, 
+                             features = "PC_1",
+                             pt.size = 0.5,
+                             use_viridis = TRUE,
+                             viridis.palette = "H",
+                             viridis.direction = -1)
+
+p <- (p1 | p2) / (p3 | p4) / (p5 | p6) / (p7 | p8)
+p
+```
+
+```{r}
+#| fig-width: 20
+#| fig-height: 40
+#| fig-cap: "Modify sequential palettes, also use different directions."
+
+p1 <- SCpubr::do_FeaturePlot(sample, 
+                             features = "PC_1",
+                             pt.size = 0.5,
+                             use_viridis = FALSE,
+                             sequential.palette = "YlGnBu",
+                             sequential.direction = 1)
+
+p2 <- SCpubr::do_FeaturePlot(sample, 
+                             features = "PC_1",
+                             pt.size = 0.5,
+                             use_viridis = FALSE,
+                             sequential.palette = "YlOrBr",
+                             sequential.direction = 1)
+
+p3 <- SCpubr::do_FeaturePlot(sample, 
+                             features = "PC_1",
+                             pt.size = 0.5,
+                             use_viridis = FALSE,
+                             sequential.palette = "YlOrRd",
+                             sequential.direction = 1)
+
+p4 <- SCpubr::do_FeaturePlot(sample, 
+                             features = "PC_1",
+                             pt.size = 0.5,
+                             use_viridis = FALSE,
+                             sequential.palette = "Reds",
+                             sequential.direction = 1)
+
+p5 <- SCpubr::do_FeaturePlot(sample, 
+                             features = "PC_1",
+                             pt.size = 0.5,
+                             use_viridis = FALSE,
+                             sequential.palette = "Purples",
+                             sequential.direction = 1)
+
+p6 <- SCpubr::do_FeaturePlot(sample, 
+                             features = "PC_1",
+                             pt.size = 0.5,
+                             use_viridis = FALSE,
+                             sequential.palette = "Blues",
+                             sequential.direction = -1)
+
+p7 <- SCpubr::do_FeaturePlot(sample, 
+                             features = "PC_1",
+                             pt.size = 0.5,
+                             use_viridis = FALSE,
+                             sequential.palette = "Oranges",
+                             sequential.direction = 1)
+
+p8 <- SCpubr::do_FeaturePlot(sample, 
+                             features = "PC_1",
+                             pt.size = 0.5,
+                             use_viridis = FALSE,
+                             sequential.palette = "Greys",
+                             sequential.direction = 1)
+
+p <- (p1 | p2) / (p3 | p4) / (p5 | p6) / (p7 | p8)
+p
+```
+
+# Change colors | divering 
+
+Finally, there is a special case of sequential palettes in which there is a clear empashis on the two ends of the scale. This is a very usual case in scaled data or data that has a center and data data deviates from it. Such data can be generated in `SCpubr` by using `enforce_symmetry = TRUE` in many of the functions.
+
+In such cases, the color palette used is chosen among the diverging palettes in `RColorBrewer` and can be chosen using `diverging.palette`.
+
+
+```{r}
+#| fig-width: 20
+#| fig-height: 40
+#| fig-cap: "Use diverging palettes."
+
+p1 <- SCpubr::do_FeaturePlot(sample, 
+                             features = "PC_1",
+                             pt.size = 0.5,
+                             use_viridis = FALSE,
+                             enforce_symmetry = TRUE,
+                             diverging.palette = "Spectral")
+
+p2 <- SCpubr::do_FeaturePlot(sample, 
+                             features = "PC_1",
+                             pt.size = 0.5,
+                             use_viridis = FALSE,
+                             enforce_symmetry = TRUE,
+                             diverging.palette = "RdYlBu")
+
+p3 <- SCpubr::do_FeaturePlot(sample, 
+                             features = "PC_1",
+                             pt.size = 0.5,
+                             use_viridis = FALSE,
+                             enforce_symmetry = TRUE,
+                             diverging.palette = "RdYlGn")
+
+p4 <- SCpubr::do_FeaturePlot(sample, 
+                             features = "PC_1",
+                             pt.size = 0.5,
+                             use_viridis = FALSE,
+                             enforce_symmetry = TRUE,
+                             diverging.palette = "RdBu")
+
+p5 <- SCpubr::do_FeaturePlot(sample, 
+                             features = "PC_1",
+                             pt.size = 0.5,
+                             use_viridis = FALSE,
+                             enforce_symmetry = TRUE,
+                             diverging.palette = "RdGy")
+
+p6 <- SCpubr::do_FeaturePlot(sample, 
+                             features = "PC_1",
+                             pt.size = 0.5,
+                             use_viridis = FALSE,
+                             enforce_symmetry = TRUE,
+                             diverging.palette = "PuOr")
+
+p7 <- SCpubr::do_FeaturePlot(sample, 
+                             features = "PC_1",
+                             pt.size = 0.5,
+                             use_viridis = FALSE,
+                             enforce_symmetry = TRUE,
+                             diverging.palette = "PiYG")
+
+p8 <- SCpubr::do_FeaturePlot(sample, 
+                             features = "PC_1",
+                             pt.size = 0.5,
+                             use_viridis = FALSE,
+                             enforce_symmetry = TRUE,
+                             diverging.palette = "BrBG")
+
+p <- (p1 | p2) / (p3 | p4) / (p5 | p6) / (p7 | p8)
+p
+```
+
+
+## Flip the plots
+
+In many cases, it is possible to completely switch the plot axes. Sometimes information can be more easily conveyed by using a X/Y setup rather than Y/X. To switch the axes, you can use `flip = TRUE`. 
+
+```{r}
+#| fig-width: 15
+#| fig-height: 8
+#| fig-cap: "Flip the axes"
+
+p1 <- SCpubr::do_BarPlot(sample = sample,
+                         group.by = "seurat_clusters",
+                         split.by = "annotation",
+                         position = "fill",
+                         flip = FALSE)
+
+p2 <- SCpubr::do_BarPlot(sample = sample,
+                         group.by = "seurat_clusters",
+                         split.by = "annotation",
+                         position = "fill",
+                         flip = TRUE)
+
+p <- p1 | p2
+p
+```
+
+## Control plot aesthetics
+
+Pretty much mirroring the style of `ggplot2::theme()`, `SCpubr` offers a wide range of parameters to adjust the way text elements in the plots are displayed:
+
+- `font.size`: Controls the general size of the plot. Different elements will have higher or lower font size to keep them coherent.
+- `font.type`: Controls the type of font used, can be one of: sans, serif, mono.
+- `plot.title.face`: Controls the style of the font of the element. Can be one of: plain, italic, bold or bold.italic.
+- `plot.subtitle.face`: Controls the style of the font of the element. Can be one of: plain, italic, bold or bold.italic.
+- `plot.caption.face`: Controls the style of the font of the element. Can be one of: plain, italic, bold or bold.italic.
+- `axis.title.face`: Controls the style of the font of the element. Can be one of: plain, italic, bold or bold.italic.
+- `axis.text.face`: Controls the style of the font of the element. Can be one of: plain, italic, bold or bold.italic.
+- `legend.title.face`: Controls the style of the font of the element. Can be one of: plain, italic, bold or bold.italic.
+- `legend.text.face`: Controls the style of the font of the element. Can be one of: plain, italic, bold or bold.italic.
+- `strip.text.face`: Controls the style of the font of the element. Can be one of: plain, italic, bold or bold.italic.
+
+## Control legend aesthetics
+
+Apart from the parameters above, one can control other aspects of the legend with:
+
+- `legend.position`: Either top, bottom, left, right or none to remove it entirely.
+- `legend.title.position`: Position of the legend title. Can be one of: top, bottom, right, left.
+- `legend.icon.size`: Size of the elementes in the legend.
+- `legend.ncol`and `legend.nrow`: How many rows and columns the legend should have (in categorical variables).
+- `legend.byrow`: Whether the legend should be filled by rows (`TRUE`) or columns (`FALSE`).
+- `legend.type`: Whether to have a normal-looking legend (`normal`) or a bigger, more spacious colorbar (`colorbar`).
+- `legend.tickcolor`: Controls the color of the ticks in the legend (continuous variables).
+- `legend.framecolor`: Controls the color of the border in the legend (continuous variables).
+- `legend.length`: Controls the length of the legend (continuous variables).
+- `legend.width`: Controls the height of the legend (continuous variables).
+- `legend.framewidth`: Controls the width of the border line in the legend (continuous variables).
+- `legend.tickwidth`: Controls the width of the ticks in the legend (continuous variables).
+
+Finally, and as a separate note, for continuous legends, one can choose the number of breaks the legend has (might vary slightly), by using `number.breaks` parameter.
+
+## Modify plot titles
+
+When applicable (some functions might restrict the access to these parameters), the different titles of the plot can be modified by using the following parameters:
+
+- `plot.title`: Title of the plot.
+- `plot.subtitle`: Subtitle of the plot.
+- `plot.caption`: Caption of the plot.
+- `xlab`: X axis title.
+- `ylab`: Y axis title.
+- `legend.title`: Title of the legend.
+
+## Control grid aesthetics
+
+In some plots, it is also possible to draw the grid lines to help guiding the user across the information displayed on them. The following parameters control the grid aesthetics:
+
+- `plot.grid`: Whether to show the grid or not.
+- `grid.color`: Color of the grid lines.
+- `grid.type`: Type of lines used in the grid. Can be one of: blank, solid, dashed, dotted, dotdash, longdash, twodash.
+
+
+## Control cell borders
+
+A very nice addition than enhances visibility of any plot where cells are drawn as dots is to add a black border around them. However, just changing the shape to a dot with border results in a very clogged visualization. It is more interesting to add another lagyer of black cells underneath the real plotting layer, so that only the cells on the edges will be visible, thus forming an outline border.
+
+While this greatly increases the plot size, it is a tradeoff one can consider when making a final figure for a publication. This behavior can be accessed via the following parameters:
+
+- `plot_cell_borders`: Whether to plot the cell borders.
+- `border.size`: Size of the dots used for the cell borders.
+- `border.color`: Color of the dots used for the cell borders.
+- `border.density`: Controls how many cells are used to generate the borders. A value between 0 and 1. It computes a 2D kernel density of the cells in the dimensional reduction embedding and based on this cells falling below the `border.density` quantilye are excluded. This helps decreasing the added weight to the plot when `plot_cell_borders = TRUE`, but might result in an uneven border for the cells.
+
+## Plot marginal distributions
+
+In some cases, it is also possible to plot marginal distributions of the density of the values in a scatter plot across a given axis. This is used by some functions in `SCpubr` and the functionality can be accessed by:
+
+- `plot_marginal_distributions`: Whether to plot marginal distributions or not.
+- `marginal.type`: Type of distribution to plot. Can be one of: density, histogram, boxplot, violin, densigram.
+- `marginal.size`: Size ratio between the main and marginal plots.
+- `marginal.groups`: Metadata variable to use to group the values by when computing the marginal distribution.
+
+## Plot density contours in dimensional reduction visualizations
+
+Strictly pertaining to dimensional reduction visualizations, one can also plot density contour lines in these plots:
+
+- `plot_density_contour`: Whether to plot the density contours or not.
+- `contour.position`: Whether to place the contour layer on top or bottom of the rest of the layers (this will make some of the lines visible or not).
+- `contour.color`: Color of the lines that draw the contour.
+- `contour.lineend`: Controls the line style of the line ends. One of: round, butt, square.
+- `contour.linejoin`: Controls the line style of the line joins. One of: round, mitre, bevel.
+- `contour_expand_axes`: Whether to increase the limits of the X and Y axes to make the contours fit the plot. This is a number between 0 and 1 and represents how much in proportion the axes should be expanded.

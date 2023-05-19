@@ -1,0 +1,43 @@
+# Feature plots
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("_common.R")
+suppressMessages(library("Seurat"))
+```
+
+```{r}
+#| echo: false
+sample <- readRDS("/b06x-isilon/b06x-g/G703/eblanco/projects/test_SC_datasets/sc_dataset.rds")
+```
+
+
+Another flagship function in `Seurat` is `Seurat::FeaturePlot()`. It is basically the counterpart of `Seurat::DimPlot()` which, instead of coloring the cells based on a categorical color scale, it uses a continuous scale instead, according to a variable provided by the user. This can range from gene expression, to metadata variables such as the number of genes, or even values such as a principal component.
+
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+#| fig-cap: "SCpubr FeaturePlot"
+p <- SCpubr::do_FeaturePlot(sample = sample,
+                            features = "PC_1")
+p
+```
+
+By default axes are removed, same as with `DimPlots`, unless non-cannonical axes are used. You can always bring them back using `plot.axes = TRUE`.
+
+More than one features can be used at the same time. 
+
+
+```{r}
+#| fig-width: 20
+#| fig-height: 11
+#| fig-cap: "Plot multiple features"
+p <- SCpubr::do_FeaturePlot(sample = sample,
+                            features = c("PC_1", "PC_2"))
+p
+```
+
+## Control axis limits
+
+More often than not, we encounter that very few cells are driving the color axis. Very few cells with very high values will inevitably comprise the cells in a very limited color range due to their values. For this, we can manually set up the limits by using `min.cutoff` and `max.cutoff`. A couple of 

@@ -36,9 +36,14 @@ book:
       - ./preface/Installation-guide.qmd
       - ./preface/Dataset.qmd
 
-    - part: "Basic functions"
+    - part: "Functions"
       chapters:
-      - ./basic_functions/DimPlots.qmd
+      - ./functions/DimPlots.qmd
+
+    - part: "Cheatsheets"
+      chapters:
+      - ./cheatsheets/Shared_Features.qmd
+
 
 
 
