@@ -23,72 +23,65 @@
   {
     "objectID": "functions/DimPlots.html#basic-usage",
     "href": "functions/DimPlots.html#basic-usage",
-    "title": "Dim plots",
+    "title": "do_DimPlot() | Dimensional Reduction scatter plots",
     "section": "Basic usage",
     "text": "Basic usage\nDimPlots can be generated in SCpubr using the function SCpubr::do_DimPlot():\n\np &lt;- SCpubr::do_DimPlot(sample = sample)\n\np\n\n\n\nSCpubr DimPlot"
   },
   {
     "objectID": "functions/DimPlots.html#modifying-axes-behavior",
     "href": "functions/DimPlots.html#modifying-axes-behavior",
-    "title": "Dim plots",
+    "title": "do_DimPlot() | Dimensional Reduction scatter plots",
     "section": "Modifying axes behavior",
     "text": "Modifying axes behavior\nAxes are removed by default from the plot, together with the axes titles if they match any of the following combinations:\n\nTSNE_1 / TSNE_2\nUMAP_1 / UMAP_2\n\nIn any other combination, the titles will come back:\n\n# Example using PCA reduction.\np1 &lt;- SCpubr::do_DimPlot(sample = sample, \n                         reduction = \"pca\")\n\n# Example using a non-canonical set of dimensions.\np2 &lt;- SCpubr::do_DimPlot(sample = sample, \n                         dims = c(2, 1))\n\np &lt;- p1 | p2\np\n\n\n\nAxes titles come back whenever it is not UMAP_1 vs UMAP_2.\n\n\n\n\nThis behaviour can be overridden with plot.axes = TRUE:\n\n# Bring back the Axes.\np &lt;- SCpubr::do_DimPlot(sample = sample,\n                        plot.axes = TRUE)\np\n\n\n\nBring back the axes."
   },
   {
     "objectID": "functions/DimPlots.html#label-the-clusters",
     "href": "functions/DimPlots.html#label-the-clusters",
-    "title": "Dim plots",
+    "title": "do_DimPlot() | Dimensional Reduction scatter plots",
     "section": "Label the clusters",
     "text": "Label the clusters\nIn some cases, we might want to remove the legend entirely, and instead plot labels on top of each cluster. This can be achieved by using label = TRUE.\n\n# Put labels on top of the clusters.\np &lt;- SCpubr::do_DimPlot(sample, \n                     label = TRUE)\np\n\n\n\nLabels on top of the clusters.\n\n\n\n\nThese labels are, in essence the result of applying ggplot2::geom_label() on the plot. However, we might also want to have them as pure text instead of the labels. We can achieve that by providing label.box = FALSE.\n\n# Labels as text\np &lt;- SCpubr::do_DimPlot(sample = sample, \n                        label = TRUE,\n                        label.box = FALSE)\np\n\n\n\nLabels as text.\n\n\n\n\nHowever, we can play further with other parameters of the function such as label.color which will provide a different color for the text inside the labels:\n\n# Change the color of the label text.\np1 &lt;- SCpubr::do_DimPlot(sample = sample, \n                         label = TRUE, \n                         label.color = \"black\")\n\n# Change the color of the text.\np2 &lt;- SCpubr::do_DimPlot(sample = sample, \n                         label = TRUE, \n                         label.color = \"black\",\n                         label.box = FALSE)\np &lt;- p1 | p2\np\n\n\n\nChange label/text color.\n\n\n\n\nAlso, we can modify the size of the labels/text by using label.size paramter:\n\n# Change the size of the label text.\np1 &lt;- SCpubr::do_DimPlot(sample = sample, \n                         label = TRUE, \n                         label.size = 6)\n\n# Change the size of the text.\np2 &lt;- SCpubr::do_DimPlot(sample = sample, \n                         label = TRUE, \n                         label.box = FALSE,\n                         label.size = 6)\np &lt;- p1 | p2\np\n\n\n\nChange label/text size\n\n\n\n\nFinally, if the labels/text are overlapping one to another, we can try to fix that by repelling the labels from one to another. We can achieve this by using repel = TRUE:\n\n# Repel the labels.\np1 &lt;- SCpubr::do_DimPlot(sample = sample, \n                         label = TRUE, \n                         label.color = \"black\",\n                         repel = TRUE)\n\n# Repel the text.\np2 &lt;- SCpubr::do_DimPlot(sample = sample, \n                         label = TRUE, \n                         label.color = \"black\",\n                         label.box = FALSE,\n                         repel = TRUE)\np &lt;- p1 | p2\np\n\n\n\nRepel the labels/text."
   },
   {
     "objectID": "functions/DimPlots.html#changing-the-order-of-plotting",
     "href": "functions/DimPlots.html#changing-the-order-of-plotting",
-    "title": "Dim plots",
+    "title": "do_DimPlot() | Dimensional Reduction scatter plots",
     "section": "Changing the order of plotting",
     "text": "Changing the order of plotting\nBe default SCpubr::do_DimPlot() plots cells randomly using shuffle = TRUE. This is different from the default behavior of Seurat::DimPlot(), which plots cells based on their identity factor levels.\n\np1 &lt;- SCpubr::do_DimPlot(sample = sample,\n                         reduction = \"pca\",\n                         shuffle = TRUE)\n\np2 &lt;- SCpubr::do_DimPlot(sample = sample,\n                         reduction = \"pca\",\n                         shuffle = FALSE)\n\np &lt;- p1 | p2\np\n\n\n\nShuffling cells"
   },
   {
     "objectID": "functions/DimPlots.html#highlighting-cells",
     "href": "functions/DimPlots.html#highlighting-cells",
-    "title": "Dim plots",
+    "title": "do_DimPlot() | Dimensional Reduction scatter plots",
     "section": "Highlighting cells",
     "text": "Highlighting cells\nWe can highlight a certain group of cells in the plot. This is achieved by using the cells.highlight parameter.\n\ncells.use &lt;- sample(x = colnames(sample), \n                    size = 1500)\n\np &lt;- SCpubr::do_DimPlot(sample = sample,\n                        cells.highlight = cells.use)\n\np\n\n\n\nHighlighting cells.\n\n\n\n\nOne can also change the color of the highligted cells by providing single color to colors.use and the color of the not selected cells with na.value:\n\n# Change color of highlighted and non-highlighted cells.\np &lt;- SCpubr::do_DimPlot(sample = sample, \n                        cells.highlight = cells.use,\n                        colors.use = \"dodgerblue\",\n                        na.value = \"grey90\")\np\n\n\n\nChange default color of highlighted and non-highlighted cells.\n\n\n\n\nThe size of the highlighted dots can be modified with the parameter sizes.highlight.\n\n# Increase the size of the highlighted cells.\np &lt;- SCpubr::do_DimPlot(sample = sample, \n                        cells.highlight = cells.use, \n                        sizes.highlight = 2)\np\n\n\n\nIncrease dot size of highlighted cells.\n\n\n\n\nWe can also highlight whole identities with idents.highlight parameter. For this, just provide the desired identities to be selected. It can also work in combination with cells.highlight.\n\n# Using cells.highlight.\np1 &lt;- SCpubr::do_DimPlot(sample = sample, \n                         cells.highlight = cells.use)\n\n# Using idents.highlight.\np2 &lt;- SCpubr::do_DimPlot(sample = sample, \n                         idents.highlight = c(\"6\"))\n\n# Using both.\np3 &lt;- SCpubr::do_DimPlot(sample = sample, \n                         cells.highlight = cells.use, \n                         idents.highlight = c(\"6\"))\n\np &lt;- p1 | p2 | p3\np\n\n\n\nUsing a combination of cells.highlight and idents.highlight."
   },
   {
     "objectID": "functions/DimPlots.html#restrict-the-identitites-displayed",
     "href": "functions/DimPlots.html#restrict-the-identitites-displayed",
-    "title": "Dim plots",
+    "title": "do_DimPlot() | Dimensional Reduction scatter plots",
     "section": "Restrict the identitites displayed",
     "text": "Restrict the identitites displayed\nSometimes, we are interested in showing only some of the identities or groups in our sample. Instead of highlighting cells, we still want to keep the original colors and legend. For this use case, one might be tempted to just subset the sample as follows:\n\n# Subset desired identities in a DimPlot.\np &lt;- SCpubr::do_DimPlot(sample = sample[, sample$seurat_clusters %in% c(\"0\", \"5\", \"2\", \"4\")])\n\np\n\n\n\nSubsetting the Seurat object to restrict the identities shown.\n\n\n\n\nHowever, we end up losing the UMAP silhouette. For this use case, SCpubr::do_DimPlot() introduces idents.keep parameter, for which you can provide a vector with the identities you want to keep. This will assign to the rest of the cells a value of NA and they will be colored according to na.value parameter:\n\n# Select identities with idents.keep.\np1 &lt;- SCpubr::do_DimPlot(sample = sample,\n                         idents.keep = c(\"0\", \"5\", \"2\",  \"4\"))\n\n# Also, non-selected cells's color can be modified.\np2 &lt;- SCpubr::do_DimPlot(sample = sample,\n                         idents.keep = c(\"0\", \"5\", \"2\",  \"4\"),\n                         na.value = \"grey50\")\np &lt;- p1 | p2\np\n\n\n\nSelect the identities to display."
   },
   {
     "objectID": "functions/DimPlots.html#group-by-another-metadata-variable",
     "href": "functions/DimPlots.html#group-by-another-metadata-variable",
-    "title": "Dim plots",
+    "title": "do_DimPlot() | Dimensional Reduction scatter plots",
     "section": "Group by another metadata variable",
     "text": "Group by another metadata variable\nSo far, all the DimPlots displayed have shown the identities as the ones that are currently set in the object. This can be consulted by using Seurat::Idents(sample). However, naturally, we might want to display different metadata variables. This can be easily achieved by using group.by parameter:\n\n# Generate another metadata variable to group the cells by.\nsample$annotation &lt;- sample(c(\"A\", \"B\", \"C\"), ncol(sample), replace = TRUE)\n\n# Group by another metadata variable.\np1 &lt;- SCpubr::do_DimPlot(sample, \n                         group.by = \"seurat_clusters\")\n\np2 &lt;- SCpubr::do_DimPlot(sample, \n                         group.by = \"annotation\")\n\np &lt;- p1 | p2\np\n\n\n\nGroup by another metadata variable."
   },
   {
     "objectID": "functions/DimPlots.html#splitting-by-a-category",
     "href": "functions/DimPlots.html#splitting-by-a-category",
-    "title": "Dim plots",
+    "title": "do_DimPlot() | Dimensional Reduction scatter plots",
     "section": "Splitting by a category",
     "text": "Splitting by a category\nAnother useful parameter is split.by, which allows you to split your DimPlot into multiple panels, each one containing a different unique value of the metadata variable you have provided to the argument. One can understand this as using the group.by parameter and then splitting the resulting DimPlot into different panels. In this example, we are going to use the different clusters as an example. This is how it looks by default:\n\n# SCpubr's DimPlot using split.by\np &lt;- SCpubr::do_DimPlot(sample, \n                        split.by = \"seurat_clusters\", \n                        ncol = 5, \n                        legend.position = \"none\",\n                        font.size = 24)\n\np\n\n\n\nUsing split.by in SCpubr.\n\n\n\n\nIf we are interested only in a subset of the possible values, we can use idents.keep alongside a vector containing the values to keep from the unique values in split.by:\n\n# Using split.by and restricting the number of output plots with idents.keep.\np &lt;- SCpubr::do_DimPlot(sample, \n                        split.by = \"seurat_clusters\", \n                        ncol = 3, \n                        idents.keep = c(\"0\", \"1\", \"7\"),\n                        legend.position = \"none\",\n                        font.size = 24)\n\np\n\n\n\nSelect only some identities in split.by"
   },
   {
     "objectID": "functions/DimPlots.html#group-by-a-variable-but-split-by-another",
     "href": "functions/DimPlots.html#group-by-a-variable-but-split-by-another",
-    "title": "Dim plots",
+    "title": "do_DimPlot() | Dimensional Reduction scatter plots",
     "section": "Group by a variable but split by another",
     "text": "Group by a variable but split by another\nFinally, but also importantly, users might want to split the UMAP using split.by, while also grouping (coloring) the values by another variable using group.by. Using these two parameters in combination yields the following:\n\n# Using split.by and group.by in combination.\nsample$orig.ident &lt;- sample(c(\"A\", \"B\", \"C\"), \n                            ncol(sample), \n                            replace = TRUE, \n                            prob = c(0.05, 0.1, 0.85))\n\np &lt;- SCpubr::do_DimPlot(sample, \n                        group.by = \"seurat_clusters\",\n                        split.by = \"orig.ident\", \n                        font.size = 24)\n\np\n\n\n\nSplit by a variable but color by another one."
-  },
-  {
-    "objectID": "cheatsheets/Shared_Features.html",
-    "href": "cheatsheets/Shared_Features.html",
-    "title": "Shared features across functions",
-    "section": "",
-    "text": "Change colors | divering\nFinally, there is a special case of sequential palettes in which there is a clear emphasis on the two ends of the scale. This is a very usual case in scaled data or data that has a center and data data deviates from it. Such data can be generated in SCpubr by using enforce_symmetry = TRUE in many of the functions.\nIn such cases, the color palette used is chosen among the diverging palettes in RColorBrewer and can be chosen using diverging.palette."
   },
   {
     "objectID": "cheatsheets/Shared_Features.html#basic-parameters",
@@ -112,11 +105,25 @@
     "text": "Change colors | continuous\nFor continuous variables, we do have a more complex system. First of all, SCpubr has implemented both RColorBrewer palettes and Viridis palettes palettes, and use them interchangeably depending on the function. This behavior can accessed and customized with the following parameters:\n\n\nuse_viridis: Whether to use a viridis palette (TRUE) or not (FALSE).\n\nviridis.palette: Which viridis palette to use. Can be either the long name or the shortened version.\n\nsequential.palette: Which RColorBrewer continuous palette to use.\n\nviridis.direction: Whether to map the darkest colors to the lowest values (1) or not (-1).\n\nsequential.direction: Whether to map the darkest colors to the lowest values (-1) or not (1)."
   },
   {
-    "objectID": "cheatsheets/Shared_Features.html#flip-the-plots",
-    "href": "cheatsheets/Shared_Features.html#flip-the-plots",
+    "objectID": "cheatsheets/Shared_Features.html#change-colors-diverging",
+    "href": "cheatsheets/Shared_Features.html#change-colors-diverging",
     "title": "Shared features across functions",
-    "section": "Flip the plots",
-    "text": "Flip the plots\nIn many cases, it is possible to completely switch the plot axes. Sometimes information can be more easily conveyed by using a X/Y setup rather than Y/X. To switch the axes, you can use flip = TRUE."
+    "section": "Change colors | diverging",
+    "text": "Change colors | diverging\nFinally, there is a special case of sequential palettes in which there is a clear emphasis on the two ends of the scale. Those are called diverging palettes. This is a very usual case in scaled data. Normally the middle values are colored in a very light color in contrast with the two ends of the scale, which will have a very dark color. This can be used with the following:\n\n\ndiverging.palette: Which RColorBrewer diverging palette to use.\n\nIn such cases, the color palette used is chosen among the diverging palettes in RColorBrewer and can be chosen using diverging.palette."
+  },
+  {
+    "objectID": "cheatsheets/Shared_Features.html#symmetrical-plots",
+    "href": "cheatsheets/Shared_Features.html#symmetrical-plots",
+    "title": "Shared features across functions",
+    "section": "Symmetrical plots",
+    "text": "Symmetrical plots\nSome visualizations have a tendency to be symmetrical. While this is not always achieved naturally, they greatly benefit from it. One example are volcano plots, where having the 0 in the X axis in the center helps understanding the spatial disposition of the dots in the plot. Some other cases, we might be plotting a continuous variable that has a diverging nature, and we would like to have a diverging color scale used on it and the limits of the scale also being centered around the middle point. for this, we can use the following:\n\n\nenforce_symmetry: Whether to make the plot symmetrical (TRUE) or not (FALSE). This varies depending on the function. It can make the axes symmetrical between them or make the color scale diverging and the limits centered around the middle value."
+  },
+  {
+    "objectID": "cheatsheets/Shared_Features.html#flip-the-axes",
+    "href": "cheatsheets/Shared_Features.html#flip-the-axes",
+    "title": "Shared features across functions",
+    "section": "Flip the axes",
+    "text": "Flip the axes\nIn many cases, it is possible to completely switch the plot axes. Sometimes information can be more easily conveyed by using a X/Y setup rather than Y/X. This can be achieved by:\n\n\nflip: Whether to swap X and Y axes (TRUE) or not (FALSE)."
   },
   {
     "objectID": "cheatsheets/Shared_Features.html#control-plot-aesthetics",
@@ -168,24 +175,87 @@
     "text": "Plot density contours in dimensional reduction visualizations\nStrictly pertaining to dimensional reduction visualizations, one can also plot density contour lines in these plots:\n\n\nplot_density_contour: Whether to plot the density contours (TRUE) or not (FALSE).\n\ncontour.position: Whether to place the contour layer on top or bottom of the rest of the layers (this will make some of the lines visible or not).\n\ncontour.color: Color of the lines that draw the contour.\n\ncontour.lineend: Controls the line style of the line ends. One of: round, butt, square.\n\ncontour.linejoin: Controls the line style of the line joins. One of: round, mitre, bevel.\n\ncontour_expand_axes: Whether to increase the limits of the X and Y axes to make the contours fit the plot. This is a number between 0 and 1 and represents how much in proportion the axes should be expanded."
   },
   {
-    "objectID": "cheatsheets/Shared_Features.html#change-colors-diverging",
-    "href": "cheatsheets/Shared_Features.html#change-colors-diverging",
-    "title": "Shared features across functions",
-    "section": "Change colors | diverging",
-    "text": "Change colors | diverging\nFinally, there is a special case of sequential palettes in which there is a clear emphasis on the two ends of the scale. Those are called diverging palettes. This is a very usual case in scaled data. Normally the middle values are colored in a very light color in contrast with the two ends of the scale, which will have a very dark color. This can be used with the following:\n\n\ndiverging.palette: Which RColorBrewer diverging palette to use.\n\nIn such cases, the color palette used is chosen among the diverging palettes in RColorBrewer and can be chosen using diverging.palette."
+    "objectID": "cheatsheets/DimPlots.html#regular-dimplot",
+    "href": "cheatsheets/DimPlots.html#regular-dimplot",
+    "title": "do_DimPlot()",
+    "section": "Regular DimPlot",
+    "text": "Regular DimPlot\n\nSCpubr::do_DimPlot(sample = sample)"
   },
   {
-    "objectID": "cheatsheets/Shared_Features.html#symmetrical-plots",
-    "href": "cheatsheets/Shared_Features.html#symmetrical-plots",
-    "title": "Shared features across functions",
-    "section": "Symmetrical plots",
-    "text": "Symmetrical plots\nSome visualizations have a tendency to be symmetrical. While this is not always achieved naturally, they greatly benefit from it. One example are volcano plots, where having the 0 in the X axis in the center helps understanding the spatial disposition of the dots in the plot. Some other cases, we might be plotting a continuous variable that has a diverging nature, and we would like to have a diverging color scale used on it and the limits of the scale also being centered around the middle point. for this, we can use the following:\n\n\nenforce_symmetry: Whether to make the plot symmetrical (TRUE) or not (FALSE). This varies depending on the function. It can make the axes symmetrical between them or make the color scale diverging and the limits centered around the middle value."
+    "objectID": "cheatsheets/DimPlots.html#group-by-a-variable",
+    "href": "cheatsheets/DimPlots.html#group-by-a-variable",
+    "title": "do_DimPlot()",
+    "section": "Group by a variable",
+    "text": "Group by a variable\n\nSCpubr::do_DimPlot(sample = sample,\n                   group.by = \"my_variable\")"
   },
   {
-    "objectID": "cheatsheets/Shared_Features.html#flip-the-axes",
-    "href": "cheatsheets/Shared_Features.html#flip-the-axes",
-    "title": "Shared features across functions",
-    "section": "Flip the axes",
-    "text": "Flip the axes\nIn many cases, it is possible to completely switch the plot axes. Sometimes information can be more easily conveyed by using a X/Y setup rather than Y/X. This can be achieved by:\n\n\nflip: Whether to swap X and Y axes (TRUE) or not (FALSE)."
+    "objectID": "cheatsheets/DimPlots.html#split-by-a-variable",
+    "href": "cheatsheets/DimPlots.html#split-by-a-variable",
+    "title": "do_DimPlot()",
+    "section": "Split by a variable",
+    "text": "Split by a variable\n\nSCpubr::do_DimPlot(sample = sample,\n                   split.by = \"my_variable\")"
+  },
+  {
+    "objectID": "cheatsheets/DimPlots.html#group-by-a-variable-and-split-by-a-second-variable",
+    "href": "cheatsheets/DimPlots.html#group-by-a-variable-and-split-by-a-second-variable",
+    "title": "do_DimPlot()",
+    "section": "Group by a variable and split by a second variable",
+    "text": "Group by a variable and split by a second variable\n\nSCpubr::do_DimPlot(sample = sample,\n                   group.by = \"variable_A\",\n                   split.by = \"variable_B\")"
+  },
+  {
+    "objectID": "cheatsheets/DimPlots.html#restrict-the-identities-shown-to-a-subset.",
+    "href": "cheatsheets/DimPlots.html#restrict-the-identities-shown-to-a-subset.",
+    "title": "do_DimPlot()",
+    "section": "Restrict the identities shown to a subset.",
+    "text": "Restrict the identities shown to a subset.\n\nSCpubr::do_DimPlot(sample = sample,\n                   idents.keep = c(\"0\", \"2\"))"
+  },
+  {
+    "objectID": "cheatsheets/DimPlots.html#highlight-cells",
+    "href": "cheatsheets/DimPlots.html#highlight-cells",
+    "title": "do_DimPlot()",
+    "section": "Highlight cells",
+    "text": "Highlight cells\n\n# Highlight a given set of cells\nSCpubr::do_DimPlot(sample = sample,\n                   cells.highlight = sample(colnames(sample), 100))\n\n# Highlight a given identity from Seurat::Idents(sample).\nSCpubr::do_DimPlot(sample = sample,\n                   idents.highlight = \"0\")\n\nA combination of cells.highlight and idents.hightlight also works!"
+  },
+  {
+    "objectID": "cheatsheets/DimPlots.html#select-a-dimensional-reduction-embedding",
+    "href": "cheatsheets/DimPlots.html#select-a-dimensional-reduction-embedding",
+    "title": "do_DimPlot()",
+    "section": "Select a dimensional reduction embedding",
+    "text": "Select a dimensional reduction embedding\n\nSCpubr::do_DimPlot(sample = sample,\n                   reduction = \"pca\")"
+  },
+  {
+    "objectID": "cheatsheets/DimPlots.html#select-which-dimensions-to-plot",
+    "href": "cheatsheets/DimPlots.html#select-which-dimensions-to-plot",
+    "title": "do_DimPlot()",
+    "section": "Select which dimensions to plot",
+    "text": "Select which dimensions to plot\n\nSCpubr::do_DimPlot(sample = sample,\n                   reduction = \"pca\",\n                   dims = c(1, 2))\n\nNote that, by default, the dimensional reduction of choice is the lastest computed in the Seurat object."
+  },
+  {
+    "objectID": "cheatsheets/DimPlots.html#add-back-the-axes",
+    "href": "cheatsheets/DimPlots.html#add-back-the-axes",
+    "title": "do_DimPlot()",
+    "section": "Add back the Axes",
+    "text": "Add back the Axes\n\nSCpubr::do_DimPlot(sample = sample,\n                   plot.axes = TRUE)"
+  },
+  {
+    "objectID": "cheatsheets/DimPlots.html#label-the-clusters",
+    "href": "cheatsheets/DimPlots.html#label-the-clusters",
+    "title": "do_DimPlot()",
+    "section": "Label the clusters",
+    "text": "Label the clusters\n\n# Label the clusters - label geom.\nSCpubr::do_DimPlot(sample = sample,\n                   label = TRUE)\n\n# Label the clusters - text geom.\nSCpubr::do_DimPlot(sample = sample,\n                   label = TRUE,\n                   label.box = FALSE)"
+  },
+  {
+    "objectID": "cheatsheets/DimPlots.html#label-the-clusters-and-repel-the-labels",
+    "href": "cheatsheets/DimPlots.html#label-the-clusters-and-repel-the-labels",
+    "title": "do_DimPlot()",
+    "section": "Label the clusters and repel the labels",
+    "text": "Label the clusters and repel the labels\n\n# Label the clusters - label geom.\nSCpubr::do_DimPlot(sample = sample,\n                   label = TRUE,\n                   repel = TRUE)\n\n# Label the clusters - text geom.\nSCpubr::do_DimPlot(sample = sample,\n                   label = TRUE,\n                   label.box = FALSE,\n                   repel = TRUE)"
+  },
+  {
+    "objectID": "cheatsheets/DimPlots.html#and-more",
+    "href": "cheatsheets/DimPlots.html#and-more",
+    "title": "do_DimPlot()",
+    "section": "And more!",
+    "text": "And more!\nMany more options are available for this function in @sec-introduction!"
   }
 ]

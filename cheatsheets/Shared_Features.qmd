@@ -1,15 +1,9 @@
-# Shared features across functions
+# Shared features across functions {#sec-common_features}
 
 ```{r}
 #| results: "asis"
 #| echo: false
 source("../_common.R")
-suppressMessages(library("Seurat"))
-```
-
-```{r}
-#| echo: false
-sample <- readRDS("/b06x-isilon/b06x-g/G703/eblanco/projects/test_SC_datasets/sc_dataset.rds")
 ```
 
 In this package, there are a lot of s**hared features** **across functions**. Here is a quick summary of them!

@@ -1,0 +1,130 @@
+# do_DimPlot()
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+```
+
+```{r}
+#| echo: false
+sample <- readRDS("/b06x-isilon/b06x-g/G703/eblanco/projects/test_SC_datasets/sc_dataset.rds")
+```
+
+
+## Regular DimPlot
+
+```{r}
+#| eval: false
+SCpubr::do_DimPlot(sample = sample)
+```
+
+## Group by a variable
+
+```{r}
+#| eval: false
+SCpubr::do_DimPlot(sample = sample,
+                   group.by = "my_variable")
+```
+
+## Split by a variable
+
+```{r}
+#| eval: false
+SCpubr::do_DimPlot(sample = sample,
+                   split.by = "my_variable")
+```
+
+## Group by a variable and split by a second variable
+
+```{r}
+#| eval: false
+SCpubr::do_DimPlot(sample = sample,
+                   group.by = "variable_A",
+                   split.by = "variable_B")
+```
+
+## Restrict the identities shown to a subset.
+
+```{r}
+#| eval: false
+SCpubr::do_DimPlot(sample = sample,
+                   idents.keep = c("0", "2"))
+```
+
+## Highlight cells
+
+```{r}
+#| eval: false
+
+# Highlight a given set of cells
+SCpubr::do_DimPlot(sample = sample,
+                   cells.highlight = sample(colnames(sample), 100))
+
+# Highlight a given identity from Seurat::Idents(sample).
+SCpubr::do_DimPlot(sample = sample,
+                   idents.highlight = "0")
+```
+
+A combination of `cells.highlight` and `idents.hightlight` also works!
+
+## Select a dimensional reduction embedding
+
+```{r}
+#| eval: false
+SCpubr::do_DimPlot(sample = sample,
+                   reduction = "pca")
+```
+
+## Select which dimensions to plot
+
+```{r}
+#| eval: false
+SCpubr::do_DimPlot(sample = sample,
+                   reduction = "pca",
+                   dims = c(1, 2))
+```
+
+Note that, by default, the dimensional reduction of choice is the **lastest computed** in the Seurat object.
+
+## Add back the Axes
+
+```{r}
+#| eval: false
+SCpubr::do_DimPlot(sample = sample,
+                   plot.axes = TRUE)
+```
+
+## Label the clusters
+
+```{r}
+#| eval: false
+# Label the clusters - label geom.
+SCpubr::do_DimPlot(sample = sample,
+                   label = TRUE)
+
+# Label the clusters - text geom.
+SCpubr::do_DimPlot(sample = sample,
+                   label = TRUE,
+                   label.box = FALSE)
+```
+
+## Label the clusters and repel the labels
+
+```{r}
+#| eval: false
+# Label the clusters - label geom.
+SCpubr::do_DimPlot(sample = sample,
+                   label = TRUE,
+                   repel = TRUE)
+
+# Label the clusters - text geom.
+SCpubr::do_DimPlot(sample = sample,
+                   label = TRUE,
+                   label.box = FALSE,
+                   repel = TRUE)
+```
+
+
+## And more!
+Many more options are available for this function in @@sec-introduction!

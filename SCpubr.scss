@@ -1,37 +1,41 @@
-
 /*-- scss:defaults --*/
-
-$primary: #096B72 !default;
-$footer-bg: #096B72;
-$sidebar-hl: #096B72;
-$code-color: #096B72;
-$code-color: #096B72;
-$code-bg: #096B7230;
-$callout-color-note: #096B72;
-$callout-color-warning: #d4a411;
-$callout-color-important: #a50d0d;
+/*-- This defines global variables in SCSS format --*/
+$primary: #096B72 !default;           /*-- primary color --*/
+$footer-bg: #096B72;                  /*-- footer background color --*/
+$sidebar-hl: #096B72;                 /*-- No idea he he... --*/
+$code-color: #096B72;                 /*-- color of inline code --*/
+$code-bg: #096B7230;                  /*-- background color for inline code --*/
+$callout-color-note: #096B72;         /*-- color of callout class note --*/
+$callout-color-warning: #d4a411;      /*-- color of callout class warning --*/
+$callout-color-important: #a50d0d;    /*-- color of callout class important --*/
 
 /*-- scss:rules --*/
+/*-- Here the CSS magic begins --*/
+/*-- We modify specific attributes of specific elements --*/
 
+
+/*-- Sidebar title --*/
 .sidebar-title {
   color: #096B72;
-  font-weight: bold;
+    font-weight: bold;
 }
+
+
+/*-- Sidebar elements text --*/
 .sidebar-item-text{
   font-weight: normal;
 }
 
+
+/*-- Remove shadow from images added from .png files. --*/
 img.quarto-cover-image {
   box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
 }
 
-/* Headings ------------------------------------------------------ */
 
-h2 {
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
-}
+
+/* Modify heading levels style. */
+h2 { margin-top: 2rem; margin-bottom: 1rem; font-size: 1.5rem; }
 h3 { margin-top: 1.5em; font-size: 1.2rem; }
 h4 { margin-top: 1.5em; font-size: 1.1rem; }
 h5 { margin-top: 1.5em; font-size: 1rem; }
@@ -42,65 +46,98 @@ h1, h2, h3, h4, h5 {
 
 .quarto-section-identifier {
   color: #6C6C6C;
-  font-weight: bold;
+    font-weight: bold;
 }
 
 
-/* Code ------------------------------------------------ */
 
+/* No idea what the class code is. */
 code {
   font-weight: bold;
   background-color: #096b7235
 }
 
+/*-- No idea what the class pre is. --*/
 pre {
   background-image: linear-gradient(160deg,#f8f8f8 0,#f1f1f1 100%);
-  color: white;
+                                    color: white;
 }
 
-/* Printing ------------------------------------------------ */
 
+/* No idea what this does. */
 @media print {
   :root {
     font-size: 11pt;
   }
   #quarto-sidebar, #TOC, .nav-page {
-    display: none;
-  }
-  .page-columns .content {
-    grid-column-start: page-start;
-  }
-  .fixed-top {
-    position: relative;
-  }
-  .panel-caption, .figure-caption, figcaption {
-    color: #666;
-  }
+  display: none;
+}
+
+
+/*-- No idea what this does. --*/
+.page-columns .content {
+  grid-column-start: page-start;
+}
+
+/*-- No idea what this does. --*/
+.fixed-top {
+  position: relative;
+}
+
+/*-- Modify attributes of the figure captions. --*/
+.panel-caption, .figure-caption, figcaption {
+  color: #666;
+}
 }
 
 /* Modify captions */
 p.caption {
   color: #777;
-  margin-top: 10px;
+    margin-top: 10px;
 }
+
+/*-- Modify code chunks text that does not have syntax highlight. --*/
 p code {
   white-space: inherit;
   color: #000000;
 }
 
-/* Modify code chunks */
+
+/* Modify attributes of class pre (overall class for code chunks). */
 pre {
   word-break: normal;
   word-wrap: normal;
-  font-size: 8pt;
+  font-size: 10pt !important;
   color: #000000;
 
 }
+
+/*-- Atrributes of class sourceCode. --*/
+sourceCode {
+  word-break: normal;
+  word-wrap: normal;
+  font-size: 10pt !important;
+  color: #000000;
+
+}
+
+/*-- Modify code chunks of source code (specific). --*/
 pre code {
   white-space: inherit;
   font-size: 10pt;
-  color: #000000;
+  color: #000000 !important; /*-- !important overrides inherited properties. Might be needed to enforce the change. --*/
 }
+
+/*-- Modify code chunks for source code OUTPUT. (specific). --*/
+pre code:not(.sourceCode) {
+  white-space: inherit;
+  font-size: 10pt;
+  color: #6F8AB7 !important;;
+  background-color: rgba(236,240,241,.65);  /*-- Adds a background to the element --*/
+  border: 1px solid rgba(236,240,241,.65);  /*-- Adds a border to the background. --*/
+  border-radius: 0.25rem;                   /*-- How thick the border is. --*/
+}
+
 
 /* Justify paragraphs */
 p{
@@ -108,9 +145,10 @@ p{
   text-justify: inter-word;
 }
 
-/* Change the settings for the inline code */
+/* Change the settings for the inline code. (specific)*/
 p code:not(.sourceCode) {
   font-weight: bold;
+  font-family: monospace !important;
   color: #096B72;
   background-color: #096B7230;
 }
@@ -121,33 +159,38 @@ p code:not(.sourceCode) {
   box-shadow: white;
 }
 
-
+/*-- No idea. --*/
 a.text-start {
   font-weight: bold;
   color: black;
 }
 
+/*-- No idea. --*/
 i.bi{
   color: #096B72;
 }
 
-
+/*-- Color of github logo. --*/
 i.bi-github{
   color: #096B72;
 }
 
+/*-- Sidebar TOC chapter number aesthetics. --*/
 .sidebar-item .chapter-number{
   color: #096B72;
   font-family: monospace;
   font-weight: bold;
 }
 
+
+/*-- TOC chapter number aesthetics. --*/
 .toc-section-number{
   color: #096B72;
   font-family: monospace;
   font-weight: bold;
 }
 
+/*-- Center valign items in the footer. --*/
 .nav-footer{
   align-items: center !important;
 }

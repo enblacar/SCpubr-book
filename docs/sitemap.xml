@@ -2,22 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://enblacar.github.io/SCpubr-book/index.html</loc>
-    <lastmod>2023-05-19T15:58:04.286Z</lastmod>
+    <lastmod>2023-05-22T13:55:37.527Z</lastmod>
   </url>
   <url>
     <loc>https://enblacar.github.io/SCpubr-book/preface/Installation-guide.html</loc>
-    <lastmod>2023-05-19T15:49:38.362Z</lastmod>
+    <lastmod>2023-05-22T13:49:49.937Z</lastmod>
   </url>
   <url>
     <loc>https://enblacar.github.io/SCpubr-book/preface/Dataset.html</loc>
-    <lastmod>2023-05-19T15:49:46.662Z</lastmod>
+    <lastmod>2023-05-22T13:49:59.201Z</lastmod>
   </url>
   <url>
     <loc>https://enblacar.github.io/SCpubr-book/functions/DimPlots.html</loc>
-    <lastmod>2023-05-19T15:54:41.562Z</lastmod>
+    <lastmod>2023-05-22T13:55:20.474Z</lastmod>
   </url>
   <url>
     <loc>https://enblacar.github.io/SCpubr-book/cheatsheets/Shared_Features.html</loc>
-    <lastmod>2023-05-22T10:06:52.790Z</lastmod>
+    <lastmod>2023-05-22T13:55:24.651Z</lastmod>
+  </url>
+  <url>
+    <loc>https://enblacar.github.io/SCpubr-book/cheatsheets/DimPlots.html</loc>
+    <lastmod>2023-05-22T13:55:36.664Z</lastmod>
   </url>
 </urlset>

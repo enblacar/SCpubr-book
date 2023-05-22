@@ -43,6 +43,7 @@ book:
     - part: "Cheatsheets"
       chapters:
       - ./cheatsheets/Shared_Features.qmd
+      - ./cheatsheets/DimPlots.qmd
 
 
 

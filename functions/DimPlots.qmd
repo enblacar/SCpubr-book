@@ -1,4 +1,4 @@
-# Dim plots
+# do_DimPlot() | Dimensional Reduction scatter plots
 
 ```{r}
 #| results: "asis"

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.3.324">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>SCpubr - Installation guide</title>
+<title>SCpubr - do_DimPlot()</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -60,8 +60,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../preface/Dataset.html" rel="next">
-<link href="../index.html" rel="prev">
+<link href="../cheatsheets/Shared_Features.html" rel="prev">
 <link href="..//images/SCpubr_logo_favicon.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -90,14 +89,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-submit-button-title": "Submit"
   }
 }</script>
-<meta property="og:title" content="SCpubr - Installation guide">
+<meta property="og:title" content="SCpubr - do_DimPlot()">
 <meta property="og:description" content="">
-<meta property="og:image" content="https://enblacar.github.io/SCpubr-book/preface/images/Installation_1.png">
 <meta property="og:site-name" content="SCpubr">
-<meta name="twitter:title" content="SCpubr - Installation guide">
+<meta name="twitter:title" content="SCpubr - do_DimPlot()">
 <meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://enblacar.github.io/SCpubr-book/preface/images/Installation_1.png">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
 </head>
 <body class="nav-sidebar docked">
 
@@ -106,7 +103,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../index.html">Getting started</a></li><li class="breadcrumb-item"><a href="../preface/Installation-guide.html">Installation guide</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../cheatsheets/Shared_Features.html">Cheatsheets</a></li><li class="breadcrumb-item"><a href="../cheatsheets/DimPlots.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">do_DimPlot()</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -132,13 +129,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
 <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
  <span class="menu-text">Getting started</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
@@ -147,7 +144,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../preface/Installation-guide.html" class="sidebar-item-text sidebar-link active">
+  <a href="../preface/Installation-guide.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Installation guide</span></a>
   </div>
 </li>
@@ -178,13 +175,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
  <span class="menu-text">Cheatsheets</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../cheatsheets/Shared_Features.html" class="sidebar-item-text sidebar-link">
@@ -193,7 +190,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../cheatsheets/DimPlots.html" class="sidebar-item-text sidebar-link">
+  <a href="../cheatsheets/DimPlots.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">do_DimPlot()</span></span></a>
   </div>
 </li>
@@ -204,11 +201,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+<li><a href="#regular-dimplot" id="toc-regular-dimplot" class="nav-link active" data-scroll-target="#regular-dimplot">Regular DimPlot</a></li>
+  <li><a href="#group-by-a-variable" id="toc-group-by-a-variable" class="nav-link" data-scroll-target="#group-by-a-variable">Group by a variable</a></li>
+  <li><a href="#split-by-a-variable" id="toc-split-by-a-variable" class="nav-link" data-scroll-target="#split-by-a-variable">Split by a variable</a></li>
+  <li><a href="#group-by-a-variable-and-split-by-a-second-variable" id="toc-group-by-a-variable-and-split-by-a-second-variable" class="nav-link" data-scroll-target="#group-by-a-variable-and-split-by-a-second-variable">Group by a variable and split by a second variable</a></li>
+  <li><a href="#restrict-the-identities-shown-to-a-subset." id="toc-restrict-the-identities-shown-to-a-subset." class="nav-link" data-scroll-target="#restrict-the-identities-shown-to-a-subset.">Restrict the identities shown to a subset.</a></li>
+  <li><a href="#highlight-cells" id="toc-highlight-cells" class="nav-link" data-scroll-target="#highlight-cells">Highlight cells</a></li>
+  <li><a href="#select-a-dimensional-reduction-embedding" id="toc-select-a-dimensional-reduction-embedding" class="nav-link" data-scroll-target="#select-a-dimensional-reduction-embedding">Select a dimensional reduction embedding</a></li>
+  <li><a href="#select-which-dimensions-to-plot" id="toc-select-which-dimensions-to-plot" class="nav-link" data-scroll-target="#select-which-dimensions-to-plot">Select which dimensions to plot</a></li>
+  <li><a href="#add-back-the-axes" id="toc-add-back-the-axes" class="nav-link" data-scroll-target="#add-back-the-axes">Add back the Axes</a></li>
+  <li><a href="#label-the-clusters" id="toc-label-the-clusters" class="nav-link" data-scroll-target="#label-the-clusters">Label the clusters</a></li>
+  <li><a href="#label-the-clusters-and-repel-the-labels" id="toc-label-the-clusters-and-repel-the-labels" class="nav-link" data-scroll-target="#label-the-clusters-and-repel-the-labels">Label the clusters and repel the labels</a></li>
+  <li><a href="#and-more" id="toc-and-more" class="nav-link" data-scroll-target="#and-more">And more!</a></li>
+  </ul></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title">Installation guide</h1>
+<h1 class="title">do_DimPlot()</h1>
 </div>
 
 
@@ -221,36 +233,88 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
-</header><p>To install this package, use the following commands:</p>
+</header><section id="regular-dimplot" class="level2"><h2 class="anchored" data-anchor-id="regular-dimplot">Regular DimPlot</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># From CRAN - Official release:</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"SCpubr"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># From GitHub - Latest stable development version:</span></span>
-<span><span class="kw">if</span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html">requireNamespace</a></span><span class="op">(</span><span class="st">"devtools"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span><span class="op">{</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span> <span class="co"># If not installed.</span></span>
-<span><span class="op">}</span></span>
-<span></span>
-<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"enblacar/SCpubr"</span>, ref <span class="op">=</span> <span class="st">"v2.0.0-dev-stable"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Note that additional packages may be required to run certain functions. This information is usually displayed when you load the package for the first time in the session.</p>
+</section><section id="group-by-a-variable" class="level2"><h2 class="anchored" data-anchor-id="group-by-a-variable">Group by a variable</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/enblacar/SCpubr/">"SCpubr"</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
+<span>                   group.by <span class="op">=</span> <span class="st">"my_variable"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><img src="images/Installation_1.png" class="mx-auto d-block" style="box-shadow: none; width: 100%"></p>
-<p>This summary will provide you with the information you need to run the package:</p>
-<ul>
-<li>The version of <strong>SCpubr</strong> you have installed and the latest version available.</li>
-<li>The status of your <strong>dependencies</strong> (installed or missing), including the current and latest version of each installed dependency.</li>
-<li>The <strong>functions</strong> that can be run based on your currently installed dependencies.</li>
-</ul>
-<p>Note that some packages, such as <code>Seurat</code>, <code>ggplot2</code>, or <code>dplyr</code>, require a minimum version. If your installed version is not high enough, these packages will be marked with an exclamation mark.</p>
-<p>If you do not see this message, you can always generate it by using <code><a href="https://rdrr.io/pkg/SCpubr/man/package_report.html">SCpubr::package_report()</a></code>.</p>
-<p>You can also check the required packages for a specific function by using <code><a href="https://rdrr.io/pkg/SCpubr/man/check_dependencies.html">SCpubr::check_dependencies()</a></code> and specifying the function name.</p>
+</section><section id="split-by-a-variable" class="level2"><h2 class="anchored" data-anchor-id="split-by-a-variable">Split by a variable</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
+<span>                   split.by <span class="op">=</span> <span class="st">"my_variable"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="group-by-a-variable-and-split-by-a-second-variable" class="level2"><h2 class="anchored" data-anchor-id="group-by-a-variable-and-split-by-a-second-variable">Group by a variable and split by a second variable</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
+<span>                   group.by <span class="op">=</span> <span class="st">"variable_A"</span>,</span>
+<span>                   split.by <span class="op">=</span> <span class="st">"variable_B"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="restrict-the-identities-shown-to-a-subset." class="level2"><h2 class="anchored" data-anchor-id="restrict-the-identities-shown-to-a-subset.">Restrict the identities shown to a subset.</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
+<span>                   idents.keep <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"0"</span>, <span class="st">"2"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="highlight-cells" class="level2"><h2 class="anchored" data-anchor-id="highlight-cells">Highlight cells</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Highlight a given set of cells</span></span>
+<span><span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
+<span>                   cells.highlight <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">sample</span><span class="op">)</span>, <span class="fl">100</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Highlight a given identity from Seurat::Idents(sample).</span></span>
+<span><span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
+<span>                   idents.highlight <span class="op">=</span> <span class="st">"0"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>A combination of <code>cells.highlight</code> and <code>idents.hightlight</code> also works!</p>
+</section><section id="select-a-dimensional-reduction-embedding" class="level2"><h2 class="anchored" data-anchor-id="select-a-dimensional-reduction-embedding">Select a dimensional reduction embedding</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
+<span>                   reduction <span class="op">=</span> <span class="st">"pca"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="select-which-dimensions-to-plot" class="level2"><h2 class="anchored" data-anchor-id="select-which-dimensions-to-plot">Select which dimensions to plot</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
+<span>                   reduction <span class="op">=</span> <span class="st">"pca"</span>,</span>
+<span>                   dims <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Note that, by default, the dimensional reduction of choice is the <strong>lastest computed</strong> in the Seurat object.</p>
+</section><section id="add-back-the-axes" class="level2"><h2 class="anchored" data-anchor-id="add-back-the-axes">Add back the Axes</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
+<span>                   plot.axes <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="label-the-clusters" class="level2"><h2 class="anchored" data-anchor-id="label-the-clusters">Label the clusters</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Label the clusters - label geom.</span></span>
+<span><span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
+<span>                   label <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Label the clusters - text geom.</span></span>
+<span><span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
+<span>                   label <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                   label.box <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="label-the-clusters-and-repel-the-labels" class="level2"><h2 class="anchored" data-anchor-id="label-the-clusters-and-repel-the-labels">Label the clusters and repel the labels</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Label the clusters - label geom.</span></span>
+<span><span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
+<span>                   label <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                   repel <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Label the clusters - text geom.</span></span>
+<span><span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
+<span>                   label <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                   label.box <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>                   repel <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="and-more" class="level2"><h2 class="anchored" data-anchor-id="and-more">And more!</h2>
+<p>Many more options are available for this function in @<a href="#sec-introduction"><span class="quarto-unresolved-ref">sec-introduction</span></a>!</p>
 
 
-
-</main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -483,14 +547,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="../index.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">About this package</span>
+      <a href="../cheatsheets/Shared_Features.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Shared features across functions</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../preface/Dataset.html" class="pagination-link">
-        <span class="nav-page-text">Dataset used</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
