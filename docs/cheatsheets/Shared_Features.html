@@ -91,16 +91,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 <meta property="og:title" content="SCpubr - Shared features across functions">
 <meta property="og:description" content="">
-<meta property="og:image" content="https://enblacar.github.io/SCpubr-book/cheatsheets/Shared_Features_files/figure-html/unnamed-chunk-5-1.png">
 <meta property="og:site-name" content="SCpubr">
-<meta property="og:image:height" content="12000">
-<meta property="og:image:width" content="15000">
 <meta name="twitter:title" content="SCpubr - Shared features across functions">
 <meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://enblacar.github.io/SCpubr-book/cheatsheets/Shared_Features_files/figure-html/unnamed-chunk-5-1.png">
-<meta name="twitter:image-height" content="12000">
-<meta name="twitter:image-width" content="15000">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
 </head>
 <body class="nav-sidebar docked">
 
@@ -207,10 +201,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><a href="#basic-parameters" id="toc-basic-parameters" class="nav-link active" data-scroll-target="#basic-parameters">Basic parameters</a></li>
   <li><a href="#change-colors-categorical" id="toc-change-colors-categorical" class="nav-link" data-scroll-target="#change-colors-categorical">Change colors | categorical</a></li>
   <li><a href="#change-colors-continuous" id="toc-change-colors-continuous" class="nav-link" data-scroll-target="#change-colors-continuous">Change colors | continuous</a></li>
-  <li>
-<a href="#change-colors-divering" id="toc-change-colors-divering" class="nav-link" data-scroll-target="#change-colors-divering">Change colors | divering</a>
-  <ul class="collapse">
-<li><a href="#flip-the-plots" id="toc-flip-the-plots" class="nav-link" data-scroll-target="#flip-the-plots">Flip the plots</a></li>
+  <li><a href="#change-colors-diverging" id="toc-change-colors-diverging" class="nav-link" data-scroll-target="#change-colors-diverging">Change colors | diverging</a></li>
+  <li><a href="#symmetrical-plots" id="toc-symmetrical-plots" class="nav-link" data-scroll-target="#symmetrical-plots">Symmetrical plots</a></li>
+  <li><a href="#flip-the-axes" id="toc-flip-the-axes" class="nav-link" data-scroll-target="#flip-the-axes">Flip the axes</a></li>
   <li><a href="#control-plot-aesthetics" id="toc-control-plot-aesthetics" class="nav-link" data-scroll-target="#control-plot-aesthetics">Control plot aesthetics</a></li>
   <li><a href="#control-legend-aesthetics" id="toc-control-legend-aesthetics" class="nav-link" data-scroll-target="#control-legend-aesthetics">Control legend aesthetics</a></li>
   <li><a href="#modify-plot-titles" id="toc-modify-plot-titles" class="nav-link" data-scroll-target="#modify-plot-titles">Modify plot titles</a></li>
@@ -218,8 +211,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#control-cell-borders" id="toc-control-cell-borders" class="nav-link" data-scroll-target="#control-cell-borders">Control cell borders</a></li>
   <li><a href="#plot-marginal-distributions" id="toc-plot-marginal-distributions" class="nav-link" data-scroll-target="#plot-marginal-distributions">Plot marginal distributions</a></li>
   <li><a href="#plot-density-contours-in-dimensional-reduction-visualizations" id="toc-plot-density-contours-in-dimensional-reduction-visualizations" class="nav-link" data-scroll-target="#plot-density-contours-in-dimensional-reduction-visualizations">Plot density contours in dimensional reduction visualizations</a></li>
-  </ul>
-</li>
   </ul></nav>
     </div>
 <!-- main -->
@@ -237,36 +228,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
-</header><p>In this package, there are a lot of shared functionalities across functions. The idea is to generate a common framework for people to intuitively know what to expect from current and new functions. Several functions will be used here to better illustrate the shared functionalities.</p>
+</header><p>In this package, there are a lot of s<strong>hared features</strong> <strong>across functions</strong>. Here is a quick summary of them!</p>
 <section id="basic-parameters" class="level2"><h2 class="anchored" data-anchor-id="basic-parameters">Basic parameters</h2>
 <p>There are a handful of parameters needed to run mostly any function in <code>SCpubr</code>:</p>
 <ul>
 <li>
-<code>sample</code>: Seurat object to use for plotting.</li>
+<code>sample</code>: <strong>Seurat object</strong> to use for plotting.</li>
 <li>
-<code>group.by</code>: Metadata variable to group the values to plot by.</li>
+<code>group.by</code>: <strong>Metadata</strong> variable to <strong>group</strong> the <strong>values</strong> to plot <strong>by</strong>.</li>
 <li>
-<code>split.by</code>: Metadata variable to split the values to plot by.</li>
+<code>split.by</code>: <strong>Metadata</strong> variable to <strong>split</strong> the <strong>values</strong> to plot <strong>by</strong>.</li>
 <li>
 <code>features</code>: Genes, metadata columns, dimensional reduction column names to use for plotting.</li>
 <li>
-<code>input_gene_list</code>: Named list with different gene sets to use for plotting.</li>
+<code>input_gene_list</code>: <strong>Named list</strong> with different <strong>gene sets</strong> to use for plotting.</li>
 <li>
-<code>assay</code>: Assay name to pull the data from.</li>
+<code>assay</code>: <strong>Assay</strong> name to pull the <strong>data</strong> from.</li>
 <li>
-<code>slot</code>: Slot in <code>assay</code> to pull the data from.</li>
+<code>slot</code>: <strong>Slot</strong> in <code>assay</code> to pull the <strong>data</strong> from.</li>
 <li>
-<code>reduction</code>: Which dimensional reduction to use for plottin.</li>
+<code>reduction</code>: Which <strong>dimensional reduction</strong> to use for plotting.</li>
 <li>
-<code>dims</code>: A vector with numbers representing which dimensions of the dimensional reduction embedding to use.</li>
+<code>dims</code>: A vector with numbers representing which <strong>dimensions</strong> of the dimensional reduction embedding to <strong>use</strong>.</li>
 <li>
-<code>na.value</code>: Color used for <code>NA</code> values.</li>
+<code>na.value</code>: <strong>Color</strong> used for <code>NA</code> values.</li>
 <li>
-<code>raster</code>: Whether or not to rasterize an image.</li>
+<code>raster</code>: Whether to rasterize (<code>TRUE</code>) an image or not (<code>FALSE</code>).</li>
 <li>
-<code>raster.dpi</code>: Resolution of the rasterization.</li>
+<code>raster.dpi</code>: <strong>Resolution</strong> of the rasterization.</li>
 </ul></section><section id="change-colors-categorical" class="level2"><h2 class="anchored" data-anchor-id="change-colors-categorical">Change colors | categorical</h2>
-<p><code>SCpubr</code> has a built-in custom color palette (used throughout this book) for <code>categorical variables</code>. However, it is very often the case that we do want our own color system in the plots. This is always achieved by using the <code>colors.use</code> parameter. The input to this parameter can vary depending of the function, but it is always one for the following three:</p>
+<p><code>SCpubr</code> has a built-in <strong>custom color palette</strong> for <code>categorical variables</code>. However, it is very often the case that we do want our own color system in the plots. This is always achieved by using the <code>colors.use</code> parameter. The input to this parameter can vary on a <em>per function</em> basis, but it is always one for the following:</p>
 <ul>
 <li>A vector of <code>named values</code>. The names correspond to each of the unique values that the categorical variable to plot has, and the values are the colors corresponding to each of those values.</li>
 </ul>
@@ -276,7 +267,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span>            <span class="st">"C"</span> <span class="op">=</span> <span class="st">"green"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
-<li>A <code>named list</code> of vectors of <code>named values</code>. In more complex scenarios, we have many different categorical color palettes. For this, the names of the list will correspond to the names of the categorical variables stored in the <code>metadata</code> of the <code>Seurat object</code>, and the values will be the vectors of <code>named values</code>.</li>
+<li>A <code>named list</code> of vectors of <code>named values</code>. In more complex scenarios, we have different categorical variables to plot. For this, the <strong>names</strong> of the list will correspond to the <strong>names</strong> of the c<strong>ategorical variables</strong> stored in the <code>metadata</code> of the <code>Seurat object</code>, and the <strong>values</strong> will be the <strong>vectors</strong> of <code>named values</code> (like in the example above). Each vector should contain <strong>as many values</strong> as <strong>unique occurrences</strong> in the metadata variable.</li>
 </ul>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">colors</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="st">"Variable 1"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"A"</span> <span class="op">=</span> <span class="st">"blue"</span>,</span>
@@ -286,441 +277,156 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span>                                <span class="st">"E"</span> <span class="op">=</span> <span class="st">"purple"</span>,</span>
 <span>                                <span class="st">"F"</span> <span class="op">=</span> <span class="st">"brown"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>With this, here are some examples of how to use it:</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Create a color scale for the unique values in seurat clusters.</span></span>
-<span><span class="va">colors</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"0"</span> <span class="op">=</span> <span class="st">"#001219"</span>,</span>
-<span>            <span class="st">"1"</span> <span class="op">=</span> <span class="st">"#005f73"</span>,</span>
-<span>            <span class="st">"2"</span> <span class="op">=</span> <span class="st">"#0a9396"</span>,</span>
-<span>            <span class="st">"3"</span> <span class="op">=</span> <span class="st">"#94d2bd"</span>,</span>
-<span>            <span class="st">"4"</span> <span class="op">=</span> <span class="st">"#e9d8a6"</span>,</span>
-<span>            <span class="st">"5"</span> <span class="op">=</span> <span class="st">"#ee9b00"</span>,</span>
-<span>            <span class="st">"6"</span> <span class="op">=</span> <span class="st">"#ca6702"</span>,</span>
-<span>            <span class="st">"7"</span> <span class="op">=</span> <span class="st">"#bb3e03"</span>,</span>
-<span>            <span class="st">"8"</span> <span class="op">=</span> <span class="st">"#ae2012"</span>,</span>
-<span>            <span class="st">"9"</span> <span class="op">=</span> <span class="st">"#9b2226"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_DimPlot.html">do_DimPlot</a></span><span class="op">(</span><span class="va">sample</span>, </span>
-<span>                        colors.use <span class="op">=</span> <span class="va">colors</span>,</span>
-<span>                        font.size <span class="op">=</span> <span class="fl">24</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="Shared_Features_files/figure-html/unnamed-chunk-5-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
-<p></p><figcaption class="figure-caption">Using a vector of named values.</figcaption><p></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Create a color scale for the unique values in seurat clusters.</span></span>
-<span><span class="va">colors1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"0"</span> <span class="op">=</span> <span class="st">"#001219"</span>,</span>
-<span>             <span class="st">"1"</span> <span class="op">=</span> <span class="st">"#005f73"</span>,</span>
-<span>             <span class="st">"2"</span> <span class="op">=</span> <span class="st">"#0a9396"</span>,</span>
-<span>             <span class="st">"3"</span> <span class="op">=</span> <span class="st">"#94d2bd"</span>,</span>
-<span>             <span class="st">"4"</span> <span class="op">=</span> <span class="st">"#e9d8a6"</span>,</span>
-<span>             <span class="st">"5"</span> <span class="op">=</span> <span class="st">"#ee9b00"</span>,</span>
-<span>             <span class="st">"6"</span> <span class="op">=</span> <span class="st">"#ca6702"</span>,</span>
-<span>             <span class="st">"7"</span> <span class="op">=</span> <span class="st">"#bb3e03"</span>,</span>
-<span>             <span class="st">"8"</span> <span class="op">=</span> <span class="st">"#ae2012"</span>,</span>
-<span>             <span class="st">"9"</span> <span class="op">=</span> <span class="st">"#9b2226"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">colors2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"A"</span> <span class="op">=</span> <span class="st">"#669bbc"</span>,</span>
-<span>             <span class="st">"B"</span> <span class="op">=</span> <span class="st">"#003049"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">colors3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"10K_pbmc"</span> <span class="op">=</span> <span class="st">"#83c5be"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">colors.use</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="st">"seurat_clusters"</span> <span class="op">=</span> <span class="va">colors1</span>,</span>
-<span>                   <span class="st">"annotation"</span> <span class="op">=</span> <span class="va">colors2</span>,</span>
-<span>                   <span class="st">"orig.ident"</span> <span class="op">=</span> <span class="va">colors3</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_SCExpressionHeatmap.html">do_SCExpressionHeatmap</a></span><span class="op">(</span><span class="va">sample</span>,</span>
-<span>                                    features <span class="op">=</span> <span class="fu">Seurat</span><span class="fu">::</span><span class="fu"><a href="https://mojaveazure.github.io/seurat-object/reference/VariableFeatures.html">VariableFeatures</a></span><span class="op">(</span><span class="va">sample</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">20</span><span class="op">]</span>,</span>
-<span>                                    metadata <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"seurat_clusters"</span>, </span>
-<span>                                                 <span class="st">"annotation"</span>, </span>
-<span>                                                 <span class="st">"orig.ident"</span><span class="op">)</span>,</span>
-<span>                                    metadata.colors <span class="op">=</span> <span class="va">colors.use</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="Shared_Features_files/figure-html/unnamed-chunk-6-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
-<p></p><figcaption class="figure-caption">Using a vector of named values.</figcaption><p></p>
-</figure>
-</div>
-</div>
-</div>
 </section><section id="change-colors-continuous" class="level2"><h2 class="anchored" data-anchor-id="change-colors-continuous">Change colors | continuous</h2>
-<p>For continuous variables, we do have a more complex system. First of all, <code>SCpubr</code> has implemented both <code>RColorBrewer</code> and <code>viridis</code> palettes, and use them interchangeably depending on the function.</p>
+<p>For <strong>continuous variables</strong>, we do have a more complex system. First of all, <code>SCpubr</code> has implemented both <a href="https://r-graph-gallery.com/38-rcolorbrewers-palettes.html">RColorBrewer palettes</a> and <a href="https://search.r-project.org/CRAN/refmans/viridisLite/html/viridis.html">Viridis palettes</a> palettes, and use them interchangeably depending on the function. This behavior can accessed and customized with the following parameters:</p>
 <ul>
 <li>
-<a href="https://search.r-project.org/CRAN/refmans/viridisLite/html/viridis.html">Viridis palettes</a>: Accepts both the long names and the shortened ones (i.e: A, B, C).</li>
+<code>use_viridis</code>: Whether to <strong>use</strong> a <strong>viridis palette</strong> (<code>TRUE</code>) or not (<code>FALSE</code>).</li>
 <li>
-<a href="https://r-graph-gallery.com/38-rcolorbrewers-palettes.html">RColorBrewer palettes</a>: Accepts the long names.</li>
-</ul>
-<p>To choose whether to use <code>viridis</code> or <code>RColorBrewer</code> palettes, you need to set up <code>use_viridis = TRUE/FALSE</code>. To indicate the color palette you want to use, there are two parameters:</p>
+<code>viridis.palette</code>: Which <strong>viridis</strong> palette to <strong>use</strong>. Can be either the long name or the shortened version.</li>
+<li>
+<code>sequential.palette</code>: Which <strong>RColorBrewer</strong> <strong>continuous</strong> palette to <strong>use</strong>.</li>
+<li>
+<code>viridis.direction</code>: Whether to <strong>map</strong> the <strong>darkest</strong> colors to the <strong>lowest</strong> values (<code>1</code>) or not (<code>-1</code>).</li>
+<li>
+<code>sequential.direction</code>: Whether to <strong>map</strong> the <strong>darkest</strong> colors to the <strong>lowest</strong> values (<code>-1</code>) or not (<code>1</code>).</li>
+</ul></section><section id="change-colors-diverging" class="level2"><h2 class="anchored" data-anchor-id="change-colors-diverging">Change colors | diverging</h2>
+<p>Finally, there is a special case of sequential palettes in which there is a clear <strong>emphasis</strong> on the <strong>two ends</strong> of the <strong>scale</strong>. Those are called <strong>diverging palettes</strong>. This is a very usual case in <strong>scaled data</strong>. Normally the middle values are colored in a very light color in contrast with the two ends of the scale, which will have a very dark color. This can be used with the following:</p>
 <ul>
 <li>
-<code>viridis.palette</code>: For <code>viridis</code> palettes.</li>
-<li>
-<code>sequential.palette</code>: For <code>RColorBrewer</code> palettes.</li>
+<code>diverging.palette</code>: Which <strong>RColorBrewer</strong> <strong>diverging</strong> palette to <strong>use</strong>.</li>
 </ul>
-<p>And finally, you can also choose the <code>direction</code> of the scale. This is, whether you want to use the darker colors as lower values or not. For this, we have two more parameters:</p>
-<ul>
-<li>
-<code>viridis.direction</code>: For <code>viridis</code> palettes.</li>
-<li>
-<code>sequential.direction</code>: For <code>RColorBrewer</code> palettes.</li>
-</ul>
-<p>It is easier to understand with some examples:</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span><span class="va">sample</span>, </span>
-<span>                             features <span class="op">=</span> <span class="st">"PC_1"</span>,</span>
-<span>                             pt.size <span class="op">=</span> <span class="fl">0.5</span>,</span>
-<span>                             use_viridis <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>                             viridis.palette <span class="op">=</span> <span class="st">"A"</span>,</span>
-<span>                             viridis.direction <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span><span class="va">sample</span>, </span>
-<span>                             features <span class="op">=</span> <span class="st">"PC_1"</span>,</span>
-<span>                             pt.size <span class="op">=</span> <span class="fl">0.5</span>,</span>
-<span>                             use_viridis <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>                             viridis.palette <span class="op">=</span> <span class="st">"B"</span>,</span>
-<span>                             viridis.direction <span class="op">=</span> <span class="op">-</span><span class="fl">1</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">p3</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span><span class="va">sample</span>, </span>
-<span>                             features <span class="op">=</span> <span class="st">"PC_1"</span>,</span>
-<span>                             pt.size <span class="op">=</span> <span class="fl">0.5</span>,</span>
-<span>                             use_viridis <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>                             viridis.palette <span class="op">=</span> <span class="st">"C"</span>,</span>
-<span>                             viridis.direction <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">p4</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span><span class="va">sample</span>, </span>
-<span>                             features <span class="op">=</span> <span class="st">"PC_1"</span>,</span>
-<span>                             pt.size <span class="op">=</span> <span class="fl">0.5</span>,</span>
-<span>                             use_viridis <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>                             viridis.palette <span class="op">=</span> <span class="st">"D"</span>,</span>
-<span>                             viridis.direction <span class="op">=</span> <span class="op">-</span><span class="fl">1</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">p5</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span><span class="va">sample</span>, </span>
-<span>                             features <span class="op">=</span> <span class="st">"PC_1"</span>,</span>
-<span>                             pt.size <span class="op">=</span> <span class="fl">0.5</span>,</span>
-<span>                             use_viridis <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>                             viridis.palette <span class="op">=</span> <span class="st">"E"</span>,</span>
-<span>                             viridis.direction <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">p6</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span><span class="va">sample</span>, </span>
-<span>                             features <span class="op">=</span> <span class="st">"PC_1"</span>,</span>
-<span>                             pt.size <span class="op">=</span> <span class="fl">0.5</span>,</span>
-<span>                             use_viridis <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>                             viridis.palette <span class="op">=</span> <span class="st">"F"</span>,</span>
-<span>                             viridis.direction <span class="op">=</span> <span class="op">-</span><span class="fl">1</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">p7</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span><span class="va">sample</span>, </span>
-<span>                             features <span class="op">=</span> <span class="st">"PC_1"</span>,</span>
-<span>                             pt.size <span class="op">=</span> <span class="fl">0.5</span>,</span>
-<span>                             use_viridis <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>                             viridis.palette <span class="op">=</span> <span class="st">"G"</span>,</span>
-<span>                             viridis.direction <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">p8</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span><span class="va">sample</span>, </span>
-<span>                             features <span class="op">=</span> <span class="st">"PC_1"</span>,</span>
-<span>                             pt.size <span class="op">=</span> <span class="fl">0.5</span>,</span>
-<span>                             use_viridis <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>                             viridis.palette <span class="op">=</span> <span class="st">"H"</span>,</span>
-<span>                             viridis.direction <span class="op">=</span> <span class="op">-</span><span class="fl">1</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span><span class="op">)</span> <span class="op">/</span> <span class="op">(</span><span class="va">p3</span> <span class="op">|</span> <span class="va">p4</span><span class="op">)</span> <span class="op">/</span> <span class="op">(</span><span class="va">p5</span> <span class="op">|</span> <span class="va">p6</span><span class="op">)</span> <span class="op">/</span> <span class="op">(</span><span class="va">p7</span> <span class="op">|</span> <span class="va">p8</span><span class="op">)</span></span>
-<span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="Shared_Features_files/figure-html/unnamed-chunk-7-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
-<p></p><figcaption class="figure-caption">Modify viridis palettes, also use different directions.</figcaption><p></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span><span class="va">sample</span>, </span>
-<span>                             features <span class="op">=</span> <span class="st">"PC_1"</span>,</span>
-<span>                             pt.size <span class="op">=</span> <span class="fl">0.5</span>,</span>
-<span>                             use_viridis <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>                             sequential.palette <span class="op">=</span> <span class="st">"YlGnBu"</span>,</span>
-<span>                             sequential.direction <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span><span class="va">sample</span>, </span>
-<span>                             features <span class="op">=</span> <span class="st">"PC_1"</span>,</span>
-<span>                             pt.size <span class="op">=</span> <span class="fl">0.5</span>,</span>
-<span>                             use_viridis <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>                             sequential.palette <span class="op">=</span> <span class="st">"YlOrBr"</span>,</span>
-<span>                             sequential.direction <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">p3</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span><span class="va">sample</span>, </span>
-<span>                             features <span class="op">=</span> <span class="st">"PC_1"</span>,</span>
-<span>                             pt.size <span class="op">=</span> <span class="fl">0.5</span>,</span>
-<span>                             use_viridis <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>                             sequential.palette <span class="op">=</span> <span class="st">"YlOrRd"</span>,</span>
-<span>                             sequential.direction <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">p4</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span><span class="va">sample</span>, </span>
-<span>                             features <span class="op">=</span> <span class="st">"PC_1"</span>,</span>
-<span>                             pt.size <span class="op">=</span> <span class="fl">0.5</span>,</span>
-<span>                             use_viridis <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>                             sequential.palette <span class="op">=</span> <span class="st">"Reds"</span>,</span>
-<span>                             sequential.direction <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">p5</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span><span class="va">sample</span>, </span>
-<span>                             features <span class="op">=</span> <span class="st">"PC_1"</span>,</span>
-<span>                             pt.size <span class="op">=</span> <span class="fl">0.5</span>,</span>
-<span>                             use_viridis <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>                             sequential.palette <span class="op">=</span> <span class="st">"Purples"</span>,</span>
-<span>                             sequential.direction <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">p6</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span><span class="va">sample</span>, </span>
-<span>                             features <span class="op">=</span> <span class="st">"PC_1"</span>,</span>
-<span>                             pt.size <span class="op">=</span> <span class="fl">0.5</span>,</span>
-<span>                             use_viridis <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>                             sequential.palette <span class="op">=</span> <span class="st">"Blues"</span>,</span>
-<span>                             sequential.direction <span class="op">=</span> <span class="op">-</span><span class="fl">1</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">p7</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span><span class="va">sample</span>, </span>
-<span>                             features <span class="op">=</span> <span class="st">"PC_1"</span>,</span>
-<span>                             pt.size <span class="op">=</span> <span class="fl">0.5</span>,</span>
-<span>                             use_viridis <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>                             sequential.palette <span class="op">=</span> <span class="st">"Oranges"</span>,</span>
-<span>                             sequential.direction <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">p8</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span><span class="va">sample</span>, </span>
-<span>                             features <span class="op">=</span> <span class="st">"PC_1"</span>,</span>
-<span>                             pt.size <span class="op">=</span> <span class="fl">0.5</span>,</span>
-<span>                             use_viridis <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>                             sequential.palette <span class="op">=</span> <span class="st">"Greys"</span>,</span>
-<span>                             sequential.direction <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span><span class="op">)</span> <span class="op">/</span> <span class="op">(</span><span class="va">p3</span> <span class="op">|</span> <span class="va">p4</span><span class="op">)</span> <span class="op">/</span> <span class="op">(</span><span class="va">p5</span> <span class="op">|</span> <span class="va">p6</span><span class="op">)</span> <span class="op">/</span> <span class="op">(</span><span class="va">p7</span> <span class="op">|</span> <span class="va">p8</span><span class="op">)</span></span>
-<span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="Shared_Features_files/figure-html/unnamed-chunk-8-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
-<p></p><figcaption class="figure-caption">Modify sequential palettes, also use different directions.</figcaption><p></p>
-</figure>
-</div>
-</div>
-</div>
-</section><section id="change-colors-divering" class="level1"><h1>Change colors | divering</h1>
-<p>Finally, there is a special case of sequential palettes in which there is a clear empashis on the two ends of the scale. This is a very usual case in scaled data or data that has a center and data data deviates from it. Such data can be generated in <code>SCpubr</code> by using <code>enforce_symmetry = TRUE</code> in many of the functions.</p>
 <p>In such cases, the color palette used is chosen among the diverging palettes in <code>RColorBrewer</code> and can be chosen using <code>diverging.palette</code>.</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span><span class="va">sample</span>, </span>
-<span>                             features <span class="op">=</span> <span class="st">"PC_1"</span>,</span>
-<span>                             pt.size <span class="op">=</span> <span class="fl">0.5</span>,</span>
-<span>                             use_viridis <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>                             enforce_symmetry <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>                             diverging.palette <span class="op">=</span> <span class="st">"Spectral"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span><span class="va">sample</span>, </span>
-<span>                             features <span class="op">=</span> <span class="st">"PC_1"</span>,</span>
-<span>                             pt.size <span class="op">=</span> <span class="fl">0.5</span>,</span>
-<span>                             use_viridis <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>                             enforce_symmetry <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>                             diverging.palette <span class="op">=</span> <span class="st">"RdYlBu"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">p3</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span><span class="va">sample</span>, </span>
-<span>                             features <span class="op">=</span> <span class="st">"PC_1"</span>,</span>
-<span>                             pt.size <span class="op">=</span> <span class="fl">0.5</span>,</span>
-<span>                             use_viridis <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>                             enforce_symmetry <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>                             diverging.palette <span class="op">=</span> <span class="st">"RdYlGn"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">p4</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span><span class="va">sample</span>, </span>
-<span>                             features <span class="op">=</span> <span class="st">"PC_1"</span>,</span>
-<span>                             pt.size <span class="op">=</span> <span class="fl">0.5</span>,</span>
-<span>                             use_viridis <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>                             enforce_symmetry <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>                             diverging.palette <span class="op">=</span> <span class="st">"RdBu"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">p5</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span><span class="va">sample</span>, </span>
-<span>                             features <span class="op">=</span> <span class="st">"PC_1"</span>,</span>
-<span>                             pt.size <span class="op">=</span> <span class="fl">0.5</span>,</span>
-<span>                             use_viridis <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>                             enforce_symmetry <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>                             diverging.palette <span class="op">=</span> <span class="st">"RdGy"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">p6</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span><span class="va">sample</span>, </span>
-<span>                             features <span class="op">=</span> <span class="st">"PC_1"</span>,</span>
-<span>                             pt.size <span class="op">=</span> <span class="fl">0.5</span>,</span>
-<span>                             use_viridis <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>                             enforce_symmetry <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>                             diverging.palette <span class="op">=</span> <span class="st">"PuOr"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">p7</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span><span class="va">sample</span>, </span>
-<span>                             features <span class="op">=</span> <span class="st">"PC_1"</span>,</span>
-<span>                             pt.size <span class="op">=</span> <span class="fl">0.5</span>,</span>
-<span>                             use_viridis <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>                             enforce_symmetry <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>                             diverging.palette <span class="op">=</span> <span class="st">"PiYG"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">p8</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span><span class="va">sample</span>, </span>
-<span>                             features <span class="op">=</span> <span class="st">"PC_1"</span>,</span>
-<span>                             pt.size <span class="op">=</span> <span class="fl">0.5</span>,</span>
-<span>                             use_viridis <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>                             enforce_symmetry <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>                             diverging.palette <span class="op">=</span> <span class="st">"BrBG"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span><span class="op">)</span> <span class="op">/</span> <span class="op">(</span><span class="va">p3</span> <span class="op">|</span> <span class="va">p4</span><span class="op">)</span> <span class="op">/</span> <span class="op">(</span><span class="va">p5</span> <span class="op">|</span> <span class="va">p6</span><span class="op">)</span> <span class="op">/</span> <span class="op">(</span><span class="va">p7</span> <span class="op">|</span> <span class="va">p8</span><span class="op">)</span></span>
-<span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="Shared_Features_files/figure-html/unnamed-chunk-9-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
-<p></p><figcaption class="figure-caption">Use diverging palettes.</figcaption><p></p>
-</figure>
-</div>
-</div>
-</div>
-<section id="flip-the-plots" class="level2"><h2 class="anchored" data-anchor-id="flip-the-plots">Flip the plots</h2>
-<p>In many cases, it is possible to completely switch the plot axes. Sometimes information can be more easily conveyed by using a X/Y setup rather than Y/X. To switch the axes, you can use <code>flip = TRUE</code>.</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
-<span>                         group.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>,</span>
-<span>                         split.by <span class="op">=</span> <span class="st">"annotation"</span>,</span>
-<span>                         position <span class="op">=</span> <span class="st">"fill"</span>,</span>
-<span>                         flip <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_BarPlot.html">do_BarPlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
-<span>                         group.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>,</span>
-<span>                         split.by <span class="op">=</span> <span class="st">"annotation"</span>,</span>
-<span>                         position <span class="op">=</span> <span class="st">"fill"</span>,</span>
-<span>                         flip <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span></span>
-<span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="Shared_Features_files/figure-html/unnamed-chunk-10-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
-<p></p><figcaption class="figure-caption">Flip the axes</figcaption><p></p>
-</figure>
-</div>
-</div>
-</div>
-</section><section id="control-plot-aesthetics" class="level2"><h2 class="anchored" data-anchor-id="control-plot-aesthetics">Control plot aesthetics</h2>
+</section><section id="symmetrical-plots" class="level2"><h2 class="anchored" data-anchor-id="symmetrical-plots">Symmetrical plots</h2>
+<p>Some visualizations have a <strong>tendency</strong> <strong>to be symmetrical</strong>. While this is not always achieved naturally, they greatly benefit from it. One example are <strong>volcano plot</strong>s, where having the <strong>0</strong> in the <strong>X axis</strong> in the center helps understanding the <strong>spatial disposition of the dots</strong> in the plot. Some other cases, we might be plotting a <strong>continuous variable</strong> that has a <strong>diverging nature</strong>, and we would like to have a <strong>diverging color scale</strong> used on it and the <strong>limits</strong> of the <strong>scale</strong> also being <strong>centered</strong> around the <strong>middle point</strong>. for this, we can use the following:</p>
+<ul>
+<li>
+<code>enforce_symmetry</code>: Whether to make the plot symmetrical (<code>TRUE</code>) or not (<code>FALSE</code>). This varies depending on the function. It can make the axes symmetrical between them or make the color scale diverging and the limits centered around the middle value.</li>
+</ul></section><section id="flip-the-axes" class="level2"><h2 class="anchored" data-anchor-id="flip-the-axes">Flip the axes</h2>
+<p>In many cases, it is possible to completely switch the plot axes. Sometimes information can be more easily conveyed by using a X/Y setup rather than Y/X. This can be achieved by:</p>
+<ul>
+<li>
+<code>flip</code>: Whether to <strong>swap</strong> <strong>X</strong> and <strong>Y axes</strong> (<code>TRUE</code>) or not (<code>FALSE</code>).</li>
+</ul></section><section id="control-plot-aesthetics" class="level2"><h2 class="anchored" data-anchor-id="control-plot-aesthetics">Control plot aesthetics</h2>
 <p>Pretty much mirroring the style of <code><a href="https://ggplot2.tidyverse.org/reference/theme.html">ggplot2::theme()</a></code>, <code>SCpubr</code> offers a wide range of parameters to adjust the way text elements in the plots are displayed:</p>
 <ul>
 <li>
-<code>font.size</code>: Controls the general size of the plot. Different elements will have higher or lower font size to keep them coherent.</li>
+<code>font.size</code>: Controls the <strong>general font size</strong> of the plot. Different elements will have higher or lower font size to keep them coherent.</li>
 <li>
-<code>font.type</code>: Controls the type of font used, can be one of: sans, serif, mono.</li>
+<code>font.type</code>: Controls the <strong>type of font</strong> used, can be one of: sans, serif, mono.</li>
 <li>
-<code>plot.title.face</code>: Controls the style of the font of the element. Can be one of: plain, italic, bold or bold.italic.</li>
+<code>plot.title.face</code>: Controls the style of the font of the <strong>plot title</strong>.</li>
 <li>
-<code>plot.subtitle.face</code>: Controls the style of the font of the element. Can be one of: plain, italic, bold or bold.italic.</li>
+<code>plot.subtitle.face</code>: Controls the style of the font of the <strong>plot subtitle</strong>.</li>
 <li>
-<code>plot.caption.face</code>: Controls the style of the font of the element. Can be one of: plain, italic, bold or bold.italic.</li>
+<code>plot.caption.face</code>: Controls the style of the font of the <strong>plot caption</strong>.</li>
 <li>
-<code>axis.title.face</code>: Controls the style of the font of the element. Can be one of: plain, italic, bold or bold.italic.</li>
+<code>axis.title.face</code>: Controls the style of the font of the <strong>axes titles</strong>.</li>
 <li>
-<code>axis.text.face</code>: Controls the style of the font of the element. Can be one of: plain, italic, bold or bold.italic.</li>
+<code>axis.text.face</code>: Controls the style of the font of <strong>the text displayed in the axes</strong>.</li>
 <li>
-<code>legend.title.face</code>: Controls the style of the font of the element. Can be one of: plain, italic, bold or bold.italic.</li>
+<code>legend.title.face</code>: Controls the style of the font of the <strong>legend title</strong>.</li>
 <li>
-<code>legend.text.face</code>: Controls the style of the font of the element. Can be one of: plain, italic, bold or bold.italic.</li>
+<code>legend.text.face</code>: Controls the style of the font of the <strong>text in the legend</strong>.</li>
 <li>
-<code>strip.text.face</code>: Controls the style of the font of the element. Can be one of: plain, italic, bold or bold.italic.</li>
-</ul></section><section id="control-legend-aesthetics" class="level2"><h2 class="anchored" data-anchor-id="control-legend-aesthetics">Control legend aesthetics</h2>
+<code>strip.text.face</code>: Controls the style of the font of the text in the <strong>strips</strong> (defined by <code><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html">ggplot2::facet_grid()</a></code> or <code><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">ggplot2::facet_wrap()</a></code>).</li>
+</ul>
+<p>Can be one of: <em>plain</em>, <em>italic</em>, <em>bold</em> or <em>bold.italic</em>.</p>
+</section><section id="control-legend-aesthetics" class="level2"><h2 class="anchored" data-anchor-id="control-legend-aesthetics">Control legend aesthetics</h2>
 <p>Apart from the parameters above, one can control other aspects of the legend with:</p>
 <ul>
 <li>
-<code>legend.position</code>: Either top, bottom, left, right or none to remove it entirely.</li>
+<code>legend.position</code>: <strong>Position</strong> of the <strong>legend</strong> in the plot. Either <em>top</em>, <em>bottom</em>, <em>left</em>, <em>right</em> or <em>none</em> to remove it entirely.</li>
 <li>
-<code>legend.title.position</code>: Position of the legend title. Can be one of: top, bottom, right, left.</li>
+<code>legend.title.position</code>: <strong>Position</strong> of the <strong>title</strong> in the <strong>legend</strong>. Can be one of: <em>top</em>, <em>bottom</em>, <em>right</em>, <em>left</em>.</li>
 <li>
-<code>legend.icon.size</code>: Size of the elementes in the legend.</li>
+<code>legend.icon.size</code>: <strong>Size</strong> of each <strong>elements</strong> in the <strong>legend</strong> (for a <strong>categorical</strong> <strong>variable</strong>).</li>
 <li>
-<code>legend.ncol</code>and <code>legend.nrow</code>: How many rows and columns the legend should have (in categorical variables).</li>
+<code>legend.ncol</code>and <code>legend.nrow</code>: <strong>How many rows</strong> and <strong>columns</strong> the <strong>legend</strong> should have (in categorical variables).</li>
 <li>
-<code>legend.byrow</code>: Whether the legend should be filled by rows (<code>TRUE</code>) or columns (<code>FALSE</code>).</li>
+<code>legend.byrow</code>: Whether the <strong>legend</strong> should be <strong>filled</strong> by <strong>rows</strong> (<code>TRUE</code>) or <strong>columns</strong> (<code>FALSE</code>).</li>
 <li>
-<code>legend.type</code>: Whether to have a normal-looking legend (<code>normal</code>) or a bigger, more spacious colorbar (<code>colorbar</code>).</li>
+<code>legend.type</code>: Whether to have a <strong>normal-looking</strong> legend (<code>normal</code>) or a bigger, more spacious <strong>colorbar</strong> (<code>colorbar</code>).</li>
 <li>
-<code>legend.tickcolor</code>: Controls the color of the ticks in the legend (continuous variables).</li>
+<code>legend.tickcolor</code>: Controls the <strong>color of the ticks</strong> in the <strong>legend</strong> (continuous variables).</li>
 <li>
-<code>legend.framecolor</code>: Controls the color of the border in the legend (continuous variables).</li>
+<code>legend.framecolor</code>: Controls the <strong>color of the border</strong> in the <strong>legend</strong> (continuous variables).</li>
 <li>
-<code>legend.length</code>: Controls the length of the legend (continuous variables).</li>
+<code>legend.length</code>: Controls the <strong>length</strong> of the <strong>legend</strong> (continuous variables).</li>
 <li>
-<code>legend.width</code>: Controls the height of the legend (continuous variables).</li>
+<code>legend.width</code>: Controls the <strong>height</strong> of the <strong>legend</strong> (continuous variables).</li>
 <li>
-<code>legend.framewidth</code>: Controls the width of the border line in the legend (continuous variables).</li>
+<code>legend.framewidth</code>: Controls the <strong>width</strong> of the <strong>border line</strong> in the <strong>legend</strong> (continuous variables).</li>
 <li>
-<code>legend.tickwidth</code>: Controls the width of the ticks in the legend (continuous variables).</li>
-</ul>
-<p>Finally, and as a separate note, for continuous legends, one can choose the number of breaks the legend has (might vary slightly), by using <code>number.breaks</code> parameter.</p>
-</section><section id="modify-plot-titles" class="level2"><h2 class="anchored" data-anchor-id="modify-plot-titles">Modify plot titles</h2>
+<code>legend.tickwidth</code>: Controls the <strong>width</strong> of the <strong>ticks</strong> in the <strong>legend</strong> (continuous variables).</li>
+<li>
+<code>number.breaks</code>`: Defines the <strong>number</strong> of <strong>breaks</strong> in the <strong>legend</strong> (might slightly vary).</li>
+</ul></section><section id="modify-plot-titles" class="level2"><h2 class="anchored" data-anchor-id="modify-plot-titles">Modify plot titles</h2>
 <p>When applicable (some functions might restrict the access to these parameters), the different titles of the plot can be modified by using the following parameters:</p>
 <ul>
 <li>
-<code>plot.title</code>: Title of the plot.</li>
+<code>plot.title</code>: <strong>Title</strong> of the plot.</li>
 <li>
-<code>plot.subtitle</code>: Subtitle of the plot.</li>
+<code>plot.subtitle</code>: <strong>Subtitle</strong> of the plot.</li>
 <li>
-<code>plot.caption</code>: Caption of the plot.</li>
+<code>plot.caption</code>: <strong>Caption</strong> of the plot.</li>
 <li>
-<code>xlab</code>: X axis title.</li>
+<code>xlab</code>: <strong>X axis</strong> title.</li>
 <li>
-<code>ylab</code>: Y axis title.</li>
+<code>ylab</code>: <strong>Y axis</strong> title.</li>
 <li>
-<code>legend.title</code>: Title of the legend.</li>
+<code>legend.title</code>: <strong>Title</strong> of the <strong>legend</strong>.</li>
 </ul></section><section id="control-grid-aesthetics" class="level2"><h2 class="anchored" data-anchor-id="control-grid-aesthetics">Control grid aesthetics</h2>
 <p>In some plots, it is also possible to draw the grid lines to help guiding the user across the information displayed on them. The following parameters control the grid aesthetics:</p>
 <ul>
 <li>
-<code>plot.grid</code>: Whether to show the grid or not.</li>
+<code>plot.grid</code>: Whether to <strong>show</strong> the <strong>grid</strong> (<code>TRUE</code>) or not (<code>FALSE</code>).</li>
 <li>
-<code>grid.color</code>: Color of the grid lines.</li>
+<code>grid.color</code>: <strong>Color</strong> of the <strong>grid lines</strong>.</li>
 <li>
-<code>grid.type</code>: Type of lines used in the grid. Can be one of: blank, solid, dashed, dotted, dotdash, longdash, twodash.</li>
+<code>grid.type</code>: <strong>Type</strong> of <strong>lines</strong> used in the <strong>grid</strong>. Can be one of: <em>blank</em>, <em>solid</em>, <em>dashed</em>, <em>dotted</em>, <em>dotdash</em>, <em>longdash</em>, <em>twodash</em>.</li>
 </ul></section><section id="control-cell-borders" class="level2"><h2 class="anchored" data-anchor-id="control-cell-borders">Control cell borders</h2>
-<p>A very nice addition than enhances visibility of any plot where cells are drawn as dots is to add a black border around them. However, just changing the shape to a dot with border results in a very clogged visualization. It is more interesting to add another lagyer of black cells underneath the real plotting layer, so that only the cells on the edges will be visible, thus forming an outline border.</p>
-<p>While this greatly increases the plot size, it is a tradeoff one can consider when making a final figure for a publication. This behavior can be accessed via the following parameters:</p>
+<p>A very nice addition than enhances visibility of any plot where cells are drawn as dots is to <strong>add a black border around them</strong>. However, just changing the shape to a dot with border results in a very clogged visualization. It is more interesting to add another layer of black cells underneath the real plotting layer, so that only the cells on the edges will be visible, thus forming an outline border.</p>
+<p>While this <strong>greatly increases the plot size</strong>, it is a <strong>trade-off</strong> one can consider when making a final figure for a publication. This behavior can be accessed via the following parameters:</p>
 <ul>
 <li>
-<code>plot_cell_borders</code>: Whether to plot the cell borders.</li>
+<code>plot_cell_borders</code>: Whether to <strong>plot</strong> the <strong>cell borders</strong> (<code>TRUE</code>) or not (<code>FALSE</code>).</li>
 <li>
-<code>border.size</code>: Size of the dots used for the cell borders.</li>
+<code>border.size</code>: <strong>Size</strong> of the <strong>dots</strong> used for the cell <strong>borders</strong>.</li>
 <li>
-<code>border.color</code>: Color of the dots used for the cell borders.</li>
+<code>border.color</code>: <strong>Color</strong> of the <strong>dots</strong> used for the cell <strong>borders</strong>.</li>
 <li>
-<code>border.density</code>: Controls how many cells are used to generate the borders. A value between 0 and 1. It computes a 2D kernel density of the cells in the dimensional reduction embedding and based on this cells falling below the <code>border.density</code> quantilye are excluded. This helps decreasing the added weight to the plot when <code>plot_cell_borders = TRUE</code>, but might result in an uneven border for the cells.</li>
+<code>border.density</code>: Controls <strong>how many cells</strong> are used to generate the <strong>borders</strong>. A value between <code>0 and 1</code>`. It computes a 2D kernel density of the cells in the dimensional reduction embedding and based on this cells falling below the <code>border.density</code> quantilye are excluded. This helps decreasing the added weight to the plot when <code>plot_cell_borders = TRUE</code>, but might result in an uneven border for the cells.</li>
 </ul></section><section id="plot-marginal-distributions" class="level2"><h2 class="anchored" data-anchor-id="plot-marginal-distributions">Plot marginal distributions</h2>
-<p>In some cases, it is also possible to plot marginal distributions of the density of the values in a scatter plot across a given axis. This is used by some functions in <code>SCpubr</code> and the functionality can be accessed by:</p>
+<p>In some cases, it is also possible to plot <strong>marginal distributions</strong> of the <strong>density of the values</strong> in a scatter plot across a given axis. This is used by some functions in <code>SCpubr</code> and the functionality can be accessed by:</p>
 <ul>
 <li>
-<code>plot_marginal_distributions</code>: Whether to plot marginal distributions or not.</li>
+<code>plot_marginal_distributions</code>: Whether to <strong>plot</strong> <strong>marginal distributions</strong> (<code>TRUE</code>) or not (<code>FALSE</code>).</li>
 <li>
-<code>marginal.type</code>: Type of distribution to plot. Can be one of: density, histogram, boxplot, violin, densigram.</li>
+<code>marginal.type</code>: <strong>Type</strong> of <strong>distribution</strong> to plot. Can be one of: <em>density</em>, <em>histogram</em>, <em>boxplot</em>, <em>violin</em>, <em>densigram</em>.</li>
 <li>
-<code>marginal.size</code>: Size ratio between the main and marginal plots.</li>
+<code>marginal.size</code>: <strong>Size ratio</strong> between the <strong>main</strong> and <strong>marginal</strong> plots.</li>
 <li>
-<code>marginal.groups</code>: Metadata variable to use to group the values by when computing the marginal distribution.</li>
+<code>marginal.groups</code>: Metadata variable to use to <strong>group</strong> the <strong>values</strong> by when computing the marginal distribution.</li>
 </ul></section><section id="plot-density-contours-in-dimensional-reduction-visualizations" class="level2"><h2 class="anchored" data-anchor-id="plot-density-contours-in-dimensional-reduction-visualizations">Plot density contours in dimensional reduction visualizations</h2>
-<p>Strictly pertaining to dimensional reduction visualizations, one can also plot density contour lines in these plots:</p>
+<p>Strictly pertaining to dimensional reduction visualizations, one can also plot <strong>density contour lines</strong> in these plots:</p>
 <ul>
 <li>
-<code>plot_density_contour</code>: Whether to plot the density contours or not.</li>
+<code>plot_density_contour</code>: Whether to <strong>plot</strong> the <strong>density</strong> <strong>contours</strong> (<code>TRUE</code>) or not (<code>FALSE</code>).</li>
 <li>
-<code>contour.position</code>: Whether to place the contour layer on top or bottom of the rest of the layers (this will make some of the lines visible or not).</li>
+<code>contour.position</code>: Whether to <strong>place</strong> the <strong>contour</strong> layer on <strong>top</strong> or <strong>bottom</strong> of the rest of the layers (this will make some of the lines visible or not).</li>
 <li>
-<code>contour.color</code>: Color of the lines that draw the contour.</li>
+<code>contour.color</code>: <strong>Color</strong> of the <strong>lines</strong> that draw the <strong>contour</strong>.</li>
 <li>
-<code>contour.lineend</code>: Controls the line style of the line ends. One of: round, butt, square.</li>
+<code>contour.lineend</code>: Controls the line <strong>style</strong> of the <strong>line</strong> <strong>ends</strong>. One of: <em>round</em>, <em>butt</em>, <em>square</em>.</li>
 <li>
-<code>contour.linejoin</code>: Controls the line style of the line joins. One of: round, mitre, bevel.</li>
+<code>contour.linejoin</code>: Controls the line <strong>style</strong> of the <strong>line</strong> <strong>joins</strong>. One of: <em>round</em>, <em>mitre</em>, <em>bevel</em>.</li>
 <li>
-<code>contour_expand_axes</code>: Whether to increase the limits of the X and Y axes to make the contours fit the plot. This is a number between 0 and 1 and represents how much in proportion the axes should be expanded.</li>
+<code>contour_expand_axes</code>: Whether to <strong>increase</strong> the <strong>limits</strong> of the <strong>X</strong> and <strong>Y axes</strong> to make the contours fit the plot. This is a number between 0 and 1 and represents how much in proportion the axes should be expanded.</li>
 </ul>
 
 
-</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
