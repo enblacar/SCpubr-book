@@ -1,4 +1,4 @@
-# Shared features across functions {#sec-common_features}
+# Shared features across functions {#sec-common}
 
 ```{r}
 #| results: "asis"

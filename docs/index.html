@@ -60,6 +60,7 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit"
   }
 }</script>
+<style>html{ scroll-behavior: smooth; }</style>
 
 
 <meta property="og:title" content="SCpubr">
@@ -192,7 +193,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#default_title" id="toc-default_title" class="nav-link active" data-scroll-target="#default_title">About this package</a></li>
+  <li><a href="#default_title" id="toc-default_title" class="nav-link active" data-scroll-target="#default_title">About this package</a>
+  <ul class="collapse">
+  <li><a href="#license" id="toc-license" class="nav-link" data-scroll-target="#license">License</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -240,9 +244,12 @@ Previous documentation:
 </div>
 </div>
 <p>Thanks!! <!-- This package aims to provide a streamlined way of generating publication ready plots for known **S**ingle-**C**ell trascriptomics in a "**pub**lication **r**eady" format (**SCpubr**). This is, the aim is to generate with minimal effort plots with the highest quality possible, that can be used right away or with minimal modifications for a research article. --></p>
-<p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" alt="Creative Commons License: BY-NC-SA v4.0" class="mx-auto d-block" style="border-width:0"></a><br></p>
+<section id="license" class="level2">
+<h2 class="anchored" data-anchor-id="license">License</h2>
+<p><a href="https://github.com/enblacar/SCpubr/blob/main/LICENSE.md">SCpubr</a> and corresponding <a href="">documentation book</a> licensed under <a href="https://www.gnu.org/licenses/gpl-3.0.de.html">GPL v3</a> | <a href="">LICENSE</a> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" alt="Creative Commons License: BY-NC-SA v4.0" class="mx-auto d-block" style="border-width:0"></a><br></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -501,4 +508,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

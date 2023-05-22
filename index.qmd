@@ -19,4 +19,6 @@ To consult the previous documentation, [go here](https://enblacar.github.io/SCpu
 
 Thanks!! <!-- This package aims to provide a streamlined way of generating publication ready plots for known **S**ingle-**C**ell trascriptomics in a "**pub**lication **r**eady" format (**SCpubr**). This is, the aim is to generate with minimal effort plots with the highest quality possible, that can be used right away or with minimal modifications for a research article. -->
 
+## License
+[SCpubr](https://github.com/enblacar/SCpubr/blob/main/LICENSE.md) and corresponding [documentation book]() licensed under [GPL v3](https://www.gnu.org/licenses/gpl-3.0.de.html) | [LICENSE]()
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" alt="Creative Commons License: BY-NC-SA v4.0" class="mx-auto d-block" style="border-width:0"/></a><br />

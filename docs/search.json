@@ -4,7 +4,14 @@
     "href": "index.html",
     "title": "SCpubr",
     "section": "",
-    "text": "About this package\n\n\n\n\n\n\nWoops! You stumbled upon the in-development website for SCpubr v2.0.0! There is still a bit of time before the release, but stay tuned for the update!\nYou can have a peek to the changes here and in this website as it is being rebuilt!\n\n\n\n\n\n\nPrevious documentation:\n\n\n\nTo consult the previous documentation, go here instead.\n\n\nThanks!!"
+    "text": "About this package\nWoops! You stumbled upon the in-development website for SCpubr v2.0.0! There is still a bit of time before the release, but stay tuned for the update!\nYou can have a peek to the changes here and in this website as it is being rebuilt!\nThanks!!"
+  },
+  {
+    "objectID": "index.html#license",
+    "href": "index.html#license",
+    "title": "SCpubr",
+    "section": "License",
+    "text": "License\nSCpubr and corresponding documentation book licensed under GPL v3 | LICENSE"
   },
   {
     "objectID": "preface/Installation-guide.html",
@@ -186,21 +193,21 @@
     "href": "cheatsheets/DimPlots.html#group-by-a-variable",
     "title": "do_DimPlot()",
     "section": "Group by a variable",
-    "text": "Group by a variable\n\nSCpubr::do_DimPlot(sample = sample,\n                   group.by = \"my_variable\")"
+    "text": "Group by a variable\n\nSCpubr::do_DimPlot(sample = sample,\n                   group.by = \"annotation\")"
   },
   {
     "objectID": "cheatsheets/DimPlots.html#split-by-a-variable",
     "href": "cheatsheets/DimPlots.html#split-by-a-variable",
     "title": "do_DimPlot()",
     "section": "Split by a variable",
-    "text": "Split by a variable\n\nSCpubr::do_DimPlot(sample = sample,\n                   split.by = \"my_variable\")"
+    "text": "Split by a variable\n\nSCpubr::do_DimPlot(sample = sample,\n                   split.by = \"annotation\")"
   },
   {
     "objectID": "cheatsheets/DimPlots.html#group-by-a-variable-and-split-by-a-second-variable",
     "href": "cheatsheets/DimPlots.html#group-by-a-variable-and-split-by-a-second-variable",
     "title": "do_DimPlot()",
     "section": "Group by a variable and split by a second variable",
-    "text": "Group by a variable and split by a second variable\n\nSCpubr::do_DimPlot(sample = sample,\n                   group.by = \"variable_A\",\n                   split.by = \"variable_B\")"
+    "text": "Group by a variable and split by a second variable\n\nSCpubr::do_DimPlot(sample = sample,\n                   group.by = \"seurat_clusters\",\n                   split.by = \"annotation\")"
   },
   {
     "objectID": "cheatsheets/DimPlots.html#restrict-the-identities-shown-to-a-subset.",
@@ -214,7 +221,7 @@
     "href": "cheatsheets/DimPlots.html#highlight-cells",
     "title": "do_DimPlot()",
     "section": "Highlight cells",
-    "text": "Highlight cells\n\n# Highlight a given set of cells\nSCpubr::do_DimPlot(sample = sample,\n                   cells.highlight = sample(colnames(sample), 100))\n\n# Highlight a given identity from Seurat::Idents(sample).\nSCpubr::do_DimPlot(sample = sample,\n                   idents.highlight = \"0\")\n\nA combination of cells.highlight and idents.hightlight also works!"
+    "text": "Highlight cells\n\n# Highlight a given set of cells\nSCpubr::do_DimPlot(sample = sample,\n                   cells.highlight = sample(colnames(sample), 100))\n\n\n\n\n\n\n\n\n# Highlight a given identity from Seurat::Idents(sample).\nSCpubr::do_DimPlot(sample = sample,\n                   idents.highlight = \"0\")\n\n\n\n\n\n\n\nA combination of cells.highlight and idents.hightlight also works!"
   },
   {
     "objectID": "cheatsheets/DimPlots.html#select-a-dimensional-reduction-embedding",
@@ -228,7 +235,7 @@
     "href": "cheatsheets/DimPlots.html#select-which-dimensions-to-plot",
     "title": "do_DimPlot()",
     "section": "Select which dimensions to plot",
-    "text": "Select which dimensions to plot\n\nSCpubr::do_DimPlot(sample = sample,\n                   reduction = \"pca\",\n                   dims = c(1, 2))\n\nNote that, by default, the dimensional reduction of choice is the lastest computed in the Seurat object."
+    "text": "Select which dimensions to plot\n\nSCpubr::do_DimPlot(sample = sample,\n                   reduction = \"pca\",\n                   dims = c(1, 2))\n\n\n\n\n\n\n\nNote that, by default, the dimensional reduction of choice is the lastest computed in the Seurat object."
   },
   {
     "objectID": "cheatsheets/DimPlots.html#add-back-the-axes",
@@ -242,20 +249,20 @@
     "href": "cheatsheets/DimPlots.html#label-the-clusters",
     "title": "do_DimPlot()",
     "section": "Label the clusters",
-    "text": "Label the clusters\n\n# Label the clusters - label geom.\nSCpubr::do_DimPlot(sample = sample,\n                   label = TRUE)\n\n# Label the clusters - text geom.\nSCpubr::do_DimPlot(sample = sample,\n                   label = TRUE,\n                   label.box = FALSE)"
+    "text": "Label the clusters\n\n# Label the clusters - label geom.\nSCpubr::do_DimPlot(sample = sample,\n                   label = TRUE)\n\n\n\n\n\n\n\n\n# Label the clusters - text geom.\nSCpubr::do_DimPlot(sample = sample,\n                   label = TRUE,\n                   label.box = FALSE)"
   },
   {
     "objectID": "cheatsheets/DimPlots.html#label-the-clusters-and-repel-the-labels",
     "href": "cheatsheets/DimPlots.html#label-the-clusters-and-repel-the-labels",
     "title": "do_DimPlot()",
     "section": "Label the clusters and repel the labels",
-    "text": "Label the clusters and repel the labels\n\n# Label the clusters - label geom.\nSCpubr::do_DimPlot(sample = sample,\n                   label = TRUE,\n                   repel = TRUE)\n\n# Label the clusters - text geom.\nSCpubr::do_DimPlot(sample = sample,\n                   label = TRUE,\n                   label.box = FALSE,\n                   repel = TRUE)"
+    "text": "Label the clusters and repel the labels\n\n# Label the clusters - label geom.\nSCpubr::do_DimPlot(sample = sample,\n                   label = TRUE,\n                   repel = TRUE)\n\n\n\n\n\n\n\n\n# Label the clusters - text geom.\nSCpubr::do_DimPlot(sample = sample,\n                   label = TRUE,\n                   label.box = FALSE,\n                   repel = TRUE)"
   },
   {
     "objectID": "cheatsheets/DimPlots.html#and-more",
     "href": "cheatsheets/DimPlots.html#and-more",
     "title": "do_DimPlot()",
     "section": "And more!",
-    "text": "And more!\nMany more options are available for this function in @sec-introduction!"
+    "text": "And more!\nMany more options are available for this function in @sec-common!"
   }
 ]

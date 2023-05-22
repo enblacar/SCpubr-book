@@ -57,6 +57,7 @@ format:
     code-link: true
     code-block-border-left: false
     callout-appearance: default
+    smooth-scroll: true
     grid:
       sidebar-width: 400px
       body-width: 1200px
