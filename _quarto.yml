@@ -51,6 +51,7 @@ book:
 
 format:
   html:
+    number-sections: true
     theme:
       - flatly
       - SCpubr.scss

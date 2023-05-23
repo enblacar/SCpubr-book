@@ -119,13 +119,6 @@
     "text": "Split by a variable\nWe can also plot the cells split by a metadata variable using split.by:\n\n# Use a vector of cells\np &lt;- SCpubr::do_FeaturePlot(sample = sample,\n                            features = c(\"PC_1\"),\n                            split.by = \"seurat_clusters\",\n                            ncol = 5)\np\n\n\n\n\n\n\n\nAnd we can restrict which identities are shown when using split.by with idents.keep.\n\n# Use a vector of cells\np &lt;- SCpubr::do_FeaturePlot(sample = sample,\n                            features = c(\"PC_1\"),\n                            split.by = \"seurat_clusters\",\n                            idents.keep = c(\"0\", \"5\", \"7\"),\n                            ncol = 3)\np"
   },
   {
-    "objectID": "cheatsheets/Shared_Features.html",
-    "href": "cheatsheets/Shared_Features.html",
-    "title": "Shared features across functions",
-    "section": "",
-    "text": "RColorBrewer palettes\n::::\nPlease note that the direction is inverted between viridis and RColorBrewer palettes.\n::::"
-  },
-  {
     "objectID": "cheatsheets/Shared_Features.html#basic-parameters",
     "href": "cheatsheets/Shared_Features.html#basic-parameters",
     "title": "Shared features across functions",
@@ -144,56 +137,7 @@
     "href": "cheatsheets/Shared_Features.html#change-colors-continuous",
     "title": "Shared features across functions",
     "section": "Change colors | continuous",
-    "text": "Change colors | continuous\nFor continuous variables, we do have a more complex system. First of all, SCpubr has implemented both RColorBrewer palettes and Viridis palettes palettes, and use them interchangeably depending on the function. This behavior can accessed and customized with the following parameters:\n\n\nuse_viridis: Whether to use a viridis palette (TRUE) or not (FALSE).\n\nviridis.palette: Which viridis palette to use. Can be either the long name or the shortened version.\n\nsequential.palette: Which RColorBrewer continuous palette to use.\n\nviridis.direction: Whether to map the darkest colors to the lowest values (1) or not (-1).\n\nsequential.direction: Whether to map the darkest colors to the lowest values (-1) or not (1). ::::{.panel-tabset} # Viridis palettes ::: {.panel-tabset} ## A | magma\n\n\nCodeSCpubr::do_FeaturePlot(sample,\n                      features = \"PC_1\", \n                      use_viridis = TRUE,\n                      viridis.palette = \"A\")"
-  },
-  {
-    "objectID": "cheatsheets/Shared_Features.html#b-inferno",
-    "href": "cheatsheets/Shared_Features.html#b-inferno",
-    "title": "Shared features across functions",
-    "section": "B | inferno",
-    "text": "B | inferno\n\nCodeSCpubr::do_FeaturePlot(sample,\n                      features = \"PC_1\", \n                      use_viridis = TRUE,\n                      viridis.palette = \"B\")"
-  },
-  {
-    "objectID": "cheatsheets/Shared_Features.html#c-plasma",
-    "href": "cheatsheets/Shared_Features.html#c-plasma",
-    "title": "Shared features across functions",
-    "section": "C | plasma",
-    "text": "C | plasma\n\nCodeSCpubr::do_FeaturePlot(sample,\n                      features = \"PC_1\", \n                      use_viridis = TRUE,\n                      viridis.palette = \"C\")"
-  },
-  {
-    "objectID": "cheatsheets/Shared_Features.html#d-viridis",
-    "href": "cheatsheets/Shared_Features.html#d-viridis",
-    "title": "Shared features across functions",
-    "section": "D | viridis",
-    "text": "D | viridis\n\nCodeSCpubr::do_FeaturePlot(sample,\n                      features = \"PC_1\", \n                      use_viridis = TRUE,\n                      viridis.palette = \"D\")"
-  },
-  {
-    "objectID": "cheatsheets/Shared_Features.html#e-cividis",
-    "href": "cheatsheets/Shared_Features.html#e-cividis",
-    "title": "Shared features across functions",
-    "section": "E | cividis",
-    "text": "E | cividis\n\nCodeSCpubr::do_FeaturePlot(sample,\n                      features = \"PC_1\", \n                      use_viridis = TRUE,\n                      viridis.palette = \"E\")"
-  },
-  {
-    "objectID": "cheatsheets/Shared_Features.html#f-rocket",
-    "href": "cheatsheets/Shared_Features.html#f-rocket",
-    "title": "Shared features across functions",
-    "section": "F | rocket",
-    "text": "F | rocket\n\nCodeSCpubr::do_FeaturePlot(sample,\n                      features = \"PC_1\", \n                      use_viridis = TRUE,\n                      viridis.palette = \"F\")"
-  },
-  {
-    "objectID": "cheatsheets/Shared_Features.html#g-mako",
-    "href": "cheatsheets/Shared_Features.html#g-mako",
-    "title": "Shared features across functions",
-    "section": "G | mako",
-    "text": "G | mako\n\nCodeSCpubr::do_FeaturePlot(sample,\n                      features = \"PC_1\", \n                      use_viridis = TRUE,\n                      viridis.palette = \"G\")"
-  },
-  {
-    "objectID": "cheatsheets/Shared_Features.html#h-turbo",
-    "href": "cheatsheets/Shared_Features.html#h-turbo",
-    "title": "Shared features across functions",
-    "section": "H | turbo",
-    "text": "H | turbo\n\nCodeSCpubr::do_FeaturePlot(sample,\n                      features = \"PC_1\", \n                      use_viridis = TRUE,\n                      viridis.palette = \"H\")\n\n\n\n\n\n\n\n:::"
+    "text": "Change colors | continuous\nFor continuous variables, we do have a more complex system. First of all, SCpubr has implemented both RColorBrewer palettes and Viridis palettes palettes, and use them interchangeably depending on the function. This behavior can accessed and customized with the following parameters:\n\n\nuse_viridis: Whether to use a viridis palette (TRUE) or not (FALSE).\n\nviridis.palette: Which viridis palette to use. Can be either the long name or the shortened version.\n\nsequential.palette: Which RColorBrewer continuous palette to use.\n\nviridis.direction: Whether to map the darkest colors to the lowest values (1) or not (-1).\n\nsequential.direction: Whether to map the darkest colors to the lowest values (-1) or not (1).\n\n\n\nViridis palettes\nRColorBrewer palettes\nDirections\n\n\n\n\n\nA | magma\nB | inferno\nC | plasma\nD | viridis\nE | cividis\nF | rocket\nG | mako\nH | turbo\n\n\n\n\nCodeSCpubr::do_FeaturePlot(sample,\n                      features = \"PC_1\", \n                      use_viridis = TRUE,\n                      viridis.palette = \"A\")\n\n\n\n\n\n\n\n\n\n\nCodeSCpubr::do_FeaturePlot(sample,\n                      features = \"PC_1\", \n                      use_viridis = TRUE,\n                      viridis.palette = \"B\")\n\n\n\n\n\n\n\n\n\n\nCodeSCpubr::do_FeaturePlot(sample,\n                      features = \"PC_1\", \n                      use_viridis = TRUE,\n                      viridis.palette = \"C\")\n\n\n\n\n\n\n\n\n\n\nCodeSCpubr::do_FeaturePlot(sample,\n                      features = \"PC_1\", \n                      use_viridis = TRUE,\n                      viridis.palette = \"D\")\n\n\n\n\n\n\n\n\n\n\nCodeSCpubr::do_FeaturePlot(sample,\n                      features = \"PC_1\", \n                      use_viridis = TRUE,\n                      viridis.palette = \"E\")\n\n\n\n\n\n\n\n\n\n\nCodeSCpubr::do_FeaturePlot(sample,\n                      features = \"PC_1\", \n                      use_viridis = TRUE,\n                      viridis.palette = \"F\")\n\n\n\n\n\n\n\n\n\n\nCodeSCpubr::do_FeaturePlot(sample,\n                      features = \"PC_1\", \n                      use_viridis = TRUE,\n                      viridis.palette = \"G\")\n\n\n\n\n\n\n\n\n\n\nCodeSCpubr::do_FeaturePlot(sample,\n                      features = \"PC_1\", \n                      use_viridis = TRUE,\n                      viridis.palette = \"H\")\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nYlOrRd\nYlOrBr\nYlGnBu\nYlGn\nReds\nRdPu\nPurples\nPuRd\nPuBuGn\nPuBu\nOrRd\nOranges\nGreys\nGreens\nGnBu\nBuPu\nBuGn\nBlues\n\n\n\n\nCode# Yellow --&gt; Orange --&gt; Red\nSCpubr::do_FeaturePlot(sample,\n                      features = \"PC_1\", \n                      use_viridis = FALSE,\n                      sequential.palette = \"YlOrRd\")\n\n\n\n\n\n\n\n\n\n\nCode# Yellow --&gt; Orange --&gt; Brown\nSCpubr::do_FeaturePlot(sample,\n                      features = \"PC_1\", \n                      use_viridis = FALSE,\n                      sequential.palette = \"YlOrBr\")\n\n\n\n\n\n\n\n\n\n\nCode# Yellow --&gt; Green --&gt; Blue\nSCpubr::do_FeaturePlot(sample,\n                      features = \"PC_1\", \n                      use_viridis = FALSE,\n                      sequential.palette = \"YlGnBu\")\n\n\n\n\n\n\n\n\n\n\nCode# Yellow --&gt; Green\nSCpubr::do_FeaturePlot(sample,\n                      features = \"PC_1\", \n                      use_viridis = FALSE,\n                      sequential.palette = \"YlGn\")\n\n\n\n\n\n\n\n\n\n\nCode# Reds\nSCpubr::do_FeaturePlot(sample,\n                      features = \"PC_1\", \n                      use_viridis = FALSE,\n                      sequential.palette = \"Reds\")\n\n\n\n\n\n\n\n\n\n\nCode# Red --&gt; Purple\nSCpubr::do_FeaturePlot(sample,\n                      features = \"PC_1\", \n                      use_viridis = FALSE,\n                      sequential.palette = \"RdPu\")\n\n\n\n\n\n\n\n\n\n\nCode# Purples\nSCpubr::do_FeaturePlot(sample,\n                      features = \"PC_1\", \n                      use_viridis = FALSE,\n                      sequential.palette = \"Purples\")\n\n\n\n\n\n\n\n\n\n\nCode# Purple --&gt; Red\nSCpubr::do_FeaturePlot(sample,\n                      features = \"PC_1\", \n                      use_viridis = FALSE,\n                      sequential.palette = \"PuRd\")\n\n\n\n\n\n\n\n\n\n\nCode# Purple --&gt; Blue --&gt; Green\nSCpubr::do_FeaturePlot(sample,\n                      features = \"PC_1\", \n                      use_viridis = FALSE,\n                      sequential.palette = \"PuBuGn\")\n\n\n\n\n\n\n\n\n\n\nCode# Purple --&gt; Blue\nSCpubr::do_FeaturePlot(sample,\n                      features = \"PC_1\", \n                      use_viridis = FALSE,\n                      sequential.palette = \"PuBu\")\n\n\n\n\n\n\n\n\n\n\nCode# Orange --&gt; Red\nSCpubr::do_FeaturePlot(sample,\n                      features = \"PC_1\", \n                      use_viridis = FALSE,\n                      sequential.palette = \"OrRd\")\n\n\n\n\n\n\n\n\n\n\nCode# Oranges\nSCpubr::do_FeaturePlot(sample,\n                      features = \"PC_1\", \n                      use_viridis = FALSE,\n                      sequential.palette = \"Oranges\")\n\n\n\n\n\n\n\n\n\n\nCode# Greys\nSCpubr::do_FeaturePlot(sample,\n                      features = \"PC_1\", \n                      use_viridis = FALSE,\n                      sequential.palette = \"Greys\")\n\n\n\n\n\n\n\n\n\n\nCode# Greens\nSCpubr::do_FeaturePlot(sample,\n                      features = \"PC_1\", \n                      use_viridis = FALSE,\n                      sequential.palette = \"Greens\")\n\n\n\n\n\n\n\n\n\n\nCode# Green --&gt; Blue\nSCpubr::do_FeaturePlot(sample,\n                      features = \"PC_1\", \n                      use_viridis = FALSE,\n                      sequential.palette = \"GnBu\")\n\n\n\n\n\n\n\n\n\n\nCode# Blue --&gt; Purple\nSCpubr::do_FeaturePlot(sample,\n                      features = \"PC_1\", \n                      use_viridis = FALSE,\n                      sequential.palette = \"BuPu\")\n\n\n\n\n\n\n\n\n\n\nCode# Blue --&gt; Green\nSCpubr::do_FeaturePlot(sample,\n                      features = \"PC_1\", \n                      use_viridis = FALSE,\n                      sequential.palette = \"BuGn\")\n\n\n\n\n\n\n\n\n\n\nCode# Blues\nSCpubr::do_FeaturePlot(sample,\n                      features = \"PC_1\", \n                      use_viridis = FALSE,\n                      sequential.palette = \"Blues\")\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nViridis | direction = 1\nViridis | direction = -1\nRColorBrewer | direction = 1\nRColorBrewer | direction = -1\n\n\n\n\nCodeSCpubr::do_FeaturePlot(sample,\n                      features = \"PC_1\", \n                      use_viridis = TRUE,\n                      viridis.direction = 1)\n\n\n\n\n\n\n\n\n\n\nCodeSCpubr::do_FeaturePlot(sample,\n                      features = \"PC_1\", \n                      use_viridis = TRUE,\n                      viridis.direction = -1)\n\n\n\n\n\n\n\n\n\n\nCode# Blues\nSCpubr::do_FeaturePlot(sample,\n                      features = \"PC_1\", \n                      use_viridis = FALSE,\n                      sequential.direction = 1)\n\n\n\n\n\n\n\n\n\n\nCode# Blues\nSCpubr::do_FeaturePlot(sample,\n                      features = \"PC_1\", \n                      use_viridis = FALSE,\n                      sequential.direction = -1)\n\n\n\n\n\n\n\n\n\n\n\n\n\nPlease note that the direction is inverted between viridis and RColorBrewer palettes."
   },
   {
     "objectID": "cheatsheets/Shared_Features.html#change-colors-diverging",
@@ -214,21 +158,7 @@
     "href": "cheatsheets/Shared_Features.html#set-limits-to-continuous-variables",
     "title": "Shared features across functions",
     "section": "Set limits to continuous variables",
-    "text": "Set limits to continuous variables\nMany times, we encounter plots where the color scale is completely driven by a single outlier in the data, therefore rendering the rest of values very difficult to visually compare. To solve this, you can use:\n\n\nmin.cutoff: Minimum value for the color scale.\n\nmax.cutoff: Maximum value for the color scale.\n\nThis basically performs a transformation of the values outside the defined range, turning them into either the minimum or maximum value designated by the user. ::: {.panel-tabset} ## Set minimum value\n\nCodeSCpubr::do_FeaturePlot(sample = sample,\n                       features = \"PC_1\",\n                       min.cutoff = 0)"
-  },
-  {
-    "objectID": "cheatsheets/Shared_Features.html#set-maximum-value",
-    "href": "cheatsheets/Shared_Features.html#set-maximum-value",
-    "title": "Shared features across functions",
-    "section": "Set maximum value",
-    "text": "Set maximum value\n\nCodeSCpubr::do_FeaturePlot(sample = sample,\n                       features = \"PC_1\",\n                       max.cutoff = 0)"
-  },
-  {
-    "objectID": "cheatsheets/Shared_Features.html#set-both",
-    "href": "cheatsheets/Shared_Features.html#set-both",
-    "title": "Shared features across functions",
-    "section": "Set both",
-    "text": "Set both\n\nCodeSCpubr::do_FeaturePlot(sample = sample,\n                       features = \"PC_1\",\n                       min.cutoff = -10,\n                       max.cutoff = 10)\n\n\n\n\n\n\n\n:::"
+    "text": "Set limits to continuous variables\nMany times, we encounter plots where the color scale is completely driven by a single outlier in the data, therefore rendering the rest of values very difficult to visually compare. To solve this, you can use:\n\n\nmin.cutoff: Minimum value for the color scale.\n\nmax.cutoff: Maximum value for the color scale.\n\nThis basically performs a transformation of the values outside the defined range, turning them into either the minimum or maximum value designated by the user.\n\n\nSet minimum value\nSet maximum value\nSet both\n\n\n\n\nCodeSCpubr::do_FeaturePlot(sample = sample,\n                       features = \"PC_1\",\n                       min.cutoff = 0)\n\n\n\n\n\n\n\n\n\n\nCodeSCpubr::do_FeaturePlot(sample = sample,\n                       features = \"PC_1\",\n                       max.cutoff = 0)\n\n\n\n\n\n\n\n\n\n\nCodeSCpubr::do_FeaturePlot(sample = sample,\n                       features = \"PC_1\",\n                       min.cutoff = -10,\n                       max.cutoff = 10)"
   },
   {
     "objectID": "cheatsheets/Shared_Features.html#flip-the-axes",
@@ -277,14 +207,7 @@
     "href": "cheatsheets/Shared_Features.html#plot-marginal-distributions",
     "title": "Shared features across functions",
     "section": "Plot marginal distributions",
-    "text": "Plot marginal distributions\nIn some cases, it is also possible to plot marginal distributions of the density of the values in a scatter plot across a given axis. This is used by some functions in SCpubr and the functionality can be accessed by:\n\n\nplot_marginal_distributions: Whether to plot marginal distributions (TRUE) or not (FALSE).\n\nmarginal.type: Type of distribution to plot. Can be one of: density, histogram, boxplot, violin, densigram.\n\nmarginal.size: Size ratio between the main and marginal plots.\n\nmarginal.group: Whether to split the marginal plot by the current identities (TRUE) or not (FALSE).\n\nThere is a catch: marginal distributions cannot be computed alongside split.by or plot_cell_borders or cells.highlight/idents.highlight. :::: {.panel-tabset} # Show marginal distributions ::: {.panel-tabset} ## No marginal distributions\n\nCodeSCpubr::do_DimPlot(sample = sample,\n                   plot_marginal_distributions = FALSE,\n                   plot_cell_borders = FALSE)"
-  },
-  {
-    "objectID": "cheatsheets/Shared_Features.html#marginal-distributions",
-    "href": "cheatsheets/Shared_Features.html#marginal-distributions",
-    "title": "Shared features across functions",
-    "section": "Marginal distributions",
-    "text": "Marginal distributions\n\nCodeSCpubr::do_DimPlot(sample = sample,\n                   plot_marginal_distributions = TRUE,\n                   plot_cell_borders = FALSE)\n\n\n\n\n\n\n\n:::"
+    "text": "Plot marginal distributions\nIn some cases, it is also possible to plot marginal distributions of the density of the values in a scatter plot across a given axis. This is used by some functions in SCpubr and the functionality can be accessed by:\n\n\nplot_marginal_distributions: Whether to plot marginal distributions (TRUE) or not (FALSE).\n\nmarginal.type: Type of distribution to plot. Can be one of: density, histogram, boxplot, violin, densigram.\n\nmarginal.size: Size ratio between the main and marginal plots.\n\nmarginal.group: Whether to split the marginal plot by the current identities (TRUE) or not (FALSE).\n\nThere is a catch: marginal distributions cannot be computed alongside split.by or plot_cell_borders or cells.highlight/idents.highlight.\n\n\nShow marginal distributions\nGroup by identities\nType of distribution\n\n\n\n\n\nNo marginal distributions\nMarginal distributions\n\n\n\n\nCodeSCpubr::do_DimPlot(sample = sample,\n                   plot_marginal_distributions = FALSE,\n                   plot_cell_borders = FALSE)\n\n\n\n\n\n\n\n\n\n\nCodeSCpubr::do_DimPlot(sample = sample,\n                   plot_marginal_distributions = TRUE,\n                   plot_cell_borders = FALSE)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMarginal group = TRUE\nMarginal group = FALSE\n\n\n\n\nCodeSCpubr::do_DimPlot(sample = sample,\n                   plot_marginal_distributions = TRUE,\n                   plot_cell_borders = FALSE,\n                   marginal.group = TRUE)\n\n\n\n\n\n\n\n\n\n\nCodeSCpubr::do_DimPlot(sample = sample,\n                   plot_marginal_distributions = TRUE,\n                   plot_cell_borders = FALSE,\n                   marginal.group = FALSE)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDensity\nHistogram\nBoxplot\nViolin\nDensigram\n\n\n\n\nCodeSCpubr::do_DimPlot(sample = sample,\n                   plot_marginal_distributions = TRUE,\n                   plot_cell_borders = FALSE,\n                   marginal.type = \"density\")\n\n\n\n\n\n\n\n\n\n\nCodeSCpubr::do_DimPlot(sample = sample,\n                   plot_marginal_distributions = TRUE,\n                   plot_cell_borders = FALSE,\n                   marginal.type = \"histogram\")\n\n\n\n\n\n\n\n\n\n\nCodeSCpubr::do_DimPlot(sample = sample,\n                   plot_marginal_distributions = TRUE,\n                   plot_cell_borders = FALSE,\n                   marginal.type = \"boxplot\")\n\n\n\n\n\n\n\n\n\n\nCodeSCpubr::do_DimPlot(sample = sample,\n                   plot_marginal_distributions = TRUE,\n                   plot_cell_borders = FALSE,\n                   marginal.type = \"violin\")\n\n\n\n\n\n\n\n\n\n\nCodeSCpubr::do_DimPlot(sample = sample,\n                   plot_marginal_distributions = TRUE,\n                   plot_cell_borders = FALSE,\n                   marginal.type = \"densigram\")"
   },
   {
     "objectID": "cheatsheets/Shared_Features.html#plot-density-contours-in-dimensional-reduction-visualizations",

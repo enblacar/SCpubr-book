@@ -46,6 +46,7 @@ There are a handful of parameters needed to run mostly any function in `SCpubr`:
 -   A `named list` of vectors of `named values`. In more complex scenarios, we have different categorical variables to plot. For this, the **names** of the list will correspond to the **names** of the **categorical variables** stored in the `metadata` of the `Seurat object`, and the **values** will be the **vectors** of `named values` (like in the example above). Each vector should contain **as many values** as **unique occurrences** in the metadata variable.
 
 ::: {.panel-tabset}
+
 ## Vector of named values
 ```{r}
 #| fig-width: 10
@@ -100,9 +101,13 @@ For **continuous variables**, we do have a more complex system. First of all, `S
 -   `sequential.palette`: Which **RColorBrewer** **continuous** palette to **use**.
 -   `viridis.direction`: Whether to **map** the **darkest** colors to the **lowest** values (`1`) or not (`-1`).
 -   `sequential.direction`: Whether to **map** the **darkest** colors to the **lowest** values (`-1`) or not (`1`).
-::::{.panel-tabset}
+
+:::: {.panel-tabset}
+
 # Viridis palettes
+
 ::: {.panel-tabset}
+
 ## A | magma
 ```{r}
 #| fig-width: 10
@@ -179,7 +184,9 @@ SCpubr::do_FeaturePlot(sample,
 :::
 
 # RColorBrewer palettes
+
 ::: {.panel-tabset}
+
 ## YlOrRd
 ```{r}
 #| fig-width: 10
@@ -381,7 +388,9 @@ SCpubr::do_FeaturePlot(sample,
 :::
 
 # Directions
+
 ::: {.panel-tabset}
+
 ## Viridis | direction = 1
 ```{r}
 #| fig-width: 10
@@ -425,6 +434,7 @@ SCpubr::do_FeaturePlot(sample,
 ```
 
 :::
+
 ::::
 
 Please note that the direction is inverted between **viridis** and **RColorBrewer** palettes.
@@ -438,6 +448,7 @@ Finally, there is a special case of sequential palettes in which there is a clea
 In such cases, the color palette used is chosen among the diverging palettes in `RColorBrewer` and can be chosen using `diverging.palette`.
 
 ::: {.panel-tabset}
+
 ## Spectral
 ```{r}
 #| fig-width: 10
@@ -535,6 +546,7 @@ Some visualizations have a **tendency** **to be symmetrical**. While this is not
 -   `enforce_symmetry`: Whether to make the plot symmetrical (`TRUE`) or not (`FALSE`). This varies depending on the function. It can make the axes symmetrical between them or make the color scale diverging and the limits centered around the middle value.
 
 ::: {.panel-tabset}
+
 ## Symmetrical: equal scales
 ```{r}
 #| fig-width: 20
@@ -591,7 +603,9 @@ Many times, we encounter plots where the color scale is completely driven by a s
 -   `max.cutoff`: **Maximum value** for the color **scale**.
 
 This basically performs a transformation of the values outside the defined range, turning them into either the minimum or maximum value designated by the user.
+
 ::: {.panel-tabset}
+
 ## Set minimum value
 ```{r}
 #| fig-width: 10
@@ -619,6 +633,7 @@ SCpubr::do_FeaturePlot(sample = sample,
                        min.cutoff = -10,
                        max.cutoff = 10)
 ```
+
 :::
 
 ## Flip the axes
@@ -628,6 +643,7 @@ In many cases, it is possible to completely switch the plot axes. Sometimes info
 -   `flip`: Whether to **swap** **X** and **Y axes** (`TRUE`) or not (`FALSE`).
 
 ::: {.panel-tabset}
+
 ## No flip
 ```{r}
 #| fig-width: 10
@@ -753,7 +769,9 @@ In some plots, it is also possible to draw the grid lines to help guiding the us
 -   `grid.type`: **Type** of **lines** used in the **grid**. Can be one of: *blank*, *solid*, *dashed*, *dotted*, *dotdash*, *longdash*, *twodash*.
 
 :::: {.panel-tabset}
+
 # Show grid
+
 ::: {.panel-tabset}
 ## No grid
 ```{r}
@@ -776,7 +794,9 @@ SCpubr::do_BarPlot(sample,
 :::
 
 # Grid color
+
 ::: {.panel-tabset}
+
 ## Default grid color
 ```{r}
 #| fig-width: 10
@@ -799,7 +819,9 @@ SCpubr::do_BarPlot(sample,
 :::
 
 # Grid type
+
 ::: {.panel-tabset}
+
 ## Type = blank
 ```{r}
 #| fig-width: 10
@@ -859,8 +881,10 @@ SCpubr::do_BarPlot(sample,
                    plot.grid = TRUE,
                    grid.type = "twodash")
 ```
+
 :::
-:::
+
+::::
 
 ## Control cell borders
 
@@ -874,9 +898,13 @@ While this **greatly increases the plot size**, it is a **trade-off** one can co
 -   `border.density`: Controls **how many cells** are used to generate the **borders**. A value between `0 and 1`\`. It computes a 2D kernel density of the cells in the dimensional reduction embedding and based on this cells falling below the `border.density` quantile are excluded. This helps decreasing the added weight to the plot when `plot_cell_borders = TRUE`, but might result in an uneven border for the cells.
 
 :::: {.panel-tabset}
+
 # Show cell borders
+
 ::: {.panel-tabset}
+
 ## No cell borders
+
 ```{r}
 #| fig-width: 10
 #| fig-height: 11
@@ -895,7 +923,9 @@ SCpubr::do_DimPlot(sample = sample,
 :::
 
 # Border size
+
 ::: {.panel-tabset}
+
 ## Decrease cell borders
 ```{r}
 #| fig-width: 10
@@ -951,10 +981,13 @@ SCpubr::do_DimPlot(sample = sample,
                    plot_cell_borders = TRUE,
                    border.color = "#243a76")
 ```
+
 :::
 
 # Border density
+
 ::: {.panel-tabset}
+
 ## Default border density
 ```{r}
 #| fig-width: 10
@@ -989,7 +1022,9 @@ SCpubr::do_DimPlot(sample = sample,
                    plot_cell_borders = TRUE,
                    border.density = 0.25)
 ```
+
 :::
+
 ::::
 
 ## Plot marginal distributions
@@ -1002,9 +1037,13 @@ In some cases, it is also possible to plot **marginal distributions** of the **d
 -   `marginal.group`: Whether to split the marginal plot by the current identities (`TRUE`) or not (`FALSE`). 
 
 There is a catch: marginal distributions cannot be computed alongside `split.by` or `plot_cell_borders` or `cells.highlight/idents.highlight`.
+
 :::: {.panel-tabset}
+
 # Show marginal distributions
+
 ::: {.panel-tabset}
+
 ## No marginal distributions
 ```{r}
 #| fig-width: 10
@@ -1026,7 +1065,9 @@ SCpubr::do_DimPlot(sample = sample,
 :::
 
 # Group by identities
+
 ::: {.panel-tabset}
+
 ## Marginal group = TRUE
 ```{r}
 #| fig-width: 10
@@ -1050,7 +1091,9 @@ SCpubr::do_DimPlot(sample = sample,
 :::
 
 # Type of distribution
+
 ::: {.panel-tabset}
+
 ## Density
 ```{r}
 #| fig-width: 10
@@ -1136,7 +1179,9 @@ SCpubr::do_DimPlot(sample = sample,
 :::
 
 # Position of the contours
+
 ::: {.panel-tabset}
+
 ## Position = top
 ```{r}
 #| fig-width: 10
@@ -1159,6 +1204,7 @@ SCpubr::do_DimPlot(sample = sample,
 
 # Color of the contours
 ::: {.panel-tabset}
+
 ## Default contour color
 ```{r}
 #| fig-width: 10
@@ -1179,7 +1225,9 @@ SCpubr::do_DimPlot(sample = sample,
 :::
 
 # Expand the axes
+
 ::: {.panel-tabset}
+
 ## Don't expand axes
 ```{r}
 #| fig-width: 10
