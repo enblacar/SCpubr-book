@@ -194,3 +194,20 @@ i.bi-github{
 .nav-footer{
   align-items: center !important;
 }
+
+/*-- Actively selected tabset --*/
+.nav-link.active{
+  color: #096B72;
+  font-weight: bold;
+}
+
+.nav-link:hover{
+  color: #ee9b00;
+  font-weight: bold;
+}
+
+/*-- Not selected tabset --*/
+.nav-link {
+  color: black;
+  font-weight: bold;
+}

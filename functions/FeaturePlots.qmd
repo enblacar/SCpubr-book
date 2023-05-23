@@ -12,27 +12,21 @@ suppressMessages(library("Seurat"))
 sample <- readRDS("/b06x-isilon/b06x-g/G703/eblanco/projects/test_SC_datasets/sc_dataset.rds")
 ```
 
-
-Another flagship function in `Seurat` is `Seurat::FeaturePlot()`. It is basically the counterpart of `Seurat::DimPlot()` which, instead of coloring the cells based on a categorical color scale, it uses a continuous scale instead, according to a variable provided by the user. This can range from gene expression, to metadata variables such as the number of genes, or even values such as a principal component.
+Directly opposed to categorical Dimensional Reduction plot, we can also map a **continuous variable** to the cells, resulting what we commonly refer as `Feature plots`. This is, because we are mapping a **feature** onto the cells. This can be anything: from gene expression, to metadata variables such as the number of genes, or even values such as a principal component. All this, can be computed using `SCpubr::do_FeaturePlot()`.
 
 ```{r}
 #| fig-width: 10
 #| fig-height: 11
-#| fig-cap: "SCpubr FeaturePlot"
 p <- SCpubr::do_FeaturePlot(sample = sample,
                             features = "PC_1")
 p
 ```
 
-By default axes are removed, same as with `DimPlots`, unless non-cannonical axes are used. You can always bring them back using `plot.axes = TRUE`.
-
 More than one features can be used at the same time. 
-
 
 ```{r}
 #| fig-width: 20
 #| fig-height: 11
-#| fig-cap: "Plot multiple features"
 p <- SCpubr::do_FeaturePlot(sample = sample,
                             features = c("PC_1", "PC_2"))
 p
@@ -40,4 +34,77 @@ p
 
 ## Control axis limits
 
-More often than not, we encounter that very few cells are driving the color axis. Very few cells with very high values will inevitably comprise the cells in a very limited color range due to their values. For this, we can manually set up the limits by using `min.cutoff` and `max.cutoff`. A couple of 
+More often than not, we encounter that very few cells are driving the color axis. Very few cells with very high values will inevitably comprise the cells in a very limited color range due to their values. For this, we can manually set up the limits by using `min.cutoff` and `max.cutoff`.
+
+```{r}
+#| fig-width: 20
+#| fig-height: 11
+p1 <- SCpubr::do_FeaturePlot(sample = sample,
+                             features = "PC_1",
+                             min.cutoff = 0)
+
+p2 <- SCpubr::do_FeaturePlot(sample = sample,
+                             features = "PC_1",
+                             max.cutoff = 0)
+p <- p1 | p2
+p
+```
+
+
+## Plot a subset of cells
+
+We can also restrict which cells are taken into account for the plot and grey out the rest. This is specially important if we want to inspect population-wise patterns of expression, for instance.
+
+```{r}
+#| fig-width: 20
+#| fig-height: 11
+
+# Use a vector of cells
+p1 <- SCpubr::do_FeaturePlot(sample = sample,
+                             features = c("PC_1"),
+                             cells.highlight = sample(colnames(sample), 500))
+
+# Select identities.
+p2 <- SCpubr::do_FeaturePlot(sample = sample,
+                             features = c("PC_1"),
+                             idents.highlight = c("0", "2", "5"))
+p <- p1 | p2
+p
+```
+
+A combination of `cells.highlight` and `idents.highlight` is also possible!
+
+## Split by a variable
+
+We can also plot the cells split by a metadata variable using `split.by`:
+
+```{r}
+#| fig-width: 50
+#| fig-height: 21
+
+# Use a vector of cells
+p <- SCpubr::do_FeaturePlot(sample = sample,
+                            features = c("PC_1"),
+                            split.by = "seurat_clusters",
+                            ncol = 5)
+p
+```
+
+And we can restrict which identities are shown when using `split.by` with `idents.keep`.
+
+```{r}
+#| fig-width: 30
+#| fig-height: 11
+
+# Use a vector of cells
+p <- SCpubr::do_FeaturePlot(sample = sample,
+                            features = c("PC_1"),
+                            split.by = "seurat_clusters",
+                            idents.keep = c("0", "5", "7"),
+                            ncol = 3)
+p
+```
+
+# And more!
+
+There is a ton of shared features across functions. They are all compiled in . Have a look!

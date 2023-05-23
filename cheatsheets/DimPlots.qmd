@@ -154,6 +154,27 @@ SCpubr::do_DimPlot(sample = sample,
                    repel = TRUE)
 ```
 
+## Change the default colors
+
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+# Define a set of colors.
+colors <- c("0" = "#001219",
+            "1" = "#005f73",
+            "2" = "#0a9396",
+            "3" = "#94d2bd",
+            "4" = "#e9d8a6",
+            "5" = "#ee9b00",
+            "6" = "#ca6702",
+            "7" = "#bb3e03",
+            "8" = "#ae2012",
+            "9" = "#9b2226")
+
+# Label the clusters - text geom.
+SCpubr::do_DimPlot(sample = sample,
+                   colors.use = colors)
+```
 
 ## And more!
-Many more options are available for this function in @@sec-common!
+Many more options are available for this function in @sec-common!

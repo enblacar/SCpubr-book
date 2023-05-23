@@ -39,6 +39,7 @@ book:
     - part: "Functions"
       chapters:
       - ./functions/DimPlots.qmd
+      - ./functions/FeaturePlots.qmd
 
     - part: "Cheatsheets"
       chapters:

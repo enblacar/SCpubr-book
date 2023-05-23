@@ -22,7 +22,6 @@ DimPlots can be generated in `SCpubr` using the function `SCpubr::do_DimPlot()`:
 ```{r}
 #| fig-width: 10
 #| fig-height: 11
-#| fig-cap: "SCpubr DimPlot"
 
 p <- SCpubr::do_DimPlot(sample = sample)
 
@@ -41,7 +40,6 @@ In any other combination, the titles will come back:
 ```{r}
 #| fig-width: 20
 #| fig-height: 11
-#| fig-cap: "Axes titles come back whenever it is not UMAP_1 vs UMAP_2."
 
 # Example using PCA reduction.
 p1 <- SCpubr::do_DimPlot(sample = sample, 
@@ -76,7 +74,6 @@ In some cases,  we might want to remove the legend entirely, and instead plot la
 ```{r}
 #| fig-width: 10
 #| fig-height: 10
-#| fig-cap: "Labels on top of the clusters."
 
 # Put labels on top of the clusters.
 p <- SCpubr::do_DimPlot(sample, 
@@ -103,7 +100,6 @@ However, we can play further with other parameters of the function such as `labe
 ```{r}
 #| fig-width: 20
 #| fig-height: 10
-#| fig-cap: "Change label/text color."
 
 # Change the color of the label text.
 p1 <- SCpubr::do_DimPlot(sample = sample, 
@@ -124,7 +120,6 @@ Also, we can modify the size of the labels/text by using `label.size` paramter:
 ```{r}
 #| fig-width: 20
 #| fig-height: 10
-#| fig-cap: "Change label/text size"
 
 # Change the size of the label text.
 p1 <- SCpubr::do_DimPlot(sample = sample, 
@@ -145,7 +140,6 @@ Finally, if the labels/text are overlapping one to another, we can try to fix th
 ```{r}
 #| fig-width: 20
 #| fig-height: 10
-#| fig-cap: "Repel the labels/text."
 
 # Repel the labels.
 p1 <- SCpubr::do_DimPlot(sample = sample, 
@@ -171,7 +165,6 @@ Be default `SCpubr::do_DimPlot()` plots cells randomly using `shuffle = TRUE`. T
 ```{r}
 #| fig-width: 20
 #| fig-height: 11
-#| fig-cap: "Shuffling cells"
 
 p1 <- SCpubr::do_DimPlot(sample = sample,
                          reduction = "pca",
@@ -193,7 +186,6 @@ We can highlight a certain group of cells in the plot. This is achieved by using
 ```{r}
 #| fig-width: 10
 #| fig-height: 11
-#| fig-cap: "Highlighting cells."
 
 cells.use <- sample(x = colnames(sample), 
                     size = 1500)
@@ -209,7 +201,6 @@ One can also change the color of the highligted cells by providing single color 
 ```{r}
 #| fig-width: 10
 #| fig-height: 11
-#| fig-cap: "Change default color of highlighted and non-highlighted cells."
 
 # Change color of highlighted and non-highlighted cells.
 p <- SCpubr::do_DimPlot(sample = sample, 
@@ -224,7 +215,6 @@ The size of the highlighted dots can be modified with the parameter `sizes.highl
 ```{r}
 #| fig-width: 10
 #| fig-height: 11
-#| fig-cap: "Increase dot size of highlighted cells."
 
 # Increase the size of the highlighted cells.
 p <- SCpubr::do_DimPlot(sample = sample, 
@@ -238,7 +228,6 @@ We can also highlight **whole identities** with `idents.highlight` parameter. Fo
 ```{r}
 #| fig-width: 30
 #| fig-height: 11
-#| fig-cap: "Using a combination of `cells.highlight` and `idents.highlight`."
 
 # Using cells.highlight.
 p1 <- SCpubr::do_DimPlot(sample = sample, 
@@ -277,7 +266,6 @@ However, we end up losing the **UMAP silhouette**. For this use case, `SCpubr::d
 ```{r}
 #| fig-width: 20
 #| fig-height: 11
-#| fig-cap: "Select the identities to display."
 
 # Select identities with idents.keep.
 p1 <- SCpubr::do_DimPlot(sample = sample,
@@ -298,7 +286,6 @@ So far, all the DimPlots displayed have shown the identities as the ones that ar
 ```{r}
 #| fig-width: 20
 #| fig-height: 11
-#| fig-cap: Group by another metadata variable.
 
 # Generate another metadata variable to group the cells by.
 sample$annotation <- sample(c("A", "B", "C"), ncol(sample), replace = TRUE)
@@ -322,7 +309,6 @@ Another useful parameter is `split.by`, which allows you to split your DimPlot i
 ```{r}
 #| fig-width: 25
 #| fig-height: 10
-#| fig-cap: "Using `split.by` in SCpubr."
 
 # SCpubr's DimPlot using split.by
 p <- SCpubr::do_DimPlot(sample, 
@@ -339,7 +325,6 @@ If we are interested only in a subset of the possible values, we can use `idents
 ```{r}
 #| fig-width: 21
 #| fig-height: 8
-#| fig-cap: "Select only some identities in split.by"
 
 # Using split.by and restricting the number of output plots with idents.keep.
 p <- SCpubr::do_DimPlot(sample, 
@@ -359,7 +344,6 @@ Finally, but also importantly, users might want to **split** the UMAP using `spl
 ```{r}
 #| fig-width: 30
 #| fig-height: 11
-#| fig-cap: "Split by a variable but color by another one."
 
 # Using split.by and group.by in combination.
 sample$orig.ident <- sample(c("A", "B", "C"), 

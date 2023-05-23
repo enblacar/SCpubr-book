@@ -1,9 +1,21 @@
+---
+format: 
+  html:
+    include-after-body: ./plot_fold.html
+    code-fold: true
+---
+
 # Shared features across functions {#sec-common}
 
 ```{r}
 #| results: "asis"
 #| echo: false
 source("../_common.R")
+```
+
+```{r}
+#| echo: false
+sample <- readRDS("/b06x-isilon/b06x-g/G703/eblanco/projects/test_SC_datasets/sc_dataset.rds")
 ```
 
 In this package, there are a lot of s**hared features** **across functions**. Here is a quick summary of them!
@@ -31,24 +43,53 @@ There are a handful of parameters needed to run mostly any function in `SCpubr`:
 
 -   A vector of `named values`. The names correspond to each of the unique values that the categorical variable to plot has, and the values are the colors corresponding to each of those values.
 
+-   A `named list` of vectors of `named values`. In more complex scenarios, we have different categorical variables to plot. For this, the **names** of the list will correspond to the **names** of the **categorical variables** stored in the `metadata` of the `Seurat object`, and the **values** will be the **vectors** of `named values` (like in the example above). Each vector should contain **as many values** as **unique occurrences** in the metadata variable.
+
+::: {.panel-tabset}
+## Vector of named values
 ```{r}
-#| eval: false
-colors <- c("A" = "blue",
-            "B" = "red",
-            "C" = "green")
+#| fig-width: 10
+#| fig-height: 11
+colors <- c("0" = "#001219",
+            "1" = "#005f73",
+            "2" = "#0a9396",
+            "3" = "#94d2bd",
+            "4" = "#e9d8a6",
+            "5" = "#ee9b00",
+            "6" = "#ca6702",
+            "7" = "#bb3e03",
+            "8" = "#ae2012",
+            "9" = "#9b2226")
+
+SCpubr::do_DimPlot(sample,
+                   colors.use = colors)
 ```
 
--   A `named list` of vectors of `named values`. In more complex scenarios, we have different categorical variables to plot. For this, the **names** of the list will correspond to the **names** of the c**ategorical variables** stored in the `metadata` of the `Seurat object`, and the **values** will be the **vectors** of `named values` (like in the example above). Each vector should contain **as many values** as **unique occurrences** in the metadata variable.
-
+## List of vectors
 ```{r}
-#| eval: false
-colors <- list("Variable 1" = c("A" = "blue",
-                                "B" = "red",
-                                "C" = "green"),
-               "Varibale 2" = c("D" = "pink",
-                                "E" = "purple",
-                                "F" = "brown"))
+#| fig-width: 20
+#| fig-height: 11
+colors <- list("seurat_clusters" = c("0" = "#001219",
+                                     "1" = "#005f73",
+                                     "2" = "#0a9396",
+                                     "3" = "#94d2bd",
+                                     "4" = "#e9d8a6",
+                                     "5" = "#ee9b00",
+                                     "6" = "#ca6702",
+                                     "7" = "#bb3e03",
+                                     "8" = "#ae2012",
+                                     "9" = "#9b2226"),
+               "annotation" = c("A" = "#ca6702",
+                                "B" = "#0a9396"))
+
+SCpubr::do_SCExpressionHeatmap(sample,
+                               features = Seurat::VariableFeatures(sample)[1:20],
+                               metadata = c("seurat_clusters", "annotation"),
+                               metadata.colors = colors)
 ```
+
+:::
+
 
 ## Change colors \| continuous
 
@@ -59,6 +100,334 @@ For **continuous variables**, we do have a more complex system. First of all, `S
 -   `sequential.palette`: Which **RColorBrewer** **continuous** palette to **use**.
 -   `viridis.direction`: Whether to **map** the **darkest** colors to the **lowest** values (`1`) or not (`-1`).
 -   `sequential.direction`: Whether to **map** the **darkest** colors to the **lowest** values (`-1`) or not (`1`).
+::::{.panel-tabset}
+# Viridis palettes
+::: {.panel-tabset}
+## A | magma
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+SCpubr::do_FeaturePlot(sample,
+                      features = "PC_1", 
+                      use_viridis = TRUE,
+                      viridis.palette = "A")
+```
+
+## B | inferno
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+SCpubr::do_FeaturePlot(sample,
+                      features = "PC_1", 
+                      use_viridis = TRUE,
+                      viridis.palette = "B")
+```
+## C | plasma
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+SCpubr::do_FeaturePlot(sample,
+                      features = "PC_1", 
+                      use_viridis = TRUE,
+                      viridis.palette = "C")
+```
+## D | viridis
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+SCpubr::do_FeaturePlot(sample,
+                      features = "PC_1", 
+                      use_viridis = TRUE,
+                      viridis.palette = "D")
+```
+## E | cividis
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+SCpubr::do_FeaturePlot(sample,
+                      features = "PC_1", 
+                      use_viridis = TRUE,
+                      viridis.palette = "E")
+```
+## F | rocket
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+SCpubr::do_FeaturePlot(sample,
+                      features = "PC_1", 
+                      use_viridis = TRUE,
+                      viridis.palette = "F")
+```
+## G | mako
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+SCpubr::do_FeaturePlot(sample,
+                      features = "PC_1", 
+                      use_viridis = TRUE,
+                      viridis.palette = "G")
+```
+## H | turbo
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+SCpubr::do_FeaturePlot(sample,
+                      features = "PC_1", 
+                      use_viridis = TRUE,
+                      viridis.palette = "H")
+```
+:::
+
+# RColorBrewer palettes
+::: {.panel-tabset}
+## YlOrRd
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+# Yellow --> Orange --> Red
+SCpubr::do_FeaturePlot(sample,
+                      features = "PC_1", 
+                      use_viridis = FALSE,
+                      sequential.palette = "YlOrRd")
+```
+
+## YlOrBr
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+# Yellow --> Orange --> Brown
+SCpubr::do_FeaturePlot(sample,
+                      features = "PC_1", 
+                      use_viridis = FALSE,
+                      sequential.palette = "YlOrBr")
+```
+
+## YlGnBu
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+# Yellow --> Green --> Blue
+SCpubr::do_FeaturePlot(sample,
+                      features = "PC_1", 
+                      use_viridis = FALSE,
+                      sequential.palette = "YlGnBu")
+```
+
+## YlGn
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+# Yellow --> Green
+SCpubr::do_FeaturePlot(sample,
+                      features = "PC_1", 
+                      use_viridis = FALSE,
+                      sequential.palette = "YlGn")
+```
+
+## Reds
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+# Reds
+SCpubr::do_FeaturePlot(sample,
+                      features = "PC_1", 
+                      use_viridis = FALSE,
+                      sequential.palette = "Reds")
+```
+
+## RdPu
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+# Red --> Purple
+SCpubr::do_FeaturePlot(sample,
+                      features = "PC_1", 
+                      use_viridis = FALSE,
+                      sequential.palette = "RdPu")
+```
+
+## Purples
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+# Purples
+SCpubr::do_FeaturePlot(sample,
+                      features = "PC_1", 
+                      use_viridis = FALSE,
+                      sequential.palette = "Purples")
+```
+
+## PuRd
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+# Purple --> Red
+SCpubr::do_FeaturePlot(sample,
+                      features = "PC_1", 
+                      use_viridis = FALSE,
+                      sequential.palette = "PuRd")
+```
+
+## PuBuGn
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+# Purple --> Blue --> Green
+SCpubr::do_FeaturePlot(sample,
+                      features = "PC_1", 
+                      use_viridis = FALSE,
+                      sequential.palette = "PuBuGn")
+```
+
+## PuBu
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+# Purple --> Blue
+SCpubr::do_FeaturePlot(sample,
+                      features = "PC_1", 
+                      use_viridis = FALSE,
+                      sequential.palette = "PuBu")
+```
+
+## OrRd
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+# Orange --> Red
+SCpubr::do_FeaturePlot(sample,
+                      features = "PC_1", 
+                      use_viridis = FALSE,
+                      sequential.palette = "OrRd")
+```
+
+## Oranges
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+# Oranges
+SCpubr::do_FeaturePlot(sample,
+                      features = "PC_1", 
+                      use_viridis = FALSE,
+                      sequential.palette = "Oranges")
+```
+
+## Greys
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+# Greys
+SCpubr::do_FeaturePlot(sample,
+                      features = "PC_1", 
+                      use_viridis = FALSE,
+                      sequential.palette = "Greys")
+```
+
+## Greens
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+# Greens
+SCpubr::do_FeaturePlot(sample,
+                      features = "PC_1", 
+                      use_viridis = FALSE,
+                      sequential.palette = "Greens")
+```
+
+## GnBu
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+# Green --> Blue
+SCpubr::do_FeaturePlot(sample,
+                      features = "PC_1", 
+                      use_viridis = FALSE,
+                      sequential.palette = "GnBu")
+```
+
+## BuPu
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+# Blue --> Purple
+SCpubr::do_FeaturePlot(sample,
+                      features = "PC_1", 
+                      use_viridis = FALSE,
+                      sequential.palette = "BuPu")
+```
+
+## BuGn
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+# Blue --> Green
+SCpubr::do_FeaturePlot(sample,
+                      features = "PC_1", 
+                      use_viridis = FALSE,
+                      sequential.palette = "BuGn")
+```
+
+## Blues
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+# Blues
+SCpubr::do_FeaturePlot(sample,
+                      features = "PC_1", 
+                      use_viridis = FALSE,
+                      sequential.palette = "Blues")
+```
+
+:::
+
+# Directions
+::: {.panel-tabset}
+## Viridis | direction = 1
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+SCpubr::do_FeaturePlot(sample,
+                      features = "PC_1", 
+                      use_viridis = TRUE,
+                      viridis.direction = 1)
+```
+
+## Viridis | direction = -1
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+SCpubr::do_FeaturePlot(sample,
+                      features = "PC_1", 
+                      use_viridis = TRUE,
+                      viridis.direction = -1)
+```
+
+## RColorBrewer | direction = 1
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+# Blues
+SCpubr::do_FeaturePlot(sample,
+                      features = "PC_1", 
+                      use_viridis = FALSE,
+                      sequential.direction = 1)
+```
+
+## RColorBrewer | direction = -1
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+# Blues
+SCpubr::do_FeaturePlot(sample,
+                      features = "PC_1", 
+                      use_viridis = FALSE,
+                      sequential.direction = -1)
+```
+
+:::
+::::
+
+Please note that the direction is inverted between **viridis** and **RColorBrewer** palettes.
 
 ## Change colors \| diverging
 
@@ -68,17 +437,248 @@ Finally, there is a special case of sequential palettes in which there is a clea
 
 In such cases, the color palette used is chosen among the diverging palettes in `RColorBrewer` and can be chosen using `diverging.palette`.
 
+::: {.panel-tabset}
+## Spectral
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+# Spectral
+SCpubr::do_FeaturePlot(sample,
+                      features = "PC_1", 
+                      enforce_symmetry = TRUE,
+                      diverging.palette = "Spectral")
+```
+
+## RdYlGn
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+# Red --> Yellow --> Green
+SCpubr::do_FeaturePlot(sample,
+                      features = "PC_1", 
+                      enforce_symmetry = TRUE,
+                      diverging.palette = "RdYlGn")
+```
+
+## RdGy
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+# Red --> Grey
+SCpubr::do_FeaturePlot(sample,
+                      features = "PC_1", 
+                      enforce_symmetry = TRUE,
+                      diverging.palette = "RdGy")
+```
+
+## RdBu
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+# Red --> Blue
+SCpubr::do_FeaturePlot(sample,
+                      features = "PC_1", 
+                      enforce_symmetry = TRUE,
+                      diverging.palette = "RdBu")
+```
+
+## PuOr
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+# Purple --> Orange
+SCpubr::do_FeaturePlot(sample,
+                      features = "PC_1", 
+                      enforce_symmetry = TRUE,
+                      diverging.palette = "PuOr")
+```
+
+## PRGn
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+# Purple --> Green
+SCpubr::do_FeaturePlot(sample,
+                      features = "PC_1", 
+                      enforce_symmetry = TRUE,
+                      diverging.palette = "PRGn")
+```
+
+## PiYG
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+# Pink --> Yellow-Green
+SCpubr::do_FeaturePlot(sample,
+                      features = "PC_1", 
+                      enforce_symmetry = TRUE,
+                      diverging.palette = "PiYG")
+```
+
+## BrBG
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+# Brown --> Blue-Green
+SCpubr::do_FeaturePlot(sample,
+                      features = "PC_1", 
+                      enforce_symmetry = TRUE,
+                      diverging.palette = "BrBG")
+```
+
+:::
+
 ## Symmetrical plots
 
 Some visualizations have a **tendency** **to be symmetrical**. While this is not always achieved naturally, they greatly benefit from it. One example are **volcano plot**s, where having the **0** in the **X axis** in the center helps understanding the **spatial disposition of the dots** in the plot. Some other cases, we might be plotting a **continuous variable** that has a **diverging nature**, and we would like to have a **diverging color scale** used on it and the **limits** of the **scale** also being **centered** around the **middle point**. for this, we can use the following:
 
 -   `enforce_symmetry`: Whether to make the plot symmetrical (`TRUE`) or not (`FALSE`). This varies depending on the function. It can make the axes symmetrical between them or make the color scale diverging and the limits centered around the middle value.
 
+::: {.panel-tabset}
+## Symmetrical: equal scales
+```{r}
+#| fig-width: 20
+#| fig-height: 11
+genes <- list("A" = Seurat::VariableFeatures(sample)[1:20],
+              "B" = Seurat::VariableFeatures(sample)[21:40],
+              "C" = Seurat::VariableFeatures(sample)[41:60],
+              "D" = Seurat::VariableFeatures(sample)[61:80])
+
+p1 <- SCpubr::do_CellularStatesPlot(sample,
+                                    input_gene_list = genes,
+                                    x1 = "A",
+                                    x2 = "B",
+                                    y1 = "C",
+                                    y2 = "D",
+                                    enforce_symmetry = FALSE)
+
+p2 <- SCpubr::do_CellularStatesPlot(sample,
+                                    input_gene_list = genes,
+                                    x1 = "A",
+                                    x2 = "B",
+                                    y1 = "C",
+                                    y2 = "D",
+                                    enforce_symmetry = TRUE)
+
+p <- p1 | p2
+p
+```
+
+## Symmetrical: equal color scale limits
+```{r}
+#| fig-width: 20
+#| fig-height: 11
+p1 <- SCpubr::do_FeaturePlot(sample,
+                             features = "PC_1", 
+                             enforce_symmetry = FALSE)
+
+p2 <- SCpubr::do_FeaturePlot(sample,
+                             features = "PC_1", 
+                             enforce_symmetry = TRUE)
+
+p <- p1 | p2
+p
+```
+
+:::
+
+
+## Set limits to continuous variables
+
+Many times, we encounter plots where the color scale is completely driven by a single outlier in the data, therefore rendering the rest of values very difficult to visually compare. To solve this, you can use: 
+
+-   `min.cutoff`: **Minimum value** for the color **scale**.
+-   `max.cutoff`: **Maximum value** for the color **scale**.
+
+This basically performs a transformation of the values outside the defined range, turning them into either the minimum or maximum value designated by the user.
+::: {.panel-tabset}
+## Set minimum value
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+SCpubr::do_FeaturePlot(sample = sample,
+                       features = "PC_1",
+                       min.cutoff = 0)
+```
+
+## Set maximum value
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+SCpubr::do_FeaturePlot(sample = sample,
+                       features = "PC_1",
+                       max.cutoff = 0)
+```
+
+## Set both
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+SCpubr::do_FeaturePlot(sample = sample,
+                       features = "PC_1",
+                       min.cutoff = -10,
+                       max.cutoff = 10)
+```
+:::
+
 ## Flip the axes
 
 In many cases, it is possible to completely switch the plot axes. Sometimes information can be more easily conveyed by using a X/Y setup rather than Y/X. This can be achieved by:
 
 -   `flip`: Whether to **swap** **X** and **Y axes** (`TRUE`) or not (`FALSE`).
+
+::: {.panel-tabset}
+## No flip
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+SCpubr::do_BarPlot(sample = sample,
+                   group.by = "seurat_clusters",
+                   split.by = "annotation",
+                   position = "fill",
+                   flip = FALSE)
+```
+
+## Flip
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+SCpubr::do_BarPlot(sample = sample,
+                   group.by = "seurat_clusters",
+                   split.by = "annotation",
+                   position = "fill",
+                   flip = TRUE)
+```
+
+:::
+
+## Modify plot titles
+
+When applicable (some functions might restrict the access to these parameters), the different titles of the plot can be modified by using the following parameters:
+
+-   `plot.title`: **Title** of the plot.
+-   `plot.subtitle`: **Subtitle** of the plot.
+-   `plot.caption`: **Caption** of the plot.
+-   `xlab`: **X axis** title.
+-   `ylab`: **Y axis** title.
+-   `legend.title`: **Title** of the **legend**.
+
+```{r}
+#| fig-width: 20
+#| fig-height: 11
+SCpubr::do_BarPlot(sample = sample,
+                   group.by = "seurat_clusters",
+                   split.by = "annotation",
+                   position = "fill",
+                   flip = TRUE,
+                   plot.title = "This is a title",
+                   plot.subtitle = "This is a subtitle",
+                   plot.caption = "This is a caption",
+                   xlab = "My X axis title",
+                   ylab = "My Y axis title",
+                   legend.title = "My custom title")
+
+```
 
 ## Control plot aesthetics
 
@@ -97,6 +697,33 @@ Pretty much mirroring the style of `ggplot2::theme()`, `SCpubr` offers a wide ra
 
 Can be one of: *plain*, *italic*, *bold* or *bold.italic*.
 
+```{r}
+#| fig-width: 20
+#| fig-height: 11
+SCpubr::do_BarPlot(sample = sample,
+                   group.by = "seurat_clusters",
+                   split.by = "annotation",
+                   position = "fill",
+                   flip = TRUE,
+                   plot.title = "This is a title",
+                   plot.subtitle = "This is a subtitle",
+                   plot.caption = "This is a caption",
+                   xlab = "My X axis title",
+                   ylab = "My Y axis title",
+                   legend.title = "My custom title",
+                   plot.title.face = "italic",
+                   plot.subtitle.face = "bold.italic",
+                   plot.caption.face = "bold",
+                   axis.title.face = "italic",
+                   axis.text.face = "plain",
+                   legend.title.face = "italic",
+                   legend.text.face = "bold.italic",
+                   font.type = "mono",
+                   font.size = 15)
+
+```
+
+
 ## Control legend aesthetics
 
 Apart from the parameters above, one can control other aspects of the legend with:
@@ -113,18 +740,9 @@ Apart from the parameters above, one can control other aspects of the legend wit
 -   `legend.width`: Controls the **height** of the **legend** (continuous variables).
 -   `legend.framewidth`: Controls the **width** of the **border line** in the **legend** (continuous variables).
 -   `legend.tickwidth`: Controls the **width** of the **ticks** in the **legend** (continuous variables).
--   `number.breaks`\`: Defines the **number** of **breaks** in the **legend** (might slightly vary).
+-   `number.breaks`: Defines the **number** of **breaks** in the **legend** (might slightly vary).
 
-## Modify plot titles
 
-When applicable (some functions might restrict the access to these parameters), the different titles of the plot can be modified by using the following parameters:
-
--   `plot.title`: **Title** of the plot.
--   `plot.subtitle`: **Subtitle** of the plot.
--   `plot.caption`: **Caption** of the plot.
--   `xlab`: **X axis** title.
--   `ylab`: **Y axis** title.
--   `legend.title`: **Title** of the **legend**.
 
 ## Control grid aesthetics
 
@@ -133,6 +751,116 @@ In some plots, it is also possible to draw the grid lines to help guiding the us
 -   `plot.grid`: Whether to **show** the **grid** (`TRUE`) or not (`FALSE`).
 -   `grid.color`: **Color** of the **grid lines**.
 -   `grid.type`: **Type** of **lines** used in the **grid**. Can be one of: *blank*, *solid*, *dashed*, *dotted*, *dotdash*, *longdash*, *twodash*.
+
+:::: {.panel-tabset}
+# Show grid
+::: {.panel-tabset}
+## No grid
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+SCpubr::do_BarPlot(sample,
+                   group.by = "seurat_clusters",
+                   plot.grid = FALSE)
+```
+
+## Grid
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+SCpubr::do_BarPlot(sample,
+                   group.by = "seurat_clusters",
+                   plot.grid = TRUE)
+```
+
+:::
+
+# Grid color
+::: {.panel-tabset}
+## Default grid color
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+SCpubr::do_BarPlot(sample,
+                   group.by = "seurat_clusters",
+                   plot.grid = TRUE)
+```
+
+## Black
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+SCpubr::do_BarPlot(sample,
+                   group.by = "seurat_clusters",
+                   plot.grid = TRUE,
+                   grid.color = "black")
+```
+
+:::
+
+# Grid type
+::: {.panel-tabset}
+## Type = blank
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+SCpubr::do_BarPlot(sample,
+                   group.by = "seurat_clusters",
+                   plot.grid = TRUE,
+                   grid.type = "blank")
+```
+
+## Type = solid
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+SCpubr::do_BarPlot(sample,
+                   group.by = "seurat_clusters",
+                   plot.grid = TRUE,
+                   grid.type = "solid")
+```
+
+## Type = dashed
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+SCpubr::do_BarPlot(sample,
+                   group.by = "seurat_clusters",
+                   plot.grid = TRUE,
+                   grid.type = "dashed")
+```
+
+## Type = dotdash
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+SCpubr::do_BarPlot(sample,
+                   group.by = "seurat_clusters",
+                   plot.grid = TRUE,
+                   grid.type = "dotdash")
+```
+
+## Type = longdash
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+SCpubr::do_BarPlot(sample,
+                   group.by = "seurat_clusters",
+                   plot.grid = TRUE,
+                   grid.type = "longdash")
+```
+
+## Type = twodash
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+SCpubr::do_BarPlot(sample,
+                   group.by = "seurat_clusters",
+                   plot.grid = TRUE,
+                   grid.type = "twodash")
+```
+:::
+:::
 
 ## Control cell borders
 
@@ -143,7 +871,126 @@ While this **greatly increases the plot size**, it is a **trade-off** one can co
 -   `plot_cell_borders`: Whether to **plot** the **cell borders** (`TRUE`) or not (`FALSE`).
 -   `border.size`: **Size** of the **dots** used for the cell **borders**.
 -   `border.color`: **Color** of the **dots** used for the cell **borders**.
--   `border.density`: Controls **how many cells** are used to generate the **borders**. A value between `0 and 1`\`. It computes a 2D kernel density of the cells in the dimensional reduction embedding and based on this cells falling below the `border.density` quantilye are excluded. This helps decreasing the added weight to the plot when `plot_cell_borders = TRUE`, but might result in an uneven border for the cells.
+-   `border.density`: Controls **how many cells** are used to generate the **borders**. A value between `0 and 1`\`. It computes a 2D kernel density of the cells in the dimensional reduction embedding and based on this cells falling below the `border.density` quantile are excluded. This helps decreasing the added weight to the plot when `plot_cell_borders = TRUE`, but might result in an uneven border for the cells.
+
+:::: {.panel-tabset}
+# Show cell borders
+::: {.panel-tabset}
+## No cell borders
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+SCpubr::do_DimPlot(sample = sample,
+                   plot_cell_borders = FALSE)
+```
+
+## Cell borders
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+SCpubr::do_DimPlot(sample = sample,
+                   plot_cell_borders = TRUE)
+```
+
+:::
+
+# Border size
+::: {.panel-tabset}
+## Decrease cell borders
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+SCpubr::do_DimPlot(sample = sample,
+                   plot_cell_borders = TRUE,
+                   border.size = 1.25)
+```
+
+## Normal
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+SCpubr::do_DimPlot(sample = sample,
+                   plot_cell_borders = TRUE,
+                   border.size = 2)
+```
+
+## Increase cell borders
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+SCpubr::do_DimPlot(sample = sample,
+                   plot_cell_borders = TRUE,
+                   border.size = 4)
+```
+:::
+
+# Border color
+::: {.panel-tabset}
+## Default border color
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+SCpubr::do_DimPlot(sample = sample,
+                   plot_cell_borders = TRUE)
+```
+
+## Red
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+SCpubr::do_DimPlot(sample = sample,
+                   plot_cell_borders = TRUE,
+                   border.color = "#87191c")
+```
+
+## Blue
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+SCpubr::do_DimPlot(sample = sample,
+                   plot_cell_borders = TRUE,
+                   border.color = "#243a76")
+```
+:::
+
+# Border density
+::: {.panel-tabset}
+## Default border density
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+SCpubr::do_DimPlot(sample = sample,
+                   plot_cell_borders = TRUE)
+```
+
+## Density = 0.75
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+SCpubr::do_DimPlot(sample = sample,
+                   plot_cell_borders = TRUE,
+                   border.density = 0.75)
+```
+
+## Density = 0.50
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+SCpubr::do_DimPlot(sample = sample,
+                   plot_cell_borders = TRUE,
+                   border.density = 0.5)
+```
+
+## Density = 0.25
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+SCpubr::do_DimPlot(sample = sample,
+                   plot_cell_borders = TRUE,
+                   border.density = 0.25)
+```
+:::
+::::
 
 ## Plot marginal distributions
 
@@ -152,7 +999,110 @@ In some cases, it is also possible to plot **marginal distributions** of the **d
 -   `plot_marginal_distributions`: Whether to **plot** **marginal distributions** (`TRUE`) or not (`FALSE`).
 -   `marginal.type`: **Type** of **distribution** to plot. Can be one of: *density*, *histogram*, *boxplot*, *violin*, *densigram*.
 -   `marginal.size`: **Size ratio** between the **main** and **marginal** plots.
--   `marginal.groups`: Metadata variable to use to **group** the **values** by when computing the marginal distribution.
+-   `marginal.group`: Whether to split the marginal plot by the current identities (`TRUE`) or not (`FALSE`). 
+
+There is a catch: marginal distributions cannot be computed alongside `split.by` or `plot_cell_borders` or `cells.highlight/idents.highlight`.
+:::: {.panel-tabset}
+# Show marginal distributions
+::: {.panel-tabset}
+## No marginal distributions
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+SCpubr::do_DimPlot(sample = sample,
+                   plot_marginal_distributions = FALSE,
+                   plot_cell_borders = FALSE)
+```
+
+## Marginal distributions
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+SCpubr::do_DimPlot(sample = sample,
+                   plot_marginal_distributions = TRUE,
+                   plot_cell_borders = FALSE)
+```
+
+:::
+
+# Group by identities
+::: {.panel-tabset}
+## Marginal group = TRUE
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+SCpubr::do_DimPlot(sample = sample,
+                   plot_marginal_distributions = TRUE,
+                   plot_cell_borders = FALSE,
+                   marginal.group = TRUE)
+```
+
+## Marginal group = FALSE
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+SCpubr::do_DimPlot(sample = sample,
+                   plot_marginal_distributions = TRUE,
+                   plot_cell_borders = FALSE,
+                   marginal.group = FALSE)
+```
+
+:::
+
+# Type of distribution
+::: {.panel-tabset}
+## Density
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+SCpubr::do_DimPlot(sample = sample,
+                   plot_marginal_distributions = TRUE,
+                   plot_cell_borders = FALSE,
+                   marginal.type = "density")
+```
+
+## Histogram
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+SCpubr::do_DimPlot(sample = sample,
+                   plot_marginal_distributions = TRUE,
+                   plot_cell_borders = FALSE,
+                   marginal.type = "histogram")
+```
+
+## Boxplot
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+SCpubr::do_DimPlot(sample = sample,
+                   plot_marginal_distributions = TRUE,
+                   plot_cell_borders = FALSE,
+                   marginal.type = "boxplot")
+```
+
+## Violin
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+SCpubr::do_DimPlot(sample = sample,
+                   plot_marginal_distributions = TRUE,
+                   plot_cell_borders = FALSE,
+                   marginal.type = "violin")
+```
+
+## Densigram
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+SCpubr::do_DimPlot(sample = sample,
+                   plot_marginal_distributions = TRUE,
+                   plot_cell_borders = FALSE,
+                   marginal.type = "densigram")
+```
+
+:::
+::::
 
 ## Plot density contours in dimensional reduction visualizations
 
@@ -161,6 +1111,93 @@ Strictly pertaining to dimensional reduction visualizations, one can also plot *
 -   `plot_density_contour`: Whether to **plot** the **density** **contours** (`TRUE`) or not (`FALSE`).
 -   `contour.position`: Whether to **place** the **contour** layer on **top** or **bottom** of the rest of the layers (this will make some of the lines visible or not).
 -   `contour.color`: **Color** of the **lines** that draw the **contour**.
--   `contour.lineend`: Controls the line **style** of the **line** **ends**. One of: *round*, *butt*, *square*.
--   `contour.linejoin`: Controls the line **style** of the **line** **joins**. One of: *round*, *mitre*, *bevel*.
 -   `contour_expand_axes`: Whether to **increase** the **limits** of the **X** and **Y axes** to make the contours fit the plot. This is a number between 0 and 1 and represents how much in proportion the axes should be expanded.
+
+:::: {.panel-tabset}
+
+# Show density contours
+::: {.panel-tabset}
+## No density contours
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+SCpubr::do_DimPlot(sample = sample,
+                   plot_density_contour = FALSE)
+```
+
+## Density contours
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+SCpubr::do_DimPlot(sample = sample,
+                   plot_density_contour = TRUE)
+```
+
+:::
+
+# Position of the contours
+::: {.panel-tabset}
+## Position = top
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+SCpubr::do_DimPlot(sample = sample,
+                   plot_density_contour = TRUE,
+                   contour.position = "top")
+```
+
+## Density contours
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+SCpubr::do_DimPlot(sample = sample,
+                   plot_density_contour = TRUE,
+                   contour.position = "bottom")
+```
+
+:::
+
+# Color of the contours
+::: {.panel-tabset}
+## Default contour color
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+SCpubr::do_DimPlot(sample = sample,
+                   plot_density_contour = TRUE)
+```
+
+## Black
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+SCpubr::do_DimPlot(sample = sample,
+                   plot_density_contour = TRUE,
+                   contour.color = "black")
+```
+
+:::
+
+# Expand the axes
+::: {.panel-tabset}
+## Don't expand axes
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+SCpubr::do_DimPlot(sample = sample,
+                   plot_density_contour = TRUE)
+```
+
+## Expand axes
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+SCpubr::do_DimPlot(sample = sample,
+                   plot_density_contour = TRUE,
+                   contour_expand_axes = 0.5)
+```
+
+:::
+::::
+
+

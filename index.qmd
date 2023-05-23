@@ -21,4 +21,3 @@ Thanks!! <!-- This package aims to provide a streamlined way of generating publi
 
 ## License
 [SCpubr](https://github.com/enblacar/SCpubr/blob/main/LICENSE.md) and corresponding [documentation book]() licensed under [GPL v3](https://www.gnu.org/licenses/gpl-3.0.de.html) | [LICENSE]()
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" alt="Creative Commons License: BY-NC-SA v4.0" class="mx-auto d-block" style="border-width:0"/></a><br />

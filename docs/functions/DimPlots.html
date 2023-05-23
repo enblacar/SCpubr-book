@@ -60,7 +60,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../cheatsheets/Shared_Features.html" rel="next">
+<link href="../functions/FeaturePlots.html" rel="next">
 <link href="../preface/Dataset.html" rel="prev">
 <link href="..//images/SCpubr_logo_favicon.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js"></script>
@@ -178,6 +178,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">do_DimPlot() | Dimensional Reduction scatter plots</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../functions/FeaturePlots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Feature plots</span></span></a>
+  </div>
+</li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -192,13 +198,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../cheatsheets/Shared_Features.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Shared features across functions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Shared features across functions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../cheatsheets/DimPlots.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">do_DimPlot()</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">do_DimPlot()</span></span></a>
   </div>
 </li>
       </ul>
@@ -247,7 +253,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="DimPlots_files/figure-html/unnamed-chunk-3-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
-<p></p><figcaption class="figure-caption">SCpubr DimPlot</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -273,7 +278,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="DimPlots_files/figure-html/unnamed-chunk-4-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
-<p></p><figcaption class="figure-caption">Axes titles come back whenever it is not UMAP_1 vs UMAP_2.</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -302,7 +306,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="DimPlots_files/figure-html/unnamed-chunk-6-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
-<p></p><figcaption class="figure-caption">Labels on top of the clusters.</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -339,7 +342,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="DimPlots_files/figure-html/unnamed-chunk-8-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
-<p></p><figcaption class="figure-caption">Change label/text color.</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -361,7 +363,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="DimPlots_files/figure-html/unnamed-chunk-9-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
-<p></p><figcaption class="figure-caption">Change label/text size</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -385,7 +386,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="DimPlots_files/figure-html/unnamed-chunk-10-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
-<p></p><figcaption class="figure-caption">Repel the labels/text.</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -406,7 +406,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="DimPlots_files/figure-html/unnamed-chunk-11-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
-<p></p><figcaption class="figure-caption">Shuffling cells</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -424,7 +423,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="DimPlots_files/figure-html/unnamed-chunk-12-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
-<p></p><figcaption class="figure-caption">Highlighting cells.</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -440,7 +438,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="DimPlots_files/figure-html/unnamed-chunk-13-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
-<p></p><figcaption class="figure-caption">Change default color of highlighted and non-highlighted cells.</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -455,7 +452,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="DimPlots_files/figure-html/unnamed-chunk-14-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
-<p></p><figcaption class="figure-caption">Increase dot size of highlighted cells.</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -480,7 +476,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="DimPlots_files/figure-html/unnamed-chunk-15-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
-<p></p><figcaption class="figure-caption">Using a combination of <code>cells.highlight</code> and <code>idents.highlight</code>.</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -515,7 +510,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="DimPlots_files/figure-html/unnamed-chunk-17-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
-<p></p><figcaption class="figure-caption">Select the identities to display.</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -538,7 +532,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="DimPlots_files/figure-html/unnamed-chunk-18-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
-<p></p><figcaption class="figure-caption">Group by another metadata variable.</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -557,7 +550,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="DimPlots_files/figure-html/unnamed-chunk-19-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
-<p></p><figcaption class="figure-caption">Using <code>split.by</code> in SCpubr.</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -576,7 +568,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="DimPlots_files/figure-html/unnamed-chunk-20-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
-<p></p><figcaption class="figure-caption">Select only some identities in split.by</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -599,7 +590,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="DimPlots_files/figure-html/unnamed-chunk-21-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
-<p></p><figcaption class="figure-caption">Split by a variable but color by another one.</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -844,8 +834,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../cheatsheets/Shared_Features.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Shared features across functions</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../functions/FeaturePlots.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Feature plots</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
