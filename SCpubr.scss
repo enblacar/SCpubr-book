@@ -24,6 +24,12 @@ $callout-color-important: #a50d0d;    /*-- color of callout class important --*/
 /*-- Sidebar elements text --*/
 .sidebar-item-text{
   font-weight: normal;
+  color: #096B72;
+}
+
+.sidebar-item-text.active{
+  font-weight: bold;
+  color: #096B72;
 }
 
 
@@ -132,9 +138,9 @@ pre code {
 pre code:not(.sourceCode) {
   white-space: inherit;
   font-size: 10pt;
-  color: #6F8AB7 !important;;
-  background-color: rgba(236,240,241,.65);  /*-- Adds a background to the element --*/
-  border: 1px solid rgba(236,240,241,.65);  /*-- Adds a border to the background. --*/
+  color: black !important;
+  background-color: #f6fefe;  /*-- Adds a background to the element --*/
+  border: 1px solid #e7fcfd;  /*-- Adds a border to the background. --*/
   border-radius: 0.25rem;                   /*-- How thick the border is. --*/
 }
 
@@ -198,16 +204,67 @@ i.bi-github{
 /*-- Actively selected tabset --*/
 .nav-link.active{
   color: #096B72;
-  font-weight: bold;
+  font-weight: normal;
+  border-bottom: 2px solid #096B72 !important;
+  text-decoration: none !important;
+}
+
+.nav-link.active:hover{
+  color: #096B72;
+  font-weight: normal;
+  border-bottom: 2px solid #096B72 !important;
+  text-decoration: none !important;
 }
 
 .nav-link:hover{
-  color: #ee9b00;
-  font-weight: bold;
+  color: #717109;
+  border-bottom: 2px solid #717109 !important;
+  text-decoration: none !important;
 }
 
 /*-- Not selected tabset --*/
 .nav-link {
   color: black;
-  font-weight: bold;
+  text-decoration: none !important;
+  border-bottom: 0px solid #717109 !important;
 }
+
+/*-- Sidebar hover color --*/
+.sidebar nav[role=doc-toc] ul>li>a:hover, .sidebar nav[role=doc-toc] ul>li>ul>li>a:hover {
+    color: #717109 !important;
+    text-decoration: none !important;
+    border-bottom: 0px solid #717109 !important;
+}
+
+/*-- Sidebar active color --*/
+.sidebar nav[role=doc-toc] ul>li>a.active, .sidebar nav[role=doc-toc] ul>li>ul>li>a.active {
+    border-left: 2px solid #096B72 !important;
+    border-bottom: 0px solid #717109 !important;
+    color: #096B72 !important;
+    font-weight: bold !important;
+}
+
+/*-- Hyperlinks --*/
+a {
+    color: #096B72;
+    text-decoration: underline;
+    -webkit-text-decoration: underline;
+    -moz-text-decoration: underline;
+    -ms-text-decoration: underline;
+    -o-text-decoration: underline;
+}
+
+/*-- Hyperlinks hover--*/
+a:hover {
+    color: #717109	;
+    text-decoration: underline;
+    -webkit-text-decoration: underline;
+    -moz-text-decoration: underline;
+    -ms-text-decoration: underline;
+    -o-text-decoration: underline;
+}
+
+img {
+	cursor: zoom-in;
+}
+

@@ -36,15 +36,15 @@ book:
       - ./preface/Installation-guide.qmd
       - ./preface/Dataset.qmd
 
-    - part: "Functions"
-      chapters:
-      - ./functions/DimPlots.qmd
-      - ./functions/FeaturePlots.qmd
-
-    - part: "Cheatsheets"
-      chapters:
-      - ./cheatsheets/Shared_Features.qmd
-      - ./cheatsheets/DimPlots.qmd
+    # - part: "Functions"
+    #   chapters:
+    #   - ./functions/DimPlots.qmd
+    #   - ./functions/FeaturePlots.qmd
+    #
+    # - part: "Cheatsheets"
+    #   chapters:
+    #   - ./cheatsheets/Shared_Features.qmd
+    #   - ./cheatsheets/DimPlots.qmd
 
 
 
@@ -60,6 +60,10 @@ format:
     code-block-border-left: false
     callout-appearance: default
     smooth-scroll: true
+    include-in-header:
+      text: <script type="text/javascript" src="./intense.js"></script>
+    include-after-body:
+      file: ./img_zoom.html
     grid:
       sidebar-width: 400px
       body-width: 1200px

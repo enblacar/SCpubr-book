@@ -1,0 +1,21 @@
+<!--- All credits for this function to: https://stackoverflow.com/a/74089703-->
+<script>
+function plot_fold() {
+    cells = document.querySelectorAll(".cell:has(img)");
+    cells.forEach(cell => {
+      imgs = cell.querySelectorAll(".cell-output-display:has(p img)");
+      imgs.forEach(img => {
+        det = document.createElement("details");
+        sum = document.createElement("summary");
+        det.appendChild(sum);
+        det.children[0].innerText = "Plot";
+        img_clone = img.cloneNode(true);
+        det.appendChild(img_clone);
+        det.open = true;
+        cell.replaceChild(det, img);
+      });
+    });
+}
+
+window.onload = plot_fold();
+</script>

@@ -1,7 +1,9 @@
 ---
 format: 
   html:
-    include-after-body: ./plot_fold.html
+    include-after-body:
+      - ./plot_fold.html
+      - ./img_zoom.html
 ---
 
 # do_DimPlot()

@@ -30,7 +30,7 @@ Note that additional packages may be required to run certain functions. This inf
 library("SCpubr")
 ```
 
-<img src="images/Installation_1.png" class="mx-auto d-block" style="box-shadow: none; width: 100%"/>
+<img src="../images/Installation_1.png" class="mx-auto d-block" style="box-shadow: none; width: 100%"/>
 
 This summary will provide you with the information you need to run the package:
 
