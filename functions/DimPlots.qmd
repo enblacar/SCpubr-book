@@ -30,30 +30,7 @@ p
 
 ## Modifying axes behavior
 
-Axes are removed by default from the plot, together with the axes titles if they match any of the following combinations:
-
-- TSNE_1 / TSNE_2
-- UMAP_1 / UMAP_2
-
-In any other combination, the titles will come back:
-
-```{r}
-#| fig-width: 20
-#| fig-height: 11
-
-# Example using PCA reduction.
-p1 <- SCpubr::do_DimPlot(sample = sample, 
-                         reduction = "pca")
-
-# Example using a non-canonical set of dimensions.
-p2 <- SCpubr::do_DimPlot(sample = sample, 
-                         dims = c(2, 1))
-
-p <- p1 | p2
-p
-```
-
-This behaviour can be overridden with `plot.axes = TRUE`:
+Axes are removed by default from the plot, together with the axes titles. This behaviour can be overridden with `plot.axes = TRUE`:
 
 ```{r}
 #| fig-width: 10
@@ -95,7 +72,7 @@ p <- SCpubr::do_DimPlot(sample = sample,
 p
 ```
 
-However, we can play further with other parameters of the function such as `label.color` which will provide a different color for the text inside the labels:
+However, we can play further with other parameters of the function such as `label.color` which will provide a different color for the text inside the labels and `label.fill` to modify the background of the labels.:
 
 ```{r}
 #| fig-width: 20
@@ -104,7 +81,8 @@ However, we can play further with other parameters of the function such as `labe
 # Change the color of the label text.
 p1 <- SCpubr::do_DimPlot(sample = sample, 
                          label = TRUE, 
-                         label.color = "black")
+                         label.color = "white",
+                         label.fill = "black")
 
 # Change the color of the text.
 p2 <- SCpubr::do_DimPlot(sample = sample, 

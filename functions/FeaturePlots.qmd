@@ -107,4 +107,4 @@ p
 
 # And more!
 
-There is a ton of shared features across functions. They are all compiled in . Have a look!
+There are many synergies across functions. Have a look at the section **Shared features across functions**!

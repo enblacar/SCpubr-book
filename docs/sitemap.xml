@@ -2,14 +2,38 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://enblacar.github.io/SCpubr-book/index.html</loc>
-    <lastmod>2023-05-30T16:17:31.748Z</lastmod>
+    <lastmod>2023-07-31T15:02:34.146Z</lastmod>
   </url>
   <url>
     <loc>https://enblacar.github.io/SCpubr-book/preface/Installation-guide.html</loc>
-    <lastmod>2023-05-30T16:17:22.818Z</lastmod>
+    <lastmod>2023-07-31T14:41:03.691Z</lastmod>
   </url>
   <url>
     <loc>https://enblacar.github.io/SCpubr-book/preface/Dataset.html</loc>
-    <lastmod>2023-05-30T16:17:30.820Z</lastmod>
+    <lastmod>2023-07-31T14:41:11.433Z</lastmod>
+  </url>
+  <url>
+    <loc>https://enblacar.github.io/SCpubr-book/functions/DimPlots.html</loc>
+    <lastmod>2023-07-31T14:45:51.867Z</lastmod>
+  </url>
+  <url>
+    <loc>https://enblacar.github.io/SCpubr-book/functions/FeaturePlots.html</loc>
+    <lastmod>2023-07-31T14:48:32.256Z</lastmod>
+  </url>
+  <url>
+    <loc>https://enblacar.github.io/SCpubr-book/functions/BarPlots.html</loc>
+    <lastmod>2023-07-31T14:49:04.444Z</lastmod>
+  </url>
+  <url>
+    <loc>https://enblacar.github.io/SCpubr-book/cheatsheets/Shared_Features.html</loc>
+    <lastmod>2023-07-31T14:59:17.310Z</lastmod>
+  </url>
+  <url>
+    <loc>https://enblacar.github.io/SCpubr-book/cheatsheets/DimPlots.html</loc>
+    <lastmod>2023-07-31T15:02:06.629Z</lastmod>
+  </url>
+  <url>
+    <loc>https://enblacar.github.io/SCpubr-book/cheatsheets/BarPlots.html</loc>
+    <lastmod>2023-07-31T15:02:33.238Z</lastmod>
   </url>
 </urlset>

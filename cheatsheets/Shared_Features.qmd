@@ -11,6 +11,7 @@ format:
 #| results: "asis"
 #| echo: false
 source("../_common.R")
+suppressMessages(library("Seurat"))
 ```
 
 ```{r}

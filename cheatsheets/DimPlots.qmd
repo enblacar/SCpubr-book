@@ -12,6 +12,7 @@ format:
 #| results: "asis"
 #| echo: false
 source("../_common.R")
+suppressMessages(library("Seurat"))
 ```
 
 ```{r}
@@ -156,6 +157,28 @@ SCpubr::do_DimPlot(sample = sample,
                    repel = TRUE)
 ```
 
+## Modify the color and fill of labels
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+# Label the clusters - modify the color of the text and label border..
+SCpubr::do_DimPlot(sample = sample,
+                   label = TRUE,
+                   repel = TRUE,
+                   label.color = "blue")
+```
+
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+# Label the clusters - modify the fill of the labels.
+SCpubr::do_DimPlot(sample = sample,
+                   label = TRUE,
+                   repel = TRUE,
+                   label.color = "yellow",
+                   label.fill = "black")
+```
+
 ## Change the default colors
 
 ```{r}
@@ -179,4 +202,4 @@ SCpubr::do_DimPlot(sample = sample,
 ```
 
 ## And more!
-Many more options are available for this function in @sec-common!
+There are many synergies across functions. Have a look at the section **Shared features across functions**!

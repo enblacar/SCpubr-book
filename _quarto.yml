@@ -36,15 +36,17 @@ book:
       - ./preface/Installation-guide.qmd
       - ./preface/Dataset.qmd
 
-    # - part: "Functions"
-    #   chapters:
-    #   - ./functions/DimPlots.qmd
-    #   - ./functions/FeaturePlots.qmd
-    #
-    # - part: "Cheatsheets"
-    #   chapters:
-    #   - ./cheatsheets/Shared_Features.qmd
-    #   - ./cheatsheets/DimPlots.qmd
+    - part: "Functions"
+      chapters:
+      - ./functions/DimPlots.qmd
+      - ./functions/FeaturePlots.qmd
+      - ./functions/BarPlots.qmd
+
+    - part: "Cheatsheets"
+      chapters:
+      - ./cheatsheets/Shared_Features.qmd
+      - ./cheatsheets/DimPlots.qmd
+      - ./cheatsheets/BarPlots.qmd
 
 
 

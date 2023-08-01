@@ -325,7 +325,7 @@ var Intense = (function() {
     magnifyingbutton = document.createElement("button");
     magnifyingbutton.setAttribute('id', 'intense-magnifying');
     magnifyingbutton.setAttribute('class', 'btn btn-primary');
-    magnifyingbutton.style["margin-right"] = "5px";
+    magnifyingbutton.style["margin-right"] = "0px";
     magnifyingbutton.style["background-color"] = "#ffffff00";
     magnifyingbutton.style["border"] = "0px solid white";
     magnifyingbutton.onclick = function(){createViewerMag()};
@@ -337,7 +337,7 @@ var Intense = (function() {
     downloadbutton = document.createElement("button");
     downloadbutton.setAttribute('id', 'intense-download');
     downloadbutton.setAttribute('class', 'btn btn-primary');
-    downloadbutton.style["margin-right"] = "5px";
+    downloadbutton.style["margin-right"] = "0px";
     downloadbutton.style["background-color"] = "#ffffff00";
     downloadbutton.style["border"] = "0px solid white";
     downloadbutton.onclick = function(){imageDownload(target.src)};
@@ -349,6 +349,7 @@ var Intense = (function() {
     closebutton = document.createElement("button");
     closebutton.setAttribute('id', 'intense-close');
     closebutton.setAttribute('class', 'btn btn-primary');
+    closebutton.style["margin-right"] = "0px";
     closebutton.style["background-color"] = "#ffffff00";
     closebutton.style["border"] = "0px solid white";
     closebutton.onclick = function(){removeViewer()};
@@ -416,7 +417,7 @@ var Intense = (function() {
     var cursorProperties = {
       cursor: 'crosshair'
     };
-    applyProperties(container, cursorProperties)
+    applyProperties(lens, cursorProperties)
 
     // Set the dimensions of the image when magnifying glass is activated.
     setDimensionsMag();
