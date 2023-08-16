@@ -5,7 +5,7 @@ format:
     code-fold: true
 ---
 
-# Shared features across functions {#sec-common}
+# Shared features across functions
 
 ```{r}
 #| results: "asis"
@@ -84,10 +84,10 @@ colors <- list("seurat_clusters" = c("0" = "#001219",
                "annotation" = c("A" = "#ca6702",
                                 "B" = "#0a9396"))
 
-SCpubr::do_SCExpressionHeatmap(sample,
-                               features = Seurat::VariableFeatures(sample)[1:20],
-                               metadata = c("seurat_clusters", "annotation"),
-                               metadata.colors = colors)
+#SCpubr::do_SCExpressionHeatmap(sample,
+#                               features = Seurat::VariableFeatures(sample)[1:20],
+#                               metadata = c("seurat_clusters", "annotation"),
+#                               metadata.colors = colors)
 ```
 
 :::

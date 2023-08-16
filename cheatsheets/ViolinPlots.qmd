@@ -1,0 +1,90 @@
+---
+format: 
+  html:
+    include-after-body:
+      - ./plot_fold.html
+      - ./img_zoom.html
+---
+
+# do_BeeSwarmPlot()
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+suppressMessages(library("Seurat"))
+```
+
+```{r}
+#| echo: false
+sample <- readRDS("/b06x-isilon/b06x-g/G703/eblanco/projects/test_SC_datasets/sc_dataset.rds")
+
+```
+
+## Basic usage
+```{r}
+#| fig-width: 10
+#| fig-height: 5
+SCpubr::do_ViolinPlot(sample = sample, 
+                      features = "nCount_RNA")
+```
+
+## Remove boxplots
+```{r}
+#| fig-width: 10
+#| fig-height: 5
+SCpubr::do_ViolinPlot(sample = sample, 
+                      features = "nCount_RNA",
+                      plot_boxplot = FALSE)
+```
+
+## Add horizontal line
+```{r}
+#| fig-width: 10
+#| fig-height: 5
+SCpubr::do_ViolinPlot(sample = sample, 
+                      features = "nCount_RNA", 
+                      y_cut = 25000)
+```
+
+## Modify line width of violins
+
+```{r}
+#| fig-width: 10
+#| fig-height: 5
+SCpubr::do_ViolinPlot(sample = sample,
+                      features = "nCount_RNA",
+                      line_width = 1.5)
+```
+
+## Modify with of the boxplots
+
+```{r}
+#| fig-width: 10
+#| fig-height: 5
+SCpubr::do_ViolinPlot(sample = sample,
+                      features = "nCount_RNA",
+                      boxplot_width = 0.1)
+```
+
+## Force different plots to share the same Y axis limits
+
+```{r}
+#| fig-width: 10
+#| fig-height: 10
+SCpubr::do_ViolinPlot(sample = sample,
+                           features = c("nCount_RNA", "nFeature_RNA"),
+                           ncol = 1,
+                           share.y.lims = TRUE)
+```
+
+## Split by another variable
+
+```{r}
+#| fig-width: 10
+#| fig-height: 5
+SCpubr::do_ViolinPlot(sample = sample,
+                      features = "nCount_RNA",
+                      split.by = "annotation",
+                      plot_boxplot = FALSE)
+```

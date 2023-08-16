@@ -1,0 +1,80 @@
+---
+format: 
+  html:
+    include-after-body:
+      - ./plot_fold.html
+      - ./img_zoom.html
+---
+
+# do_BoxPlot()
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+suppressMessages(library("Seurat"))
+```
+
+```{r}
+#| echo: false
+sample <- readRDS("/b06x-isilon/b06x-g/G703/eblanco/projects/test_SC_datasets/sc_dataset.rds")
+
+```
+
+
+## Basic usage
+```{r}
+#| fig-width: 10
+#| fig-height: 7
+SCpubr::do_BoxPlot(sample = sample,
+                   feature = "nCount_RNA")
+```
+
+## Group by a variable
+```{r}
+#| fig-width: 10
+#| fig-height: 7
+SCpubr::do_BoxPlot(sample = sample,
+                   feature = "nCount_RNA",
+                   group.by = "annotation")
+```
+
+## Change to silhouette style
+```{r}
+#| fig-width: 10
+#| fig-height: 7
+SCpubr::do_BoxPlot(sample = sample,
+                   feature = "nCount_RNA",
+                   use_silhouette = TRUE)
+```
+
+## Reorder by median values
+```{r}
+#| fig-width: 10
+#| fig-height: 7
+SCpubr::do_BoxPlot(sample = sample,
+                   feature = "nCount_RNA",
+                   order = TRUE)
+```
+
+## Split by a variable
+```{r}
+#| fig-width: 10
+#| fig-height: 7
+SCpubr::do_BoxPlot(sample = sample,
+                   feature = "nCount_RNA",
+                   split.by = "annotation")
+```
+
+## Apply statistical tests
+```{r}
+#| fig-width: 10
+#| fig-height: 7
+SCpubr::do_BoxPlot(sample = sample,
+                   feature = "nCount_RNA",
+                   use_test = TRUE,
+                   comparisons = list(c("0", "1"),
+                                      c("3", "4"),
+                                      c("5", "9")))
+```
+

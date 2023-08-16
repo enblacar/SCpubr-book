@@ -4,21 +4,21 @@
     "href": "index.html",
     "title": "SCpubr",
     "section": "",
-    "text": "About this package\nWoops! You stumbled upon the in-development website for SCpubr v2.0.0! There is still a bit of time before the release, but stay tuned for the update!\nYou can have a peek to the changes here and in this website as it is being rebuilt!\nThanks!!"
+    "text": "About this package\nWoops! You stumbled upon the in-development website for SCpubr v2.0.1! There is still a bit of time before the release, but stay tuned for the update!\nYou can have a peek to the changes here and in this website as it is being rebuilt!\nThanks!!"
   },
   {
     "objectID": "index.html#license",
     "href": "index.html#license",
     "title": "SCpubr",
     "section": "License",
-    "text": "License\nSCpubr and corresponding documentation book licensed under GPL v3\n\n\nQC control and dimensional reduction\nIntegration\nC\n\n\n\n\nhist(c(1, 2, 3, 4))\n\n\n\n\n\n\n\nhist(c(2, 4, 3, 4))"
+    "text": "License\nSCpubr and corresponding documentation book licensed under GPL v3"
   },
   {
     "objectID": "preface/Installation-guide.html",
     "href": "preface/Installation-guide.html",
     "title": "Installation guide",
     "section": "",
-    "text": "To install this package, use the following commands:\n\n# From CRAN - Official release:\ninstall.packages(\"SCpubr\")\n\n# From GitHub - Latest stable development version:\nif(!requireNamespace(\"devtools\", quietly = TRUE)){\n  install.packages(\"devtools\") # If not installed.\n}\n\ndevtools::install_github(\"enblacar/SCpubr\", ref = \"v2.0.0-dev-stable\")\n\nNote that additional packages may be required to run certain functions. This information is usually displayed when you load the package for the first time in the session.\n\nlibrary(\"SCpubr\")\n\n\nThis summary will provide you with the information you need to run the package:\n\nThe version of SCpubr you have installed and the latest version available.\nThe status of your dependencies (installed or missing), including the current and latest version of each installed dependency.\nThe functions that can be run based on your currently installed dependencies.\n\nNote that some packages, such as Seurat, ggplot2, or dplyr, require a minimum version. If your installed version is not high enough, these packages will be marked with an exclamation mark.\nIf you do not see this message, you can always generate it by using SCpubr::package_report().\nYou can also check the required packages for a specific function by using SCpubr::check_dependencies() and specifying the function name."
+    "text": "To install this package, use the following commands:\n\n# From CRAN - Official release:\ninstall.packages(\"SCpubr\")\n\n# From GitHub - Latest stable development version:\nif(!requireNamespace(\"devtools\", quietly = TRUE)){\n  install.packages(\"devtools\") # If not installed.\n}\n\ndevtools::install_github(\"enblacar/SCpubr\", ref = \"v2.0.0-dev-stable\")\n\nNote that additional packages may be required to run certain functions. You can get a full overview of them using SCpubr::package_report().\n\nSCpubr::package_report(startup = TRUE,\n                       extended = TRUE)\n\n\nThis summary will provide you with the information you need to run the package:\n\nThe status of your dependencies (installed or missing).\nThe functions that can be run based on your currently installed dependencies.\n\nNote that some packages, such as Seurat, ggplot2, or dplyr, require a minimum version. If your installed version is not high enough, these packages will be marked with an exclamation mark."
   },
   {
     "objectID": "preface/Dataset.html",
@@ -39,14 +39,14 @@
     "href": "functions/DimPlots.html#modifying-axes-behavior",
     "title": "do_DimPlot() | Dimensional Reduction scatter plots",
     "section": "Modifying axes behavior",
-    "text": "Modifying axes behavior\nAxes are removed by default from the plot, together with the axes titles. This behaviour can be overridden with plot.axes = TRUE:\n\n# Bring back the Axes.\np &lt;- SCpubr::do_DimPlot(sample = sample,\n                        plot.axes = TRUE)\np\n\n\n\nBring back the axes."
+    "text": "Modifying axes behavior\nAxes are removed by default from the plot, together with the axes titles. This behaviour can be overridden with plot.axes = TRUE:\n\n# Bring back the Axes.\np &lt;- SCpubr::do_DimPlot(sample = sample,\n                        plot.axes = TRUE)\np"
   },
   {
     "objectID": "functions/DimPlots.html#label-the-clusters",
     "href": "functions/DimPlots.html#label-the-clusters",
     "title": "do_DimPlot() | Dimensional Reduction scatter plots",
     "section": "Label the clusters",
-    "text": "Label the clusters\nIn some cases, we might want to remove the legend entirely, and instead plot labels on top of each cluster. This can be achieved by using label = TRUE.\n\n# Put labels on top of the clusters.\np &lt;- SCpubr::do_DimPlot(sample, \n                     label = TRUE)\np\n\n\n\n\n\n\n\nThese labels are, in essence the result of applying ggplot2::geom_label() on the plot. However, we might also want to have them as pure text instead of the labels. We can achieve that by providing label.box = FALSE.\n\n# Labels as text\np &lt;- SCpubr::do_DimPlot(sample = sample, \n                        label = TRUE,\n                        label.box = FALSE)\np\n\n\n\nLabels as text.\n\n\n\n\nHowever, we can play further with other parameters of the function such as label.color which will provide a different color for the text inside the labels and label.fill to modify the background of the labels.:\n\n# Change the color of the label text.\np1 &lt;- SCpubr::do_DimPlot(sample = sample, \n                         label = TRUE, \n                         label.color = \"white\",\n                         label.fill = \"black\")\n\n# Change the color of the text.\np2 &lt;- SCpubr::do_DimPlot(sample = sample, \n                         label = TRUE, \n                         label.color = \"black\",\n                         label.box = FALSE)\np &lt;- p1 | p2\np\n\n\n\n\n\n\n\nAlso, we can modify the size of the labels/text by using label.size paramter:\n\n# Change the size of the label text.\np1 &lt;- SCpubr::do_DimPlot(sample = sample, \n                         label = TRUE, \n                         label.size = 6)\n\n# Change the size of the text.\np2 &lt;- SCpubr::do_DimPlot(sample = sample, \n                         label = TRUE, \n                         label.box = FALSE,\n                         label.size = 6)\np &lt;- p1 | p2\np\n\n\n\n\n\n\n\nFinally, if the labels/text are overlapping one to another, we can try to fix that by repelling the labels from one to another. We can achieve this by using repel = TRUE:\n\n# Repel the labels.\np1 &lt;- SCpubr::do_DimPlot(sample = sample, \n                         label = TRUE, \n                         label.color = \"black\",\n                         repel = TRUE)\n\n# Repel the text.\np2 &lt;- SCpubr::do_DimPlot(sample = sample, \n                         label = TRUE, \n                         label.color = \"black\",\n                         label.box = FALSE,\n                         repel = TRUE)\np &lt;- p1 | p2\np"
+    "text": "Label the clusters\nIn some cases, we might want to remove the legend entirely, and instead plot labels on top of each cluster. This can be achieved by using label = TRUE.\n\n# Put labels on top of the clusters.\np &lt;- SCpubr::do_DimPlot(sample, \n                     label = TRUE)\np\n\n\n\n\n\n\n\nThese labels are, in essence the result of applying ggplot2::geom_label() on the plot. However, we might also want to have them as pure text instead of the labels. We can achieve that by providing label.box = FALSE.\n\n# Labels as text\np &lt;- SCpubr::do_DimPlot(sample = sample, \n                        label = TRUE,\n                        label.box = FALSE)\np\n\n\n\n\n\n\n\nHowever, we can play further with other parameters of the function such as label.color which will provide a different color for the text inside the labels and label.fill to modify the background of the labels.:\n\n# Change the color of the label text.\np1 &lt;- SCpubr::do_DimPlot(sample = sample, \n                         label = TRUE, \n                         label.color = \"white\",\n                         label.fill = \"black\")\n\n# Change the color of the text.\np2 &lt;- SCpubr::do_DimPlot(sample = sample, \n                         label = TRUE, \n                         label.color = \"black\",\n                         label.box = FALSE)\np &lt;- p1 | p2\np\n\n\n\n\n\n\n\nAlso, we can modify the size of the labels/text by using label.size paramter:\n\n# Change the size of the label text.\np1 &lt;- SCpubr::do_DimPlot(sample = sample, \n                         label = TRUE, \n                         label.size = 6)\n\n# Change the size of the text.\np2 &lt;- SCpubr::do_DimPlot(sample = sample, \n                         label = TRUE, \n                         label.box = FALSE,\n                         label.size = 6)\np &lt;- p1 | p2\np\n\n\n\n\n\n\n\nFinally, if the labels/text are overlapping one to another, we can try to fix that by repelling the labels from one to another. We can achieve this by using repel = TRUE:\n\n# Repel the labels.\np1 &lt;- SCpubr::do_DimPlot(sample = sample, \n                         label = TRUE, \n                         label.color = \"black\",\n                         repel = TRUE)\n\n# Repel the text.\np2 &lt;- SCpubr::do_DimPlot(sample = sample, \n                         label = TRUE, \n                         label.color = \"black\",\n                         label.box = FALSE,\n                         repel = TRUE)\np &lt;- p1 | p2\np"
   },
   {
     "objectID": "functions/DimPlots.html#changing-the-order-of-plotting",
@@ -67,7 +67,7 @@
     "href": "functions/DimPlots.html#restrict-the-identitites-displayed",
     "title": "do_DimPlot() | Dimensional Reduction scatter plots",
     "section": "Restrict the identitites displayed",
-    "text": "Restrict the identitites displayed\nSometimes, we are interested in showing only some of the identities or groups in our sample. Instead of highlighting cells, we still want to keep the original colors and legend. For this use case, one might be tempted to just subset the sample as follows:\n\n# Subset desired identities in a DimPlot.\np &lt;- SCpubr::do_DimPlot(sample = sample[, sample$seurat_clusters %in% c(\"0\", \"5\", \"2\", \"4\")])\n\np\n\n\n\nSubsetting the Seurat object to restrict the identities shown.\n\n\n\n\nHowever, we end up losing the UMAP silhouette. For this use case, SCpubr::do_DimPlot() introduces idents.keep parameter, for which you can provide a vector with the identities you want to keep. This will assign to the rest of the cells a value of NA and they will be colored according to na.value parameter:\n\n# Select identities with idents.keep.\np1 &lt;- SCpubr::do_DimPlot(sample = sample,\n                         idents.keep = c(\"0\", \"5\", \"2\",  \"4\"))\n\n# Also, non-selected cells's color can be modified.\np2 &lt;- SCpubr::do_DimPlot(sample = sample,\n                         idents.keep = c(\"0\", \"5\", \"2\",  \"4\"),\n                         na.value = \"grey50\")\np &lt;- p1 | p2\np"
+    "text": "Restrict the identitites displayed\nSometimes, we are interested in showing only some of the identities or groups in our sample. Instead of highlighting cells, we still want to keep the original colors and legend. For this use case, one might be tempted to just subset the sample as follows:\n\n# Subset desired identities in a DimPlot.\np &lt;- SCpubr::do_DimPlot(sample = sample[, sample$seurat_clusters %in% c(\"0\", \"5\", \"2\", \"4\")])\n\np\n\n\n\n\n\n\n\nHowever, we end up losing the UMAP silhouette. For this use case, SCpubr::do_DimPlot() introduces idents.keep parameter, for which you can provide a vector with the identities you want to keep. This will assign to the rest of the cells a value of NA and they will be colored according to na.value parameter:\n\n# Select identities with idents.keep.\np1 &lt;- SCpubr::do_DimPlot(sample = sample,\n                         idents.keep = c(\"0\", \"5\", \"2\",  \"4\"))\n\n# Also, non-selected cells's color can be modified.\np2 &lt;- SCpubr::do_DimPlot(sample = sample,\n                         idents.keep = c(\"0\", \"5\", \"2\",  \"4\"),\n                         na.value = \"grey50\")\np &lt;- p1 | p2\np"
   },
   {
     "objectID": "functions/DimPlots.html#group-by-another-metadata-variable",
@@ -81,7 +81,7 @@
     "href": "functions/DimPlots.html#splitting-by-a-category",
     "title": "do_DimPlot() | Dimensional Reduction scatter plots",
     "section": "Splitting by a category",
-    "text": "Splitting by a category\nAnother useful parameter is split.by, which allows you to split your DimPlot into multiple panels, each one containing a different unique value of the metadata variable you have provided to the argument. One can understand this as using the group.by parameter and then splitting the resulting DimPlot into different panels. In this example, we are going to use the different clusters as an example. This is how it looks by default:\n\n# SCpubr's DimPlot using split.by\np &lt;- SCpubr::do_DimPlot(sample, \n                        split.by = \"seurat_clusters\", \n                        ncol = 5, \n                        legend.position = \"none\",\n                        font.size = 24)\n\np\n\n\n\n\n\n\n\nIf we are interested only in a subset of the possible values, we can use idents.keep alongside a vector containing the values to keep from the unique values in split.by:\n\n# Using split.by and restricting the number of output plots with idents.keep.\np &lt;- SCpubr::do_DimPlot(sample, \n                        split.by = \"seurat_clusters\", \n                        ncol = 3, \n                        idents.keep = c(\"0\", \"1\", \"7\"),\n                        legend.position = \"none\",\n                        font.size = 24)\n\np"
+    "text": "Splitting by a category\nAnother useful parameter is split.by, which allows you to split your DimPlot into multiple panels, each one containing a different unique value of the metadata variable you have provided to the argument. One can understand this as using the group.by parameter and then splitting the resulting DimPlot into different panels. In this example, we are going to use the different clusters as an example. This is how it looks by default:\n\n# SCpubr's DimPlot using split.by\np &lt;- SCpubr::do_DimPlot(sample, \n                        split.by = \"seurat_clusters\", \n                        ncol = 5, \n                        legend.position = \"none\",\n                        font.size = 24)\n\np\n\n\n\n\n\n\n\nThis will produce a plot with each group in a different panel together with a summary plot containing all groups. If we are interested only in a subset of the possible values, we can use idents.keep alongside a vector containing the values to keep from the unique values in split.by:\n\n# Using split.by and restricting the number of output plots with idents.keep.\np &lt;- SCpubr::do_DimPlot(sample, \n                        split.by = \"seurat_clusters\", \n                        ncol = 3, \n                        idents.keep = c(\"0\", \"1\", \"7\"),\n                        legend.position = \"none\",\n                        font.size = 24)\n\np"
   },
   {
     "objectID": "functions/DimPlots.html#group-by-a-variable-but-split-by-another",
@@ -91,60 +91,242 @@
     "text": "Group by a variable but split by another\nFinally, but also importantly, users might want to split the UMAP using split.by, while also grouping (coloring) the values by another variable using group.by. Using these two parameters in combination yields the following:\n\n# Using split.by and group.by in combination.\nsample$orig.ident &lt;- sample(c(\"A\", \"B\", \"C\"), \n                            ncol(sample), \n                            replace = TRUE, \n                            prob = c(0.05, 0.1, 0.85))\n\np &lt;- SCpubr::do_DimPlot(sample, \n                        group.by = \"seurat_clusters\",\n                        split.by = \"orig.ident\", \n                        font.size = 24)\n\np"
   },
   {
-    "objectID": "functions/FeaturePlots.html",
-    "href": "functions/FeaturePlots.html",
-    "title": "Feature plots",
-    "section": "",
+    "objectID": "functions/DimPlots.html#and-more",
+    "href": "functions/DimPlots.html#and-more",
+    "title": "do_DimPlot() | Dimensional Reduction scatter plots",
+    "section": "And more!",
     "text": "And more!\nThere are many synergies across functions. Have a look at the section Shared features across functions!"
   },
   {
     "objectID": "functions/FeaturePlots.html#control-axis-limits",
     "href": "functions/FeaturePlots.html#control-axis-limits",
-    "title": "Feature plots",
+    "title": "do_FeaturePlot() | Dimensional Reduction feature plots",
     "section": "Control axis limits",
     "text": "Control axis limits\nMore often than not, we encounter that very few cells are driving the color axis. Very few cells with very high values will inevitably comprise the cells in a very limited color range due to their values. For this, we can manually set up the limits by using min.cutoff and max.cutoff.\n\np1 &lt;- SCpubr::do_FeaturePlot(sample = sample,\n                             features = \"PC_1\",\n                             min.cutoff = 0)\n\np2 &lt;- SCpubr::do_FeaturePlot(sample = sample,\n                             features = \"PC_1\",\n                             max.cutoff = 0)\np &lt;- p1 | p2\np"
   },
   {
     "objectID": "functions/FeaturePlots.html#plot-a-subset-of-cells",
     "href": "functions/FeaturePlots.html#plot-a-subset-of-cells",
-    "title": "Feature plots",
+    "title": "do_FeaturePlot() | Dimensional Reduction feature plots",
     "section": "Plot a subset of cells",
     "text": "Plot a subset of cells\nWe can also restrict which cells are taken into account for the plot and grey out the rest. This is specially important if we want to inspect population-wise patterns of expression, for instance.\n\n# Use a vector of cells\np1 &lt;- SCpubr::do_FeaturePlot(sample = sample,\n                             features = c(\"PC_1\"),\n                             cells.highlight = sample(colnames(sample), 500))\n\n# Select identities.\np2 &lt;- SCpubr::do_FeaturePlot(sample = sample,\n                             features = c(\"PC_1\"),\n                             idents.highlight = c(\"0\", \"2\", \"5\"))\np &lt;- p1 | p2\np\n\n\n\n\n\n\n\nA combination of cells.highlight and idents.highlight is also possible!"
   },
   {
     "objectID": "functions/FeaturePlots.html#split-by-a-variable",
     "href": "functions/FeaturePlots.html#split-by-a-variable",
-    "title": "Feature plots",
+    "title": "do_FeaturePlot() | Dimensional Reduction feature plots",
     "section": "Split by a variable",
     "text": "Split by a variable\nWe can also plot the cells split by a metadata variable using split.by:\n\n# Use a vector of cells\np &lt;- SCpubr::do_FeaturePlot(sample = sample,\n                            features = c(\"PC_1\"),\n                            split.by = \"seurat_clusters\",\n                            ncol = 5)\np\n\n\n\n\n\n\n\nAnd we can restrict which identities are shown when using split.by with idents.keep.\n\n# Use a vector of cells\np &lt;- SCpubr::do_FeaturePlot(sample = sample,\n                            features = c(\"PC_1\"),\n                            split.by = \"seurat_clusters\",\n                            idents.keep = c(\"0\", \"5\", \"7\"),\n                            ncol = 3)\np"
   },
   {
+    "objectID": "functions/FeaturePlots.html#split-by-a-variable-and-group-by-another",
+    "href": "functions/FeaturePlots.html#split-by-a-variable-and-group-by-another",
+    "title": "do_FeaturePlot() | Dimensional Reduction feature plots",
+    "section": "Split by a variable and group by another",
+    "text": "Split by a variable and group by another\nSometimes we still want to have a rough estimate of categorical groups of cells present in the data. For this, using group.by allows to plot a circle where the different groups are located.\n\np &lt;- SCpubr::do_FeaturePlot(sample = sample,\n                            features = \"PC_1\",\n                            group.by = \"seurat_clusters\")\np\n\n\n\n\n\n\n\nSize of the dots can be modified using group.by.dot.size.\n\np &lt;- SCpubr::do_FeaturePlot(sample = sample,\n                            features = \"PC_1\",\n                            group.by = \"seurat_clusters\",\n                            group.by.dot.size = 12)\np\n\n\n\n\n\n\n\nOne can also plot a shadow around the cells to also depict the assignment to the groups in group.by. This can be done using group.by.cell_borders = TRUE and the alpha of the shadow is controlled using group.by.cell_borders.alpha parameter.\n\np &lt;- SCpubr::do_FeaturePlot(sample = sample,\n                            features = \"PC_1\",\n                            group.by = \"seurat_clusters\",\n                            group.by.cell_borders = TRUE,\n                            group.by.cell_borders.alpha = 0.1)\np\n\n\n\n\n\n\n\nAnd we can remove the dots but keep the shadow by using group.by.show.dots = FALSE.\n\np &lt;- SCpubr::do_FeaturePlot(sample = sample,\n                            features = \"PC_1\",\n                            group.by = \"seurat_clusters\",\n                            group.by.cell_borders = TRUE,\n                            group.by.cell_borders.alpha = 0.1,\n                            group.by.show.dots = FALSE)\np\n\n\n\n\n\n\n\nFinally, we can control the legend title using group.by.legend and the colors used in group.by with group.by.colors.use.\n\np &lt;- SCpubr::do_FeaturePlot(sample = sample,\n                            features = \"PC_1\",\n                            group.by = \"seurat_clusters\",\n                            group.by.cell_borders = TRUE,\n                            group.by.cell_borders.alpha = 0.1,\n                            group.by.show.dots = TRUE,\n                            group.by.legend = \"My Clusters\",\n                            group.by.colors.use = c(\"0\" = \"#001219\",\n                                                    \"1\" = \"#005f73\",\n                                                    \"2\" = \"#0a9396\",\n                                                    \"3\" = \"#94d2bd\",\n                                                    \"4\" = \"#e9d8a6\",\n                                                    \"5\" = \"#ee9b00\",\n                                                    \"6\" = \"#ca6702\",\n                                                    \"7\" = \"#bb3e03\",\n                                                    \"8\" = \"#ae2012\",\n                                                    \"9\" = \"#9b2226\"))\np"
+  },
+  {
+    "objectID": "functions/FeaturePlots.html#label-the-identities",
+    "href": "functions/FeaturePlots.html#label-the-identities",
+    "title": "do_FeaturePlot() | Dimensional Reduction feature plots",
+    "section": "Label the identities",
+    "text": "Label the identities\nFinally, we can also achieve a similar effect by using a combination of label = TRUE, label.color and label.size parameters, which will plot labels where the current groups defined by Seurat::Idents(sample) are located.\n\np &lt;- SCpubr::do_FeaturePlot(sample = sample,\n                            features = \"PC_1\",\n                            label = TRUE,\n                            label.color = \"#ca6702\",\n                            label.size = 8)\np"
+  },
+  {
+    "objectID": "functions/FeaturePlots.html#and-more",
+    "href": "functions/FeaturePlots.html#and-more",
+    "title": "do_FeaturePlot() | Dimensional Reduction feature plots",
+    "section": "And more!",
+    "text": "And more!\nThere are many synergies across functions. Have a look at the section Shared features across functions!"
+  },
+  {
+    "objectID": "functions/NebulosaPlots.html#basic-usage",
+    "href": "functions/NebulosaPlots.html#basic-usage",
+    "title": "do_NebulosaPlot | Feature plots based on density",
+    "section": "Basic usage",
+    "text": "Basic usage\n\np &lt;- SCpubr::do_NebulosaPlot(sample = sample, \n                             features = \"CD14\")\n\nThis way, not only we do know which clusters are enriched in CD14, we also know the regions of it with the highest density of cells expressing it.\nThis type visualization becomes a natural partner to `SCpubr::do_FeaturePlot()’ as not only we are able to visualize the expression of a variable, but also query the density of the surrounding cells. Here is an example:\n\np1 &lt;- SCpubr::do_FeaturePlot(sample = sample, \n                             features = \"CD14\") \n\np2 &lt;- SCpubr::do_NebulosaPlot(sample = sample, \n                              features = \"CD14\")\np &lt;- p1 | p2\np\n\n\n\n\n\n\n\nNebulosa package also offers the option to query multiple features at the same time:\n\np &lt;- SCpubr::do_NebulosaPlot(sample, \n                             features = c(\"CD14\", \"CD8A\"))\np"
+  },
+  {
+    "objectID": "functions/NebulosaPlots.html#compute-joint-densities",
+    "href": "functions/NebulosaPlots.html#compute-joint-densities",
+    "title": "do_NebulosaPlot | Feature plots based on density",
+    "section": "Compute joint densities",
+    "text": "Compute joint densities\nBut, more intriguingly, it can also compute the joint density of the features. This is achieved by parsing joint = TRUE.\n\np &lt;- SCpubr::do_NebulosaPlot(sample = sample, \n                             features = c(\"CD14\", \"CD8A\"), \n                             joint = TRUE)\np \n\n\n\n\n\n\n\nIf we were interested in retrieving only the joint density plot, we can accomplish it with return_only_joint parameter. Please note that, since this will return only one plot, if wanted to modify the plot title, use plot.title instead:\n\np &lt;- SCpubr::do_NebulosaPlot(sample = sample, \n                             features = c(\"CD14\", \"CD8A\"), \n                             joint = TRUE, \n                             return_only_joint = TRUE,\n                             plot.title = \"Joint density CD14+-CD8A+\")\n\np"
+  },
+  {
+    "objectID": "functions/DotPlots.html#basic-usage",
+    "href": "functions/DotPlots.html#basic-usage",
+    "title": "Dot plots",
+    "section": "Basic usage",
+    "text": "Basic usage\n\n# Seurat's dot plot.\np &lt;- Seurat::DotPlot(sample, \n                     features = \"CD14\")\np\n\n\n\n\n\n\n\nAs can be seen, if we try to plot other type of variables, the resulting plot will not contain a color scale. SCpubr::do_DimPlot() focuses on enhancing the overall appearance of the plots. Implementation using other types of features is not currently supported. This is how it looks using SCpubr::do_DimPlot():\n\n# SCpubr's dot plot.\np &lt;- SCpubr::do_DotPlot(sample = sample, \n                        features = \"CD14\")\np"
+  },
+  {
+    "objectID": "functions/DotPlots.html#querying-multiple-features-at-once",
+    "href": "functions/DotPlots.html#querying-multiple-features-at-once",
+    "title": "Dot plots",
+    "section": "Querying multiple features at once",
+    "text": "Querying multiple features at once\nThe true power of this data visualization relies on querying multiple genes at once. Let’s query the ones described in this Seurat vignette:\n\ngenes &lt;- c(\"IL7R\", \"CCR7\", \"CD14\", \"LYZ\", \n           \"S100A4\", \"MS4A1\", \"CD8A\", \"FCGR3A\", \n           \"MS4A7\", \"GNLY\", \"NKG7\", \"FCER1A\", \n           \"CST3\", \"PPBP\")\n\np &lt;- SCpubr::do_DotPlot(sample = sample, \n                        features = genes)\np\n\n\n\n\n\n\n\nHere, we can clearly distinguish which clusters are highly enriched in which given genes. This proves to be a very interesting way to query for cluster identities. It is highly dependent, though, on the accuracy of the selected genes for the queried dataset. If we actually provide the list of genes as a named list, we can facet the plot in the different list of genes provided:\n\ngenes &lt;- list(\"Naive CD4+ T\" = c(\"IL7R\", \"CCR7\"),\n              \"CD14+ Mono\" = c(\"CD14\", \"LYZ\"),\n              \"Memory CD4+\" = c(\"S100A4\"),\n              \"B\" = c(\"MS4A1\"),\n              \"CD8+ T\" = c(\"CD8A\"),\n              \"FCGR3A+ Mono\" = c(\"FCGR3A\", \"MS4A7\"),\n              \"NK\" = c(\"GNLY\", \"NKG7\"),\n              \"DC\" = c(\"FCER1A\", \"CST3\"),\n              \"Platelet\" = c(\"PPBP\"))\n\np &lt;- SCpubr::do_DotPlot(sample = sample, \n                        features = genes)\np"
+  },
+  {
+    "objectID": "functions/DotPlots.html#clustering-the-identities",
+    "href": "functions/DotPlots.html#clustering-the-identities",
+    "title": "Dot plots",
+    "section": "Clustering the identities",
+    "text": "Clustering the identities\nOne really cool feature from Seurat::DotPlot() is that it lets you cluster the identities in the Y axis depending on how similar they are between them across the values on the X axis. This is achieved by using cluster = TRUE, parameter also implemented in SCpubr::do_DotPlot():\n\np &lt;- SCpubr::do_DotPlot(sample = sample, \n                        features = genes, \n                        cluster = TRUE)\n\np"
+  },
+  {
+    "objectID": "functions/DotPlots.html#increase-dot-size",
+    "href": "functions/DotPlots.html#increase-dot-size",
+    "title": "Dot plots",
+    "section": "Increase dot size",
+    "text": "Increase dot size\nYou can increse the dot size with dot.scale parameter.\n\ngenes &lt;- c(\"IL7R\", \"CCR7\", \"CD14\", \"LYZ\", \n           \"S100A4\", \"MS4A1\", \"CD8A\", \"FCGR3A\", \n           \"MS4A7\", \"GNLY\", \"NKG7\", \"FCER1A\", \n           \"CST3\", \"PPBP\")\n\np &lt;- SCpubr::do_DotPlot(sample = sample, \n                        features = genes, \n                        cluster = TRUE,\n                        dot.scale = 8)\n\np"
+  },
+  {
     "objectID": "functions/BarPlots.html#basic-usage",
     "href": "functions/BarPlots.html#basic-usage",
-    "title": "Bar plots",
+    "title": "do_BarPlot() | Bar plots and cell type composition analyses",
     "section": "Basic usage",
-    "text": "Basic usage\n\n# Basic bar plot, horizontal.\np1 &lt;- SCpubr::do_BarPlot(sample = sample, \n                         group.by = \"seurat_clusters\", \n                         legend.position = \"none\", \n                         plot.title = \"Number of cells per cluster\")\n\n# Basic bar plot, vertical.\np2 &lt;- SCpubr::do_BarPlot(sample = sample, \n                         group.by = \"seurat_clusters\", \n                         legend.position = \"none\",\n                         plot.title = \"Number of cells per cluster\", \n                         flip = TRUE)\np &lt;- p1 | p2\np\n\n\n\nBasic bar plot.\n\n\n\n\nUsing SCpubr::do_BarPlot() with only group.by yields a simple bar plot which is ordered by descending value. We can also set up the direction of the bars with flip = TRUE/FALSE, which by default is set to be vertical. There is an underlying assumption that is being taken to generate these plots:\n\nThe values in group.by need to be metadata variables, stored in object@meta.data. They have to be either a character or factor columns."
+    "text": "Basic usage\n\n# Basic bar plot, horizontal.\np1 &lt;- SCpubr::do_BarPlot(sample = sample, \n                         group.by = \"seurat_clusters\", \n                         legend.position = \"none\", \n                         plot.title = \"Number of cells per cluster\")\n\n# Basic bar plot, vertical.\np2 &lt;- SCpubr::do_BarPlot(sample = sample, \n                         group.by = \"seurat_clusters\", \n                         legend.position = \"none\",\n                         plot.title = \"Number of cells per cluster\", \n                         flip = TRUE)\np &lt;- p1 | p2\np\n\n\n\n\n\n\n\nUsing SCpubr::do_BarPlot() with only group.by yields a simple bar plot which is ordered by descending value. We can also set up the direction of the bars with flip = TRUE/FALSE, which by default is set to be vertical. There is an underlying assumption that is being taken to generate these plots:\n\nThe values in group.by need to be metadata variables, stored in object@meta.data. They have to be either a character or factor columns.\n\nBars are by default not arranged, but one can force them to be in descending order by using order = TRUE."
   },
   {
     "objectID": "functions/BarPlots.html#grouping-by-a-second-variable",
     "href": "functions/BarPlots.html#grouping-by-a-second-variable",
-    "title": "Bar plots",
+    "title": "do_BarPlot() | Bar plots and cell type composition analyses",
     "section": "Grouping by a second variable",
-    "text": "Grouping by a second variable\nLet’s expand on the previous example on the number of cells per cluster. What if we were interested not only on that, but we would like to profile how many cells from each cluster are present in each of the unique samples present in the Seurat object? For this, we need to provide SCpubr::do_BarPlot() with a second parameter, split.by, that tackles how we want the feature to be grouped:\n\nsample$modified_orig.ident &lt;- sample(x = c(\"Sample_A\", \"Sample_B\", \"Sample_C\"), \n                                     size = ncol(sample), \n                                     replace = TRUE, \n                                     prob = c(0.2, 0.7, 0.1))\n\n# Split by a second variable.\np1 &lt;- SCpubr::do_BarPlot(sample,\n                         group.by = \"seurat_clusters\",\n                         split.by = \"modified_orig.ident\",\n                         plot.title = \"Number of cells per cluster in each sample\",\n                         position = \"stack\")\n\np2 &lt;- SCpubr::do_BarPlot(sample, \n                         group.by = \"modified_orig.ident\", \n                         split.by = \"seurat_clusters\",\n                         plot.title = \"Number of cells per sample in each cluster\",\n                         position = \"stack\")\np &lt;- p1 | p2\np\n\n\n\nSplit the bars by another variable.\n\n\n\n\nAs we can see, this nicely yields as many number of bars as unique values in the group.by, and this bars are segmented by as many times as unique values in split.by. At first, this is hard to grasp, but it helps thinking of these two parameters, when used together, as:\n\n\ngroup.by: What I want to show as different bars, the total number of counts.\n\nsplit.by: Secondary variable on which the bars generated by group.by can be further subdivided."
+    "text": "Grouping by a second variable\nLet’s expand on the previous example on the number of cells per cluster. What if we were interested not only on that, but we would like to profile how many cells from each cluster are present in each of the unique samples present in the Seurat object? For this, we need to provide SCpubr::do_BarPlot() with a second parameter, split.by, that tackles how we want the feature to be grouped:\n\nsample$modified_orig.ident &lt;- sample(x = c(\"Sample_A\", \"Sample_B\", \"Sample_C\"), \n                                     size = ncol(sample), \n                                     replace = TRUE, \n                                     prob = c(0.2, 0.7, 0.1))\n\n# Split by a second variable.\np1 &lt;- SCpubr::do_BarPlot(sample,\n                         group.by = \"seurat_clusters\",\n                         split.by = \"modified_orig.ident\",\n                         plot.title = \"Number of cells per cluster in each sample\",\n                         position = \"stack\")\n\np2 &lt;- SCpubr::do_BarPlot(sample, \n                         group.by = \"modified_orig.ident\", \n                         split.by = \"seurat_clusters\",\n                         plot.title = \"Number of cells per sample in each cluster\",\n                         position = \"stack\")\np &lt;- p1 | p2\np\n\n\n\n\n\n\n\nAs we can see, this nicely yields as many number of bars as unique values in the group.by, and this bars are segmented by as many times as unique values in split.by. At first, this is hard to grasp, but it helps thinking of these two parameters, when used together, as:\n\n\ngroup.by: What I want to show as different bars, the total number of counts.\n\nsplit.by: Secondary variable on which the bars generated by group.by can be further subdivided."
   },
   {
     "objectID": "functions/BarPlots.html#representing-proportions",
     "href": "functions/BarPlots.html#representing-proportions",
-    "title": "Bar plots",
+    "title": "do_BarPlot() | Bar plots and cell type composition analyses",
     "section": "Representing proportions",
-    "text": "Representing proportions\nAnother interesting parameter introduced in the last example is position. Position can be either stack or fill. The difference between them is that position = \"stack\" will yield the total number of cells for each of the unique values in feature, while position = \"fill\" will bring all bars to the same height and will split each bar into the proportions within each bar of the different groups (only one if group.by = NULL and as many groups if group.by is used). To use position = fill, you must also provide a value for split.by.\n\n\np1 &lt;- SCpubr::do_BarPlot(sample, \n                         group.by = \"seurat_clusters\",\n                         split.by = \"modified_orig.ident\",\n                         position = \"fill\",\n                         flip = FALSE)\n\np2 &lt;- SCpubr::do_BarPlot(sample, \n                         group.by = \"seurat_clusters\",\n                         split.by = \"modified_orig.ident\",\n                         position = \"fill\",\n                         flip = TRUE)\n\n\np &lt;- p1 | p2\np\n\n\n\nPosition = fill"
+    "text": "Representing proportions\nAnother interesting parameter introduced in the last example is position. Position can be either stack or fill. The difference between them is that position = \"stack\" will yield the total number of cells for each of the unique values in feature, while position = \"fill\" will bring all bars to the same height and will split each bar into the proportions within each bar of the different groups (only one if group.by = NULL and as many groups if group.by is used). To use position = fill, you must also provide a value for split.by.\n\n\np1 &lt;- SCpubr::do_BarPlot(sample, \n                         group.by = \"seurat_clusters\",\n                         split.by = \"modified_orig.ident\",\n                         position = \"fill\",\n                         flip = FALSE)\n\np2 &lt;- SCpubr::do_BarPlot(sample, \n                         group.by = \"seurat_clusters\",\n                         split.by = \"modified_orig.ident\",\n                         position = \"fill\",\n                         flip = TRUE)\n\n\np &lt;- p1 | p2\np"
   },
   {
     "objectID": "functions/BarPlots.html#add-total-counts",
     "href": "functions/BarPlots.html#add-total-counts",
-    "title": "Bar plots",
+    "title": "do_BarPlot() | Bar plots and cell type composition analyses",
     "section": "Add total counts",
-    "text": "Add total counts\nFinally, it is also interesting to report the total number of counts for each of the bars. This is done withe following combination of parameters: - add.n: Whether you want to add the total counts or not. - add.n.expand: How much you want the axes to expand. A number that will be added on top of the fraction. If you put 0.25, then the Y axis will range from 0 to 1.25. - add.n.size: Size of the labels.\nOne has to play with these parameters until a suitable combination is found for the given picture, as it will greatly depend on the dimensions set for the picture.\n\n\np1 &lt;- SCpubr::do_BarPlot(sample, \n                         group.by = \"seurat_clusters\",\n                         split.by = \"modified_orig.ident\",\n                         position = \"fill\",\n                         flip = FALSE,\n                         add.n = TRUE,\n                         add.n.size = 4)\n\np2 &lt;- SCpubr::do_BarPlot(sample, \n                         group.by = \"seurat_clusters\",\n                         split.by = \"modified_orig.ident\",\n                         position = \"fill\",\n                         add.n = TRUE,\n                         flip = TRUE,\n                         add.n.size = 4)\n\n\np &lt;- p1 | p2\np\n\n\n\nPosition = fill"
+    "text": "Add total counts\nFinally, it is also interesting to report the total number of counts for each of the bars. This is done withe following combination of parameters: - add.n: Whether you want to add the total counts or not. - add.n.expand: How much you want the axes to expand. A number that will be added on top of the fraction. If you put 0.25, then the Y axis will range from 0 to 1.25. - add.n.size: Size of the labels.\nOne has to play with these parameters until a suitable combination is found for the given picture, as it will greatly depend on the dimensions set for the picture.\n\n\np1 &lt;- SCpubr::do_BarPlot(sample, \n                         group.by = \"seurat_clusters\",\n                         split.by = \"modified_orig.ident\",\n                         position = \"fill\",\n                         flip = FALSE,\n                         add.n = TRUE,\n                         add.n.size = 4)\n\np2 &lt;- SCpubr::do_BarPlot(sample, \n                         group.by = \"seurat_clusters\",\n                         split.by = \"modified_orig.ident\",\n                         position = \"fill\",\n                         add.n = TRUE,\n                         flip = TRUE,\n                         add.n.size = 4)\n\n\np &lt;- p1 | p2\np"
+  },
+  {
+    "objectID": "functions/BarPlots.html#order-by-a-value",
+    "href": "functions/BarPlots.html#order-by-a-value",
+    "title": "do_BarPlot() | Bar plots and cell type composition analyses",
+    "section": "Order by a value",
+    "text": "Order by a value\nBars can be rearranged based on the values of given group. This is achieved by using order = TRUE and order.by.\n\np1 &lt;- SCpubr::do_BarPlot(sample, \n                         group.by = \"seurat_clusters\",\n                         split.by = \"modified_orig.ident\",\n                         order = TRUE,\n                         order.by = \"1\",\n                         position = \"fill\",\n                         flip = FALSE)\n\np2 &lt;- SCpubr::do_BarPlot(sample, \n                         group.by = \"seurat_clusters\",\n                         split.by = \"modified_orig.ident\",\n                         position = \"fill\",\n                         flip = TRUE,\n                         order = TRUE,\n                         order.by = \"1\")\n\np &lt;- p1 | p2\np"
+  },
+  {
+    "objectID": "functions/BarPlots.html#facet-by-a-third-variable",
+    "href": "functions/BarPlots.html#facet-by-a-third-variable",
+    "title": "do_BarPlot() | Bar plots and cell type composition analyses",
+    "section": "Facet by a third variable",
+    "text": "Facet by a third variable\nSpecially useful when you have multiple metadata variables that group your data. By using facet.by you can specify how to further break down the bars by the group.\n\nsample$facet_var &lt;- ifelse(sample$modified_orig.ident == \"Sample_A\", \"Group 1\", \"Group 2\")\n\np1 &lt;- SCpubr::do_BarPlot(sample, \n                         group.by = \"seurat_clusters\",\n                         split.by = \"modified_orig.ident\",\n                         facet.by = \"facet_var\",\n                         position = \"fill\",\n                         flip = FALSE)\n\np2 &lt;- SCpubr::do_BarPlot(sample, \n                         group.by = \"seurat_clusters\",\n                         split.by = \"modified_orig.ident\",\n                         facet.by = \"facet_var\",\n                         position = \"fill\",\n                         flip = TRUE)\n\np &lt;- p1 | p2\np"
+  },
+  {
+    "objectID": "functions/BarPlots.html#and-more",
+    "href": "functions/BarPlots.html#and-more",
+    "title": "do_BarPlot() | Bar plots and cell type composition analyses",
+    "section": "And more!",
+    "text": "And more!\nThere are many synergies across functions. Have a look at the section Shared features across functions!"
+  },
+  {
+    "objectID": "functions/BoxPlots.html#basic-usage",
+    "href": "functions/BoxPlots.html#basic-usage",
+    "title": "Box plots",
+    "section": "Basic usage",
+    "text": "Basic usage\nTo generate a basic box plot you need to provide the seurat object and a feature to plot:\n\n# Basic box plot.\np &lt;- SCpubr::do_BoxPlot(sample = sample,\n                        feature = \"nCount_RNA\")\np"
+  },
+  {
+    "objectID": "functions/BoxPlots.html#use-custom-grouping",
+    "href": "functions/BoxPlots.html#use-custom-grouping",
+    "title": "Box plots",
+    "section": "Use custom grouping",
+    "text": "Use custom grouping\nBy default, the groups are the identities in the seurat object, but this can be controlled using group.by parameter.\n\n# Use custom grouping.\np &lt;- SCpubr::do_BoxPlot(sample = sample,\n                        feature = \"nCount_RNA\",\n                        group.by = \"annotation\")\np\n\n\n\n\n\n\n\nWe can flip the plot if needed with flip = TRUE:\n\n# Flip the box plot.\np &lt;- SCpubr::do_BoxPlot(sample = sample,\n                        feature = \"nCount_RNA\",\n                        flip = TRUE)\np\n\n\n\nFlip the axes."
+  },
+  {
+    "objectID": "functions/BoxPlots.html#modify-aesthetic-style",
+    "href": "functions/BoxPlots.html#modify-aesthetic-style",
+    "title": "Box plots",
+    "section": "Modify aesthetic style",
+    "text": "Modify aesthetic style\nWe can also apply another aesthetic style, which just colors the lines of the boxplots and leave the rest white with use_silhouette = TRUE:\n\n# Use silhouette style.\np &lt;- SCpubr::do_BoxPlot(sample = sample,\n                        feature = \"nCount_RNA\",\n                        use_silhouette = TRUE)\np"
+  },
+  {
+    "objectID": "functions/BoxPlots.html#reorder-by-median-values",
+    "href": "functions/BoxPlots.html#reorder-by-median-values",
+    "title": "Box plots",
+    "section": "Reorder by median values",
+    "text": "Reorder by median values\nWe can reorder the values by their average mean, from highest to lowest with order = TRUE:\n\n# Order by median values.\np &lt;- SCpubr::do_BoxPlot(sample = sample,\n                        feature = \"nCount_RNA\",\n                        order = TRUE)\np"
+  },
+  {
+    "objectID": "functions/BoxPlots.html#split-by-a-second-variable",
+    "href": "functions/BoxPlots.html#split-by-a-second-variable",
+    "title": "Box plots",
+    "section": "Split by a second variable",
+    "text": "Split by a second variable\nWe can further apply a second grouping by using split.by.\n\n# Apply second grouping.\np &lt;- SCpubr::do_BoxPlot(sample = sample,\n                        feature = \"nCount_RNA\",\n                        split.by = \"annotation\")\np"
+  },
+  {
+    "objectID": "functions/BoxPlots.html#apply-statistical-tests-to-compare-groups",
+    "href": "functions/BoxPlots.html#apply-statistical-tests-to-compare-groups",
+    "title": "Box plots",
+    "section": "Apply statistical tests to compare groups",
+    "text": "Apply statistical tests to compare groups\nFinally we can apply statistical tests to the groups, if we do not use split.by. We can do that by setting use_test = TRUE and providing the comparison as a list of pairs of items. The test, by default is wilcoxon test, but can be modified using test. The correct use of such tests and their interpretation relies on the user.\n\n# Apply statistical tests.\np &lt;- SCpubr::do_BoxPlot(sample = sample,\n                        feature = \"nCount_RNA\",\n                        use_test = TRUE,\n                        comparisons = list(c(\"0\", \"1\"),\n                                           c(\"3\", \"4\"),\n                                           c(\"5\", \"9\")))\np\n\n\n\n\n\n\n\nOne can display this on symbols, or with numbers with map_signif_level:\n\n# Apply statistical tests and show the p-value.\np &lt;- SCpubr::do_BoxPlot(sample = sample,\n                        feature = \"nCount_RNA\",\n                        use_test = TRUE,\n                        comparisons = list(c(\"0\", \"1\"),\n                                           c(\"3\", \"4\"),\n                                           c(\"5\", \"9\")),\n                        map_signif_level = FALSE)\np"
+  },
+  {
+    "objectID": "functions/ViolinPlots.html#basic-usage",
+    "href": "functions/ViolinPlots.html#basic-usage",
+    "title": "Violin plots",
+    "section": "Basic usage",
+    "text": "Basic usage\n\np &lt;- Seurat::VlnPlot(sample, \n                     features = \"nCount_RNA\")\np\n\n\n\n\n\n\n\nThe one thing that really stands out here is, indeed, the extra dots that are being plotted alongside the violin plot. Since each dot represent a cell, it quickly becomes the dominant feature of the figure. One can play with the alpha of the dots to reduce their presence:\n\np &lt;- Seurat::VlnPlot(sample, \n                     features = \"nCount_RNA\")\n\n# \"Surgically\" add the alpha parameter in the ggplot2 object.\np$layers[[2]]$aes_params$alpha &lt;- 0.05\np\n\n\n\n\n\n\n\nBut still, by making the dots almost invisible, we still observe their dominance on the bigger clusters. Therefore, it’s better to remove it. This, together with other modifications are the basis of SCpubr::do_ViolinPlot(). This is how the default plot looks like:\n\n# Basic violin plot.\np &lt;- SCpubr::do_ViolinPlot(sample = sample, \n                           features = \"nCount_RNA\")\np\n\n\n\n\n\n\n\nIn addition to removing the dots, a boxplot is added to each violin shape, to get a better sense of the quantiles of the distribution. This effect can be removed by using plot_boxplot = FALSE. Also, legend is by default removed, as the groups are being displayed already in the X axis.\n\n# Remove the box plots.\np &lt;- SCpubr::do_ViolinPlot(sample = sample, \n                           features = \"nCount_RNA\",\n                           plot_boxplot = FALSE)\np"
+  },
+  {
+    "objectID": "functions/ViolinPlots.html#violin-plots-as-a-means-of-qc",
+    "href": "functions/ViolinPlots.html#violin-plots-as-a-means-of-qc",
+    "title": "Violin plots",
+    "section": "Violin plots as a means of QC",
+    "text": "Violin plots as a means of QC\nFor QC analyses, users might want to also add some other features such as a line indicating where to put the cutoff. This can be achieved by using y_cut parameter. Currently, only one value per plot for y_cut can be used.\n\n# Add horizontal lines.\np &lt;- SCpubr::do_ViolinPlot(sample = sample, \n                           features = \"nCount_RNA\", \n                           y_cut = 25000)\np"
+  },
+  {
+    "objectID": "functions/ViolinPlots.html#modifying-aesthetics",
+    "href": "functions/ViolinPlots.html#modifying-aesthetics",
+    "title": "Violin plots",
+    "section": "Modifying aesthetics",
+    "text": "Modifying aesthetics\nSometimes we might want to modify the overall look of the violin plots. For instance, the line width of both the violin shape and the box plot can be modified with line_width parameter, which defaults to 1.\n\n# Increase line width.\np1 &lt;- SCpubr::do_ViolinPlot(sample = sample,\n                         features = \"nCount_RNA\")\n\np2 &lt;- SCpubr::do_ViolinPlot(sample = sample,\n                         features = \"nCount_RNA\",\n                         line_width = 2)\n\np &lt;- p1 / p2\np\n\n\n\n\n\n\n\nAlso, the width of the box plots can be modified with boxplot_width parameter, which defaults to 0.2. Be aware that this parameter scales the width of the boxplot. This is, if a value of 1 is provided, the box plot will take as much space as the violin shape. It is recommended to deviate from 0.2 by a small amount.\n\n# Decrease boxplot width.\np1 &lt;- SCpubr::do_ViolinPlot(sample = sample,\n                            features = \"nCount_RNA\")\n\np2 &lt;- SCpubr::do_ViolinPlot(sample = sample,\n                            features = \"nCount_RNA\",\n                            boxplot_width = 0.1)\n\np &lt;- p1 / p2\np"
+  },
+  {
+    "objectID": "functions/ViolinPlots.html#force-the-same-limits-on-different-violin-plots.",
+    "href": "functions/ViolinPlots.html#force-the-same-limits-on-different-violin-plots.",
+    "title": "Violin plots",
+    "section": "Force the same limits on different violin plots.",
+    "text": "Force the same limits on different violin plots.\nFinally, we can also set the same range of values for the Y axis using share.y.lims = TRUE. For this, we need to provide multiple features to features parameter. The maximum and minimum values will be the absolute maximum and minimum across the features.\n\n# Share the same Y axis.\np &lt;- SCpubr::do_ViolinPlot(sample = sample,\n                           features = c(\"nCount_RNA\", \"nFeature_RNA\"),\n                           ncol = 1,\n                           share.y.lims = TRUE)\np"
+  },
+  {
+    "objectID": "functions/ViolinPlots.html#split-by-another-variable",
+    "href": "functions/ViolinPlots.html#split-by-another-variable",
+    "title": "Violin plots",
+    "section": "Split by another variable",
+    "text": "Split by another variable\nFinally, we can also generate split violin plots using the split.by parameter. However, plot_boxplot has to be set to FALSE:\n\np &lt;- SCpubr::do_ViolinPlot(sample = sample,\n                           features = \"nCount_RNA\",\n                           split.by = \"annotation\",\n                           plot_boxplot = FALSE)\n\np"
+  },
+  {
+    "objectID": "functions/BeeSwarmPlots.html#using-categorical-variables",
+    "href": "functions/BeeSwarmPlots.html#using-categorical-variables",
+    "title": "do_BeeSwarmPlot() | Density distribution plots",
+    "section": "Using categorical variables",
+    "text": "Using categorical variables\nLet’s say we want to focus on how much each cluster is driven by the PC_1 and PC_2. The first thought is to just use SCpubr::do_Dimplot() to plot the PCA embedding instead of the UMAP. We also query PC_3 and PC_4 to have a not-so-clear example.\n\np1 &lt;- SCpubr::do_DimPlot(sample, \n                         reduction = \"pca\", \n                         label = TRUE, \n                         legend.position = \"none\", \n                         dims = c(1, 2)) \np2 &lt;- SCpubr::do_DimPlot(sample, \n                         reduction = \"pca\", \n                         label = TRUE, \n                         legend.position = \"none\",\n                         dims = c(3, 4)) \n\np &lt;- p1 | p2\np\n\n\n\n\n\n\n\nWith this, we get right away a decent overview. Clusters 0, 5, 7 and 8 separate on PC_1 from the rest. However, in many cases this will not be clear, such as the image on the right. This is where Bee Swarm plots come in handy. This is implemented in SCpubr::do_BeeSwarmPlot(). This function needs the user to provide: - The variable to rank to feature_to_rank. - The groups to divide the plot into to group.by. - Whether the output should be colored with a categorical or continuous scale, with continuous_feature.\n\np1 &lt;- SCpubr::do_DimPlot(sample = sample, \n                         reduction = \"pca\", \n                         label = TRUE, \n                         legend.position = \"none\",\n                         dims = c(1, 2))\n\np2 &lt;- SCpubr::do_DimPlot(sample = sample, \n                         reduction = \"pca\", \n                         label = TRUE, \n                         legend.position = \"none\",\n                         dims = c(3, 4)) \n\np3 &lt;- SCpubr::do_BeeSwarmPlot(sample = sample, \n                              feature_to_rank = \"PC_1\", \n                              group.by = \"seurat_clusters\", \n                              continuous_feature = FALSE)\n\np4 &lt;- SCpubr::do_BeeSwarmPlot(sample = sample, \n                              feature_to_rank = \"PC_4\", \n                              group.by = \"seurat_clusters\", \n                              continuous_feature = FALSE)\n\np &lt;- (p1 | p3) / (p2 | p4)\np\n\n\n\n\n\n\n\nHere, we have selected PC_1 and PC_4. We can observe how the X axis of the Bee Swarm plot displays the ordering (rank) of all of the cells across the selected feature. Focusing on PC_1, we can see that cluster 0 is completely shifted to the right on PC_1, with is nicely displayed in the Bee Swarm plot by having all of the cells also ranked high (the higher the rank, the bigger the “value” of the feature to rank, in this case, the PC_1 value). In the case of PC_4, the Bee Swarm plot nicely shows which clusters lay on the upper, lower or middle part of the PC_4.\nA very important thing to note in these kind of plots is that no cells will have the same rank. This is, imagine a scenario like PC_4, but we artificially remove clusters 0, 3, 5, 7, 8, 9, leaving only those forming a “straight line” in PC_4. The nature of this plot will also separate the remaining clusters:\n\n# Clusters to exclude.\nclusters_exclude &lt;- c(\"0\", \"3\", \"5\", \"7\", \"8\", \"9\")\n\n# Keep the original coloring.\ncols.use &lt;- colorspace::qualitative_hcl(length(levels(sample)), \n                                        palette = \"Dark 3\")\nnames(cols.use) &lt;- levels(sample)\n\n\np1 &lt;- SCpubr::do_DimPlot(sample = sample[, !(sample$seurat_clusters %in% clusters_exclude)], \n                         reduction = \"pca\", \n                         label = TRUE, \n                         legend.position = \"none\",\n                         dims = c(3, 4), \n                         colors.use = cols.use) \n\np2 &lt;- SCpubr::do_BeeSwarmPlot(sample = sample[, !(sample$seurat_clusters %in% clusters_exclude)], \n                              feature_to_rank = \"PC_4\", \n                              group.by = \"seurat_clusters\", \n                              continuous_feature = FALSE, \n                              colors.use = cols.use)\n\np &lt;- p1 | p2\np\n\n\n\n\n\n\n\nSee, we still clearly see two groups, formed by clusters 1 and 2, and clusters 4 and 6. We could even remove clusters 1 and 2 and still see a similar effect.\n\n# Clusters to exclude.\nclusters_exclude &lt;- c(\"0\", \"1\", \"2\", \"3\", \"5\", \"7\", \"8\", \"9\")\n\n# Keep the original coloring.\ncols.use &lt;- colorspace::qualitative_hcl(length(levels(sample)), \n                                        palette = \"Dark 3\")\nnames(cols.use) &lt;- levels(sample)\n\n\np1 &lt;- SCpubr::do_DimPlot(sample = sample[, !(sample$seurat_clusters %in% clusters_exclude)], \n                         reduction = \"pca\", \n                         label = TRUE, \n                         legend.position = \"none\", \n                         dims = c(3, 4), \n                         colors.use = cols.use)\n\np2 &lt;- SCpubr::do_BeeSwarmPlot(sample = sample[, !(sample$seurat_clusters %in% clusters_exclude)], \n                              feature_to_rank = \"PC_4\", \n                              group.by = \"seurat_clusters\", \n                              continuous_feature = FALSE, \n                              colors.use = cols.use)\n\np &lt;- p1 | p2\np\n\n\n\n\n\n\n\nAs can be seen here, both clusters now span all X axis. The cells have still ranked, therefore showing a cloud of dots. With this, we would just want that, as with any data visualization technique, each plot comes with a set of benefits and caveats. This visualization suffers from trying to plot highly similar values. Therefore, it is key to understand the nature of the variable you want to rank beforehand."
+  },
+  {
+    "objectID": "functions/BeeSwarmPlots.html#order-the-groups",
+    "href": "functions/BeeSwarmPlots.html#order-the-groups",
+    "title": "do_BeeSwarmPlot() | Density distribution plots",
+    "section": "Order the groups",
+    "text": "Order the groups\nYou can also order the groups by descending order with order = TRUE.\n\np &lt;- SCpubr::do_BeeSwarmPlot(sample = sample, \n                             feature_to_rank = \"PC_1\", \n                             group.by = \"seurat_clusters\", \n                             continuous_feature = FALSE,\n                             order = TRUE)\np"
+  },
+  {
+    "objectID": "functions/BeeSwarmPlots.html#using-continuous-variables",
+    "href": "functions/BeeSwarmPlots.html#using-continuous-variables",
+    "title": "do_BeeSwarmPlot() | Density distribution plots",
+    "section": "Using continuous variables",
+    "text": "Using continuous variables\nThere are also scenarios in which we want to rank the cells to a continuous variable, but instead of showing colors for each group (which is anyway depicted in the Y axis), we want to introduce a continuous color scale. This is specially interesting to assess enrichment of clusters towards a given set of features.\n\n# Set up list of a genes to compute enrichment. Let's use a monocyte signature.\ngenes.use &lt;- c(\"CD14\", \"LYZ\")\n\n# Compute enrichment and rename the output.\nsample &lt;- Seurat::AddModuleScore(sample, \n                                 features = genes.use, \n                                 name = \"Monocyte_signature\")\nsample$Monocyte_signature &lt;- sample$Monocyte_signature1\nsample$Monocyte_signature1 &lt;- NULL\n\np1 &lt;- SCpubr::do_DimPlot(sample = sample, \n                         label = TRUE, \n                         legend.position = \"none\")\n\np2 &lt;- SCpubr::do_FeaturePlot(sample = sample, \n                             features = \"Monocyte_signature\",\n                             legend.title = \"Monocyte signature\") \n\np3 &lt;- SCpubr::do_BeeSwarmPlot(sample = sample, \n                              feature_to_rank = \"Monocyte_signature\", \n                              group.by = \"seurat_clusters\", \n                              continuous_feature = TRUE,\n                              legend.title = \"Monocyte signature\")\np &lt;- p1 | p2 | p3\np\n\n\n\n\n\n\n\nBy using this combination of figures, we can also assess that the monocyte signature seems to be predominantly enriched in clusters 0 and 7."
   },
   {
     "objectID": "cheatsheets/Shared_Features.html#basic-parameters",
@@ -158,7 +340,7 @@
     "href": "cheatsheets/Shared_Features.html#change-colors-categorical",
     "title": "Shared features across functions",
     "section": "Change colors | categorical",
-    "text": "Change colors | categorical\nSCpubr has a built-in custom color palette for categorical variables. However, it is very often the case that we do want our own color system in the plots. This is always achieved by using the colors.use parameter. The input to this parameter can vary on a per function basis, but it is always one for the following:\n\nA vector of named values. The names correspond to each of the unique values that the categorical variable to plot has, and the values are the colors corresponding to each of those values.\nA named list of vectors of named values. In more complex scenarios, we have different categorical variables to plot. For this, the names of the list will correspond to the names of the categorical variables stored in the metadata of the Seurat object, and the values will be the vectors of named values (like in the example above). Each vector should contain as many values as unique occurrences in the metadata variable.\n\n\n\nVector of named values\nList of vectors\n\n\n\n\nCodecolors &lt;- c(\"0\" = \"#001219\",\n            \"1\" = \"#005f73\",\n            \"2\" = \"#0a9396\",\n            \"3\" = \"#94d2bd\",\n            \"4\" = \"#e9d8a6\",\n            \"5\" = \"#ee9b00\",\n            \"6\" = \"#ca6702\",\n            \"7\" = \"#bb3e03\",\n            \"8\" = \"#ae2012\",\n            \"9\" = \"#9b2226\")\n\nSCpubr::do_DimPlot(sample,\n                   colors.use = colors)\n\n\n\n\n\n\n\n\n\n\nCodecolors &lt;- list(\"seurat_clusters\" = c(\"0\" = \"#001219\",\n                                     \"1\" = \"#005f73\",\n                                     \"2\" = \"#0a9396\",\n                                     \"3\" = \"#94d2bd\",\n                                     \"4\" = \"#e9d8a6\",\n                                     \"5\" = \"#ee9b00\",\n                                     \"6\" = \"#ca6702\",\n                                     \"7\" = \"#bb3e03\",\n                                     \"8\" = \"#ae2012\",\n                                     \"9\" = \"#9b2226\"),\n               \"annotation\" = c(\"A\" = \"#ca6702\",\n                                \"B\" = \"#0a9396\"))\n\nSCpubr::do_SCExpressionHeatmap(sample,\n                               features = Seurat::VariableFeatures(sample)[1:20],\n                               metadata = c(\"seurat_clusters\", \"annotation\"),\n                               metadata.colors = colors)"
+    "text": "Change colors | categorical\nSCpubr has a built-in custom color palette for categorical variables. However, it is very often the case that we do want our own color system in the plots. This is always achieved by using the colors.use parameter. The input to this parameter can vary on a per function basis, but it is always one for the following:\n\nA vector of named values. The names correspond to each of the unique values that the categorical variable to plot has, and the values are the colors corresponding to each of those values.\nA named list of vectors of named values. In more complex scenarios, we have different categorical variables to plot. For this, the names of the list will correspond to the names of the categorical variables stored in the metadata of the Seurat object, and the values will be the vectors of named values (like in the example above). Each vector should contain as many values as unique occurrences in the metadata variable.\n\n\n\nVector of named values\nList of vectors\n\n\n\n\nCodecolors &lt;- c(\"0\" = \"#001219\",\n            \"1\" = \"#005f73\",\n            \"2\" = \"#0a9396\",\n            \"3\" = \"#94d2bd\",\n            \"4\" = \"#e9d8a6\",\n            \"5\" = \"#ee9b00\",\n            \"6\" = \"#ca6702\",\n            \"7\" = \"#bb3e03\",\n            \"8\" = \"#ae2012\",\n            \"9\" = \"#9b2226\")\n\nSCpubr::do_DimPlot(sample,\n                   colors.use = colors)\n\n\n\n\n\n\n\n\n\n\nCodecolors &lt;- list(\"seurat_clusters\" = c(\"0\" = \"#001219\",\n                                     \"1\" = \"#005f73\",\n                                     \"2\" = \"#0a9396\",\n                                     \"3\" = \"#94d2bd\",\n                                     \"4\" = \"#e9d8a6\",\n                                     \"5\" = \"#ee9b00\",\n                                     \"6\" = \"#ca6702\",\n                                     \"7\" = \"#bb3e03\",\n                                     \"8\" = \"#ae2012\",\n                                     \"9\" = \"#9b2226\"),\n               \"annotation\" = c(\"A\" = \"#ca6702\",\n                                \"B\" = \"#0a9396\"))\n\n#SCpubr::do_SCExpressionHeatmap(sample,\n#                               features = Seurat::VariableFeatures(sample)[1:20],\n#                               metadata = c(\"seurat_clusters\", \"annotation\"),\n#                               metadata.colors = colors)"
   },
   {
     "objectID": "cheatsheets/Shared_Features.html#change-colors-continuous",
@@ -343,6 +525,118 @@
     "text": "And more!\nThere are many synergies across functions. Have a look at the section Shared features across functions!"
   },
   {
+    "objectID": "cheatsheets/FeaturePlots.html#basic-usage",
+    "href": "cheatsheets/FeaturePlots.html#basic-usage",
+    "title": "do_FeaturePlot()",
+    "section": "Basic usage",
+    "text": "Basic usage\n\nSCpubr::do_FeaturePlot(sample = sample,\n                       features = \"nCount_RNA\")"
+  },
+  {
+    "objectID": "cheatsheets/FeaturePlots.html#plot-several-variables",
+    "href": "cheatsheets/FeaturePlots.html#plot-several-variables",
+    "title": "do_FeaturePlot()",
+    "section": "Plot several variables",
+    "text": "Plot several variables\n\nSCpubr::do_FeaturePlot(sample = sample,\n                       features = c(\"nCount_RNA\", \"nFeature_RNA\"))"
+  },
+  {
+    "objectID": "cheatsheets/FeaturePlots.html#control-axis-limits",
+    "href": "cheatsheets/FeaturePlots.html#control-axis-limits",
+    "title": "do_FeaturePlot()",
+    "section": "Control axis limits",
+    "text": "Control axis limits\n\nSCpubr::do_FeaturePlot(sample = sample,\n                       features = \"nCount_RNA\",\n                       min.cutoff = 5000,\n                       max.cutoff = 30000)"
+  },
+  {
+    "objectID": "cheatsheets/FeaturePlots.html#plot-subsets-of-cells",
+    "href": "cheatsheets/FeaturePlots.html#plot-subsets-of-cells",
+    "title": "do_FeaturePlot()",
+    "section": "Plot subsets of cells",
+    "text": "Plot subsets of cells\n\n# Use a vector of cells\np1 &lt;- SCpubr::do_FeaturePlot(sample = sample,\n                             features = c(\"PC_1\"),\n                             cells.highlight = sample(colnames(sample), 500))\n\n# Select identities.\np2 &lt;- SCpubr::do_FeaturePlot(sample = sample,\n                             features = c(\"PC_1\"),\n                             idents.highlight = c(\"0\", \"2\", \"5\"))\np1 | p2"
+  },
+  {
+    "objectID": "cheatsheets/FeaturePlots.html#split-by-a-variable",
+    "href": "cheatsheets/FeaturePlots.html#split-by-a-variable",
+    "title": "do_FeaturePlot()",
+    "section": "Split by a variable",
+    "text": "Split by a variable\n\n# Use a vector of cells\nSCpubr::do_FeaturePlot(sample = sample,\n                       features = c(\"PC_1\"),\n                       split.by = \"seurat_clusters\",\n                       ncol = 5)"
+  },
+  {
+    "objectID": "cheatsheets/FeaturePlots.html#split-by-a-variable-and-subset-identities",
+    "href": "cheatsheets/FeaturePlots.html#split-by-a-variable-and-subset-identities",
+    "title": "do_FeaturePlot()",
+    "section": "Split by a variable and subset identities",
+    "text": "Split by a variable and subset identities\n\n# Use a vector of cells\nSCpubr::do_FeaturePlot(sample = sample,\n                       features = c(\"PC_1\"),\n                       split.by = \"seurat_clusters\",\n                       idents.keep = c(\"0\", \"5\", \"7\"),\n                       ncol = 3)"
+  },
+  {
+    "objectID": "cheatsheets/FeaturePlots.html#split-by-a-variable-and-group-by-another",
+    "href": "cheatsheets/FeaturePlots.html#split-by-a-variable-and-group-by-another",
+    "title": "do_FeaturePlot()",
+    "section": "Split by a variable and group by another",
+    "text": "Split by a variable and group by another\n\nSCpubr::do_FeaturePlot(sample = sample,\n                       features = \"PC_1\",\n                       group.by = \"seurat_clusters\")\n\n\n\n\n\n\n\n\nSCpubr::do_FeaturePlot(sample = sample,\n                            features = \"PC_1\",\n                            group.by = \"seurat_clusters\",\n                            group.by.dot.size = 12)\n\n\n\n\n\n\n\n\nSCpubr::do_FeaturePlot(sample = sample,\n                            features = \"PC_1\",\n                            group.by = \"seurat_clusters\",\n                            group.by.cell_borders = TRUE,\n                            group.by.cell_borders.alpha = 0.1)\n\n\n\n\n\n\n\n\nSCpubr::do_FeaturePlot(sample = sample,\n                            features = \"PC_1\",\n                            group.by = \"seurat_clusters\",\n                            group.by.cell_borders = TRUE,\n                            group.by.cell_borders.alpha = 0.1,\n                            group.by.show.dots = FALSE)\n\n\n\n\n\n\n\n\nSCpubr::do_FeaturePlot(sample = sample,\n                            features = \"PC_1\",\n                            group.by = \"seurat_clusters\",\n                            group.by.cell_borders = TRUE,\n                            group.by.cell_borders.alpha = 0.1,\n                            group.by.show.dots = TRUE,\n                            group.by.legend = \"My Clusters\",\n                            group.by.colors.use = c(\"0\" = \"#001219\",\n                                                    \"1\" = \"#005f73\",\n                                                    \"2\" = \"#0a9396\",\n                                                    \"3\" = \"#94d2bd\",\n                                                    \"4\" = \"#e9d8a6\",\n                                                    \"5\" = \"#ee9b00\",\n                                                    \"6\" = \"#ca6702\",\n                                                    \"7\" = \"#bb3e03\",\n                                                    \"8\" = \"#ae2012\",\n                                                    \"9\" = \"#9b2226\"))"
+  },
+  {
+    "objectID": "cheatsheets/FeaturePlots.html#label-identities",
+    "href": "cheatsheets/FeaturePlots.html#label-identities",
+    "title": "do_FeaturePlot()",
+    "section": "Label identities",
+    "text": "Label identities\n\nSCpubr::do_FeaturePlot(sample = sample,\n                            features = \"PC_1\",\n                            label = TRUE,\n                            label.color = \"#ca6702\",\n                            label.size = 8)"
+  },
+  {
+    "objectID": "cheatsheets/NebulosaPlots.html#basic-usage",
+    "href": "cheatsheets/NebulosaPlots.html#basic-usage",
+    "title": "do_NebulosaPlot()",
+    "section": "Basic usage",
+    "text": "Basic usage\n\nSCpubr::do_NebulosaPlot(sample, \n                        features = c(\"CD14\"))"
+  },
+  {
+    "objectID": "cheatsheets/NebulosaPlots.html#plot-several-features",
+    "href": "cheatsheets/NebulosaPlots.html#plot-several-features",
+    "title": "do_NebulosaPlot()",
+    "section": "Plot several features",
+    "text": "Plot several features\n\nSCpubr::do_NebulosaPlot(sample, \n                             features = c(\"CD14\", \"CD8A\"))"
+  },
+  {
+    "objectID": "cheatsheets/NebulosaPlots.html#plot-joint-density",
+    "href": "cheatsheets/NebulosaPlots.html#plot-joint-density",
+    "title": "do_NebulosaPlot()",
+    "section": "Plot joint density",
+    "text": "Plot joint density\n\nSCpubr::do_NebulosaPlot(sample = sample, \n                        features = c(\"CD14\", \"CD8A\"), \n                        joint = TRUE)"
+  },
+  {
+    "objectID": "cheatsheets/NebulosaPlots.html#plot-only-joint-density",
+    "href": "cheatsheets/NebulosaPlots.html#plot-only-joint-density",
+    "title": "do_NebulosaPlot()",
+    "section": "Plot only joint density",
+    "text": "Plot only joint density\n\nSCpubr::do_NebulosaPlot(sample = sample, \n                        features = c(\"CD14\", \"CD8A\"), \n                        joint = TRUE, \n                        return_only_joint = TRUE,\n                        plot.title = \"Joint density CD14+-CD8A+\")"
+  },
+  {
+    "objectID": "cheatsheets/DotPlots.html#use-genes",
+    "href": "cheatsheets/DotPlots.html#use-genes",
+    "title": "do_DotPlot()",
+    "section": "Use genes",
+    "text": "Use genes\n\ngenes &lt;- c(\"IL7R\", \"CCR7\", \"CD14\", \"LYZ\", \n           \"S100A4\", \"MS4A1\", \"CD8A\", \"FCGR3A\", \n           \"MS4A7\", \"GNLY\", \"NKG7\", \"FCER1A\", \n           \"CST3\", \"PPBP\")\n\nSCpubr::do_DotPlot(sample = sample, \n                   features = genes)"
+  },
+  {
+    "objectID": "cheatsheets/DotPlots.html#cluster-identities",
+    "href": "cheatsheets/DotPlots.html#cluster-identities",
+    "title": "do_DotPlot()",
+    "section": "Cluster identities",
+    "text": "Cluster identities\n\nSCpubr::do_DotPlot(sample = sample, \n                   features = genes,\n                   cluster = TRUE)"
+  },
+  {
+    "objectID": "cheatsheets/DotPlots.html#increase-dot-size",
+    "href": "cheatsheets/DotPlots.html#increase-dot-size",
+    "title": "do_DotPlot()",
+    "section": "Increase dot size",
+    "text": "Increase dot size\n\nSCpubr::do_DotPlot(sample = sample, \n                   features = genes,\n                   dot.scale = 8)"
+  },
+  {
+    "objectID": "cheatsheets/DotPlots.html#use-list-of-genes",
+    "href": "cheatsheets/DotPlots.html#use-list-of-genes",
+    "title": "do_DotPlot()",
+    "section": "Use list of genes",
+    "text": "Use list of genes\n\ngenes &lt;- list(\"Naive CD4+ T\" = c(\"IL7R\", \"CCR7\"),\n              \"CD14+ Mono\" = c(\"CD14\", \"LYZ\"),\n              \"Memory CD4+\" = c(\"S100A4\"),\n              \"B\" = c(\"MS4A1\"),\n              \"CD8+ T\" = c(\"CD8A\"),\n              \"FCGR3A+ Mono\" = c(\"FCGR3A\", \"MS4A7\"),\n              \"NK\" = c(\"GNLY\", \"NKG7\"),\n              \"DC\" = c(\"FCER1A\", \"CST3\"),\n              \"Platelet\" = c(\"PPBP\"))\n\nSCpubr::do_DotPlot(sample = sample, \n                   features = genes)"
+  },
+  {
     "objectID": "cheatsheets/BarPlots.html#group-by-a-variable",
     "href": "cheatsheets/BarPlots.html#group-by-a-variable",
     "title": "do_BarPlot()",
@@ -369,5 +663,145 @@
     "title": "do_BarPlot()",
     "section": "Add total number of counts",
     "text": "Add total number of counts\n\nSCpubr::do_BarPlot(sample, \n                   group.by = \"seurat_clusters\",\n                   split.by = \"modified_orig.ident\",\n                   position = \"fill\",\n                   add.n = TRUE)"
+  },
+  {
+    "objectID": "cheatsheets/BarPlots.html#order-by-a-value",
+    "href": "cheatsheets/BarPlots.html#order-by-a-value",
+    "title": "do_BarPlot()",
+    "section": "Order by a value",
+    "text": "Order by a value\n\nSCpubr::do_BarPlot(sample, \n                   group.by = \"seurat_clusters\",\n                   split.by = \"modified_orig.ident\",\n                   position = \"fill\",\n                   order = TRUE,\n                   order.by = \"1\")"
+  },
+  {
+    "objectID": "cheatsheets/BarPlots.html#facet-by-a-variable",
+    "href": "cheatsheets/BarPlots.html#facet-by-a-variable",
+    "title": "do_BarPlot()",
+    "section": "Facet by a variable",
+    "text": "Facet by a variable\n\nsample$facet_var &lt;- ifelse(sample$modified_orig.ident == \"Sample_A\", \"Group 1\", \"Group 2\")\n\nSCpubr::do_BarPlot(sample, \n                   group.by = \"seurat_clusters\",\n                   split.by = \"modified_orig.ident\",\n                   facet.by = \"facet_var\",\n                   position = \"fill\")"
+  },
+  {
+    "objectID": "cheatsheets/BoxPlots.html#basic-usage",
+    "href": "cheatsheets/BoxPlots.html#basic-usage",
+    "title": "do_BoxPlot()",
+    "section": "Basic usage",
+    "text": "Basic usage\n\nSCpubr::do_BoxPlot(sample = sample,\n                   feature = \"nCount_RNA\")"
+  },
+  {
+    "objectID": "cheatsheets/BoxPlots.html#group-by-a-variable",
+    "href": "cheatsheets/BoxPlots.html#group-by-a-variable",
+    "title": "do_BoxPlot()",
+    "section": "Group by a variable",
+    "text": "Group by a variable\n\nSCpubr::do_BoxPlot(sample = sample,\n                   feature = \"nCount_RNA\",\n                   group.by = \"annotation\")"
+  },
+  {
+    "objectID": "cheatsheets/BoxPlots.html#change-to-silhouette-style",
+    "href": "cheatsheets/BoxPlots.html#change-to-silhouette-style",
+    "title": "do_BoxPlot()",
+    "section": "Change to silhouette style",
+    "text": "Change to silhouette style\n\nSCpubr::do_BoxPlot(sample = sample,\n                   feature = \"nCount_RNA\",\n                   use_silhouette = TRUE)"
+  },
+  {
+    "objectID": "cheatsheets/BoxPlots.html#reorder-by-median-values",
+    "href": "cheatsheets/BoxPlots.html#reorder-by-median-values",
+    "title": "do_BoxPlot()",
+    "section": "Reorder by median values",
+    "text": "Reorder by median values\n\nSCpubr::do_BoxPlot(sample = sample,\n                   feature = \"nCount_RNA\",\n                   order = TRUE)"
+  },
+  {
+    "objectID": "cheatsheets/BoxPlots.html#split-by-a-variable",
+    "href": "cheatsheets/BoxPlots.html#split-by-a-variable",
+    "title": "do_BoxPlot()",
+    "section": "Split by a variable",
+    "text": "Split by a variable\n\nSCpubr::do_BoxPlot(sample = sample,\n                   feature = \"nCount_RNA\",\n                   split.by = \"annotation\")"
+  },
+  {
+    "objectID": "cheatsheets/BoxPlots.html#apply-statistical-tests",
+    "href": "cheatsheets/BoxPlots.html#apply-statistical-tests",
+    "title": "do_BoxPlot()",
+    "section": "Apply statistical tests",
+    "text": "Apply statistical tests\n\nSCpubr::do_BoxPlot(sample = sample,\n                   feature = \"nCount_RNA\",\n                   use_test = TRUE,\n                   comparisons = list(c(\"0\", \"1\"),\n                                      c(\"3\", \"4\"),\n                                      c(\"5\", \"9\")))"
+  },
+  {
+    "objectID": "cheatsheets/ViolinPlots.html#basic-usage",
+    "href": "cheatsheets/ViolinPlots.html#basic-usage",
+    "title": "do_BeeSwarmPlot()",
+    "section": "Basic usage",
+    "text": "Basic usage\n\nSCpubr::do_ViolinPlot(sample = sample, \n                      features = \"nCount_RNA\")"
+  },
+  {
+    "objectID": "cheatsheets/ViolinPlots.html#remove-boxplots",
+    "href": "cheatsheets/ViolinPlots.html#remove-boxplots",
+    "title": "do_BeeSwarmPlot()",
+    "section": "Remove boxplots",
+    "text": "Remove boxplots\n\nSCpubr::do_ViolinPlot(sample = sample, \n                      features = \"nCount_RNA\",\n                      plot_boxplot = FALSE)"
+  },
+  {
+    "objectID": "cheatsheets/ViolinPlots.html#add-horizontal-line",
+    "href": "cheatsheets/ViolinPlots.html#add-horizontal-line",
+    "title": "do_BeeSwarmPlot()",
+    "section": "Add horizontal line",
+    "text": "Add horizontal line\n\nSCpubr::do_ViolinPlot(sample = sample, \n                      features = \"nCount_RNA\", \n                      y_cut = 25000)"
+  },
+  {
+    "objectID": "cheatsheets/ViolinPlots.html#modify-line-width-of-violins",
+    "href": "cheatsheets/ViolinPlots.html#modify-line-width-of-violins",
+    "title": "do_BeeSwarmPlot()",
+    "section": "Modify line width of violins",
+    "text": "Modify line width of violins\n\nSCpubr::do_ViolinPlot(sample = sample,\n                      features = \"nCount_RNA\",\n                      line_width = 1.5)"
+  },
+  {
+    "objectID": "cheatsheets/ViolinPlots.html#modify-with-of-the-boxplots",
+    "href": "cheatsheets/ViolinPlots.html#modify-with-of-the-boxplots",
+    "title": "do_BeeSwarmPlot()",
+    "section": "Modify with of the boxplots",
+    "text": "Modify with of the boxplots\n\nSCpubr::do_ViolinPlot(sample = sample,\n                      features = \"nCount_RNA\",\n                      boxplot_width = 0.1)"
+  },
+  {
+    "objectID": "cheatsheets/ViolinPlots.html#force-different-plots-to-share-the-same-y-axis-limits",
+    "href": "cheatsheets/ViolinPlots.html#force-different-plots-to-share-the-same-y-axis-limits",
+    "title": "do_BeeSwarmPlot()",
+    "section": "Force different plots to share the same Y axis limits",
+    "text": "Force different plots to share the same Y axis limits\n\nSCpubr::do_ViolinPlot(sample = sample,\n                           features = c(\"nCount_RNA\", \"nFeature_RNA\"),\n                           ncol = 1,\n                           share.y.lims = TRUE)"
+  },
+  {
+    "objectID": "cheatsheets/ViolinPlots.html#split-by-another-variable",
+    "href": "cheatsheets/ViolinPlots.html#split-by-another-variable",
+    "title": "do_BeeSwarmPlot()",
+    "section": "Split by another variable",
+    "text": "Split by another variable\n\nSCpubr::do_ViolinPlot(sample = sample,\n                      features = \"nCount_RNA\",\n                      split.by = \"annotation\",\n                      plot_boxplot = FALSE)"
+  },
+  {
+    "objectID": "cheatsheets/BeeSwarmPlots.html#use-categorical-variables",
+    "href": "cheatsheets/BeeSwarmPlots.html#use-categorical-variables",
+    "title": "do_BeeSwarmPlot()",
+    "section": "Use categorical variables",
+    "text": "Use categorical variables\n\nSCpubr::do_BeeSwarmPlot(sample = sample, \n                        feature_to_rank = \"PC_1\", \n                        continuous_feature = FALSE)"
+  },
+  {
+    "objectID": "cheatsheets/BeeSwarmPlots.html#use-continuous-variables",
+    "href": "cheatsheets/BeeSwarmPlots.html#use-continuous-variables",
+    "title": "do_BeeSwarmPlot()",
+    "section": "Use continuous variables",
+    "text": "Use continuous variables\n\nSCpubr::do_BeeSwarmPlot(sample = sample, \n                        feature_to_rank = \"PC_1\", \n                        continuous_feature = TRUE)"
+  },
+  {
+    "objectID": "cheatsheets/BeeSwarmPlots.html#order-the-groups",
+    "href": "cheatsheets/BeeSwarmPlots.html#order-the-groups",
+    "title": "do_BeeSwarmPlot()",
+    "section": "Order the groups",
+    "text": "Order the groups\n\nSCpubr::do_BeeSwarmPlot(sample = sample, \n                        feature_to_rank = \"PC_1\", \n                        order = TRUE)"
+  },
+  {
+    "objectID": "closing_remarks/Citation.html",
+    "href": "closing_remarks/Citation.html",
+    "title": "Citation",
+    "section": "",
+    "text": "To cite SCpubr in your publications, please use:\nBlanco-Carmona, E. Generating publication ready visualizations \nfor Single Cell transcriptomics using SCpubr. bioRxiv (2022) \ndoi:10.1101/2022.02.28.482303.\nYou can also use the following BibLaTeX entry:\n@article{blanco-carmona_generating_2022,\n    title = {Generating publication ready visualizations for Single Cell transcriptomics using {SCpubr}},\n    url = {https://www.biorxiv.org/content/early/2022/03/01/2022.02.28.482303},\n    doi = {10.1101/2022.02.28.482303},\n    abstract = {Single Cell transcriptomic analysis has become a widespread technology of choice when it comes to understanding the differences at a transcriptomic level in heterogeneous samples. As a consequence, a plethora of analysis tools have been published to tackle the different analysis steps from count matrix generation to downstream analysis. Many of them provide ways to generate visualizations of the data. While some design choices are made, it is a common practice to provide the user with visualizations as raw as possible so that they can be customized to the user needs. However, in many cases these final customization steps are either time consuming or demand a very specific set of skills. This problem is addressed by {SCpubr}, which sacrifices some of this initial freedom of choice in aesthetics to provide the user a more streamlined way of generating high quality Single Cell transcriptomic visualizations.Competing Interest {StatementThe} authors have declared no competing interest.},\n    journaltitle = {{bioRxiv}},\n    author = {Blanco-Carmona, Enrique},\n    date = {2022},\n    note = {Publisher: Cold Spring Harbor Laboratory\n\\_eprint: https://www.biorxiv.org/content/early/2022/03/01/2022.02.28.482303.full.pdf},\n}"
+  },
+  {
+    "objectID": "closing_remarks/Acknowledgements.html",
+    "href": "closing_remarks/Acknowledgements.html",
+    "title": "Acknowledgements",
+    "section": "",
+    "text": "In this section I would like to give my thanks to all the people that have helped me developing this package:\n\nPD. Dr. med. Pascal Johann, Dr. Natalie Jäger, Prof. Dr. Marcel Kool and Prof. Dr. Matthias Schlesner for providing a fruitful working environment that made it possible for this project to take place.\nMy co-workers Christina Blume, Areeba Patel and Dina ElHarouni for bearing with me and providing their personal view on the endless tiny details that can be modified in the plots.\nThe artist Marta Palop Llacer, for creating the flaticon of the webpage."
   }
 ]

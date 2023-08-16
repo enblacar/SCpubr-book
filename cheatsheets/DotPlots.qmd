@@ -1,0 +1,75 @@
+---
+format: 
+  html:
+    include-after-body:
+      - ./plot_fold.html
+      - ./img_zoom.html
+---
+
+# do_DotPlot()
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+suppressMessages(library("Seurat"))
+```
+
+```{r}
+#| echo: false
+sample <- readRDS("/b06x-isilon/b06x-g/G703/eblanco/projects/test_SC_datasets/sc_dataset.rds")
+
+```
+
+
+## Use genes
+```{r}
+#| fig-width: 10
+#| fig-height: 7
+genes <- c("IL7R", "CCR7", "CD14", "LYZ", 
+           "S100A4", "MS4A1", "CD8A", "FCGR3A", 
+           "MS4A7", "GNLY", "NKG7", "FCER1A", 
+           "CST3", "PPBP")
+
+SCpubr::do_DotPlot(sample = sample, 
+                   features = genes)
+```
+
+## Cluster identities
+```{r}
+#| fig-width: 10
+#| fig-height: 7
+#| 
+SCpubr::do_DotPlot(sample = sample, 
+                   features = genes,
+                   cluster = TRUE)
+```
+
+## Increase dot size
+```{r}
+#| fig-width: 10
+#| fig-height: 7
+
+SCpubr::do_DotPlot(sample = sample, 
+                   features = genes,
+                   dot.scale = 8)
+```
+
+## Use list of genes
+```{r}
+#| fig-width: 18
+#| fig-height: 8
+genes <- list("Naive CD4+ T" = c("IL7R", "CCR7"),
+              "CD14+ Mono" = c("CD14", "LYZ"),
+              "Memory CD4+" = c("S100A4"),
+              "B" = c("MS4A1"),
+              "CD8+ T" = c("CD8A"),
+              "FCGR3A+ Mono" = c("FCGR3A", "MS4A7"),
+              "NK" = c("GNLY", "NKG7"),
+              "DC" = c("FCER1A", "CST3"),
+              "Platelet" = c("PPBP"))
+
+SCpubr::do_DotPlot(sample = sample, 
+                   features = genes)
+```
+

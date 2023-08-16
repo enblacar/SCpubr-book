@@ -2,38 +2,90 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://enblacar.github.io/SCpubr-book/index.html</loc>
-    <lastmod>2023-07-31T15:02:34.146Z</lastmod>
+    <lastmod>2023-08-16T10:27:26.404Z</lastmod>
   </url>
   <url>
     <loc>https://enblacar.github.io/SCpubr-book/preface/Installation-guide.html</loc>
-    <lastmod>2023-07-31T14:41:03.691Z</lastmod>
+    <lastmod>2023-08-16T09:52:39.837Z</lastmod>
   </url>
   <url>
     <loc>https://enblacar.github.io/SCpubr-book/preface/Dataset.html</loc>
-    <lastmod>2023-07-31T14:41:11.433Z</lastmod>
+    <lastmod>2023-08-16T09:52:48.470Z</lastmod>
   </url>
   <url>
     <loc>https://enblacar.github.io/SCpubr-book/functions/DimPlots.html</loc>
-    <lastmod>2023-07-31T14:45:51.867Z</lastmod>
+    <lastmod>2023-08-16T09:57:46.620Z</lastmod>
   </url>
   <url>
     <loc>https://enblacar.github.io/SCpubr-book/functions/FeaturePlots.html</loc>
-    <lastmod>2023-07-31T14:48:32.256Z</lastmod>
+    <lastmod>2023-08-16T10:01:17.448Z</lastmod>
+  </url>
+  <url>
+    <loc>https://enblacar.github.io/SCpubr-book/functions/NebulosaPlots.html</loc>
+    <lastmod>2023-08-16T10:02:35.529Z</lastmod>
+  </url>
+  <url>
+    <loc>https://enblacar.github.io/SCpubr-book/functions/DotPlots.html</loc>
+    <lastmod>2023-08-16T10:03:12.831Z</lastmod>
   </url>
   <url>
     <loc>https://enblacar.github.io/SCpubr-book/functions/BarPlots.html</loc>
-    <lastmod>2023-07-31T14:49:04.444Z</lastmod>
+    <lastmod>2023-08-16T10:03:52.387Z</lastmod>
+  </url>
+  <url>
+    <loc>https://enblacar.github.io/SCpubr-book/functions/BoxPlots.html</loc>
+    <lastmod>2023-08-16T10:04:30.057Z</lastmod>
+  </url>
+  <url>
+    <loc>https://enblacar.github.io/SCpubr-book/functions/ViolinPlots.html</loc>
+    <lastmod>2023-08-16T10:05:16.747Z</lastmod>
+  </url>
+  <url>
+    <loc>https://enblacar.github.io/SCpubr-book/functions/BeeSwarmPlots.html</loc>
+    <lastmod>2023-08-16T10:07:39.089Z</lastmod>
   </url>
   <url>
     <loc>https://enblacar.github.io/SCpubr-book/cheatsheets/Shared_Features.html</loc>
-    <lastmod>2023-07-31T14:59:17.310Z</lastmod>
+    <lastmod>2023-08-16T10:17:21.605Z</lastmod>
   </url>
   <url>
     <loc>https://enblacar.github.io/SCpubr-book/cheatsheets/DimPlots.html</loc>
-    <lastmod>2023-07-31T15:02:06.629Z</lastmod>
+    <lastmod>2023-08-16T10:20:14.044Z</lastmod>
+  </url>
+  <url>
+    <loc>https://enblacar.github.io/SCpubr-book/cheatsheets/FeaturePlots.html</loc>
+    <lastmod>2023-08-16T10:23:35.080Z</lastmod>
+  </url>
+  <url>
+    <loc>https://enblacar.github.io/SCpubr-book/cheatsheets/NebulosaPlots.html</loc>
+    <lastmod>2023-08-16T10:24:40.794Z</lastmod>
+  </url>
+  <url>
+    <loc>https://enblacar.github.io/SCpubr-book/cheatsheets/DotPlots.html</loc>
+    <lastmod>2023-08-16T10:25:10.072Z</lastmod>
   </url>
   <url>
     <loc>https://enblacar.github.io/SCpubr-book/cheatsheets/BarPlots.html</loc>
-    <lastmod>2023-07-31T15:02:33.238Z</lastmod>
+    <lastmod>2023-08-16T10:25:39.798Z</lastmod>
+  </url>
+  <url>
+    <loc>https://enblacar.github.io/SCpubr-book/cheatsheets/BoxPlots.html</loc>
+    <lastmod>2023-08-16T10:26:12.957Z</lastmod>
+  </url>
+  <url>
+    <loc>https://enblacar.github.io/SCpubr-book/cheatsheets/ViolinPlots.html</loc>
+    <lastmod>2023-08-16T10:26:46.308Z</lastmod>
+  </url>
+  <url>
+    <loc>https://enblacar.github.io/SCpubr-book/cheatsheets/BeeSwarmPlots.html</loc>
+    <lastmod>2023-08-16T10:27:23.864Z</lastmod>
+  </url>
+  <url>
+    <loc>https://enblacar.github.io/SCpubr-book/closing_remarks/Citation.html</loc>
+    <lastmod>2023-08-16T10:27:24.481Z</lastmod>
+  </url>
+  <url>
+    <loc>https://enblacar.github.io/SCpubr-book/closing_remarks/Acknowledgements.html</loc>
+    <lastmod>2023-08-16T10:27:25.022Z</lastmod>
   </url>
 </urlset>

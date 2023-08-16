@@ -40,13 +40,29 @@ book:
       chapters:
       - ./functions/DimPlots.qmd
       - ./functions/FeaturePlots.qmd
+      - ./functions/NebulosaPlots.qmd
+      - ./functions/DotPlots.qmd
       - ./functions/BarPlots.qmd
+      - ./functions/BoxPlots.qmd
+      - ./functions/ViolinPlots.qmd
+      - ./functions/BeeSwarmPlots.qmd
 
     - part: "Cheatsheets"
       chapters:
       - ./cheatsheets/Shared_Features.qmd
       - ./cheatsheets/DimPlots.qmd
+      - ./cheatsheets/FeaturePlots.qmd
+      - ./cheatsheets/NebulosaPlots.qmd
+      - ./cheatsheets/DotPlots.qmd
       - ./cheatsheets/BarPlots.qmd
+      - ./cheatsheets/BoxPlots.qmd
+      - ./cheatsheets/ViolinPlots.qmd
+      - ./cheatsheets/BeeSwarmPlots.qmd
+
+    - part: "Appendix"
+      chapters:
+      - ./closing_remarks/Citation.qmd
+      - ./closing_remarks/Acknowledgements.qmd
 
 
 

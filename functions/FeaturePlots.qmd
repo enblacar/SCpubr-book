@@ -1,4 +1,4 @@
-# Feature plots
+# do_FeaturePlot() | Dimensional Reduction feature plots
 
 ```{r}
 #| results: "asis"
@@ -105,6 +105,96 @@ p <- SCpubr::do_FeaturePlot(sample = sample,
 p
 ```
 
-# And more!
+## Split by a variable and group by another
+
+Sometimes we still want to have a rough estimate of categorical groups of cells present in the data. For this, using `group.by` allows to plot a circle where the different groups are located.
+
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+p <- SCpubr::do_FeaturePlot(sample = sample,
+                            features = "PC_1",
+                            group.by = "seurat_clusters")
+p
+```
+
+Size of the dots can be modified using `group.by.dot.size`.
+
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+p <- SCpubr::do_FeaturePlot(sample = sample,
+                            features = "PC_1",
+                            group.by = "seurat_clusters",
+                            group.by.dot.size = 12)
+p
+```
+
+One can also plot a shadow around the cells to also depict the assignment to the groups in `group.by`. This can be done using `group.by.cell_borders = TRUE` and the alpha of the shadow is controlled using `group.by.cell_borders.alpha` parameter. 
+
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+p <- SCpubr::do_FeaturePlot(sample = sample,
+                            features = "PC_1",
+                            group.by = "seurat_clusters",
+                            group.by.cell_borders = TRUE,
+                            group.by.cell_borders.alpha = 0.1)
+p
+```
+And we can remove the dots but keep the shadow by using `group.by.show.dots = FALSE`.
+
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+p <- SCpubr::do_FeaturePlot(sample = sample,
+                            features = "PC_1",
+                            group.by = "seurat_clusters",
+                            group.by.cell_borders = TRUE,
+                            group.by.cell_borders.alpha = 0.1,
+                            group.by.show.dots = FALSE)
+p
+```
+
+Finally, we can control the legend title using `group.by.legend` and the colors used in `group.by` with `group.by.colors.use`.
+
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+p <- SCpubr::do_FeaturePlot(sample = sample,
+                            features = "PC_1",
+                            group.by = "seurat_clusters",
+                            group.by.cell_borders = TRUE,
+                            group.by.cell_borders.alpha = 0.1,
+                            group.by.show.dots = TRUE,
+                            group.by.legend = "My Clusters",
+                            group.by.colors.use = c("0" = "#001219",
+                                                    "1" = "#005f73",
+                                                    "2" = "#0a9396",
+                                                    "3" = "#94d2bd",
+                                                    "4" = "#e9d8a6",
+                                                    "5" = "#ee9b00",
+                                                    "6" = "#ca6702",
+                                                    "7" = "#bb3e03",
+                                                    "8" = "#ae2012",
+                                                    "9" = "#9b2226"))
+p
+```
+
+## Label the identities
+
+Finally, we can also achieve a similar effect by using a combination of `label = TRUE`, `label.color` and `label.size` parameters, which will plot labels where the current groups defined by `Seurat::Idents(sample)` are located.
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+p <- SCpubr::do_FeaturePlot(sample = sample,
+                            features = "PC_1",
+                            label = TRUE,
+                            label.color = "#ca6702",
+                            label.size = 8)
+p
+```
+
+## And more!
 
 There are many synergies across functions. Have a look at the section **Shared features across functions**!

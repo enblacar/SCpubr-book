@@ -35,7 +35,6 @@ Axes are removed by default from the plot, together with the axes titles. This b
 ```{r}
 #| fig-width: 10
 #| fig-height: 11
-#| fig-cap: "Bring back the axes."
 
 # Bring back the Axes.
 p <- SCpubr::do_DimPlot(sample = sample,
@@ -63,7 +62,6 @@ These labels are, in essence the result of applying `ggplot2::geom_label()` on t
 ```{r}
 #| fig-width: 10
 #| fig-height: 10
-#| fig-cap: "Labels as text."
 
 # Labels as text
 p <- SCpubr::do_DimPlot(sample = sample, 
@@ -231,7 +229,6 @@ Sometimes, we are interested in showing only some of the identities or groups in
 ```{r}
 #| fig-width: 10
 #| fig-height: 11
-#| fig-cap: "Subsetting the Seurat object to restrict the identities shown."
 
 # Subset desired identities in a DimPlot.
 p <- SCpubr::do_DimPlot(sample = sample[, sample$seurat_clusters %in% c("0", "5", "2", "4")])
@@ -298,7 +295,7 @@ p <- SCpubr::do_DimPlot(sample,
 p
 ```
 
-If we are interested only in a subset of the possible values, we can use `idents.keep` alongside a vector containing the values to keep from the unique values in `split.by`:
+This will produce a plot with each group in a different panel together with a summary plot containing all groups. If we are interested only in a subset of the possible values, we can use `idents.keep` alongside a vector containing the values to keep from the unique values in `split.by`:
 
 ```{r}
 #| fig-width: 21
@@ -336,3 +333,8 @@ p <- SCpubr::do_DimPlot(sample,
 
 p
 ```
+
+
+## And more!
+
+There are many synergies across functions. Have a look at the section **Shared features across functions**!

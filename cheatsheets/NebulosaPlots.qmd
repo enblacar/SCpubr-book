@@ -1,0 +1,62 @@
+---
+format: 
+  html:
+    include-after-body:
+      - ./plot_fold.html
+      - ./img_zoom.html
+---
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+suppressMessages(library("Seurat"))
+```
+
+```{r}
+#| echo: false
+sample <- readRDS("/b06x-isilon/b06x-g/G703/eblanco/projects/test_SC_datasets/sc_dataset.rds")
+```
+
+# do_NebulosaPlot()
+
+## Basic usage
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+
+SCpubr::do_NebulosaPlot(sample, 
+                        features = c("CD14"))
+```
+
+## Plot several features
+```{r}
+#| fig-width: 20
+#| fig-height: 11
+
+SCpubr::do_NebulosaPlot(sample, 
+                             features = c("CD14", "CD8A"))
+```
+
+## Plot joint density
+```{r}
+#| fig-width: 30
+#| fig-height: 11
+
+SCpubr::do_NebulosaPlot(sample = sample, 
+                        features = c("CD14", "CD8A"), 
+                        joint = TRUE)
+```
+
+## Plot only joint density
+
+```{r}
+#| fig-width: 10
+#| fig-height: 11
+
+SCpubr::do_NebulosaPlot(sample = sample, 
+                        features = c("CD14", "CD8A"), 
+                        joint = TRUE, 
+                        return_only_joint = TRUE,
+                        plot.title = "Joint density CD14+-CD8A+")
+```

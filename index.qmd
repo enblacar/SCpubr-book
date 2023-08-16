@@ -7,7 +7,7 @@
 :::
 :::
 
-Woops! You stumbled upon the **`in-development`** website for `SCpubr v2.0.0`! There is still a bit of time before the release, but stay tuned for the update!
+Woops! You stumbled upon the **`in-development`** website for `SCpubr v2.0.1`! There is still a bit of time before the release, but stay tuned for the update!
 
 You can have a peek to the changes [here](https://github.com/enblacar/SCpubr/blob/main/NEWS.md) and in this website as it is being rebuilt!
 
@@ -23,19 +23,3 @@ Thanks!! <!-- This package aims to provide a streamlined way of generating publi
 [SCpubr](https://github.com/enblacar/SCpubr/blob/main/LICENSE.md) and corresponding [documentation book]() licensed under [GPL v3](https://www.gnu.org/licenses/gpl-3.0.de.html)
 
 
-::: {.panel-tabset}
-## QC control and dimensional reduction
-
-```{r}
-hist(c(1, 2, 3, 4))
-```
-
-
-## Integration
-```{r}
-hist(c(2, 4, 3, 4))
-```
-## C
-
-
-:::

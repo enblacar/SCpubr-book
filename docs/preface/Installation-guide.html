@@ -95,13 +95,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta property="og:description" content="">
 <meta property="og:image" content="https://enblacar.github.io/SCpubr-book/images/Installation_1.png">
 <meta property="og:site-name" content="SCpubr">
-<meta property="og:image:height" content="2620">
-<meta property="og:image:width" content="1814">
+<meta property="og:image:height" content="2090">
+<meta property="og:image:width" content="1618">
 <meta name="twitter:title" content="SCpubr - Installation guide">
 <meta name="twitter:description" content="">
 <meta name="twitter:image" content="https://enblacar.github.io/SCpubr-book/images/Installation_1.png">
-<meta name="twitter:image-height" content="2620">
-<meta name="twitter:image-width" content="1814">
+<meta name="twitter:image-height" content="2090">
+<meta name="twitter:image-width" content="1618">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 <body class="nav-sidebar docked">
@@ -182,13 +182,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../functions/FeaturePlots.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Feature plots</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">do_FeaturePlot() | Dimensional Reduction feature plots</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../functions/NebulosaPlots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">do_NebulosaPlot | Feature plots based on density</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../functions/DotPlots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Dot plots</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../functions/BarPlots.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Bar plots</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">do_BarPlot() | Bar plots and cell type composition analyses</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../functions/BoxPlots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Box plots</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../functions/ViolinPlots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Violin plots</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../functions/BeeSwarmPlots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">do_BeeSwarmPlot() | Density distribution plots</span></span></a>
   </div>
 </li>
       </ul>
@@ -205,19 +235,78 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../cheatsheets/Shared_Features.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Shared features across functions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Shared features across functions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../cheatsheets/DimPlots.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">do_DimPlot()</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">do_DimPlot()</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cheatsheets/FeaturePlots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">do_FeaturePlot()</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cheatsheets/NebulosaPlots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">do_NebulosaPlot()</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cheatsheets/DotPlots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">do_DotPlot()</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../cheatsheets/BarPlots.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">do_BarPlot()</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">do_BarPlot()</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cheatsheets/BoxPlots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">do_BoxPlot()</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cheatsheets/ViolinPlots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">do_BeeSwarmPlot()</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cheatsheets/BeeSwarmPlots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">do_BeeSwarmPlot()</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+ <span class="menu-text">Appendix</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../closing_remarks/Citation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Citation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../closing_remarks/Acknowledgements.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Acknowledgements</span></a>
   </div>
 </li>
       </ul>
@@ -256,20 +345,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span></span>
 <span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"enblacar/SCpubr"</span>, ref <span class="op">=</span> <span class="st">"v2.0.0-dev-stable"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Note that additional packages may be required to run certain functions. This information is usually displayed when you load the package for the first time in the session.</p>
+<p>Note that additional packages may be required to run certain functions. You can get a full overview of them using <code><a href="https://rdrr.io/pkg/SCpubr/man/package_report.html">SCpubr::package_report()</a></code>.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/enblacar/SCpubr/">"SCpubr"</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/package_report.html">package_report</a></span><span class="op">(</span>startup <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                       extended <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><img src="../images/Installation_1.png" class="mx-auto d-block" style="box-shadow: none; width: 100%"></p>
 <p>This summary will provide you with the information you need to run the package:</p>
 <ul>
-<li>The version of <strong>SCpubr</strong> you have installed and the latest version available.</li>
-<li>The status of your <strong>dependencies</strong> (installed or missing), including the current and latest version of each installed dependency.</li>
+<li>The status of your <strong>dependencies</strong> (installed or missing).</li>
 <li>The <strong>functions</strong> that can be run based on your currently installed dependencies.</li>
 </ul>
-<p>Note that some packages, such as <code>Seurat</code>, <code>ggplot2</code>, or <code>dplyr</code>, require a minimum version. If your installed version is not high enough, these packages will be marked with an exclamation mark.</p>
-<p>If you do not see this message, you can always generate it by using <code><a href="https://rdrr.io/pkg/SCpubr/man/package_report.html">SCpubr::package_report()</a></code>.</p>
-<p>You can also check the required packages for a specific function by using <code><a href="https://rdrr.io/pkg/SCpubr/man/check_dependencies.html">SCpubr::check_dependencies()</a></code> and specifying the function name.</p>
+<p>Note that some packages, such as <code>Seurat</code>, <code>ggplot2</code>, or <code>dplyr</code>, require a minimum version. If your installed version is not high enough, these packages will be marked with an <strong>exclamation mark</strong>.</p>
 
 
 

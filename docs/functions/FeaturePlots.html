@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.3.324">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>SCpubr - Feature plots</title>
+<title>SCpubr - do_FeaturePlot() | Dimensional Reduction feature plots</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -60,7 +60,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../functions/BarPlots.html" rel="next">
+<link href="../functions/NebulosaPlots.html" rel="next">
 <link href="../functions/DimPlots.html" rel="prev">
 <link href="..//images/SCpubr_logo_favicon.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js"></script>
@@ -91,13 +91,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script><style>html{ scroll-behavior: smooth; }</style>
 <script type="text/javascript" src="./intense.js"></script>
-<meta property="og:title" content="SCpubr - Feature plots">
+<meta property="og:title" content="SCpubr - do_FeaturePlot() | Dimensional Reduction feature plots">
 <meta property="og:description" content="">
 <meta property="og:image" content="https://enblacar.github.io/SCpubr-book/functions/FeaturePlots_files/figure-html/unnamed-chunk-3-1.png">
 <meta property="og:site-name" content="SCpubr">
 <meta property="og:image:height" content="6600">
 <meta property="og:image:width" content="6000">
-<meta name="twitter:title" content="SCpubr - Feature plots">
+<meta name="twitter:title" content="SCpubr - do_FeaturePlot() | Dimensional Reduction feature plots">
 <meta name="twitter:description" content="">
 <meta name="twitter:image" content="https://enblacar.github.io/SCpubr-book/functions/FeaturePlots_files/figure-html/unnamed-chunk-3-1.png">
 <meta name="twitter:image-height" content="6600">
@@ -111,7 +111,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../functions/DimPlots.html">Functions</a></li><li class="breadcrumb-item"><a href="../functions/FeaturePlots.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Feature plots</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../functions/DimPlots.html">Functions</a></li><li class="breadcrumb-item"><a href="../functions/FeaturePlots.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">do_FeaturePlot() | Dimensional Reduction feature plots</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -182,13 +182,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../functions/FeaturePlots.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Feature plots</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">do_FeaturePlot() | Dimensional Reduction feature plots</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../functions/NebulosaPlots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">do_NebulosaPlot | Feature plots based on density</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../functions/DotPlots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Dot plots</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../functions/BarPlots.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Bar plots</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">do_BarPlot() | Bar plots and cell type composition analyses</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../functions/BoxPlots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Box plots</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../functions/ViolinPlots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Violin plots</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../functions/BeeSwarmPlots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">do_BeeSwarmPlot() | Density distribution plots</span></span></a>
   </div>
 </li>
       </ul>
@@ -205,19 +235,78 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../cheatsheets/Shared_Features.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Shared features across functions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Shared features across functions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../cheatsheets/DimPlots.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">do_DimPlot()</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">do_DimPlot()</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cheatsheets/FeaturePlots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">do_FeaturePlot()</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cheatsheets/NebulosaPlots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">do_NebulosaPlot()</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cheatsheets/DotPlots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">do_DotPlot()</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../cheatsheets/BarPlots.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">do_BarPlot()</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">do_BarPlot()</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cheatsheets/BoxPlots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">do_BoxPlot()</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cheatsheets/ViolinPlots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">do_BeeSwarmPlot()</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cheatsheets/BeeSwarmPlots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">do_BeeSwarmPlot()</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+ <span class="menu-text">Appendix</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../closing_remarks/Citation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Citation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../closing_remarks/Acknowledgements.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Acknowledgements</span></a>
   </div>
 </li>
       </ul>
@@ -233,12 +322,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><a href="#control-axis-limits" id="toc-control-axis-limits" class="nav-link active" data-scroll-target="#control-axis-limits">Control axis limits</a></li>
   <li><a href="#plot-a-subset-of-cells" id="toc-plot-a-subset-of-cells" class="nav-link" data-scroll-target="#plot-a-subset-of-cells">Plot a subset of cells</a></li>
   <li><a href="#split-by-a-variable" id="toc-split-by-a-variable" class="nav-link" data-scroll-target="#split-by-a-variable">Split by a variable</a></li>
+  <li><a href="#split-by-a-variable-and-group-by-another" id="toc-split-by-a-variable-and-group-by-another" class="nav-link" data-scroll-target="#split-by-a-variable-and-group-by-another">Split by a variable and group by another</a></li>
+  <li><a href="#label-the-identities" id="toc-label-the-identities" class="nav-link" data-scroll-target="#label-the-identities">Label the identities</a></li>
   <li><a href="#and-more" id="toc-and-more" class="nav-link" data-scroll-target="#and-more">And more!</a></li>
   </ul></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title">Feature plots</h1>
+<h1 class="title">do_FeaturePlot() | Dimensional Reduction feature plots</h1>
 </div>
 
 
@@ -348,7 +439,109 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section><section id="and-more" class="level1"><h1>And more!</h1>
+</section><section id="split-by-a-variable-and-group-by-another" class="level2"><h2 class="anchored" data-anchor-id="split-by-a-variable-and-group-by-another">Split by a variable and group by another</h2>
+<p>Sometimes we still want to have a rough estimate of categorical groups of cells present in the data. For this, using <code>group.by</code> allows to plot a circle where the different groups are located.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
+<span>                            features <span class="op">=</span> <span class="st">"PC_1"</span>,</span>
+<span>                            group.by <span class="op">=</span> <span class="st">"seurat_clusters"</span><span class="op">)</span></span>
+<span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="FeaturePlots_files/figure-html/unnamed-chunk-9-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Size of the dots can be modified using <code>group.by.dot.size</code>.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
+<span>                            features <span class="op">=</span> <span class="st">"PC_1"</span>,</span>
+<span>                            group.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>,</span>
+<span>                            group.by.dot.size <span class="op">=</span> <span class="fl">12</span><span class="op">)</span></span>
+<span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="FeaturePlots_files/figure-html/unnamed-chunk-10-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>One can also plot a shadow around the cells to also depict the assignment to the groups in <code>group.by</code>. This can be done using <code>group.by.cell_borders = TRUE</code> and the alpha of the shadow is controlled using <code>group.by.cell_borders.alpha</code> parameter.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
+<span>                            features <span class="op">=</span> <span class="st">"PC_1"</span>,</span>
+<span>                            group.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>,</span>
+<span>                            group.by.cell_borders <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                            group.by.cell_borders.alpha <span class="op">=</span> <span class="fl">0.1</span><span class="op">)</span></span>
+<span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="FeaturePlots_files/figure-html/unnamed-chunk-11-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>And we can remove the dots but keep the shadow by using <code>group.by.show.dots = FALSE</code>.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
+<span>                            features <span class="op">=</span> <span class="st">"PC_1"</span>,</span>
+<span>                            group.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>,</span>
+<span>                            group.by.cell_borders <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                            group.by.cell_borders.alpha <span class="op">=</span> <span class="fl">0.1</span>,</span>
+<span>                            group.by.show.dots <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="FeaturePlots_files/figure-html/unnamed-chunk-12-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Finally, we can control the legend title using <code>group.by.legend</code> and the colors used in <code>group.by</code> with <code>group.by.colors.use</code>.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
+<span>                            features <span class="op">=</span> <span class="st">"PC_1"</span>,</span>
+<span>                            group.by <span class="op">=</span> <span class="st">"seurat_clusters"</span>,</span>
+<span>                            group.by.cell_borders <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                            group.by.cell_borders.alpha <span class="op">=</span> <span class="fl">0.1</span>,</span>
+<span>                            group.by.show.dots <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                            group.by.legend <span class="op">=</span> <span class="st">"My Clusters"</span>,</span>
+<span>                            group.by.colors.use <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"0"</span> <span class="op">=</span> <span class="st">"#001219"</span>,</span>
+<span>                                                    <span class="st">"1"</span> <span class="op">=</span> <span class="st">"#005f73"</span>,</span>
+<span>                                                    <span class="st">"2"</span> <span class="op">=</span> <span class="st">"#0a9396"</span>,</span>
+<span>                                                    <span class="st">"3"</span> <span class="op">=</span> <span class="st">"#94d2bd"</span>,</span>
+<span>                                                    <span class="st">"4"</span> <span class="op">=</span> <span class="st">"#e9d8a6"</span>,</span>
+<span>                                                    <span class="st">"5"</span> <span class="op">=</span> <span class="st">"#ee9b00"</span>,</span>
+<span>                                                    <span class="st">"6"</span> <span class="op">=</span> <span class="st">"#ca6702"</span>,</span>
+<span>                                                    <span class="st">"7"</span> <span class="op">=</span> <span class="st">"#bb3e03"</span>,</span>
+<span>                                                    <span class="st">"8"</span> <span class="op">=</span> <span class="st">"#ae2012"</span>,</span>
+<span>                                                    <span class="st">"9"</span> <span class="op">=</span> <span class="st">"#9b2226"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="FeaturePlots_files/figure-html/unnamed-chunk-13-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="label-the-identities" class="level2"><h2 class="anchored" data-anchor-id="label-the-identities">Label the identities</h2>
+<p>Finally, we can also achieve a similar effect by using a combination of <code>label = TRUE</code>, <code>label.color</code> and <code>label.size</code> parameters, which will plot labels where the current groups defined by <code>Seurat::Idents(sample)</code> are located.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">SCpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/SCpubr/man/do_FeaturePlot.html">do_FeaturePlot</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">sample</span>,</span>
+<span>                            features <span class="op">=</span> <span class="st">"PC_1"</span>,</span>
+<span>                            label <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                            label.color <span class="op">=</span> <span class="st">"#ca6702"</span>,</span>
+<span>                            label.size <span class="op">=</span> <span class="fl">8</span><span class="op">)</span></span>
+<span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="FeaturePlots_files/figure-html/unnamed-chunk-14-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="and-more" class="level2"><h2 class="anchored" data-anchor-id="and-more">And more!</h2>
 <p>There are many synergies across functions. Have a look at the section <strong>Shared features across functions</strong>!</p>
 
 
@@ -590,8 +783,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../functions/BarPlots.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Bar plots</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../functions/NebulosaPlots.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">do_NebulosaPlot | Feature plots based on density</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -1,0 +1,51 @@
+---
+format: 
+  html:
+    include-after-body:
+      - ./plot_fold.html
+      - ./img_zoom.html
+---
+
+# do_BeeSwarmPlot()
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+suppressMessages(library("Seurat"))
+```
+
+```{r}
+#| echo: false
+sample <- readRDS("/b06x-isilon/b06x-g/G703/eblanco/projects/test_SC_datasets/sc_dataset.rds")
+
+```
+
+
+## Use categorical variables
+```{r}
+#| fig-width: 10
+#| fig-height: 10
+SCpubr::do_BeeSwarmPlot(sample = sample, 
+                        feature_to_rank = "PC_1", 
+                        continuous_feature = FALSE)
+```
+
+## Use continuous variables
+```{r}
+#| fig-width: 10
+#| fig-height: 10
+SCpubr::do_BeeSwarmPlot(sample = sample, 
+                        feature_to_rank = "PC_1", 
+                        continuous_feature = TRUE)
+```
+
+
+## Order the groups
+```{r}
+#| fig-width: 10
+#| fig-height: 10
+SCpubr::do_BeeSwarmPlot(sample = sample, 
+                        feature_to_rank = "PC_1", 
+                        order = TRUE)
+```

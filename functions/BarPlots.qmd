@@ -1,12 +1,6 @@
----
-format: 
-  html:
-    include-after-body:
-      - ./plot_fold.html
-      - ./img_zoom.html
----
 
-# Bar plots
+
+# do_BarPlot() | Bar plots and cell type composition analyses
 
 Bar plots are another well known data representation. They are a very handy resource to plot summary statistics. Consequently, they are part of `SCpubr`, available on `SCpubr::do_BarPlot()`. 
 
@@ -27,7 +21,6 @@ library(magrittr)
 ```{r}
 #| fig-width: 14
 #| fig-height: 8
-#| fig-cap: "Basic bar plot."
 
 # Basic bar plot, horizontal.
 p1 <- SCpubr::do_BarPlot(sample = sample, 
@@ -49,13 +42,14 @@ Using `SCpubr::do_BarPlot()` with only `group.by` yields a simple bar plot which
 - The values in `group.by` need to be metadata variables, stored in `object@meta.data`. They have to be either a **character** or **factor** columns.
 
 
+Bars are by default not arranged, but one can force them to be in descending order by using `order = TRUE`.
+
 ## Grouping by a second variable
 Let's expand on the previous example on the number of cells per cluster. What if we were interested not only on that, but we would like to profile **how many cells from each cluster are present in each of the unique samples present in the Seurat object**? For this, we need to provide `SCpubr::do_BarPlot()` with a second parameter, `split.by`, that tackles how we want the feature to be grouped:
 
 ```{r}
 #| fig-width: 14
 #| fig-height: 8
-#| fig-cap: "Split the bars by another variable."
 
 sample$modified_orig.ident <- sample(x = c("Sample_A", "Sample_B", "Sample_C"), 
                                      size = ncol(sample), 
@@ -89,7 +83,6 @@ Another interesting parameter introduced in the last example is `position`. Posi
 ```{r}
 #| fig-width: 14
 #| fig-height: 8
-#| fig-cap: "Position = fill"
 
 
 p1 <- SCpubr::do_BarPlot(sample, 
@@ -122,7 +115,6 @@ One has to play with these parameters until a suitable combination is found for 
 ```{r}
 #| fig-width: 14
 #| fig-height: 8
-#| fig-cap: "Position = fill"
 
 
 p1 <- SCpubr::do_BarPlot(sample, 
@@ -145,5 +137,63 @@ p2 <- SCpubr::do_BarPlot(sample,
 p <- p1 | p2
 p
 ```
+## Order by a value
+
+Bars can be rearranged based on the values of given group. This is achieved by using `order = TRUE` and `order.by`.
+
+```{r}
+#| fig-width: 14
+#| fig-height: 8
+
+p1 <- SCpubr::do_BarPlot(sample, 
+                         group.by = "seurat_clusters",
+                         split.by = "modified_orig.ident",
+                         order = TRUE,
+                         order.by = "1",
+                         position = "fill",
+                         flip = FALSE)
+
+p2 <- SCpubr::do_BarPlot(sample, 
+                         group.by = "seurat_clusters",
+                         split.by = "modified_orig.ident",
+                         position = "fill",
+                         flip = TRUE,
+                         order = TRUE,
+                         order.by = "1")
+
+p <- p1 | p2
+p
+```
 
 
+## Facet by a third variable
+
+Specially useful when you have multiple metadata variables that group your data. By using `facet.by` you can specify how to further break down the bars by the group.
+
+```{r}
+#| fig-width: 14
+#| fig-height: 8
+
+sample$facet_var <- ifelse(sample$modified_orig.ident == "Sample_A", "Group 1", "Group 2")
+
+p1 <- SCpubr::do_BarPlot(sample, 
+                         group.by = "seurat_clusters",
+                         split.by = "modified_orig.ident",
+                         facet.by = "facet_var",
+                         position = "fill",
+                         flip = FALSE)
+
+p2 <- SCpubr::do_BarPlot(sample, 
+                         group.by = "seurat_clusters",
+                         split.by = "modified_orig.ident",
+                         facet.by = "facet_var",
+                         position = "fill",
+                         flip = TRUE)
+
+p <- p1 | p2
+p
+```
+
+## And more!
+
+There are many synergies across functions. Have a look at the section **Shared features across functions**!

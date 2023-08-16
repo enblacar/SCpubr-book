@@ -66,3 +66,34 @@ SCpubr::do_BarPlot(sample,
                    position = "fill",
                    add.n = TRUE)
 ```
+
+## Order by a value
+
+```{r}
+#| fig-width: 10
+#| fig-height: 6
+SCpubr::do_BarPlot(sample, 
+                   group.by = "seurat_clusters",
+                   split.by = "modified_orig.ident",
+                   position = "fill",
+                   order = TRUE,
+                   order.by = "1")
+```
+
+## Facet by a variable
+
+```{r}
+#| fig-width: 10
+#| fig-height: 6
+#| warning: false
+#| message: false
+#| error: false
+
+sample$facet_var <- ifelse(sample$modified_orig.ident == "Sample_A", "Group 1", "Group 2")
+
+SCpubr::do_BarPlot(sample, 
+                   group.by = "seurat_clusters",
+                   split.by = "modified_orig.ident",
+                   facet.by = "facet_var",
+                   position = "fill")
+```
