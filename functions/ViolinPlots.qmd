@@ -1,4 +1,4 @@
-# Violin plots
+# do_ViolinPlot() | Violin plots
 
 Violin plots require very little description. They are a depiction of the distribution of a variable. It makes it ideal in order to show differential enrichment patterns alongside different groups. As such, it is also included in `Seurat` under `Seurat::VlnPlot()` function. The very first time a new user encounters this function is likely going to be when querying for different QC parameters, such as the number of UMIs, the number of genes or the percentage of mitochondrial RNA. This is how it looks for the number of UMIs:
 

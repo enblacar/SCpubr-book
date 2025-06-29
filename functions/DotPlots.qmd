@@ -1,4 +1,4 @@
-# Dot plots
+# do_DotPlot | Dot plots
 
 Dot plots are a very nice data representation technique. It involves the use of two scales. One scale is color-based while the second one is size-based. In the context of `Seurat::DotPlot()`, these scales are pre-defined to contain the average expression values on the color scale and the percentage of cells within the group expressing the feature on the size, increasing it as this percentage grows bigger. It is heavily implied that the features need to be genes, otherwise the color scale will be lost. This is the output from `Seurat`:
 

@@ -1,4 +1,4 @@
-# Box plots
+# do_BoxPlot() | Box plots
 
 ```{r}
 #| results: "asis"
