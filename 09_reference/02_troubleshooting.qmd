@@ -1,0 +1,27 @@
+# Troubleshooting {.unnumbered}
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+```
+
+## Common errors
+
+### Missing dependencies
+
+**Error**: "Package X is not installed"
+
+**Solution**: Install the missing package or run `SCpubr::do_PackageReport(extended = TRUE)` to see all missing dependencies.
+
+### Memory issues
+
+**Error**: "Cannot allocate vector of size..."
+
+**Solution**: Use `raster = TRUE` to reduce memory usage, or work with a subset of your data.
+
+### Color scale issues
+
+**Error**: "Insufficient values in manual scale"
+
+**Solution**: Make sure your `colors.use` vector has names matching all categories in your data.

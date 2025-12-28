@@ -1,0 +1,18 @@
+# do_ActivityHeatmap() | Activity scores heatmap
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+```
+
+Activity heatmaps display activity scores (from tools like decoupleR) across cells or groups.
+
+## Basic usage
+
+```{r}
+#| eval: false
+p <- SCpubr::do_ActivityHeatmap(sample = sample,
+                                activities = activity_scores)
+p
+```

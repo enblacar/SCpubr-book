@@ -1,0 +1,34 @@
+# Creating publication-ready figures
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+```
+
+Tips and workflows for creating publication-quality figures.
+
+## Key principles
+
+- Use consistent color schemes
+- Add meaningful titles and labels
+- Check colorblind accessibility
+- Use appropriate figure dimensions
+
+## Example workflow
+
+```{r}
+#| eval: false
+# Define colors
+colors <- c("0" = "#E63946",
+            "1" = "#F1FAEE")
+
+# Check colorblind safety
+SCpubr::do_ColorBlindCheck(colors = colors)
+
+# Create figure
+p <- SCpubr::do_DimPlot(sample = sample,
+                        colors.use = colors,
+                        plot.title = "Cell Clusters")
+p
+```

@@ -1,0 +1,19 @@
+# do_ChordDiagramPlot() | Interaction networks
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+```
+
+Chord diagrams visualize relationships and flows between different groups as circular connections.
+
+## Basic usage
+
+```{r}
+#| eval: false
+p <- SCpubr::do_ChordDiagramPlot(sample = sample,
+                                 from = "cluster_A",
+                                 to = "cluster_B")
+p
+```

@@ -1,0 +1,17 @@
+# do_VolcanoPlot() | DE volcano plots
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+```
+
+Volcano plots display differential expression results showing both fold change and statistical significance.
+
+## Basic usage
+
+```{r}
+#| eval: false
+p <- SCpubr::do_VolcanoPlot(de_genes = de_results)
+p
+```

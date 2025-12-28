@@ -1,0 +1,18 @@
+# do_TFActivityHeatmap() | Transcription factor activity
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+```
+
+TF activity heatmaps visualize transcription factor activity scores across cells or groups.
+
+## Basic usage
+
+```{r}
+#| eval: false
+p <- SCpubr::do_TFActivityHeatmap(sample = sample,
+                                  activities = tf_activities)
+p
+```

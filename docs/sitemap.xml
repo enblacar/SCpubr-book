@@ -2,90 +2,218 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://enblacar.github.io/SCpubr-book/index.html</loc>
-    <lastmod>2023-08-16T10:27:26.404Z</lastmod>
+    <lastmod>2025-12-28T13:56:31.299Z</lastmod>
   </url>
   <url>
-    <loc>https://enblacar.github.io/SCpubr-book/preface/Installation-guide.html</loc>
-    <lastmod>2023-08-16T09:52:39.837Z</lastmod>
+    <loc>https://enblacar.github.io/SCpubr-book/01_getting_started/01_installation.html</loc>
+    <lastmod>2025-12-28T13:56:31.243Z</lastmod>
   </url>
   <url>
-    <loc>https://enblacar.github.io/SCpubr-book/preface/Dataset.html</loc>
-    <lastmod>2023-08-16T09:52:48.470Z</lastmod>
+    <loc>https://enblacar.github.io/SCpubr-book/01_getting_started/02_dataset.html</loc>
+    <lastmod>2025-12-28T15:07:40.108Z</lastmod>
   </url>
   <url>
-    <loc>https://enblacar.github.io/SCpubr-book/functions/DimPlots.html</loc>
-    <lastmod>2023-08-16T09:57:46.620Z</lastmod>
+    <loc>https://enblacar.github.io/SCpubr-book/01_getting_started/03_quickstart.html</loc>
+    <lastmod>2025-12-28T13:56:31.244Z</lastmod>
   </url>
   <url>
-    <loc>https://enblacar.github.io/SCpubr-book/functions/FeaturePlots.html</loc>
-    <lastmod>2023-08-16T10:01:17.448Z</lastmod>
+    <loc>https://enblacar.github.io/SCpubr-book/01_getting_started/04_shared_features.html</loc>
+    <lastmod>2025-12-28T13:56:31.244Z</lastmod>
   </url>
   <url>
-    <loc>https://enblacar.github.io/SCpubr-book/functions/NebulosaPlots.html</loc>
-    <lastmod>2023-08-16T10:02:35.529Z</lastmod>
+    <loc>https://enblacar.github.io/SCpubr-book/02_dimensional_reduction/01_dimplot.html</loc>
+    <lastmod>2025-12-28T13:56:31.244Z</lastmod>
   </url>
   <url>
-    <loc>https://enblacar.github.io/SCpubr-book/functions/DotPlots.html</loc>
-    <lastmod>2023-08-16T10:03:12.831Z</lastmod>
+    <loc>https://enblacar.github.io/SCpubr-book/03_group_comparison/01_violinplot.html</loc>
+    <lastmod>2025-12-28T13:56:31.244Z</lastmod>
   </url>
   <url>
-    <loc>https://enblacar.github.io/SCpubr-book/functions/BarPlots.html</loc>
-    <lastmod>2023-08-16T10:03:52.387Z</lastmod>
+    <loc>https://enblacar.github.io/SCpubr-book/03_group_comparison/02_boxplot.html</loc>
+    <lastmod>2025-12-28T13:56:31.244Z</lastmod>
   </url>
   <url>
-    <loc>https://enblacar.github.io/SCpubr-book/functions/BoxPlots.html</loc>
-    <lastmod>2023-08-16T10:04:30.057Z</lastmod>
+    <loc>https://enblacar.github.io/SCpubr-book/03_group_comparison/03_beeswarmplot.html</loc>
+    <lastmod>2025-12-28T13:56:31.247Z</lastmod>
   </url>
   <url>
-    <loc>https://enblacar.github.io/SCpubr-book/functions/ViolinPlots.html</loc>
-    <lastmod>2023-08-16T10:05:16.747Z</lastmod>
+    <loc>https://enblacar.github.io/SCpubr-book/03_group_comparison/04_ridgeplot.html</loc>
+    <lastmod>2025-12-28T13:56:31.248Z</lastmod>
   </url>
   <url>
-    <loc>https://enblacar.github.io/SCpubr-book/functions/BeeSwarmPlots.html</loc>
-    <lastmod>2023-08-16T10:07:39.089Z</lastmod>
+    <loc>https://enblacar.github.io/SCpubr-book/03_group_comparison/05_stripplot.html</loc>
+    <lastmod>2025-12-28T13:56:31.252Z</lastmod>
   </url>
   <url>
-    <loc>https://enblacar.github.io/SCpubr-book/cheatsheets/Shared_Features.html</loc>
-    <lastmod>2023-08-16T10:17:21.605Z</lastmod>
+    <loc>https://enblacar.github.io/SCpubr-book/03_group_comparison/06_barplot.html</loc>
+    <lastmod>2025-12-28T13:56:31.252Z</lastmod>
   </url>
   <url>
-    <loc>https://enblacar.github.io/SCpubr-book/cheatsheets/DimPlots.html</loc>
-    <lastmod>2023-08-16T10:20:14.044Z</lastmod>
+    <loc>https://enblacar.github.io/SCpubr-book/03_group_comparison/07_waffleplot.html</loc>
+    <lastmod>2025-12-28T13:56:31.257Z</lastmod>
   </url>
   <url>
-    <loc>https://enblacar.github.io/SCpubr-book/cheatsheets/FeaturePlots.html</loc>
-    <lastmod>2023-08-16T10:23:35.080Z</lastmod>
+    <loc>https://enblacar.github.io/SCpubr-book/03_group_comparison/08_alluvialplot.html</loc>
+    <lastmod>2025-12-28T13:56:31.276Z</lastmod>
   </url>
   <url>
-    <loc>https://enblacar.github.io/SCpubr-book/cheatsheets/NebulosaPlots.html</loc>
-    <lastmod>2023-08-16T10:24:40.794Z</lastmod>
+    <loc>https://enblacar.github.io/SCpubr-book/04_expression_analysis/01_featureplot.html</loc>
+    <lastmod>2025-12-27T20:37:16.174Z</lastmod>
   </url>
   <url>
-    <loc>https://enblacar.github.io/SCpubr-book/cheatsheets/DotPlots.html</loc>
-    <lastmod>2023-08-16T10:25:10.072Z</lastmod>
+    <loc>https://enblacar.github.io/SCpubr-book/04_expression_analysis/02_nebulosaplot.html</loc>
+    <lastmod>2025-12-27T20:37:15.969Z</lastmod>
   </url>
   <url>
-    <loc>https://enblacar.github.io/SCpubr-book/cheatsheets/BarPlots.html</loc>
-    <lastmod>2023-08-16T10:25:39.798Z</lastmod>
+    <loc>https://enblacar.github.io/SCpubr-book/04_expression_analysis/03_cellularstatesplot.html</loc>
+    <lastmod>2025-12-27T20:37:15.791Z</lastmod>
   </url>
   <url>
-    <loc>https://enblacar.github.io/SCpubr-book/cheatsheets/BoxPlots.html</loc>
-    <lastmod>2023-08-16T10:26:12.957Z</lastmod>
+    <loc>https://enblacar.github.io/SCpubr-book/04_expression_analysis/04_dotplot.html</loc>
+    <lastmod>2025-12-27T20:37:16.021Z</lastmod>
   </url>
   <url>
-    <loc>https://enblacar.github.io/SCpubr-book/cheatsheets/ViolinPlots.html</loc>
-    <lastmod>2023-08-16T10:26:46.308Z</lastmod>
+    <loc>https://enblacar.github.io/SCpubr-book/04_expression_analysis/05_expressionheatmap.html</loc>
+    <lastmod>2025-12-27T20:37:16.066Z</lastmod>
   </url>
   <url>
-    <loc>https://enblacar.github.io/SCpubr-book/cheatsheets/BeeSwarmPlots.html</loc>
-    <lastmod>2023-08-16T10:27:23.864Z</lastmod>
+    <loc>https://enblacar.github.io/SCpubr-book/04_expression_analysis/06_scexpressionheatmap.html</loc>
+    <lastmod>2025-12-27T20:37:16.069Z</lastmod>
   </url>
   <url>
-    <loc>https://enblacar.github.io/SCpubr-book/closing_remarks/Citation.html</loc>
-    <lastmod>2023-08-16T10:27:24.481Z</lastmod>
+    <loc>https://enblacar.github.io/SCpubr-book/04_expression_analysis/07_rankedexpressionheatmap.html</loc>
+    <lastmod>2025-12-27T20:37:16.133Z</lastmod>
   </url>
   <url>
-    <loc>https://enblacar.github.io/SCpubr-book/closing_remarks/Acknowledgements.html</loc>
-    <lastmod>2023-08-16T10:27:25.022Z</lastmod>
+    <loc>https://enblacar.github.io/SCpubr-book/04_expression_analysis/08_correlationheatmap.html</loc>
+    <lastmod>2025-12-27T20:37:16.137Z</lastmod>
+  </url>
+  <url>
+    <loc>https://enblacar.github.io/SCpubr-book/04_expression_analysis/09_groupwisedeheatmap.html</loc>
+    <lastmod>2025-12-27T20:37:16.171Z</lastmod>
+  </url>
+  <url>
+    <loc>https://enblacar.github.io/SCpubr-book/04_expression_analysis/10_volcanoplot.html</loc>
+    <lastmod>2025-12-27T20:37:16.174Z</lastmod>
+  </url>
+  <url>
+    <loc>https://enblacar.github.io/SCpubr-book/05_enrichment_pathway/01_enrichmentheatmap.html</loc>
+    <lastmod>2025-12-28T13:56:31.276Z</lastmod>
+  </url>
+  <url>
+    <loc>https://enblacar.github.io/SCpubr-book/05_enrichment_pathway/02_scenrichmentheatmap.html</loc>
+    <lastmod>2025-12-28T13:56:31.277Z</lastmod>
+  </url>
+  <url>
+    <loc>https://enblacar.github.io/SCpubr-book/05_enrichment_pathway/03_rankedenrichmentheatmap.html</loc>
+    <lastmod>2025-12-28T13:56:31.277Z</lastmod>
+  </url>
+  <url>
+    <loc>https://enblacar.github.io/SCpubr-book/05_enrichment_pathway/04_termenrichmentplot.html</loc>
+    <lastmod>2025-12-28T13:56:31.277Z</lastmod>
+  </url>
+  <url>
+    <loc>https://enblacar.github.io/SCpubr-book/05_enrichment_pathway/05_activityheatmap.html</loc>
+    <lastmod>2025-12-28T13:56:31.282Z</lastmod>
+  </url>
+  <url>
+    <loc>https://enblacar.github.io/SCpubr-book/05_enrichment_pathway/06_tfactivityheatmap.html</loc>
+    <lastmod>2025-12-28T13:56:31.278Z</lastmod>
+  </url>
+  <url>
+    <loc>https://enblacar.github.io/SCpubr-book/05_enrichment_pathway/07_pathwayactivityheatmap.html</loc>
+    <lastmod>2025-12-28T13:56:31.286Z</lastmod>
+  </url>
+  <url>
+    <loc>https://enblacar.github.io/SCpubr-book/06_specialized/01_ligandreceptorplot.html</loc>
+    <lastmod>2025-12-28T13:56:31.289Z</lastmod>
+  </url>
+  <url>
+    <loc>https://enblacar.github.io/SCpubr-book/06_specialized/02_chorddiagramplot.html</loc>
+    <lastmod>2025-12-28T13:56:31.289Z</lastmod>
+  </url>
+  <url>
+    <loc>https://enblacar.github.io/SCpubr-book/06_specialized/03_cnvheatmap.html</loc>
+    <lastmod>2025-12-28T13:56:31.289Z</lastmod>
+  </url>
+  <url>
+    <loc>https://enblacar.github.io/SCpubr-book/06_specialized/04_loadingsheatmap.html</loc>
+    <lastmod>2025-12-28T13:56:31.292Z</lastmod>
+  </url>
+  <url>
+    <loc>https://enblacar.github.io/SCpubr-book/06_specialized/05_metadataheatmap.html</loc>
+    <lastmod>2025-12-28T13:56:31.292Z</lastmod>
+  </url>
+  <url>
+    <loc>https://enblacar.github.io/SCpubr-book/07_utilities/01_colorpalette.html</loc>
+    <lastmod>2025-12-28T13:56:31.293Z</lastmod>
+  </url>
+  <url>
+    <loc>https://enblacar.github.io/SCpubr-book/07_utilities/02_colorblindcheck.html</loc>
+    <lastmod>2025-12-28T13:56:31.293Z</lastmod>
+  </url>
+  <url>
+    <loc>https://enblacar.github.io/SCpubr-book/07_utilities/03_packagereport.html</loc>
+    <lastmod>2025-12-28T13:56:31.293Z</lastmod>
+  </url>
+  <url>
+    <loc>https://enblacar.github.io/SCpubr-book/08_workflows/01_basic_qc.html</loc>
+    <lastmod>2025-12-28T13:56:31.293Z</lastmod>
+  </url>
+  <url>
+    <loc>https://enblacar.github.io/SCpubr-book/08_workflows/02_marker_identification.html</loc>
+    <lastmod>2025-12-28T13:56:31.293Z</lastmod>
+  </url>
+  <url>
+    <loc>https://enblacar.github.io/SCpubr-book/08_workflows/03_cell_communication.html</loc>
+    <lastmod>2025-12-28T13:56:31.293Z</lastmod>
+  </url>
+  <url>
+    <loc>https://enblacar.github.io/SCpubr-book/08_workflows/04_pathway_analysis.html</loc>
+    <lastmod>2025-12-28T13:56:31.293Z</lastmod>
+  </url>
+  <url>
+    <loc>https://enblacar.github.io/SCpubr-book/08_workflows/05_publication_figures.html</loc>
+    <lastmod>2025-12-28T13:56:31.296Z</lastmod>
+  </url>
+  <url>
+    <loc>https://enblacar.github.io/SCpubr-book/08_workflows/06_tips_tricks.html</loc>
+    <lastmod>2025-12-28T13:56:31.296Z</lastmod>
+  </url>
+  <url>
+    <loc>https://enblacar.github.io/SCpubr-book/09_reference/01_faq.html</loc>
+    <lastmod>2025-12-28T13:56:31.299Z</lastmod>
+  </url>
+  <url>
+    <loc>https://enblacar.github.io/SCpubr-book/09_reference/02_troubleshooting.html</loc>
+    <lastmod>2025-12-28T13:56:31.299Z</lastmod>
+  </url>
+  <url>
+    <loc>https://enblacar.github.io/SCpubr-book/09_reference/03_color_reference.html</loc>
+    <lastmod>2025-12-28T13:56:31.299Z</lastmod>
+  </url>
+  <url>
+    <loc>https://enblacar.github.io/SCpubr-book/09_reference/04_parameter_reference.html</loc>
+    <lastmod>2025-12-28T13:56:31.299Z</lastmod>
+  </url>
+  <url>
+    <loc>https://enblacar.github.io/SCpubr-book/09_reference/05_changelog.html</loc>
+    <lastmod>2025-12-28T13:56:31.299Z</lastmod>
+  </url>
+  <url>
+    <loc>https://enblacar.github.io/SCpubr-book/10_appendix/01_citation.html</loc>
+    <lastmod>2025-12-28T13:56:31.299Z</lastmod>
+  </url>
+  <url>
+    <loc>https://enblacar.github.io/SCpubr-book/10_appendix/02_contributing.html</loc>
+    <lastmod>2025-12-28T13:56:31.299Z</lastmod>
+  </url>
+  <url>
+    <loc>https://enblacar.github.io/SCpubr-book/10_appendix/03_acknowledgements.html</loc>
+    <lastmod>2025-12-28T13:56:31.299Z</lastmod>
+  </url>
+  <url>
+    <loc>https://enblacar.github.io/SCpubr-book/10_appendix/04_session_info.html</loc>
+    <lastmod>2025-12-28T13:56:31.299Z</lastmod>
   </url>
 </urlset>

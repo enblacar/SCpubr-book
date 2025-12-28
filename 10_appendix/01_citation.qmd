@@ -1,0 +1,37 @@
+# How to cite {.unnumbered}
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+```
+
+If you use `SCpubr` in your research, please cite:
+
+```
+Blanco-Carmona, E. Generating publication ready visualizations 
+for Single Cell transcriptomics using SCpubr. bioRxiv (2022) 
+doi:10.1101/2022.02.28.482303.
+```
+
+## BibTeX entry
+
+```bibtex
+@article{blanco2022scpubr,
+  title={Generating publication ready visualizations for Single Cell transcriptomics using SCpubr},
+  author={Blanco-Carmona, Enrique},
+  journal={bioRxiv},
+  year={2022},
+  doi={10.1101/2022.02.28.482303}
+}
+```
+
+## Package version
+
+You can get the package version and citation in R:
+
+```{r}
+#| eval: false
+citation("SCpubr")
+packageVersion("SCpubr")
+```

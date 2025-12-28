@@ -1,0 +1,27 @@
+# Basic QC workflow
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+```
+
+This workflow demonstrates a basic quality control visualization pipeline.
+
+## Overview
+
+```{r}
+#| eval: false
+# Load data
+sample <- readRDS("seurat_object.rds")
+
+# QC metrics
+p1 <- SCpubr::do_ViolinPlot(sample = sample,
+                            features = "nCount_RNA")
+
+p2 <- SCpubr::do_ViolinPlot(sample = sample,
+                            features = "nFeature_RNA")
+
+# Combine plots
+p1 | p2
+```

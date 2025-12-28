@@ -1,0 +1,18 @@
+# do_RidgePlot() | Density ridge plots
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+```
+
+Ridge plots display density distributions stacked vertically for easy comparison.
+
+## Basic usage
+
+```{r}
+#| eval: false
+p <- SCpubr::do_RidgePlot(sample = sample,
+                          features = "CD3D")
+p
+```

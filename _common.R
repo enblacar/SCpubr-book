@@ -14,3 +14,13 @@ knitr::opts_chunk$set(
   out.height = "100%",
   dpi=300
 )
+
+# Load required libraries for all chapters
+suppressMessages(library(Seurat))
+suppressMessages(library(SCpubr))
+
+# Helper: consistent plot theme for all SCpubr plots
+scpubr_theme <- function() {
+  ggplot2::theme_minimal(base_size = 12) +
+    ggplot2::theme(legend.position = "right")
+}

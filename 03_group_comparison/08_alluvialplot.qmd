@@ -1,0 +1,19 @@
+# do_AlluvialPlot() | Flow between categories
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+```
+
+Alluvial plots visualize how categorical assignments change across conditions or time points.
+
+## Basic usage
+
+```{r}
+#| eval: false
+p <- SCpubr::do_AlluvialPlot(sample = sample,
+                             first_group = "seurat_clusters",
+                             last_group = "cell_type")
+p
+```

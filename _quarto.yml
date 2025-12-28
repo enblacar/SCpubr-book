@@ -13,7 +13,7 @@ book:
   twitter-card: true
   favicon: /images/SCpubr_logo_favicon.png
   sidebar:
-    title: "SCpubr  [`v2.0.0`](https://github.com/enblacar/SCpubr/blob/main/NEWS.md)"
+    title: "SCpubr  [`v3.0.0`](https://github.com/enblacar/SCpubr/blob/main/NEWS.md)"
     foreground: primary
     collapse-level: 1
     border: true
@@ -33,36 +33,86 @@ book:
     - part: "Getting started"
       chapters:
       - index.qmd
-      - ./preface/Installation-guide.qmd
-      - ./preface/Dataset.qmd
+      - ./01_getting_started/01_installation.qmd
+      - ./01_getting_started/02_dataset.qmd
+      - ./01_getting_started/03_quickstart.qmd
+      - ./01_getting_started/04_shared_features.qmd
 
-    - part: "Functions"
+    - part: "Dimensional reduction visualization"
       chapters:
-      - ./functions/DimPlots.qmd
-      - ./functions/FeaturePlots.qmd
-      - ./functions/NebulosaPlots.qmd
-      - ./functions/DotPlots.qmd
-      - ./functions/BarPlots.qmd
-      - ./functions/BoxPlots.qmd
-      - ./functions/ViolinPlots.qmd
-      - ./functions/BeeSwarmPlots.qmd
+      - ./02_dimensional_reduction/01_dimplot.qmd
 
-    - part: "Cheatsheets"
+    - part: "Group-wise comparison"
       chapters:
-      - ./cheatsheets/Shared_Features.qmd
-      - ./cheatsheets/DimPlots.qmd
-      - ./cheatsheets/FeaturePlots.qmd
-      - ./cheatsheets/NebulosaPlots.qmd
-      - ./cheatsheets/DotPlots.qmd
-      - ./cheatsheets/BarPlots.qmd
-      - ./cheatsheets/BoxPlots.qmd
-      - ./cheatsheets/ViolinPlots.qmd
-      - ./cheatsheets/BeeSwarmPlots.qmd
+      - ./03_group_comparison/01_violinplot.qmd
+      - ./03_group_comparison/02_boxplot.qmd
+      - ./03_group_comparison/03_beeswarmplot.qmd
+      - ./03_group_comparison/04_ridgeplot.qmd
+      - ./03_group_comparison/05_stripplot.qmd
+      - ./03_group_comparison/06_barplot.qmd
+      - ./03_group_comparison/07_waffleplot.qmd
+      - ./03_group_comparison/08_alluvialplot.qmd
+
+    - part: "Expression & feature analysis"
+      chapters:
+      - ./04_expression_analysis/01_featureplot.qmd
+      - ./04_expression_analysis/02_nebulosaplot.qmd
+      - ./04_expression_analysis/03_cellularstatesplot.qmd
+      - ./04_expression_analysis/04_dotplot.qmd
+      - ./04_expression_analysis/05_expressionheatmap.qmd
+      - ./04_expression_analysis/06_scexpressionheatmap.qmd
+      - ./04_expression_analysis/07_rankedexpressionheatmap.qmd
+      - ./04_expression_analysis/08_correlationheatmap.qmd
+      - ./04_expression_analysis/09_groupwisedeheatmap.qmd
+      - ./04_expression_analysis/10_volcanoplot.qmd
+
+    - part: "Enrichment & pathway analysis"
+      chapters:
+      - ./05_enrichment_pathway/01_enrichmentheatmap.qmd
+      - ./05_enrichment_pathway/02_scenrichmentheatmap.qmd
+      - ./05_enrichment_pathway/03_rankedenrichmentheatmap.qmd
+      - ./05_enrichment_pathway/04_termenrichmentplot.qmd
+      - ./05_enrichment_pathway/05_activityheatmap.qmd
+      - ./05_enrichment_pathway/06_tfactivityheatmap.qmd
+      - ./05_enrichment_pathway/07_pathwayactivityheatmap.qmd
+
+    - part: "Specialized analysis"
+      chapters:
+      - ./06_specialized/01_ligandreceptorplot.qmd
+      - ./06_specialized/02_chorddiagramplot.qmd
+      - ./06_specialized/03_cnvheatmap.qmd
+      - ./06_specialized/04_loadingsheatmap.qmd
+      - ./06_specialized/05_metadataheatmap.qmd
+
+    - part: "Utility functions"
+      chapters:
+      - ./07_utilities/01_colorpalette.qmd
+      - ./07_utilities/02_colorblindcheck.qmd
+      - ./07_utilities/03_packagereport.qmd
+
+    - part: "Practical workflows"
+      chapters:
+      - ./08_workflows/01_basic_qc.qmd
+      - ./08_workflows/02_marker_identification.qmd
+      - ./08_workflows/03_cell_communication.qmd
+      - ./08_workflows/04_pathway_analysis.qmd
+      - ./08_workflows/05_publication_figures.qmd
+      - ./08_workflows/06_tips_tricks.qmd
+
+    - part: "Reference"
+      chapters:
+      - ./09_reference/01_faq.qmd
+      - ./09_reference/02_troubleshooting.qmd
+      - ./09_reference/03_color_reference.qmd
+      - ./09_reference/04_parameter_reference.qmd
+      - ./09_reference/05_changelog.qmd
 
     - part: "Appendix"
       chapters:
-      - ./closing_remarks/Citation.qmd
-      - ./closing_remarks/Acknowledgements.qmd
+      - ./10_appendix/01_citation.qmd
+      - ./10_appendix/02_contributing.qmd
+      - ./10_appendix/03_acknowledgements.qmd
+      - ./10_appendix/04_session_info.qmd
 
 
 

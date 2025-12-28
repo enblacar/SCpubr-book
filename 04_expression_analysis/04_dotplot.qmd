@@ -1,0 +1,18 @@
+# do_DotPlot() | Marker gene expression
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+```
+
+Dot plots show both the expression level and percentage of cells expressing a set of genes across groups.
+
+## Basic usage
+
+```{r}
+#| eval: false
+p <- SCpubr::do_DotPlot(sample = sample,
+                        features = c("CD3D", "CD8A", "CD4"))
+p
+```

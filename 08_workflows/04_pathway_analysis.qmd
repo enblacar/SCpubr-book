@@ -1,0 +1,23 @@
+# Pathway enrichment workflow
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+```
+
+Complete workflow for pathway enrichment analysis and visualization.
+
+## Workflow
+
+```{r}
+#| eval: false
+# Define gene sets
+gene_sets <- list("T_cell" = c("CD3D", "CD8A"),
+                  "B_cell" = c("CD19", "MS4A1"))
+
+# Visualize enrichment
+p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
+                                  input_gene_list = gene_sets)
+p
+```

@@ -1,0 +1,23 @@
+# Contributing {.unnumbered}
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+```
+
+We welcome contributions to `SCpubr`!
+
+## How to contribute
+
+1. **Report bugs**: Open an issue on [GitHub](https://github.com/enblacar/SCpubr/issues)
+2. **Request features**: Suggest new functions or improvements
+3. **Submit pull requests**: Contribute code improvements
+
+## Code of conduct
+
+Please be respectful and constructive in all interactions.
+
+## Contact
+
+For questions or suggestions: `scpubr@gmail.com`

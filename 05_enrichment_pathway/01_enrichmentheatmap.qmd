@@ -1,0 +1,18 @@
+# do_EnrichmentHeatmap() | Gene set enrichment
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+```
+
+Enrichment heatmaps visualize gene set enrichment scores across cells or groups.
+
+## Basic usage
+
+```{r}
+#| eval: false
+p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
+                                  input_gene_list = gene_sets)
+p
+```

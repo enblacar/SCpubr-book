@@ -1,0 +1,17 @@
+# do_TermEnrichmentPlot() | GO/pathway term enrichment
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+```
+
+This function visualizes enriched GO terms or pathways from enrichment analysis results.
+
+## Basic usage
+
+```{r}
+#| eval: false
+p <- SCpubr::do_TermEnrichmentPlot(mat = enrichment_results)
+p
+```

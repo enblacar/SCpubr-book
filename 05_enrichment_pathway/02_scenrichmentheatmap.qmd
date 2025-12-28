@@ -1,0 +1,18 @@
+# do_SCEnrichmentHeatmap() | Single-cell enrichment
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+```
+
+Single-cell enrichment heatmaps show enrichment at individual cell resolution.
+
+## Basic usage
+
+```{r}
+#| eval: false
+p <- SCpubr::do_SCEnrichmentHeatmap(sample = sample,
+                                    input_gene_list = gene_sets)
+p
+```

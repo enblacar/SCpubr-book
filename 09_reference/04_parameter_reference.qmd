@@ -1,0 +1,24 @@
+# Parameter reference {.unnumbered}
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+```
+
+## Common parameters across functions
+
+This table summarizes the most commonly used parameters:
+
+| Parameter | Type | Description | Default |
+|-----------|------|-------------|---------|
+| `sample` | Seurat | Seurat object to plot | Required |
+| `features` | character | Genes or metadata to plot | Required* |
+| `group.by` | character | Grouping variable | "seurat_clusters" |
+| `split.by` | character | Splitting variable | NULL |
+| `colors.use` | vector | Custom colors | NULL |
+| `colorblind` | logical | Use colorblind-safe palette | FALSE |
+| `legend.position` | character | Legend placement | "right" |
+| `plot.title` | character | Plot title | NULL |
+
+*Required for some functions only

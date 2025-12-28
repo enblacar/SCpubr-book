@@ -1,0 +1,18 @@
+# do_BoxPlot() | Box-and-whisker plots
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+```
+
+Box plots provide a statistical summary of distributions across groups.
+
+## Basic usage
+
+```{r}
+#| eval: false
+p <- SCpubr::do_BoxPlot(sample = sample,
+                        features = "CD3D")
+p
+```

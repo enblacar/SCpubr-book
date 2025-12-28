@@ -1,0 +1,25 @@
+# Marker identification workflow
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+```
+
+A complete workflow for identifying and visualizing cluster markers.
+
+## Workflow
+
+```{r}
+#| eval: false
+# Visualize clusters
+p1 <- SCpubr::do_DimPlot(sample = sample,
+                         label = TRUE)
+
+# Show marker expression
+p2 <- SCpubr::do_DotPlot(sample = sample,
+                         features = markers)
+
+# Combined view
+p1 / p2
+```

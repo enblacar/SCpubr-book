@@ -1,0 +1,20 @@
+# Acknowledgements {.unnumbered}
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+```
+
+`SCpubr` builds upon the incredible work of many R package developers.
+
+## Key dependencies
+
+- **Seurat**: Single-cell analysis framework
+- **ggplot2**: Grammar of graphics
+- **ComplexHeatmap**: Advanced heatmap visualization
+- **patchwork**: Plot composition
+
+## Community
+
+Thanks to all users who have provided feedback, reported bugs, and contributed to making `SCpubr` better.

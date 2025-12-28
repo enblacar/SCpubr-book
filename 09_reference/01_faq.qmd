@@ -1,0 +1,29 @@
+# Frequently asked questions {.unnumbered}
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+```
+
+## Installation
+
+**Q: Why are some functions not working?**
+
+A: SCpubr has many optional dependencies. Run `SCpubr::do_PackageReport(extended = TRUE)` to see which dependencies are missing.
+
+## Plotting
+
+**Q: How do I change colors?**
+
+A: Use the `colors.use` parameter in any function. See the [Shared features](#shared-features-across-functions) chapter.
+
+**Q: Can I use custom color palettes?**
+
+A: Yes! You can provide a named vector of colors to `colors.use` or use `colorblind = TRUE` for automatic colorblind-safe palettes.
+
+## Troubleshooting
+
+**Q: My plot looks too crowded**
+
+A: Try using `raster = TRUE` to rasterize the plot, or adjust `pt.size` to make points smaller.

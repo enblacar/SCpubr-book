@@ -1,0 +1,13 @@
+# Session info {.unnumbered}
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+```
+
+For reproducibility, here's the session information used to build this book:
+
+```{r}
+sessionInfo()
+```

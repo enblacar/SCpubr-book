@@ -1,25 +1,30 @@
-# About this package {#default_title .unnumbered}
+# Welcome to SCpubr {#default_title .unnumbered}
 
 <img src="images/logo.png" class="mx-auto d-block" style="box-shadow: none; width: 100%">
 
-::: progress
-::: {.progress-bar .progress-bar-striped .progress-bar-animated role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%;"}
-:::
-:::
+Welcome to the official documentation for **SCpubr v3.0.0**!
 
-Woops! You stumbled upon the **`in-development`** website for `SCpubr v2.0.1`! There is still a bit of time before the release, but stay tuned for the update!
+`SCpubr` provides a streamlined way of generating publication-ready plots for **S**ingle-**C**ell transcriptomics data. The goal is simple: create high-quality visualizations with minimal effort that can be used right away in your research articles.
 
-You can have a peek to the changes [here](https://github.com/enblacar/SCpubr/blob/main/NEWS.md) and in this website as it is being rebuilt!
+## What's new in v3.0.0?
 
-::: callout-note
-## Previous documentation:
+- **34 functions** organized into 6 logical categories
+- **Colorblind-safe palettes** built-in
+- **Standardized naming** across all functions
+- **Enhanced compatibility** with SeuratObject v5
+- **Text values** in heatmaps for better readability
 
-To consult the previous documentation, [go here](https://enblacar.github.io/SCpubr-book-v1/) instead.
-:::
+Check the full [changelog](#version-history) for details.
 
-Thanks!! <!-- This package aims to provide a streamlined way of generating publication ready plots for known **S**ingle-**C**ell trascriptomics in a "**pub**lication **r**eady" format (**SCpubr**). This is, the aim is to generate with minimal effort plots with the highest quality possible, that can be used right away or with minimal modifications for a research article. -->
+## Quick links
+
+- [Installation guide](01_getting_started/01_installation.qmd) - Get started in 5 minutes
+- [Quick start](01_getting_started/03_quickstart.qmd) - Your first plots
+- [Function reference](02_dimensional_reduction/01_dimplot.qmd) - Browse all functions
+- [GitHub repository](https://github.com/enblacar/SCpubr) - Source code and issues
 
 ## License
-[SCpubr](https://github.com/enblacar/SCpubr/blob/main/LICENSE.md) and corresponding [documentation book]() licensed under [GPL v3](https://www.gnu.org/licenses/gpl-3.0.de.html)
+
+[SCpubr](https://github.com/enblacar/SCpubr/blob/main/LICENSE.md) is licensed under [GPL v3](https://www.gnu.org/licenses/gpl-3.0.de.html).
 
 

@@ -1,0 +1,21 @@
+# Cell-cell communication workflow
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+```
+
+Analyze and visualize cell-cell communication using ligand-receptor analysis.
+
+## Workflow
+
+```{r}
+#| eval: false
+# Run LIANA analysis (external)
+# liana_results <- liana::liana_wrap(sample)
+
+# Visualize interactions
+p <- SCpubr::do_LigandReceptorPlot(liana_output = liana_results)
+p
+```

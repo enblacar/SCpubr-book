@@ -1,0 +1,19 @@
+# do_RankedEnrichmentHeatmap() | Enrichment along components
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+```
+
+This function displays enrichment scores along a dimensional reduction component.
+
+## Basic usage
+
+```{r}
+#| eval: false
+p <- SCpubr::do_RankedEnrichmentHeatmap(sample = sample,
+                                        input_gene_list = gene_sets,
+                                        dims = 1)
+p
+```

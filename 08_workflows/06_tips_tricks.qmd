@@ -1,0 +1,37 @@
+# Advanced tips and tricks
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+```
+
+Advanced customization techniques for power users.
+
+## Combining plots
+
+Use `patchwork` to combine multiple SCpubr plots:
+
+```{r}
+#| eval: false
+library(patchwork)
+
+p1 <- SCpubr::do_DimPlot(sample = sample)
+p2 <- SCpubr::do_FeaturePlot(sample = sample, features = "CD3D")
+
+# Side by side
+p1 | p2
+
+# Stacked
+p1 / p2
+```
+
+## Custom themes
+
+All SCpubr plots return ggplot2 objects, so you can further customize them:
+
+```{r}
+#| eval: false
+p <- SCpubr::do_DimPlot(sample = sample)
+p + theme(legend.position = "bottom")
+```

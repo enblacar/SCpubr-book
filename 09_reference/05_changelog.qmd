@@ -1,0 +1,28 @@
+# Version history {.unnumbered}
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+```
+
+## SCpubr v3.0.0
+
+Major version update with standardized function names and enhanced features.
+
+### Key changes
+
+- Renamed multiple functions for consistency (see NEWS.md)
+- Added colorblind-safe palette support
+- Enhanced heatmap functions with text value display
+- Improved SeuratObject v5 compatibility
+
+For complete changelog, see the [NEWS.md](https://github.com/enblacar/SCpubr/blob/main/NEWS.md) file on GitHub.
+
+## SCpubr v2.0.0
+
+Second major release with expanded functionality.
+
+## SCpubr v1.0.0
+
+Initial CRAN release.
