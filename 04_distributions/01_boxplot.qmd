@@ -1,0 +1,136 @@
+# do_BoxPlot() | Box-and-whisker plots
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+```
+
+Box plots provide a **statistical summary** of distributions: median, quartiles, and outliers. Use them to compare gene expression or other continuous values across groups with optional statistical testing.
+
+---
+
+## Basic usage
+
+```{r}
+#| eval: true
+p <- SCpubr::do_BoxPlot(sample = sample,
+                        feature = "nCount_RNA",
+                        flip = TRUE,
+                        order = TRUE)
+p
+```
+
+---
+
+## Split by condition
+
+```{r}
+#| eval: true
+p <- SCpubr::do_BoxPlot(sample = sample,
+                        feature = "nCount_RNA",
+                        group.by = "subtype",
+                        split.by = "technology",
+                        flip = TRUE)
+p
+```
+
+---
+
+## Statistical testing
+
+Add significance annotations between groups:
+
+```{r}
+#| eval: true
+p <- SCpubr::do_BoxPlot(sample = sample,,
+                        feature = "nFeature_RNA",
+                        group.by = "subtype",
+                        flip = TRUE,
+                        order = TRUE,
+                        use_test = TRUE,
+                        comparisons = list(c("ATRT-TYR", "ATRT-SHH")),
+                        test = "wilcox.test")
+p
+```
+
+::: {.callout-note}
+`use_test` cannot be combined with `split.by`.
+:::
+
+### Customize significance display
+
+```{r}
+#| eval: true
+p <- SCpubr::do_BoxPlot(sample = sample,
+                        feature = "nFeature_RNA",
+                        group.by = "subtype",
+                        flip = TRUE,
+                        order = TRUE,
+                        use_test = TRUE,
+                        comparisons = list(c("ATRT-TYR", "ATRT-SHH")),
+                        test = "wilcox.test",
+                        map_signif_level = c("***" = 0.0001, 
+                                             "**" = 0.001, 
+                                             "*" = 0.05))
+p
+```
+
+---
+
+## Silhouette style
+
+Color borders instead of fill:
+
+```{r}
+#| eval: true
+p <- SCpubr::do_BoxPlot(sample = sample,
+                        feature = "nFeature_RNA",
+                        group.by = "subtype",
+                        flip = TRUE,
+                        use_silhouette = TRUE)
+p
+```
+
+---
+
+## Parameter reference
+
+::: {.callout-note}
+For parameters shared across many functions (color palettes, typography, legend styling, grid), see [Shared features](../00_getting_started/04_shared_features.qmd).
+:::
+
+### Core parameters
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `feature` | Feature to plot | — |
+
+### Statistical testing
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `use_test` | Add significance testing | `FALSE` |
+| `comparisons` | List of group pairs to compare | `NULL` |
+| `test` | Test method | `"wilcox.test"` |
+| `map_signif_level` | P-value to symbol mapping | See defaults |
+
+### Appearance
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `use_silhouette` | Color borders instead of fill | `FALSE` |
+| `boxplot.line.color` | Border color | `"black"` |
+| `boxplot.linewidth` | Border width | `0.5` |
+| `boxplot.width` | Box width | `NULL` |
+| `outlier.color` | Outlier dot color | `"black"` |
+| `outlier.alpha` | Outlier transparency | `0.5` |
+| `order` | Order groups by median | `FALSE` |
+
+---
+
+## See also
+
+- [Shared features](../00_getting_started/04_shared_features.qmd) — Common parameters
+- [do_ViolinPlot()](02_violinplot.qmd) — Violin distribution plots
+- [do_BeeSwarmPlot()](05_beeswarmplot.qmd) — Individual cell plots

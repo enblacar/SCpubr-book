@@ -1,0 +1,155 @@
+# do_SCExpressionHeatmap() | Single-cell expression heatmaps
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+```
+
+Single-cell expression heatmaps display gene expression at **individual cell resolution**. Cells are ordered by group, and optional metadata tracks can be added alongside the main heatmap. Inspired by Seurat's `DoHeatmap`.
+
+---
+
+## Basic usage
+
+```{r}
+#| eval: true
+genes <- c("CDC25C", "KIF18B", "KIF14", "CENPE",
+           "DNAAF1", "ADGB", "CFAP61", "CFAP157",
+           "KCNQ5", "MEOX2", "MBP", "SNTG1",
+           "S100A1", "MGP", "TNNT1", "H2AFJ")
+
+p <- SCpubr::do_SCExpressionHeatmap(sample = sample,
+                                    features = genes)
+p
+```
+
+---
+
+## Add metadata tracks
+
+Display categorical metadata alongside the expression heatmap:
+
+```{r}
+#| eval: true
+p <- SCpubr::do_SCExpressionHeatmap(
+  sample          = sample,
+  features        = genes,
+  metadata        = c("Annotation", "subtype")
+)
+p
+```
+
+---
+
+## Clustering
+
+### Cluster genes
+
+```{r}
+#| eval: true
+p <- SCpubr::do_SCExpressionHeatmap(sample = sample,
+                                    features = genes,
+                                    cluster = TRUE)
+p
+```
+
+
+---
+
+## Subsampling
+
+For large datasets, subsample cells to reduce memory and improve rendering:
+
+```{r}
+#| eval: true
+p <- SCpubr::do_SCExpressionHeatmap(sample = sample,
+                                    features = genes,
+                                    subsample = 5)
+p
+```
+
+---
+
+## Proportional sizing
+
+### Equal space per group (default)
+
+```{r}
+#| eval: true
+p <- SCpubr::do_SCExpressionHeatmap(sample = sample,
+                                    features = genes,
+                                    proportional.size = TRUE)
+p
+```
+
+### Size proportional to cell count
+
+```{r}
+#| eval: true
+p <- SCpubr::do_SCExpressionHeatmap(sample = sample,
+                                    features = genes,
+                                    proportional.size = FALSE)
+p
+```
+
+---
+
+## Interpolation
+
+Smooth the heatmap for rasterized output:
+
+```{r}
+#| eval: true
+p <- SCpubr::do_SCExpressionHeatmap(sample = sample,
+                                    features = genes,
+                                    interpolate = TRUE)
+p
+```
+
+---
+
+## Parameter reference
+
+::: {.callout-note}
+For parameters shared across many functions (color palettes, typography, legend styling), see [Shared features](../00_getting_started/04_shared_features.qmd).
+:::
+
+### Core parameters
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `features` | Genes to display | — |
+
+### Metadata tracks
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `metadata` | Metadata columns to display | `NULL` |
+| `metadata.colors` | Named list of colors for metadata | `NULL` |
+
+### Layout
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `proportional.size` | Equal space per group | `TRUE` |
+| `main.heatmap.size` | Main heatmap proportion (0-1) | `0.95` |
+| `strip.spacing` | Space between group strips | `10` |
+| `strip.text.angle` | Strip label rotation | `0` |
+
+### Subsampling & clustering
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `subsample` | Max cells per group | `NA` |
+| `cluster` | Cluster genes | `TRUE` |
+| `features.order` | Custom gene order | `NULL` |
+| `interpolate` | Smooth heatmap | `FALSE` |
+
+---
+
+## See also
+
+- [Shared features](../00_getting_started/04_shared_features.qmd) — Common parameters
+- [do_ExpressionHeatmap()](05_expressionheatmap.qmd) — Averaged expression heatmaps
+- [do_SCEnrichmentHeatmap()](08_scenrichmentheatmap.qmd) — Single-cell enrichment heatmaps

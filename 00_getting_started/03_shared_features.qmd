@@ -1,0 +1,207 @@
+# Shared features across functions {.unnumbered}
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+```
+
+Most `SCpubr` functions share a common set of parameters. This reference guide organizes them by category for quick lookup.
+
+---
+ 
+## Data & grouping
+
+| Parameter | Description |
+|-----------|-------------|
+| `sample` | Seurat object to use for plotting |
+| `group.by` | Metadata variable to group values by |
+| `split.by` | Metadata variable to split plots by |
+| `features` | Genes, metadata columns, or dimensional reduction components |
+| `input_gene_list` | Named list of gene sets |
+| `assay` | Assay name to pull data from |
+| `slot` | Slot within assay (`data`, `counts`, `scale.data`) |
+| `reduction` | Dimensional reduction to use (e.g., `"umap"`, `"pca"`) |
+| `dims` | Which dimensions of the reduction to use |
+
+---
+
+## Color scales
+
+### Categorical variables
+
+Use `colors.use` to define custom colors for categorical variables:
+
+::: {.panel-tabset}
+
+## Named vector
+```{r}
+#| eval: false
+# One color per identity
+colors <- c("0" = "#001219", "1" = "#005f73", "2" = "#0a9396",
+            "3" = "#94d2bd", "4" = "#e9d8a6", "5" = "#ee9b00")
+
+SCpubr::do_DimPlot(sample, colors.use = colors)
+```
+
+## Named list
+```{r}
+#| eval: false
+# Multiple metadata variables (for heatmaps)
+colors <- list(
+  "seurat_clusters" = c("0" = "#001219", "1" = "#005f73", "2" = "#0a9396"),
+  "cell_type"       = c("A" = "#ca6702", "B" = "#0a9396")
+)
+
+SCpubr::do_SCExpressionHeatmap(sample, features = genes, 
+                                metadata = names(colors),
+                                metadata.colors = colors)
+```
+:::
+
+### Continuous variables
+
+| Parameter | Description | Values |
+|-----------|-------------|--------|
+| `use_viridis` | Use viridis palette | `TRUE` / `FALSE` |
+| `viridis.palette` | Viridis palette name | `"A"` (magma), `"B"` (inferno), `"C"` (plasma), `"D"` (viridis), `"E"` (cividis), `"F"` (rocket), `"G"` (mako), `"H"` (turbo) |
+| `viridis.direction` | Color mapping direction | `1` (dark→low) or `-1` (dark→high) |
+| `sequential.palette` | RColorBrewer sequential palette | `"YlOrRd"`, `"YlOrBr"`, `"YlGnBu"`, `"YlGn"`, `"Reds"`, `"RdPu"`, `"Purples"`, `"PuRd"`, `"PuBuGn"`, `"PuBu"`, `"OrRd"`, `"Oranges"`, `"Greys"`, `"Greens"`, `"GnBu"`, `"BuPu"`, `"BuGn"`, `"Blues"` |
+| `sequential.direction` | Color mapping direction | `1` or `-1` (note: inverted from viridis) |
+| `diverging.palette` | RColorBrewer diverging palette | `"Spectral"`, `"RdYlGn"`, `"RdGy"`, `"RdBu"`, `"PuOr"`, `"PRGn"`, `"PiYG"`, `"BrBG"` |
+
+
+---
+
+## Scale limits & symmetry
+
+| Parameter | Description |
+|-----------|-------------|
+| `min.cutoff` | Minimum value for color scale (values below are clamped) |
+| `max.cutoff` | Maximum value for color scale (values above are clamped) |
+| `enforce_symmetry` | Center scale around middle value; use diverging palette |
+
+
+---
+
+## Titles & labels
+
+| Parameter | Description |
+|-----------|-------------|
+| `plot.title` | Main title |
+| `plot.subtitle` | Subtitle |
+| `plot.caption` | Caption (bottom) |
+| `xlab` | X-axis label |
+| `ylab` | Y-axis label |
+| `legend.title` | Legend title |
+
+---
+
+## Typography
+
+| Parameter | Description | Values |
+|-----------|-------------|--------|
+| `font.size` | Base font size (other elements scale proportionally) | Numeric |
+| `font.type` | Font family | `"sans"`, `"serif"`, `"mono"` |
+| `plot.title.face` | Title font style | `"plain"`, `"italic"`, `"bold"`, `"bold.italic"` |
+| `plot.subtitle.face` | Subtitle font style | Same as above |
+| `plot.caption.face` | Caption font style | Same as above |
+| `axis.title.face` | Axis titles font style | Same as above |
+| `axis.text.face` | Axis tick labels font style | Same as above |
+| `legend.title.face` | Legend title font style | Same as above |
+| `legend.text.face` | Legend text font style | Same as above |
+| `strip.text.face` | Facet strip labels font style | Same as above |
+
+---
+
+## Legend
+
+### Position & layout
+
+| Parameter | Description | Values |
+|-----------|-------------|--------|
+| `legend.position` | Legend placement | `"right"`, `"left"`, `"top"`, `"bottom"`, `"none"` |
+| `legend.title.position` | Title position within legend | `"top"`, `"bottom"`, `"left"`, `"right"` |
+| `legend.ncol` / `legend.nrow` | Layout dimensions | Numeric |
+| `legend.byrow` | Fill by rows | `TRUE` / `FALSE` |
+| `legend.icon.size` | Icon size (categorical) | Numeric |
+
+### Colorbar (continuous)
+
+| Parameter | Description |
+|-----------|-------------|
+| `legend.type` | `"normal"` or `"colorbar"` |
+| `legend.length` / `legend.width` | Colorbar dimensions |
+| `legend.framecolor` / `legend.framewidth` | Border styling |
+| `legend.tickcolor` / `legend.tickwidth` | Tick styling |
+| `number.breaks` | Number of legend breaks |
+
+---
+
+## Grid
+
+| Parameter | Description | Values |
+|-----------|-------------|--------|
+| `plot.grid` | Show grid lines | `TRUE` / `FALSE` |
+| `grid.color` | Grid line color | Color string |
+| `grid.type` | Line type | `"blank"`, `"solid"`, `"dashed"`, `"dotted"`, `"dotdash"`, `"longdash"`, `"twodash"` |
+
+---
+
+## Axes
+
+| Parameter | Description |
+|-----------|-------------|
+| `flip` | Swap X and Y axes |
+
+---
+
+## Rendering
+
+| Parameter | Description |
+|-----------|-------------|
+| `na.value` | Color for `NA` values |
+| `raster` | Rasterize plot (reduces file size for large datasets) |
+| `raster.dpi` | Rasterization resolution |
+
+---
+
+## Dimensional reduction enhancements
+
+These parameters apply to `do_DimPlot`, `do_FeaturePlot`, `do_NebulosaPlot`, and similar functions.
+
+### Cell borders
+
+Adds a shadow layer behind cells to create an outline effect. Increases file size but improves publication figures.
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `plot_cell_borders` | Enable cell borders | `FALSE` |
+| `border.size` | Border dot size | `2` |
+| `border.color` | Border color | `"black"` |
+| `border.density` | Proportion of cells used (0–1); lower = lighter file | `1` |
+
+
+### Density contours
+
+| Parameter | Description | Values |
+|-----------|-------------|--------|
+| `plot_density_contour` | Show density contour lines | `TRUE` / `FALSE` |
+| `contour.position` | Layer position | `"top"`, `"bottom"` |
+| `contour.color` | Contour line color | Color string |
+| `contour_expand_axes` | Expand axes to fit contours (0–1 proportion) | Numeric |
+
+### Marginal distributions
+
+| Parameter | Description | Values |
+|-----------|-------------|--------|
+| `plot_marginal_distributions` | Show marginal plots | `TRUE` / `FALSE` |
+| `marginal.type` | Distribution type | `"density"`, `"histogram"`, `"boxplot"`, `"violin"`, `"densigram"` |
+| `marginal.size` | Size ratio (main:marginal) | Numeric |
+| `marginal.group` | Split by identity | `TRUE` / `FALSE` |
+
+::: {.callout-note}
+Marginal distributions are incompatible with `split.by`, `plot_cell_borders`, and `cells.highlight`.
+:::
+
+

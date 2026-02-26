@@ -1,0 +1,37 @@
+# Installation guide {.unnumbered}
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+```
+
+To install `SCpubr`, use the following commands:
+
+```{r}
+#| eval: false
+# From CRAN - Official release:
+install.packages("SCpubr")
+
+# From GitHub - Latest stable development version:
+if(!requireNamespace("devtools", quietly = TRUE)){
+  install.packages("devtools") # If not installed.
+}
+
+devtools::install_github("enblacar/SCpubr", ref = "v3.0.0")
+```
+
+## Check your dependencies
+
+`SCpubr` relies on several packages to run its functions. You can get a full overview of which dependencies are installed and which functions are available using `SCpubr::do_PackageReport()`:
+
+```{r}
+#| eval: true
+SCpubr::do_PackageReport(extended = TRUE)
+```
+
+This will provide you with:
+
+- The status of your **dependencies** (installed or missing).
+- The **functions** that can be run based on your currently installed dependencies.
+- Packages that require a **minimum version** will be marked with an exclamation mark if outdated.

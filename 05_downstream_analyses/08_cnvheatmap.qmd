@@ -1,0 +1,95 @@
+# do_CNVHeatmap() | Copy number variation
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+```
+
+CNV heatmaps display **chromosomal copy number variations** across cells using output from `inferCNV`. Shows CNV scores aggregated by chromosome or chromosome arm across cell populations.
+
+Plots will be released at a later time!
+---
+
+## Basic usage
+
+First run `inferCNV`:
+
+```{r}
+#| eval: false
+# Load chromosome locations
+data("human_chr_locations", package = "SCpubr")
+
+p <- SCpubr::do_CNVHeatmap(sample = sample,
+                           infercnv_object = infercnv_obj,
+                           chromosome_locations = human_chr_locations)
+p
+```
+
+
+---
+
+## Include chromosome arms
+
+```{r}
+#| eval: false
+p <- SCpubr::do_CNVHeatmap(sample = sample,
+                           infercnv_object = infercnv_obj,
+                           chromosome_locations = human_chr_locations,
+                           include_chr_arms = TRUE)
+p
+```
+
+
+---
+
+## Show values
+
+```{r}
+#| eval: false
+p <- SCpubr::do_CNVHeatmap(sample = sample,
+                           infercnv_object = infercnv_obj,
+                           chromosome_locations = human_chr_locations,
+                           values.show = TRUE)
+p
+```
+
+---
+
+## Parameter reference
+
+::: {.callout-note}
+For parameters shared across many functions (color palettes, typography, legend styling, grid), see [Shared features](../00_getting_started/04_shared_features.qmd).
+:::
+
+### Core parameters
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `infercnv_object` | Output from inferCNV | — |
+| `chromosome_locations` | Chromosome region data | — |
+| `include_chr_arms` | Show p/q arms | `FALSE` |
+| `return_object` | Return data along with plot | `FALSE` |
+
+### Metacells
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `using_metacells` | inferCNV used metacells | `FALSE` |
+| `metacell_mapping` | Cell-metacell mapping | `NULL` |
+
+### Values display
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `values.show` | Show numeric values | `FALSE` |
+| `values.size` | Value text size | `3` |
+| `values.threshold` | Only show above threshold | `NULL` |
+| `values.round` | Decimal places | `1` |
+
+---
+
+## See also
+
+- [Shared features](../00_getting_started/04_shared_features.qmd) — Common parameters
+- [do_ExpressionHeatmap()](../02_gene_expression/05_expressionheatmap.qmd) — Expression heatmaps

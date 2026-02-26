@@ -1,0 +1,186 @@
+# do_ChordDiagramPlot() | Circular flow visualization
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+```
+
+Chord diagrams display **relationships between categorical groups** as curved links in a circular layout. Built on the `circlize` package, they're ideal for visualizing cell type transitions or interactions.
+
+---
+
+## Basic usage
+
+Visualize transitions between two categorical variables:
+
+```{r}
+#| eval: true
+p <- SCpubr::do_ChordDiagramPlot(sample = sample,
+                                 from = "Annotation",
+                                 to = "subtype")
+p
+```
+
+---
+
+## Directional links
+
+Control link direction:
+
+```{r}
+#| eval: true
+# From → To (default)
+p <- SCpubr::do_ChordDiagramPlot(sample = sample,
+                                 from = "Annotation",
+                                 to = "subtype",
+                                 directional = 1)
+
+p
+```
+
+```{r}
+#| eval: true
+# To → From
+p <- SCpubr::do_ChordDiagramPlot(sample = sample,
+                                 from = "Annotation",
+                                 to = "subtype",
+                                 directional = -1)
+p
+```
+
+---
+
+## Direction visualization
+
+```{r}
+#| eval: true
+# Height difference + arrows (default)
+p <- SCpubr::do_ChordDiagramPlot(sample = sample,
+                                 from = "Annotation",
+                                 to = "subtype",
+                                 direction.type = c("diffHeight", "arrows"))
+
+p
+```
+
+```{r}
+#| eval: true
+# Arrow types: "triangle" or "big.arrow"
+p <- SCpubr::do_ChordDiagramPlot(sample = sample,
+                                 from = "Annotation",
+                                 to = "subtype",
+                                 link.arr.type = "triangle")
+p
+```
+
+---
+
+## Highlight a group
+
+Focus attention on links from a specific group:
+
+```{r}
+#| eval: true
+p <- SCpubr::do_ChordDiagramPlot(sample = sample,
+                                 from = "Annotation",
+                                 to = "subtype",
+                                 highlight_group = "CP-like",
+                                 alpha.highlight = 25)
+p
+```
+
+---
+
+## Scale nodes equally
+
+Make all groups the same width regardless of cell count:
+
+```{r}
+#| eval: true
+p <- SCpubr::do_ChordDiagramPlot(sample = sample,
+                                 from = "Annotation",
+                                 to = "subtype",
+                                 scale = TRUE)
+p
+```
+
+
+---
+
+## Alignment
+
+```{r}
+#| eval: true
+# Horizontal split between groups
+p <- SCpubr::do_ChordDiagramPlot(sample = sample,
+                                 from = "Annotation",
+                                 to = "subtype",
+                                 alignment = "horizontal")
+
+p
+```
+
+```{r}
+#| eval: true
+# Vertical split
+p <- SCpubr::do_ChordDiagramPlot(sample = sample,
+                                 from = "Annotation",
+                                 to = "subtype",
+                                 alignment = "vertical")
+p
+```
+
+
+---
+
+## Parameter reference
+
+### Core parameters
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `from` | Source categorical variable | — |
+| `to` | Target categorical variable | — |
+| `colors.from` | Colors for source groups | Auto |
+| `colors.to` | Colors for target groups | Auto |
+
+### Directionality
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `directional` | Direction: 0 (none), 1 (from→to), -1 (to→from), 2 (both) | `1` |
+| `direction.type` | How to show direction | `c("diffHeight", "arrows")` |
+| `link.arr.type` | Arrow style: `"triangle"` or `"big.arrow"` | `"big.arrow"` |
+
+### Layout
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `big.gap` | Gap between from/to groups | `10` |
+| `small.gap` | Gap within groups | `1` |
+| `scale` | Equal width for all groups | `FALSE` |
+| `alignment` | `"default"`, `"horizontal"`, `"vertical"` | `"default"` |
+| `self.link` | 1 (prevent) or 2 (allow) self-links | `1` |
+
+### Highlighting
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `highlight_group` | Group to highlight | `NULL` |
+| `alpha.highlight` | Highlighted link transparency (00-99) | `25` |
+| `z_index` | Bring larger links to top | `FALSE` |
+
+### Link appearance
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `link.border.color` | Link border color | `NA` |
+| `link.border.width` | Link border width | `1` |
+
+---
+
+## See also
+
+- [do_AlluvialPlot()](03_alluvialplot.qmd) — Linear flow visualization
+- [do_LigandReceptorPlot()](../05_downstream_analyses/09_ligandreceptorplot.qmd) — Ligand-receptor interactions

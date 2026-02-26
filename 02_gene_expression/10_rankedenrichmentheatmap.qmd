@@ -1,0 +1,120 @@
+# do_RankedEnrichmentHeatmap() | Enrichment along components
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+```
+
+Ranked enrichment heatmaps display **gene set enrichment scores ordered by a dimensional reduction component**. Cells are ranked along a PC or trajectory, revealing how enrichment scores vary along continuous gradients.
+
+---
+
+## Basic usage
+
+```{r}
+#| eval: true
+gene_lists <- list(
+  "IPC.like"      = c("CDC25C", "KIF18B", "KIF14", "CENPE"),
+  "Cilia.like" = c("DNAAF1", "ADGB", "CFAP61", "CFAP157"),
+  "OPC.like" = c("KCNQ5", "MEOX2", "MBP", "SNTG1"),
+  "Mesenchymal.like" = c("S100A1", "MGP", "TNNT1", "H2AFJ")
+)
+
+p <- SCpubr::do_RankedEnrichmentHeatmap(sample = sample,
+                                        input_gene_list = gene_lists,
+                                        reduction = "pca",
+                                        dims = 1)
+p
+```
+
+---
+
+## Multiple dimensions
+
+```{r}
+#| eval: true
+p <- SCpubr::do_RankedEnrichmentHeatmap(sample = sample,
+                                        input_gene_list = gene_lists,
+                                        reduction = "pca",
+                                        dims = 1:2)
+
+# Access individual plots
+p$PC_1 | p$PC_2
+```
+
+---
+
+## Scale enrichment scores (default)
+
+Z-score enrichment for easier comparison between gene sets:
+
+```{r}
+#| eval: true
+p <- SCpubr::do_RankedEnrichmentHeatmap(sample = sample,
+                                        input_gene_list = gene_lists,
+                                        dims = 1,
+                                        reduction = "pca",
+                                        scale.enrichment = TRUE)
+p
+```
+
+::: {.callout-note}
+Scaling enables intra-gene set comparison but prevents absolute value comparison between gene sets.
+:::
+
+---
+
+## Add metadata track
+
+```{r}
+#| eval: true
+p <- SCpubr::do_RankedEnrichmentHeatmap(
+  sample          = sample,
+  input_gene_list = gene_lists,
+  dims            = 1,
+  reduction = "pca",
+  group.by        = c("Annotation", "subtype"),
+)
+p
+```
+
+---
+
+## Parameter reference
+
+::: {.callout-note}
+For parameters shared across many functions (color palettes, typography, legend styling), see [Shared features](../00_getting_started/04_shared_features.qmd).
+:::
+
+### Core parameters
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `input_gene_list` | Named list of gene signatures | — |
+| `dims` | Dimensions to rank cells by | `1:2` |
+
+### Scoring
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `flavor` | `"Seurat"` or `"UCell"` | `"Seurat"` |
+| `scale.enrichment` | Z-score enrichment values | `TRUE` |
+| `nbin` | Bins for Seurat scoring | `24` |
+| `ctrl` | Control genes per bin | `100` |
+
+### Appearance
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `main.heatmap.size` | Main heatmap proportion (0-1) | `0.95` |
+| `subsample` | Max cells to display | `2500` |
+| `return_object` | Return Seurat object | `FALSE` |
+
+---
+
+## See also
+
+- [Shared features](../00_getting_started/04_shared_features.qmd) — Common parameters
+- [do_RankedExpressionHeatmap()](09_rankedexpressionheatmap.qmd) — Expression along components
+- [do_EnrichmentHeatmap()](06_enrichmentheatmap.qmd) — Averaged enrichment heatmaps

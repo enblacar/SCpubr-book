@@ -1,0 +1,124 @@
+# do_ColorPalette() | Color palette generation
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+```
+
+This utility function generates **harmonious color palettes** based on color theory principles. Provide a base color and get complementary, triadic, tetradic, or other color schemes.
+
+---
+
+## Color wheel
+
+Generate n colors evenly spaced around the color wheel:
+
+```{r}
+#| eval: true
+colors <- SCpubr::do_ColorPalette(colors.use = "#E63946",
+                                  n = 8)
+colors
+```
+
+---
+
+## Opposite (complementary)
+
+```{r}
+#| eval: true
+colors <- SCpubr::do_ColorPalette(colors.use = "#E63946",
+                                  opposite = TRUE)
+colors
+```
+
+---
+
+## Adjacent colors
+
+```{r}
+#| eval: true
+colors <- SCpubr::do_ColorPalette(colors.use = "#E63946",
+                                  adjacent = TRUE)
+colors
+```
+
+---
+
+## Triadic scheme
+
+```{r}
+#| eval: true
+colors <- SCpubr::do_ColorPalette(colors.use = "#E63946",
+                                  triadic = TRUE)
+colors
+```
+
+---
+
+## Tetradic scheme
+
+```{r}
+#| eval: true
+colors <- SCpubr::do_ColorPalette(colors.use = "#E63946",
+                                  tetradic = TRUE)
+colors
+```
+
+---
+
+## Square scheme
+
+```{r}
+#| eval: true
+colors <- SCpubr::do_ColorPalette(colors.use = "#E63946",
+                                  square = TRUE)
+colors
+```
+
+---
+
+## Split complementary
+
+```{r}
+#| eval: true
+colors <- SCpubr::do_ColorPalette(colors.use = "#E63946",
+                                  split_complementary = TRUE)
+colors
+```
+
+
+---
+
+## Generate plot
+
+```{r}
+#| eval: true
+p <- SCpubr::do_ColorPalette(colors.use = "#E63946",
+                             triadic = TRUE,
+                             plot = TRUE)
+p
+```
+
+---
+
+## Parameter reference
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `colors.use` | Base color (name or HEX) | — |
+| `n` | Colors in wheel | `12` |
+| `opposite` | Complementary color | `FALSE` |
+| `adjacent` | Adjacent colors | `FALSE` |
+| `triadic` | Triadic scheme | `FALSE` |
+| `split_complementary` | Split complementary | `FALSE` |
+| `tetradic` | Tetradic scheme | `FALSE` |
+| `square` | Square scheme | `FALSE` |
+| `plot` | Return plot | `FALSE` |
+
+---
+
+## See also
+
+- [do_ColorBlindCheck()](02_colorblindcheck.qmd) — Test accessibility
+- [Shared features](../00_getting_started/04_shared_features.qmd) — Color scales

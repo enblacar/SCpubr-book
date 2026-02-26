@@ -1,0 +1,86 @@
+# do_GroupwiseDEHeatmap() | Differential expression
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+
+```
+
+Groupwise DE heatmaps visualize the results of `Seurat::FindAllMarkers()` as a **multi-panel dot plot** showing adjusted p-values, fold changes, and mean expression per cluster.
+
+---
+
+## Basic usage
+
+First run `FindAllMarkers()`:
+
+```{r}
+#| eval: true
+de_genes <- Seurat::FindAllMarkers(sample, only.pos = TRUE)
+
+p <- SCpubr::do_GroupwiseDEHeatmap(sample = sample,
+                                   de_genes = de_genes)
+p
+```
+
+---
+
+## Adjust number of top genes
+
+```{r}
+#| eval: true
+p <- SCpubr::do_GroupwiseDEHeatmap(sample = sample,
+                                   de_genes = de_genes,
+                                   top_genes = 3)
+p
+```
+
+---
+
+## Custom p-value cutoff
+
+```{r}
+#| eval: true
+p <- SCpubr::do_GroupwiseDEHeatmap(sample = sample,
+                                   de_genes = de_genes,
+                                   p.cutoff = 0.01)
+p
+```
+
+---
+
+## Adjust dot size
+
+```{r}
+#| eval: true
+p <- SCpubr::do_GroupwiseDEHeatmap(sample = sample,
+                                   de_genes = de_genes,
+                                   dot.scale = 6)
+p
+```
+
+---
+
+## Parameter reference
+
+::: {.callout-note}
+For parameters shared across many functions (color palettes, typography, legend styling), see [Shared features](../00_getting_started/04_shared_features.qmd).
+:::
+
+### Core parameters
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `de_genes` | Output from `FindAllMarkers()` | — |
+| `top_genes` | Top DE genes per group | `5` |
+| `p.cutoff` | Adjusted p-value threshold | `0.05` |
+| `dot.scale` | Dot size multiplier | `8` |
+
+---
+
+## See also
+
+- [Shared features](../00_getting_started/04_shared_features.qmd) — Common parameters
+- [do_VolcanoPlot()](07_volcanoplot.qmd) — Volcano plots
+- [do_DotPlot()](../02_gene_expression/04_dotplot.qmd) — Dot plots

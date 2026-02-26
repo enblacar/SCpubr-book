@@ -1,0 +1,90 @@
+# do_TermEnrichmentPlot() | GO/pathway term enrichment
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+
+```
+
+This function visualizes **enriched GO terms or pathways** from over-representation analysis (e.g., using `clusterProfiler`). Displays terms as a dot plot with gene count and p-values.
+
+---
+
+## Basic usage
+
+First run enrichment analysis:
+
+```{r}
+#| eval: true
+#| echo: false
+# Using clusterProfiler
+library("org.Hs.eg.db")
+enrichment_result <- clusterProfiler::enrichGO(
+  gene = Seurat::VariableFeatures(sample)[1:100],
+  OrgDb = org.Hs.eg.db,
+  keyType = "SYMBOL",
+  ont = "BP"
+)
+
+p <- SCpubr::do_TermEnrichmentPlot(mat = enrichment_result@result)
+p
+```
+
+---
+
+## Adjust number of terms
+
+```{r}
+#| eval: true
+p <- SCpubr::do_TermEnrichmentPlot(mat = enrichment_result@result,
+                                   n.terms = 15)
+p
+```
+
+---
+
+## Control term wrapping
+
+```{r}
+#| eval: true
+p <- SCpubr::do_TermEnrichmentPlot(mat = enrichment_result@result,
+                                   n.chars = 30)  # Shorter lines
+p
+```
+
+---
+
+## Adjust dot size
+
+```{r}
+#| eval: true
+p <- SCpubr::do_TermEnrichmentPlot(mat = enrichment_result@result,
+                                   dot.scale = 6)
+p
+```
+
+---
+
+## Parameter reference
+
+::: {.callout-note}
+For parameters shared across many functions (color palettes, typography, legend styling, grid), see [Shared features](../00_getting_started/04_shared_features.qmd).
+:::
+
+### Core parameters
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `mat` | Enrichment result (via `@result`) | — |
+| `n.terms` | Number of terms to show | `25` |
+| `n.chars` | Characters before wrapping | `40` |
+| `dot.scale` | Dot size multiplier | `8` |
+
+---
+
+## See also
+
+- [Shared features](../00_getting_started/04_shared_features.qmd) — Common parameters
+- [do_EnrichmentHeatmap()](../02_gene_expression/06_enrichmentheatmap.qmd) — Enrichment scores
+- [do_GroupwiseDEHeatmap()](05_groupwisedeheatmap.qmd) — DE analysis

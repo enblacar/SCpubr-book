@@ -1,0 +1,101 @@
+# do_WafflePlot() | Pictogram proportions
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+```
+
+Waffle plots display proportions as a **10×10 grid** where each cell represents 1% of the data. This pictogram format makes it easy to intuitively grasp relative proportions.
+
+---
+
+
+---
+
+## Basic usage
+
+```{r}
+#| eval: true
+p <- SCpubr::do_WafflePlot(sample = sample,
+                           group.by = "subtype")
+p
+```
+
+Each tile in the 10×10 grid represents 1% of cells. The grid is filled proportionally by each cluster's frequency.
+
+---
+
+## Customize tile size
+
+Adjust the spacing between tiles:
+
+```{r}
+#| eval: true
+# Thicker borders
+p <- SCpubr::do_WafflePlot(sample = sample,
+                           group.by = "subtype",
+                           waffle.size = 4)
+
+p
+```
+
+```{r}
+#| eval: true
+# Thinner borders
+p <- SCpubr::do_WafflePlot(sample = sample,
+                           group.by = "subtype",
+                           waffle.size = 1)
+p
+```
+
+---
+
+## Orientation
+
+```{r}
+#| eval: true
+# Horizontal (default)
+p <- SCpubr::do_WafflePlot(sample = sample,
+                           group.by = "subtype",
+                           flip = TRUE)
+
+p
+```
+
+---
+
+## Custom colors
+
+```{r}
+#| eval: true
+colors <- c("ATRT-TYR" = "#E63946", "ATRT-SHH" = "#457B9D", "ATRT-MYC" = "#1D3557")
+
+p <- SCpubr::do_WafflePlot(sample = sample,
+                           group.by = "subtype",
+                           colors.use = colors)
+p
+```
+
+---
+
+## Parameter reference
+
+::: {.callout-note}
+For parameters shared across many functions (color palettes, typography, legend styling), see [Shared features](../00_getting_started/04_shared_features.qmd).
+:::
+
+### Core parameters
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `group.by` | Metadata column to visualize | — |
+| `waffle.size` | Border size between tiles | `2` |
+
+---
+
+## See also
+
+- [Shared features](../00_getting_started/04_shared_features.qmd) — Common parameters
+- [do_BarPlot()](01_barplot.qmd) — Bar chart proportions
+- [do_AlluvialPlot()](03_alluvialplot.qmd) — Flow between categories

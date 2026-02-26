@@ -1,0 +1,125 @@
+# do_TFActivityHeatmap() | Transcription factor activity
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+sample <- sample[, sample(colnames(sample), 1000)]
+```
+
+TF activity heatmaps visualize **DoRothEA transcription factor activity scores** from `decoupleR`. Shows which transcription factors are most active in different cell populations.
+
+Due to dependency problems with OmnipathR, this page will not show plots as it can not compute.
+---
+
+## Basic usage
+
+First compute TF activities using `decoupleR`:
+
+```{r}
+#| eval: false
+# Run decoupleR with DoRothEA prior knowledge
+net <- decoupleR::get_dorothea(organism = "human", levels = c("A", "B", "C"))
+activities <- decoupleR::run_wmean(mat = as.matrix(sample[["RNA"]]$data), 
+                                   net = net)
+
+p <- SCpubr::do_TFActivityHeatmap(sample = sample,
+                                  activities = activities)
+p
+```
+
+---
+
+## Limit number of TFs
+
+```{r}
+#| eval: false
+p <- SCpubr::do_TFActivityHeatmap(sample = sample,
+                                  activities = activities,
+                                  n_tfs = 10)
+p
+```
+
+---
+
+## Select specific TFs
+
+```{r}
+#| eval: false
+p <- SCpubr::do_TFActivityHeatmap(sample = sample,
+                                  activities = activities,
+                                  tfs.use = c("PAX5", "STAT3", "NF-kB"))
+p
+```
+
+---
+
+## Group by custom variable
+
+```{r}
+#| eval: false
+p <- SCpubr::do_TFActivityHeatmap(sample = sample,
+                                  activities = activities,
+                                  group.by = "cell_type")
+p
+```
+
+---
+
+## Split by condition
+
+```{r}
+#| eval: false
+p <- SCpubr::do_TFActivityHeatmap(sample = sample,
+                                  activities = activities,
+                                  split.by = "condition")
+p
+```
+
+---
+
+## Show values
+
+```{r}
+#| eval: false
+p <- SCpubr::do_TFActivityHeatmap(sample = sample,
+                                  activities = activities,
+                                  values.show = TRUE,
+                                  values.size = 4)
+p
+```
+
+---
+
+## Parameter reference
+
+::: {.callout-note}
+For parameters shared across many functions (color palettes, typography, legend styling, grid), see [Shared features](../00_getting_started/04_shared_features.qmd).
+:::
+
+### Core parameters
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `activities` | DecoupleR output with DoRothEA | — |
+| `n_tfs` | Number of top TFs | `25` |
+| `tfs.use` | Specific TFs to include | `NULL` |
+| `statistic` | Activity statistic | `"norm_wmean"` |
+| `return_object` | Return data along with plot | `FALSE` |
+
+### Values display
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `values.show` | Show numeric values | `FALSE` |
+| `values.size` | Value text size | `3` |
+| `values.threshold` | Threshold on which the text changes color | `NULL` |
+| `values.round` | Decimal places | `1` |
+
+---
+
+## See also
+
+- [Shared features](../00_getting_started/04_shared_features.qmd) — Common parameters
+- [do_PathwayActivityHeatmap()](02_pathwayactivityheatmap.qmd) — Pathway activities
+- [do_ActivityHeatmap()](01_activityheatmap.qmd) — Gene set activities

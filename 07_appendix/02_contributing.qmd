@@ -1,0 +1,33 @@
+# Contributing {.unnumbered}
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+```
+
+::: {.callout-tip}
+## SCpubr is community-maintained
+**SCpubr** is in maintenance mode — active feature development has concluded, but the project is very much alive through bug fixes, compatibility updates, and community contributions.
+:::
+
+## How to contribute
+
+There are many ways to help, regardless of your experience level:
+
+| Contribution | How |
+|---|---|
+| **Report a bug** | Open an [issue on GitHub](https://github.com/enblacar/SCpubr/issues) with a minimal reproducible example. |
+| **Suggest an improvement** | Start a [discussion](https://github.com/enblacar/SCpubr/issues) describing what you'd like to see. |
+| **Submit a pull request** | Fork the repo, make your changes, and open a [PR](https://github.com/enblacar/SCpubr/pulls). |
+| **Improve documentation** | Typos, clearer examples, new vignettes — all welcome! |
+
+## Guidelines
+
+- Please be respectful and constructive in all interactions.
+- When submitting code, ensure `R CMD check` passes without errors.
+- Follow the existing code style and naming conventions.
+
+## Contact
+
+For questions or suggestions: `scpubr@gmail.com`

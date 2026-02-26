@@ -1,0 +1,103 @@
+# do_BeeSwarmPlot() | Individual cell distributions
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+```
+
+Beeswarm plots display **individual cells as ranked points**, with beeswarm-style jittering to avoid overlaps. Cells are ranked by a feature (e.g., enrichment score) and colored by categorical or continuous values. Built on the `ggbeeswarm` package.
+
+---
+
+## Basic usage
+
+Rank cells by a feature (typically a score in metadata):
+
+```{r}
+#| eval: true
+p <- SCpubr::do_BeeSwarmPlot(sample = sample,
+                             feature_to_rank = "nCount_RNA")
+p
+```
+
+---
+
+## Continuous vs categorical coloring
+
+### Continuous (color by same feature)
+
+```{r}
+#| eval: true
+p <- SCpubr::do_BeeSwarmPlot(sample = sample,
+                             feature_to_rank = "nCount_RNA",
+                             continuous_feature = TRUE)
+p
+```
+
+### Categorical (color by group)
+
+```{r}
+#| eval: true
+p <- SCpubr::do_BeeSwarmPlot(sample = sample,
+                             feature_to_rank = "nCount_RNA",
+                             continuous_feature = FALSE)
+p
+```
+
+---
+
+## Order groups by median
+
+```{r}
+#| eval: true
+p <- SCpubr::do_BeeSwarmPlot(sample = sample,
+                             feature_to_rank = "nCount_RNA",
+                             order = TRUE)
+p
+```
+
+
+---
+
+## Remove axes
+
+```{r}
+#| eval: true
+p <- SCpubr::do_BeeSwarmPlot(sample = sample,
+                             feature_to_rank = "nCount_RNA",
+                             remove_x_axis = TRUE,
+                             remove_y_axis = TRUE)
+p
+```
+
+---
+
+## Parameter reference
+
+::: {.callout-note}
+For parameters shared across many functions (color palettes, typography, legend styling, cell borders, rendering), see [Shared features](../00_getting_started/04_shared_features.qmd).
+:::
+
+### Core parameters
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `feature_to_rank` | Feature to rank cells by | — |
+| `continuous_feature` | Is feature continuous? | `FALSE` |
+
+### Layout
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `order` | Order groups by median | `FALSE` |
+| `remove_x_axis` | Hide X-axis | `FALSE` |
+| `remove_y_axis` | Hide Y-axis | `FALSE` |
+
+---
+
+## See also
+
+- [Shared features](../00_getting_started/04_shared_features.qmd) — Common parameters
+- [do_StripPlot()](04_stripplot.qmd) — Similar geyser-style plots
+- [do_ViolinPlot()](02_violinplot.qmd) — Violin distribution plots

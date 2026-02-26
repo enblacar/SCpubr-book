@@ -1,0 +1,173 @@
+# do_BarPlot() | Categorical proportions
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+```
+
+Bar plots display counts or proportions of categorical variables. Use them to compare cell type composition across samples, conditions, or any grouping variable.
+
+---
+
+## Basic usage
+
+Count cells per cluster:
+
+```{r}
+#| eval: true
+p <- SCpubr::do_BarPlot(sample = sample,
+                        group.by = "Annotation")
+p
+```
+
+---
+
+## Split by a second variable
+
+Show how clusters are distributed across samples:
+
+```{r}
+#| eval: true
+p <- SCpubr::do_BarPlot(sample = sample,
+                        group.by = "Annotation",
+                        split.by = "ID",
+                        position = "stack")
+p
+```
+
+Think of it as:
+- `group.by`: What creates the bars (total counts per value)
+- `split.by`: How each bar is subdivided
+
+---
+
+## Show proportions
+
+Use `position = "fill"` to normalize bars to the same height:
+
+```{r}
+#| eval: true
+p <- SCpubr::do_BarPlot(sample = sample,
+                        group.by = "Annotation",
+                        split.by = "ID",
+                        position = "fill",
+                        flip = TRUE)
+p
+```
+
+---
+
+## Add total counts
+
+Display the total cell count on each bar:
+
+```{r}
+#| eval: true
+p <- SCpubr::do_BarPlot(sample = sample,
+                        group.by = "Annotation",
+                        split.by = "ID",
+                        position = "fill",
+                        flip = TRUE,
+                        add.n = TRUE,
+                        add.n.size = 4,
+                        add.n.expand = c(0, 1.15))
+p
+```
+
+---
+
+## Order bars
+
+Order by total count or by a specific group's value:
+
+```{r}
+#| eval: true
+# Order by total count
+p <- SCpubr::do_BarPlot(sample = sample,
+                        group.by = "Annotation",
+                        order = TRUE)
+
+p
+```
+
+---
+
+## Facet by a third variable
+
+Break down bars by an additional grouping:
+
+```{r}
+#| eval: true
+p <- SCpubr::do_BarPlot(sample = sample,
+                        group.by = "Annotation",
+                        split.by = "ID",
+                        facet.by = "subtype",
+                        position = "fill",
+                        flip = TRUE)
+p
+```
+
+---
+
+
+## Return data
+
+Get the underlying count/proportion data:
+
+```{r}
+#| eval: true
+result <- SCpubr::do_BarPlot(sample = sample,
+                             group.by = "Annotation",
+                             split.by = "ID",
+                             return_data = TRUE)
+
+head(result$Data)
+```
+
+---
+
+## Parameter reference
+
+::: {.callout-note}
+For parameters shared across many functions (color palettes, typography, legend styling), see [Shared features](../00_getting_started/04_shared_features.qmd).
+:::
+
+### Core parameters
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `group.by` | Metadata column for bars | — |
+| `split.by` | Metadata column to subdivide bars | `NULL` |
+| `facet.by` | Metadata column to facet by | `NULL` |
+| `position` | `"stack"` (counts) or `"fill"` (proportions) | `"stack"` |
+
+### Ordering
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `order` | Order bars by descending count | `FALSE` |
+| `order.by` | Value of `split.by` to order by | `NULL` |
+
+### Count labels
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `add.n` | Show total counts on bars | `FALSE` |
+| `add.n.size` | Label text size | `4` |
+| `add.n.face` | Label font face | `"bold"` |
+| `add.n.expand` | Y-axis expansion for labels | `c(0, 1.15)` |
+
+### Output
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `return_data` | Return data instead of plot | `FALSE` |
+
+---
+
+## See also
+
+- [Shared features](../00_getting_started/04_shared_features.qmd) — Common parameters
+- [do_WafflePlot()](02_waffleplot.qmd) — Pictogram proportions
+- [do_AlluvialPlot()](03_alluvialplot.qmd) — Flow between categories

@@ -6,6 +6,16 @@ Welcome to the official documentation for **SCpubr v3.0.0**!
 
 `SCpubr` provides a streamlined way of generating publication-ready plots for **S**ingle-**C**ell transcriptomics data. The goal is simple: create high-quality visualizations with minimal effort that can be used right away in your research articles.
 
+::: {.callout-tip}
+## Design philosophy
+Every `SCpubr` function is designed so that **basic usage requires only a Seurat object and, at most, a few key parameters**. Sensible defaults handle the rest. When finer control is needed, each function exposes a rich set of optional parameters for advanced customization — colors, typography, legends, rasterization, and more — documented in the [shared features reference](00_getting_started/03_shared_features.qmd).
+:::
+
+::: {.callout-note}
+## Maintenance mode
+**SCpubr** is now in maintenance mode — bug fixes and compatibility updates will continue, but no new features are planned. Community contributions are very welcome! See the [contributing guide](08_appendix/02_contributing.qmd) for how to get involved.
+:::
+
 ## What's new in v3.0.0?
 
 - **34 functions** organized into 6 logical categories
@@ -18,9 +28,9 @@ Check the full [changelog](#version-history) for details.
 
 ## Quick links
 
-- [Installation guide](01_getting_started/01_installation.qmd) - Get started in 5 minutes
-- [Quick start](01_getting_started/03_quickstart.qmd) - Your first plots
-- [Function reference](02_dimensional_reduction/01_dimplot.qmd) - Browse all functions
+- [Installation guide](00_getting_started/01_installation.qmd) - Get started in 5 minutes
+- [Quick start](00_getting_started/03_quickstart.qmd) - Your first plots
+- [Function reference](01_dimensionality_reduction/01_dimplot.qmd) - Browse all functions
 - [GitHub repository](https://github.com/enblacar/SCpubr) - Source code and issues
 
 ## License

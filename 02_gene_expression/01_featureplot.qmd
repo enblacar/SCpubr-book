@@ -1,0 +1,313 @@
+# do_FeaturePlot() | Continuous values on dimensional reduction
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+```
+
+Feature plots display **continuous values**—gene expression, metadata scores, or dimensional reduction components—on a dimensional reduction embedding. Unlike `do_DimPlot()` which colors by categories, `do_FeaturePlot()` maps numeric values to a color gradient.
+
+
+---
+
+## Basic usage
+
+Plot a single feature (gene, metadata column, or PC component):
+
+```{r}
+#| eval: true
+p <- SCpubr::do_FeaturePlot(sample = sample,
+                            features = "PC_1")
+p
+```
+
+### Multiple features
+
+Plot several features at once:
+
+```{r}
+#| eval: true
+p <- SCpubr::do_FeaturePlot(sample = sample,
+                            features = c("PC_1", "PC_2"),
+                            ncol = 2)
+p
+```
+
+---
+
+## Scale customization
+
+### Control color scale limits
+
+Outliers often compress the color range. Use `min.cutoff` and `max.cutoff` to clamp values:
+
+```{r}
+#| eval: true
+p <- SCpubr::do_FeaturePlot(sample = sample,
+                            features = "PC_1",
+                            min.cutoff = -10,
+                            max.cutoff = 10)
+p
+```
+
+::: {.callout-tip}
+Provide one value per feature: `min.cutoff = c(0, 0.5, 1)` for three features.
+
+:::
+
+### Fixed scale limits
+
+Use `scale.limits` to extend the scale beyond data range (useful for comparing across samples):
+
+```{r}
+#| eval: true
+p <- SCpubr::do_FeaturePlot(sample = sample,
+                            features = "PC_1",
+                            scale.limits = c(-50, 50))
+p
+```
+
+::: {.callout-note}
+`scale.limits` cannot be used with `min.cutoff` or `max.cutoff`.
+:::
+
+### Symmetrical scales
+
+Center the color scale around zero (or another value) for diverging data:
+
+```{r}
+#| eval: true
+# Absolute symmetry: scale extends equally in both directions
+p1 <- SCpubr::do_FeaturePlot(sample = sample,
+                            features = "PC_1",
+                            enforce_symmetry = TRUE,
+                            symmetry.type = "absolute")
+
+# Centered symmetry: center around a specific value
+p2 <- SCpubr::do_FeaturePlot(sample = sample,
+                            features = "PC_1",
+                            enforce_symmetry = TRUE,
+                            symmetry.type = "centered",
+                            symmetry.center = 10)
+
+p1 | p2
+```
+
+---
+
+## Color palettes
+
+### Sequential palettes (default)
+
+```{r}
+#| eval: true
+# RColorBrewer sequential palette
+p1 <- SCpubr::do_FeaturePlot(sample = sample,
+                            features = "PC_1",
+                            use_viridis = FALSE,
+                            sequential.palette = "YlOrRd",
+                            sequential.direction = 1)
+
+# Viridis palette
+p2 <- SCpubr::do_FeaturePlot(sample = sample,
+                            features = "PC_1",
+                            use_viridis = TRUE,
+                            viridis.palette = "G",
+                            viridis.direction = 1)
+
+p1 | p2
+```
+
+### Diverging palettes
+
+Automatically used when `enforce_symmetry = TRUE`:
+
+```{r}
+#| eval: true
+p <- SCpubr::do_FeaturePlot(sample = sample,
+                            features = "PC_1",
+                            enforce_symmetry = TRUE,
+                            diverging.palette = "RdBu",
+                            diverging.direction = -1)
+p
+```
+
+---
+
+## Subsetting & splitting
+
+### Highlight specific cells
+
+```{r}
+#| eval: true
+# Highlight by cell barcodes
+cells.use <- sample(colnames(sample), 500)
+p1 <- SCpubr::do_FeaturePlot(sample = sample,
+                            features = "PC_1",
+                            cells.highlight = cells.use)
+
+# Highlight by identity
+p2 <- SCpubr::do_FeaturePlot(sample = sample,
+                            features = "PC_1",
+                            idents.highlight = c("IPC-like"))
+
+p1 | p2
+```
+
+### Split by variable
+
+Create faceted plots:
+
+```{r}
+#| eval: true
+p <- SCpubr::do_FeaturePlot(sample = sample,
+                            features = "PC_1",
+                            split.by = "subtype")
+p
+```
+
+---
+
+## Group overlay
+
+Display categorical group information alongside continuous values:
+
+### Group dots
+
+Add dots at cluster centers:
+
+```{r}
+#| eval: true
+p <- SCpubr::do_FeaturePlot(sample = sample,
+                            features = "PC_1",
+                            group.by = "Annotation")
+p
+```
+
+### Group cell borders
+
+Add a colored shadow around cells showing group membership:
+
+```{r}
+#| eval: true
+p <- SCpubr::do_FeaturePlot(sample = sample,
+                            features = "PC_1",
+                            group.by = "Annotation",
+                            group.by.cell_borders = TRUE,
+                            group.by.cell_borders.alpha = 0.1)
+p
+```
+
+---
+
+## Labels
+
+Add identity labels to the plot:
+
+```{r}
+#| eval: true
+p <- SCpubr::do_FeaturePlot(sample = sample,
+                            features = "PC_1",
+                            label = TRUE,
+                            label.color = "black",
+                            label.size = 4)
+p
+```
+
+---
+
+## Visual enhancements
+
+
+### Density contours
+
+```{r}
+#| eval: true
+p <- SCpubr::do_FeaturePlot(sample = sample,
+                            features = "PC_1",
+                            plot_density_contour = TRUE,
+                            contour.color = "grey50",
+                            contour.position = "bottom")
+p
+```
+
+### Order by expression
+
+Plot cells with higher expression on top:
+
+```{r}
+#| eval: true
+p <- SCpubr::do_FeaturePlot(sample = sample,
+                            features = "KIF14",
+                            order = TRUE)
+p
+```
+
+---
+
+## Parameter reference
+
+::: {.callout-note}
+For parameters shared across many functions (color palettes, typography, legend styling, titles, cell borders, density contours, rendering), see [Shared features](../00_getting_started/04_shared_features.qmd).
+:::
+
+### Core parameters
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `features` | Features to plot (genes, metadata, PCs) | — |
+
+### Scale & limits (FeaturePlot-specific)
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `scale.limits` | Fixed scale limits `c(min, max)` | `NULL` |
+| `symmetry.type` | `"absolute"` or `"centered"` | `"absolute"` |
+| `symmetry.center` | Center value for `"centered"` type | `NA` |
+
+### Subsetting
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `idents.keep` | Identities to display | `NULL` |
+| `cells.highlight` | Cell barcodes to highlight | `NULL` |
+| `idents.highlight` | Identities to highlight | `NULL` |
+
+### Group overlay
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `group.by` | Metadata column for group overlay | `NULL` |
+| `group.by.colors.use` | Colors for groups | Auto-generated |
+| `group.by.legend` | Legend title for groups | Column name |
+| `group.by.dot.size` | Size of center dots | `8` |
+| `group.by.show.dots` | Show center dots | `TRUE` |
+| `group.by.cell_borders` | Show colored borders | `FALSE` |
+| `group.by.cell_borders.alpha` | Border transparency | `0.1` |
+| `colorblind` | Colorblind-safe group colors | `FALSE` |
+
+### Individual customization
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `individual.titles` | Title per feature | `NULL` |
+| `individual.subtitles` | Subtitle per feature | `NULL` |
+| `individual.captions` | Caption per feature | `NULL` |
+
+### Appearance (FeaturePlot-specific)
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `order` | Order cells by expression | `FALSE` |
+| `ncol` | Columns for multiple features | `NULL` |
+| `plot.axes` | Show axis lines | `FALSE` |
+| `verbose` | Show messages | `TRUE` |
+
+---
+
+## See also
+
+- [Shared features](../00_getting_started/04_shared_features.qmd) — Common parameters across all functions
+- [do_DimPlot()](../01_dimensionality_reduction/01_dimplot.qmd) — Categorical visualization on dimensional reductions
+- [do_NebulosaPlot()](02_nebulosaplot.qmd) — Density-based feature visualization

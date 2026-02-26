@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./01_getting_started/01_installation.html" rel="next">
+<link href="./00_getting_started/01_installation.html" rel="next">
 <link href=".//images/SCpubr_logo_favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -132,26 +132,20 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01_getting_started/01_installation.html" class="sidebar-item-text sidebar-link">
+  <a href="./00_getting_started/01_installation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Installation guide</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01_getting_started/02_dataset.html" class="sidebar-item-text sidebar-link">
+  <a href="./00_getting_started/02_dataset.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Dataset used</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01_getting_started/03_quickstart.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Quick start guide</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./01_getting_started/04_shared_features.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Shared features across functions</span></span></a>
+  <a href="./00_getting_started/03_shared_features.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Shared features across functions</span></a>
   </div>
 </li>
       </ul>
@@ -159,7 +153,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
- <span class="menu-text">Dimensional reduction visualization</span></a>
+ <span class="menu-text">Dimensionality reduction</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -167,8 +161,8 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02_dimensional_reduction/01_dimplot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">do_DimPlot() | Dimensional reduction plots</span></span></a>
+  <a href="./01_dimensionality_reduction/01_dimplot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">do_DimPlot() | Dimensional reduction plots</span></span></a>
   </div>
 </li>
       </ul>
@@ -176,7 +170,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
- <span class="menu-text">Group-wise comparison</span></a>
+ <span class="menu-text">Gene expression</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -184,50 +178,62 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03_group_comparison/01_violinplot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">do_ViolinPlot() | Distribution comparison</span></span></a>
+  <a href="./02_gene_expression/01_featureplot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">do_FeaturePlot() | Continuous values on dimensional reduction</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03_group_comparison/02_boxplot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">do_BoxPlot() | Box-and-whisker plots</span></span></a>
+  <a href="./02_gene_expression/02_nebulosaplot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">do_NebulosaPlot() | Density-based feature visualization</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03_group_comparison/03_beeswarmplot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">do_BeeSwarmPlot() | Individual cell distributions</span></span></a>
+  <a href="./02_gene_expression/03_cellularstatesplot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">do_CellularStatesPlot() | Cellular state enrichment plots</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03_group_comparison/04_ridgeplot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">do_RidgePlot() | Density ridge plots</span></span></a>
+  <a href="./02_gene_expression/04_dotplot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">do_DotPlot() | Marker gene expression</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03_group_comparison/05_stripplot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">do_StripPlot() | Geyser plots</span></span></a>
+  <a href="./02_gene_expression/05_expressionheatmap.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">do_ExpressionHeatmap() | Averaged expression heatmaps</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03_group_comparison/06_barplot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">do_BarPlot() | Categorical proportions</span></span></a>
+  <a href="./02_gene_expression/06_enrichmentheatmap.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">do_EnrichmentHeatmap() | Gene set enrichment heatmaps</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03_group_comparison/07_waffleplot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">do_WafflePlot() | Pictogram proportions</span></span></a>
+  <a href="./02_gene_expression/07_scexpressionheatmap.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">do_SCExpressionHeatmap() | Single-cell expression heatmaps</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03_group_comparison/08_alluvialplot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">do_AlluvialPlot() | Flow between categories</span></span></a>
+  <a href="./02_gene_expression/08_scenrichmentheatmap.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">do_SCEnrichmentHeatmap() | Single-cell enrichment heatmaps</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02_gene_expression/09_rankedexpressionheatmap.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">do_RankedExpressionHeatmap() | Expression along components</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02_gene_expression/10_rankedenrichmentheatmap.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">do_RankedEnrichmentHeatmap() | Enrichment along components</span></span></a>
   </div>
 </li>
       </ul>
@@ -235,7 +241,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
- <span class="menu-text">Expression &amp; feature analysis</span></a>
+ <span class="menu-text">Proportions</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -243,62 +249,26 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04_expression_analysis/01_featureplot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">do_FeaturePlot() | Gene expression on dimensional reduction</span></span></a>
+  <a href="./03_proportions/01_barplot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">do_BarPlot() | Categorical proportions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04_expression_analysis/02_nebulosaplot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">do_NebulosaPlot() | Density-based gene expression</span></span></a>
+  <a href="./03_proportions/02_waffleplot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">do_WafflePlot() | Pictogram proportions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04_expression_analysis/03_cellularstatesplot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">do_CellularStatesPlot() | Cell state transitions</span></span></a>
+  <a href="./03_proportions/03_alluvialplot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">do_AlluvialPlot() | Flow between categories</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04_expression_analysis/04_dotplot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">do_DotPlot() | Marker gene expression</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./04_expression_analysis/05_expressionheatmap.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">do_ExpressionHeatmap() | Expression heatmap</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./04_expression_analysis/06_scexpressionheatmap.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">do_SCExpressionHeatmap() | Single-cell expression heatmap</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./04_expression_analysis/07_rankedexpressionheatmap.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">do_RankedExpressionHeatmap() | Expression along components</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./04_expression_analysis/08_correlationheatmap.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">do_CorrelationHeatmap() | Feature correlation matrix</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./04_expression_analysis/09_groupwisedeheatmap.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">do_GroupwiseDEHeatmap() | Differential expression</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./04_expression_analysis/10_volcanoplot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">do_VolcanoPlot() | DE volcano plots</span></span></a>
+  <a href="./03_proportions/04_chorddiagramplot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">do_ChordDiagramPlot() | Circular flow visualization</span></span></a>
   </div>
 </li>
       </ul>
@@ -306,7 +276,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
- <span class="menu-text">Enrichment &amp; pathway analysis</span></a>
+ <span class="menu-text">Distributions</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -314,44 +284,32 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05_enrichment_pathway/01_enrichmentheatmap.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">do_EnrichmentHeatmap() | Gene set enrichment</span></span></a>
+  <a href="./04_distributions/01_boxplot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">do_BoxPlot() | Box-and-whisker plots</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05_enrichment_pathway/02_scenrichmentheatmap.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">do_SCEnrichmentHeatmap() | Single-cell enrichment</span></span></a>
+  <a href="./04_distributions/02_violinplot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">do_ViolinPlot() | Distribution comparison</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05_enrichment_pathway/03_rankedenrichmentheatmap.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">do_RankedEnrichmentHeatmap() | Enrichment along components</span></span></a>
+  <a href="./04_distributions/03_ridgeplot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">do_RidgePlot() | Density ridge plots</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05_enrichment_pathway/04_termenrichmentplot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">do_TermEnrichmentPlot() | GO/pathway term enrichment</span></span></a>
+  <a href="./04_distributions/04_stripplot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">do_StripPlot() | Geyser plots</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05_enrichment_pathway/05_activityheatmap.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">do_ActivityHeatmap() | Activity scores heatmap</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./05_enrichment_pathway/06_tfactivityheatmap.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">do_TFActivityHeatmap() | Transcription factor activity</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./05_enrichment_pathway/07_pathwayactivityheatmap.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">do_PathwayActivityHeatmap() | Pathway activity scores</span></span></a>
+  <a href="./04_distributions/05_beeswarmplot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">do_BeeSwarmPlot() | Individual cell distributions</span></span></a>
   </div>
 </li>
       </ul>
@@ -359,7 +317,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
- <span class="menu-text">Specialized analysis</span></a>
+ <span class="menu-text">Downstream analyses</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -367,32 +325,62 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06_specialized/01_ligandreceptorplot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">do_LigandReceptorPlot() | Cell-cell communication</span></span></a>
+  <a href="./05_downstream_analyses/01_activityheatmap.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">do_ActivityHeatmap() | Activity scores heatmap</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06_specialized/02_chorddiagramplot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">do_ChordDiagramPlot() | Interaction networks</span></span></a>
+  <a href="./05_downstream_analyses/02_pathwayactivityheatmap.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">do_PathwayActivityHeatmap() | Pathway activity scores</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06_specialized/03_cnvheatmap.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">do_CNVHeatmap() | Copy number variation</span></span></a>
+  <a href="./05_downstream_analyses/03_tfactivityheatmap.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">do_TFActivityHeatmap() | Transcription factor activity</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06_specialized/04_loadingsheatmap.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">do_LoadingsHeatmap() | PCA loadings</span></span></a>
+  <a href="./05_downstream_analyses/04_correlationheatmap.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">do_CorrelationHeatmap() | Feature correlation matrix</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06_specialized/05_metadataheatmap.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">do_MetadataHeatmap() | Metadata overview</span></span></a>
+  <a href="./05_downstream_analyses/05_groupwisedeheatmap.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">do_GroupwiseDEHeatmap() | Differential expression</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05_downstream_analyses/06_termenrichmentplot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">do_TermEnrichmentPlot() | GO/pathway term enrichment</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05_downstream_analyses/07_volcanoplot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">do_VolcanoPlot() | DE volcano plots</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05_downstream_analyses/08_cnvheatmap.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">do_CNVHeatmap() | Copy number variation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05_downstream_analyses/09_ligandreceptorplot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">do_LigandReceptorPlot() | Cell-cell communication</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05_downstream_analyses/10_loadingsheatmap.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">do_LoadingsHeatmap() | PCA loadings</span></span></a>
   </div>
 </li>
       </ul>
@@ -400,7 +388,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false">
- <span class="menu-text">Utility functions</span></a>
+ <span class="menu-text">Accessories</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -408,20 +396,26 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07_utilities/01_colorpalette.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">do_ColorPalette() | Color palette generation</span></span></a>
+  <a href="./06_accessories/01_colorpalette.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">do_ColorPalette() | Color palette generation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07_utilities/02_colorblindcheck.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">do_ColorBlindCheck() | Colorblind accessibility testing</span></span></a>
+  <a href="./06_accessories/02_colorblindcheck.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">do_ColorBlindCheck() | Colorblind accessibility testing</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07_utilities/03_packagereport.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">do_PackageReport() | Dependency status</span></span></a>
+  <a href="./06_accessories/03_metadataheatmap.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">do_MetadataHeatmap() | Metadata overview</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06_accessories/05_packagereport.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">do_PackageReport() | Dependency status</span></span></a>
   </div>
 </li>
       </ul>
@@ -429,7 +423,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false">
- <span class="menu-text">Practical workflows</span></a>
+ <span class="menu-text">Appendix</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -437,113 +431,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./08_workflows/01_basic_qc.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Basic QC workflow</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./08_workflows/02_marker_identification.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Marker identification workflow</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./08_workflows/03_cell_communication.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Cell-cell communication workflow</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./08_workflows/04_pathway_analysis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Pathway enrichment workflow</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./08_workflows/05_publication_figures.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Creating publication-ready figures</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./08_workflows/06_tips_tricks.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Advanced tips and tricks</span></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false">
- <span class="menu-text">Reference</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./09_reference/01_faq.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Frequently asked questions</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./09_reference/02_troubleshooting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Troubleshooting</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./09_reference/03_color_reference.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Color palette reference</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./09_reference/04_parameter_reference.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Parameter reference</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./09_reference/05_changelog.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Version history</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false">
- <span class="menu-text">Appendix</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./10_appendix/01_citation.html" class="sidebar-item-text sidebar-link">
+  <a href="./07_appendix/01_citation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">How to cite</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./10_appendix/02_contributing.html" class="sidebar-item-text sidebar-link">
+  <a href="./07_appendix/02_contributing.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Contributing</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./10_appendix/03_acknowledgements.html" class="sidebar-item-text sidebar-link">
+  <a href="./07_appendix/03_acknowledgements.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Acknowledgements</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./10_appendix/04_session_info.html" class="sidebar-item-text sidebar-link">
+  <a href="./07_appendix/04_session_info.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Session info</span></a>
   </div>
 </li>
@@ -595,6 +501,32 @@ ul.task-list li input[type="checkbox"] {
 <p><img src="images/logo.png" class="mx-auto d-block" style="box-shadow: none; width: 100%"></p>
 <p>Welcome to the official documentation for <strong>SCpubr v3.0.0</strong>!</p>
 <p><code>SCpubr</code> provides a streamlined way of generating publication-ready plots for <strong>S</strong>ingle-<strong>C</strong>ell transcriptomics data. The goal is simple: create high-quality visualizations with minimal effort that can be used right away in your research articles.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Design philosophy
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Every <code>SCpubr</code> function is designed so that <strong>basic usage requires only a Seurat object and, at most, a few key parameters</strong>. Sensible defaults handle the rest. When finer control is needed, each function exposes a rich set of optional parameters for advanced customization — colors, typography, legends, rasterization, and more — documented in the <a href="./00_getting_started/03_shared_features.html">shared features reference</a>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Maintenance mode
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>SCpubr</strong> is now in maintenance mode — bug fixes and compatibility updates will continue, but no new features are planned. Community contributions are very welcome! See the <a href="08_appendix/02_contributing.qmd">contributing guide</a> for how to get involved.</p>
+</div>
+</div>
 <section id="whats-new-in-v3.0.0" class="level2">
 <h2 class="anchored" data-anchor-id="whats-new-in-v3.0.0">What’s new in v3.0.0?</h2>
 <ul>
@@ -609,9 +541,9 @@ ul.task-list li input[type="checkbox"] {
 <section id="quick-links" class="level2">
 <h2 class="anchored" data-anchor-id="quick-links">Quick links</h2>
 <ul>
-<li><a href="./01_getting_started/01_installation.html">Installation guide</a> - Get started in 5 minutes</li>
-<li><a href="./01_getting_started/03_quickstart.html">Quick start</a> - Your first plots</li>
-<li><a href="./02_dimensional_reduction/01_dimplot.html">Function reference</a> - Browse all functions</li>
+<li><a href="./00_getting_started/01_installation.html">Installation guide</a> - Get started in 5 minutes</li>
+<li><a href="00_getting_started/03_quickstart.qmd">Quick start</a> - Your first plots</li>
+<li><a href="./01_dimensionality_reduction/01_dimplot.html">Function reference</a> - Browse all functions</li>
 <li><a href="https://github.com/enblacar/SCpubr">GitHub repository</a> - Source code and issues</li>
 </ul>
 </section>
@@ -1027,7 +959,7 @@ ul.task-list li input[type="checkbox"] {
   <div class="nav-page nav-page-previous">
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./01_getting_started/01_installation.html" class="pagination-link" aria-label="Installation guide">
+      <a href="./00_getting_started/01_installation.html" class="pagination-link" aria-label="Installation guide">
         <span class="nav-page-text">Installation guide</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>

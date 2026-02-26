@@ -1,0 +1,44 @@
+# do_PackageReport() | Dependency status
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+```
+
+Generates a **status report** of SCpubr and its dependencies. Shows which optional packages are installed and which functions are available.
+
+---
+
+## Basic usage
+
+```{r}
+#| eval: true
+SCpubr::do_PackageReport()
+```
+
+---
+
+## Extended report
+
+Show detailed package versions and available functions:
+
+```{r}
+#| eval: true
+SCpubr::do_PackageReport(extended = TRUE)
+```
+
+---
+
+## Parameter reference
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `startup` | Include welcome message | `FALSE` |
+| `extended` | Detailed package info | `FALSE` |
+
+---
+
+## See also
+
+- [Installation](../00_getting_started/01_installation.qmd) — Setup guide

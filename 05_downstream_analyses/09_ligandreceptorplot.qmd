@@ -1,0 +1,140 @@
+# do_LigandReceptorPlot() | Cell-cell communication
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+sample <- sample[, sample(colnames(sample), 1000)]
+library(magrittr)
+```
+
+This function visualizes **ligand-receptor interactions** between cell types using output from `liana`. Shows interaction magnitude and specificity as a dot plot.
+
+Plots will be released at a later time, when Liana's incompatibilities with Seurat v5 are solved: https://github.com/saezlab/liana/issues/200
+---
+
+## Basic usage
+
+First run `liana`:
+
+```{r}
+#| eval: false
+liana_output <- liana::liana_wrap(sample) %>% 
+                liana::liana_aggregate()
+
+p <- SCpubr::do_LigandReceptorPlot(liana_output = liana_output)
+p
+```
+
+---
+
+## Adjust number of interactions
+
+```{r}
+#| eval: false
+p <- SCpubr::do_LigandReceptorPlot(liana_output = liana_output,
+                                   top_interactions = 50)
+p
+```
+
+---
+
+## Sorting options
+
+```{r}
+#| eval: false
+# Sort by specificity
+p <- SCpubr::do_LigandReceptorPlot(liana_output = liana_output,
+                                   sort.by = "A")
+
+# Sort by magnitude
+p <- SCpubr::do_LigandReceptorPlot(liana_output = liana_output,
+                                   sort.by = "B")
+
+# Sort by specificity then magnitude
+p <- SCpubr::do_LigandReceptorPlot(liana_output = liana_output,
+                                   sort.by = "C")
+
+# Sort by magnitude then specificity
+p <- SCpubr::do_LigandReceptorPlot(liana_output = liana_output,
+                                   sort.by = "D")
+
+# Equal weight (default)
+p <- SCpubr::do_LigandReceptorPlot(liana_output = liana_output,
+                                   sort.by = "E")
+```
+
+---
+
+## Facet by ligand or receptor
+
+```{r}
+#| eval: false
+# Facet by ligand
+p <- SCpubr::do_LigandReceptorPlot(liana_output = liana_output,
+                                   split.by = "ligand.complex")
+
+# Facet by receptor
+p <- SCpubr::do_LigandReceptorPlot(liana_output = liana_output,
+                                   split.by = "receptor.complex")
+```
+
+---
+
+## Generate chord diagrams
+
+```{r}
+#| eval: false
+p <- SCpubr::do_LigandReceptorPlot(liana_output = liana_output,
+                                   compute_ChordDiagrams = TRUE)
+p$DotPlot
+p$ChordDiagram
+```
+
+---
+
+## Parameter reference
+
+::: {.callout-note}
+For parameters shared across many functions (color palettes, typography, legend styling, grid), see [Shared features](../00_getting_started/04_shared_features.qmd).
+:::
+
+### Core parameters
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `liana_output` | Aggregated liana output | — |
+| `top_interactions` | Number of interactions | `25` |
+| `top_interactions_by_group` | Apply per source group | `FALSE` |
+
+### Filtering
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `keep_source` | Source cell types to keep | `NULL` |
+| `keep_target` | Target cell types to keep | `NULL` |
+
+### Sorting
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `sort.by` | Sort method (A-E) | `"E"` |
+| `magnitude` | Magnitude column | `"sca.LRscore"` |
+| `specificity` | Specificity column | `"aggregate_rank"` |
+| `invert_specificity` | -log10 transform | `TRUE` |
+| `invert_magnitude` | -log10 transform | `FALSE` |
+
+### Appearance
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `dot_border` | Add dot borders | `TRUE` |
+| `dot.size` | Dot size | `1` |
+| `compute_ChordDiagrams` | Generate chord plots | `FALSE` |
+
+---
+
+## See also
+
+- [Shared features](../00_getting_started/04_shared_features.qmd) — Common parameters
+- [do_ChordDiagramPlot()](../03_proportions/04_chorddiagramplot.qmd) — Chord diagrams

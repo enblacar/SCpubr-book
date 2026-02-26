@@ -1,0 +1,73 @@
+# do_RidgePlot() | Density ridge plots
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+```
+
+Ridge plots display **density distributions stacked vertically**, making it easy to compare distributions across many groups. Built on the `ggridges` package.
+
+
+---
+
+## Basic usage
+
+```{r}
+#| eval: true
+p <- SCpubr::do_RidgePlot(sample = sample,
+                          feature = "nCount_RNA",
+                          group.by = "subtype")
+p
+```
+
+---
+
+## Split by variable
+
+```{r}
+#| eval: true
+p <- SCpubr::do_RidgePlot(sample = sample,
+                          feature = "nCount_RNA",
+                          group.by = "subtype",
+                          split.by = "technology")
+p
+```
+
+---
+
+## Continuous color scale
+
+Color ridges by a continuous gradient instead of categorical colors:
+
+```{r}
+#| eval: true
+p <- SCpubr::do_RidgePlot(sample = sample,
+                          feature = "nCount_RNA",
+                          group.by = "subtype",
+                          continuous_scale = TRUE)
+p
+```
+
+---
+
+## Parameter reference
+
+::: {.callout-note}
+For parameters shared across many functions (color palettes, typography, legend styling, grid), see [Shared features](../00_getting_started/04_shared_features.qmd).
+:::
+
+### Core parameters
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `feature` | Feature to plot | — |
+| `continuous_scale` | Use continuous color scale | `FALSE` |
+
+---
+
+## See also
+
+- [Shared features](../00_getting_started/04_shared_features.qmd) — Common parameters
+- [do_ViolinPlot()](02_violinplot.qmd) — Violin distribution plots
+- [do_BeeSwarmPlot()](05_beeswarmplot.qmd) — Individual cell plots

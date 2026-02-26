@@ -1,0 +1,110 @@
+# do_LoadingsHeatmap() | PCA loadings
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+```
+
+Loadings heatmaps show **which genes contribute most** to principal components. Displays top and bottom scoring genes for each PC alongside their expression levels.
+
+---
+
+## Basic usage
+
+```{r}
+#| eval: true
+p <- SCpubr::do_LoadingsHeatmap(sample = sample)
+p
+```
+
+---
+
+## Select specific PCs
+
+```{r}
+#| eval: true
+p <- SCpubr::do_LoadingsHeatmap(sample = sample,
+                                dims = 1:2)
+p
+```
+
+---
+
+## Adjust number of genes
+
+```{r}
+#| eval: true
+p <- SCpubr::do_LoadingsHeatmap(sample = sample,
+                                top_loadings = 2)
+p
+```
+
+---
+
+## Group by cell type
+
+```{r}
+#| eval: true
+p <- SCpubr::do_LoadingsHeatmap(sample = sample,
+                                group.by = "subtype")
+p
+```
+
+---
+
+## Subsample cells
+
+```{r}
+#| eval: true
+p <- SCpubr::do_LoadingsHeatmap(sample = sample,
+                                subsample = 1000)
+p
+```
+
+---
+
+## Adjust color scales
+
+```{r}
+#| eval: true
+p <- SCpubr::do_LoadingsHeatmap(sample = sample,
+                                min.cutoff.loadings = -0.1,
+                                max.cutoff.loadings = 0.1,
+                                min.cutoff.expression = 0,
+                                max.cutoff.expression = 3)
+p
+```
+
+---
+
+## Parameter reference
+
+::: {.callout-note}
+For parameters shared across many functions (color palettes, typography, legend styling, grid), see [Shared features](../00_getting_started/04_shared_features.qmd).
+:::
+
+### Core parameters
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `dims` | PCs to include | `1:10` |
+| `top_loadings` | Top/bottom genes per PC | `5` |
+| `subsample` | Number of cells to sample | `NA` |
+
+### Scale limits
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `min.cutoff.loadings` | Min loading score | `NA` (q=0.05) |
+| `max.cutoff.loadings` | Max loading score | `NA` (q=0.95) |
+| `min.cutoff.expression` | Min expression | `NA` (0) |
+| `max.cutoff.expression` | Max expression | `NA` (q=0.95) |
+
+---
+
+## See also
+
+- [Shared features](../00_getting_started/04_shared_features.qmd) — Common parameters
+- [do_CorrelationHeatmap()](04_correlationheatmap.qmd) — Correlation analysis
+- [do_ExpressionHeatmap()](../02_gene_expression/05_expressionheatmap.qmd) — Expression heatmaps

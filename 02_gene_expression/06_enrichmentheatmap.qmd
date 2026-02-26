@@ -1,0 +1,139 @@
+# do_EnrichmentHeatmap() | Gene set enrichment heatmaps
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+```
+
+Enrichment heatmaps display **averaged enrichment scores** for gene sets across groups. This function computes enrichment scores using Seurat's `AddModuleScore` (or UCell) and aggregates them by metadata variables.
+
+---
+
+## Basic usage
+
+```{r}
+#| eval: true
+gene_lists <- list(
+  "IPC.like"      = c("CDC25C", "KIF18B", "KIF14", "CENPE"),
+  "Cilia.like" = c("DNAAF1", "ADGB", "CFAP61", "CFAP157"),
+  "OPC.like" = c("KCNQ5", "MEOX2", "MBP", "SNTG1"),
+  "Mesenchymal.like" = c("S100A1", "MGP", "TNNT1", "H2AFJ")
+)
+
+p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
+                                  input_gene_list = gene_lists,
+                                  flip = TRUE)
+p
+```
+
+---
+
+## Multiple grouping variables
+
+```{r}
+#| eval: true
+p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
+                                  input_gene_list = gene_lists,
+                                  group.by = c("Annotation", "subtype"),
+                                  flip = TRUE)
+p
+```
+
+---
+
+## Scoring methods
+Use `flavor = "Seurat"` or `flavor = "UCell"` to toggle different scoring methods.
+
+
+---
+
+## Scale scores
+
+Transform scores to 0-1 range for easier comparison:
+
+```{r}
+#| eval: true
+p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
+                                  input_gene_list = gene_lists,
+                                  scale_scores = TRUE, 
+                                  flip = TRUE)
+p
+```
+
+---
+
+## Display values
+
+```{r}
+#| eval: true
+p <- SCpubr::do_EnrichmentHeatmap(sample = sample,
+                                  input_gene_list = gene_lists,
+                                  values.show = TRUE,
+                                  values.threshold = 0.5,
+                                  flip = TRUE)
+p
+```
+
+---
+
+## Return enriched object
+
+Get the Seurat object with computed enrichment scores:
+
+```{r}
+#| eval: true
+result <- SCpubr::do_EnrichmentHeatmap(sample = sample,
+                                       input_gene_list = gene_lists,
+                                       return_object = TRUE)
+
+p <- result$plot
+sample_enriched <- result$object
+```
+
+---
+
+## Parameter reference
+
+::: {.callout-note}
+For parameters shared across many functions (color palettes, typography, legend styling), see [Shared features](../00_getting_started/04_shared_features.qmd).
+:::
+
+### Core parameters
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `input_gene_list` | Named list of gene signatures | — |
+
+### Scoring method
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `flavor` | Scoring method (`"Seurat"` or `"UCell"`) | `"Seurat"` |
+| `nbin` | Number of bins (Seurat) | `24` |
+| `ctrl` | Control genes per bin (Seurat) | `100` |
+| `ncores` | CPU cores for UCell | `1` |
+| `storeRanks` | Store ranks for faster UCell | `TRUE` |
+| `scale_scores` | Scale scores to 0-1 range | `FALSE` |
+
+### Clustering & ordering
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `cluster` | Hierarchically cluster | `TRUE` |
+| `features.order` | Custom gene set order | `NULL` |
+| `groups.order` | Custom group order | `NULL` |
+
+### Output
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `return_object` | Return Seurat object with scores | `FALSE` |
+
+---
+
+## See also
+
+- [Shared features](../00_getting_started/04_shared_features.qmd) — Common parameters
+- [do_ExpressionHeatmap()](05_expressionheatmap.qmd) — Gene expression heatmaps
+- [do_SCEnrichmentHeatmap()](08_scenrichmentheatmap.qmd) — Single-cell enrichment heatmaps

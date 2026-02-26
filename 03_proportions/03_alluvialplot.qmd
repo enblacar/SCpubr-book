@@ -1,0 +1,187 @@
+# do_AlluvialPlot() | Flow between categories
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+```
+
+Alluvial plots visualize **how cells flow between categorical groups**—for example, how cluster assignments change across conditions, time points, or annotation methods. Built on the `ggalluvial` package.
+
+---
+
+## Basic usage
+
+Visualize how cells in clusters map to cell types:
+
+```{r}
+#| eval: true
+p <- SCpubr::do_AlluvialPlot(sample = sample,
+                             first_group = "Annotation",
+                             last_group = "subtype")
+p
+```
+
+---
+
+## Multiple intermediate groups
+
+Add intermediate nodes between start and end:
+
+```{r}
+#| eval: true
+p <- SCpubr::do_AlluvialPlot(
+  sample        = sample,
+  first_group   = "technology",
+  middle_groups = c("Annotation"),
+  last_group    = "subtype"
+)
+p
+```
+
+---
+
+## Color by group
+
+Control which group determines the flow colors:
+
+```{r}
+#| eval: true
+# Color by last group (default)
+p <- SCpubr::do_AlluvialPlot(sample = sample,
+                             first_group = "Annotation",
+                             last_group = "subtype",
+                             fill.by = "subtype")
+
+p
+```
+```{r}
+#| eval: true
+# Color by first group 
+p <- SCpubr::do_AlluvialPlot(sample = sample,
+                             first_group = "Annotation",
+                             last_group = "subtype",
+                             fill.by = "Annotation")
+
+p
+```
+---
+
+## Stratum customization
+
+### Fill stratum based on flow
+
+```{r}
+#| eval: true
+p <- SCpubr::do_AlluvialPlot(sample = sample,
+                             first_group = "Annotation",
+                             last_group = "subtype",
+                             stratum.fill.conditional = TRUE)
+p
+```
+
+### Custom stratum appearance
+
+```{r}
+#| eval: true
+p <- SCpubr::do_AlluvialPlot(sample = sample,
+                             first_group = "Annotation",
+                             last_group = "subtype",
+                             stratum.fill = "grey90",
+                             stratum.color = "black",
+                             stratum.width = 1/4)
+p
+```
+
+---
+
+## Flow styles
+
+### Use geom_flow (alternative rendering)
+
+```{r}
+#| eval: true
+p <- SCpubr::do_AlluvialPlot(sample = sample,
+                             first_group = "Annotation",
+                             last_group = "subtype",
+                             use_geom_flow = TRUE)
+p
+```
+
+### Curve types
+
+```{r}
+#| eval: true
+# Available: linear, cubic, quintic, sine, arctangent, sigmoid, xspline
+p <- SCpubr::do_AlluvialPlot(sample = sample,
+                             first_group = "Annotation",
+                             last_group = "subtype",
+                             curve_type = "xspline")
+p
+```
+
+---
+
+## Use labels
+
+Replace stratum boxes with text labels:
+
+```{r}
+#| eval: true
+p <- SCpubr::do_AlluvialPlot(sample = sample,
+                             first_group = "Annotation",
+                             last_group = "subtype",
+                             use_labels = TRUE,
+                             repel = TRUE)
+p
+```
+
+---
+
+## Parameter reference
+
+::: {.callout-note}
+For parameters shared across many functions (color palettes, typography, legend styling), see [Shared features](../00_getting_started/04_shared_features.qmd).
+:::
+
+### Core parameters
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `first_group` | Starting categorical variable | — |
+| `last_group` | Ending categorical variable | — |
+| `middle_groups` | Intermediate variables | `NULL` |
+| `fill.by` | Variable to color flows by | `last_group` |
+
+### Stratum appearance
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `stratum.fill` | Stratum fill color | `"white"` |
+| `stratum.color` | Stratum border color | `"black"` |
+| `stratum.width` | Stratum width | `1/3` |
+| `stratum.fill.conditional` | Match stratum to flow color | `FALSE` |
+
+### Flow appearance
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `use_geom_flow` | Use alternative flow rendering | `FALSE` |
+| `alluvium.color` | Flow border color | `"white"` |
+| `curve_type` | Curve shape | `"sigmoid"` |
+
+### Labels
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `use_labels` | Show text labels instead of boxes | `FALSE` |
+| `repel` | Repel overlapping labels | `FALSE` |
+| `label.color` | Label text color | `"black"` |
+
+---
+
+## See also
+
+- [Shared features](../00_getting_started/04_shared_features.qmd) — Common parameters
+- [do_BarPlot()](01_barplot.qmd) — Bar chart proportions
+- [do_ChordDiagramPlot()](04_chorddiagramplot.qmd) — Circular flow visualization

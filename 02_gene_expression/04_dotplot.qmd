@@ -1,0 +1,240 @@
+# do_DotPlot() | Marker gene expression
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+```
+
+Dot plots visualize gene expression using **two visual scales**: color represents average expression, while dot size shows the percentage of cells expressing each gene. This dual encoding makes them ideal for comparing marker genes across clusters or conditions.
+
+---
+
+## Basic usage
+
+Plot marker genes across clusters:
+
+```{r}
+#| eval: true
+p <- SCpubr::do_DotPlot(sample = sample,
+                        features = c("CDC25C", "KIF18B", "KIF14", "CENPE"))
+p
+```
+
+### Query multiple markers
+
+```{r}
+#| eval: true
+genes <- c("CDC25C", "KIF18B", "KIF14", "CENPE",
+           "DNAAF1", "ADGB", "CFAP61", "CFAP157",
+           "KCNQ5", "MEOX2", "MBP", "SNTG1",
+           "S100A1", "MGP", "TNNT1", "H2AFJ")
+
+p <- SCpubr::do_DotPlot(sample = sample,
+                        features = genes)
+p
+```
+
+---
+
+## Grouped features
+
+Provide a **named list** to organize genes into categories with faceted panels:
+
+```{r}
+#| eval: true
+genes <- list(
+  "IPC.like"      = c("CDC25C", "KIF18B", "KIF14", "CENPE"),
+  "Cilia.like" = c("DNAAF1", "ADGB", "CFAP61", "CFAP157"),
+  "OPC.like" = c("KCNQ5", "MEOX2", "MBP", "SNTG1"),
+  "Mesenchymal.like" = c("S100A1", "MGP", "TNNT1", "H2AFJ")
+)
+
+p <- SCpubr::do_DotPlot(sample = sample,
+                        features = genes)
+p
+```
+
+---
+
+## Clustering
+
+### Cluster identities
+
+Group similar clusters together based on expression patterns:
+
+```{r}
+#| eval: true
+p <- SCpubr::do_DotPlot(sample = sample,
+                        features = genes,
+                        cluster.identities = TRUE)
+p
+```
+
+### Cluster features
+
+Reorder genes by expression similarity:
+
+```{r}
+#| eval: true
+p <- SCpubr::do_DotPlot(sample = sample,
+                        features = genes,
+                        cluster.features = TRUE)
+p
+```
+
+### Cluster both
+
+```{r}
+#| eval: true
+p <- SCpubr::do_DotPlot(sample = sample,
+                        features = genes,
+                        cluster.identities = TRUE,
+                        cluster.features = TRUE)
+p
+```
+
+---
+
+## Z-score normalization
+
+Show relative expression across groups instead of absolute values. This highlights which group has the highest expression for each gene, but prevents cross-gene comparisons:
+
+```{r}
+#| eval: true
+p <- SCpubr::do_DotPlot(sample = sample,
+                        features = genes,
+                        zscore.data = TRUE)
+p
+```
+
+::: {.callout-note}
+Z-scoring automatically enables `enforce_symmetry = TRUE` for a centered diverging color scale.
+:::
+
+---
+
+## Split by condition
+
+Create separate facets for each condition:
+
+```{r}
+#| eval: true
+p <- SCpubr::do_DotPlot(sample = sample,
+                        features = c("CDC25C", "KIF18B", "KIF14", "CENPE"),
+                        split.by = "subtype")
+p
+```
+
+::: {.callout-warning}
+`split.by` cannot be combined with named feature lists, clustering, or z-scoring.
+:::
+
+---
+
+## Filter low expression
+
+Remove dots below a minimum percent expressed threshold:
+
+```{r}
+#| eval: true
+# Only show dots where >= 50% of cells express the gene
+p <- SCpubr::do_DotPlot(sample = sample,
+                        features = genes,
+                        dot.min = 50)
+p
+```
+
+---
+
+## Visual customization
+
+### Flip axes
+
+Swap genes and clusters:
+
+```{r}
+#| eval: true
+p <- SCpubr::do_DotPlot(sample = sample,
+                        features = c("CDC25C", "KIF18B", "KIF14", "CENPE"),
+                        flip = TRUE)
+p
+```
+
+### Adjust dot size
+
+```{r}
+#| eval: true
+p <- SCpubr::do_DotPlot(sample = sample,
+                        features = genes,
+                        dot.scale = 12)
+p
+```
+
+### Control axis text angle
+
+```{r}
+#| eval: true
+p <- SCpubr::do_DotPlot(sample = sample,
+                        features = genes,
+                        axis.text.x.angle = 90)
+p
+```
+
+---
+
+## Scale limits
+
+### Clamp expression values
+
+```{r}
+#| eval: true
+p <- SCpubr::do_DotPlot(sample = sample,
+                        features = genes,
+                        min.cutoff = 0,
+                        max.cutoff = 3)
+p
+```
+
+---
+
+## Parameter reference
+
+::: {.callout-note}
+For parameters shared across many functions (color palettes, typography, legend styling, titles, grid, rendering), see [Shared features](../00_getting_started/04_shared_features.qmd).
+:::
+
+### Core parameters
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `features` | Genes to plot (vector or named list) | — |
+
+### Clustering & transformation
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `cluster.identities` | Cluster groups by expression similarity | `FALSE` |
+| `cluster.features` | Cluster genes by expression patterns | `FALSE` |
+| `zscore.data` | Show Z-scores instead of average expression | `FALSE` |
+
+### Filtering
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `dot.min` | Minimum percent expressed to show dot (0–100) | `5` |
+
+### Appearance
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `dot.scale` | Maximum dot size | `8` |
+| `axis.text.x.angle` | X-axis label rotation angle | `45` |
+
+---
+
+## See also
+
+- [Shared features](../00_getting_started/04_shared_features.qmd) — Common parameters
+- [do_ExpressionHeatmap()](05_expressionheatmap.qmd) — Heatmap visualization of expression
+- [do_ViolinPlot()](../04_distributions/02_violinplot.qmd) — Distribution-based expression visualization

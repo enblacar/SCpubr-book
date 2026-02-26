@@ -1,0 +1,21 @@
+# do_NebulosaPlot() | Density-based feature visualization
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+```
+
+Nebulosa plots use **kernel density estimation** to visualize where cells expressing a feature are concentrated in the dimensional reduction space. Unlike standard feature plots that show raw expression, Nebulosa is perfect for identifying expression hotspots and co-expression regions.
+
+This function wraps the [Nebulosa package](http://bioconductor.org/packages/release/bioc/html/Nebulosa.html) from Bioconductor.
+
+---
+
+Due to dependency problems, this function redirects to `do_FeaturePlot()`. Stay tuned for updates on this.
+
+## See also
+
+- [Shared features](../00_getting_started/04_shared_features.qmd) — Common parameters
+- [do_FeaturePlot()](01_featureplot.qmd) — Standard feature visualization
+- [do_DimPlot()](../01_dimensionality_reduction/01_dimplot.qmd) — Categorical visualization

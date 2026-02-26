@@ -1,0 +1,116 @@
+# do_StripPlot() | Geyser plots
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+```
+
+Strip plots display **continuous values as jittered points** grouped by categories, with summary statistics (mean and confidence intervals) overlaid. Cells can be colored by categorical or continuous variables.
+
+---
+
+## Basic usage
+
+```{r}
+#| eval: true
+p <- SCpubr::do_StripPlot(sample = sample,
+                          features = "nCount_RNA")
+p
+```
+
+---
+
+## Color by category
+
+```{r}
+#| eval: true
+p <- SCpubr::do_StripPlot(sample = sample,
+                          features = "nCount_RNA",
+                          scale_type = "categorical")
+p
+```
+
+---
+
+## Color by continuous value
+
+```{r}
+#| eval: true
+p <- SCpubr::do_StripPlot(sample = sample,
+                          features = "nCount_RNA",
+                          scale_type = "continuous")
+p
+```
+
+---
+
+## Adjust jitter
+
+Control the horizontal spread of points:
+
+```{r}
+#| eval: true
+# More compact
+p <- SCpubr::do_StripPlot(sample = sample,
+                          features = "nCount_RNA",
+                          jitter = 0.2)
+p
+```
+
+---
+
+## Split by variable
+
+```{r}
+#| eval: true
+p <- SCpubr::do_StripPlot(sample = sample,
+                          features = "nCount_RNA",
+                          group.by = "subtype",
+                          split.by = "technology")
+p
+```
+
+---
+
+## Symmetrical scale
+
+Center the color scale around zero:
+
+```{r}
+#| eval: true
+p <- SCpubr::do_StripPlot(sample = sample,
+                          features = "PC_1",
+                          enforce_symmetry = TRUE)
+p
+```
+
+---
+
+## Parameter reference
+
+::: {.callout-note}
+For parameters shared across many functions (color palettes, typography, legend styling), see [Shared features](../00_getting_started/04_shared_features.qmd).
+:::
+
+### Core parameters
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `features` | Features to plot | — |
+| `scale_type` | `"continuous"` or `"categorical"` | `"continuous"` |
+
+### Appearance
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `jitter` | Horizontal jitter amount | `0.45` |
+| `order` | Order groups by median | `TRUE` |
+
+---
+
+## See also
+
+- [Shared features](../00_getting_started/04_shared_features.qmd) — Common parameters
+- [do_BeeSwarmPlot()](05_beeswarmplot.qmd) — Similar with beeswarm layout
+- [do_ViolinPlot()](02_violinplot.qmd) — Violin distribution plots

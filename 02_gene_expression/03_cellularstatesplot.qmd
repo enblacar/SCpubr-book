@@ -1,0 +1,266 @@
+# do_CellularStatesPlot() | Cellular state enrichment plots
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+```
+
+Cellular states plots visualize the relationship between **enrichment scores** for gene signatures. Cells are positioned based on their enrichment in 2, 3, or 4 gene lists, revealing cellular state transitions and plasticity.
+
+This plot is inspired by the following publications:
+
+- **Neftel et al. (2019)** — [Cell 178, 835-849](https://doi.org/10.1016/j.cell.2019.06.024) — Glioblastoma cellular states
+- **Tirosh et al. (2016)** — [Nature 539, 309-313](https://doi.org/10.1038/nature20123) — Oligodendroglioma hierarchy
+
+
+---
+
+## Basic usage
+
+### Two-variable plot
+
+The simplest case: compare enrichment between two signatures.
+
+```{r}
+#| eval: true
+# Define gene signatures
+gene_lists <- list(
+  "IPC.like"      = c("CDC25C", "KIF18B", "KIF14", "CENPE"),
+  "Cilia.like" = c("DNAAF1", "ADGB", "CFAP61", "CFAP157")
+)
+
+p <- SCpubr::do_CellularStatesPlot(
+  sample          = sample,
+  input_gene_list = gene_lists,
+  x1              = "IPC.like",
+  y1              = "Cilia.like"
+)
+p
+```
+
+Cells are positioned by their enrichment scores: X-axis shows one signature, Y-axis shows the other.
+
+---
+
+## Three-variable plot
+
+Add a second X-axis variable to create a **butterfly plot**. The X-axis becomes a dual axis where:
+
+- **Right side** → enriched in `x1`
+- **Left side** → enriched in `x2`  
+- **Y-axis** → enrichment in `y1`
+
+```{r}
+#| eval: true
+gene_lists <- list(
+  "IPC.like"      = c("CDC25C", "KIF18B", "KIF14", "CENPE"),
+  "Cilia.like" = c("DNAAF1", "ADGB", "CFAP61", "CFAP157"),
+  "OPC.like" = c("KCNQ5", "MEOX2", "DNER3", "SNTG1")
+)
+
+p <- SCpubr::do_CellularStatesPlot(
+  sample          = sample,
+  input_gene_list = gene_lists,
+  x1              = "Cilia.like",
+  x2              = "OPC.like",
+  y1              = "IPC.like"
+)
+p
+```
+
+---
+
+## Four-variable plot (quadrant plot)
+
+With four signatures, each corner represents one cellular state:
+
+- **Top-right** → `x1`
+- **Top-left** → `x2`
+- **Bottom-right** → `y1`
+- **Bottom-left** → `y2`
+
+Cells cluster toward corners they're enriched in, or fall between corners if enriched in multiple states.
+
+```{r}
+#| eval: true
+gene_lists <- list(
+  "IPC.like"      = c("CDC25C", "KIF18B", "KIF14", "CENPE"),
+  "Cilia.like" = c("DNAAF1", "ADGB", "CFAP61", "CFAP157"),
+  "OPC.like" = c("KCNQ5", "MEOX2", "DNER3", "SNTG1"),
+  "Mesenchymal.like" = c("S100A1", "MGP", "TNNT1", "H2AFJ")
+)
+
+p <- SCpubr::do_CellularStatesPlot(
+  sample          = sample,
+  input_gene_list = gene_lists,
+  x1              = "IPC.like",
+  x2              = "Mesenchymal.like",
+  y1              = "OPC.like",
+  y2              = "Cilia.like"
+)
+p
+```
+
+---
+
+## Enforce symmetry
+
+Force the plot to be symmetrical around zero:
+
+```{r}
+#| eval: true
+gene_lists <- list(
+  "IPC.like"      = c("CDC25C", "KIF18B", "KIF14", "CENPE"),
+  "Cilia.like" = c("DNAAF1", "ADGB", "CFAP61", "CFAP157"),
+  "OPC.like" = c("KCNQ5", "MEOX2", "DNER3", "SNTG1"),
+  "Mesenchymal.like" = c("S100A1", "MGP", "TNNT1", "H2AFJ")
+)
+
+p <- SCpubr::do_CellularStatesPlot(
+  sample          = sample,
+  input_gene_list = gene_lists,
+  x1              = "IPC.like",
+  x2              = "Mesenchymal.like",
+  y1              = "OPC.like",
+  y2              = "Cilia.like",
+  enforce_symmetry = TRUE
+)
+p
+```
+
+For 3-variable plots, this centers the X-axis at 0. For 4-variable plots, this creates a square plot with equal ranges on both axes.
+
+---
+
+## Color by metadata
+
+Color cells by any metadata variable:
+
+```{r}
+#| eval: true
+gene_lists <- list(
+  "IPC.like"      = c("CDC25C", "KIF18B", "KIF14", "CENPE"),
+  "Cilia.like" = c("DNAAF1", "ADGB", "CFAP61", "CFAP157"),
+  "OPC.like" = c("KCNQ5", "MEOX2", "DNER3", "SNTG1"),
+  "Mesenchymal.like" = c("S100A1", "MGP", "TNNT1", "H2AFJ")
+)
+
+p <- SCpubr::do_CellularStatesPlot(
+  sample          = sample,
+  input_gene_list = gene_lists,
+  x1              = "IPC.like",
+  x2              = "Mesenchymal.like",
+  y1              = "OPC.like",
+  y2              = "Cilia.like",
+  group.by =  "subtype",
+)
+p
+```
+
+---
+
+## Plot enrichment scores
+
+Visualize the individual enrichment scores as additional feature plots:
+ 
+```{r}
+#| eval: true
+gene_lists <- list(
+  "IPC.like"      = c("CDC25C", "KIF18B", "KIF14", "CENPE"),
+  "Cilia.like" = c("DNAAF1", "ADGB", "CFAP61", "CFAP157"),
+  "OPC.like" = c("KCNQ5", "MEOX2", "DNER3", "SNTG1"),
+  "Mesenchymal.like" = c("S100A1", "MGP", "TNNT1", "H2AFJ")
+)
+
+p <- SCpubr::do_CellularStatesPlot(
+  sample          = sample,
+  input_gene_list = gene_lists,
+  x1              = "IPC.like",
+  x2              = "Mesenchymal.like",
+  y1              = "OPC.like",
+  y2              = "Cilia.like",
+  plot_enrichment_scores = TRUE
+)
+p$main | ((p$IPC.like | p$Mesenchymal.like) / (p$Cilia.like | p$OPC.like))
+
+```
+
+---
+
+## Overlay additional features
+
+Plot any feature (genes, metadata) onto the cellular states coordinates:
+
+```{r}
+#| eval: true
+gene_lists <- list(
+  "IPC.like"      = c("CDC25C", "KIF18B", "KIF14", "CENPE"),
+  "Cilia.like" = c("DNAAF1", "ADGB", "CFAP61", "CFAP157"),
+  "OPC.like" = c("KCNQ5", "MEOX2", "DNER3", "SNTG1"),
+  "Mesenchymal.like" = c("S100A1", "MGP", "TNNT1", "H2AFJ")
+)
+
+p <- SCpubr::do_CellularStatesPlot(
+  sample          = sample,
+  input_gene_list = gene_lists,
+  x1              = "IPC.like",
+  x2              = "Mesenchymal.like",
+  y1              = "OPC.like",
+  y2              = "Cilia.like",
+  plot_features = TRUE,
+  features = c("PC_1"),
+)
+
+p$main | p$PC_1
+```
+
+---
+
+## Parameter reference
+
+::: {.callout-note}
+For parameters shared across many functions (color palettes, typography, legend styling, titles, cell borders, marginal distributions, rendering), see [Shared features](../00_getting_started/04_shared_features.qmd).
+:::
+
+### Core parameters
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `input_gene_list` | Named list of gene signatures | — |
+| `x1` | First X-axis signature name | — |
+| `y1` | Y-axis signature name (or bottom-right quadrant) | — |
+| `x2` | Second X-axis signature (enables 3-variable mode) | `NULL` |
+| `y2` | Second Y-axis signature (enables 4-variable mode) | `NULL` |
+
+### Enrichment computation
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `nbin` | Number of bins for enrichment scoring | `24` |
+| `ctrl` | Number of control genes per bin | `100` |
+
+### Plot modes
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `enforce_symmetry` | Force symmetrical axis ranges | `FALSE` |
+| `plot_enrichment_scores` | Return enrichment score plots | `FALSE` |
+| `plot_features` | Return additional feature plots | `FALSE` |
+| `features` | Features to plot (when `plot_features = TRUE`) | `NULL` |
+
+### Appearance
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `axis.ticks` | Show axis ticks | `TRUE` |
+| `axis.text` | Show axis text | `TRUE` |
+| `colorblind` | Use colorblind-safe palette | `FALSE` |
+
+---
+
+## See also
+
+- [Shared features](../00_getting_started/04_shared_features.qmd) — Common parameters
+- [do_FeaturePlot()](01_featureplot.qmd) — Standard gene expression visualization
+- [do_EnrichmentHeatmap()](06_enrichmentheatmap.qmd) — Enrichment score heatmaps

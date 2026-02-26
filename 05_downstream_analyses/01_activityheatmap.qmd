@@ -1,0 +1,123 @@
+# do_ActivityHeatmap() | Activity scores heatmap
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+```
+
+Activity heatmaps display **gene set activity scores** computed using `decoupleR`. Input a named list of gene sets and the function computes activity scores per cell, then aggregates them by group for visualization.
+
+---
+
+## Basic usage
+
+```{r}
+#| eval: true
+# Define gene sets
+gene_sets <- list(
+  "IPC.like"      = c("CDC25C", "KIF18B", "KIF14", "CENPE", "POLQ"),
+  "Cilia.like" = c("DNAAF1", "ADGB", "CFAP61", "CFAP157", "CFAP46"),
+  "OPC.like" = c("KCNQ5", "MEOX2", "MBP", "SNTG1", "KCNIP1"),
+  "Mesenchymal.like" = c("S100A1", "MGP", "TNNT1", "H2AFJ", "KCNIP1")
+)
+
+p <- SCpubr::do_ActivityHeatmap(sample = sample,
+                                input_gene_list = gene_sets)
+p
+```
+
+---
+
+## Group by custom variable
+
+```{r}
+#| eval: true
+p <- SCpubr::do_ActivityHeatmap(sample = sample,
+                                input_gene_list = gene_sets,
+                                group.by = "subtype")
+p
+```
+
+---
+
+## Subsample cells
+
+```{r}
+#| eval: true
+p <- SCpubr::do_ActivityHeatmap(sample = sample,
+                                input_gene_list = gene_sets,
+                                subsample = 1000)
+p
+```
+
+---
+
+## Show values
+
+```{r}
+#| eval: true
+p <- SCpubr::do_ActivityHeatmap(sample = sample,
+                                input_gene_list = gene_sets,
+                                values.show = TRUE,
+                                values.threshold = 4)
+p
+```
+
+---
+
+## Return data object
+
+```{r}
+#| eval: false
+result <- SCpubr::do_ActivityHeatmap(sample = sample,
+                                     input_gene_list = gene_sets,
+                                     return_object = TRUE)
+
+# Access the plot
+result$plot
+
+# Access activity data
+result$activities
+```
+
+---
+
+## Parameter reference
+
+::: {.callout-note}
+For parameters shared across many functions (color palettes, typography, legend styling, grid), see [Shared features](../00_getting_started/04_shared_features.qmd).
+:::
+
+### Core parameters
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `input_gene_list` | Named list of gene sets | — |
+| `statistic` | DecoupleR statistic | `"ulm"` |
+| `flavor` | Scoring method: `"Seurat"` or `"UCell"` | `"Seurat"` |
+| `return_object` | Return data along with plot | `FALSE` |
+
+### Subsampling
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `subsample` | Number of cells to sample | `2500` |
+| `nbin` | Number of bins for scoring | `24` |
+| `ctrl` | Control genes per bin | `100` |
+
+### Values display
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `values.show` | Show numeric values | `FALSE` |
+| `values.threshold` | Threshold on which the text changes color | `NULL` |
+| `values.round` | Decimal places | `1` |
+
+---
+
+## See also
+
+- [Shared features](../00_getting_started/04_shared_features.qmd) — Common parameters
+- [do_EnrichmentHeatmap()](../02_gene_expression/06_enrichmentheatmap.qmd) — Gene set enrichment
+- [do_PathwayActivityHeatmap()](02_pathwayactivityheatmap.qmd) — Pathway activities

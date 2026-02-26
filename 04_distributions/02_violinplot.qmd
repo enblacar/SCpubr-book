@@ -1,0 +1,133 @@
+# do_ViolinPlot() | Distribution comparison
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+```
+
+Violin plots show the **full distribution shape** of gene expression across groups. They combine the benefits of box plots and kernel density plots.
+
+
+---
+
+## Basic usage
+
+```{r}
+#| eval: true
+p <- SCpubr::do_ViolinPlot(sample = sample,
+                           features = "nFeature_RNA",
+                           group.by = "subtype")
+p
+```
+
+---
+
+## Multiple features
+
+```{r}
+#| eval: true
+p <- SCpubr::do_ViolinPlot(sample = sample,
+                           features = c("nCount_RNA", "nFeature_RNA"),
+                           group.by = "subtype",
+                           ncol = 2)
+p
+```
+
+### Share Y-axis limits
+
+Force all features to use the same Y-axis range:
+
+```{r}
+#| eval: true
+p <- SCpubr::do_ViolinPlot(sample = sample,
+                           features = c("nCount_RNA", "nFeature_RNA"),
+                           group.by = "subtype",
+                           ncol = 2,
+                           share.y.lims = TRUE)
+p
+```
+
+---
+
+## Show/hide boxplot
+
+```{r}
+#| eval: true
+
+# Without boxplot
+p <- SCpubr::do_ViolinPlot(sample = sample,
+                           features = "nCount_RNA",
+                           group.by = "subtype",
+                           plot_boxplot = FALSE)
+p
+```
+
+---
+
+## Split by variable
+
+```{r}
+#| eval: true
+p <- SCpubr::do_ViolinPlot(sample = sample,
+                           features = "nCount_RNA",
+                           group.by = "subtype",
+                           split.by = "technology",
+                           plot_boxplot = FALSE,
+                           order = FALSE)
+p
+```
+
+---
+
+## Cut Y-axis
+
+Truncate the Y-axis at a specific value:
+
+```{r}
+#| eval: true
+p <- SCpubr::do_ViolinPlot(sample = sample,
+                           features = "nCount_RNA",
+                           group.by = "subtype",
+                           y_cut = 25000)
+p
+```
+
+---
+
+## Parameter reference
+
+::: {.callout-note}
+For parameters shared across many functions (color palettes, typography, legend styling, grid), see [Shared features](../00_getting_started/04_shared_features.qmd).
+:::
+
+### Core parameters
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `features` | Features to plot | — |
+
+### Appearance
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `plot_boxplot` | Show inner boxplot | `TRUE` |
+| `boxplot_width` | Width of inner boxplot | `0.2` |
+| `line_width` | Violin border width | `0.5` |
+| `y_cut` | Y-axis cutoff per feature | `NA` |
+
+### Layout
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `ncol` | Columns for multiple features | `NULL` |
+| `share.y.lims` | Same Y-axis for all features | `FALSE` |
+| `order` | Order groups by median | `TRUE` |
+
+---
+
+## See also
+
+- [Shared features](../00_getting_started/04_shared_features.qmd) — Common parameters
+- [do_BoxPlot()](01_boxplot.qmd) — Box-and-whisker plots
+- [do_RidgePlot()](03_ridgeplot.qmd) — Ridge density plots

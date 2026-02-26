@@ -1,0 +1,24 @@
+# Dataset used {.unnumbered}
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+```
+
+Throughout this manual, we use the single-nucleus RNA-seq dataset from **Blanco-Carmona et al. (2025)**:
+
+> **A cycling, progenitor-like cell population at the base of atypical teratoid rhabdoid tumor subtype differentiation trajectories**
+>
+> Blanco-Carmona E, Paassen I, He J, DeMartino J, Büllesbach A, Anderson N, et al.
+>
+> *Neuro-Oncology*. 2025. DOI: [10.1093/neuonc/noaf179](https://doi.org/10.1093/neuonc/noaf179) | PMID: [40726147](https://pubmed.ncbi.nlm.nih.gov/40726147/)
+
+This dataset contains single-nucleus transcriptomic data from **Atypical Teratoid Rhabdoid Tumors (ATRTs)**, highly aggressive pediatric central nervous system tumors defined by SMARCB1 inactivation. The study identified three distinct molecular subtypes with unique differentiation trajectories.
+
+The sample is automatically loaded via `_common.R` and is available as the `sample` object in all code examples.
+
+## Sample preparation
+
+The Seurat object was prepared following the methodology described in the publication.
+

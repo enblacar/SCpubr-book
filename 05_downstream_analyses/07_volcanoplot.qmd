@@ -1,0 +1,151 @@
+# do_VolcanoPlot() | DE volcano plots
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+```
+
+Volcano plots display **differential expression results** showing both fold change (X-axis) and statistical significance (Y-axis). Points are colored by significance category with optional gene labels.
+
+---
+
+## Basic usage
+
+First run differential expression:
+
+```{r}
+#| eval: true
+de_genes <- Seurat::FindMarkers(sample, ident.1 = "IPC-like", ident.2 = "Cilia-like")
+
+p <- SCpubr::do_VolcanoPlot(sample = sample,
+                            de_genes = de_genes)
+p
+```
+
+---
+
+## Adjust cutoffs
+
+```{r}
+#| eval: true
+p <- SCpubr::do_VolcanoPlot(sample = sample,
+                            de_genes = de_genes,
+                            pval_cutoff = 0.01,
+                            FC_cutoff = 1.5)
+p
+```
+
+---
+
+## Control gene labels
+
+```{r}
+#| eval: true
+# Show more genes
+p <- SCpubr::do_VolcanoPlot(sample = sample,
+                            de_genes = de_genes,
+                            n_genes = 10)
+p
+```
+
+---
+
+## Disable gene labels
+
+```{r}
+#| eval: true
+p <- SCpubr::do_VolcanoPlot(sample = sample,
+                            de_genes = de_genes,
+                            add_gene_tags = FALSE)
+p
+```
+
+---
+
+## Order labels by significance or fold change
+
+```{r}
+#| eval: true
+# By p-value
+p <- SCpubr::do_VolcanoPlot(sample = sample,
+                            de_genes = de_genes,
+                            order_tags_by = "pvalue")
+p
+```
+
+```{r}
+#| eval: true
+# By log fold change
+p <- SCpubr::do_VolcanoPlot(sample = sample,
+                            de_genes = de_genes,
+                            order_tags_by = "logfc")
+p
+```
+
+---
+
+## Use labels instead of text
+
+```{r}
+#| eval: true
+p <- SCpubr::do_VolcanoPlot(sample = sample,
+                            de_genes = de_genes,
+                            use_labels = TRUE)
+p
+```
+
+---
+
+## Hide threshold lines
+
+```{r}
+#| eval: true
+p <- SCpubr::do_VolcanoPlot(sample = sample,
+                            de_genes = de_genes,
+                            plot_lines = FALSE)
+p
+```
+
+---
+
+## Parameter reference
+
+::: {.callout-note}
+For parameters shared across many functions (color palettes, typography, legend styling), see [Shared features](../00_getting_started/04_shared_features.qmd).
+:::
+
+### Core parameters
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `de_genes` | Output from `FindMarkers()` | — |
+| `pval_cutoff` | P-value threshold | `0.05` |
+| `FC_cutoff` | Fold change threshold | `2` |
+
+### Gene labeling
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `add_gene_tags` | Show gene labels | `TRUE` |
+| `n_genes` | Number of genes to label | `5` |
+| `add_tag_side` | `"both"`, `"positive"`, `"negative"` | `"both"` |
+| `order_tags_by` | `"both"`, `"pvalue"`, `"logfc"` | `"both"` |
+| `use_labels` | Use `geom_label()` | `FALSE` |
+| `tag_size` | Label text size | `6` |
+
+### Threshold lines
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `plot_lines` | Show threshold lines | `TRUE` |
+| `line_color` | Line color | `"grey75"` |
+| `line_size` | Line thickness | `0.5` |
+
+---
+
+## See also
+
+- [Shared features](../00_getting_started/04_shared_features.qmd) — Common parameters
+- [do_GroupwiseDEHeatmap()](05_groupwisedeheatmap.qmd) — Multi-group DE
+- [do_TermEnrichmentPlot()](06_termenrichmentplot.qmd) — Enrichment analysis

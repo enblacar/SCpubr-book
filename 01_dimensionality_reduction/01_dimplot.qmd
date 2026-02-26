@@ -1,0 +1,320 @@
+# do_DimPlot() | Dimensional reduction plots
+
+```{r}
+#| results: "asis"
+#| echo: false
+source("../_common.R")
+```
+
+Dimensional reduction plots (`DimPlots`) are the cornerstone of single-cell visualization. They display cells in a reduced-dimension embedding (UMAP, tSNE, PCA) colored by any categorical variable—clusters, cell types, conditions, or any metadata.
+
+---
+
+
+## Basic usage
+
+Generate a DimPlot with default settings. Cells are colored by the active identity (`Idents(sample)`):
+
+```{r}
+#| eval: true
+p <- SCpubr::do_DimPlot(sample = sample)
+p
+```
+
+By default, axes are hidden for a cleaner look. To show them:
+
+```{r}
+#| eval: true
+p <- SCpubr::do_DimPlot(sample = sample,
+                        plot.axes = TRUE)
+p
+```
+
+---
+
+## Grouping & splitting
+
+### Group by a metadata variable
+
+Color cells by any metadata column using `group.by`:
+
+```{r}
+#| eval: true
+p <- SCpubr::do_DimPlot(sample = sample,
+                        group.by = "subtype")
+p
+```
+
+### Split into facets
+
+Create separate panels for each value of a variable:
+
+```{r}
+#| eval: true
+p <- SCpubr::do_DimPlot(sample = sample,
+                        split.by = "subtype",
+                        ncol = 3)
+p
+```
+Note: the error in the first plot is currently being reviewed.
+
+
+A combined overview panel is automatically added. Control this with `split.by.combined`:
+
+```{r}
+#| eval: true
+# Without the combined panel
+p <- SCpubr::do_DimPlot(sample = sample,
+                        split.by = "subtype",
+                        split.by.combined = FALSE)
+p
+```
+
+### Combine group.by and split.by
+
+Color by one variable, split by another:
+
+```{r}
+#| eval: true
+p <- SCpubr::do_DimPlot(sample = sample,
+                        group.by = "subtype",
+                        split.by = "technology")
+p
+```
+
+### Restrict displayed identities
+
+Show only specific groups while preserving the full UMAP silhouette:
+
+```{r}
+#| eval: true
+# Only show clusters 0, 2, and 5
+p <- SCpubr::do_DimPlot(sample = sample,
+                        idents.keep = c("IPC-like", "Cilia-like", "NPC-like", "OPC-like", "Mesenchymal-like"))
+p
+```
+
+This is preferable to subsetting the Seurat object, as it retains context from all cells.
+
+---
+
+## Labeling clusters
+
+### Basic labels
+
+Add labels directly on clusters:
+
+```{r}
+#| eval: true
+p <- SCpubr::do_DimPlot(sample = sample,
+                        label = TRUE)
+p
+```
+
+### Label customization
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `label` | Show labels | `FALSE` |
+| `label.box` | Draw box around label | `TRUE` |
+| `label.color` | Text color | `"black"` |
+| `label.fill` | Box fill color (`NULL` = match cluster color) | `"white"` |
+| `label.size` | Text size | `4` |
+| `repel` | Repel overlapping labels | `FALSE` |
+
+
+---
+ 
+## Highlighting cells
+
+### Highlight specific cells
+
+Provide cell names to highlight:
+
+```{r}
+#| eval: true
+cells.use <- sample(colnames(sample), 1500)
+
+p <- SCpubr::do_DimPlot(sample = sample,
+                        cells.highlight = cells.use)
+p
+```
+
+### Highlight entire identities
+
+Highlight all cells belonging to specific clusters:
+
+```{r}
+#| eval: true
+p <- SCpubr::do_DimPlot(sample = sample,
+                        idents.highlight = c("IPC-like", "Cilia-like"))
+p
+```
+
+::: {.callout-note}
+`cells.highlight` and `idents.highlight` cannot be used with `group.by` or `split.by`.
+:::
+
+---
+
+### Density contours
+
+Overlay density contour lines:
+
+```{r}
+#| eval: true
+p <- SCpubr::do_DimPlot(sample = sample,
+                        plot_density_contour = TRUE,
+                        contour.color = "grey90",
+                        contour.position = "top")
+p
+```
+
+### Marginal distributions
+
+Add density/histogram plots along axes:
+
+```{r}
+#| eval: true
+p <- SCpubr::do_DimPlot(sample = sample,
+                        plot_marginal_distributions = TRUE,
+                        marginal.type = "density",
+                        marginal.group = TRUE,
+                        plot_cell_borders = FALSE)
+p
+```
+
+| `marginal.type` values | Description |
+|------------------------|-------------|
+| `"density"` | Density curves |
+| `"histogram"` | Histograms |
+| `"boxplot"` | Box plots |
+| `"violin"` | Violin plots |
+| `"densigram"` | Density + histogram |
+
+::: {.callout-warning}
+Marginal distributions cannot be used with `split.by`, `plot_cell_borders`, or `cells.highlight`.
+:::
+
+---
+
+## Colors
+
+### Custom color palette
+
+Provide a named vector of colors:
+
+```{r}
+#| eval: true
+colors <- c("ATRT-TYR" = "#E63946", "ATRT-SHH" = "#457B9D", "ATRT-MYC" = "#1D3557")
+
+p <- SCpubr::do_DimPlot(sample = sample,
+                        group.by = "subtype",
+                        colors.use = colors)
+p
+```
+
+### Colorblind-safe palette
+
+```{r}
+#| eval: true
+p <- SCpubr::do_DimPlot(sample = sample,
+                        colorblind = TRUE)
+p
+```
+
+### NA value color
+
+Control the color for cells set to NA via `na.value`:
+
+```{r}
+#| eval: true
+p <- SCpubr::do_DimPlot(sample = sample,
+                        idents.keep = c("IPC-like"),
+                        na.value = "grey25")
+p
+```
+
+---
+
+## Rasterization
+
+For large datasets, rasterize to reduce file size:
+
+```{r}
+#| eval: true
+p <- SCpubr::do_DimPlot(sample = sample,
+                        raster = TRUE,
+                        raster.dpi = 2048,
+                        pt.size = 8)
+p
+```
+
+::: {.callout-tip}
+If `pt.size < 1` with `raster = TRUE`, cells appear as crosses. Use `pt.size >= 1`.
+:::
+
+---
+
+## Parameter reference
+
+::: {.callout-note}
+For parameters shared across many functions (color palettes, typography, legend styling, titles, cell borders, density contours, marginal distributions, rendering), see [Shared features](../00_getting_started/04_shared_features.qmd).
+:::
+
+### Core parameters
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `sample` | Seurat object | — |
+| `reduction` | Dimensional reduction to use | Auto-detected |
+| `group.by` | Metadata column to color by | Active idents |
+| `split.by` | Metadata column to facet by | `NULL` |
+| `split.by.combined` | Add combined overview panel | `TRUE` |
+| `dims` | Which dimensions to plot | `c(1, 2)` |
+| `ncol` | Number of columns for faceted plots | `NULL` |
+
+### Appearance
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `pt.size` | Point size | `1` |
+| `colors.use` | Named vector of colors | Auto-generated |
+| `colorblind` | Use colorblind-safe palette | `FALSE` |
+| `shuffle` | Randomize plotting order | `TRUE` |
+| `order` | Identities to plot last (on top) | `NULL` |
+| `plot.axes` | Show axis lines and labels | `FALSE` |
+
+### Labels
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `label` | Show cluster labels | `FALSE` |
+| `label.box` | Draw box around labels | `TRUE` |
+| `label.color` | Label text color | `"black"` |
+| `label.fill` | Label box fill | `"white"` |
+| `label.size` | Label text size | `4` |
+| `repel` | Repel overlapping labels | `FALSE` |
+
+### Highlighting
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `cells.highlight` | Cell barcodes to highlight | `NULL` |
+| `idents.highlight` | Identities to highlight | `NULL` |
+| `idents.keep` | Identities to display (others → NA) | `NULL` |
+| `sizes.highlight` | Point size for highlighted cells | `1` |
+
+### DimPlot-specific legend options
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `legend.dot.border` | Add border to legend dots | `TRUE` |
+
+---
+
+## See also
+
+- [Shared features](../00_getting_started/04_shared_features.qmd) — Common parameters across all functions
+- [do_FeaturePlot()](../02_gene_expression/01_featureplot.qmd) — Continuous variable visualization on dimensional reductions
+- [do_NebulosaPlot()](../02_gene_expression/02_nebulosaplot.qmd) — Density-based feature visualization
